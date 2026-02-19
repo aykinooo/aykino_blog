@@ -1,13 +1,48 @@
 {
-  "generated_at": "2026-02-19T00:00:00Z",
-  "source": "https://cve.circl.lu/api/last",
+  "generated_at": "2026-02-19T16:02:03+00:00",
+  "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-YYYY-NNNN",
-      "summary": "This placeholder entry is replaced automatically by GitHub Actions.",
-      "published": "2026-02-19T00:00:00Z",
+      "id": "CVE-2026-25755",
+      "summary": "jsPDF is a library to generate PDFs in JavaScript. Prior to 4.2.0, user control of the argument of the `addJS` method allows an attacker to inject arbitrary PDF objects into the generated document. By crafting a payload that escapes the JavaScript string delimiter, an attacker can execute malicious actions or alter the document structure, impacting any user who opens the generated PDF. The vulnerability has been fixed in jspdf@4.2.0. As a workaround, escape parentheses in user-provided JavaScript code before passing them to the `addJS` method.",
+      "published": "2026-02-19T15:16:12.303",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25755"
+    },
+    {
+      "id": "CVE-2026-25535",
+      "summary": "jsPDF is a library to generate PDFs in JavaScript. Prior to 4.2.0, user control of the first argument of the `addImage` method results in denial of service. If given the possibility to pass unsanitized image data or URLs to the `addImage` method, a user can provide a harmful GIF file that results in out of memory errors and denial of service. Harmful GIF files have large width and/or height entries in their headers, which lead to excessive memory allocation. Other affected methods are: `html`. The vulnerability has been fixed in jsPDF 4.2.0. As a workaround, sanitize image data or URLs before passing it to the addImage method or one of the other affected methods.",
+      "published": "2026-02-19T15:16:12.130",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-YYYY-NNNN"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25535"
+    },
+    {
+      "id": "CVE-2026-25527",
+      "summary": "changedetection.io is a free open source web page change detection tool. In versions prior to 0.53.2, the `/static/<group>/<filename>` route accepts `group=\"..\"`, which causes `send_from_directory(\"static/..\", filename)` to execute. This moves the base directory up to `/app/changedetectionio`, enabling unauthenticated local file read of application source files (e.g., `flask_app.py`). Version 0.53.2 fixes the issue.",
+      "published": "2026-02-19T15:16:11.947",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25527"
+    },
+    {
+      "id": "CVE-2025-55853",
+      "summary": "SoftVision webPDF before 10.0.2 is vulnerable to Server-Side Request Forgery (SSRF). The PDF converter function does not check if internal or external resources are requested in the uploaded files and allows for protocols such as http:// and file:///. This allows an attacker to upload an XML or HTML file in the application, which when rendered to a PDF allows for internal port scanning and Local File Inclusion (LFI).",
+      "published": "2026-02-19T15:16:11.190",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55853"
+    },
+    {
+      "id": "CVE-2019-25430",
+      "summary": "Comodo Dome Firewall 2.7.0 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject malicious scripts by submitting crafted input to the username parameter. Attackers can send POST requests to the vpn_users endpoint with script payloads in the username field to execute arbitrary JavaScript in victim browsers.",
+      "published": "2026-02-19T13:16:18.327",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25430"
+    },
+    {
+      "id": "CVE-2019-25429",
+      "summary": "Comodo Dome Firewall 2.7.0 contains a reflected cross-site scripting vulnerability that allows attackers to inject malicious scripts by submitting crafted input to the openvpn_advanced endpoint. Attackers can inject JavaScript code through the GLOBAL_NETWORKS and GLOBAL_DNS parameters via POST requests to execute arbitrary scripts in users' browsers.",
+      "published": "2026-02-19T13:16:18.130",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25429"
     }
   ]
 }
