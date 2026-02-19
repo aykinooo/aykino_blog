@@ -1,53 +1,83 @@
-# 🛡️ CyberFolio — Blog Cybersécurité
+# Aykino's Cybersecurity Blog
 
-Blog personnel orienté cybersécurité, hébergé sur GitHub Pages.
+Personal cybersecurity blog hosted on GitHub Pages.
 
-**Design** : Minimaliste Apple-like, glassmorphism, dark/light mode, responsive.
+## Overview
 
-## 🚀 Démarrage rapide
+This repository contains a static website with:
+
+- `index.html` as homepage
+- `blog.html` as article listing
+- `about.html` as profile page
+- `projects.html` as coming-soon page
+- `article/` for full article pages
+- dynamic "Latest CVEs" section on the homepage
+
+## Features
+
+- Dark / light theme toggle
+- Responsive layout (desktop + mobile)
+- Blog filters and search
+- Animated reveal effects
+- Homepage "Latest Articles" loaded from `blog.html` (first 3 cards)
+- Homepage "Latest CVEs" loaded from `data/latest-cves.json`
+- SEO files: `robots.txt` and `sitemap.xml`
+
+## Project Structure
+
+```text
+.
+├── index.html
+├── blog.html
+├── about.html
+├── projects.html
+├── 404.html
+├── article/
+│   ├── article-red-team.html
+│   ├── article-blue-team.html
+│   └── article-ctf.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+├── data/
+│   └── latest-cves.json
+├── scripts/
+│   └── update_cves.py
+├── .github/workflows/
+│   └── update-cves.yml
+├── robots.txt
+└── sitemap.xml
+```
+
+## Run Locally
 
 ```bash
-git clone https://github.com/username/username.github.io.git
-cd username.github.io
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
 python3 -m http.server 8000
-# → http://localhost:8000
+# open http://localhost:8000
 ```
 
-## 📁 Structure
+## Publishing New Articles
 
-```
-├── index.html          # Accueil
-├── blog.html           # Liste des articles
-├── about.html          # À propos
-├── projects.html       # Projets
-├── contact.html        # Contact
-├── article-*.html      # Articles
-├── css/style.css       # Design complet
-├── js/main.js          # Interactivité
-├── robots.txt          # SEO
-└── sitemap.xml         # SEO
-```
+1. Create a new article page in `article/`.
+2. Add a new card at the top of the grid in `blog.html`.
+3. Keep newest posts first in `blog.html`.
 
-## ✨ Fonctionnalités
+Why: `index.html` automatically pulls the first 3 cards from `blog.html` for the "Latest Articles" section.
 
-- Dark / Light mode automatique
-- Filtrage et recherche d'articles
-- Animations au scroll
-- Barre de progression de lecture
-- Responsive mobile / tablette / desktop
-- SEO (meta tags, Open Graph, sitemap)
+## CVE Auto-Update
 
-## 📝 Ajouter un article
+CVE data is refreshed by GitHub Actions using:
 
-1. Copier un `article-*.html` existant
-2. Modifier le contenu
-3. Ajouter une carte dans `blog.html`
-4. `git add . && git commit -m "nouvel article" && git push`
+- workflow: `.github/workflows/update-cves.yml`
+- script: `scripts/update_cves.py`
+- output: `data/latest-cves.json`
 
-## 📖 Tutoriel complet
+Schedule: hourly (`15 * * * *`) and manual trigger (`workflow_dispatch`).
 
-Voir [TUTORIAL.md](TUTORIAL.md) pour le guide étape par étape.
+## Notes
 
----
-
-Fait avec ☕ et `nmap`
+- If you change URLs or add pages, update `sitemap.xml`.
+- If your GitHub username/repo changes, update canonical URLs and social metadata in HTML files.
