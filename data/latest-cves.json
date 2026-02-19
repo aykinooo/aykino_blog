@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-19T16:02:03+00:00",
+  "generated_at": "2026-02-19T17:11:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-25755",
-      "summary": "jsPDF is a library to generate PDFs in JavaScript. Prior to 4.2.0, user control of the argument of the `addJS` method allows an attacker to inject arbitrary PDF objects into the generated document. By crafting a payload that escapes the JavaScript string delimiter, an attacker can execute malicious actions or alter the document structure, impacting any user who opens the generated PDF. The vulnerability has been fixed in jspdf@4.2.0. As a workaround, escape parentheses in user-provided JavaScript code before passing them to the `addJS` method.",
-      "published": "2026-02-19T15:16:12.303",
+      "id": "CVE-2026-2274",
+      "summary": "A SSRF and Arbitrary File Read vulnerability in AppSheet Core in Google AppSheet prior to 2025-11-23 allows an authenticated remote attacker to read sensitive local files and access internal network resources via crafted requests to the production cluster.\n\n\n\n\n\nThis vulnerability was patched and no customer action is needed.",
+      "published": "2026-02-19T16:27:16.287",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2274"
+    },
+    {
+      "id": "CVE-2026-26345",
+      "summary": "SPIP before 4.4.8 allows Cross-Site Scripting (XSS) in the public area for certain edge-case usage patterns. The echapper_html_suspect() function does not adequately detect all forms of malicious content, permitting an attacker to inject scripts that execute in a visitor's browser. This vulnerability is not mitigated by the SPIP security screen.",
+      "published": "2026-02-19T16:27:16.003",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26345"
+    },
+    {
+      "id": "CVE-2026-26223",
+      "summary": "SPIP before 4.4.8 allows Cross-Site Scripting (XSS) in the private area via malicious iframe tags. The application does not properly sandbox or escape iframe content in the back-office, allowing an attacker to inject and execute malicious scripts. The fix adds a sandbox attribute to iframe tags in the private area. This vulnerability is not mitigated by the SPIP security screen.",
+      "published": "2026-02-19T16:27:15.817",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26223"
+    },
+    {
+      "id": "CVE-2026-25940",
+      "summary": "jsPDF is a library to generate PDFs in JavaScript. Prior to 4.2.0, user control of properties and methods of the Acroform module allows users to inject arbitrary PDF objects, such as JavaScript actions. If given the possibility to pass unsanitized input to one of the following property, a user can inject arbitrary PDF objects, such as JavaScript actions, which are executed when the victim hovers over the radio option. The vulnerability has been fixed in jsPDF@4.2.0. As a workaround, sanitize user input before passing it to the vulnerable API members.",
+      "published": "2026-02-19T16:27:15.660",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25755"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25940"
     },
     {
-      "id": "CVE-2026-25535",
-      "summary": "jsPDF is a library to generate PDFs in JavaScript. Prior to 4.2.0, user control of the first argument of the `addImage` method results in denial of service. If given the possibility to pass unsanitized image data or URLs to the `addImage` method, a user can provide a harmful GIF file that results in out of memory errors and denial of service. Harmful GIF files have large width and/or height entries in their headers, which lead to excessive memory allocation. Other affected methods are: `html`. The vulnerability has been fixed in jsPDF 4.2.0. As a workaround, sanitize image data or URLs before passing it to the addImage method or one of the other affected methods.",
-      "published": "2026-02-19T15:16:12.130",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25535"
-    },
-    {
-      "id": "CVE-2026-25527",
-      "summary": "changedetection.io is a free open source web page change detection tool. In versions prior to 0.53.2, the `/static/<group>/<filename>` route accepts `group=\"..\"`, which causes `send_from_directory(\"static/..\", filename)` to execute. This moves the base directory up to `/app/changedetectionio`, enabling unauthenticated local file read of application source files (e.g., `flask_app.py`). Version 0.53.2 fixes the issue.",
-      "published": "2026-02-19T15:16:11.947",
+      "id": "CVE-2026-25766",
+      "summary": "Echo is a Go web framework. In versions 5.0.0 through 5.0.2 on Windows, Echo\u2019s `middleware.Static` using the default filesystem allows path traversal via backslashes, enabling unauthenticated remote file read outside the static root. In `middleware/static.go`, the requested path is unescaped and normalized with `path.Clean` (URL semantics). `path.Clean` does not treat `\\` as a path separator, so `..\\` sequences remain in the cleaned path. The resulting path is then passed to `currentFS.Open(...)`. When the filesystem is left at the default (nil), Echo uses `defaultFS` which calls `os.Open` (`echo.go:792`). On Windows, `os.Open` treats `\\` as a path separator and resolves `..\\`, allowing traversal outside the static root. Version 5.0.3 fixes the issue.",
+      "published": "2026-02-19T16:27:15.497",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25527"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25766"
     },
     {
-      "id": "CVE-2025-55853",
-      "summary": "SoftVision webPDF before 10.0.2 is vulnerable to Server-Side Request Forgery (SSRF). The PDF converter function does not check if internal or external resources are requested in the uploaded files and allows for protocols such as http:// and file:///. This allows an attacker to upload an XML or HTML file in the application, which when rendered to a PDF allows for internal port scanning and Local File Inclusion (LFI).",
-      "published": "2026-02-19T15:16:11.190",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55853"
-    },
-    {
-      "id": "CVE-2019-25430",
-      "summary": "Comodo Dome Firewall 2.7.0 contains a reflected cross-site scripting vulnerability that allows unauthenticated attackers to inject malicious scripts by submitting crafted input to the username parameter. Attackers can send POST requests to the vpn_users endpoint with script payloads in the username field to execute arbitrary JavaScript in victim browsers.",
-      "published": "2026-02-19T13:16:18.327",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25430"
-    },
-    {
-      "id": "CVE-2019-25429",
-      "summary": "Comodo Dome Firewall 2.7.0 contains a reflected cross-site scripting vulnerability that allows attackers to inject malicious scripts by submitting crafted input to the openvpn_advanced endpoint. Attackers can inject JavaScript code through the GLOBAL_NETWORKS and GLOBAL_DNS parameters via POST requests to execute arbitrary scripts in users' browsers.",
-      "published": "2026-02-19T13:16:18.130",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25429"
+      "id": "CVE-2026-25739",
+      "summary": "Indico is an event management system that uses Flask-Multipass, a multi-backend authentication system for Flask. Versions prior to 3.3.10 are vulnerable to cross-site scripting when uploading certain file types as materials. Users should upgrade to version 3.3.10 to receive a patch. To apply the fix itself updating is sufficient, but to benefit from the strict Content Security Policy (CSP) Indico now applies by default for file downloads, update the webserver config in case one uses nginx with Indico's `STATIC_FILE_METHOD` set to `xaccelredirect`. For further directions, consult the GitHub Security advisory or Indico setup documentation. Some workarounds are available. Use the webserver config to apply a strict CSP for material download endpoints, and/or only let trustworthy users create content (including material uploads, which speakers can typically do as well) on Indico.",
+      "published": "2026-02-19T16:27:15.270",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25739"
     }
   ]
 }
