@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-02-21T07:00:38+00:00",
+  "generated_at": "2026-02-21T07:44:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-27471",
+      "summary": "ERP is a free and open source Enterprise Resource Planning tool. In versions up to 15.98.0 and 16.0.0-rc.1 and through 16.6.0, certain endpoints lacked access validation which allowed for unauthorized document access. This issue has been fixed in versions 15.98.1 and 16.6.1.",
+      "published": "2026-02-21T07:16:13.580",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27471"
+    },
+    {
+      "id": "CVE-2026-27458",
+      "summary": "LinkAce is a self-hosted archive to collect website links. Versions 2.4.2 and below have a Stored Cross-site Scripting vulnerability through the Atom feed endpoint for lists (/lists/feed). An authenticated user can inject a CDATA-breaking payload into a list description that escapes the XML CDATA section, injects a native SVG element into the Atom XML document, and executes arbitrary JavaScript directly in the browser when the feed URL is visited. No RSS reader or additional rendering context is required \u2014 the browser's native XML parser processes the injected SVG and fires the onload event handler. This vulnerability exists because the lists feed template outputs list descriptions using Blade's raw syntax ({!! !!}) without sanitization inside a CDATA block. The critical detail is that because the output sits inside <![CDATA[...]]>, an attacker can inject the sequence ]]> to close the CDATA section prematurely, then inject arbitrary XML/SVG elements that the browser parses and executes natively as part of the Atom document. This issue has been fixed in version 2.4.3.",
+      "published": "2026-02-21T07:16:13.407",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27458"
+    },
+    {
+      "id": "CVE-2026-27452",
+      "summary": "ASN.1 TypeScript ESM library, including codecs for Basic Encoding Rules (BER) and Distinguished Encoding Rules (DER). In versions 11.0.5 and below, in some cases, decoding an INTEGER could leak the underlying ArrayBuffer. This issue is expected to be fixed in version 11.0.6.",
+      "published": "2026-02-21T07:16:13.210",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27452"
+    },
+    {
+      "id": "CVE-2026-27206",
+      "summary": "Zumba Json Serializer is a library to serialize PHP variables in JSON format. In versions 3.2.2 and below, the library allows deserialization of PHP objects from JSON using a special @type field. The deserializer instantiates any class specified in the @type field without restriction. When processing untrusted JSON input, this behavior may allow an attacker to instantiate arbitrary classes available in the application. If a vulnerable application passes attacker-controlled JSON into JsonSerializer::unserialize() and contains classes with dangerous magic methods (such as __wakeup() or __destruct()), this may lead to PHP Object Injection and potentially Remote Code Execution (RCE), depending on available gadget chains in the application or its dependencies. This behavior is similar in risk profile to PHP's native unserialize() when used without the allowed_classes restriction. Applications are impacted only if untrusted or attacker-controlled JSON is passed into JsonSerializer::unserialize() and the application or its dependencies contain classes that can be leveraged as a gadget chain. This issue has been fixed in version 3.2.3. If an immediate upgrade isn't feasible, mitigate the vulnerability by never deserializing untrusted JSON with JsonSerializer::unserialize(), validating and sanitizing all JSON input before deserialization, and disabling @type-based object instantiation wherever possible.",
+      "published": "2026-02-21T07:16:11.753",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27206"
+    },
     {
       "id": "CVE-2026-2863",
       "summary": "A flaw has been found in feng_ha_ha/megagao ssm-erp and production_ssm up to 4288d53bd35757b27f2d070057aefb2c07bdd097. The impacted element is the function deleteFile of the file FileServiceImpl.java. This manipulation causes path traversal. The attack can be initiated remotely. The exploit has been published and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. This product is distributed under two entirely different names. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -15,34 +43,6 @@
       "published": "2026-02-21T06:17:01.897",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2861"
-    },
-    {
-      "id": "CVE-2026-27212",
-      "summary": "Swiper is a free and mobile touch slider with hardware accelerated transitions and native behavior. Versions 6.5.1 through 12.1.1 have a Prototype pollution vulnerability. The vulnerability resides in line 94 of shared/utils.mjs, where the indexOf() function is used to check whether user provided input contain forbidden strings. Despite a previous fix that attempted to mitigate prototype pollution by checking whether user input contained a forbidden key, it is still possible to pollute Object.prototype via a crafted input using Array.prototype. The exploit works across Windows and Linux and on Node and Bun runtimes.  Any application that processes attacker-controlled input using this package may be affected  by the following: Authentication Bypass, Denial of Service and RCE. This issue is fixed in version 12.1.2.",
-      "published": "2026-02-21T06:17:01.443",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27212"
-    },
-    {
-      "id": "CVE-2026-27211",
-      "summary": "Cloud Hypervisor is a Virtual Machine Monitor for Cloud workloads. Versions 34.0 through 50.0 arevulnerable to arbitrary host file exfiltration (constrained by process privileges) when using virtio-block devices backed by raw images. A malicious guest can overwrite its disk header with a crafted QCOW2 structure pointing to a sensitive host path. Upon the next VM boot or disk scan, the image format auto-detection parses this header and serves the host file's contents to the guest. Guest-initiated VM reboots are sufficient to trigger a disk scan and do not cause the Cloud Hypervisor process to exit. Therefore, a single VM can perform this attack without needing interaction from the management stack. Successful exploitation requires the backing image to be either writable by the guest or sourced from an untrusted origin. Deployments utilizing only trusted, read-only images are not affected. This issue has been fixed in version 50.1. To workaround, enable land lock sandboxing and restrict process privileges and access.",
-      "published": "2026-02-21T06:17:01.253",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27211"
-    },
-    {
-      "id": "CVE-2026-27210",
-      "summary": "Pannellum is a lightweight, free, and open source panorama viewer for the web. In versions 3.5.0 through 2.5.6, the hot spot attributes configuration property allowed any attribute to be set, including HTML event handler attributes, allowing for potential XSS attacks. This affects websites hosting the standalone viewer HTML file and any other use of untrusted JSON config files (bypassing the protections of the escapeHTML parameter). As certain events fire without any additional user interaction, visiting a standalone viewer URL that points to a malicious config file \u2014 without additional user interaction \u2014 is sufficient to trigger the vulnerability and execute arbitrary JavaScript code, which can, for example, replace the contents of the page with arbitrary content and make it appear to be hosted by the website hosting the standalone viewer HTML file. This issue has been fixed in version 2.5.7. To workaround, setting the Content-Security-Policy header to script-src-attr 'none' will block execution of inline event handlers, mitigating this vulnerability. Don't host pannellum.htm on a domain that shares cookies with user authentication to mitigate XSS risk.",
-      "published": "2026-02-21T06:17:01.083",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27210"
-    },
-    {
-      "id": "CVE-2026-27205",
-      "summary": "Flask is a web server gateway interface (WSGI) web application framework. In versions 3.1.2 and below, when the session object is accessed, Flask should set the Vary: Cookie header., resulting in a Use of Cache Containing Sensitive Information vulnerability. The logic instructs caches not to cache the response, as it may contain information specific to a logged in user. This is handled in most cases, but some forms of access such as the Python in operator were overlooked. The severity and risk depend on the application being hosted behind a caching proxy that doesn't ignore responses with cookies, not setting a Cache-Control header to mark pages as private or non-cacheable, and accessing the session in a way that only touches keys without reading values or mutating the session. The issue has been fixed in version 3.1.3.",
-      "published": "2026-02-21T06:17:00.910",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27205"
     }
   ]
 }
