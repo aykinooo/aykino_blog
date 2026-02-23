@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-23T19:21:56+00:00",
+  "generated_at": "2026-02-23T21:01:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-26464",
-      "summary": "Stored Cross-Site Scripting (XSS) was found in the /admin/edit_user.php page of Society Management System Portal V1.0, which allows remote attackers to inject and store arbitrary JavaScript code that is executed in users' browsers. This vulnerability can be exploited via the name parameter in a POST HTTP request, leading to execution of malicious scripts when the affected content is viewed by other users, including administrators.",
-      "published": "2026-02-23T18:25:51.630",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26464"
+      "id": "CVE-2026-27623",
+      "summary": "Valkey is a distributed key-value database. Starting in version 9.0.0 and prior to version 9.0.3, a malicious actor with network access to Valkey can cause the system to abort by triggering an assertion. When processing incoming requests, the Valkey system does not properly reset the networking state after processing an empty request. A malicious actor can then send a request that the server incorrectly identifies as breaking server side invariants, which results in the server shutting down. Version 9.0.3 fixes the issue. As an additional mitigation, properly isolate Valkey deployments so that only trusted users have access.",
+      "published": "2026-02-23T20:28:55.217",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27623"
     },
     {
-      "id": "CVE-2026-2698",
-      "summary": "An improper access control vulnerability exists where an authenticated user could access areas outside of their authorized scope.",
-      "published": "2026-02-23T17:23:30.390",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2698"
+      "id": "CVE-2026-21863",
+      "summary": "Valkey is a distributed key-value database. Prior to versions 9.0.2, 8.1.6, 8.0.7, and 7.2.12, a malicious actor with access to the Valkey clusterbus port can send an invalid packet that may cause an out bound read, which might result in the system crashing. The Valkey clusterbus packet processing code does not validate that a clusterbus ping extension packet is located within buffer of the clusterbus packet before attempting to read it. Versions 9.0.2, 8.1.6, 8.0.7, and 7.2.12 fix the issue. As an additional mitigation, don't expose the cluster bus connection directly to end users, and protect the connection with its own network ACLs.",
+      "published": "2026-02-23T20:28:53.853",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21863"
     },
     {
-      "id": "CVE-2026-27514",
-      "summary": "Shenzhen Tenda F3 Wireless Router\u00a0firmware V12.01.01.55_multi contains a sensitive information exposure vulnerability in the configuration download functionality. The configuration download response includes the router password and administrative password in plaintext. The endpoint also omits appropriate Cache-Control directives, which can allow the response to be stored in client-side caches and recovered by other local users or processes with access to cached browser data.",
-      "published": "2026-02-23T17:23:30.087",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27514"
+      "id": "CVE-2025-70329",
+      "summary": "TOTOLink X5000R v9.1.0cu_2415_B20250515 contains an OS command injection vulnerability in the setIptvCfg handler of the /usr/sbin/lighttpd executable. The vlanVidLan1 (and other vlanVidLanX) parameters are retrieved via Uci_Get_Str and passed to the CsteSystem function without adequate validation or filtering. This allows an authenticated attacker to execute arbitrary shell commands with root privileges by injecting shell metacharacters into the affected parameters.",
+      "published": "2026-02-23T20:28:53.603",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70329"
     },
     {
-      "id": "CVE-2026-27513",
-      "summary": "Shenzhen Tenda F3 Wireless Router\u00a0firmware V12.01.01.55_multi contains a cross-site request forgery (CSRF) vulnerability in the web-based administrative interface. The interface does not implement anti-CSRF protections, allowing an attacker to induce an authenticated administrator to submit state-changing requests, which can result in unauthorized configuration changes.",
-      "published": "2026-02-23T17:23:29.890",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27513"
+      "id": "CVE-2025-67733",
+      "summary": "Valkey is a distributed key-value database. Prior to versions 9.0.2, 8.1.6, 8.0.7, and 7.2.12, a malicious user can use scripting commands to inject arbitrary information into the response stream for the given client, potentially corrupting or returning tampered data to other users on the same connection. The error handling code for lua scripts does not properly handle null characters. Versions 9.0.2, 8.1.6, 8.0.7, and 7.2.12 fix the issue.",
+      "published": "2026-02-23T20:28:53.280",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67733"
     },
     {
-      "id": "CVE-2026-27512",
-      "summary": "Shenzhen Tenda F3 Wireless Router\u00a0firmware V12.01.01.55_multi contains a content-type confusion vulnerability in the administrative interface. Responses omit the X-Content-Type-Options: nosniff header and include attacker-influenced content that can be reflected into the response body. Under affected browser behaviors, MIME sniffing may cause the response to be interpreted as active HTML, enabling script execution in the context of the administrative interface.",
-      "published": "2026-02-23T17:23:29.687",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27512"
+      "id": "CVE-2025-63946",
+      "summary": "A privilege escalation (PE) vulnerability in the Tencent PC Manager app thru 17.10.28554.205 on Windows devices enables a local user to execute programs with elevated privileges. However, execution requires that the local user is able to successfully exploit a race condition.",
+      "published": "2026-02-23T20:28:53.100",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-63946"
     },
     {
-      "id": "CVE-2026-27511",
-      "summary": "Shenzhen Tenda F3 Wireless Router\u00a0firmware V12.01.01.55_multi contains a clickjacking vulnerability in the web-based administrative interface. The interface does not set the X-Frame-Options header, allowing attacker-controlled sites to embed administrative pages in an iframe and trick an authenticated administrator into unintended interactions that may result in unauthorized configuration changes.",
-      "published": "2026-02-23T17:23:29.473",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27511"
+      "id": "CVE-2025-63945",
+      "summary": "A privilege escalation (PE) vulnerability in the Tencent iOA app thru 210.9.28693.621001 on Windows devices enables a local user to execute programs with elevated privileges. However, execution requires that the local user is able to successfully exploit a race condition.",
+      "published": "2026-02-23T20:28:52.910",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-63945"
     }
   ]
 }
