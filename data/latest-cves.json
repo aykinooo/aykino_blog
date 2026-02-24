@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-24T19:17:30+00:00",
+  "generated_at": "2026-02-24T20:55:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-27468",
-      "summary": "Mastodon is a free, open-source social network server based on ActivityPub. FASP registration requires manual approval by an administrator. In versions 4.4.0 through 4.4.13 and 4.5.0 through 4.5.6, actions performed by a FASP to subscribe to account/content lifecycle events or to backfill content did not check properly whether the FASP was actually approved. This only affects Mastodon servers that have opted in to testing the experimental FASP feature by setting the environment variable `EXPERIMENTAL_FEATURES` to a value including `fasp`. An attacker can make subscriptions and request content backfill without approval by an administrator. Done once, this leads to minor information leak of URIs that are publicly available anyway. But done several times this is a serious vector for DOS, putting pressure on the sidekiq worker responsible for the `fasp` queue. The fix is included in the 4.4.14 and 4.5.7 releases. Admins that are actively testing the experimental \"fasp\" feature should update their systems. Servers not using the experimental feature flag `fasp` are not affected.",
-      "published": "2026-02-24T18:29:33.660",
+      "id": "CVE-2026-3131",
+      "summary": "Improper\n access control in multiple DVLS REST API endpoints in Devolutions \nServer 2025.3.14.0 and earlier allows an authenticated user with view-only permission to access sensitive connection data.",
+      "published": "2026-02-24T20:27:50.883",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27468"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3131"
     },
     {
-      "id": "CVE-2026-27156",
-      "summary": "NiceGUI is a Python-based UI framework. Prior to version 3.8.0, several NiceGUI APIs that execute methods on client-side elements (`Element.run_method()`, `AgGrid.run_grid_method()`, `EChart.run_chart_method()`, and others) use an `eval()` fallback in the JavaScript-side `runMethod()` function. When user-controlled input is passed as the method name, an attacker can inject arbitrary JavaScript that executes in the victim's browser. Additionally, `Element.run_method()` and `Element.get_computed_prop()` used string interpolation instead of `json.dumps()` for the method/property name, allowing quote injection to break out of the intended string context. Version 3.8.0 contains a fix.",
-      "published": "2026-02-24T18:29:33.490",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27156"
+      "id": "CVE-2026-3105",
+      "summary": "SummaryThis advisory addresses a SQL injection vulnerability in the API endpoint used for retrieving contact activities. A vulnerability exists in the query construction for the Contact Activity timeline where the parameter responsible for determining the sort direction was not strictly validated against an allowlist, potentially allowing authenticated users to inject arbitrary SQL commands via the API.\n\nMitigationPlease update to 4.4.19, 5.2.10, 6.0.8, 7.0.1\u00a0or later.\n\nWorkaroundsNone.\n\nReferencesIf you have any questions or comments about this advisory:\n\nEmail us at security@mautic.org",
+      "published": "2026-02-24T20:27:50.713",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3105"
     },
     {
-      "id": "CVE-2026-26222",
-      "summary": "Altec DocLink (now maintained by Beyond Limits Inc.) version 4.0.336.0 exposes insecure .NET Remoting endpoints over TCP and HTTP/SOAP via Altec.RDCHostService.exe using the ObjectURI \"doclinkServer.soap\". The service does not require authentication and is vulnerable to unsafe object unmarshalling, allowing remote attackers to read arbitrary files from the underlying system by specifying local file paths. Additionally, attackers can coerce SMB authentication via UNC paths and write arbitrary files to server locations. Because writable paths may be web-accessible under IIS, this can result in unauthenticated remote code execution or denial of service through file overwrite.",
-      "published": "2026-02-24T18:29:33.293",
+      "id": "CVE-2026-27477",
+      "summary": "Mastodon is a free, open-source social network server based on ActivityPub. FASP registration requires manual approval by an administrator. In versions 4.4.0 through 4.4.13 and 4.5.0 through 4.5.6, an unauthenticated attacker can register a FASP with an attacker-chosen `base_url` that includes or resolves to a local / internal address, leading to the Mastodon server making requests to that address. This only affects Mastodon servers that have opted in to testing the experimental FASP feature by setting the environment variable `EXPERIMENTAL_FEATURES` to a value including `fasp`. An attacker can force the Mastodon server to make http(s) requests to internal systems. While they cannot control the full URL that is being requested (only the prefix) and cannot see the result of those requests, vulnerabilities or other undesired behavior could be triggered in those systems. The fix is included in the 4.4.14 and 4.5.7 releases. Admins that are actively testing the experimental \"fasp\" feature should update their systems. Servers not using the experimental feature flag `fasp` are not affected.",
+      "published": "2026-02-24T20:27:50.173",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26222"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27477"
     },
     {
-      "id": "CVE-2026-25603",
-      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Linksys MR9600, Linksys MX4200 allows that\u00a0contents of a USB drive partition can be mounted in an arbitrary location of the file system. This may result in the execution of shell scripts in the context of a root user.This issue affects MR9600: 1.0.4.205530; MX4200: 1.0.13.210200.",
-      "published": "2026-02-24T18:29:33.167",
+      "id": "CVE-2026-26342",
+      "summary": "Tattile Smart+, Vega, and Basic device families firmware versions 1.181.5 and prior implement an authentication token (X-User-Token) with insufficient expiration. An attacker who obtains a valid token (for example via interception, log exposure, or token reuse on a shared system) can continue to authenticate to the management interface until the token is revoked, enabling unauthorized access to device functions and data.",
+      "published": "2026-02-24T20:27:48.310",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25603"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26342"
     },
     {
-      "id": "CVE-2025-62512",
-      "summary": "Piwigo is an open source photo gallery application for the web. In version 15.5.0 and likely earlier 15.x releases, the password reset functionality in Piwigo allows an unauthenticated attacker to determine whether a given username or email address exists in the system. The endpoint at password.php?action=lost returns distinct messages for valid vs. invalid accounts, enabling user enumeration. As of time of publication, no known patches are available.",
-      "published": "2026-02-24T18:29:32.930",
+      "id": "CVE-2026-26341",
+      "summary": "Tattile Smart+, Vega, and Basic device families firmware versions 1.181.5 and prior ship with default credentials that are not forced to be changed during installation or commissioning. An attacker who can reach the management interface can authenticate using the default credentials and gain administrative access, enabling unauthorized access to device configuration and data.",
+      "published": "2026-02-24T20:27:48.103",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62512"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26341"
     },
     {
-      "id": "CVE-2025-14963",
-      "summary": "A vulnerability identified in the Trellix HX Agent driver file  fekern.sys allowed a threat actor with local user access the ability to gain elevated system privileges.  Utilization of a Bring Your Own Vulnerable Driver (BYOVD) was leveraged to gain access to the critical Windows process memory lsass.exe (Local Security Authority Subsystem Service).  The fekern.sys; a driver file associated with Trellix HX Agent (used in all existing HX Agent versions).  \u00a0 The vulnerable driver installed in a product or a system running fully functional HX Agent is, itself, not exploitable as the product\u2019s tamper protection restricts the ability to communicate with the driver to only the agent\u2019s processes.",
-      "published": "2026-02-24T18:29:32.613",
+      "id": "CVE-2026-26340",
+      "summary": "Tattile Smart+, Vega, and Basic device families firmware versions 1.181.5 and prior expose RTSP streams without requiring authentication. A remote attacker can connect to the RTSP service and access live video/audio streams without valid credentials, resulting in unauthorized disclosure of surveillance data.",
+      "published": "2026-02-24T20:27:47.793",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14963"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26340"
     }
   ]
 }
