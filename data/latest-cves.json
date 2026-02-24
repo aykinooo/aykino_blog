@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-24T16:13:41+00:00",
+  "generated_at": "2026-02-24T17:18:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3102",
-      "summary": "A vulnerability was determined in exiftool up to 13.49 on macOS. This issue affects the function SetMacOSTags of the file lib/Image/ExifTool/MacOS.pm of the component PNG File Parser. This manipulation of the argument DateTimeOriginal causes os command injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 13.50 is capable of addressing this issue. Patch name: e9609a9bcc0d32bd252a709a562fb822d6dd86f7. Upgrading the affected component is recommended.",
-      "published": "2026-02-24T15:21:41.317",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3102"
-    },
-    {
-      "id": "CVE-2026-3101",
-      "summary": "A vulnerability was found in Intelbras TIP 635G 1.12.3.5. This vulnerability affects unknown code of the component Ping Handler. The manipulation results in os command injection. The attack can be executed remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-02-24T15:21:41.103",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3101"
-    },
-    {
-      "id": "CVE-2026-27732",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 22.0, the `aVideoEncoder.json.php` API endpoint accepts a `downloadURL` parameter and fetches the referenced resource server-side without proper validation or an allow-list. This allows authenticated users to trigger server-side requests to arbitrary URLs (including internal network endpoints). An authenticated attacker can leverage SSRF to interact with internal services and retrieve sensitive data (e.g., internal APIs, metadata services), potentially leading to further compromise depending on the deployment environment. This issue has been fixed in AVideo version 22.0.",
-      "published": "2026-02-24T15:21:39.163",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27732"
-    },
-    {
-      "id": "CVE-2026-27584",
-      "summary": "Actual is a local-first personal finance tool. Prior to version 26.2.1, missing authentication middleware in the ActualBudget server component allows any unauthenticated user to query the SimpleFIN and Pluggy.ai integration endpoints and read sensitive bank account balance and transaction information. This vulnerability allows an unauthenticated attacker to read the bank account balance and transaction history of ActualBudget users. This vulnerability impacts all ActualBudget Server users with the SimpleFIN or Pluggy.ai integrations configured. The ActualBudget Server instance must be reachable over the network. Version 26.2.1 patches the issue.",
-      "published": "2026-02-24T15:21:39.010",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27584"
-    },
-    {
-      "id": "CVE-2026-27568",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 21.0, AVideo allows Markdown in video comments and uses Parsedown (v1.7.4) without Safe Mode enabled. Markdown links are not sufficiently sanitized, allowing `javascript:` URIs to be rendered as clickable links. An authenticated low-privilege attacker can post a malicious comment that injects persistent JavaScript. When another user clicks the link, the attacker can perform actions such as session hijacking, privilege escalation (including admin takeover), and data exfiltration. Version 21.0 contains a fix. As a workaround, validate and block unsafe URI schemes (e.g., `javascript:`) before rendering Markdown, and enable Parsedown Safe Mode.",
-      "published": "2026-02-24T15:21:38.843",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27568"
-    },
-    {
-      "id": "CVE-2026-27567",
-      "summary": "Payload is a free and open source headless content management system. Prior to 3.75.0, a Server-Side Request Forgery (SSRF) vulnerability exists in Payload's external file upload functionality. When processing external URLs for file uploads, insufficient validation of HTTP redirects could allow an authenticated attacker to access internal network resources. The Payload environment must have at least one collection with `upload` enabled and a user who has `create` access to that upload-enabled collection in order to be vulnerable. An authenticated user with upload collection write permissions could potentially access internal services. Response content from internal services could be retrieved through the application. This vulnerability has been patched in v3.75.0. As a workaround, one may mitigate this vulnerability by disabling external file uploads via the `disableExternalFile` upload collection option, or by restricting `create` access on upload-enabled collections to trusted users only.",
-      "published": "2026-02-24T15:21:38.273",
+      "id": "CVE-2026-27521",
+      "summary": "Binardat 10G08-0800GSM network switch firmware version\u00a0V300SP10260209\u00a0and prior\u00a0do not implement rate limiting or account lockout on failed login attempts, enabling brute-force attacks against user credentials.",
+      "published": "2026-02-24T16:24:10.000",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27567"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27521"
+    },
+    {
+      "id": "CVE-2026-27520",
+      "summary": "Binardat 10G08-0800GSM network switch firmware versions prior to\u00a0V300SP10260209\u00a0store a user password in a client-side cookie as a Base64-encoded value accessible via the web interface. Because Base64 is reversible and provides no confidentiality, an attacker who can access the cookie value can recover the plaintext password.",
+      "published": "2026-02-24T16:24:09.813",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27520"
+    },
+    {
+      "id": "CVE-2026-27519",
+      "summary": "Binardat 10G08-0800GSM network switch firmware version\u00a0V300SP10260209 and prior use RC4 with a hard-coded key embedded in client-side JavaScript. Because the key is static and exposed, an attacker can decrypt protected values and defeat confidentiality protections.",
+      "published": "2026-02-24T16:24:09.607",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27519"
+    },
+    {
+      "id": "CVE-2026-27518",
+      "summary": "Binardat 10G08-0800GSM network switch firmware version\u00a0V300SP10260209 and prior lack CSRF protections for state-changing actions in the administrative interface. An attacker can trick an authenticated administrator into performing unauthorized configuration changes.",
+      "published": "2026-02-24T16:24:09.407",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27518"
+    },
+    {
+      "id": "CVE-2026-27517",
+      "summary": "Binardat 10G08-0800GSM network switch firmware version\u00a0V300SP10260209 and prior reflect unsanitized user input in the web interface, allowing an attacker to inject and execute arbitrary JavaScript in the context of an authenticated user.",
+      "published": "2026-02-24T16:24:09.207",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27517"
+    },
+    {
+      "id": "CVE-2026-27516",
+      "summary": "Binardat 10G08-0800GSM network switch firmware version\u00a0V300SP10260209 and prior\u00a0expose user passwords in plaintext within the administrative interface and HTTP responses, allowing recovery of valid credentials.",
+      "published": "2026-02-24T16:24:09.030",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27516"
     }
   ]
 }
