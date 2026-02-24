@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-02-24T22:52:02+00:00",
+  "generated_at": "2026-02-24T23:46:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-26351",
+      "summary": "GetSimpleCMS Community Edition (CE) version 3.3.16 contains a stored cross-site scripting (XSS) vulnerability in the Theme to Components functionality within components.php. User-supplied input provided to the \"slug\" field of a component is stored without proper output encoding. While other fields are sanitized using safe_slash_html(), the slug parameter is written to XML and later rendered in the administrative interface without sanitation, resulting in persistent execution of arbitrary JavaScript. An authenticated administrator can inject malicious script content that executes whenever the affected Components page is viewed by any authenticated user, enabling session hijacking, unauthorized administrative actions, and persistent compromise of the CMS administrative interface.",
+      "published": "2026-02-24T23:16:04.830",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26351"
+    },
     {
       "id": "CVE-2026-27593",
       "summary": "Statmatic is a Laravel and Git powered content management system (CMS). Prior to versions 6.3.3 and 5.73.10, an attacker may leverage a vulnerability in the password reset feature to capture a user's token and reset the password on their behalf. The attacker must know the email address of a valid account on the site, and the actual user must blindly click the link in their email even though they didn't request the reset. This has been fixed in 6.3.3 and 5.73.10.",
@@ -36,13 +43,6 @@
       "published": "2026-02-24T22:16:32.053",
       "cvss": 5.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27117"
-    },
-    {
-      "id": "CVE-2026-25899",
-      "summary": "Fiber is an Express inspired web framework written in Go. In versions on the v3 branch prior to 3.1.0, the use of the `fiber_flash` cookie can force an unbounded allocation on any server. A crafted 10-character cookie value triggers an attempt to allocate up to 85GB of memory via unvalidated msgpack deserialization. No authentication is required. Every GoFiber v3 endpoint is affected regardless of whether the application uses flash messages. Version 3.1.0 fixes the issue.",
-      "published": "2026-02-24T22:16:31.613",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25899"
     }
   ]
 }
