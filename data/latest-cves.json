@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-24T21:50:46+00:00",
+  "generated_at": "2026-02-24T22:52:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-25882",
-      "summary": "Fiber is an Express inspired web framework written in Go. A denial of service vulnerability exists in Fiber v2 and v3 that allows remote attackers to crash the application by sending requests to routes with more than 30 parameters. The vulnerability results from missing validation during route registration combined with an unbounded array write during request matching. Version 2.52.12 patches the issue in the v2 branch and 3.0.1 patches the issue in the v3 branch.",
-      "published": "2026-02-24T21:16:29.640",
+      "id": "CVE-2026-27593",
+      "summary": "Statmatic is a Laravel and Git powered content management system (CMS). Prior to versions 6.3.3 and 5.73.10, an attacker may leverage a vulnerability in the password reset feature to capture a user's token and reset the password on their behalf. The attacker must know the email address of a valid account on the site, and the actual user must blindly click the link in their email even though they didn't request the reset. This has been fixed in 6.3.3 and 5.73.10.",
+      "published": "2026-02-24T22:16:32.867",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27593"
+    },
+    {
+      "id": "CVE-2026-27572",
+      "summary": "Wasmtime is a runtime for WebAssembly. Prior to versions 24.0.6, 36.0.6, 4.0.04, 41.0.4, and 42.0.0, Wasmtime's implementation of the `wasi:http/types.fields` resource is susceptible to panics when too many fields are added to the set of headers. Wasmtime's implementation in the `wasmtime-wasi-http` crate is backed by a data structure which panics when it reaches excessive capacity and this condition was not handled gracefully in Wasmtime. Panicking in a WASI implementation is a Denial of Service vector for embedders and is treated as a security vulnerability in Wasmtime. Wasmtime 24.0.6, 36.0.6, 40.0.4, 41.0.4, and 42.0.0 patch this vulnerability and return a trap to the guest instead of panicking. There are no known workarounds at this time. Embedders are encouraged to update to a patched version of Wasmtime.",
+      "published": "2026-02-24T22:16:32.687",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25882"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27572"
     },
     {
-      "id": "CVE-2026-24443",
-      "summary": "EventSentry versions prior to 6.0.1.20\u00a0contain an unverified password change vulnerability in the account management functionality of the Web Reports interface. The password change mechanism does not require validation of the current password before allowing a new password to be set. An attacker who gains temporary access to an authenticated user session can change the account password without knowledge of the original credentials. This enables persistent account takeover and, if administrative accounts are affected, may result in privilege escalation.",
-      "published": "2026-02-24T21:16:29.293",
+      "id": "CVE-2026-27204",
+      "summary": "Wasmtime is a runtime for WebAssembly. Prior to versions 24.0.6, 36.0.6, 4.0.04, 41.0.4, and 42.0.0, Wasmtime's implementation of WASI host interfaces are susceptible to guest-controlled resource exhaustion on the host. Wasmtime did not appropriately place limits on resource allocations requested by the guests. This serves as a Denial of Service vector. Wasmtime 24.0.6, 36.0.6, 40.0.4, 41.0.4, and 42.0.0 have all been released with the fix for this issue. These versions do not prevent this issue in their default configuration to avoid breaking preexisting behaviors. All versions of Wasmtime have appropriate knobs to prevent this behavior, and Wasmtime 42.0.0-and-later will have these knobs tuned by default to prevent this issue from happening. There are no known workarounds for this issue without upgrading. Embedders are recommended to upgrade and configure their embeddings as necessary to prevent possibly-malicious guests from triggering this issue.",
+      "published": "2026-02-24T22:16:32.480",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24443"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27204"
     },
     {
-      "id": "CVE-2026-22553",
-      "summary": "All versions of InSAT MasterSCADA BUK-TS are susceptible to OS command injection through a field in its MMadmServ web interface. Malicious users that use the vulnerable endpoint are potentially able to cause remote code execution.",
-      "published": "2026-02-24T21:16:28.713",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22553"
-    },
-    {
-      "id": "CVE-2026-21410",
-      "summary": "InSAT MasterSCADA BUK-TS is susceptible to SQL Injection through its main web interface. Malicious users that use the vulnerable endpoint are potentially able to cause remote code execution.",
-      "published": "2026-02-24T21:16:25.790",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21410"
-    },
-    {
-      "id": "CVE-2025-46320",
-      "summary": "A cross-site scripting (XSS) vulnerability in a FileMaker WebDirect custom homepage could lead to unauthorized access and remote code execution. This vulnerability has been fully addressed in FileMaker Server 22.0.4 and FileMaker Server 21.1.7.",
-      "published": "2026-02-24T21:16:18.447",
+      "id": "CVE-2026-27195",
+      "summary": "Wasmtime is a runtime for WebAssembly. Starting with Wasmtime 39.0.0, the `component-model-async` feature became the default, which brought with it a new implementation of `[Typed]Func::call_async` which made it capable of calling async-typed guest export functions.  However, that implementation had a bug leading to a panic under certain circumstances: First, the host embedding calls `[Typed]Func::call_async` on a function exported by a component, polling the returned `Future` once. Second, the component function yields control to the async runtime (e.g. Tokio), e.g. due to a call to host function registered using `LinkerInstance::func_wrap_async` which yields, or due an epoch interruption. Third, the host embedding drops the `Future` after polling it once.  This leaves the component instance in a non-reenterable state since the call never had a chance to complete. Fourth, the host embedding calls `[Typed]Func::call_async` again, polling the returned `Future`.  Since the component instance cannot be entered at this point, the call traps, but not before allocating a task and thread for the call. Fifth, the host embedding ignores the trap and drops the `Future`.  This panics due to the runtime attempting to dispose of the task created above, which panics since the thread has not yet exited. When a host embedder using the affected versions of Wasmtime calls `wasmtime::component::[Typed]Func::call_async` on a guest export and then drops the returned future without waiting for it to resolve, and then does so again with the same component instance, Wasmtime will panic. Embeddings that have the `component-model-async` compile-time feature disabled are unaffected. Wasmtime 40.0.4 and 41.0.4 have been patched to fix this issue. Versions 42.0.0 and later are not affected. If an embedding is not actually using any component-model-async features then disabling the `component-model-async` Cargo feature can work around this issue. This issue can also be worked around by either ensuring every `call_async` future is awaited until it completes or refraining from using the `Store` again after dropping a not-yet-resolved `call_async` future.",
+      "published": "2026-02-24T22:16:32.253",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-46320"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27195"
     },
     {
-      "id": "CVE-2026-3131",
-      "summary": "Improper\n access control in multiple DVLS REST API endpoints in Devolutions \nServer 2025.3.14.0 and earlier allows an authenticated user with view-only permission to access sensitive connection data.",
-      "published": "2026-02-24T20:27:50.883",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3131"
+      "id": "CVE-2026-27117",
+      "summary": "bit7z is a cross-platform C++ static library that allows the compression/extraction of archive files. Prior to version 4.0.11, a path traversal vulnerability (\"Zip Slip\") exists in bit7z's archive extraction functionality. The library does not adequately validate file paths contained in archive entries, allowing files to be written outside the intended extraction directory through three distinct mechanisms: relative path traversal, absolute path traversal, and symbolic link traversal. An attacker can exploit this by providing a malicious archive to any application that uses bit7z to extract untrusted archives. Successful exploitation results in arbitrary file write with the privileges of the process performing the extraction. This could lead to overwriting of application binaries, configuration files, or other sensitive data. The vulnerability does not directly enable reading of file contents; the confidentiality impact is limited to the calling application's own behavior after extraction. However, applications that subsequently serve or display extracted files may face secondary confidentiality risks from attacker-created symlinks. Fixes have been released in version 4.0.11. If upgrading is not immediately possible, users can mitigate the vulnerability by validating each entry's destination path before writing. Other mitigations include running extraction with least privilege and extracting untrusted archives in a sandboxed directory.",
+      "published": "2026-02-24T22:16:32.053",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27117"
+    },
+    {
+      "id": "CVE-2026-25899",
+      "summary": "Fiber is an Express inspired web framework written in Go. In versions on the v3 branch prior to 3.1.0, the use of the `fiber_flash` cookie can force an unbounded allocation on any server. A crafted 10-character cookie value triggers an attempt to allocate up to 85GB of memory via unvalidated msgpack deserialization. No authentication is required. Every GoFiber v3 endpoint is affected regardless of whether the application uses flash messages. Version 3.1.0 fixes the issue.",
+      "published": "2026-02-24T22:16:31.613",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25899"
     }
   ]
 }
