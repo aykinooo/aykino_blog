@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-02-24T09:06:34+00:00",
+  "generated_at": "2026-02-24T10:07:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2025-11165",
+      "summary": "A sandbox escape vulnerability exists in dotCMS\u2019s Velocity scripting engine (VTools) that allows authenticated users with scripting privileges to bypass class and package restrictions enforced by SecureUberspectorImpl.\n\nBy dynamically modifying the Velocity engine\u2019s runtime configuration and reinitializing its Uberspect, a malicious actor can remove the introspector.restrict.classes and introspector.restrict.packages protections.\n\nOnce these restrictions are cleared, the attacker can access arbitrary Java classes, including java.lang.Runtime, and execute arbitrary system commands under the privileges of the application process (e.g. dotCMS or Tomcat user).",
+      "published": "2026-02-24T09:16:12.310",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11165"
+    },
+    {
+      "id": "CVE-2024-1524",
+      "summary": "When the \"Silent Just-In-Time Provisioning\" feature is enabled for a federated identity provider (IDP)  there is a risk that a local user store user's information may be replaced during the account provisioning process in cases where federated users share the same username as local users. \n\n There will be no impact on your deployment if any of the preconditions mentioned below are not met. Only when all the preconditions mentioned below are fulfilled could a malicious actor associate a targeted local user account with a federated IDP user account that they control.\n\nThe Deployment should have: \n-An IDP configured for federated authentication with Silent JIT provisioning enabled.\n\nThe malicious actor should have:\n-A fresh valid user account in the federated IDP that has not been used earlier.\n-Knowledge of the username of a valid user in the local IDP. \n-An account at the federated IDP matching the targeted local username.",
+      "published": "2026-02-24T09:16:11.700",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1524"
+    },
     {
       "id": "CVE-2026-1229",
       "summary": "The CombinedMult function in the CIRCL ecc/p384 package (secp384r1 curve) produces an incorrect value for specific inputs. The issue is fixed by using complete addition formulas.\nECDH and ECDSA signing relying on this curve are not affected.\n\nThe bug was fixed in  v1.6.3 https://github.com/cloudflare/circl/releases/tag/v1.6.3 .",
@@ -29,20 +43,6 @@
       "published": "2026-02-24T08:16:27.863",
       "cvss": 9.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40539"
-    },
-    {
-      "id": "CVE-2025-40538",
-      "summary": "A broken access control vulnerability exists in Serv-U which when exploited, gives a malicious actor the ability to create a system admin user and execute arbitrary code as a privileged account via domain admin or group admin privileges.\n\nThis issue requires administrative privileges to abuse. On Windows deployments, the risk is scored as a medium because services frequently run under less-privileged service accounts by default.",
-      "published": "2026-02-24T08:16:27.627",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40538"
-    },
-    {
-      "id": "CVE-2026-24314",
-      "summary": "Under certain conditions SAP S/4HANA (Manage Payment Media) allows an authenticated attacker to access information which would otherwise be restricted. This could cause low impact on confidentiality of the application while integrity and availability are not impacted.",
-      "published": "2026-02-24T06:16:35.270",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24314"
     }
   ]
 }
