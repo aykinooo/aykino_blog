@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-02-25T10:10:29+00:00",
+  "generated_at": "2026-02-25T11:08:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2410",
+      "summary": "The Disable Admin Notices \u2013 Hide Dashboard Notifications plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.4.2. This is due to missing nonce validation in the `showPageContent()` function. This makes it possible for unauthenticated attackers to add arbitrary URLs to the blocked redirects list via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-02-25T10:16:18.697",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2410"
+    },
+    {
+      "id": "CVE-2026-2367",
+      "summary": "The Secure Copy Content Protection and Content Locking plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'ays_block' shortcode in all versions up to, and including, 5.0.1 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-02-25T10:16:18.507",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2367"
+    },
+    {
+      "id": "CVE-2026-2301",
+      "summary": "The Post Duplicator plugin for WordPress is vulnerable to unauthorized arbitrary protected post meta insertion in all versions up to, and including, 3.0.8. This is due to the `duplicate_post()` function in `includes/api.php` using `$wpdb->insert()` directly to the `wp_postmeta` table instead of WordPress's standard `add_post_meta()` function, which would call `is_protected_meta()` to prevent lower-privileged users from setting protected meta keys (those starting with `_`). This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary protected post meta keys such as `_wp_page_template`, `_wp_attached_file`, and other sensitive meta keys on duplicated posts via the `customMetaData` JSON array parameter in the `/wp-json/post-duplicator/v1/duplicate-post` REST API endpoint.",
+      "published": "2026-02-25T10:16:18.307",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2301"
+    },
+    {
+      "id": "CVE-2025-14742",
+      "summary": "The WP Recipe Maker plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the 'ajax_search_recipes' and 'ajax_get_recipe' functions in all versions up to, and including, 10.2.3. This makes it possible for authenticated attackers, with Subscriber-level access and above, to retrieve sensitive recipe information including draft, pending, and private recipes that they shouldn't be able to access.",
+      "published": "2026-02-25T10:16:18.087",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14742"
+    },
     {
       "id": "CVE-2026-3171",
       "summary": "A flaw has been found in SourceCodester/Patrick Mvuma Patients Waiting Area Queue Management System 1.0. Affected by this vulnerability is an unknown functionality of the file /queue.php. This manipulation of the argument firstname/lastname causes cross site scripting. The attack is possible to be carried out remotely. The exploit has been published and may be used.",
@@ -15,34 +43,6 @@
       "published": "2026-02-25T09:16:15.547",
       "cvss": 5.0,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2479"
-    },
-    {
-      "id": "CVE-2026-2416",
-      "summary": "The Geo Mashup plugin for WordPress is vulnerable to SQL Injection via the 'sort' parameter in all versions up to, and including, 1.13.17. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-02-25T09:16:15.367",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2416"
-    },
-    {
-      "id": "CVE-2026-1929",
-      "summary": "The Advanced Woo Labels plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.37. This is due to the use of `call_user_func_array()` with user-controlled callback and parameters in the `get_select_option_values()` AJAX handler without an allowlist of permitted callbacks or a capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to execute arbitrary PHP functions and operating system commands on the server via the 'callback' parameter.",
-      "published": "2026-02-25T09:16:15.173",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1929"
-    },
-    {
-      "id": "CVE-2026-1916",
-      "summary": "The WPGSI: Spreadsheet Integration plugin for WordPress is vulnerable to unauthorized modification and loss of data due to missing capability checks and an insecure authentication mechanism on the `wpgsi_callBackFuncAccept` and `wpgsi_callBackFuncUpdate` REST API functions in all versions up to, and including, 3.8.3. Both REST endpoints use `permission_callback => '__return_true'`, allowing unauthenticated access. The plugin's custom token-based validation relies on a Base64-encoded JSON object containing the user ID and email address, but is not cryptographically signed. This makes it possible for unauthenticated attackers to forge tokens using publicly enumerable information (admin user ID and email) to create, modify, and delete arbitrary WordPress posts and pages, granted they know the administrator's email address and an active integration ID with remote updates enabled.",
-      "published": "2026-02-25T09:16:14.943",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1916"
-    },
-    {
-      "id": "CVE-2026-3170",
-      "summary": "A vulnerability was detected in SourceCodester/Patrick Mvuma Patients Waiting Area Queue Management System 1.0. Affected is an unknown function of the file /patient-search.php. The manipulation of the argument First Name/Last Name results in cross site scripting. The attack can be executed remotely. The exploit is now public and may be used.",
-      "published": "2026-02-25T08:16:19.807",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3170"
     }
   ]
 }
