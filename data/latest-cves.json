@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-25T21:48:03+00:00",
+  "generated_at": "2026-02-25T22:51:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3200",
-      "summary": "A vulnerability was identified in z-9527 admin 1.0/2.0. The affected element is the function checkName/register/login/getUser/getUsers of the file /server/controller/user.js. The manipulation leads to sql injection. The attack can be initiated remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-02-25T21:16:45.337",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3200"
+      "id": "CVE-2026-2694",
+      "summary": "The The Events Calendar plugin for WordPress is vulnerable to unauthorized modification of data and loss of data due to an improper capability check on the 'can_edit' and 'can_delete' function in all versions up to, and including, 6.15.16. This makes it possible for authenticated attackers, with Contributor-level access and above, to update or trash events, organizers and venues via REST API.",
+      "published": "2026-02-25T22:16:28.027",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2694"
     },
     {
-      "id": "CVE-2026-3172",
-      "summary": "Buffer overflow in parallel HNSW index build in pgvector 0.6.0 through 0.8.1 allows a database user to leak sensitive data from other relations or crash the database server.",
-      "published": "2026-02-25T21:16:44.857",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3172"
+      "id": "CVE-2026-27951",
+      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, the function `Stream_EnsureCapacity` can create an endless blocking loop. This may affect all client and server implementations using `FreeRDP`. For practical exploitation this will only work on 32bit systems where the available physical memory is `>= SIZE_MAX`. Version 3.23.0 contains a patch. No known workarounds are available.",
+      "published": "2026-02-25T22:16:27.610",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27951"
     },
     {
-      "id": "CVE-2026-2845",
-      "summary": "An issue has been discovered in GitLab CE/EE affecting all versions from 11.2 before 18.7.5, 18.8 before 18.8.5, and 18.9 before 18.9.1 that could have allowed an authenticated user to cause denial of service by exploiting a Bitbucket Server import endpoint via repeatedly sending large responses.",
-      "published": "2026-02-25T21:16:44.547",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2845"
-    },
-    {
-      "id": "CVE-2026-27015",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, a missing bounds check in `smartcard_unpack_read_size_align()` (`libfreerdp/utils/smartcard_pack.c:1703`) allows a malicious RDP server to crash the FreeRDP client via a reachable `WINPR_ASSERT` \u2192 `abort()`. The crash occurs in upstream builds where `WITH_VERBOSE_WINPR_ASSERT=ON` (default in FreeRDP 3.22.0 / current WinPR CMake defaults). Smartcard redirection must be explicitly enabled by the user (e.g., `xfreerdp /smartcard`; `/smartcard-logon` implies `/smartcard`). Version 3.23.0 fixes the issue.",
-      "published": "2026-02-25T21:16:43.203",
+      "id": "CVE-2026-27950",
+      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, the fix for the heap-use-after-free described in CVE-2026-24680 is incomplete. While the vulnerable execution flow referenced in the advisory exists in the SDL2 implementation, the fix appears to have been applied only to the SDL3 code path. In the SDL2 implementation, the pointer is not nulled after free. This creates a situation where the advisory suggests the vulnerability is fully resolved, while builds or environments still using SDL2 may retain the vulnerable logic. A complete fix is available in version 3.23.0.",
+      "published": "2026-02-25T22:16:27.297",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27015"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27950"
     },
     {
-      "id": "CVE-2026-26965",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, in the RLE planar decode path, `planar_decompress_plane_rle()` writes into `pDstData` at `((nYDst+y) * nDstStep) + (4*nXDst) + nChannel` without verifying that `(nYDst+nSrcHeight)` fits in the destination height or that `(nXDst+nSrcWidth)` fits in the destination stride. When `TempFormat != DstFormat`, `pDstData` becomes `planar->pTempData` (sized for the desktop), while `nYDst` is only validated against the **surface** by `is_within_surface()`. A malicious RDP server can exploit this to perform a heap out-of-bounds write with attacker-controlled offset and pixel data on any connecting FreeRDP client. The OOB write reaches up to 132,096 bytes past the temp buffer end, and  on the brk heap (desktop \u2264 128\u00d7128), an adjacent `NSC_CONTEXT` struct's `decode` function pointer is overwritten with attacker-controlled pixel data \u2014 control-flow\u2013relevant corruption (function pointer overwritten) demonstrated under deterministic heap layout (`nsc->decode = 0xFF414141FF414141`). Version 3.23.0 fixes the vulnerability.",
-      "published": "2026-02-25T21:16:43.047",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26965"
+      "id": "CVE-2026-27819",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.0.0, the restoreConfig function in vikunja/pkg/modules/dump/restore.go of the go-vikunja/vikunja repository fails to sanitize file paths within the provided ZIP archive. A maliciously crafted ZIP can bypass the intended extraction directory to overwrite arbitrary files on the host system. Additionally, we\u2019ve discovered that a malformed archive triggers a runtime panic, crashing the process immediately after the database has been wiped permanently. The application trusts the metadata in the ZIP archive. It uses the Name attribute of the zip.File struct directly in os.OpenFile calls without validation, allowing files to be written outside the intended directory. The restoration logic assumes a specific directory structure within the ZIP. When provided with a \"minimalist\" malicious ZIP, the application fails to validate the length of slices derived from the archive contents. Specifically, at line 154, the code attempts to access an index of len(ms)-2 on an insufficiently populated slice, triggering a panic. Version 2.0.0 fixes the issue.",
+      "published": "2026-02-25T22:16:27.127",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27819"
     },
     {
-      "id": "CVE-2026-26955",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, a malicious RDP server can trigger a heap buffer overflow in FreeRDP clients using the GDI surface pipeline (e.g., `xfreerdp`) by sending an RDPGFX ClearCodec surface command with an out-of-bounds destination rectangle. The `gdi_SurfaceCommand_ClearCodec()` handler does not call `is_within_surface()` to validate the command rectangle against the destination surface dimensions, allowing attacker-controlled `cmd->left`/`cmd->top` (and subcodec rectangle offsets) to reach image copy routines that write into `surface->data` without bounds enforcement. The OOB write corrupts an adjacent `gdiGfxSurface` struct's `codecs*` pointer with attacker-controlled pixel data, and corruption of `codecs*` is sufficient to reach an indirect function pointer call (`NSC_CONTEXT.decode` at `nsc.c:500`) on a subsequent codec command \u2014 full instruction pointer (RIP) control demonstrated in exploitability harness. Users should upgrade to version 3.23.0 to receive a patch.",
-      "published": "2026-02-25T21:16:42.863",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26955"
+      "id": "CVE-2026-27616",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.0.0, the application allows users to upload SVG files as task attachments. SVG is an XML-based format that supports JavaScript execution through elements such as <script> tags or event handlers like onload. The application does not sanitize SVG content before storing it. When the uploaded SVG file is accessed via its direct URL, it is rendered inline in the browser under the application's origin. As a result, embedded JavaScript executes in the context of the authenticated user. Because the authentication token is stored in localStorage, it is accessible via JavaScript and can be retrieved by a malicious payload. Version 2.0.0 patches this issue.",
+      "published": "2026-02-25T22:16:26.627",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27616"
+    },
+    {
+      "id": "CVE-2026-27575",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.0.0, the application allows users to set weak passwords (e.g., 1234, password) without enforcing minimum strength requirements. Additionally, active sessions remain valid after a user changes their password. An attacker who compromises an account (via brute-force or credential stuffing) can maintain persistent access even after the victim resets their password. Version 2.0.0 contains a fix.",
+      "published": "2026-02-25T22:16:26.383",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27575"
     }
   ]
 }
