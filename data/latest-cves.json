@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-25T22:51:39+00:00",
+  "generated_at": "2026-02-25T23:43:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2694",
-      "summary": "The The Events Calendar plugin for WordPress is vulnerable to unauthorized modification of data and loss of data due to an improper capability check on the 'can_edit' and 'can_delete' function in all versions up to, and including, 6.15.16. This makes it possible for authenticated attackers, with Contributor-level access and above, to update or trash events, organizers and venues via REST API.",
-      "published": "2026-02-25T22:16:28.027",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2694"
+      "id": "CVE-2026-3209",
+      "summary": "A vulnerability has been found in fosrl Pangolin up to 1.15.4-s.3. This affects the function verifyRoleAccess/verifyApiKeyRoleAccess of the component Role Handler. The manipulation leads to improper access controls. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. Upgrading to version 1.15.4-s.4 mitigates this issue. The identifier of the patch is 5e37c4e85fae68e756be5019a28ca903b161fdd5. Upgrading the affected component is advised.",
+      "published": "2026-02-25T23:16:21.920",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3209"
     },
     {
-      "id": "CVE-2026-27951",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, the function `Stream_EnsureCapacity` can create an endless blocking loop. This may affect all client and server implementations using `FreeRDP`. For practical exploitation this will only work on 32bit systems where the available physical memory is `>= SIZE_MAX`. Version 3.23.0 contains a patch. No known workarounds are available.",
-      "published": "2026-02-25T22:16:27.610",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27951"
-    },
-    {
-      "id": "CVE-2026-27950",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to version 3.23.0, the fix for the heap-use-after-free described in CVE-2026-24680 is incomplete. While the vulnerable execution flow referenced in the advisory exists in the SDL2 implementation, the fix appears to have been applied only to the SDL3 code path. In the SDL2 implementation, the pointer is not nulled after free. This creates a situation where the advisory suggests the vulnerability is fully resolved, while builds or environments still using SDL2 may retain the vulnerable logic. A complete fix is available in version 3.23.0.",
-      "published": "2026-02-25T22:16:27.297",
+      "id": "CVE-2026-27613",
+      "summary": "TinyWeb is a web server (HTTP, HTTPS) written in Delphi for Win32. A vulnerability in versions prior to 2.01 allows unauthenticated remote attackers to bypass the web server's CGI parameter security controls. Depending on the server configuration and the specific CGI executable in use, the impact is either source code disclosure or remote code execution (RCE). Anyone hosting CGI scripts (particularly interpreted languages like PHP) using vulnerable versions of TinyWeb is impacted. The problem has been patched in version 2.01. If upgrading is not immediately possible, ensure `STRICT_CGI_PARAMS` is enabled (it is defined by default in `define.inc`) and/or do not use CGI executables that natively accept dangerous command-line flags (such as `php-cgi.exe`). If hosting PHP, consider placing the server behind a Web Application Firewall (WAF) that explicitly blocks URL query string parameters that begin with a hyphen (`-`) or contain encoded double quotes (`%22`).",
+      "published": "2026-02-25T23:16:21.743",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27950"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27613"
     },
     {
-      "id": "CVE-2026-27819",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.0.0, the restoreConfig function in vikunja/pkg/modules/dump/restore.go of the go-vikunja/vikunja repository fails to sanitize file paths within the provided ZIP archive. A maliciously crafted ZIP can bypass the intended extraction directory to overwrite arbitrary files on the host system. Additionally, we\u2019ve discovered that a malformed archive triggers a runtime panic, crashing the process immediately after the database has been wiped permanently. The application trusts the metadata in the ZIP archive. It uses the Name attribute of the zip.File struct directly in os.OpenFile calls without validation, allowing files to be written outside the intended directory. The restoration logic assumes a specific directory structure within the ZIP. When provided with a \"minimalist\" malicious ZIP, the application fails to validate the length of slices derived from the archive contents. Specifically, at line 154, the code attempts to access an index of len(ms)-2 on an insufficiently populated slice, triggering a panic. Version 2.0.0 fixes the issue.",
-      "published": "2026-02-25T22:16:27.127",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27819"
+      "id": "CVE-2026-27578",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.10.1, 2.9.3, and 1.123.22, an authenticated user with permission to create or modify workflows could inject arbitrary scripts into pages rendered by the n8n application using different techniques on various nodes (Form Trigger node, Chat Trigger node, Send & Wait node, Webhook Node, and Chat Node). Scripts injected by a malicious workflow execute in the browser of any user who visits the affected page, enabling session hijacking and account takeover. The issues have been fixed in n8n versions 2.10.1 and 1.123.21. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations. Limit workflow creation and editing permissions to fully trusted users only, and/or disable the Webhook node by adding `n8n-nodes-base.webhook` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-02-25T23:16:21.560",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27578"
     },
     {
-      "id": "CVE-2026-27616",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.0.0, the application allows users to upload SVG files as task attachments. SVG is an XML-based format that supports JavaScript execution through elements such as <script> tags or event handlers like onload. The application does not sanitize SVG content before storing it. When the uploaded SVG file is accessed via its direct URL, it is rendered inline in the browser under the application's origin. As a result, embedded JavaScript executes in the context of the authenticated user. Because the authentication token is stored in localStorage, it is accessible via JavaScript and can be retrieved by a malicious payload. Version 2.0.0 patches this issue.",
-      "published": "2026-02-25T22:16:26.627",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27616"
+      "id": "CVE-2026-27577",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.10.1, 2.9.3, and 1.123.22, additional exploits in the expression evaluation of n8n have been identified and patched following CVE-2025-68613. An authenticated user with permission to create or modify workflows could abuse crafted expressions in workflow parameters to trigger unintended system command execution on the host running n8n. The issues have been fixed in n8n versions 2.10.1, 2.9.3, and 1.123.22. Users should upgrade to one of these versions or later to remediate all known vulnerabilities. If upgrading is not immediately possible, administrators should consider the following temporary mitigations. Limit workflow creation and editing permissions to fully trusted users only, and/or deploy n8n in a hardened environment with restricted operating system privileges and network access to reduce the impact of potential exploitation. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-02-25T23:16:21.387",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27577"
     },
     {
-      "id": "CVE-2026-27575",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.0.0, the application allows users to set weak passwords (e.g., 1234, password) without enforcing minimum strength requirements. Additionally, active sessions remain valid after a user changes their password. An attacker who compromises an account (via brute-force or credential stuffing) can maintain persistent access even after the victim resets their password. Version 2.0.0 contains a fix.",
-      "published": "2026-02-25T22:16:26.383",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27575"
+      "id": "CVE-2026-27498",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.2.0 and 1.123.8, an authenticated user with permission to create or modify workflows could chain the Read/Write Files from Disk node with git operations to achieve remote code execution. By writing to specific configuration files and then triggering a git operation, the attacker could execute arbitrary shell commands on the n8n host. The issue has been fixed in n8n versions 2.2.0 and 1.123.8. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations. Limit workflow creation and editing permissions to fully trusted users only, and/or disable the Read/Write Files from Disk node by adding `n8n-nodes-base.readWriteFile` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-02-25T23:16:21.213",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27498"
+    },
+    {
+      "id": "CVE-2026-27497",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.10.1, 2.9.3, and 1.123.22, an authenticated user with permission to create or modify workflows could leverage the Merge node's SQL query mode to execute arbitrary code and write arbitrary files on the n8n server. The issues have been fixed in n8n versions 2.10.1, 2.9.3, and 1.123.22. Users should upgrade to one of these versions or later to remediate all known vulnerabilities. If upgrading is not immediately possible, administrators should consider the following temporary mitigations. Limit workflow creation and editing permissions to fully trusted users only, and/or disable the Merge node by adding `n8n-nodes-base.merge` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-02-25T23:16:21.037",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27497"
     }
   ]
 }
