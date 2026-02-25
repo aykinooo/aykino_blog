@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-25T18:13:47+00:00",
+  "generated_at": "2026-02-25T19:20:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3193",
-      "summary": "A vulnerability was detected in Chia Blockchain 2.1.0. Impacted is an unknown function of the file /send_transaction. The manipulation results in cross-site request forgery. The attack may be performed from remote. The attack requires a high level of complexity. The exploitability is considered difficult. The exploit is now public and may be used. The vendor was informed early via email. A separate report via bugbounty was rejected with the reason \"This is by design. The user is responsible for host security\".",
-      "published": "2026-02-25T17:25:42.937",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3193"
+      "id": "CVE-2026-3194",
+      "summary": "A flaw has been found in Chia Blockchain 2.1.0. The affected element is the function send_transaction/get_private_key of the component RPC Server Master Passphrase Handler. This manipulation causes missing authentication. The attack can only be executed locally. The attack's complexity is rated as high. The exploitability is described as difficult. The exploit has been published and may be used. The vendor was informed early via email. A separate report via bugbounty was rejected with the reason \"This is by design. The user is responsible for host security\".",
+      "published": "2026-02-25T18:23:42.810",
+      "cvss": 4.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3194"
     },
     {
-      "id": "CVE-2026-3192",
-      "summary": "A security vulnerability has been detected in Chia Blockchain 2.1.0. This issue affects the function _authenticate of the file rpc_server_base.py of the component RPC Credential Handler. The manipulation leads to improper authentication. The attack is possible to be carried out remotely. The attack is considered to have high complexity. The exploitability is assessed as difficult. The exploit has been disclosed publicly and may be used. The vendor was informed early via email. A separate report via bugbounty was rejected with the reason \"This is by design. The user is responsible for host security\".",
-      "published": "2026-02-25T17:25:42.713",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3192"
-    },
-    {
-      "id": "CVE-2026-3189",
-      "summary": "A weakness has been identified in feiyuchuixue sz-boot-parent up to 1.3.2-beta. This vulnerability affects unknown code of the file /api/admin/common/files/download. Executing a manipulation of the argument url can lead to server-side request forgery. The attack can be executed remotely. Attacks of this nature are highly complex. It is stated that the exploitability is difficult. Upgrading to version 1.3.3-beta is able to resolve this issue. This patch is called aefaabfd7527188bfba3c8c9eee17c316d094802. Upgrading the affected component is advised. The project was informed beforehand and acted very professional: \"We have added a URL protocol whitelist validation to the file download interface, allowing only http and https protocols.\"",
-      "published": "2026-02-25T17:25:42.470",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3189"
-    },
-    {
-      "id": "CVE-2026-27849",
-      "summary": "Due to missing neutralization of special elements, OS commands can be injected via the update functionality of a TLS-SRP connection, which is normally used for configuring devices inside the mesh network.\nThis issue affects MR9600: 1.0.4.205530; MX4200: 1.0.13.210200.",
-      "published": "2026-02-25T17:25:40.903",
+      "id": "CVE-2026-27850",
+      "summary": "Due to an improperly configured firewall rule, the router will accept any connection on the WAN port with the source port 5222, exposing all services which are normally only accessible through the local network.\nThis issue affects MR9600: 1.0.4.205530; MX4200: 1.0.13.210200.",
+      "published": "2026-02-25T18:23:41.350",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27849"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27850"
     },
     {
-      "id": "CVE-2026-27738",
-      "summary": "The Angular SSR is a server-rise rendering tool for Angular applications. An Open Redirect vulnerability exists in the internal URL processing logic in versions on the 19.x branch prior to 19.2.21, the 20.x branch prior to 20.3.17, and the 21.x branch prior to 21.1.5 and 21.2.0-rc.1. The logic normalizes URL segments by stripping leading slashes; however, it only removes a single leading slash. When an Angular SSR application is deployed behind a proxy that passes the `X-Forwarded-Prefix` header, an attacker can provide a value starting with three slashes. This vulnerability allows attackers to conduct large-scale phishing and SEO hijacking. In order to be vulnerable, the application must use Angular SSR, the application must have routes that perform internal redirects, the infrastructure (Reverse Proxy/CDN) must pass the `X-Forwarded-Prefix` header to the SSR process without sanitization, and the cache must not vary on the `X-Forwarded-Prefix` header. Versions 21.2.0-rc.1, 21.1.5, 20.3.17, and 19.2.21 contain a patch. Until the patch is applied, developers should sanitize the `X-Forwarded-Prefix` header in their`server.ts` before the Angular engine processes the request.",
-      "published": "2026-02-25T17:25:40.463",
+      "id": "CVE-2026-27795",
+      "summary": "LangChain is a framework for building LLM-powered applications. Prior to version 1.1.8, a redirect-based Server-Side Request Forgery (SSRF) bypass exists in `RecursiveUrlLoader` in `@langchain/community`. The loader validates the initial URL but allows the underlying fetch to follow redirects automatically, which permits a transition from a safe public URL to an internal or metadata endpoint without revalidation. This is a bypass of the SSRF protections introduced in 1.1.14 (CVE-2026-26019). Users should upgrade to `@langchain/community` 1.1.18, which validates every redirect hop by disabling automatic redirects and re-validating `Location` targets before following them. In this version, automatic redirects are disabled (`redirect: \"manual\"`), each 3xx `Location` is resolved and validated with `validateSafeUrl()` before the next request, and a maximum redirect limit prevents infinite loops.",
+      "published": "2026-02-25T18:23:41.153",
+      "cvss": 4.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27795"
+    },
+    {
+      "id": "CVE-2026-27794",
+      "summary": "LangGraph Checkpoint defines the base interface for LangGraph checkpointers. Prior to version 4.0.0, a Remote Code Execution vulnerability exists in LangGraph's caching layer when applications enable cache backends that inherit from `BaseCache` and opt nodes into caching via `CachePolicy`. Prior to `langgraph-checkpoint` 4.0.0, `BaseCache` defaults to `JsonPlusSerializer(pickle_fallback=True)`. When msgpack serialization fails, cached values can be deserialized via `pickle.loads(...)`. Caching is not enabled by default. Applications are affected only when the application explicitly enables a cache backend (for example by passing `cache=...` to `StateGraph.compile(...)` or otherwise configuring a `BaseCache` implementation), one or more nodes opt into caching via `CachePolicy`, and the attacker can write to the cache backend (for example a network-accessible Redis instance with weak/no auth, shared cache infrastructure reachable by other tenants/services, or a writable SQLite cache file). An attacker must be able to write attacker-controlled bytes into the cache backend such that the LangGraph process later reads and deserializes them. This typically requires write access to a networked cache (for example a network-accessible Redis instance with weak/no auth or shared cache infrastructure reachable by other tenants/services) or write access to local cache storage (for example a writable SQLite cache file via permissive file permissions or a shared writable volume). Because exploitation requires write access to the cache storage layer, this is a post-compromise / post-access escalation vector. LangGraph Checkpoint 4.0.0 patches the issue.",
+      "published": "2026-02-25T18:23:40.980",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27794"
+    },
+    {
+      "id": "CVE-2026-27739",
+      "summary": "The Angular SSR is a server-rise rendering tool for Angular applications. Versions prior to 21.2.0-rc.1, 21.1.5, 20.3.17, and 19.2.21 have a Server-Side Request Forgery (SSRF) vulnerability in the Angular SSR request handling pipeline. The vulnerability exists because Angular\u2019s internal URL reconstruction logic directly trusts and consumes user-controlled HTTP headers specifically the Host and `X-Forwarded-*` family to determine the application's base origin without any validation of the destination domain. Specifically, the framework didn't have checks for the host domain, path and character sanitization, and port validation. This vulnerability manifests in two primary ways: implicit relative URL resolution and explicit manual construction. When successfully exploited, this vulnerability allows for arbitrary internal request steering. This can lead to credential exfiltration, internal network probing, and a confidentiality breach. In order to be vulnerable, the victim application must use Angular SSR (Server-Side Rendering), the application must perform `HttpClient` requests using relative URLs OR manually construct URLs using the unvalidated `Host` / `X-Forwarded-*` headers using the `REQUEST` object, the application server must be reachable by an attacker who can influence these headers without strict validation from a front-facing proxy, and the infrastructure (Cloud, CDN, or Load Balancer) must not sanitize or validate incoming headers. Versions 21.2.0-rc.1, 21.1.5, 20.3.17, and 19.2.21 contain a patch. Some workarounds are available. Avoid using `req.headers` for URL construction. Instead, use trusted variables for base API paths. Those who cannot upgrade immediately should implement a middleware in their `server.ts` to enforce numeric ports and validated hostnames.",
+      "published": "2026-02-25T18:23:40.800",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27738"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27739"
     },
     {
-      "id": "CVE-2026-27736",
-      "summary": "BigBlueButton is an open-source virtual classroom. In versions on the 3.x branch prior to 3.0.20, the string received with errorRedirectUrl lacks validation, using it directly in the respondWithRedirect function leads to an Open Redirect vulnerability. BigBlueButton 3.0.20 patches the issue. No known workarounds are available.",
-      "published": "2026-02-25T17:25:40.283",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27736"
+      "id": "CVE-2026-25554",
+      "summary": "OpenSIPS versions 3.1 before 3.6.4 containing the auth_jwt module (prior to commit 3822d33) contain a SQL injection vulnerability in the jwt_db_authorize() function in modules/auth_jwt/authorize.c when db_mode is enabled and a SQL database backend is used. The function extracts the tag claim from a JWT without prior signature verification and incorporates the unescaped value directly into a SQL query. An attacker can supply a crafted JWT with a malicious tag claim to manipulate the query result and bypass JWT authentication, allowing impersonation of arbitrary identities.",
+      "published": "2026-02-25T18:23:40.617",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25554"
     }
   ]
 }
