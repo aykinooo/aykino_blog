@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-25T11:52:13+00:00",
+  "generated_at": "2026-02-25T13:42:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2624",
+      "summary": "Missing Authentication for Critical Function vulnerability in ePati Cyber \u200b\u200bSecurity Technologies Inc. Antikor Next Generation Firewall (NGFW) allows Authentication Bypass.This issue affects Antikor Next Generation Firewall (NGFW): from v.2.0.1298 before v.2.0.1301.",
+      "published": "2026-02-25T13:16:05.373",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2624"
+    },
+    {
+      "id": "CVE-2026-21725",
+      "summary": "A time-of-create-to-time-of-use (TOCTOU) vulnerability lets recently deleted-then-recreated data sources be re-deleted without permission to do so.\n\nThis requires several very stringent conditions to be met:\n\n- The attacker must have admin access to the specific datasource prior to its first deletion.\n- Upon deletion, all steps within the attack must happen within the next 30 seconds and on the same pod of Grafana.\n- The attacker must delete the datasource, then someone must recreate it.\n- The new datasource must not have the attacker as an admin.\n- The new datasource must have the same UID as the prior datasource. These are randomised by default.\n- The datasource can now be re-deleted by the attacker.\n- Once 30 seconds are up, the attack is spent and cannot be repeated.\n- No datasource with any other UID can be attacked.",
+      "published": "2026-02-25T13:16:05.240",
+      "cvss": 2.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21725"
+    },
+    {
+      "id": "CVE-2026-0704",
+      "summary": "In affected version of Octopus Deploy it was possible to remove files and/or contents of files on the host using an API endpoint. The field lacked validation which could potentially result in ways to circumvent expected workflows.",
+      "published": "2026-02-25T13:16:04.337",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0704"
+    },
+    {
+      "id": "CVE-2026-3118",
+      "summary": "A security flaw was identified in the Orchestrator Plugin of Red Hat Developer Hub (Backstage). The issue occurs due to insufficient input validation in GraphQL query handling. An authenticated user can inject specially crafted input into API requests, which disrupts backend query processing. This results in the entire Backstage application crashing and restarting, leading to a platform-wide Denial of Service (DoS). As a result, legitimate users temporarily lose access to the platform.",
+      "published": "2026-02-25T12:16:17.957",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3118"
+    },
+    {
+      "id": "CVE-2026-25701",
+      "summary": "An Insecure Temporary File vulnerability in openSUSE sdbootutil allows local users to\u00a0pre-create a directory to achieve various effects like:\n  *  gain access to possible private information found in /var/lib/pcrlock.d\n  *  manipulate the data backed up in /tmp/pcrlock.d.bak, therefore violating the integrity of the data should it be restored.\n  *  \u00a0overwrite protected system files with data from /var/lib/pcrlock.d by placing symlinks to existing files in the directory tree in /tmp/pcrlock.d.bak.\n\n\nThis issue affects sdbootutil: from ? before 5880246d3a02642dc68f5c8cb474bf63cdb56bca.",
+      "published": "2026-02-25T12:16:17.763",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25701"
+    },
     {
       "id": "CVE-2026-26104",
       "summary": "A flaw was found in the udisks storage management daemon that allows unprivileged users to back up LUKS encryption headers without authorization. The issue occurs because a privileged D-Bus method responsible for exporting encryption metadata does not perform a policy check. As a result, sensitive cryptographic metadata can be read and written to attacker-controlled locations. This weakens the confidentiality guarantees of encrypted storage volumes.",
       "published": "2026-02-25T11:16:03.193",
       "cvss": 5.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26104"
-    },
-    {
-      "id": "CVE-2026-26103",
-      "summary": "A flaw was found in the udisks storage management daemon that exposes a privileged D-Bus API for restoring LUKS encryption headers without proper authorization checks. The issue allows a local unprivileged user to instruct the root-owned udisks daemon to overwrite encryption metadata on block devices. This can permanently invalidate encryption keys and render encrypted volumes inaccessible. Successful exploitation results in a denial-of-service condition through irreversible data loss.",
-      "published": "2026-02-25T11:16:02.983",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26103"
-    },
-    {
-      "id": "CVE-2025-67860",
-      "summary": "A vulnerability has been identified in the NeuVector scanner where the scanner process accepts registry and controller credentials as command-line arguments, potentially exposing sensitive credentials to local users.",
-      "published": "2026-02-25T11:16:02.820",
-      "cvss": 3.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67860"
-    },
-    {
-      "id": "CVE-2025-67601",
-      "summary": "A vulnerability has been identified within Rancher Manager, where using self-signed CA certificates and passing the -skip-verify\u00a0flag to the Rancher CLI login command without also passing the \u2013cacert\u00a0flag results in the CLI attempting to fetch CA certificates stored in Rancher\u2019s setting cacerts.",
-      "published": "2026-02-25T11:16:02.643",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67601"
-    },
-    {
-      "id": "CVE-2025-62878",
-      "summary": "A malicious user can manipulate the parameters.pathPattern\u00a0to create PersistentVolumes in arbitrary locations on the host node, potentially overwriting sensitive files or gaining access to unintended directories.",
-      "published": "2026-02-25T11:16:01.747",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62878"
-    },
-    {
-      "id": "CVE-2026-2410",
-      "summary": "The Disable Admin Notices \u2013 Hide Dashboard Notifications plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.4.2. This is due to missing nonce validation in the `showPageContent()` function. This makes it possible for unauthenticated attackers to add arbitrary URLs to the blocked redirects list via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-02-25T10:16:18.697",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2410"
     }
   ]
 }
