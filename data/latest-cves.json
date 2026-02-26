@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-26T19:52:38+00:00",
+  "generated_at": "2026-02-26T20:54:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-26938",
-      "summary": "Improper Neutralization of Special Elements Used in a Template Engine (CWE-1336) exists in Workflows in Kibana which could allow an attacker to read arbitrary files from the Kibana server filesystem, and perform Server-Side Request Forgery (SSRF) via Code Injection (CAPEC-242). This requires an authenticated user who has the workflowsManagement:executeWorkflow privilege.",
-      "published": "2026-02-26T19:32:39.903",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26938"
+      "id": "CVE-2026-27510",
+      "summary": "Unitree Go2 firmware versions 1.1.7 through 1.1.11, when used with the Unitree Go2 Android application (com.unitree.doggo2), are vulnerable to remote code execution due to missing integrity protection and validation of user-created programmes. The Android application stores programs in a local SQLite database (unitree_go2.db, table dog_programme) and transmits the programme_text content, including the pyCode field, to the robot. The robot's actuator_manager.py executes the supplied Python as root without integrity verification or content validation. An attacker with local access to the Android device can tamper with the stored programme record to inject arbitrary Python that executes when the user triggers the program via a controller keybinding, and the malicious binding persists across reboots. Additionally, a malicious program shared through the application's community marketplace can result in arbitrary code execution on any robot that imports and runs it.",
+      "published": "2026-02-26T20:31:38.663",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27510"
     },
     {
-      "id": "CVE-2026-26937",
-      "summary": "Uncontrolled Resource Consumption (CWE-400) in the Timelion component in Kibana can lead Denial of Service via Input Data Manipulation (CAPEC-153)",
-      "published": "2026-02-26T19:32:39.747",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26937"
+      "id": "CVE-2026-27509",
+      "summary": "Unitree Go2 firmware versions V1.1.7 through V1.1.9 and V1.1.11 (EDU) do not implement DDS authentication or authorization for the Eclipse CycloneDDS topic rt/api/programming_actuator/request handled by actuator_manager.py. A network-adjacent, unauthenticated attacker can join DDS domain 0 and publish a crafted message (api_id=1002) containing arbitrary Python, which the robot writes to disk under /unitree/etc/programming/ and binds to a physical controller keybinding. When the keybinding is pressed, the code executes as root and the binding persists across reboots.",
+      "published": "2026-02-26T20:31:38.447",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27509"
     },
     {
-      "id": "CVE-2026-22722",
-      "summary": "A malicious actor with authenticated user privileges on a Windows based Workstation host may be able to cause a null pointer dereference error. To Remediate CVE-2026-22722, apply the patches listed in the \"Fixed version\" column of the 'Response Matrix'",
-      "published": "2026-02-26T19:32:38.057",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22722"
+      "id": "CVE-2026-27141",
+      "summary": "Due to missing nil check, sending 0x0a-0x0f HTTP/2 frames will cause a running server to panic",
+      "published": "2026-02-26T20:31:38.017",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27141"
     },
     {
-      "id": "CVE-2026-22715",
-      "summary": "VMWare Workstation and Fusion contain a logic flaw in the management of network packets.\u00a0\n\nKnown attack vectors: A malicious actor with administrative privileges on a Guest VM may be able to interrupt or intercept network connections of other Guest VM's.\u00a0\n\nResolution: To remediate CVE-2026-22715 please upgrade to VMware Workstation or Fusion Version 25H2U1",
-      "published": "2026-02-26T19:32:37.893",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22715"
+      "id": "CVE-2026-26979",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, TL4 users are able to close, archive and pin topics in private categories they don't have access to. Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
+      "published": "2026-02-26T20:31:37.833",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26979"
     },
     {
-      "id": "CVE-2026-26936",
-      "summary": "Inefficient Regular Expression Complexity (CWE-1333) in the AI Inference Anonymization Engine in Kibana can lead Denial of Service via Regular Expression Exponential Blowup (CAPEC-492).",
-      "published": "2026-02-26T18:23:07.973",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26936"
+      "id": "CVE-2026-26973",
+      "summary": "Discourse is an open source discussion platform. Versions prior to 2025.12.2, 2026.1.1, and 2026.2.0 have an IDOR (Insecure Direct Object Reference) in `ReviewableNotesController`. When `enable_category_group_moderation` is enabled, a user belonging to a  category moderation group can create or delete their own notes on **any** reviewable in the system, including reviewables in categories they do not moderate. The controller used an unscoped `Reviewable.find` and the `ensure_can_see` guard only checked whether the user could access the review queue in general, not whether they could access the specific reviewable. Only instances with `enable_category_group_moderation` enabled are affected. Staff users (admins/moderators) are not impacted as they already have access to all reviewables. The issue is patched in versions 2025.12.2, 2026.1.1, and 2026.2.0 by scoping the reviewable lookup through `Reviewable.viewable_by(current_user)`. As a workaround, disable the `enable_category_group_moderation` site setting. This removes the attack surface as only staff users will have access to the review queue.",
+      "published": "2026-02-26T20:31:37.327",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26973"
     },
     {
-      "id": "CVE-2026-26935",
-      "summary": "Improper Input Validation (CWE-20) in the internal Content Connectors search endpoint in Kibana can lead Denial of Service via Input Data Manipulation (CAPEC-153)",
-      "published": "2026-02-26T18:23:07.817",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26935"
+      "id": "CVE-2026-23939",
+      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in hexpm hexpm/hexpm ('Elixir.Hexpm.Store.Local' module) allows Relative Path Traversal. This vulnerability is associated with program files lib/hexpm/store/local.ex and program routines 'Elixir.Hexpm.Store.Local':get/3, 'Elixir.Hexpm.Store.Local':put/4, 'Elixir.Hexpm.Store.Local':delete/2, 'Elixir.Hexpm.Store.Local':delete_many/2.\n\nThis issue does NOT affect hex.pm the service. Only self-hosted deployments using the Local Storage backend are affected.\n\nThis issue affects hexpm: from 931ee0ed46fa89218e0400a4f6e6d15f96406050 before 5d2ccd2f14f45a63225a73fb5b1c937baf36fdc0.",
+      "published": "2026-02-26T20:31:35.763",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23939"
     }
   ]
 }
