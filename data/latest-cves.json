@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-26T16:05:57+00:00",
+  "generated_at": "2026-02-26T17:16:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3071",
-      "summary": "Deserialization of untrusted data in the LanguageModel class of Flair from versions 0.4.1 to latest are vulnerable to arbitrary code execution when loading a malicious model.",
-      "published": "2026-02-26T15:17:48.803",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3071"
+      "id": "CVE-2026-28296",
+      "summary": "A flaw was found in the FTP GVfs backend. A remote attacker could exploit this input validation vulnerability by supplying specially crafted file paths containing carriage return and line feed (CRLF) sequences. These unsanitized sequences allow the attacker to terminate intended FTP commands and inject arbitrary FTP commands, potentially leading to arbitrary code execution or other severe impacts.",
+      "published": "2026-02-26T16:24:09.580",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28296"
     },
     {
-      "id": "CVE-2026-2244",
-      "summary": "A vulnerability in Google Cloud Vertex AI Workbench from\u00a07/21/2025 to 01/30/2026 allows an attacker to exfiltrate valid Google Cloud access tokens of other users via abuse of a built-in startup script.\n\nAll instances after January 30th, 2026 have been patched to protect from this vulnerability.\u00a0No user action is required for this.",
-      "published": "2026-02-26T15:17:45.250",
+      "id": "CVE-2026-28295",
+      "summary": "A flaw was found in the FTP GVfs backend. A malicious FTP server can exploit this vulnerability by providing an arbitrary IP address and port in its passive mode (PASV) response. The client unconditionally trusts this information and attempts to connect to the specified endpoint, allowing the malicious server to probe for open ports accessible from the client's network.",
+      "published": "2026-02-26T16:24:09.370",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28295"
+    },
+    {
+      "id": "CVE-2026-26265",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, an IDOR vulnerability in the directory items endpoint allows any user, including anonymous users, to retrieve private user field values for all users in the directory. The `user_field_ids` parameter in `DirectoryItemsController#index` accepts arbitrary user field IDs without authorization checks, bypassing the visibility restrictions (`show_on_profile` / `show_on_user_card`) that are enforced elsewhere (e.g., `UserCardSerializer` via `Guardian#allowed_user_field_ids`). An attacker can request `GET /directory_items.json?period=all&user_field_ids=<id>` with any private field ID and receive that field's value for every user in the directory response. This enables bulk exfiltration of private user data such as phone numbers, addresses, or other sensitive custom fields that admins have explicitly configured as non-public. The issue is patched in versions 2025.12.2, 2026.1.1, and 2026.2.0 by filtering `user_field_ids` against `UserField.public_fields` for non-staff users before building the custom field map. As a workaround, site administrators can remove sensitive data from private user fields, or disable the user directory via the `enable_user_directory` site setting.",
+      "published": "2026-02-26T16:24:07.543",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26265"
+    },
+    {
+      "id": "CVE-2026-26228",
+      "summary": "VideoLAN VLC for Android prior to version 3.7.0 contains a path traversal vulnerability in the Remote Access Server routing for the authenticated endpoint GET /download. The file query parameter is concatenated into a filesystem path under the configured download directory without canonicalization or directory containment checks, allowing an authenticated attacker with network reachability to the Remote Access Server to request files outside the intended directory. The impact is bounded by the Android application sandbox and storage restrictions, typically limiting exposure to app-internal and app-specific external storage.",
+      "published": "2026-02-26T16:24:07.343",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2244"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26228"
     },
     {
-      "id": "CVE-2026-26077",
-      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, several webhook endpoints (SendGrid, Mailjet, Mandrill, Postmark, SparkPost) in the `WebhooksController` accepted requests without a valid authentication token when no token was configured. This allowed unauthenticated attackers to forge webhook payloads and artificially inflate user bounce scores, potentially causing legitimate user emails to be disabled. The Mailpace endpoint had no token validation at all. Starting in versions 2025.12.2, 2026.1.1, and 2026.2.0, all webhook endpoints reject requests with a 406 response when no authentication token is configured. As a workaround, ensure that webhook authentication tokens are configured for all email provider integrations in site settings (e.g., `sendgrid_verification_key`, `mailjet_webhook_token`, `postmark_webhook_token`, `sparkpost_webhook_token`). There's no current workaround for mailpace before getting this fix.",
-      "published": "2026-02-26T15:17:36.653",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26077"
+      "id": "CVE-2026-26207",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, `discourse-policy` plugin allows any authenticated user to interact with policies on posts they do not have permission to view. The `PolicyController` loads posts by ID without verifying the current user's access, enabling policy group members to accept/unaccept policies on posts in private categories or PMs they cannot see and any authenticated user to enumerate which post IDs have policies attached via differentiated error responses (information disclosure). The issue is patched in versions 2025.12.2, 2026.1.1, and 2026.2.0 by adding a `guardian.can_see?(@post)` check in the `set_post` before_action, ensuring post visibility is verified before any policy action is processed. As a workaround, disabling the discourse-policy plugin (`policy_enabled = false`) eliminates the vulnerability. There is no other workaround without upgrading.",
+      "published": "2026-02-26T16:24:07.163",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26207"
     },
     {
-      "id": "CVE-2026-2680",
-      "summary": "Reflected Cross-Site Scripting (XSS) on the A3factura web platform, in parameter 'customerVATNumber', in 'a3factura-app.wolterskluwer.es/#/incomes/salesDeliveryNotes' endpoint,\u00a0which could allow an attacker to execute arbitrary code in the victim's browser.",
-      "published": "2026-02-26T13:16:17.253",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2680"
-    },
-    {
-      "id": "CVE-2026-2679",
-      "summary": "Reflected Cross-Site Scripting (XSS) on the A3factura web platform, in parameter 'customerName', in 'a3factura-app.wolterskluwer.es/#/incomes/salesInvoices' endpoint,\u00a0which could allow an attacker to execute arbitrary code in the victim's browser.",
-      "published": "2026-02-26T13:16:17.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2679"
-    },
-    {
-      "id": "CVE-2026-2678",
-      "summary": "Reflected Cross-Site Scripting (XSS) on the A3factura web platform, in\u00a0parameter 'name', parameter 'name', in 'a3factura-app.wolterskluwer.es/#/incomes/customers' endpoint,\u00a0which could allow an attacker to execute arbitrary code in the victim's browser.",
-      "published": "2026-02-26T13:16:16.917",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2678"
+      "id": "CVE-2026-26078",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, when the `patreon_webhook_secret` site setting is blank, an attacker can forge valid webhook signatures by computing an HMAC-MD5 with an empty string as the key. Since the request body is known to the sender, the attacker can produce a matching signature and send arbitrary webhook payloads. This allows unauthorized creation, modification, or deletion of Patreon pledge data and triggering patron-to-group synchronization. This vulnerability is patched in versions 2025.12.2, 2026.1.1, and 2026.2.0. The fix rejects webhook requests when the webhook secret is not configured, preventing signature forgery with an empty key. As a workaround, configure the `patreon_webhook_secret` site setting with a strong, non-empty secret value. When the secret is non-empty, an attacker cannot forge valid signatures without knowing the secret.",
+      "published": "2026-02-26T16:24:06.997",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26078"
     }
   ]
 }
