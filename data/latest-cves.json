@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-02-26T05:00:54+00:00",
+  "generated_at": "2026-02-26T06:10:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-1311",
+      "summary": "The Worry Proof Backup plugin for WordPress is vulnerable to Path Traversal in all versions up to, and including, 0.2.4 via the backup upload functionality. This makes it possible for authenticated attackers, with Subscriber-level access and above, to upload a malicious ZIP archive with path traversal sequences to write arbitrary files anywhere on the server, including executable PHP files. This can lead to remote code execution.",
+      "published": "2026-02-26T05:17:41.933",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1311"
+    },
     {
       "id": "CVE-2026-2356",
       "summary": "The User Registration & Membership \u2013 Custom Registration Form, Login Form, and User Profile plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 5.1.2 via the 'register_member' function, due to missing validation on the 'member_id' user controlled key. This makes it possible for unauthenticated attackers to delete arbitrary user accounts that newly registered on the site who has the 'urm_user_just_created' user meta set.",
@@ -36,13 +43,6 @@
       "published": "2026-02-26T03:16:04.520",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27465"
-    },
-    {
-      "id": "CVE-2026-25963",
-      "summary": "Fleet is open source device management software. In versions prior to 4.80.1, a broken authorization check in Fleet\u2019s certificate template deletion API could allow a team administrator to delete certificate templates belonging to other teams within the same Fleet instance. Fleet supports certificate templates that are scoped to individual teams. In affected versions, the batch deletion endpoint validated authorization using a user-supplied team identifier but did not verify that the certificate template IDs being deleted actually belonged to that team. As a result, a team administrator could delete certificate templates associated with other teams, potentially disrupting certificate-based workflows such as device enrollment, Wi-Fi authentication, VPN access, or other certificate-dependent configurations for the affected teams. This issue does not allow privilege escalation, access to sensitive data, or compromise of Fleet\u2019s control plane. Impact is limited to integrity and availability of certificate templates across teams. Version 4.80.1 patches the issue. If an immediate upgrade is not possible, administrators should restrict access to certificate template management to trusted users and avoid delegating team administrator permissions where not strictly required.",
-      "published": "2026-02-26T03:16:04.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25963"
     }
   ]
 }
