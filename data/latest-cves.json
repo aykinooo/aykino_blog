@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-26T20:54:31+00:00",
+  "generated_at": "2026-02-26T21:46:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-27510",
-      "summary": "Unitree Go2 firmware versions 1.1.7 through 1.1.11, when used with the Unitree Go2 Android application (com.unitree.doggo2), are vulnerable to remote code execution due to missing integrity protection and validation of user-created programmes. The Android application stores programs in a local SQLite database (unitree_go2.db, table dog_programme) and transmits the programme_text content, including the pyCode field, to the robot. The robot's actuator_manager.py executes the supplied Python as root without integrity verification or content validation. An attacker with local access to the Android device can tamper with the stored programme record to inject arbitrary Python that executes when the user triggers the program via a controller keybinding, and the malicious binding persists across reboots. Additionally, a malicious program shared through the application's community marketplace can result in arbitrary code execution on any robot that imports and runs it.",
-      "published": "2026-02-26T20:31:38.663",
+      "id": "CVE-2026-27162",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, `posts_nearby` was checking topic access but then returning all posts regardless of type, including whispers that should only be visible to whisperers. Use `Post.secured(guardian)` to properly filter post types based on user permissions. Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
+      "published": "2026-02-26T21:28:54.800",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27510"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27162"
     },
     {
-      "id": "CVE-2026-27509",
-      "summary": "Unitree Go2 firmware versions V1.1.7 through V1.1.9 and V1.1.11 (EDU) do not implement DDS authentication or authorization for the Eclipse CycloneDDS topic rt/api/programming_actuator/request handled by actuator_manager.py. A network-adjacent, unauthenticated attacker can join DDS domain 0 and publish a crafted message (api_id=1002) containing arbitrary Python, which the robot writes to disk under /unitree/etc/programming/ and binds to a physical controller keybinding. When the keybinding is pressed, the code executes as root and the binding persists across reboots.",
-      "published": "2026-02-26T20:31:38.447",
+      "id": "CVE-2026-27152",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, DM communication-preference bypass when adding members via `Chat::AddUsersToChannel` \u2014 a user could add targets who have blocked/ignored/muted them to an existing DM channel, bypassing per-recipient PM restrictions that are enforced during DM channel creation. Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
+      "published": "2026-02-26T21:28:54.650",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27509"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27152"
     },
     {
-      "id": "CVE-2026-27141",
-      "summary": "Due to missing nil check, sending 0x0a-0x0f HTTP/2 frames will cause a running server to panic",
-      "published": "2026-02-26T20:31:38.017",
+      "id": "CVE-2026-27151",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, the `move_posts` action only checked `can_move_posts?` on the source topic but never validated write permissions on the destination topic. This allowed TL4 users and category group moderators to move posts into topics in categories where they lack posting privileges (e.g., read-only categories or categories with group-restricted write access). Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
+      "published": "2026-02-26T21:28:54.493",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27141"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27151"
     },
     {
-      "id": "CVE-2026-26979",
-      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, TL4 users are able to close, archive and pin topics in private categories they don't have access to. Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
-      "published": "2026-02-26T20:31:37.833",
+      "id": "CVE-2026-27150",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, missing `validate_before_create` authorization in Data Explorer's `QueryGroupBookmarkable` allows any logged-in user to create bookmarks for query groups they don't have access to, enabling metadata disclosure via bookmark reminder notifications. Versions 2025.12.2, 2026.1.1, and 2026.2.0 fix this issue and also make sure `validate_before_create` throws NotImplementedError in BaseBookmarkable if not implemented, to prevent similar issues in the future. No known workarounds are available.",
+      "published": "2026-02-26T21:28:54.343",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26979"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27150"
     },
     {
-      "id": "CVE-2026-26973",
-      "summary": "Discourse is an open source discussion platform. Versions prior to 2025.12.2, 2026.1.1, and 2026.2.0 have an IDOR (Insecure Direct Object Reference) in `ReviewableNotesController`. When `enable_category_group_moderation` is enabled, a user belonging to a  category moderation group can create or delete their own notes on **any** reviewable in the system, including reviewables in categories they do not moderate. The controller used an unscoped `Reviewable.find` and the `ensure_can_see` guard only checked whether the user could access the review queue in general, not whether they could access the specific reviewable. Only instances with `enable_category_group_moderation` enabled are affected. Staff users (admins/moderators) are not impacted as they already have access to all reviewables. The issue is patched in versions 2025.12.2, 2026.1.1, and 2026.2.0 by scoping the reviewable lookup through `Reviewable.viewable_by(current_user)`. As a workaround, disable the `enable_category_group_moderation` site setting. This removes the attack surface as only staff users will have access to the review queue.",
-      "published": "2026-02-26T20:31:37.327",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26973"
+      "id": "CVE-2026-27149",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, SQL injection in PM tag filtering (`list_private_messages_tag`) allows bypassing tag filter conditions, potentially disclosing unauthorized private message metadata. Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
+      "published": "2026-02-26T21:28:54.193",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27149"
     },
     {
-      "id": "CVE-2026-23939",
-      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in hexpm hexpm/hexpm ('Elixir.Hexpm.Store.Local' module) allows Relative Path Traversal. This vulnerability is associated with program files lib/hexpm/store/local.ex and program routines 'Elixir.Hexpm.Store.Local':get/3, 'Elixir.Hexpm.Store.Local':put/4, 'Elixir.Hexpm.Store.Local':delete/2, 'Elixir.Hexpm.Store.Local':delete_many/2.\n\nThis issue does NOT affect hex.pm the service. Only self-hosted deployments using the Local Storage backend are affected.\n\nThis issue affects hexpm: from 931ee0ed46fa89218e0400a4f6e6d15f96406050 before 5d2ccd2f14f45a63225a73fb5b1c937baf36fdc0.",
-      "published": "2026-02-26T20:31:35.763",
+      "id": "CVE-2026-27021",
+      "summary": "Discourse is an open source discussion platform. Prior to versions 2025.12.2, 2026.1.1, and 2026.2.0, the voters endpoint in the poll plugin lacked post visibility checks which allowed unauthorized access to voters details of polls in any post. Versions 2025.12.2, 2026.1.1, and 2026.2.0 patch the issue. No known workarounds are available.",
+      "published": "2026-02-26T21:28:53.927",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23939"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27021"
     }
   ]
 }
