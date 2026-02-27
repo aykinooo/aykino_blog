@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-27T21:42:52+00:00",
+  "generated_at": "2026-02-27T22:42:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-28355",
-      "summary": "Canarytokens help track activity and actions on a network. Versions prior to `sha-7ff0e12` have a Self Cross-Site Scripting vulnerability in the \"PWA\" Canarytoken, whereby the Canarytoken's creator can attack themselves or someone they share the link with. The creator of a PWA Canarytoken can insert Javascript into the title field of their PWA token. When the creator later browses the installation page for their own Canarytoken, the Javascript executes. This is a self-XSS. An attacker could create a Canarytoken with this self-XSS, and send the install link to a victim. When they click on it, the Javascript would execute. However, no sensitive information (ex. session information) will be disclosed to the malicious actor. This issue is now patched on Canarytokens.org. Users of self-hosted Canarytokens installations can update by pulling the latest Docker image, or any Docker image after sha-7ff0e12.",
-      "published": "2026-02-27T21:16:19.563",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28355"
+      "id": "CVE-2026-28422",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0078, a stack-buffer-overflow occurs in `build_stl_str_hl()` when rendering a statusline with a multi-byte fill character on a very wide terminal. Version 9.2.0078 patches the issue.",
+      "published": "2026-02-27T22:16:25.667",
+      "cvss": 2.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28422"
     },
     {
-      "id": "CVE-2026-28352",
-      "summary": "Indico is an event management system that uses Flask-Multipass, a multi-backend authentication system for Flask. In versions prior to 3.3.11, the API endpoint used to manage event series is missing an access check, allowing unauthenticated/unauthorized access to this endpoint. The impact of this is limited to getting the metadata (title, category chain, start/end date) for events in an existing series, deleting an existing event series, and modifying an existing event series. This vulnerability does NOT allow unauthorized access to events (beyond the basic metadata mentioned above), nor any kind of tampering with user-visible data in events. Version 3.3.11 fixes the issue. As a workaround, use the webserver to restrict access to the series management API endpoint.",
-      "published": "2026-02-27T21:16:19.323",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28352"
+      "id": "CVE-2026-28421",
+      "summary": "Vim is an open source, command line text editor. Versions prior to 9.2.0077 have a heap-buffer-overflow and a segmentation fault (SEGV) exist in Vim's swap file recovery logic. Both are caused by unvalidated fields read from crafted pointer blocks within a swap file. Version 9.2.0077 fixes the issue.",
+      "published": "2026-02-27T22:16:25.493",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28421"
     },
     {
-      "id": "CVE-2026-28351",
-      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to version 6.7.4, an attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing the content stream using the RunLengthDecode filter. This has been fixed in pypdf 6.7.4. As a workaround, consider applying the changes from PR #3664.",
-      "published": "2026-02-27T21:16:19.177",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28351"
+      "id": "CVE-2026-28420",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0076, a heap-based buffer overflow WRITE and an out-of-bounds READ exist in Vim's terminal emulator when processing maximum combining characters from Unicode supplementary planes. Version 9.2.0076 fixes the issue.",
+      "published": "2026-02-27T22:16:25.330",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28420"
     },
     {
-      "id": "CVE-2026-28338",
-      "summary": "PMD is an extensible multilanguage static code analyzer. Prior to version 7.22.0, PMD's `vbhtml` and `yahtml` report formats insert rule violation messages into HTML output without escaping. When PMD analyzes untrusted source code containing crafted string literals, the generated HTML report contains executable JavaScript that runs when opened in a browser. Practical impact is limited because `vbhtml` and `yahtml` are legacy formats rarely used in practice. The default `html` format is properly escaped and not affected. Version 7.22.0 contains a fix for the issue.",
-      "published": "2026-02-27T21:16:19.017",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28338"
+      "id": "CVE-2026-28419",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0075, a heap-based buffer underflow exists in Vim's Emacs-style tags file parsing logic. When processing a malformed tags file where a delimiter appears at the start of a line, Vim attempts to read memory immediately preceding the allocated buffer. Version 9.2.0075 fixes the issue.",
+      "published": "2026-02-27T22:16:25.163",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28419"
     },
     {
-      "id": "CVE-2026-28288",
-      "summary": "Dify is an open-source LLM app development platform. Prior to 1.9.0, responses from the Dify API to existing and non-existent accounts differ, allowing an attacker to enumerate email addresses registered with Dify. Version 1.9.0 fixes the issue.",
-      "published": "2026-02-27T21:16:18.853",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28288"
+      "id": "CVE-2026-28418",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0074, a heap-based buffer overflow out-of-bounds read exists in Vim's Emacs-style tags file parsing logic. When processing a malformed tags file, Vim can be tricked into reading up to 7 bytes beyond the allocated memory boundary. Version 9.2.0074 fixes the issue.",
+      "published": "2026-02-27T22:16:25.003",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28418"
     },
     {
-      "id": "CVE-2026-28272",
-      "summary": "Kiteworks is a private data network (PDN). Prior to version 9.2.0, a vulnerability in Kiteworks Email Protection Gateway allows authenticated administrators to inject malicious scripts through a configuration interface. The stored script executes when users interact with the affected user interface. Version 9.2.0 contains a patch for the issue.",
-      "published": "2026-02-27T21:16:18.703",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28272"
+      "id": "CVE-2026-28417",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0073, an OS command injection vulnerability exists in the `netrw` standard plugin bundled with Vim. By inducing a user to open a crafted URL (e.g., using the `scp://` protocol handler), an attacker can execute arbitrary shell commands with the privileges of the Vim process. Version 9.2.0073 fixes the issue.",
+      "published": "2026-02-27T22:16:24.833",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28417"
     }
   ]
 }
