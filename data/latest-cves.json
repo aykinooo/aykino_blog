@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-27T19:02:05+00:00",
+  "generated_at": "2026-02-27T19:46:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-27753",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain an authentication bypass vulnerability that allows remote attackers to perform unlimited login attempts against the management interface. Attackers can conduct online password guessing attacks without account lockout or rate limiting restrictions to gain unauthorized access to the device management interface.",
-      "published": "2026-02-27T18:16:13.303",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27753"
+      "id": "CVE-2026-2880",
+      "summary": "A vulnerability in @fastify/middie versions < 9.2.0 can result in authentication/authorization bypass when using path-scoped middleware (for example, app.use('/secret', auth)).\n\nWhen Fastify router normalization options are enabled (such as ignoreDuplicateSlashes, useSemicolonDelimiter, and related trailing-slash behavior), crafted request paths may bypass middleware checks while still being routed to protected handlers.",
+      "published": "2026-02-27T19:16:12.807",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2880"
     },
     {
-      "id": "CVE-2026-27752",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 transmit authentication credentials over unencrypted HTTP, allowing attackers to capture credentials. An attacker positioned to observe network traffic between a user and the device can intercept credentials and reuse them to gain administrative access to the gateway.",
-      "published": "2026-02-27T18:16:13.083",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27752"
+      "id": "CVE-2026-27758",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a cross-site request forgery vulnerability in its management interface that allows attackers to induce authenticated users into submitting forged requests. Attackers can craft malicious requests that execute unauthorized configuration or administrative actions with the victim's privileges when the authenticated user visits a malicious webpage.",
+      "published": "2026-02-27T19:16:10.183",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27758"
     },
     {
-      "id": "CVE-2026-27751",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a default credentials vulnerability that allows remote attackers to obtain administrative access to the management interface. Attackers can authenticate using the hardcoded default credentials without password change enforcement to gain full administrative control of the device.",
-      "published": "2026-02-27T18:16:12.897",
+      "id": "CVE-2026-27757",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain an authentication vulnerability that allows authenticated users to change account passwords without verifying the current password. Attackers who gain access to an authenticated session can modify credentials to maintain persistent access to the management interface.",
+      "published": "2026-02-27T19:16:09.990",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27757"
+    },
+    {
+      "id": "CVE-2026-27756",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a reflected cross-site scripting vulnerability in the management interface where user input is not properly encoded before output. Attackers can craft malicious URLs that execute arbitrary JavaScript in the web interface when visited by authenticated users.",
+      "published": "2026-02-27T19:16:09.763",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27756"
+    },
+    {
+      "id": "CVE-2026-27755",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a weak session identifier generation vulnerability that allows attackers to forge authenticated sessions by computing predictable MD5-based cookies. Attackers who know or guess valid credentials can calculate the session identifier offline and bypass authentication without completing the login flow, gaining unauthorized access to the device.",
+      "published": "2026-02-27T19:16:09.527",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27751"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27755"
     },
     {
-      "id": "CVE-2026-26862",
-      "summary": "CleverTap Web SDK version 1.15.2 and earlier is vulnerable to DOM-based Cross-Site Scripting (XSS) via window.postMessage in the Visual Builder module. The origin validation in src/modules/visualBuilder/pageBuilder.js (lines 56-60) uses the includes() method to verify the originUrl contains \"dashboard.clevertap.com\", which can be bypassed by an attacker using a crafted subdomain",
-      "published": "2026-02-27T18:16:12.163",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26862"
-    },
-    {
-      "id": "CVE-2026-26861",
-      "summary": "CleverTap Web SDK version 1.15.2 and earlier is vulnerable to Cross-Site Scripting (XSS) via window.postMessage. The handleCustomHtmlPreviewPostMessageEvent function in src/util/campaignRender/nativeDisplay.js performs insufficient origin validation using the includes() method, which can be bypassed by an attacker using a subdomain",
-      "published": "2026-02-27T18:16:12.043",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26861"
-    },
-    {
-      "id": "CVE-2026-21619",
-      "summary": "Uncontrolled Resource Consumption, Deserialization of Untrusted Data vulnerability in hexpm hex_core (hex_api modules), hexpm hex (mix_hex_api modules), erlang rebar3 (r3_hex_api modules) allows Object Injection, Excessive Allocation. This vulnerability is associated with program files src/hex_api.erl, src/mix_hex_api.erl, apps/rebar/src/vendored/r3_hex_api.erl and program routines hex_core:request/4, mix_hex_api:request/4, r3_hex_api:request/4.\n\nThis issue affects hex_core: from 0.1.0 before 0.12.1; hex: from 2.3.0 before 2.3.2; rebar3: from 3.9.1 before 3.27.0.",
-      "published": "2026-02-27T18:16:11.373",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21619"
+      "id": "CVE-2026-27754",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 use the cryptographically broken MD5 hash function for session cookie generation, weakening session security. Attackers can exploit predictable session tokens combined with MD5's collision vulnerabilities to forge valid session cookies and gain unauthorized access to the device.",
+      "published": "2026-02-27T19:16:09.320",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27754"
     }
   ]
 }
