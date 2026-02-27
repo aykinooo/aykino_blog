@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-27T19:46:41+00:00",
+  "generated_at": "2026-02-27T20:44:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2880",
-      "summary": "A vulnerability in @fastify/middie versions < 9.2.0 can result in authentication/authorization bypass when using path-scoped middleware (for example, app.use('/secret', auth)).\n\nWhen Fastify router normalization options are enabled (such as ignoreDuplicateSlashes, useSemicolonDelimiter, and related trailing-slash behavior), crafted request paths may bypass middleware checks while still being routed to protected handlers.",
-      "published": "2026-02-27T19:16:12.807",
+      "id": "CVE-2026-3255",
+      "summary": "HTTP::Session2 versions before 1.12 for Perl for Perl may generate weak session ids using the rand() function.\n\nThe HTTP::Session2 session id generator returns a SHA-1 hash seeded with the built-in rand function, the epoch time, and the PID. The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Date header. The built-in rand() function is unsuitable for cryptographic usage.\n\nHTTP::Session2 after version 1.02 will attempt to use the /dev/urandom device to generate a session id, but if the device is unavailable (for example, under Windows), then it will revert to the insecure method described above.",
+      "published": "2026-02-27T20:21:41.180",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2880"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3255"
     },
     {
-      "id": "CVE-2026-27758",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a cross-site request forgery vulnerability in its management interface that allows attackers to induce authenticated users into submitting forged requests. Attackers can craft malicious requests that execute unauthorized configuration or administrative actions with the victim's privileges when the authenticated user visits a malicious webpage.",
-      "published": "2026-02-27T19:16:10.183",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27758"
+      "id": "CVE-2026-28354",
+      "summary": "ClipBucket v5 is an open source video sharing platform. Prior to version 5.5.3 #59, collection item operations are vulnerable to authorization flaws, allowing a normal authenticated user to modify another user\u2019s collection items. This affects both add item (/actions/add_to_collection.php) due to missing authorization checks and delete item (/manage_collections.php?mode=manage_items...) due to a broken ownership check in removeItemFromCollection(). As a result, attackers can insert and remove items from collections they do not own. Version 5.5.3 #59 fixes the issue.",
+      "published": "2026-02-27T20:21:40.883",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28354"
     },
     {
-      "id": "CVE-2026-27757",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain an authentication vulnerability that allows authenticated users to change account passwords without verifying the current password. Attackers who gain access to an authenticated session can modify credentials to maintain persistent access to the management interface.",
-      "published": "2026-02-27T19:16:09.990",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27757"
+      "id": "CVE-2026-28231",
+      "summary": "pillow_heif is a Python library for working with HEIF images and plugin for Pillow. Prior to version 1.3.0, an integer overflow in the encode path buffer validation of `_pillow_heif.c` allows an attacker to bypass bounds checks by providing large image dimensions, resulting in a heap out-of-bounds read. This can lead to information disclosure (server heap memory leaking into encoded images) or denial of service (process crash). No special configuration is required \u2014 this triggers under default settings. Version 1.3.0 fixes the issue.",
+      "published": "2026-02-27T20:21:40.697",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28231"
     },
     {
-      "id": "CVE-2026-27756",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a reflected cross-site scripting vulnerability in the management interface where user input is not properly encoded before output. Attackers can craft malicious URLs that execute arbitrary JavaScript in the web interface when visited by authenticated users.",
-      "published": "2026-02-27T19:16:09.763",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27756"
+      "id": "CVE-2026-27947",
+      "summary": "Group-Office is an enterprise customer relationship management and groupware tool. Versions prior to 26.0.9, 25.0.87, and 6.8.154 have an authenticated Remote Code Execution vulnerability in the TNEF attachment processing flow. The vulnerable path extracts attacker-controlled files from `winmail.dat` and then invokes `zip` with a shell wildcard (`*`). Because extracted filenames are attacker-controlled, they can be interpreted as `zip` options and lead to arbitrary command execution. Versions 26.0.9, 25.0.87, and 6.8.154 fix the issue.",
+      "published": "2026-02-27T20:21:40.513",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27947"
     },
     {
-      "id": "CVE-2026-27755",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a weak session identifier generation vulnerability that allows attackers to forge authenticated sessions by computing predictable MD5-based cookies. Attackers who know or guess valid credentials can calculate the session identifier offline and bypass authentication without completing the login flow, gaining unauthorized access to the device.",
-      "published": "2026-02-27T19:16:09.527",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27755"
+      "id": "CVE-2026-27836",
+      "summary": "phpMyFAQ is an open source FAQ web application. Prior to version 4.0.18, the WebAuthn prepare endpoint (`/api/webauthn/prepare`) creates new active user accounts without any authentication, CSRF protection, captcha, or configuration checks. This allows unauthenticated attackers to create unlimited user accounts even when registration is disabled. Version 4.0.18 fixes the issue.",
+      "published": "2026-02-27T20:21:40.330",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27836"
     },
     {
-      "id": "CVE-2026-27754",
-      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 use the cryptographically broken MD5 hash function for session cookie generation, weakening session security. Attackers can exploit predictable session tokens combined with MD5's collision vulnerabilities to forge valid session cookies and gain unauthorized access to the device.",
-      "published": "2026-02-27T19:16:09.320",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27754"
+      "id": "CVE-2026-27832",
+      "summary": "Group-Office is an enterprise customer relationship management and groupware tool. Versions prior to 26.0.8, 25.0.87, and 6.8.153 have a SQL Injection (SQLi) vulnerability, exploitable through the `advancedQueryData` parameter (`comparator` field) on an authenticated endpoint. The endpoint `index.php?r=email/template/emailSelection` processes `advancedQueryData` and forwards the SQL comparator without a strict allowlist into SQL condition building. This enables blind boolean-based exfiltration of the `core_auth_password` table. Versions 26.0.8, 25.0.87, and 6.8.153 fix the issue.",
+      "published": "2026-02-27T20:21:40.150",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27832"
     }
   ]
 }
