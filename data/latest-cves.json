@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-27T20:44:25+00:00",
+  "generated_at": "2026-02-27T21:42:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3255",
-      "summary": "HTTP::Session2 versions before 1.12 for Perl for Perl may generate weak session ids using the rand() function.\n\nThe HTTP::Session2 session id generator returns a SHA-1 hash seeded with the built-in rand function, the epoch time, and the PID. The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Date header. The built-in rand() function is unsuitable for cryptographic usage.\n\nHTTP::Session2 after version 1.02 will attempt to use the /dev/urandom device to generate a session id, but if the device is unavailable (for example, under Windows), then it will revert to the insecure method described above.",
-      "published": "2026-02-27T20:21:41.180",
+      "id": "CVE-2026-28355",
+      "summary": "Canarytokens help track activity and actions on a network. Versions prior to `sha-7ff0e12` have a Self Cross-Site Scripting vulnerability in the \"PWA\" Canarytoken, whereby the Canarytoken's creator can attack themselves or someone they share the link with. The creator of a PWA Canarytoken can insert Javascript into the title field of their PWA token. When the creator later browses the installation page for their own Canarytoken, the Javascript executes. This is a self-XSS. An attacker could create a Canarytoken with this self-XSS, and send the install link to a victim. When they click on it, the Javascript would execute. However, no sensitive information (ex. session information) will be disclosed to the malicious actor. This issue is now patched on Canarytokens.org. Users of self-hosted Canarytokens installations can update by pulling the latest Docker image, or any Docker image after sha-7ff0e12.",
+      "published": "2026-02-27T21:16:19.563",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3255"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28355"
     },
     {
-      "id": "CVE-2026-28354",
-      "summary": "ClipBucket v5 is an open source video sharing platform. Prior to version 5.5.3 #59, collection item operations are vulnerable to authorization flaws, allowing a normal authenticated user to modify another user\u2019s collection items. This affects both add item (/actions/add_to_collection.php) due to missing authorization checks and delete item (/manage_collections.php?mode=manage_items...) due to a broken ownership check in removeItemFromCollection(). As a result, attackers can insert and remove items from collections they do not own. Version 5.5.3 #59 fixes the issue.",
-      "published": "2026-02-27T20:21:40.883",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28354"
+      "id": "CVE-2026-28352",
+      "summary": "Indico is an event management system that uses Flask-Multipass, a multi-backend authentication system for Flask. In versions prior to 3.3.11, the API endpoint used to manage event series is missing an access check, allowing unauthenticated/unauthorized access to this endpoint. The impact of this is limited to getting the metadata (title, category chain, start/end date) for events in an existing series, deleting an existing event series, and modifying an existing event series. This vulnerability does NOT allow unauthorized access to events (beyond the basic metadata mentioned above), nor any kind of tampering with user-visible data in events. Version 3.3.11 fixes the issue. As a workaround, use the webserver to restrict access to the series management API endpoint.",
+      "published": "2026-02-27T21:16:19.323",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28352"
     },
     {
-      "id": "CVE-2026-28231",
-      "summary": "pillow_heif is a Python library for working with HEIF images and plugin for Pillow. Prior to version 1.3.0, an integer overflow in the encode path buffer validation of `_pillow_heif.c` allows an attacker to bypass bounds checks by providing large image dimensions, resulting in a heap out-of-bounds read. This can lead to information disclosure (server heap memory leaking into encoded images) or denial of service (process crash). No special configuration is required \u2014 this triggers under default settings. Version 1.3.0 fixes the issue.",
-      "published": "2026-02-27T20:21:40.697",
+      "id": "CVE-2026-28351",
+      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to version 6.7.4, an attacker who uses this vulnerability can craft a PDF which leads to large memory usage. This requires parsing the content stream using the RunLengthDecode filter. This has been fixed in pypdf 6.7.4. As a workaround, consider applying the changes from PR #3664.",
+      "published": "2026-02-27T21:16:19.177",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28231"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28351"
     },
     {
-      "id": "CVE-2026-27947",
-      "summary": "Group-Office is an enterprise customer relationship management and groupware tool. Versions prior to 26.0.9, 25.0.87, and 6.8.154 have an authenticated Remote Code Execution vulnerability in the TNEF attachment processing flow. The vulnerable path extracts attacker-controlled files from `winmail.dat` and then invokes `zip` with a shell wildcard (`*`). Because extracted filenames are attacker-controlled, they can be interpreted as `zip` options and lead to arbitrary command execution. Versions 26.0.9, 25.0.87, and 6.8.154 fix the issue.",
-      "published": "2026-02-27T20:21:40.513",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27947"
+      "id": "CVE-2026-28338",
+      "summary": "PMD is an extensible multilanguage static code analyzer. Prior to version 7.22.0, PMD's `vbhtml` and `yahtml` report formats insert rule violation messages into HTML output without escaping. When PMD analyzes untrusted source code containing crafted string literals, the generated HTML report contains executable JavaScript that runs when opened in a browser. Practical impact is limited because `vbhtml` and `yahtml` are legacy formats rarely used in practice. The default `html` format is properly escaped and not affected. Version 7.22.0 contains a fix for the issue.",
+      "published": "2026-02-27T21:16:19.017",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28338"
     },
     {
-      "id": "CVE-2026-27836",
-      "summary": "phpMyFAQ is an open source FAQ web application. Prior to version 4.0.18, the WebAuthn prepare endpoint (`/api/webauthn/prepare`) creates new active user accounts without any authentication, CSRF protection, captcha, or configuration checks. This allows unauthenticated attackers to create unlimited user accounts even when registration is disabled. Version 4.0.18 fixes the issue.",
-      "published": "2026-02-27T20:21:40.330",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27836"
+      "id": "CVE-2026-28288",
+      "summary": "Dify is an open-source LLM app development platform. Prior to 1.9.0, responses from the Dify API to existing and non-existent accounts differ, allowing an attacker to enumerate email addresses registered with Dify. Version 1.9.0 fixes the issue.",
+      "published": "2026-02-27T21:16:18.853",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28288"
     },
     {
-      "id": "CVE-2026-27832",
-      "summary": "Group-Office is an enterprise customer relationship management and groupware tool. Versions prior to 26.0.8, 25.0.87, and 6.8.153 have a SQL Injection (SQLi) vulnerability, exploitable through the `advancedQueryData` parameter (`comparator` field) on an authenticated endpoint. The endpoint `index.php?r=email/template/emailSelection` processes `advancedQueryData` and forwards the SQL comparator without a strict allowlist into SQL condition building. This enables blind boolean-based exfiltration of the `core_auth_password` table. Versions 26.0.8, 25.0.87, and 6.8.153 fix the issue.",
-      "published": "2026-02-27T20:21:40.150",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27832"
+      "id": "CVE-2026-28272",
+      "summary": "Kiteworks is a private data network (PDN). Prior to version 9.2.0, a vulnerability in Kiteworks Email Protection Gateway allows authenticated administrators to inject malicious scripts through a configuration interface. The stored script executes when users interact with the affected user interface. Version 9.2.0 contains a patch for the issue.",
+      "published": "2026-02-27T21:16:18.703",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28272"
     }
   ]
 }
