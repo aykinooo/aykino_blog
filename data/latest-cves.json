@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-02-27T16:55:25+00:00",
+  "generated_at": "2026-02-27T17:52:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2293",
+      "summary": "A NestJS application using @nestjs/platform-fastify can allow bypass of authentication/authorization middleware when Fastify path-normalization options are enabled.\n\n\n\nThis issue affects nest.Js: 11.1.13.",
+      "published": "2026-02-27T17:16:33.357",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2293"
+    },
+    {
+      "id": "CVE-2026-25147",
+      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to version 8.0.0, in `portal/portal_payment.php`, the patient id used for the page is taken from the request (`$pid = $_REQUEST['pid'] ?? $pid` and `$pid = ($_REQUEST['hidden_patient_code'] ?? null) > 0 ? $_REQUEST['hidden_patient_code'] : $pid`) instead of being fixed to the authenticated portal user. The portal session already has a valid `$pid` for the logged-in patient. Overwriting it with user-supplied values and using it without authorization allows a portal user to view and interact with another patient's demographics, invoices, and payment history\u2014horizontal privilege escalation and IDOR. Version 8.0.0 contains a fix for the issue.",
+      "published": "2026-02-27T17:16:30.933",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25147"
+    },
+    {
+      "id": "CVE-2026-24488",
+      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. In versions up to and including 8.0.0, an arbitrary file exfiltration vulnerability in the fax sending endpoint allows any authenticated user to read and transmit any file on the server (including database credentials, patient documents, system files, and source code) via fax to an attacker-controlled phone number. The vulnerability exists because the endpoint accepts arbitrary file paths from user input and streams them to the fax gateway without path restrictions or authorization checks. As of time of publication, no known patched versions are available.",
+      "published": "2026-02-27T17:16:30.497",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24488"
+    },
+    {
+      "id": "CVE-2025-69437",
+      "summary": "PublicCMS v5.202506.d and earlier is vulnerable to stored XSS. Uploaded PDFs can contain JavaScript payloads and bypass PDF security checks in the backend CmsFileUtils.java. If a user uploads a PDF file containing a malicious payload to the system and views it, the embedded JavaScript payload can be triggered, resulting in issues such as credential theft, arbitrary API execution, and other security concerns. This vulnerability affects all file upload endpoint, including /cmsTemplate/save, /file/doUpload, /cmsTemplate/doUpload, /file/doBatchUpload, /cmsWebFile/doUpload, etc.",
+      "published": "2026-02-27T17:16:26.007",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69437"
+    },
     {
       "id": "CVE-2026-3304",
       "summary": "Multer is a node.js middleware for handling `multipart/form-data`. A vulnerability in Multer prior to version 2.1.0 allows an attacker to trigger a Denial of Service (DoS) by sending malformed requests, potentially causing resource exhaustion. Users should upgrade to version 2.1.0 to receive a patch. No known workarounds are available.",
@@ -15,34 +43,6 @@
       "published": "2026-02-27T16:16:26.260",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3277"
-    },
-    {
-      "id": "CVE-2026-2750",
-      "summary": "Improper Input Validation vulnerability in Centreon Centreon Open Tickets on Central Server on Linux (Centreon Open Tickets modules).This issue affects Centreon Open Tickets on Central Server: from all before 25.10; 24.10;24.04.",
-      "published": "2026-02-27T16:16:25.827",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2750"
-    },
-    {
-      "id": "CVE-2026-2749",
-      "summary": "Vulnerability in Centreon Centreon Open Tickets on Central Server on Linux (Centroen Open Ticket modules).This issue affects Centreon Open Tickets on Central Server: from all before 25.10.3, 24.10.8, 24.04.7.",
-      "published": "2026-02-27T16:16:25.700",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2749"
-    },
-    {
-      "id": "CVE-2026-2359",
-      "summary": "Multer is a node.js middleware for handling `multipart/form-data`. A vulnerability in Multer prior to version 2.1.0 allows an attacker to trigger a Denial of Service (DoS) by dropping connection during file upload, potentially causing resource exhaustion. Users should upgrade to version 2.1.0 to receive a patch. No known workarounds are available.",
-      "published": "2026-02-27T16:16:25.467",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2359"
-    },
-    {
-      "id": "CVE-2026-3327",
-      "summary": "Authenticated Iframe Injection in Dato CMS Web Previews plugin. This vulnerability permits a malicious authenticated user to circumvent the restriction enforced on the configured frontend URL, enabling the loading of arbitrary external resources or origins. This issue affects Web Previews < v1.0.31.",
-      "published": "2026-02-27T15:16:30.950",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3327"
     }
   ]
 }
