@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-27T17:52:46+00:00",
+  "generated_at": "2026-02-27T19:02:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2293",
-      "summary": "A NestJS application using @nestjs/platform-fastify can allow bypass of authentication/authorization middleware when Fastify path-normalization options are enabled.\n\n\n\nThis issue affects nest.Js: 11.1.13.",
-      "published": "2026-02-27T17:16:33.357",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2293"
-    },
-    {
-      "id": "CVE-2026-25147",
-      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to version 8.0.0, in `portal/portal_payment.php`, the patient id used for the page is taken from the request (`$pid = $_REQUEST['pid'] ?? $pid` and `$pid = ($_REQUEST['hidden_patient_code'] ?? null) > 0 ? $_REQUEST['hidden_patient_code'] : $pid`) instead of being fixed to the authenticated portal user. The portal session already has a valid `$pid` for the logged-in patient. Overwriting it with user-supplied values and using it without authorization allows a portal user to view and interact with another patient's demographics, invoices, and payment history\u2014horizontal privilege escalation and IDOR. Version 8.0.0 contains a fix for the issue.",
-      "published": "2026-02-27T17:16:30.933",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25147"
-    },
-    {
-      "id": "CVE-2026-24488",
-      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. In versions up to and including 8.0.0, an arbitrary file exfiltration vulnerability in the fax sending endpoint allows any authenticated user to read and transmit any file on the server (including database credentials, patient documents, system files, and source code) via fax to an attacker-controlled phone number. The vulnerability exists because the endpoint accepts arbitrary file paths from user input and streams them to the fax gateway without path restrictions or authorization checks. As of time of publication, no known patched versions are available.",
-      "published": "2026-02-27T17:16:30.497",
+      "id": "CVE-2026-27753",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain an authentication bypass vulnerability that allows remote attackers to perform unlimited login attempts against the management interface. Attackers can conduct online password guessing attacks without account lockout or rate limiting restrictions to gain unauthorized access to the device management interface.",
+      "published": "2026-02-27T18:16:13.303",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24488"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27753"
     },
     {
-      "id": "CVE-2025-69437",
-      "summary": "PublicCMS v5.202506.d and earlier is vulnerable to stored XSS. Uploaded PDFs can contain JavaScript payloads and bypass PDF security checks in the backend CmsFileUtils.java. If a user uploads a PDF file containing a malicious payload to the system and views it, the embedded JavaScript payload can be triggered, resulting in issues such as credential theft, arbitrary API execution, and other security concerns. This vulnerability affects all file upload endpoint, including /cmsTemplate/save, /file/doUpload, /cmsTemplate/doUpload, /file/doBatchUpload, /cmsWebFile/doUpload, etc.",
-      "published": "2026-02-27T17:16:26.007",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69437"
+      "id": "CVE-2026-27752",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 transmit authentication credentials over unencrypted HTTP, allowing attackers to capture credentials. An attacker positioned to observe network traffic between a user and the device can intercept credentials and reuse them to gain administrative access to the gateway.",
+      "published": "2026-02-27T18:16:13.083",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27752"
     },
     {
-      "id": "CVE-2026-3304",
-      "summary": "Multer is a node.js middleware for handling `multipart/form-data`. A vulnerability in Multer prior to version 2.1.0 allows an attacker to trigger a Denial of Service (DoS) by sending malformed requests, potentially causing resource exhaustion. Users should upgrade to version 2.1.0 to receive a patch. No known workarounds are available.",
-      "published": "2026-02-27T16:16:26.380",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3304"
+      "id": "CVE-2026-27751",
+      "summary": "SODOLA SL902-SWTGW124AS firmware versions through 200.1.20 contain a default credentials vulnerability that allows remote attackers to obtain administrative access to the management interface. Attackers can authenticate using the hardcoded default credentials without password change enforcement to gain full administrative control of the device.",
+      "published": "2026-02-27T18:16:12.897",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27751"
     },
     {
-      "id": "CVE-2026-3277",
-      "summary": "The OpenID Connect (OIDC) authentication configuration in PowerShell \nUniversal before 2026.1.3 stores the OIDC client secret in cleartext in \nthe .universal/authentication.ps1 script, which allows an attacker with read access to that file to obtain the OIDC client credentials",
-      "published": "2026-02-27T16:16:26.260",
+      "id": "CVE-2026-26862",
+      "summary": "CleverTap Web SDK version 1.15.2 and earlier is vulnerable to DOM-based Cross-Site Scripting (XSS) via window.postMessage in the Visual Builder module. The origin validation in src/modules/visualBuilder/pageBuilder.js (lines 56-60) uses the includes() method to verify the originUrl contains \"dashboard.clevertap.com\", which can be bypassed by an attacker using a crafted subdomain",
+      "published": "2026-02-27T18:16:12.163",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3277"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26862"
+    },
+    {
+      "id": "CVE-2026-26861",
+      "summary": "CleverTap Web SDK version 1.15.2 and earlier is vulnerable to Cross-Site Scripting (XSS) via window.postMessage. The handleCustomHtmlPreviewPostMessageEvent function in src/util/campaignRender/nativeDisplay.js performs insufficient origin validation using the includes() method, which can be bypassed by an attacker using a subdomain",
+      "published": "2026-02-27T18:16:12.043",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26861"
+    },
+    {
+      "id": "CVE-2026-21619",
+      "summary": "Uncontrolled Resource Consumption, Deserialization of Untrusted Data vulnerability in hexpm hex_core (hex_api modules), hexpm hex (mix_hex_api modules), erlang rebar3 (r3_hex_api modules) allows Object Injection, Excessive Allocation. This vulnerability is associated with program files src/hex_api.erl, src/mix_hex_api.erl, apps/rebar/src/vendored/r3_hex_api.erl and program routines hex_core:request/4, mix_hex_api:request/4, r3_hex_api:request/4.\n\nThis issue affects hex_core: from 0.1.0 before 0.12.1; hex: from 2.3.0 before 2.3.2; rebar3: from 3.9.1 before 3.27.0.",
+      "published": "2026-02-27T18:16:11.373",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21619"
     }
   ]
 }
