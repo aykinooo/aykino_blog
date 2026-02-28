@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-02-28T21:33:15+00:00",
+  "generated_at": "2026-02-28T22:36:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3010",
-      "summary": "Improper Neutralization of Input During Web Page Generation (XSS or 'Cross-site Scripting') vulnerability in Microchip TimePictra allows Query System for Information.This issue affects TimePictra: from 11.0 through 11.3 SP2.",
-      "published": "2026-02-28T12:16:39.317",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3010"
+      "id": "CVE-2026-28562",
+      "summary": "wpForo 2.4.14 contains an unauthenticated SQL injection vulnerability in Topics::get_topics() where the ORDER BY clause relies on ineffective esc_sql() sanitization on unquoted identifiers. Attackers exploit the wpfob parameter with CASE WHEN payloads to perform blind boolean extraction of credentials from the WordPress database.",
+      "published": "2026-02-28T22:16:03.560",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28562"
     },
     {
-      "id": "CVE-2026-2844",
-      "summary": "Missing Authentication for Critical Function vulnerability in Microchip TimePictra allows Configuration/Environment Manipulation.This issue affects TimePictra: from 11.0 through 11.3 SP2.",
-      "published": "2026-02-28T12:16:37.713",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2844"
+      "id": "CVE-2026-28561",
+      "summary": "wpForo Forum 2.4.14 contains a stored cross-site scripting vulnerability that allows administrators to inject persistent JavaScript via forum description fields echoed without output escaping across multiple theme template files. On multisite installations or with a compromised admin account, attackers set a forum description containing HTML event handlers that execute when any user views the forum listing.",
+      "published": "2026-02-28T22:16:03.347",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28561"
     },
     {
-      "id": "CVE-2025-13673",
-      "summary": "The Tutor LMS \u2013 eLearning and online course solution plugin for WordPress is vulnerable to SQL Injection via the 'coupon_code' parameter in all versions up to, and including, 3.9.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. NOTE: This vulnerability was partially mitigated in versions 3.9.4 and 3.9.6.",
-      "published": "2026-02-28T08:15:58.317",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13673"
+      "id": "CVE-2026-28560",
+      "summary": "wpForo Forum 2.4.14 contains a stored cross-site scripting vulnerability that allows script injection via forum URL data output into an inline script block using json_encode without the JSON_HEX_TAG flag. Attackers set a forum slug containing a closing script tag or unescaped single quote to break out of the JavaScript string context and execute arbitrary script in all visitors' browsers.",
+      "published": "2026-02-28T22:16:03.137",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28560"
     },
     {
-      "id": "CVE-2026-2471",
-      "summary": "The WP Mail Logging plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.15.0 via deserialization of untrusted input from the email log message field. This is due to the `BaseModel` class constructor calling `maybe_unserialize()` on all properties retrieved from the database without validation. This makes it possible for unauthenticated attackers to inject a PHP Object by submitting a double-serialized payload through any public-facing form that sends email (e.g., Contact Form 7). When the email is logged and subsequently viewed by an administrator, the malicious payload is deserialized into an arbitrary PHP object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
-      "published": "2026-02-28T07:15:57.677",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2471"
+      "id": "CVE-2026-28559",
+      "summary": "wpForo Forum 2.4.14 contains an information disclosure vulnerability that allows unauthenticated users to retrieve private and unapproved forum topics via the global RSS feed endpoint. Attackers request the RSS feed without a forum ID parameter, bypassing the privacy and status WHERE clauses that are only applied when a specific forum ID is present in the query.",
+      "published": "2026-02-28T22:16:02.933",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28559"
     },
     {
-      "id": "CVE-2026-1542",
-      "summary": "The Super Stage WP WordPress plugin through 1.0.1 unserializes user input via REQUEST, which could allow unauthenticated users to perform PHP Object Injection when a suitable gadget is present on the blog.",
-      "published": "2026-02-28T06:16:02.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1542"
+      "id": "CVE-2026-28558",
+      "summary": "wpForo Forum 2.4.14 contains a stored cross-site scripting vulnerability that allows authenticated subscribers to upload SVG files as profile avatars through the avatar upload functionality. Attackers upload a crafted SVG containing CSS injection or JavaScript event handlers that execute in the browsers of any user who views the attacker's profile page.",
+      "published": "2026-02-28T22:16:02.637",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28558"
     },
     {
-      "id": "CVE-2026-28517",
-      "summary": "openDCIM version 23.04, through commit 4467e9c4, contains an OS command injection vulnerability in report_network_map.php. The application retrieves the 'dot' configuration parameter from the database and passes it directly to exec() without validation or sanitation. If an attacker can modify the fac_Config.dot value, arbitrary commands may be executed in the context of the web server process.",
-      "published": "2026-02-27T23:16:06.357",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28517"
+      "id": "CVE-2026-28557",
+      "summary": "wpForo Forum 2.4.14 contains a missing capability check vulnerability that allows authenticated users to trigger bulk wpForo usergroup reassignment via the wpforo_synch_roles AJAX handler. Attackers access the usergroups admin page, accessible to any authenticated user, to obtain a nonce, then remap all wpForo usergroups to arbitrary WordPress roles.",
+      "published": "2026-02-28T22:16:02.427",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28557"
     }
   ]
 }
