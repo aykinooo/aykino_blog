@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-02-28T06:56:01+00:00",
+  "generated_at": "2026-02-28T07:38:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2471",
+      "summary": "The WP Mail Logging plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.15.0 via deserialization of untrusted input from the email log message field. This is due to the `BaseModel` class constructor calling `maybe_unserialize()` on all properties retrieved from the database without validation. This makes it possible for unauthenticated attackers to inject a PHP Object by submitting a double-serialized payload through any public-facing form that sends email (e.g., Contact Form 7). When the email is logged and subsequently viewed by an administrator, the malicious payload is deserialized into an arbitrary PHP object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
+      "published": "2026-02-28T07:15:57.677",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2471"
+    },
     {
       "id": "CVE-2026-1542",
       "summary": "The Super Stage WP WordPress plugin through 1.0.1 unserializes user input via REQUEST, which could allow unauthenticated users to perform PHP Object Injection when a suitable gadget is present on the blog.",
@@ -36,13 +43,6 @@
       "published": "2026-02-27T23:16:05.780",
       "cvss": 8.7,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28426"
-    },
-    {
-      "id": "CVE-2026-28425",
-      "summary": "Statmatic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.11 and 6.4.0, an authenticated control panel user with access to Antlers-enabled inputs may be able to achieve remote code execution in the application context. That can lead to full compromise of the application, including access to sensitive configuration, modification or exfiltration of data, and potential impact on availability. Exploitation is only possible where Antlers runs on user-controlled content\u2014for example, content fields with Antlers explicitly enabled (requiring permission to configure fields and to edit entries), built-in config that supports Antlers such as Forms email notification settings (requiring configuration permission), or third-party addons that add Antlers-enabled fields to entries (for example, the SEO Pro addon). In each case the attacker must have the relevant control panel permissions. This has been fixed in 5.73.11 and 6.4.0. Users of addons that depend on Statamic should ensure that after updating they are running a patched Statamic version.",
-      "published": "2026-02-27T23:16:05.607",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28425"
     }
   ]
 }
