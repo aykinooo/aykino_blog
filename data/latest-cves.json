@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-03T19:49:19+00:00",
+  "generated_at": "2026-03-03T20:47:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3437",
-      "summary": "An Improper Restriction of Operations within the Bounds of a Memory Buffer vulnerability in Portwell Engineering Toolkits version 4.8.2 could allow a local authenticated attacker to read and write to arbitrary memory via the Portwell Engineering Toolkits driver. Successful exploitation of this vulnerability could result in escalation of privileges or cause a denial-of-service condition.",
-      "published": "2026-03-03T18:16:25.953",
+      "id": "CVE-2026-3494",
+      "summary": "In MariaDB server version through 11.8.5, when server audit plugin is enabled with server_audit_events variable configured with QUERY_DCL, QUERY_DDL, or QUERY_DML filtering, if an authenticated database user invokes a SQL statement prefixed with double-hyphen (\u2014) or hash (#) style comments, the statement is not logged.",
+      "published": "2026-03-03T20:16:50.667",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3494"
+    },
+    {
+      "id": "CVE-2026-3484",
+      "summary": "A vulnerability was detected in PhialsBasement nmap-mcp-server up to bee6d23547d57ae02460022f7c78ac0893092e38. Affected by this issue is the function child_process.exec of the file src/index.ts of the component Nmap CLI Command Handler. The manipulation results in command injection. The attack may be performed from remote. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The patch is identified as 30a6b9e1c7fa6146f51e28d6ab83a2568d9a3488. It is best practice to apply a patch to resolve this issue.",
+      "published": "2026-03-03T20:16:50.430",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3484"
+    },
+    {
+      "id": "CVE-2026-2915",
+      "summary": "HP System Event Utility might allow denial of service with elevated arbitrary file writes. This potential vulnerability was\n               remediated with HP System Event Utility version 3.2.16.",
+      "published": "2026-03-03T20:16:49.980",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3437"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2915"
     },
     {
-      "id": "CVE-2026-26890",
-      "summary": "Sourcecodester Pharmacy Point of Sale System v1.0 is vulnerable to SQL Injection in /pharmacy/manage_product.php.",
-      "published": "2026-03-03T18:16:25.610",
+      "id": "CVE-2026-2606",
+      "summary": "IBM webMethods API Gateway (on-prem) 10.11 through 10.11_Fix3210.15 to 10.15_Fix2711.1 to 11.1_Fix7 IBM webMethods API Management (on-prem) fails to properly validate user-supplied input passed to the url parameter on the /createapi\u00a0endpoint. An attacker can modify this parameter to use a file:// URI schema instead of the expected https:// schema, enabling unauthorized arbitrary file read access on the underlying server file system.",
+      "published": "2026-03-03T20:16:49.783",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2606"
+    },
+    {
+      "id": "CVE-2026-29022",
+      "summary": "dr_libs version 0.14.4 and earlier (fixed in commit 8a7258c) contain a heap buffer overflow vulnerability in the drwav__read_smpl_to_metadata_obj() function of dr_wav.h that allows memory corruption via crafted WAV files. Attackers can exploit a mismatch between sampleLoopCount validation in pass 1 and unconditional processing in pass 2 to overflow heap allocations with 36 bytes of attacker-controlled data through any drwav_init_*_with_metadata() call on untrusted input.",
+      "published": "2026-03-03T20:16:49.433",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26890"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29022"
     },
     {
-      "id": "CVE-2026-0540",
-      "summary": "DOMPurify 3.1.3 through 3.3.1 and 2.5.3 through 2.5.8, fixed in commit 729097f, contain a cross-site scripting vulnerability that allows attackers to bypass attribute sanitization by exploiting five missing rawtext elements (noscript, xmp, noembed, noframes, iframe) in the SAFE_FOR_XML regex. Attackers can include payloads like </noscript><img src=x onerror=alert(1)> in attribute values to execute JavaScript when sanitized output is placed inside these unprotected rawtext contexts.",
-      "published": "2026-03-03T18:16:24.457",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0540"
-    },
-    {
-      "id": "CVE-2025-69765",
-      "summary": "Tenda AX3 firmware v16.03.12.11 contains a stack overflow in formGetIptv function and the list parameter, which can cause memory corruption and enable remote code execution.",
-      "published": "2026-03-03T18:16:24.193",
+      "id": "CVE-2026-26892",
+      "summary": "Sourcecodester Logistic Hub Parcel's Management System v1.0 is vulnerable to SQL Injection in /manage_carrier.php.",
+      "published": "2026-03-03T20:16:49.220",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69765"
-    },
-    {
-      "id": "CVE-2025-67840",
-      "summary": "Multiple authenticated OS command injection vulnerabilities exist in the Cohesity (formerly Stone Ram) TranZman 4.0 Build 14614 through TZM_1757588060_SEP2025_FULL.depot web application API endpoints (including Scheduler and Actions pages). The appliance directly concatenates user-controlled parameters into system commands without sufficient sanitisation, allowing an authenticated admin user to inject and execute arbitrary OS commands with root privileges. An attacker can intercept legitimate requests (e.g. during job creation or execution) using a proxy and modify parameters to include shell metacharacters, achieving remote code execution on the appliance. This completely bypasses the intended CLISH restricted shell confinement and results in full system compromise. The vulnerabilities persist in Release 4.0 Build 14614 including the latest patch (as of the time of testing) TZM_1757588060_SEP2025_FULL.depot.",
-      "published": "2026-03-03T18:16:24.033",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67840"
-    },
-    {
-      "id": "CVE-2025-63912",
-      "summary": "Cohesity TranZman Migration Appliance Release 4.0 Build 14614 was discovered to use a weak cryptography algorithm for data encryption, allowing attackers to trivially reverse the encyption and expose credentials.",
-      "published": "2026-03-03T18:16:23.920",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-63912"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26892"
     }
   ]
 }
