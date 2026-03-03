@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-03T22:46:53+00:00",
+  "generated_at": "2026-03-03T23:40:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3487",
-      "summary": "A vulnerability was found in itsourcecode College Management System 1.0. This issue affects some unknown processing of the file /admin/class-result.php. Performing a manipulation of the argument course_code results in sql injection. The attack can be initiated remotely. The exploit has been made public and could be used.",
-      "published": "2026-03-03T22:16:29.850",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3487"
-    },
-    {
-      "id": "CVE-2026-3224",
-      "summary": "Authentication bypass in the Microsoft Entra ID (Azure AD) authentication mode in Devolutions Server 2025.3.15.0 and earlier allows an unauthenticated user to authenticate as an arbitrary Entra ID user via a forged JSON Web Token (JWT).",
-      "published": "2026-03-03T22:16:29.523",
+      "id": "CVE-2026-3266",
+      "summary": "Missing Authorization vulnerability in OpenText\u2122 Filr allows Authentication Bypass.\u00a0The vulnerability could allow unauthenticated users to get XSRF token and do RPC with carefully crafted programs.\n\nThis issue affects Filr: through 25.1.2.",
+      "published": "2026-03-03T23:15:56.813",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3224"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3266"
     },
     {
-      "id": "CVE-2026-3204",
-      "summary": "Improper\n input validation in the error message page in Devolutions Server 2025.3.15 and earlier allows remote attackers to spoof the displayed error message via a specially crafted URL.",
-      "published": "2026-03-03T22:16:29.397",
+      "id": "CVE-2026-28289",
+      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. A patch bypass vulnerability for CVE-2026-27636 in FreeScout 1.8.206 and earlier allows any authenticated user with file upload permissions to achieve Remote Code Execution (RCE) on the server by uploading a malicious .htaccess file using a zero-width space character prefix to bypass the security check. The vulnerability exists in the sanitizeUploadedFileName() function in app/Http/Helper.php. The function contains a Time-of-Check to Time-of-Use (TOCTOU) flaw where the dot-prefix check occurs before sanitization removes invisible characters. This vulnerability is fixed in 1.8.207.",
+      "published": "2026-03-03T23:15:56.550",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28289"
+    },
+    {
+      "id": "CVE-2026-27981",
+      "summary": "HomeBox is a home inventory and organization system. Prior to 0.24.0, the authentication rate limiter (authRateLimiter) tracks failed attempts per client IP. It determines the client IP by reading, 1. X-Real-IP header, 2. First entry of X-Forwarded-For header, and 3. r.RemoteAddr (TCP connection address). These headers were read unconditionally. An attacker connecting directly to Homebox could forge any value in X-Real-IP, effectively getting a fresh rate limit identity per request. There is a TrustProxy option in the configuration (Options.TrustProxy, default false), but this option was never read by any middleware or rate limiter code. Additionally, chi's middleware.RealIP was applied unconditionally in main.go, overwriting r.RemoteAddr with the forged header value before it reaches any handler. This vulnerability is fixed in 0.24.0.",
+      "published": "2026-03-03T23:15:56.387",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27981"
+    },
+    {
+      "id": "CVE-2026-27971",
+      "summary": "Qwik is a performance focused javascript framework. qwik <=1.19.0 is vulnerable to RCE due to an unsafe deserialization vulnerability in the server$ RPC mechanism that allows any unauthenticated user to execute arbitrary code on the server with a single HTTP request. Affects any deployment where require() is available at runtime. This vulnerability is fixed in 1.19.1.",
+      "published": "2026-03-03T23:15:56.227",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3204"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27971"
     },
     {
-      "id": "CVE-2026-3130",
-      "summary": "Improper Enforcement of Behavioral Controls in\u00a0Devolutions Server 2025.3.15 and earlier allows an authenticated attacker with the delete permission to delete a PAM account that is currently checked out by selecting it alongside at least one non-checked-out account and performing a bulk deletion.",
-      "published": "2026-03-03T22:16:29.280",
+      "id": "CVE-2026-27932",
+      "summary": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. In 1.6.2 and earlier, a resource exhaustion vulnerability in joserfc allows an unauthenticated attacker to cause a Denial of Service (DoS) via CPU exhaustion. When the library decrypts a JSON Web Encryption (JWE) token using Password-Based Encryption (PBES2) algorithms, it reads the p2c (PBES2 Count) parameter directly from the token's protected header. This parameter defines the number of iterations for the PBKDF2 key derivation function. Because joserfc does not validate or bound this value, an attacker can specify an extremely large iteration count (e.g., 2^31 - 1), forcing the server to expend massive CPU resources processing a single token. This vulnerability exists at the JWA layer and impacts all high-level JWE and JWT decryption interfaces if PBES2 algorithms are allowed by the application's policy.",
+      "published": "2026-03-03T23:15:56.050",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27932"
+    },
+    {
+      "id": "CVE-2026-27905",
+      "summary": "BentoML is a Python library for building online serving systems optimized for AI apps and model inference. Prior to 1.4.36, the safe_extract_tarfile() function validates that each tar member's path is within the destination directory, but for symlink members it only validates the symlink's own path, not the symlink's target. An attacker can create a malicious bento/model tar file containing a symlink pointing outside the extraction directory, followed by a regular file that writes through the symlink, achieving arbitrary file write on the host filesystem. This vulnerability is fixed in 1.4.36.",
+      "published": "2026-03-03T23:15:55.897",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3130"
-    },
-    {
-      "id": "CVE-2026-2590",
-      "summary": "Improper\n enforcement of the Disable password saving in vaults setting in the \nconnection entry component in Devolutions Remote Desktop Manager 2025.3.30 and earlier allows an authenticated user to persist credentials in vault entries, \npotentially exposing sensitive information to other users, by creating \nor editing certain connection types while password saving is disabled.",
-      "published": "2026-03-03T22:16:29.157",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2590"
-    },
-    {
-      "id": "CVE-2026-27012",
-      "summary": "OpenSTAManager is an open source management software for technical assistance and invoicing. In 2.9.8 and earlier, a privilege escalation and authentication bypass vulnerability in OpenSTAManager allows any attacker to arbitrarily change a user's group (idgruppo) by directly calling modules/utenti/actions.php. This can promote an existing account (e.g. agent) into the Amministratori group as well as demote any user including existing administrators.",
-      "published": "2026-03-03T22:16:28.833",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27012"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27905"
     }
   ]
 }
