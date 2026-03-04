@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-04T17:02:22+00:00",
+  "generated_at": "2026-03-04T17:56:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-26673",
-      "summary": "An issue in DJI Mavic Mini, Spark, Mavic Air, Mini, Mini SE 0.1.00.0500 and below allows a remote attacker to cause a denial of service via the DJI Enhanced-WiFi transmission subsystem",
-      "published": "2026-03-04T16:16:27.883",
+      "id": "CVE-2026-3520",
+      "summary": "Multer is a node.js middleware for handling `multipart/form-data`. A vulnerability in Multer prior to version 2.1.1 allows an attacker to trigger a Denial of Service (DoS) by sending malformed requests, potentially causing stack overflow. Users should upgrade to version 2.1.1 to receive a patch. No known workarounds are available.",
+      "published": "2026-03-04T17:16:22.610",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26673"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3520"
     },
     {
-      "id": "CVE-2026-26514",
-      "summary": "An Argument Injection vulnerability exists in bird-lg-go before commit 6187a4e. The traceroute module uses shlex.Split to parse user input without validation, allowing remote attackers to inject arbitrary flags (e.g., -w, -q) via the q parameter. This can be exploited to cause a Denial of Service (DoS) by exhausting system resources.",
-      "published": "2026-03-04T16:16:27.713",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26514"
-    },
-    {
-      "id": "CVE-2026-26478",
-      "summary": "A shell command injection vulnerability in Mobvoi Tichome Mini smart speaker 012-18853 and 027-58389 allows remote attackers to send a specially crafted UDP datagram and execute arbitrary shell code as the root account.",
-      "published": "2026-03-04T16:16:27.610",
+      "id": "CVE-2026-29069",
+      "summary": "Craft is a content management system (CMS). Prior to 5.9.0-beta.2 and 4.17.0-beta.2, the actionSendActivationEmail() endpoint is accessible to unauthenticated users and does not require a permission check for pending users. An attacker with no prior access can trigger activation emails for any pending user account by knowing or guessing the user ID. If the attacker controls the target user\u2019s email address, they can activate the account and gain access to the system. This vulnerability is fixed in 5.9.0-beta.2 and 4.17.0-beta.2.",
+      "published": "2026-03-04T17:16:22.020",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26478"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29069"
     },
     {
-      "id": "CVE-2026-22285",
-      "summary": "Dell Device Management Agent (DDMA), versions prior to 26.02, contain a Plaintext Storage of Password vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Unauthorized Access.",
-      "published": "2026-03-04T16:16:27.443",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22285"
-    },
-    {
-      "id": "CVE-2025-62879",
-      "summary": "A vulnerability has been identified within the Rancher Backup Operator, resulting in the leakage of S3 tokens (both accessKey and secretKey) into the rancher-backup-operator pod's logs.",
-      "published": "2026-03-04T16:16:25.967",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62879"
-    },
-    {
-      "id": "CVE-2025-59787",
-      "summary": "2N Access Commander application version 3.4.2 and prior returns HTTP 500 Internal Server Error responses when receiving malformed or manipulated requests, indicating improper handling of invalid input and potential security or availability impacts.",
-      "published": "2026-03-04T16:16:25.633",
+      "id": "CVE-2026-28784",
+      "summary": "Craft is a content management system (CMS). Prior to 5.8.22 and 4.16.18, it is possible to craft a malicious payload using the Twig map filter in text fields that accept Twig input under Settings in the Craft control panel or using the System Messages utility, which could lead to a RCE. For this to work, you must have administrator access to the Craft Control Panel, and allowAdminChanges must be enabled for this to work, which is against our recommendations for any non-dev environment. Alternatively, you can have a non-administrator account with allowAdminChanges disabled, but you have access to the System Messages utility. Users should update to the patched versions (5.8.22 and 4.16.18) to mitigate the issue.",
+      "published": "2026-03-04T17:16:21.853",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59787"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28784"
+    },
+    {
+      "id": "CVE-2026-28783",
+      "summary": "Craft is a content management system (CMS). Prior to 5.9.0-beta.1 and 4.17.0-beta.1, Craft CMS implements a blocklist to prevent potentially dangerous PHP functions from being called via Twig non-Closure arrow functions. In order to be able to successfully execute this attack, you need to either have allowAdminChanges enabled on production, or a compromised admin account, or an account with access to the System Messages utility. Several PHP functions are not included in the blocklist, which could allow malicious actors with the required permissions to execute various types of payloads, including RCEs, arbitrary file reads, SSRFs, and SSTIs. This vulnerability is fixed in 5.9.0-beta.1 and 4.17.0-beta.1.",
+      "published": "2026-03-04T17:16:21.690",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28783"
+    },
+    {
+      "id": "CVE-2026-28782",
+      "summary": "Craft is a content management system (CMS). Prior to 5.9.0-beta.1 and 4.17.0-beta.1, the \"Duplicate\" entry action does not properly verify if the user has permission to perform this action on the specific target elements. Even with only \"View Entries\" permission (where the \"Duplicate\" action is restricted in the UI), a user can bypass this restriction by sending a direct request. Furthermore, this vulnerability allows duplicating other users' entries by specifying their Entry IDs. Since Entry IDs are incremental, an attacker can trivially brute-force these IDs to duplicate and access restricted content across the system. This vulnerability is fixed in 5.9.0-beta.1 and 4.17.0-beta.1.",
+      "published": "2026-03-04T17:16:21.533",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28782"
+    },
+    {
+      "id": "CVE-2026-28781",
+      "summary": "Craft is a content management system (CMS). Prior to 4.17.0-beta.1 and 5.9.0-beta.1, the entry creation process allows for Mass Assignment of the authorId attribute. A user with \"Create Entries\" permission can inject the authorIds[] (or authorId) parameter into the POST request, which the backend processes without verifying if the current user is authorized to assign authorship to others. Normally, this field is not present in the request for users without the necessary permissions. By manually adding this parameter, an attacker can attribute the new entry to any user, including Admins. This effectively \"spoofs\" the authorship. This vulnerability is fixed in 4.17.0-beta.1 and 5.9.0-beta.1.",
+      "published": "2026-03-04T17:16:21.370",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28781"
     }
   ]
 }
