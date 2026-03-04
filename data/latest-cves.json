@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-04T22:49:23+00:00",
+  "generated_at": "2026-03-04T23:43:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-29000",
-      "summary": "pac4j-jwt versions prior to 4.5.9, 5.7.9, and 6.3.3 contain an authentication bypass vulnerability in JwtAuthenticator when processing encrypted JWTs that allows remote attackers to forge authentication tokens. Attackers who possess the server's RSA public key can create a JWE-wrapped PlainJWT with arbitrary subject and role claims, bypassing signature verification to authenticate as any user including administrators.",
-      "published": "2026-03-04T22:16:18.783",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29000"
+      "id": "CVE-2026-2297",
+      "summary": "The import hook in CPython that handles legacy *.pyc files (SourcelessFileLoader) is incorrectly handled in FileLoader (a base class) and so does not use io.open_code() to read the .pyc files. sys.audit handlers for this audit event therefore do not fire.",
+      "published": "2026-03-04T23:16:10.757",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2297"
     },
     {
-      "id": "CVE-2026-27898",
-      "summary": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. Prior to version 1.35.4, an authenticated regular user can specify another user\u2019s cipher_id and call \"PUT /api/ciphers/{id}/partial\" Even though the standard retrieval API correctly denies access to that cipher, the partial update endpoint returns 200 OK and exposes cipherDetails (including name, notes, data, secureNote, etc.). This issue has been patched in version 1.35.4.",
-      "published": "2026-03-04T22:16:18.373",
+      "id": "CVE-2026-29086",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. Prior to version 4.12.4, the setCookie() utility did not validate semicolons (;), carriage returns (\\r), or newline characters (\\n) in the domain and path options when constructing the Set-Cookie header. Because cookie attributes are delimited by semicolons, this could allow injection of additional cookie attributes if untrusted input was passed into these fields. This issue has been patched in version 4.12.4.",
+      "published": "2026-03-04T23:16:10.593",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27898"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29086"
     },
     {
-      "id": "CVE-2026-27803",
-      "summary": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. Prior to version 1.35.4, when a Manager has manage=false for a given collection, they can still perform several management operations as long as they have access to the collection. This issue has been patched in version 1.35.4.",
-      "published": "2026-03-04T22:16:18.210",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27803"
+      "id": "CVE-2026-29085",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. Prior to version 4.12.4, when using streamSSE() in Streaming Helper, the event, id, and retry fields were not validated for carriage return (\\r) or newline (\\n) characters. Because the SSE protocol uses line breaks as field delimiters, this could allow injection of additional SSE fields within the same event frame if untrusted input was passed into these fields. This issue has been patched in version 4.12.4.",
+      "published": "2026-03-04T23:16:10.423",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29085"
     },
     {
-      "id": "CVE-2026-27802",
-      "summary": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. Prior to version 1.35.4, there is a privilege escalation vulnerability via bulk permission update to unauthorized collections by Manager. This issue has been patched in version 1.35.4.",
-      "published": "2026-03-04T22:16:18.057",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27802"
+      "id": "CVE-2026-29045",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. Prior to version 4.12.4, when using serveStatic together with route-based middleware protections (e.g. app.use('/admin/*', ...)), inconsistent URL decoding allowed protected static resources to be accessed without authorization. The router used decodeURI, while serveStatic used decodeURIComponent. This mismatch allowed paths containing encoded slashes (%2F) to bypass middleware protections while still resolving to the intended filesystem path. This issue has been patched in version 4.12.4.",
+      "published": "2026-03-04T23:16:10.247",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29045"
     },
     {
-      "id": "CVE-2026-27801",
-      "summary": "Vaultwarden is an unofficial Bitwarden compatible server written in Rust, formerly known as bitwarden_rs. Vaultwarden versions 1.34.3 and prior are susceptible to a 2FA bypass when performing protected actions. An attacker who gains authenticated access to a user\u2019s account can exploit this bypass to perform protected actions such as accessing the user\u2019s API key or deleting the user\u2019s vault and organisations the user is an admin/owner of . This issue has been patched in version 1.35.0.",
-      "published": "2026-03-04T22:16:17.897",
+      "id": "CVE-2026-26002",
+      "summary": "Open OnDemand is an open-source high-performance computing portal. The Files application in OnDemand versions prior to 4.0.9 and 4.1.3 is susceptible to malicious input when navigating to a directory. This has been patched in versions 4.0.9 and 4.1.3.  Versions below this remain susceptible.",
+      "published": "2026-03-04T23:16:09.980",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27801"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26002"
     },
     {
-      "id": "CVE-2026-25750",
-      "summary": "Langchain Helm Charts are Helm charts for deploying Langchain applications on Kubernetes. Prior to langchain-ai/helm version 0.12.71, a URL parameter injection vulnerability existed in LangSmith Studio that could allow unauthorized access to user accounts through stolen authentication tokens. The vulnerability affected both LangSmith Cloud and self-hosted deployments. Authenticated LangSmith users who clicked on a specially crafted malicious link would have their bearer token, user ID, and workspace ID transmitted to an attacker-controlled server. With this stolen token, an attacker could impersonate the victim and access any LangSmith resources or perform any actions the user was authorized to perform within their workspace. The attack required social engineering (phishing, malicious links in emails or chat applications) to convince users to click the crafted URL. The stolen tokens expired after 5 minutes, though repeated attacks against the same user were possible if they could be convinced to click malicious links multiple times. The fix in version 0.12.71 implements validation requiring user-defined allowed origins for the baseUrl parameter, preventing tokens from being sent to unauthorized servers. No known workarounds are available. Self-hosted customers must upgrade to the patched version.",
-      "published": "2026-03-04T22:16:17.667",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25750"
+      "id": "CVE-2025-41257",
+      "summary": "Suprema\u2019s BioStar 2 in version 2.9.11.6 allows users to set new password without providing the current one. Exploiting this flaw combined with other vulnerabilities can lead to unauthorized account access and potential system compromise.",
+      "published": "2026-03-04T23:16:09.713",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41257"
     }
   ]
 }
