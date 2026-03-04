@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-03T23:40:40+00:00",
+  "generated_at": "2026-03-04T02:49:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3266",
-      "summary": "Missing Authorization vulnerability in OpenText\u2122 Filr allows Authentication Bypass.\u00a0The vulnerability could allow unauthenticated users to get XSRF token and do RPC with carefully crafted programs.\n\nThis issue affects Filr: through 25.1.2.",
-      "published": "2026-03-03T23:15:56.813",
+      "id": "CVE-2026-3452",
+      "summary": "Concrete CMS below version 9.4.8 is vulnerable to\u00a0Remote Code Execution by\u00a0stored PHP object injection into the Express Entry List block\u00a0via the columns parameter.\u00a0An authenticated administrator can store attacker-controlled serialized data in block configuration fields that are later passed to unserialize() without class restrictions or integrity checks.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 8.9 with vector\u00a0CVSS:4.0/AV:N/AC:H/AT:P/PR:H/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H. Thanks\u00a0YJK ( @YJK0805 https://hackerone.com/yjk0805 ) of  ZUSO ART https://zuso.ai/ \u00a0for reporting.",
+      "published": "2026-03-04T02:15:54.840",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3266"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3452"
     },
     {
-      "id": "CVE-2026-28289",
-      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. A patch bypass vulnerability for CVE-2026-27636 in FreeScout 1.8.206 and earlier allows any authenticated user with file upload permissions to achieve Remote Code Execution (RCE) on the server by uploading a malicious .htaccess file using a zero-width space character prefix to bypass the security check. The vulnerability exists in the sanitizeUploadedFileName() function in app/Http/Helper.php. The function contains a Time-of-Check to Time-of-Use (TOCTOU) flaw where the dot-prefix check occurs before sanitization removes invisible characters. This vulnerability is fixed in 1.8.207.",
-      "published": "2026-03-03T23:15:56.550",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28289"
-    },
-    {
-      "id": "CVE-2026-27981",
-      "summary": "HomeBox is a home inventory and organization system. Prior to 0.24.0, the authentication rate limiter (authRateLimiter) tracks failed attempts per client IP. It determines the client IP by reading, 1. X-Real-IP header, 2. First entry of X-Forwarded-For header, and 3. r.RemoteAddr (TCP connection address). These headers were read unconditionally. An attacker connecting directly to Homebox could forge any value in X-Real-IP, effectively getting a fresh rate limit identity per request. There is a TrustProxy option in the configuration (Options.TrustProxy, default false), but this option was never read by any middleware or rate limiter code. Additionally, chi's middleware.RealIP was applied unconditionally in main.go, overwriting r.RemoteAddr with the forged header value before it reaches any handler. This vulnerability is fixed in 0.24.0.",
-      "published": "2026-03-03T23:15:56.387",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27981"
-    },
-    {
-      "id": "CVE-2026-27971",
-      "summary": "Qwik is a performance focused javascript framework. qwik <=1.19.0 is vulnerable to RCE due to an unsafe deserialization vulnerability in the server$ RPC mechanism that allows any unauthenticated user to execute arbitrary code on the server with a single HTTP request. Affects any deployment where require() is available at runtime. This vulnerability is fixed in 1.19.1.",
-      "published": "2026-03-03T23:15:56.227",
+      "id": "CVE-2026-3244",
+      "summary": "In Concrete CMS below version 9.4.8, A stored cross-site scripting (XSS) vulnerability exists in the search block where page names and content are rendered without proper HTML encoding in search results. This allows authenticated, rogue administrators to inject malicious JavaScript through page names that executes when users search for and view those pages in search results.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 4.8 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N.  Thanks zolpak\u00a0for reporting",
+      "published": "2026-03-04T02:15:54.663",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27971"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3244"
     },
     {
-      "id": "CVE-2026-27932",
-      "summary": "joserfc is a Python library that provides an implementation of several JSON Object Signing and Encryption (JOSE) standards. In 1.6.2 and earlier, a resource exhaustion vulnerability in joserfc allows an unauthenticated attacker to cause a Denial of Service (DoS) via CPU exhaustion. When the library decrypts a JSON Web Encryption (JWE) token using Password-Based Encryption (PBES2) algorithms, it reads the p2c (PBES2 Count) parameter directly from the token's protected header. This parameter defines the number of iterations for the PBKDF2 key derivation function. Because joserfc does not validate or bound this value, an attacker can specify an extremely large iteration count (e.g., 2^31 - 1), forcing the server to expend massive CPU resources processing a single token. This vulnerability exists at the JWA layer and impacts all high-level JWE and JWT decryption interfaces if PBES2 algorithms are allowed by the application's policy.",
-      "published": "2026-03-03T23:15:56.050",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27932"
+      "id": "CVE-2026-2292",
+      "summary": "The Morkva UA Shipping plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 1.7.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
+      "published": "2026-03-04T02:15:54.490",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2292"
     },
     {
-      "id": "CVE-2026-27905",
-      "summary": "BentoML is a Python library for building online serving systems optimized for AI apps and model inference. Prior to 1.4.36, the safe_extract_tarfile() function validates that each tar member's path is within the destination directory, but for symlink members it only validates the symlink's own path, not the symlink's target. An attacker can create a malicious bento/model tar file containing a symlink pointing outside the extraction directory, followed by a regular file that writes through the symlink, achieving arbitrary file write on the host filesystem. This vulnerability is fixed in 1.4.36.",
-      "published": "2026-03-03T23:15:55.897",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27905"
+      "id": "CVE-2026-2289",
+      "summary": "The Taskbuilder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 5.0.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
+      "published": "2026-03-04T02:15:54.317",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2289"
+    },
+    {
+      "id": "CVE-2026-1980",
+      "summary": "The WPBookit plugin for WordPress is vulnerable to unauthorized data disclosure due to a missing authorization check on the 'get_customer_list' route in all versions up to, and including, 1.0.8. This makes it possible for unauthenticated attackers to retrieve sensitive customer information including names, emails, phone numbers, dates of birth, and gender.",
+      "published": "2026-03-04T02:15:54.150",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1980"
+    },
+    {
+      "id": "CVE-2026-1945",
+      "summary": "The WPBookit plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'wpb_user_name' and 'wpb_user_email' parameters in all versions up to, and including, 1.0.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-03-04T02:15:53.970",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1945"
     }
   ]
 }
