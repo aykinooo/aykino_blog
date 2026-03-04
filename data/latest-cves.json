@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-04T08:56:22+00:00",
+  "generated_at": "2026-03-04T09:57:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-29120",
-      "summary": "The /root/anaconda-ks.cfg installation configuration file in International Datacasting Corporation (IDC) SFX Series(SFX2100) SuperFlex Satellite Receiver insecurely stores the hardcoded root password hash. The password itself is highly insecure and susceptible to offline dictionary attacks using the rockyou.txt wordlist. Because direct root SSH login is disabled, an attacker must first obtain low-privileged access to the system (e.g., via other vulnerabilities) to be able to log in as the root user. The password is hardcoded and so allows for an actor with local access on effected versions to escalate to root",
-      "published": "2026-03-04T08:16:14.587",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29120"
+      "id": "CVE-2026-3094",
+      "summary": "Delta Electronics CNCSoft-G2\u00a0lacks proper validation of the user-supplied file. If a user opens a malicious file, an attacker can leverage this vulnerability to execute code in the context of the current process.",
+      "published": "2026-03-04T09:15:58.457",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3094"
     },
     {
-      "id": "CVE-2026-29119",
-      "summary": "International Datacasting Corporation (IDC) SFX Series SuperFlex(SFX2100) SatelliteReceiver contains hardcoded and insecure credentials for the `admin` account. A remote unauthenticated attacker can use these undocumented credentials to access the satellite system directly via the Telnet service, leading to potential system compromise.",
-      "published": "2026-03-04T08:16:14.440",
+      "id": "CVE-2026-2748",
+      "summary": "SEPPmail Secure Email Gateway before version 15.0.1 improperly validates S/MIME certificates issued for email addresses containing whitespaces, allowing signature spoofing.",
+      "published": "2026-03-04T09:15:58.290",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29119"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2748"
     },
     {
-      "id": "CVE-2026-28778",
-      "summary": "International Datacasting Corporation (IDC) SFX Series SuperFlex Satellite Receiver contains undocumented, hardcoded/insecure credentials for the `xd` user account. A remote unauthenticated attacker can log in via FTP using these credentials. Because the `xd` user has write permissions to their home directory where root-executed binaries and symlinks (such as those invoked by `xdstartstop`) are stored, the attacker can overwrite these files or manipulate symlinks to achieve arbitrary code execution as the root user.",
-      "published": "2026-03-04T08:16:14.253",
+      "id": "CVE-2026-2747",
+      "summary": "SEPPmail Secure Email Gateway before version 15.0.1 decrypts inline PGP messages without isolating them from surrounding unencrypted content, allowing exposure of sensitive information to an unauthorized actor.",
+      "published": "2026-03-04T09:15:58.120",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28778"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2747"
     },
     {
-      "id": "CVE-2026-28777",
-      "summary": "International Datacasting Corporation (IDC) \n\nSFX2100 Satellite Receiver, trivial password for the `user` (usr) account. A remote unauthenticated attacker can exploit this to gain unauthorized SSH access to the system, while intially dropped into a restricted shell, an attacker can trivially spawn a complete pty to gain an appropriately interactive shell.",
-      "published": "2026-03-04T08:16:14.113",
+      "id": "CVE-2026-2746",
+      "summary": "SEPPmail Secure Email Gateway before version 15.0.1 does not properly communicate PGP signature verification results, leaving users unable to detect forged emails.",
+      "published": "2026-03-04T09:15:57.960",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28777"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2746"
     },
     {
-      "id": "CVE-2026-28776",
-      "summary": "International Datacasting Corporation (IDC) SFX Series SuperFlex SatelliteReceiver contains hardcoded credentials for the `monitor` account. A remote unauthenticated attacker can use these trivial, undocumented credentials to access the system via SSH. While initially dropped into a restricted shell, the attacker can trivially break out to achieve standard shell functionality.",
-      "published": "2026-03-04T08:16:13.960",
+      "id": "CVE-2026-27446",
+      "summary": "Missing Authentication for Critical Function (CWE-306) vulnerability in Apache Artemis, Apache ActiveMQ Artemis. An unauthenticated remote attacker can use the Core protocol to force a target broker to establish an outbound Core federation connection to an attacker-controlled rogue broker. This could potentially result in message injection into any queue and/or message exfiltration from any queue via the rogue broker. This impacts environments that allow both:\n\n- incoming Core protocol connections from untrusted sources to the broker\n\n- outgoing Core protocol connections from the broker to untrusted targets\n\nThis issue affects:\n\n- Apache Artemis from 2.50.0 through 2.51.0\n\n- Apache ActiveMQ Artemis from 2.11.0 through 2.44.0.\n\nUsers are recommended to upgrade to Apache Artemis version 2.52.0, which fixes the issue.\n\nThe issue can be mitigated by either of the following:\n\n- Remove Core protocol support from any acceptor receiving connections from untrusted sources. Incoming Core protocol connections are supported by default via the \"artemis\" acceptor listening on port 61616. See the \"protocols\" URL parameter configured for the acceptor. An acceptor URL without this parameter supports all protocols by default, including Core.\n\n- Use two-way SSL (i.e. certificate-based authentication) in order to force every client to present the proper SSL certificate when establishing a connection before any message protocol handshake is attempted. This will prevent unauthenticated exploitation of this vulnerability.",
+      "published": "2026-03-04T09:15:56.837",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28776"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27446"
     },
     {
-      "id": "CVE-2026-28775",
-      "summary": "An unauthenticated Remote Code Execution (RCE) vulnerability exists in the SNMP service of International Datacasting Corporation (IDC) SFX Series SuperFlex SatelliteReceiver. The deployment insecurely provisions the `private` SNMP community string with read/write access by default. Because the SNMP agent runs as root, an unauthenticated remote attacker can utilize `NET-SNMP-EXTEND-MIB` directives, abusing the fact that the system runs a vulnerable version of net-snmp pre 5.8, to execute arbitrary operating system commands with root privileges.",
-      "published": "2026-03-04T08:16:13.803",
+      "id": "CVE-2026-27445",
+      "summary": "SEPPmail Secure Email Gateway before version 15.0.1 does not properly verify that a PGP signature was generated by the expected key, allowing signature spoofing.",
+      "published": "2026-03-04T09:15:56.660",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28775"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27445"
     }
   ]
 }
