@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-04T14:56:35+00:00",
+  "generated_at": "2026-03-04T15:57:20+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3103",
-      "summary": "A logic error in the remove_password() function in Checkmk GmbH's Checkmk versions <2.4.0p23, <2.3.0p43, and 2.2.0 (EOL) allows a low-privileged user to cause data loss.",
-      "published": "2026-03-04T14:16:14.857",
+      "id": "CVE-2026-23238",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nromfs: check sb_set_blocksize() return value\n\nromfs_fill_super() ignores the return value of sb_set_blocksize(), which\ncan fail if the requested block size is incompatible with the block\ndevice's configuration.\n\nThis can be triggered by setting a loop device's block size larger than\nPAGE_SIZE using ioctl(LOOP_SET_BLOCK_SIZE, 32768), then mounting a romfs\nfilesystem on that device.\n\nWhen sb_set_blocksize(sb, ROMBSIZE) is called with ROMBSIZE=4096 but the\ndevice has logical_block_size=32768, bdev_validate_blocksize() fails\nbecause the requested size is smaller than the device's logical block\nsize. sb_set_blocksize() returns 0 (failure), but romfs ignores this and\ncontinues mounting.\n\nThe superblock's block size remains at the device's logical block size\n(32768). Later, when sb_bread() attempts I/O with this oversized block\nsize, it triggers a kernel BUG in folio_set_bh():\n\n    kernel BUG at fs/buffer.c:1582!\n    BUG_ON(size > PAGE_SIZE);\n\nFix by checking the return value of sb_set_blocksize() and failing the\nmount with -EINVAL if it returns 0.",
+      "published": "2026-03-04T15:16:14.530",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3103"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23238"
     },
     {
-      "id": "CVE-2025-40896",
-      "summary": "The server certificate was not verified when an Arc agent connected to a Guardian or CMC.\n\n\n\nA malicious actor could perform a man-in-the-middle attack and intercept the communication between the Arc agent and the Guardian or CMC. This could result in theft of the client token and sensitive information (such as assets and alerts), impersonation of the server, or injection of spoofed data (such as false asset information or vulnerabilities) into the Guardian or CMC.",
-      "published": "2026-03-04T14:16:14.143",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40896"
-    },
-    {
-      "id": "CVE-2025-40895",
-      "summary": "A Stored HTML Injection vulnerability was discovered in the CMC's Sensor Map functionality due to improper validation on connected Guardians' properties.\n\n\n\nA malicious authenticated user with administrator privileges on a Guardian connected to a CMC can edit the Guardian's properties to inject HTML tags. If the Sensor Map functionality is enabled in the CMC, when a victim CMC user interacts with it, then the injected HTML may render in their browser, enabling phishing and possibly open redirect attacks. Full XSS exploitation and direct information disclosure are prevented by the existing input validation and Content Security Policy configuration.",
-      "published": "2026-03-04T14:16:13.900",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40895"
-    },
-    {
-      "id": "CVE-2025-40894",
-      "summary": "A Stored HTML Injection vulnerability was discovered in the Alerted Nodes Dashboard functionality due to improper validation on an input parameter.\n\n\n\nA malicious authenticated user with the required privileges could edit a node label to inject HTML tags. If the system is configured to use the Alerted Nodes Dashboard, and alerts are reported for the affected node, then the injected HTML may render in the browser of a victim user interacting with it, enabling phishing and possibly open redirect attacks. Full XSS exploitation and direct information disclosure are prevented by the existing input validation and Content Security Policy configuration.",
-      "published": "2026-03-04T14:16:13.657",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40894"
-    },
-    {
-      "id": "CVE-2026-25907",
-      "summary": "Dell PowerScale OneFS, version 9.13.0.0, contains an overly restrictive account lockout mechanism vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to denial of service.",
-      "published": "2026-03-04T13:15:58.470",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25907"
-    },
-    {
-      "id": "CVE-2026-24732",
-      "summary": "Files or Directories Accessible to External Parties, Incorrect Permission Assignment for Critical Resource vulnerability in Hallo Welt! GmbH BlueSpice (Extension:NSFileRepo modules) allows Accessing Functionality Not Properly Constrained by ACLs, Bypassing Electronic Locks and Access Controls.This issue affects BlueSpice: from 5.1 through 5.1.3, from 5.2 through 5.2.0.\n\nHINT: Versions provided apply to BlueSpice MediaWiki releases. For\u00a0Extension:NSFileRepo the affected versions are 3.0 < 3.0.5",
-      "published": "2026-03-04T13:15:58.287",
+      "id": "CVE-2026-23237",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nplatform/x86: classmate-laptop: Add missing NULL pointer checks\n\nIn a few places in the Classmate laptop driver, code using the accel\nobject may run before that object's address is stored in the driver\ndata of the input device using it.\n\nFor example, cmpc_accel_sensitivity_store_v4() is the \"show\" method\nof cmpc_accel_sensitivity_attr_v4 which is added in cmpc_accel_add_v4(),\nbefore calling dev_set_drvdata() for inputdev->dev.  If the sysfs\nattribute is accessed prematurely, the dev_get_drvdata(&inputdev->dev)\ncall in in cmpc_accel_sensitivity_store_v4() returns NULL which\nleads to a NULL pointer dereference going forward.\n\nMoreover, sysfs attributes using the input device are added before\ninitializing that device by cmpc_add_acpi_notify_device() and if one\nof them is accessed before running that function, a NULL pointer\ndereference will occur.\n\nFor example, cmpc_accel_sensitivity_attr_v4 is added before calling\ncmpc_add_acpi_notify_device() and if it is read prematurely, the\ndev_get_drvdata(&acpi->dev) call in cmpc_accel_sensitivity_show_v4()\nreturns NULL which leads to a NULL pointer dereference going forward.\n\nFix this by adding NULL pointer checks in all of the relevant places.",
+      "published": "2026-03-04T15:16:14.350",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24732"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23237"
+    },
+    {
+      "id": "CVE-2026-23236",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nfbdev: smscufx: properly copy ioctl memory to kernelspace\n\nThe UFX_IOCTL_REPORT_DAMAGE ioctl does not properly copy data from\nuserspace to kernelspace, and instead directly references the memory,\nwhich can cause problems if invalid data is passed from userspace.  Fix\nthis all up by correctly copying the memory before accessing it within\nthe kernel.",
+      "published": "2026-03-04T15:16:14.173",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23236"
+    },
+    {
+      "id": "CVE-2026-23235",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix out-of-bounds access in sysfs attribute read/write\n\nSome f2fs sysfs attributes suffer from out-of-bounds memory access and\nincorrect handling of integer values whose size is not 4 bytes.\n\nFor example:\nvm:~# echo 65537 > /sys/fs/f2fs/vde/carve_out\nvm:~# cat /sys/fs/f2fs/vde/carve_out\n65537\nvm:~# echo 4294967297 > /sys/fs/f2fs/vde/atgc_age_threshold\nvm:~# cat /sys/fs/f2fs/vde/atgc_age_threshold\n1\n\ncarve_out maps to {struct f2fs_sb_info}->carve_out, which is a 8-bit\ninteger. However, the sysfs interface allows setting it to a value\nlarger than 255, resulting in an out-of-range update.\n\natgc_age_threshold maps to {struct atgc_management}->age_threshold,\nwhich is a 64-bit integer, but its sysfs interface cannot correctly set\nvalues larger than UINT_MAX.\n\nThe root causes are:\n1. __sbi_store() treats all default values as unsigned int, which\nprevents updating integers larger than 4 bytes and causes out-of-bounds\nwrites for integers smaller than 4 bytes.\n\n2. f2fs_sbi_show() also assumes all default values are unsigned int,\nleading to out-of-bounds reads and incorrect access to integers larger\nthan 4 bytes.\n\nThis patch introduces {struct f2fs_attr}->size to record the actual size\nof the integer associated with each sysfs attribute. With this\ninformation, sysfs read and write operations can correctly access and\nupdate values according to their real data size, avoiding memory\ncorruption and truncation.",
+      "published": "2026-03-04T15:16:13.977",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23235"
+    },
+    {
+      "id": "CVE-2026-23234",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix to avoid UAF in f2fs_write_end_io()\n\nAs syzbot reported an use-after-free issue in f2fs_write_end_io().\n\nIt is caused by below race condition:\n\nloop device\t\t\t\tumount\n- worker_thread\n - loop_process_work\n  - do_req_filebacked\n   - lo_rw_aio\n    - lo_rw_aio_complete\n     - blk_mq_end_request\n      - blk_update_request\n       - f2fs_write_end_io\n        - dec_page_count\n        - folio_end_writeback\n\t\t\t\t\t- kill_f2fs_super\n\t\t\t\t\t - kill_block_super\n\t\t\t\t\t  - f2fs_put_super\n\t\t\t\t\t : free(sbi)\n       : get_pages(, F2FS_WB_CP_DATA)\n         accessed sbi which is freed\n\nIn kill_f2fs_super(), we will drop all page caches of f2fs inodes before\ncall free(sbi), it guarantee that all folios should end its writeback, so\nit should be safe to access sbi before last folio_end_writeback().\n\nLet's relocate ckpt thread wakeup flow before folio_end_writeback() to\nresolve this issue.",
+      "published": "2026-03-04T15:16:13.790",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23234"
+    },
+    {
+      "id": "CVE-2026-23233",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nf2fs: fix to avoid mapping wrong physical block for swapfile\n\nXiaolong Guo reported a f2fs bug in bugzilla [1]\n\n[1] https://bugzilla.kernel.org/show_bug.cgi?id=220951\n\nQuoted:\n\n\"When using stress-ng's swap stress test on F2FS filesystem with kernel 6.6+,\nthe system experiences data corruption leading to either:\n1 dm-verity corruption errors and device reboot\n2 F2FS node corruption errors and boot hangs\n\nThe issue occurs specifically when:\n1 Using F2FS filesystem (ext4 is unaffected)\n2 Swapfile size is less than F2FS section size (2MB)\n3 Swapfile has fragmented physical layout (multiple non-contiguous extents)\n4 Kernel version is 6.6+ (6.1 is unaffected)\n\nThe root cause is in check_swap_activate() function in fs/f2fs/data.c. When the\nfirst extent of a small swapfile (< 2MB) is not aligned to section boundaries,\nthe function incorrectly treats it as the last extent, failing to map\nsubsequent extents. This results in incorrect swap_extent creation where only\nthe first extent is mapped, causing subsequent swap writes to overwrite wrong\nphysical locations (other files' data).\n\nSteps to Reproduce\n1 Setup a device with F2FS-formatted userdata partition\n2 Compile stress-ng from https://github.com/ColinIanKing/stress-ng\n3 Run swap stress test: (Android devices)\nadb shell \"cd /data/stressng; ./stress-ng-64 --metrics-brief --timeout 60\n--swap 0\"\n\nLog:\n1 Ftrace shows in kernel 6.6, only first extent is mapped during second\nf2fs_map_blocks call in check_swap_activate():\nstress-ng-swap-8990: f2fs_map_blocks: ino=11002, file offset=0, start\nblkaddr=0x43143, len=0x1\n(Only 4KB mapped, not the full swapfile)\n2 in kernel 6.1, both extents are correctly mapped:\nstress-ng-swap-5966: f2fs_map_blocks: ino=28011, file offset=0, start\nblkaddr=0x13cd4, len=0x1\nstress-ng-swap-5966: f2fs_map_blocks: ino=28011, file offset=1, start\nblkaddr=0x60c84b, len=0xff\n\nThe problematic code is in check_swap_activate():\nif ((pblock - SM_I(sbi)->main_blkaddr) % blks_per_sec ||\n    nr_pblocks % blks_per_sec ||\n    !f2fs_valid_pinned_area(sbi, pblock)) {\n    bool last_extent = false;\n\n    not_aligned++;\n\n    nr_pblocks = roundup(nr_pblocks, blks_per_sec);\n    if (cur_lblock + nr_pblocks > sis->max)\n        nr_pblocks -= blks_per_sec;\n\n    /* this extent is last one */\n    if (!nr_pblocks) {\n        nr_pblocks = last_lblock - cur_lblock;\n        last_extent = true;\n    }\n\n    ret = f2fs_migrate_blocks(inode, cur_lblock, nr_pblocks);\n    if (ret) {\n        if (ret == -ENOENT)\n            ret = -EINVAL;\n        goto out;\n    }\n\n    if (!last_extent)\n        goto retry;\n}\n\nWhen the first extent is unaligned and roundup(nr_pblocks, blks_per_sec)\nexceeds sis->max, we subtract blks_per_sec resulting in nr_pblocks = 0. The\ncode then incorrectly assumes this is the last extent, sets nr_pblocks =\nlast_lblock - cur_lblock (entire swapfile), and performs migration. After\nmigration, it doesn't retry mapping, so subsequent extents are never processed.\n\"\n\nIn order to fix this issue, we need to lookup block mapping info after\nwe migrate all blocks in the tail of swapfile.",
+      "published": "2026-03-04T15:16:13.603",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23233"
     }
   ]
 }
