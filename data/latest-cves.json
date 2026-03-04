@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-04T13:21:10+00:00",
+  "generated_at": "2026-03-04T14:56:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3103",
+      "summary": "A logic error in the remove_password() function in Checkmk GmbH's Checkmk versions <2.4.0p23, <2.3.0p43, and 2.2.0 (EOL) allows a low-privileged user to cause data loss.",
+      "published": "2026-03-04T14:16:14.857",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3103"
+    },
+    {
+      "id": "CVE-2025-40896",
+      "summary": "The server certificate was not verified when an Arc agent connected to a Guardian or CMC.\n\n\n\nA malicious actor could perform a man-in-the-middle attack and intercept the communication between the Arc agent and the Guardian or CMC. This could result in theft of the client token and sensitive information (such as assets and alerts), impersonation of the server, or injection of spoofed data (such as false asset information or vulnerabilities) into the Guardian or CMC.",
+      "published": "2026-03-04T14:16:14.143",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40896"
+    },
+    {
+      "id": "CVE-2025-40895",
+      "summary": "A Stored HTML Injection vulnerability was discovered in the CMC's Sensor Map functionality due to improper validation on connected Guardians' properties.\n\n\n\nA malicious authenticated user with administrator privileges on a Guardian connected to a CMC can edit the Guardian's properties to inject HTML tags. If the Sensor Map functionality is enabled in the CMC, when a victim CMC user interacts with it, then the injected HTML may render in their browser, enabling phishing and possibly open redirect attacks. Full XSS exploitation and direct information disclosure are prevented by the existing input validation and Content Security Policy configuration.",
+      "published": "2026-03-04T14:16:13.900",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40895"
+    },
+    {
+      "id": "CVE-2025-40894",
+      "summary": "A Stored HTML Injection vulnerability was discovered in the Alerted Nodes Dashboard functionality due to improper validation on an input parameter.\n\n\n\nA malicious authenticated user with the required privileges could edit a node label to inject HTML tags. If the system is configured to use the Alerted Nodes Dashboard, and alerts are reported for the affected node, then the injected HTML may render in the browser of a victim user interacting with it, enabling phishing and possibly open redirect attacks. Full XSS exploitation and direct information disclosure are prevented by the existing input validation and Content Security Policy configuration.",
+      "published": "2026-03-04T14:16:13.657",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-40894"
+    },
     {
       "id": "CVE-2026-25907",
       "summary": "Dell PowerScale OneFS, version 9.13.0.0, contains an overly restrictive account lockout mechanism vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to denial of service.",
@@ -15,34 +43,6 @@
       "published": "2026-03-04T13:15:58.287",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24732"
-    },
-    {
-      "id": "CVE-2026-23231",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: fix use-after-free in nf_tables_addchain()\n\nnf_tables_addchain() publishes the chain to table->chains via\nlist_add_tail_rcu() (in nft_chain_add()) before registering hooks.\nIf nf_tables_register_hook() then fails, the error path calls\nnft_chain_del() (list_del_rcu()) followed by nf_tables_chain_destroy()\nwith no RCU grace period in between.\n\nThis creates two use-after-free conditions:\n\n 1) Control-plane: nf_tables_dump_chains() traverses table->chains\n    under rcu_read_lock(). A concurrent dump can still be walking\n    the chain when the error path frees it.\n\n 2) Packet path: for NFPROTO_INET, nf_register_net_hook() briefly\n    installs the IPv4 hook before IPv6 registration fails.  Packets\n    entering nft_do_chain() via the transient IPv4 hook can still be\n    dereferencing chain->blob_gen_X when the error path frees the\n    chain.\n\nAdd synchronize_rcu() between nft_chain_del() and the chain destroy\nso that all RCU readers -- both dump threads and in-flight packet\nevaluation -- have finished before the chain is freed.",
-      "published": "2026-03-04T13:15:58.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23231"
-    },
-    {
-      "id": "CVE-2026-22270",
-      "summary": "Dell PowerScale OneFS, versions prior to 9.10.1.6 and versions 9.11.0.0 through 9.12.0.1, contains an uncontrolled search path element vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to denial of service, elevation of privileges, and information disclosure.",
-      "published": "2026-03-04T13:15:57.967",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22270"
-    },
-    {
-      "id": "CVE-2026-21426",
-      "summary": "Dell PowerScale OneFS, versions prior to 9.10.1.6 and versions 9.11.0.0 through 9.12.0.1, contains an execution with unnecessary privileges vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to denial of service, elevation of privileges, and information disclosure.",
-      "published": "2026-03-04T13:15:57.800",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21426"
-    },
-    {
-      "id": "CVE-2026-21425",
-      "summary": "Dell PowerScale OneFS, versions prior to 9.10.1.6 and versions 9.11.0.0 through 9.12.0.1, contains an incorrect privilege assignment vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "published": "2026-03-04T13:15:57.643",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21425"
     }
   ]
 }
