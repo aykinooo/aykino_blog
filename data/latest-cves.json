@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-03-05T10:00:36+00:00",
+  "generated_at": "2026-03-05T10:59:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-21628",
+      "summary": "A improperly secured file management feature allows uploads of dangerous data types for unauthenticated users, leading to remote code execution.",
+      "published": "2026-03-05T10:15:57.930",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21628"
+    },
+    {
+      "id": "CVE-2026-1605",
+      "summary": "In Eclipse Jetty, versions 12.0.0-12.0.31 and 12.1.0-12.0.5, class GzipHandler exposes a vulnerability when a compressed HTTP request, with Content-Encoding: gzip, is processed and the corresponding response is not compressed.\n\n\nThis happens because the JDK Inflater is allocated for decompressing the request, but it is not released because the release mechanism is tied to the compressed response.\nIn this case, since the response is not compressed, the release mechanism does not trigger, causing the leak.",
+      "published": "2026-03-05T10:15:56.890",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1605"
+    },
+    {
+      "id": "CVE-2025-11143",
+      "summary": "The Jetty URI parser has some key differences to other common parsers when evaluating invalid or unusual URIs.\u00a0Differential parsing of URIs in systems using multiple components may result in security by-pass. For example a component that enforces a black list may interpret the URIs differently from one that generates a response.\u00a0At the very least, differential parsing may divulge implementation details.",
+      "published": "2026-03-05T10:15:54.680",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11143"
+    },
     {
       "id": "CVE-2026-28551",
       "summary": "Race condition vulnerability in the device security management module.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
@@ -22,27 +43,6 @@
       "published": "2026-03-05T09:16:11.563",
       "cvss": 7.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28548"
-    },
-    {
-      "id": "CVE-2026-28547",
-      "summary": "Vulnerability of uninitialized pointer access in the scanning module.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-03-05T09:16:11.400",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28547"
-    },
-    {
-      "id": "CVE-2026-28546",
-      "summary": "Buffer overflow vulnerability in the scanning module.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-03-05T09:16:11.240",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28546"
-    },
-    {
-      "id": "CVE-2026-28542",
-      "summary": "Permission bypass vulnerability in the system service framework.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-03-05T09:16:11.070",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28542"
     }
   ]
 }
