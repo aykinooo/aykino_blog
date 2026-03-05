@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-05T20:52:34+00:00",
+  "generated_at": "2026-03-05T21:49:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-28790",
-      "summary": "OliveTin gives access to predefined shell commands from a web interface. Prior to version 3000.11.0, OliveTin allows an unauthenticated guest to terminate running actions through KillAction even when authRequireGuestsToLogin: true is enabled. Guests are correctly blocked from dashboard access, but can still call the KillAction RPC directly and successfully stop a running action. This is a broken access control issue that causes unauthorized denial of service against legitimate action executions. This issue has been patched in version 3000.11.0.",
-      "published": "2026-03-05T20:16:16.820",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28790"
+      "id": "CVE-2026-29188",
+      "summary": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit files. Prior to version 2.61.1, a broken access control vulnerability in the TUS protocol DELETE endpoint allows authenticated users with only Create permission to delete arbitrary files and directories within their scope, bypassing the intended Delete permission restriction. Any multi-user deployment where administrators explicitly restrict file deletion for certain users is affected. This issue has been patched in version 2.61.1.",
+      "published": "2026-03-05T21:16:23.097",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29188"
     },
     {
-      "id": "CVE-2026-28789",
-      "summary": "OliveTin gives access to predefined shell commands from a web interface. Prior to version 3000.10.3, an unauthenticated denial-of-service vulnerability exists in OliveTin\u2019s OAuth2 login flow. Concurrent requests to /oauth/login can trigger unsynchronized access to a shared registeredStates map, causing a Go runtime panic (fatal error: concurrent map writes) and process termination. This allows remote attackers to crash the service when OAuth2 is enabled. This issue has been patched in version 3000.10.3.",
-      "published": "2026-03-05T20:16:16.653",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28789"
+      "id": "CVE-2026-29081",
+      "summary": "Frappe is a full-stack web application framework. Prior to versions 14.100.1 and 15.100.0, an endpoint was vulnerable to SQL injection through specially crafted requests, which would allow a malicious actor to extract sensitive information. This issue has been patched in versions 14.100.1 and 15.100.0.",
+      "published": "2026-03-05T21:16:22.947",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29081"
     },
     {
-      "id": "CVE-2026-28353",
-      "summary": "Trivy Vulnerability Scanner is a VS Code extension that helps find vulnerabilities. In Trivy VSCode Extension version 1.8.12, which was distributed via OpenVSX marketplace was compromised and contained malicious code designed to leverage local AI coding agent to collect and exfiltrate sensitive information. Users using the affected artifact are advised to immediately remove it and rotate environment secrets. The malicious artifact has been removed from the marketplace. No other affected artifacts have been identified.",
-      "published": "2026-03-05T20:16:16.493",
+      "id": "CVE-2026-29077",
+      "summary": "Frappe is a full-stack web application framework. Prior to versions 15.98.0 and 14.100.0, due to a lack of validation when sharing documents, a user could share a document with a permission that they themselves didn't have. This issue has been patched in versions 15.98.0 and 14.100.0.",
+      "published": "2026-03-05T21:16:22.790",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29077"
+    },
+    {
+      "id": "CVE-2026-28492",
+      "summary": "File Browser provides a file managing interface within a specified directory and it can be used to upload, delete, preview, rename and edit files. Prior to version 2.61.0, when a user creates a public share link for a directory, the withHashFile middleware in http/public.go uses filepath.Dir(link.Path) to compute the BasePathFs root. This sets the filesystem root to the parent directory instead of the shared directory itself, allowing anyone with the share link to browse and download files from all sibling directories. This issue has been patched in version 2.61.0.",
+      "published": "2026-03-05T21:16:22.630",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28353"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28492"
     },
     {
-      "id": "CVE-2026-28350",
-      "summary": "lxml_html_clean is a project for HTML cleaning functionalities copied from `lxml.html.clean`. Prior to version 0.4.4, the <base> tag passes through the default Cleaner configuration. While page_structure=True removes html, head, and title tags, there is no specific handling for <base>, allowing an attacker to inject it and hijack relative links on the page. This issue has been patched in version 0.4.4.",
-      "published": "2026-03-05T20:16:16.333",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28350"
+      "id": "CVE-2026-28443",
+      "summary": "OpenReplay is a self-hosted session replay suite. Prior to version 1.20.0, the POST /{projectId}/cards/search endpoint has a SQL injection in the sort.field parameter. This issue has been patched in version 1.20.0.",
+      "published": "2026-03-05T21:16:22.483",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28443"
     },
     {
-      "id": "CVE-2026-28348",
-      "summary": "lxml_html_clean is a project for HTML cleaning functionalities copied from `lxml.html.clean`. Prior to version 0.4.4, the _has_sneaky_javascript() method strips backslashes before checking for dangerous CSS keywords. This causes CSS Unicode escape sequences to bypass the @import and expression() filters, allowing external CSS loading or XSS in older browsers. This issue has been patched in version 0.4.4.",
-      "published": "2026-03-05T20:16:16.180",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28348"
-    },
-    {
-      "id": "CVE-2026-28343",
-      "summary": "CKEditor 5 is a modern JavaScript rich-text editor with an MVC architecture. Prior to version 47.6.0, a cross-site scripting (XSS) vulnerability has been discovered in the General HTML Support feature. This vulnerability could be triggered by inserting specially crafted markup, leading to unauthorized JavaScript code execution, if the editor instance used an unsafe General HTML Support configuration. This issue has been patched in version 47.6.0.",
-      "published": "2026-03-05T20:16:16.017",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28343"
+      "id": "CVE-2026-28442",
+      "summary": "ZimaOS is a fork of CasaOS, an operating system for Zima devices and x86-64 systems with UEFI. In version 1.5.2-beta3, users are restricted from deleting internal system files or folders through the application interface. However, when interacting directly with the API, these restrictions can be bypassed. By altering the path parameter in the delete request, internal OS files and directories can be removed successfully. The backend processes these manipulated requests without validating whether the targeted path belongs to restricted system locations. This demonstrates improper input validation and broken access control on sensitive filesystem operations. No known public patch is available.",
+      "published": "2026-03-05T21:16:22.327",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28442"
     }
   ]
 }
