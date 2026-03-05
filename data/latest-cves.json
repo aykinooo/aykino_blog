@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-05T06:02:17+00:00",
+  "generated_at": "2026-03-05T07:09:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3523",
-      "summary": "The Apocalypse Meow plugin for WordPress is vulnerable to SQL Injection via the 'type' parameter in all versions up to, and including, 22.1.0. This is due to a flawed logical operator in the type validation check on line 261 of ajax.php \u2014 the condition uses `&&` (AND) instead of `||` (OR), causing the `in_array()` validation to be short-circuited and never evaluated for any non-empty type value. Combined with `stripslashes_deep()` being called on line 101 which removes `wp_magic_quotes()` protection, attacker-controlled single quotes pass through unescaped into the SQL query on line 298. This makes it possible for authenticated attackers, with Administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-03-05T05:16:37.717",
+      "id": "CVE-2026-3072",
+      "summary": "The Media Library Assistant plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the mla_update_compat_fields_action() function in all versions up to, and including, 3.33. This makes it possible for authenticated attackers, with Subscriber-level access and above, to modify taxonomy terms on arbitrary attachments.",
+      "published": "2026-03-05T06:16:52.160",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3072"
+    },
+    {
+      "id": "CVE-2026-30777",
+      "summary": "EC-CUBE provided by EC-CUBE CO.,LTD. contains a multi-factor authentication (MFA) bypass vulnerability. An attacker who has obtained a valid administrator ID and password may be able to bypass two-factor authentication and gain unauthorized access to the administrative page.",
+      "published": "2026-03-05T06:16:51.997",
       "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3523"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30777"
     },
     {
-      "id": "CVE-2026-3034",
-      "summary": "The OoohBoi Steroids for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the _ob_spacerat_link, _ob_bbad_link, and _ob_teleporter_link URL parameters in all versions up to, and including, 2.1.24. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user clicks on the injected element.",
-      "published": "2026-03-05T04:15:57.407",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3034"
-    },
-    {
-      "id": "CVE-2026-2899",
-      "summary": "The Fluent Forms Pro Add On Pack plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 6.1.17. This is due to the `deleteFile()` method in the `Uploader` class lacking nonce verification and capability checks. The AJAX action is registered via `addPublicAjaxAction()` which creates both `wp_ajax_` and `wp_ajax_nopriv_` hooks. This makes it possible for unauthenticated attackers to delete arbitrary WordPress media attachments via the `attachment_id` parameter.\r\n\r\nNote: The researcher described file deletion via the `path` parameter using `sanitize_file_name()`, but the actual code uses `Protector::decrypt()` for path-based deletion which prevents exploitation. The vulnerability is exploitable via the `attachment_id` parameter instead.",
-      "published": "2026-03-05T04:15:57.233",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2899"
-    },
-    {
-      "id": "CVE-2026-2365",
-      "summary": "The Fluent Forms Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `fluentform_step_form_save_data` AJAX action in all versions up to, and including, 6.1.17. This is due to the draft form submission endpoint being publicly accessible without authentication or nonce verification, combined with insufficient input sanitization and output escaping of form field data. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrator views a partial form entry.",
-      "published": "2026-03-05T04:15:56.783",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2365"
-    },
-    {
-      "id": "CVE-2026-29127",
-      "summary": "The IDC SFX2100 Satellite Receiver sets overly permissive file system permissions on the monitor\u00a0user's home directory. The directory is configured with permissions 0777, granting read, write, and execute access to all local users on the system, which may cause local privilege escalation depending on conditions of the system due to the presence of highly privileged processes and binaries residing within the affected directory.",
-      "published": "2026-03-05T03:15:54.713",
+      "id": "CVE-2026-2418",
+      "summary": "The Login with Salesforce WordPress plugin through 1.0.2 does not validate that users are allowed to login through Salesforce, allowing unauthenticated users to be authenticated as any user (such as admin) by simply knowing the email",
+      "published": "2026-03-05T06:16:51.883",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29127"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2418"
     },
     {
-      "id": "CVE-2026-26034",
-      "summary": "UPS Multi-UPS Management Console (MUMC) version 01.06.0001 (A03) contains an Incorrect Default Permissions (CWE-276) vulnerability that allows an attacker to execute arbitrary code with SYSTEM privileges by causing the application to load a specially crafted DLL.",
-      "published": "2026-03-05T03:15:54.540",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26034"
+      "id": "CVE-2026-29128",
+      "summary": "IDC SFX2100 Satellite Receiver firmware ships with multiple daemon configuration files for routing components (e.g., zebra, bgpd, ospfd, and ripd) that are owned by root but world-readable. The configuration files (e.g., zebra.conf, bgpd.conf, ospfd.conf, ripd.conf) contain hardcoded or otherwise insecure plaintext passwords (including \u201cenable\u201d/privileged-mode credentials). A remote actor is able to abuse the reuse/hardcoded nature of these credentials to further access other systems in the network, gain a foothold on the satellite receiver or potentially locally privilege escalate.",
+      "published": "2026-03-05T06:16:51.743",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29128"
+    },
+    {
+      "id": "CVE-2026-29053",
+      "summary": "Ghost is a Node.js content management system. From version 0.7.2 to 6.19.0, specifically crafted malicious themes can execute arbitrary code on the server running Ghost. This issue has been patched in version 6.19.1.",
+      "published": "2026-03-05T06:16:50.410",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29053"
+    },
+    {
+      "id": "CVE-2026-29052",
+      "summary": "The Calendar module for HumHub enables users to create one-time or recurring events, manage attendee invitations, and efficiently track all scheduled activities. Prior to version 1.8.11, a Stored Cross-Site Scripting (XSS) vulnerability in the Event Types of the HumHub Calendar module impacts users viewing events created by an administrative account. This issue has been patched in version 1.8.11.",
+      "published": "2026-03-05T06:16:50.260",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29052"
     }
   ]
 }
