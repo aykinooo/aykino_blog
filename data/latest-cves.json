@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T16:59:06+00:00",
+  "generated_at": "2026-03-06T17:51:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-27777",
-      "summary": "Charging station authentication identifiers are publicly accessible via web-based mapping platforms.",
-      "published": "2026-03-06T16:16:11.497",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27777"
+      "id": "CVE-2026-29783",
+      "summary": "The shell tool within GitHub Copilot CLI versions prior to and including 0.0.422 can allow arbitrary code execution through crafted bash parameter expansion patterns. An attacker who can influence the commands executed by the agent (e.g., via prompt injection through repository files, MCP server responses, or user instructions) can exploit bash parameter transformation operators to execute hidden commands, bypassing the safety assessment that classifies commands as \"read-only.\" This has been patched in version 0.0.423. \n\nThe vulnerability stems from how the CLI's shell safety assessment evaluates commands before execution. The safety layer parses and classifies shell commands as either read-only (safe) or write-capable (requires user approval). However, several bash parameter expansion features can embed executable code within arguments to otherwise read-only commands, causing them to appear safe while actually performing arbitrary operations.\n\nThe specific dangerous patterns are ${var@P}, ${var=value} / ${var:=value}, ${!var}, and nested $(cmd) or <(cmd) inside ${...} expansions. An attacker who can influence command text sent to the shell tool - for example, through prompt injection via malicious repository content (README files, code comments, issue bodies), compromised or malicious MCP server responses, or crafted user instructions containing obfuscated commands - could achieve arbitrary code execution on the user's workstation. This is possible even in permission modes that require user approval for write operations, since the commands can appear to use only read-only utilities to ultimately trigger write operations. Successful exploitation could lead to data exfiltration, file modification, or further system compromise.",
+      "published": "2026-03-06T17:16:35.487",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29783"
     },
     {
-      "id": "CVE-2026-27764",
-      "summary": "The WebSocket backend uses charging station identifiers to uniquely associate sessions but allows multiple endpoints to connect using the same session identifier. This implementation results in predictable session identifiers and enables session hijacking or shadowing, where the most recent connection displaces the legitimate charging station and receives backend commands intended for that station. This vulnerability may allow unauthorized users to authenticate as other users or enable\u00a0a malicious actor to cause a denial-of-service condition by overwhelming the backend with valid session requests.",
-      "published": "2026-03-06T16:16:11.267",
+      "id": "CVE-2026-29082",
+      "summary": "Kestra is an event-driven orchestration platform. In versions from 1.1.10 and prior, Kestra\u2019s execution-file preview renders user-supplied Markdown (.md) with markdown-it instantiated as html:true and injects the resulting HTML with Vue\u2019s v-html without sanitisation. At time of publication, there are no publicly available patches.",
+      "published": "2026-03-06T17:16:34.347",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27764"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29082"
     },
     {
-      "id": "CVE-2026-27027",
-      "summary": "Charging station authentication identifiers are publicly accessible via web-based mapping platforms.",
-      "published": "2026-03-06T16:16:10.940",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27027"
+      "id": "CVE-2026-29075",
+      "summary": "Mesa is an open-source Python library for agent-based modeling, simulating complex systems and exploring emergent behaviors. In version 3.5.0 and prior, checking out of untrusted code in benchmarks.yml workflow may lead to code execution in privileged runner. This issue has been patched via commit c35b8cd.",
+      "published": "2026-03-06T17:16:34.167",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29075"
     },
     {
-      "id": "CVE-2026-26288",
-      "summary": "WebSocket endpoints lack proper authentication mechanisms, enabling attackers to perform unauthorized station impersonation and manipulate data sent to the backend. An unauthenticated attacker can connect to the OCPP WebSocket endpoint using a known or discovered charging station identifier, then issue or receive OCPP commands as a legitimate charger. Given that no authentication is required, this can lead to privilege escalation, unauthorized control of charging\u00a0infrastructure, and corruption of charging network data reported to the backend.",
-      "published": "2026-03-06T16:16:10.723",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26288"
+      "id": "CVE-2026-29064",
+      "summary": "Zarf is an Airgap Native Packager Manager for Kubernetes. From version 0.54.0 to before version 0.73.1, a path traversal vulnerability in archive extraction allows a specifically crafted Zarf package to create symlinks pointing outside the destination directory, enabling arbitrary file read or write on the system processing the package. This issue has been patched in version 0.73.1.",
+      "published": "2026-03-06T17:16:34.003",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29064"
     },
     {
-      "id": "CVE-2026-26018",
-      "summary": "CoreDNS is a DNS server that chains plugins. Prior to version 1.14.2, a denial of service vulnerability exists in CoreDNS's loop detection plugin that allows an attacker to crash the DNS server by sending specially crafted DNS queries. The vulnerability stems from the use of a predictable pseudo-random number generator (PRNG) for generating a secret query name, combined with a fatal error handler that terminates the entire process. This issue has been patched in version 1.14.2.",
-      "published": "2026-03-06T16:16:10.557",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26018"
+      "id": "CVE-2025-70363",
+      "summary": "Incorrect access control in the REST API of Ibexa & Ciril GROUP eZ Platform / Ciril Platform 2.x allows unauthenticated attackers to access sensitive data via enumerating object IDs.",
+      "published": "2026-03-06T17:16:25.063",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70363"
     },
     {
-      "id": "CVE-2026-26017",
-      "summary": "CoreDNS is a DNS server that chains plugins. Prior to version 1.14.2, a logical vulnerability in CoreDNS allows DNS access controls to be bypassed due to the default execution order of plugins. Security plugins such as acl are evaluated before the rewrite plugin, resulting in a Time-of-Check Time-of-Use (TOCTOU) flaw. This issue has been patched in version 1.14.2.",
-      "published": "2026-03-06T16:16:10.397",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26017"
+      "id": "CVE-2025-15602",
+      "summary": "Snipe-IT versions prior to 8.3.7 contain sensitive user attributes related to account privileges that are insufficiently protected against mass assignment. An authenticated, low-privileged user can craft a malicious API request to modify restricted fields of another user account, including the Super Admin account. By changing the email address of the Super Admin and triggering a password reset, an attacker can fully take over the Super Admin account, resulting in complete administrative control of the Snipe-IT instance.",
+      "published": "2026-03-06T17:16:24.600",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15602"
     }
   ]
 }
