@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-06T14:56:19+00:00",
+  "generated_at": "2026-03-06T15:52:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2754",
+      "summary": "Navtor NavBox exposes sensitive configuration and operational data due to missing authentication on HTTP API endpoints. An unauthenticated remote attacker with network access to the device can execute HTTP GET requests to TCP port 8080 to retrieve internal network parameters including ECDIS & OT Information, device identifiers, and service status logs.",
+      "published": "2026-03-06T15:16:11.320",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2754"
+    },
+    {
+      "id": "CVE-2026-2753",
+      "summary": "An Absolute Path Traversal vulnerability exists in Navtor NavBox. The application exposes an HTTP service that fails to properly sanitize user-supplied path input. Unauthenticated remote attackers can exploit this issue by submitting requests containing absolute filesystem paths. Successful exploitation allows the attacker to retrieve arbitrary files from the underlying filesystem, limited only by the privileges of the service process. This can lead to the exposure of sensitive configuration files and system information.",
+      "published": "2026-03-06T15:16:11.157",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2753"
+    },
+    {
+      "id": "CVE-2026-2752",
+      "summary": "Navtor NavBox allows information disclosure via the /api/ais-data endpoint. A remote, unauthenticated attacker can send crafted requests to trigger an unhandled exception, causing the server to return verbose .NET stack traces. These error messages expose internal class names, method calls, and third-party library references (e.g., System.Data.SQLite), which may assist attackers in mapping the application's internal structure.",
+      "published": "2026-03-06T15:16:10.987",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2752"
+    },
+    {
+      "id": "CVE-2026-26051",
+      "summary": "WebSocket endpoints lack proper authentication mechanisms, enabling attackers to perform unauthorized station impersonation and manipulate data sent to the backend. An unauthenticated attacker can connect to the OCPP WebSocket endpoint using a known or discovered charging station identifier, then issue or receive OCPP commands as a legitimate charger. Given that no authentication is required, this can lead to privilege escalation, unauthorized control of charging infrastructure, and corruption of charging network data reported to the backend.",
+      "published": "2026-03-06T15:16:09.973",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26051"
+    },
     {
       "id": "CVE-2018-25200",
       "summary": "OOP CMS BLOG 1.0 contains a cross-site request forgery vulnerability that allows unauthenticated attackers to create administrative user accounts by crafting malicious POST requests. Attackers can submit forms to the addUser.php endpoint with parameters including userName, password, email, and role set to administrative privileges to gain unauthorized access.",
@@ -15,34 +43,6 @@
       "published": "2026-03-06T13:16:03.310",
       "cvss": 8.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25199"
-    },
-    {
-      "id": "CVE-2018-25198",
-      "summary": "eToolz 3.4.8.0 contains a denial of service vulnerability that allows local attackers to crash the application by supplying oversized input buffers. Attackers can create a payload file containing 255 bytes of data that triggers a buffer overflow condition when processed by the application.",
-      "published": "2026-03-06T13:16:03.120",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25198"
-    },
-    {
-      "id": "CVE-2018-25197",
-      "summary": "PlayJoom 0.10.1 contains an SQL injection vulnerability that allows unauthenticated attackers to execute arbitrary SQL queries by injecting malicious code through the catid parameter. Attackers can send GET requests to index.php with option=com_playjoom&view=genre&catid=[SQL] to extract sensitive database information including usernames, databases, and version details.",
-      "published": "2026-03-06T13:16:02.933",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25197"
-    },
-    {
-      "id": "CVE-2018-25196",
-      "summary": "ServerZilla 1.0 contains an SQL injection vulnerability that allows unauthenticated attackers to manipulate database queries by injecting SQL code through the email parameter. Attackers can send POST requests to reset.php with malicious email values containing SQL operators to bypass authentication and extract sensitive database information.",
-      "published": "2026-03-06T13:16:02.723",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25196"
-    },
-    {
-      "id": "CVE-2018-25194",
-      "summary": "Nominas 0.27 contains an SQL injection vulnerability that allows unauthenticated attackers to execute arbitrary SQL queries by injecting malicious code through the username parameter. Attackers can send POST requests to the login/checklogin.php endpoint with crafted UNION-based SQL injection payloads to extract database information including usernames, database names, and version details.",
-      "published": "2026-03-06T13:16:02.533",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25194"
     }
   ]
 }
