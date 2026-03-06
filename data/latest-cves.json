@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T17:51:59+00:00",
+  "generated_at": "2026-03-06T19:02:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-29783",
-      "summary": "The shell tool within GitHub Copilot CLI versions prior to and including 0.0.422 can allow arbitrary code execution through crafted bash parameter expansion patterns. An attacker who can influence the commands executed by the agent (e.g., via prompt injection through repository files, MCP server responses, or user instructions) can exploit bash parameter transformation operators to execute hidden commands, bypassing the safety assessment that classifies commands as \"read-only.\" This has been patched in version 0.0.423. \n\nThe vulnerability stems from how the CLI's shell safety assessment evaluates commands before execution. The safety layer parses and classifies shell commands as either read-only (safe) or write-capable (requires user approval). However, several bash parameter expansion features can embed executable code within arguments to otherwise read-only commands, causing them to appear safe while actually performing arbitrary operations.\n\nThe specific dangerous patterns are ${var@P}, ${var=value} / ${var:=value}, ${!var}, and nested $(cmd) or <(cmd) inside ${...} expansions. An attacker who can influence command text sent to the shell tool - for example, through prompt injection via malicious repository content (README files, code comments, issue bodies), compromised or malicious MCP server responses, or crafted user instructions containing obfuscated commands - could achieve arbitrary code execution on the user's workstation. This is possible even in permission modes that require user approval for write operations, since the commands can appear to use only read-only utilities to ultimately trigger write operations. Successful exploitation could lead to data exfiltration, file modification, or further system compromise.",
-      "published": "2026-03-06T17:16:35.487",
+      "id": "CVE-2026-3419",
+      "summary": "Fastify incorrectly accepts malformed `Content-Type` headers containing trailing characters after the subtype token, in violation of RFC 9110 \u00a78.3.1(https://httpwg.org/specs/rfc9110.html#field.content-type). For example, a request sent with Content-Type: application/json garbage passes validation and is processed normally, rather than being rejected with 415 Unsupported Media Type.\n\nWhen regex-based content-type parsers are in use (a documented Fastify feature), the malformed value is matched against registered parsers using the full string including the trailing garbage. This means a request with an invalid content-type may be routed to and processed by a parser it should never have reached.\n\nImpact:\nAn attacker can send requests with RFC-invalid Content-Type headers that bypass validity checks, reach content-type parser matching, and be processed by the server. Requests that should be rejected at the validation stage are instead handled as if the content-type were valid.\n\nWorkarounds:\nDeploy a WAF rule to protect against this\n\nFix:\n\nThe fix is available starting with v5.8.1.",
+      "published": "2026-03-06T18:16:22.213",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3419"
+    },
+    {
+      "id": "CVE-2026-30833",
+      "summary": "Rocket.Chat is an open-source, secure, fully customizable communications platform. Prior to versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0, a NoSQL injection vulnerability exists in Rocket.Chat's account service used in the ddp-streamer micro service that allows unauthenticated attackers to manipulate MongoDB queries during authentication. The vulnerability is located in the username-based login flow where user-supplied input is directly embedded into a MongoDB query selector without validation. An attacker can inject MongoDB operator expressions (e.g., { $regex: '.*' }) in place of a username string, causing the database query to match unintended user records. This issue has been patched in versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0.",
+      "published": "2026-03-06T18:16:22.013",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29783"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30833"
     },
     {
-      "id": "CVE-2026-29082",
-      "summary": "Kestra is an event-driven orchestration platform. In versions from 1.1.10 and prior, Kestra\u2019s execution-file preview renders user-supplied Markdown (.md) with markdown-it instantiated as html:true and injects the resulting HTML with Vue\u2019s v-html without sanitisation. At time of publication, there are no publicly available patches.",
-      "published": "2026-03-06T17:16:34.347",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29082"
-    },
-    {
-      "id": "CVE-2026-29075",
-      "summary": "Mesa is an open-source Python library for agent-based modeling, simulating complex systems and exploring emergent behaviors. In version 3.5.0 and prior, checking out of untrusted code in benchmarks.yml workflow may lead to code execution in privileged runner. This issue has been patched via commit c35b8cd.",
-      "published": "2026-03-06T17:16:34.167",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29075"
-    },
-    {
-      "id": "CVE-2026-29064",
-      "summary": "Zarf is an Airgap Native Packager Manager for Kubernetes. From version 0.54.0 to before version 0.73.1, a path traversal vulnerability in archive extraction allows a specifically crafted Zarf package to create symlinks pointing outside the destination directory, enabling arbitrary file read or write on the system processing the package. This issue has been patched in version 0.73.1.",
-      "published": "2026-03-06T17:16:34.003",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29064"
-    },
-    {
-      "id": "CVE-2025-70363",
-      "summary": "Incorrect access control in the REST API of Ibexa & Ciril GROUP eZ Platform / Ciril Platform 2.x allows unauthenticated attackers to access sensitive data via enumerating object IDs.",
-      "published": "2026-03-06T17:16:25.063",
+      "id": "CVE-2026-30831",
+      "summary": "Rocket.Chat is an open-source, secure, fully customizable communications platform. Prior to versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0, authentication vulnerabilities exist in Rocket.Chat's enterprise DDP Streamer service. The Account.login method exposed through the DDP Streamer does not enforce Two-Factor Authentication (2FA) or validate user account status (deactivated users can still login), despite these checks being mandatory in the standard Meteor login flow. This issue has been patched in versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0.",
+      "published": "2026-03-06T18:16:21.817",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70363"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30831"
     },
     {
-      "id": "CVE-2025-15602",
-      "summary": "Snipe-IT versions prior to 8.3.7 contain sensitive user attributes related to account privileges that are insufficiently protected against mass assignment. An authenticated, low-privileged user can craft a malicious API request to modify restricted fields of another user account, including the Super Admin account. By changing the email address of the Super Admin and triggering a password reset, an attacker can fully take over the Super Admin account, resulting in complete administrative control of the Snipe-IT instance.",
-      "published": "2026-03-06T17:16:24.600",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15602"
+      "id": "CVE-2026-29178",
+      "summary": "Lemmy, a link aggregator and forum for the fediverse, is vulnerable to server-side request forgery via a dependency on activitypub_federation, a framework for ActivityPub federation in Rust. Prior to version 0.19.16, the GET /api/v4/image/{filename} endpoint is vulnerable to unauthenticated SSRF through parameter injection in the file_type query parameter. An attacker can inject arbitrary query parameters into the internal request to pict-rs, including the proxy parameter which causes pict-rs to fetch arbitrary URLs. This issue has been patched in version 0.19.16.",
+      "published": "2026-03-06T18:16:20.650",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29178"
+    },
+    {
+      "id": "CVE-2026-29110",
+      "summary": "Cryptomator encrypts data being stored on cloud infrastructure. Prior to version 1.19.0, in non-debug mode Cryptomator might leak cleartext paths into the log file. This can reveal meta information about the files stored inside a vault at a time, where the actual vault is closed. Not every cleartext path is logged. Only if a filesystem request fails for some reason (e.g. damaged encrypted file, not existing file), a log message is created. This issue has been patched in version 1.19.0.",
+      "published": "2026-03-06T18:16:20.453",
+      "cvss": 2.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29110"
+    },
+    {
+      "id": "CVE-2026-29091",
+      "summary": "Locutus brings stdlibs of other programming languages to JavaScript for educational purposes. Prior to version 3.0.0, a remote code execution (RCE) flaw was discovered in the locutus project, specifically within the call_user_func_array function implementation. The vulnerability allows an attacker to inject arbitrary JavaScript code into the application's runtime environment. This issue stems from an insecure implementation of the call_user_func_array function (and its wrapper call_user_func), which fails to properly validate all components of a callback array before passing them to eval(). This issue has been patched in version 3.0.0.",
+      "published": "2026-03-06T18:16:20.257",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29091"
     }
   ]
 }
