@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T20:48:02+00:00",
+  "generated_at": "2026-03-06T21:43:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-30847",
-      "summary": "Wekan is an open source kanban tool built with Meteor. In versions 8.31.0 through 8.33, the notificationUsers publication in Wekan publishes user documents with no field filtering, causing the ReactiveCache.getUsers() call to return all fields including highly sensitive data such as bcrypt password hashes, active session login tokens, email verification tokens, full email addresses, and any stored OAuth tokens. Unlike Meteor's default auto-publication which strips the services field for security, custom publications return whatever fields the cursor contains, meaning all subscribers receive the complete user documents. Any authenticated user who triggers this publication can harvest credentials and active session tokens for other users, enabling password cracking, session hijacking, and full account takeover. This issue has been fixed in version 8.34.",
-      "published": "2026-03-06T20:16:17.530",
+      "id": "CVE-2026-30835",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.7 and 9.5.0-alpha.6,  malformed $regex query parameter (e.g. [abc) causes the database to return a structured error object that is passed unsanitized through the API response. This leaks database internals such as error messages, error codes, code names, cluster timestamps, and topology details. The vulnerability is exploitable by any client that can send query requests, depending on the deployment's permission configuration. This issue has been patched in versions 8.6.7 and 9.5.0-alpha.6.",
+      "published": "2026-03-06T21:16:17.560",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30847"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30835"
     },
     {
-      "id": "CVE-2026-30846",
-      "summary": "Wekan is an open source kanban tool built with Meteor. In versions 8.31.0 through 8.33, the globalwebhooks publication exposes all global webhook integrations\u2014including sensitive url and token fields\u2014without performing any authentication check on the server side. Although the subscription is normally invoked from the admin settings page, the server-side publication has no access control, meaning any DDP client, including unauthenticated ones, can subscribe and receive the data. This allows an unauthenticated attacker to retrieve global webhook URLs and authentication tokens, potentially enabling unauthorized use of those webhooks and access to connected external services. This issue has been fixed in version 8.34.",
-      "published": "2026-03-06T20:16:17.357",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30846"
+      "id": "CVE-2026-30233",
+      "summary": "OliveTin gives access to predefined shell commands from a web interface. Prior to version 3000.11.1, an authorization flaw in OliveTin allows authenticated users with view: false permission to enumerate action bindings and metadata via dashboard and API endpoints. Although execution (exec) may be correctly denied, the backend does not enforce IsAllowedView() when constructing dashboard and action binding responses. As a result, restricted users can retrieve action titles, IDs, icons, and argument metadata. This issue has been patched in version 3000.11.1.",
+      "published": "2026-03-06T21:16:17.370",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30233"
     },
     {
-      "id": "CVE-2026-30845",
-      "summary": "Wekan is an open source kanban tool built with Meteor. In versions 8.31.0 through 8.33, the board composite publication in Wekan publishes all integration data for a board without any field filtering, exposing sensitive fields including webhook URLs and authentication tokens to any subscriber. Since board publications are accessible to all board members regardless of their role (including read-only and comment-only users), and even to unauthenticated DDP clients for public boards, any user who can access a board can retrieve its webhook credentials. This token leak allows attackers to make unauthenticated requests to the exposed webhooks, potentially triggering unauthorized actions in connected external services. This issue has been fixed in version 8.34.",
-      "published": "2026-03-06T20:16:17.190",
+      "id": "CVE-2026-30231",
+      "summary": "Flare is a Next.js-based, self-hostable file sharing platform that integrates with screenshot tools. Prior to version 1.7.2, the raw and direct file routes only block unauthenticated users from accessing private files. Any authenticated, non\u2011owner user who knows the file URL can retrieve the content, which is inconsistent with stricter checks used by other endpoints. This issue has been patched in version 1.7.2.",
+      "published": "2026-03-06T21:16:17.223",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30845"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30231"
     },
     {
-      "id": "CVE-2026-30844",
-      "summary": "Wekan is an open source kanban tool built with Meteor. Versions 8.32 and 8.33 are vulnerable to Server-Side Request Forgery (SSRF) via attachment URL loading. During board import in Wekan, attachment URLs from user-supplied JSON data are fetched directly by the server without any URL validation or filtering, affecting both the Wekan and Trello import flows. The parseActivities() and parseActions() methods extract user-controlled attachment URLs, which are then passed directly to Attachments.load() for download with no sanitization. This Server-Side Request Forgery (SSRF) vulnerability allows any authenticated user to make the server issue arbitrary HTTP requests, potentially accessing internal network services such as cloud instance metadata endpoints (exposing IAM credentials), internal databases, and admin panels that are otherwise unreachable from outside the network. This issue has been fixed in version 8.34.",
-      "published": "2026-03-06T20:16:17.030",
+      "id": "CVE-2026-30230",
+      "summary": "Flare is a Next.js-based, self-hostable file sharing platform that integrates with screenshot tools. Prior to version 1.7.2, the thumbnail endpoint does not validate the password for password\u2011protected files. It checks ownership/admin for private files but skips password verification, allowing thumbnail access without the password. This issue has been patched in version 1.7.2.",
+      "published": "2026-03-06T21:16:17.077",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30844"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30230"
     },
     {
-      "id": "CVE-2026-30843",
-      "summary": "Wekan is an open source kanban tool built with Meteor. Versions 8.32 and 8.33 have a critical Insecure Direct Object Reference (IDOR) issue which could allow unauthorized users to modify custom fields across boards through its custom fields update endpoints, potentially leading to unauthorized data manipulation. The PUT /api/boards/:boardId/custom-fields/:customFieldId endpoint in Wekan validates that the authenticated user has access to the specified boardId, but the subsequent database update uses only the custom field's _id as a filter without confirming the field actually belongs to that board. This means an attacker who owns any board can modify custom fields on any other board by supplying a foreign custom field ID, and the same flaw exists in the POST, PUT, and DELETE endpoints for dropdown items under custom fields. The required custom field IDs can be obtained by exporting a board (which only needs read access), since the exported JSON includes the IDs of all board components. The authorization check is performed against the wrong resource, allowing cross-board custom field manipulation. This issue has been fixed in version 8.34.",
-      "published": "2026-03-06T20:16:16.860",
+      "id": "CVE-2026-30229",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.6 and 9.5.0-alpha.4, the readOnlyMasterKey can call POST /loginAs to obtain a valid session token for any user. This allows a read-only credential to impersonate arbitrary users with full read and write access to their data. Any Parse Server deployment that uses readOnlyMasterKey is affected. This issue has been patched in versions 8.6.6 and 9.5.0-alpha.4.",
+      "published": "2026-03-06T21:16:16.920",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30843"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30229"
     },
     {
-      "id": "CVE-2025-69654",
-      "summary": "A crafted JavaScript input executed with the QuickJS release 2025-09-13, fixed in commit fcd33c1afa7b3028531f53cd1190a3877454f6b3 (2025-12-11),`qjs` interpreter using the `-m` option and a low memory limit can cause an out-of-memory condition followed by an assertion failure in JS_FreeRuntime (list_empty(&rt->gc_obj_list)) during runtime cleanup. Although the engine reports an OOM error, it subsequently aborts with SIGABRT because the GC object list is not fully released. This results in a denial of service.",
-      "published": "2026-03-06T20:16:11.900",
+      "id": "CVE-2026-30228",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.5 and 9.5.0-alpha.3, the readOnlyMasterKey can be used to create and delete files via the Files API (POST /files/:filename, DELETE /files/:filename). This bypasses the read-only restriction which violates the access scope of the readOnlyMasterKey. Any Parse Server deployment that uses readOnlyMasterKey and exposes the Files API is affected. An attacker with access to the readOnlyMasterKey can upload arbitrary files or delete existing files. This issue has been patched in versions 8.6.5 and 9.5.0-alpha.3.",
+      "published": "2026-03-06T21:16:16.767",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69654"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30228"
     }
   ]
 }
