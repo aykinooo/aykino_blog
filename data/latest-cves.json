@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T19:02:31+00:00",
+  "generated_at": "2026-03-06T19:47:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-29063",
+      "summary": "Immutable.js provides many Persistent Immutable data structures. Prior to versions 3.8.3, 4.3.7, and 5.1.5, Prototype Pollution is possible in immutable via the mergeDeep(), mergeDeepWith(), merge(), Map.toJS(), and Map.toObject() APIs. This issue has been patched in versions 3.8.3, 4.3.7, and 5.1.5.",
+      "published": "2026-03-06T19:16:21.557",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29063"
+    },
+    {
+      "id": "CVE-2025-69653",
+      "summary": "A crafted JavaScript input can trigger an internal assertion failure in QuickJS release 2025-09-13, fixed in commit 1dbba8a88eaa40d15a8a9b70bb1a0b8fb5b552e6 (2025-12-11), in file gc_decref_child in quickjs.c, when executed with the qjs interpreter using the -m option. This leads to an abort (SIGABRT) during garbage collection and causes a denial-of-service.",
+      "published": "2026-03-06T19:16:11.040",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69653"
+    },
+    {
+      "id": "CVE-2025-69652",
+      "summary": "GNU Binutils thru 2.46 readelf contains a vulnerability that leads to an abort (SIGABRT) when processing a crafted ELF binary with malformed DWARF abbrev or debug information. Due to incomplete state cleanup in process_debug_info(), an invalid debug_info_p state may propagate into DWARF attribute parsing routines. When certain malformed attributes result in an unexpected data length of zero, byte_get_little_endian() triggers a fatal abort. No evidence of memory corruption or code execution was observed; the impact is limited to denial of service.",
+      "published": "2026-03-06T19:16:10.907",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69652"
+    },
+    {
+      "id": "CVE-2025-69650",
+      "summary": "GNU Binutils thru 2.46 readelf contains a double free vulnerability when processing a crafted ELF binary with malformed relocation data. During GOT relocation handling, dump_relocations may return early without initializing the all_relocations array. As a result, process_got_section_contents() may pass an uninitialized r_symbol pointer to free(), leading to a double free and terminating the program with SIGABRT. No evidence of exploitable memory corruption or code execution was observed; the impact is limited to denial of service.",
+      "published": "2026-03-06T19:16:10.773",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69650"
+    },
+    {
+      "id": "CVE-2025-69649",
+      "summary": "GNU Binutils thru 2.46 readelf contains a null pointer dereference vulnerability when processing a crafted ELF binary with malformed header fields. During relocation processing, an invalid or null section pointer may be passed into display_relocations(), resulting in a segmentation fault (SIGSEGV) and abrupt termination. No evidence of memory corruption beyond the null pointer dereference, nor any possibility of code execution, was observed.",
+      "published": "2026-03-06T19:16:10.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69649"
+    },
     {
       "id": "CVE-2026-3419",
       "summary": "Fastify incorrectly accepts malformed `Content-Type` headers containing trailing characters after the subtype token, in violation of RFC 9110 \u00a78.3.1(https://httpwg.org/specs/rfc9110.html#field.content-type). For example, a request sent with Content-Type: application/json garbage passes validation and is processed normally, rather than being rejected with 415 Unsupported Media Type.\n\nWhen regex-based content-type parsers are in use (a documented Fastify feature), the malformed value is matched against registered parsers using the full string including the trailing garbage. This means a request with an invalid content-type may be routed to and processed by a parser it should never have reached.\n\nImpact:\nAn attacker can send requests with RFC-invalid Content-Type headers that bypass validity checks, reach content-type parser matching, and be processed by the server. Requests that should be rejected at the validation stage are instead handled as if the content-type were valid.\n\nWorkarounds:\nDeploy a WAF rule to protect against this\n\nFix:\n\nThe fix is available starting with v5.8.1.",
       "published": "2026-03-06T18:16:22.213",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3419"
-    },
-    {
-      "id": "CVE-2026-30833",
-      "summary": "Rocket.Chat is an open-source, secure, fully customizable communications platform. Prior to versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0, a NoSQL injection vulnerability exists in Rocket.Chat's account service used in the ddp-streamer micro service that allows unauthenticated attackers to manipulate MongoDB queries during authentication. The vulnerability is located in the username-based login flow where user-supplied input is directly embedded into a MongoDB query selector without validation. An attacker can inject MongoDB operator expressions (e.g., { $regex: '.*' }) in place of a username string, causing the database query to match unintended user records. This issue has been patched in versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0.",
-      "published": "2026-03-06T18:16:22.013",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30833"
-    },
-    {
-      "id": "CVE-2026-30831",
-      "summary": "Rocket.Chat is an open-source, secure, fully customizable communications platform. Prior to versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0, authentication vulnerabilities exist in Rocket.Chat's enterprise DDP Streamer service. The Account.login method exposed through the DDP Streamer does not enforce Two-Factor Authentication (2FA) or validate user account status (deactivated users can still login), despite these checks being mandatory in the standard Meteor login flow. This issue has been patched in versions 7.10.8, 7.11.5, 7.12.5, 7.13.4, 8.0.2, 8.1.1, and 8.2.0.",
-      "published": "2026-03-06T18:16:21.817",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30831"
-    },
-    {
-      "id": "CVE-2026-29178",
-      "summary": "Lemmy, a link aggregator and forum for the fediverse, is vulnerable to server-side request forgery via a dependency on activitypub_federation, a framework for ActivityPub federation in Rust. Prior to version 0.19.16, the GET /api/v4/image/{filename} endpoint is vulnerable to unauthenticated SSRF through parameter injection in the file_type query parameter. An attacker can inject arbitrary query parameters into the internal request to pict-rs, including the proxy parameter which causes pict-rs to fetch arbitrary URLs. This issue has been patched in version 0.19.16.",
-      "published": "2026-03-06T18:16:20.650",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29178"
-    },
-    {
-      "id": "CVE-2026-29110",
-      "summary": "Cryptomator encrypts data being stored on cloud infrastructure. Prior to version 1.19.0, in non-debug mode Cryptomator might leak cleartext paths into the log file. This can reveal meta information about the files stored inside a vault at a time, where the actual vault is closed. Not every cleartext path is logged. Only if a filesystem request fails for some reason (e.g. damaged encrypted file, not existing file), a log message is created. This issue has been patched in version 1.19.0.",
-      "published": "2026-03-06T18:16:20.453",
-      "cvss": 2.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29110"
-    },
-    {
-      "id": "CVE-2026-29091",
-      "summary": "Locutus brings stdlibs of other programming languages to JavaScript for educational purposes. Prior to version 3.0.0, a remote code execution (RCE) flaw was discovered in the locutus project, specifically within the call_user_func_array function implementation. The vulnerability allows an attacker to inject arbitrary JavaScript code into the application's runtime environment. This issue stems from an insecure implementation of the call_user_func_array function (and its wrapper call_user_func), which fails to properly validate all components of a callback array before passing them to eval(). This issue has been patched in version 3.0.0.",
-      "published": "2026-03-06T18:16:20.257",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29091"
     }
   ]
 }
