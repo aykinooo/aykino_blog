@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T04:50:40+00:00",
+  "generated_at": "2026-03-06T05:58:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-29093",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 24.0, the official docker-compose.yml publishes the memcached service on host port 11211 (0.0.0.0:11211) with no authentication, while the Dockerfile configures PHP to store all user sessions in that memcached instance. An attacker who can reach port 11211 can read, modify, or flush session data \u2014 enabling session hijacking, admin impersonation, and mass session destruction without any application-level authentication. This issue has been patched in version 24.0.",
-      "published": "2026-03-06T04:16:08.940",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29093"
+      "id": "CVE-2026-29084",
+      "summary": "Gokapi is a self-hosted file sharing server with automatic expiration and encryption support. Prior to version 2.2.3, the login flow accepts credential-bearing requests without CSRF protection mechanisms tied to the browser session context. The handler parses form values directly and creates a session on successful credential validation. This issue has been patched in version 2.2.3.",
+      "published": "2026-03-06T05:16:41.180",
+      "cvss": 4.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29084"
     },
     {
-      "id": "CVE-2026-29046",
-      "summary": "TinyWeb is a web server (HTTP, HTTPS) written in Delphi for Win32. Prior to version 2.04, TinyWeb accepts request header values and later maps them into CGI environment variables (HTTP_*). The parser did not strictly reject dangerous control characters in header lines and header values, including CR, LF, and NUL, and did not consistently defend against encoded forms such as %0d, %0a, and %00. This can enable header value confusion across parser boundaries and may create unsafe data in the CGI execution context. This issue has been patched in version 2.04.",
-      "published": "2026-03-06T04:16:08.740",
+      "id": "CVE-2026-29061",
+      "summary": "Gokapi is a self-hosted file sharing server with automatic expiration and encryption support. Prior to version 2.2.3, a privilege escalation vulnerability in the user rank demotion logic allows a demoted user's existing API keys to retain ApiPermManageFileRequests and ApiPermManageLogs permissions, enabling continued access to upload-request management and log viewing endpoints after the user has been stripped of all privileges. This issue has been patched in version 2.2.3.",
+      "published": "2026-03-06T05:16:40.903",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29061"
+    },
+    {
+      "id": "CVE-2026-29060",
+      "summary": "Gokapi is a self-hosted file sharing server with automatic expiration and encryption support. Prior to version 2.2.3, a registered user without privileges to create or modify file requests is able to create a short-lived API key that has the permission to do so. The user must be registered with Gokapi. If there are no users with access to the admin/upload menu, there is no impact. This issue has been patched in version 2.2.3.",
+      "published": "2026-03-06T05:16:40.620",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29060"
+    },
+    {
+      "id": "CVE-2026-28794",
+      "summary": "oRPC is an tool that helps build APIs that are end-to-end type-safe and adhere to OpenAPI standards. Prior to version 1.13.6, a prototype pollution vulnerability exists in the RPC JSON deserializer of the @orpc/client package. The vulnerability allows unauthenticated, remote attackers to inject arbitrary properties into the global Object.prototype. Because this pollution persists for the lifetime of the Node.js process and affects all objects, it can lead to severe security breaches, including authentication bypass, denial of service, and potentially Remote Code Execution. This issue has been patched in version 1.13.6.",
+      "published": "2026-03-06T05:16:40.297",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29046"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28794"
     },
     {
-      "id": "CVE-2026-29041",
-      "summary": "Chamilo is a learning management system. Prior to version 1.11.34, Chamilo LMS is affected by an authenticated remote code execution vulnerability caused by improper validation of uploaded files. The application relies solely on MIME-type verification when handling file uploads and does not adequately validate file extensions or enforce safe server-side storage restrictions. As a result, an authenticated low-privileged user can upload a crafted file containing executable code and subsequently execute arbitrary commands on the server. This issue has been patched in version 1.11.34.",
-      "published": "2026-03-06T04:16:08.553",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29041"
+      "id": "CVE-2026-28787",
+      "summary": "OneUptime is a solution for monitoring and managing online services. In version 10.0.11 and prior, the WebAuthn authentication implementation does not store the challenge on the server side. Instead, the challenge is returned to the client and accepted back from the client request body during verification. This violates the WebAuthn specification (W3C Web Authentication Level 2, \u00a713.4.3) and allows an attacker who has obtained a valid WebAuthn assertion (e.g., via XSS, MitM, or log exposure) to replay it indefinitely, completely bypassing the second-factor authentication. No known patches are available.",
+      "published": "2026-03-06T05:16:39.980",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28787"
     },
     {
-      "id": "CVE-2026-28502",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 24.0, an authenticated Remote Code Execution (RCE) vulnerability was identified in AVideo related to the plugin upload/import functionality. The issue allowed an authenticated administrator to upload a specially crafted ZIP archive containing executable server-side files. Due to insufficient validation of extracted file contents, the archive was extracted directly into a web-accessible plugin directory, allowing arbitrary PHP code execution. This issue has been patched in version 24.0.",
-      "published": "2026-03-06T04:16:08.370",
+      "id": "CVE-2026-28785",
+      "summary": "Ghostfolio is an open source wealth management software. Prior to version 2.244.0, by bypassing symbol validation, an attacker can execute arbitrary SQL commands via the getHistorical() method, potentially allowing them to read, modify, or delete sensitive financial data for all users in the database. This issue has been patched in version 2.244.0.",
+      "published": "2026-03-06T05:16:39.693",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28502"
-    },
-    {
-      "id": "CVE-2026-28501",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 24.0, an unauthenticated SQL Injection vulnerability exists in AVideo within the objects/videos.json.php and objects/video.php components. The application fails to properly sanitize the catName parameter when it is supplied via a JSON-formatted POST request body. Because JSON input is parsed and merged into $_REQUEST after global security checks are executed, the payload bypasses the existing sanitization mechanisms. This issue has been patched in version 24.0.",
-      "published": "2026-03-06T04:16:08.177",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28501"
-    },
-    {
-      "id": "CVE-2026-28497",
-      "summary": "TinyWeb is a web server (HTTP, HTTPS) written in Delphi for Win32. Prior to version 2.03, an integer overflow vulnerability in the string-to-integer conversion routine (_Val) allows an unauthenticated remote attacker to bypass Content-Length restrictions and perform HTTP Request Smuggling. This can lead to unauthorized access, security filter bypass, and potential cache poisoning. The impact is critical for servers using persistent connections (Keep-Alive). This issue has been patched in version 2.03.",
-      "published": "2026-03-06T04:16:07.990",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28497"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28785"
     }
   ]
 }
