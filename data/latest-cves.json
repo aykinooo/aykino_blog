@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T15:52:44+00:00",
+  "generated_at": "2026-03-06T16:59:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2754",
-      "summary": "Navtor NavBox exposes sensitive configuration and operational data due to missing authentication on HTTP API endpoints. An unauthenticated remote attacker with network access to the device can execute HTTP GET requests to TCP port 8080 to retrieve internal network parameters including ECDIS & OT Information, device identifiers, and service status logs.",
-      "published": "2026-03-06T15:16:11.320",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2754"
+      "id": "CVE-2026-27777",
+      "summary": "Charging station authentication identifiers are publicly accessible via web-based mapping platforms.",
+      "published": "2026-03-06T16:16:11.497",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27777"
     },
     {
-      "id": "CVE-2026-2753",
-      "summary": "An Absolute Path Traversal vulnerability exists in Navtor NavBox. The application exposes an HTTP service that fails to properly sanitize user-supplied path input. Unauthenticated remote attackers can exploit this issue by submitting requests containing absolute filesystem paths. Successful exploitation allows the attacker to retrieve arbitrary files from the underlying filesystem, limited only by the privileges of the service process. This can lead to the exposure of sensitive configuration files and system information.",
-      "published": "2026-03-06T15:16:11.157",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2753"
+      "id": "CVE-2026-27764",
+      "summary": "The WebSocket backend uses charging station identifiers to uniquely associate sessions but allows multiple endpoints to connect using the same session identifier. This implementation results in predictable session identifiers and enables session hijacking or shadowing, where the most recent connection displaces the legitimate charging station and receives backend commands intended for that station. This vulnerability may allow unauthorized users to authenticate as other users or enable\u00a0a malicious actor to cause a denial-of-service condition by overwhelming the backend with valid session requests.",
+      "published": "2026-03-06T16:16:11.267",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27764"
     },
     {
-      "id": "CVE-2026-2752",
-      "summary": "Navtor NavBox allows information disclosure via the /api/ais-data endpoint. A remote, unauthenticated attacker can send crafted requests to trigger an unhandled exception, causing the server to return verbose .NET stack traces. These error messages expose internal class names, method calls, and third-party library references (e.g., System.Data.SQLite), which may assist attackers in mapping the application's internal structure.",
-      "published": "2026-03-06T15:16:10.987",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2752"
+      "id": "CVE-2026-27027",
+      "summary": "Charging station authentication identifiers are publicly accessible via web-based mapping platforms.",
+      "published": "2026-03-06T16:16:10.940",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27027"
     },
     {
-      "id": "CVE-2026-26051",
-      "summary": "WebSocket endpoints lack proper authentication mechanisms, enabling attackers to perform unauthorized station impersonation and manipulate data sent to the backend. An unauthenticated attacker can connect to the OCPP WebSocket endpoint using a known or discovered charging station identifier, then issue or receive OCPP commands as a legitimate charger. Given that no authentication is required, this can lead to privilege escalation, unauthorized control of charging infrastructure, and corruption of charging network data reported to the backend.",
-      "published": "2026-03-06T15:16:09.973",
+      "id": "CVE-2026-26288",
+      "summary": "WebSocket endpoints lack proper authentication mechanisms, enabling attackers to perform unauthorized station impersonation and manipulate data sent to the backend. An unauthenticated attacker can connect to the OCPP WebSocket endpoint using a known or discovered charging station identifier, then issue or receive OCPP commands as a legitimate charger. Given that no authentication is required, this can lead to privilege escalation, unauthorized control of charging\u00a0infrastructure, and corruption of charging network data reported to the backend.",
+      "published": "2026-03-06T16:16:10.723",
       "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26051"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26288"
     },
     {
-      "id": "CVE-2018-25200",
-      "summary": "OOP CMS BLOG 1.0 contains a cross-site request forgery vulnerability that allows unauthenticated attackers to create administrative user accounts by crafting malicious POST requests. Attackers can submit forms to the addUser.php endpoint with parameters including userName, password, email, and role set to administrative privileges to gain unauthorized access.",
-      "published": "2026-03-06T13:16:03.500",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25200"
+      "id": "CVE-2026-26018",
+      "summary": "CoreDNS is a DNS server that chains plugins. Prior to version 1.14.2, a denial of service vulnerability exists in CoreDNS's loop detection plugin that allows an attacker to crash the DNS server by sending specially crafted DNS queries. The vulnerability stems from the use of a predictable pseudo-random number generator (PRNG) for generating a secret query name, combined with a fatal error handler that terminates the entire process. This issue has been patched in version 1.14.2.",
+      "published": "2026-03-06T16:16:10.557",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26018"
     },
     {
-      "id": "CVE-2018-25199",
-      "summary": "OOP CMS BLOG 1.0 contains SQL injection vulnerabilities that allow unauthenticated attackers to execute arbitrary SQL queries by injecting malicious code through multiple parameters. Attackers can inject SQL commands via the search parameter in search.php, pageid parameter in page.php, and id parameter in posts.php to extract database information including table names, schema names, and database credentials.",
-      "published": "2026-03-06T13:16:03.310",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25199"
+      "id": "CVE-2026-26017",
+      "summary": "CoreDNS is a DNS server that chains plugins. Prior to version 1.14.2, a logical vulnerability in CoreDNS allows DNS access controls to be bypassed due to the default execution order of plugins. Security plugins such as acl are evaluated before the rewrite plugin, resulting in a Time-of-Check Time-of-Use (TOCTOU) flaw. This issue has been patched in version 1.14.2.",
+      "published": "2026-03-06T16:16:10.397",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26017"
     }
   ]
 }
