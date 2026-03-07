@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-06T23:39:26+00:00",
+  "generated_at": "2026-03-07T02:43:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-30244",
-      "summary": "Plane is an an open-source project management tool. Prior to version 1.2.2, unauthenticated attackers can enumerate workspace members and extract sensitive information including email addresses, user roles, and internal identifiers. The vulnerability stems from Django REST Framework permission classes being incorrectly configured to allow anonymous access to protected endpoints. This issue has been patched in version 1.2.2.",
-      "published": "2026-03-06T22:16:01.900",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30244"
+      "id": "CVE-2026-3352",
+      "summary": "The Easy PHP Settings plugin for WordPress is vulnerable to PHP Code Injection in all versions up to, and including, 1.0.4 via the `update_wp_memory_constants()` method. This is due to insufficient input validation on the `wp_memory_limit` and `wp_max_memory_limit` settings before writing them to `wp-config.php`. The `sanitize_text_field()` function used for sanitization does not filter single quotes, allowing an attacker to break out of the string context in a PHP `define()` statement. This makes it possible for authenticated attackers, with Administrator-level access and above, to inject and execute arbitrary PHP code on the server by modifying `wp-config.php`, which is loaded on every page request.",
+      "published": "2026-03-07T02:16:13.330",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3352"
     },
     {
-      "id": "CVE-2026-30242",
-      "summary": "Plane is an an open-source project management tool. Prior to version 1.2.3, the webhook URL validation in plane/app/serializers/webhook.py only checks ip.is_loopback, allowing attackers with workspace ADMIN role to create webhooks pointing to private/internal network addresses (10.x.x.x, 172.16.x.x, 192.168.x.x, 169.254.169.254, etc.). When webhook events fire, the server makes requests to these internal addresses and stores the response \u2014 enabling SSRF with full response read-back. This issue has been patched in version 1.2.3.",
-      "published": "2026-03-06T22:16:01.740",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30242"
+      "id": "CVE-2026-2722",
+      "summary": "The Stock Ticker plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 3.26.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
+      "published": "2026-03-07T02:16:13.147",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2722"
     },
     {
-      "id": "CVE-2026-30241",
-      "summary": "Mercurius is a GraphQL adapter for Fastify. Prior to version 16.8.0, Mercurius fails to enforce the configured queryDepth limit on GraphQL subscription queries received over WebSocket connections. The depth check is correctly applied to HTTP queries and mutations, but subscription queries are parsed and executed without invoking the depth validation. This allows a remote client to submit arbitrarily deeply nested subscription queries over WebSocket, bypassing the intended depth restriction. On schemas with recursive types, this can lead to denial of service through exponential data resolution on each subscription event. This issue has been patched in version 16.8.0.",
-      "published": "2026-03-06T22:16:01.587",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30241"
+      "id": "CVE-2026-2721",
+      "summary": "The MailArchiver plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 4.4.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
+      "published": "2026-03-07T02:16:12.963",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2721"
     },
     {
-      "id": "CVE-2026-30238",
-      "summary": "Group-Office is an enterprise customer relationship management and groupware tool. Prior to versions 6.8.155, 25.0.88, and 26.0.10, there is a reflected XSS vulnerability in GroupOffice on the external/index flow. The f parameter (Base64 JSON) is decoded and then injected into an inline JavaScript block without strict escaping, allowing </script><script>...</script> injection and arbitrary JavaScript execution in the victim's browser. This issue has been patched in versions 6.8.155, 25.0.88, and 26.0.10.",
-      "published": "2026-03-06T22:16:01.437",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30238"
+      "id": "CVE-2026-2494",
+      "summary": "The ProfileGrid \u2013 User Profiles, Groups and Communities plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 5.9.8.2. This is due to missing nonce validation on the membership request management page (approve and decline actions). This makes it possible for unauthenticated attackers to approve or deny group membership requests via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-03-07T02:16:12.787",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2494"
     },
     {
-      "id": "CVE-2026-30237",
-      "summary": "Group-Office is an enterprise customer relationship management and groupware tool. Prior to versions 6.8.155, 25.0.88, and 26.0.10, there is a reflected XSS vulnerability in the GroupOffice installer, endpoint install/license.php. The POST field license is rendered without escaping inside a <textarea>, allowing a </textarea><script>...</script> breakout.. This issue has been patched in versions 6.8.155, 25.0.88, and 26.0.10.",
-      "published": "2026-03-06T22:16:01.283",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30237"
+      "id": "CVE-2026-2488",
+      "summary": "The ProfileGrid \u2013 User Profiles, Groups and Communities plugin for WordPress is vulnerable to unauthorized message deletion due to a missing capability check on the pg_delete_msg() function in all versions up to, and including, 5.9.8.1. This is due to the function not verifying that the requesting user has permission to delete the targeted message. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete arbitrary messages belonging to any user by sending a direct request with a valid message ID (mid parameter).",
+      "published": "2026-03-07T02:16:12.600",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2488"
     },
     {
-      "id": "CVE-2026-27142",
-      "summary": "Actions which insert URLs into the content attribute of HTML meta tags are not escaped. This can allow XSS if the meta tag also has an http-equiv attribute with the value \"refresh\". A new GODEBUG setting has been added, htmlmetacontenturlescape, which can be used to disable escaping URLs in actions in the meta content attribute which follow \"url=\" by setting htmlmetacontenturlescape=0.",
-      "published": "2026-03-06T22:16:01.177",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27142"
+      "id": "CVE-2026-2431",
+      "summary": "The CM Custom Reports plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'date_from' and 'date_to' parameters in all versions up to, and including, 1.2.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "published": "2026-03-07T02:16:12.430",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2431"
     }
   ]
 }
