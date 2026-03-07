@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-07T05:51:12+00:00",
+  "generated_at": "2026-03-07T06:58:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-30822",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to version 3.0.13, unauthenticated users can inject arbitrary values into internal database fields when creating leads. This issue has been patched in version 3.0.13.",
-      "published": "2026-03-07T05:16:27.483",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30822"
+      "id": "CVE-2026-30842",
+      "summary": "Wallos is an open-source, self-hostable personal subscription tracker. Prior to version 4.6.2, Wallos allows an authenticated user to delete avatar files uploaded by other users. The avatar deletion endpoint does not verify that the requested avatar belongs to the current user. As a result, any authenticated user who knows or can discover another user's uploaded avatar filename can delete that file. This issue has been patched in version 4.6.2.",
+      "published": "2026-03-07T06:16:11.763",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30842"
     },
     {
-      "id": "CVE-2026-30821",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to version 3.0.13, the /api/v1/attachments/:chatflowId/:chatId endpoint is listed in WHITELIST_URLS, allowing unauthenticated access to the file upload API. While the server validates uploads based on the MIME types defined in chatbotConfig.fullFileUpload.allowedUploadFileTypes, it implicitly trusts the client-provided Content-Type header (file.mimetype) without verifying the file's actual content (magic bytes) or extension (file.originalname). Consequently, an attacker can bypass this restriction by spoofing the Content-Type as a permitted type (e.g., application/pdf) while uploading malicious scripts or arbitrary files. Once uploaded via addArrayFilesToStorage, these files persist in backend storage (S3, GCS, or local disk). This vulnerability serves as a critical entry point that, when chained with other features like static hosting or file retrieval, can lead to Stored XSS, malicious file hosting, or Remote Code Execution (RCE). This issue has been patched in version 3.0.13.",
-      "published": "2026-03-07T05:16:26.907",
+      "id": "CVE-2026-30841",
+      "summary": "Wallos is an open-source, self-hostable personal subscription tracker. Prior to version 4.6.2, passwordreset.php outputs $_GET[\"token\"] and $_GET[\"email\"] directly into HTML input value attributes using <?= $token ?> and <?= $email ?> without calling htmlspecialchars(). This allows reflected XSS by breaking out of the attribute context. This issue has been patched in version 4.6.2.",
+      "published": "2026-03-07T06:16:11.610",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30821"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30841"
     },
     {
-      "id": "CVE-2026-30820",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to version 3.0.13, Flowise trusts any HTTP client that sets the header x-request-from: internal, allowing an authenticated tenant session to bypass all /api/v1/** authorization checks. With only a browser cookie, a low-privilege tenant can invoke internal administration endpoints (API key management, credential stores, custom function execution, etc.), effectively escalating privilege. This issue has been patched in version 3.0.13.",
-      "published": "2026-03-07T05:16:26.243",
+      "id": "CVE-2026-30840",
+      "summary": "Wallos is an open-source, self-hostable personal subscription tracker. Prior to version 4.6.2, there is a server-side request forgery vulnerability in notification testers. This issue has been patched in version 4.6.2.",
+      "published": "2026-03-07T06:16:11.463",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30840"
+    },
+    {
+      "id": "CVE-2026-30839",
+      "summary": "Wallos is an open-source, self-hostable personal subscription tracker. Prior to version 4.6.2, testwebhooknotifications.php does not validate the target URL against private/reserved IP ranges, enabling full-read SSRF. The server response is returned to the caller. This issue has been patched in version 4.6.2.",
+      "published": "2026-03-07T06:16:11.317",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30820"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30839"
     },
     {
-      "id": "CVE-2026-30247",
-      "summary": "WeKnora is an LLM-powered framework designed for deep document understanding and semantic retrieval. Prior to version 0.2.12, the application's \"Import document via URL\" feature is vulnerable to Server-Side Request Forgery (SSRF) through HTTP redirects. While the backend implements comprehensive URL validation (blocking private IPs, loopback addresses, reserved hostnames, and cloud metadata endpoints), it fails to validate redirect targets. An attacker can bypass all protections by using a redirect chain, forcing the server to access internal services. Additionally, Docker-specific internal addresses like host.docker.internal are not blocked. This issue has been patched in version 0.2.12.",
-      "published": "2026-03-07T04:15:54.560",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30247"
+      "id": "CVE-2026-30830",
+      "summary": "Defuddle cleans up HTML pages. Prior to version 0.9.0, the _findContentBySchemaText method in src/defuddle.ts interpolates image src and alt attributes directly into an HTML string without escaping. An attacker can use a \" in the alt attribute to break out of the attribute context and inject event handler. This issue has been patched in version 0.9.0.",
+      "published": "2026-03-07T06:16:11.163",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30830"
     },
     {
-      "id": "CVE-2026-3352",
-      "summary": "The Easy PHP Settings plugin for WordPress is vulnerable to PHP Code Injection in all versions up to, and including, 1.0.4 via the `update_wp_memory_constants()` method. This is due to insufficient input validation on the `wp_memory_limit` and `wp_max_memory_limit` settings before writing them to `wp-config.php`. The `sanitize_text_field()` function used for sanitization does not filter single quotes, allowing an attacker to break out of the string context in a PHP `define()` statement. This makes it possible for authenticated attackers, with Administrator-level access and above, to inject and execute arbitrary PHP code on the server by modifying `wp-config.php`, which is loaded on every page request.",
-      "published": "2026-03-07T02:16:13.330",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3352"
-    },
-    {
-      "id": "CVE-2026-2722",
-      "summary": "The Stock Ticker plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 3.26.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
-      "published": "2026-03-07T02:16:13.147",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2722"
+      "id": "CVE-2026-30829",
+      "summary": "Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Prior to version 3.4.0, an unauthenticated information disclosure vulnerability exists in the GET /api/v1/status-page/:url endpoint. The endpoint does not enforce authentication or verify whether a status page is published before returning full status page details. As a result, unpublished status pages and their associated internal data are accessible to any unauthenticated user via direct API requests. This issue has been patched in version 3.4.0.",
+      "published": "2026-03-07T06:16:10.957",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30829"
     }
   ]
 }
