@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-03-07T08:47:20+00:00",
+  "generated_at": "2026-03-07T09:42:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2219",
+      "summary": "It was discovered that dpkg-deb (a component of dpkg, the Debian package management system) does not properly validate the end of the data stream when uncompressing a zstd-compressed .deb archive, which may result in denial of service (infinite loop spinning the CPU).",
+      "published": "2026-03-07T09:16:07.823",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2219"
+    },
+    {
+      "id": "CVE-2026-24308",
+      "summary": "Improper handling of configuration values in ZKConfig in Apache ZooKeeper 3.8.5 and 3.9.4 on all platforms allows an attacker to expose sensitive information stored in client configuration in the client's logfile. Configuration values are exposed at INFO level logging rendering potential production systems affected by the issue.\u00a0Users are recommended to upgrade to version 3.8.6 or 3.9.5 which fixes this issue.",
+      "published": "2026-03-07T09:16:07.660",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24308"
+    },
+    {
+      "id": "CVE-2026-24281",
+      "summary": "Hostname verification in Apache ZooKeeper ZKTrustManager falls back to reverse DNS (PTR) when IP SAN validation fails, allowing attackers who control or spoof PTR records to impersonate ZooKeeper servers or clients with a valid certificate for the PTR name. It's important to note that attacker must present a certificate which is trusted by ZKTrustManager which makes the attack vector harder to exploit. Users are recommended to upgrade to version 3.8.6 or 3.9.5, which fixes this issue by introducing a new configuration option to disable reverse DNS lookup in client and quorum protocols.",
+      "published": "2026-03-07T09:16:07.437",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24281"
+    },
     {
       "id": "CVE-2026-2433",
       "summary": "The RSS Aggregator \u2013 RSS Import, News Feeds, Feed to Post, and Autoblogging plugin for WordPress is vulnerable to DOM-Based Cross-Site Scripting via postMessage in all versions up to, and including, 5.0.11. This is due to the plugin's admin-shell.js registering a global message event listener without origin validation (missing event.origin check) and directly passing user-controlled URLs to window.open() without URL scheme validation. This makes it possible for unauthenticated attackers to execute arbitrary JavaScript in the context of an authenticated administrator's session by tricking them into visiting a malicious website that sends crafted postMessage payloads to the plugin's admin page.",
@@ -22,27 +43,6 @@
       "published": "2026-03-07T08:16:10.843",
       "cvss": 6.4,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1825"
-    },
-    {
-      "id": "CVE-2026-1824",
-      "summary": "The Infomaniak Connect for OpenID plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'endpoint_login' parameter of the infomaniak_connect_generic_auth_url shortcode in all versions up to, and including, 1.0.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-03-07T08:16:10.660",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1824"
-    },
-    {
-      "id": "CVE-2026-1823",
-      "summary": "The Consensus Embed plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's consensus shortcode in all versions up to, and including, 1.6 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-03-07T08:16:10.477",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1823"
-    },
-    {
-      "id": "CVE-2026-1820",
-      "summary": "The Media Library Alt Text Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'bvmalt_sc_div_update_alt_text' shortcode in all versions up to, and including, 1.0.0 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-03-07T08:16:10.297",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1820"
     }
   ]
 }
