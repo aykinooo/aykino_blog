@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-09T20:50:25+00:00",
+  "generated_at": "2026-03-09T21:46:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-25041",
-      "summary": "Budibase is a low code platform for creating internal tools, workflows, and admin panels. In 3.23.22 and earlier, the PostgreSQL integration constructs shell commands using user-controlled configuration values (database name, host, password, etc.) without proper sanitization. The password and other connection parameters are directly interpolated into a shell command. This affects packages/server/src/integrations/postgres.ts.",
-      "published": "2026-03-09T20:16:07.147",
+      "id": "CVE-2026-3288",
+      "summary": "A security issue was discovered in ingress-nginx where the `nginx.ingress.kubernetes.io/rewrite-target` Ingress annotation can be used to inject configuration into nginx. This can lead to arbitrary code execution in the context of the ingress-nginx controller, and disclosure of Secrets accessible to the controller. (Note that in the default installation, the controller can access all Secrets cluster-wide.)",
+      "published": "2026-03-09T21:16:20.900",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3288"
+    },
+    {
+      "id": "CVE-2026-31816",
+      "summary": "Budibase is a low code platform for creating internal tools, workflows, and admin panels. In 3.31.4 and earlier, the Budibase server's authorized() middleware that protects every server-side API endpoint can be completely bypassed by appending a webhook path pattern to the query string of any request. The isWebhookEndpoint() function uses an unanchored regex that tests against ctx.request.url, which in Koa includes the full URL with query parameters. When the regex matches, the authorized() middleware immediately calls return next(), skipping all authentication, authorization, role checks, and CSRF protection. This means a completely unauthenticated, remote attacker can access any server-side API endpoint by simply appending ?/webhooks/trigger (or any webhook pattern variant) to the URL.",
+      "published": "2026-03-09T21:16:20.733",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31816"
+    },
+    {
+      "id": "CVE-2026-30240",
+      "summary": "Budibase is a low code platform for creating internal tools, workflows, and admin panels. In 3.31.5 and earlier, a path traversal vulnerability in the PWA (Progressive Web App) ZIP processing endpoint (POST /api/pwa/process-zip) allows an authenticated user with builder privileges to read arbitrary files from the server filesystem, including /proc/1/environ which contains all environment variables \u2014 JWT secrets, database credentials, encryption keys, and API tokens. The server reads attacker-specified files via unsanitized path.join() with user-controlled input from icons.json inside the uploaded ZIP, then uploads the file contents to the object store (MinIO/S3) where they can be retrieved through signed URLs. This results in complete platform compromise as all cryptographic secrets and service credentials are exfiltrated in a single request.",
+      "published": "2026-03-09T21:16:18.843",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30240"
+    },
+    {
+      "id": "CVE-2026-25960",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). The SSRF protection fix for CVE-2026-24779 add in 0.15.1 can be bypassed in the load_from_url_async method due to inconsistent URL parsing behavior between the validation layer and the actual HTTP client. The SSRF fix uses urllib3.util.parse_url() to validate and extract the hostname from user-provided URLs. However, load_from_url_async uses aiohttp for making the actual HTTP requests, and aiohttp internally uses the yarl library for URL parsing. This vulnerability in 0.17.0.",
+      "published": "2026-03-09T21:16:15.537",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25960"
+    },
+    {
+      "id": "CVE-2026-25737",
+      "summary": "Budibase is a low code platform for creating internal tools, workflows, and admin panels. In 3.24.0 and earlier, an arbitrary file upload vulnerability exists even though file extension restrictions are configured. The restriction is enforced only at the UI level. An attacker can bypass these restrictions and upload malicious files.",
+      "published": "2026-03-09T21:16:15.340",
+      "cvss": 8.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25737"
+    },
+    {
+      "id": "CVE-2026-25045",
+      "summary": "Budibase is a low code platform for creating internal tools, workflows, and admin panels. This issue is a combination of Vertical Privilege Escalation and IDOR (Insecure Direct Object Reference) due to missing server-side RBAC checks in the /api/global/users endpoints. A Creator-level user, who should have no permissions to manage users or organizational roles, can instead promote an App Viewer to Tenant Admin, demote a Tenant Admin to App Viewer, or modify the Owner\u2019s account details and all orders (e.g., change name). This is because the API accepts these actions without validating the requesting role, a Creator can replay Owner-only requests using their own session tokens. This leads to full tenant compromise.",
+      "published": "2026-03-09T21:16:15.173",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25041"
-    },
-    {
-      "id": "CVE-2026-0846",
-      "summary": "A vulnerability in the `filestring()` function of the `nltk.util` module in nltk version 3.9.2 allows arbitrary file read due to improper validation of input paths. The function directly opens files specified by user input without sanitization, enabling attackers to access sensitive system files by providing absolute paths or traversal paths. This vulnerability can be exploited locally or remotely, particularly in scenarios where the function is used in web APIs or other interfaces that accept user-supplied input.",
-      "published": "2026-03-09T20:16:05.703",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0846"
-    },
-    {
-      "id": "CVE-2025-70031",
-      "summary": "An issue pertaining to CWE-352: Cross-Site Request Forgery was discovered in Sunbird-Ed SunbirdEd-portal v1.13.4.",
-      "published": "2026-03-09T20:16:02.527",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70031"
-    },
-    {
-      "id": "CVE-2025-70030",
-      "summary": "An issue pertaining to CWE-1333: Inefficient Regular Expression Complexity (4.19) was discovered in Sunbird-Ed SunbirdEd-portal v1.13.4.",
-      "published": "2026-03-09T20:16:02.403",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70030"
-    },
-    {
-      "id": "CVE-2025-68402",
-      "summary": "FreshRSS is a free, self-hostable RSS aggregator. From 57e1a37 - 00f2f04, the lengths of the nonce was changed from 40 chars to 64. password_verify() is currently being called with a constructed string (SHA-256 nonce + part of a bcrypt hash) instead of the raw user password. Due to bcrypt\u2019s 72-byte input truncation, this causes password verification to succeed even when the user enters an incorrect password. This vulnerability is fixed in 1.27.2-dev (476e57b). The issue was only present in the edge branch and never in a stable release.",
-      "published": "2026-03-09T20:16:01.963",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-68402"
-    },
-    {
-      "id": "CVE-2025-62166",
-      "summary": "FreshRSS is a free, self-hostable RSS aggregator. Prior 1.28.0, a bug in the auth logic related to master authentication tokens, this restriction is bypassed. Usually only the default user's feed should be viewable if anonymous viewing is enabled, and feeds of other users should be private. This vulnerability is fixed in 1.28.0.",
-      "published": "2026-03-09T20:16:01.320",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62166"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25045"
     }
   ]
 }
