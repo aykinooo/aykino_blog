@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-10T20:49:01+00:00",
+  "generated_at": "2026-03-10T21:40:07+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3582",
-      "summary": "An Incorrect Authorization vulnerability was identified in GitHub Enterprise Server that allowed an authenticated user with a classic personal access token (PAT) lacking the repo scope to retrieve issues and commits from private and internal repositories via the search REST API endpoints. The user must have had existing access to the repository through organization membership or as a collaborator for the vulnerability to be exploitable. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.20 and was fixed in versions 3.16.15, 3.17.12, 3.18.6 and 3.19.3. This vulnerability was reported via the GitHub Bug Bounty program.",
-      "published": "2026-03-10T20:16:41.373",
+      "id": "CVE-2026-31809",
+      "summary": "SiYuan is a personal knowledge management system. Prior to 3.5.10, SiYuan's SVG sanitizer (SanitizeSVG) checks href attributes for the javascript: prefix using strings.HasPrefix(). However, inserting ASCII tab (&#9;), newline (&#10;), or carriage return (&#13;) characters inside the javascript: string bypasses this prefix check. Browsers strip these characters per the WHATWG URL specification before parsing the URL scheme, so the JavaScript still executes. This allows an attacker to inject executable JavaScript into the unauthenticated /api/icon/getDynamicIcon endpoint, creating a reflected XSS. This is a second bypass of the fix for CVE-2026-29183 (fixed in v3.5.9). This vulnerability is fixed in 3.5.10.",
+      "published": "2026-03-10T21:16:50.337",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3582"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31809"
     },
     {
-      "id": "CVE-2026-2713",
-      "summary": "IBM Trusteer Rapport installer 3.5.2309.290 IBM Trusteer Rapport could allow a local attacker to execute arbitrary code on the system, caused by DLL uncontrolled search path element vulnerability. By placing a specially crafted file in a compromised folder, an attacker could exploit this vulnerability to execute arbitrary code on the system.",
-      "published": "2026-03-10T20:16:39.930",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2713"
+      "id": "CVE-2026-31808",
+      "summary": "file-type detects the file type of a file, stream, or data. Prior to 21.3.1, a denial of service vulnerability exists in the ASF (WMV/WMA) file type detection parser. When parsing a crafted input where an ASF sub-header has a size field of zero, the parser enters an infinite loop. The payload value becomes negative (-24), causing tokenizer.ignore(payload) to move the read position backwards, so the same sub-header is read repeatedly forever. Any application that uses file-type to detect the type of untrusted/attacker-controlled input is affected. An attacker can stall the Node.js event loop with a 55-byte payload. Fixed in version 21.3.1.",
+      "published": "2026-03-10T21:16:50.173",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31808"
     },
     {
-      "id": "CVE-2026-2266",
-      "summary": "An improper neutralization of input vulnerability was identified in GitHub Enterprise Server that allowed DOM-based cross-site scripting via task list content. The task list content extraction logic did not properly re-encode browser-decoded text nodes before rendering, allowing user-supplied HTML to be injected into the page. An authenticated attacker could craft malicious task list items in issues or pull requests to execute arbitrary scripts in the context of another user's browser session. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.20 and was fixed in versions 3.18.6 and 3.19.3. This vulnerability was reported via the GitHub Bug Bounty program.",
-      "published": "2026-03-10T20:16:39.610",
+      "id": "CVE-2026-31807",
+      "summary": "SiYuan is a personal knowledge management system. Prior to 3.5.10, SiYuan's SVG sanitizer (SanitizeSVG) blocks dangerous elements (<script>, <iframe>, <foreignobject>) and removes on* event handlers and javascript: in href attributes. However, it does NOT block SVG animation elements (<animate>, <set>) which can dynamically set attributes to dangerous values at runtime, bypassing the static sanitization. This allows an attacker to inject executable JavaScript into the unauthenticated /api/icon/getDynamicIcon endpoint (type=8), creating a reflected XSS. This is a bypass of the fix for CVE-2026-29183 (fixed in v3.5.9). This vulnerability is fixed in v3.5.10.",
+      "published": "2026-03-10T21:16:50.023",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2266"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31807"
     },
     {
-      "id": "CVE-2026-29793",
-      "summary": "Feathersjs is a framework for creating web APIs and real-time applications with TypeScript or JavaScript.  From 5.0.0 to before 5.0.42, Socket.IO clients can send arbitrary JavaScript objects as the id argument to any service method (get, patch, update, remove). The transport layer performs no type checking on this argument. When the service uses the MongoDB adapter, these objects pass through getObjectId() and land directly in the MongoDB query as operators. Sending {$ne: null} as the id matches every document in the collection. This vulnerability is fixed in 5.0.42.",
-      "published": "2026-03-10T20:16:39.437",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29793"
+      "id": "CVE-2026-31801",
+      "summary": "zot is ancontainer image/artifact registry based on the Open Container Initiative Distribution Specification. From 1.3.0 to 2.1.14, zot\u2019s dist-spec authorization middleware infers the required action for PUT /v2/{name}/manifests/{reference} as create by default, and only switches to update when the tag already exists and reference != \"latest\". As a result, when latest already exists, a user who is allowed to create (but not allowed to update) can still pass the authorization check for an overwrite attempt of latest. This vulnerability is fixed in 2.1.15.",
+      "published": "2026-03-10T21:16:49.850",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31801"
     },
     {
-      "id": "CVE-2026-29792",
-      "summary": "Feathersjs is a framework for creating web APIs and real-time applications with TypeScript or JavaScript. From 5.0.0 to before 5.0.42, an unauthenticated attacker can send a crafted GET request directly to /oauth/:provider/callback with a forged profile in the query string. The OAuth service's authentication payload has a fallback chain that reaches params.query (the raw request query) when Grant's session/state responses are empty. Since the attacker never initiated an OAuth authorize flow, Grant has no session to work with and produces no response, so the fallback fires. The forged profile then drives entity lookup and JWT minting. The attacker gets a valid access token for an existing user without ever contacting the OAuth provider. This vulnerability is fixed in 5.0.42.",
-      "published": "2026-03-10T20:16:39.283",
+      "id": "CVE-2026-31800",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.5.2-alpha.12 and 8.6.25, the _GraphQLConfig and _Audience internal classes can be read, modified, and deleted via the generic /classes/_GraphQLConfig and /classes/_Audience REST API routes without master key authentication. This bypasses the master key enforcement that exists on the dedicated /graphql-config and /push_audiences endpoints. An attacker can read, modify and delete GraphQL configuration and push audience data. This vulnerability is fixed in 9.5.2-alpha.12 and 8.6.25.",
+      "published": "2026-03-10T21:16:49.683",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29792"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31800"
     },
     {
-      "id": "CVE-2026-29177",
-      "summary": "Craft Commerce is an ecommerce platform for Craft CMS. Prior to 4.10.2 and 5.5.3, a Stored Cross-Site Scripting (XSS) vulnerability exists in the Craft Commerce Order details. Malicious JavaScript can be injected via the Shipping Method Name, Order Reference, or Site Name. When a user opens the order details slideout via a double-click on the order index page, the injected payload executes. This vulnerability is fixed in 4.10.2 and 5.5.3.",
-      "published": "2026-03-10T20:16:39.037",
+      "id": "CVE-2026-30972",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior o 9.5.2-alpha.10 and 8.6.23, Parse Server's rate limiting middleware is applied at the Express middleware layer, but the batch request endpoint (/batch) processes sub-requests internally by routing them directly through the Promise router, bypassing Express middleware including rate limiting. An attacker can bundle multiple requests targeting a rate-limited endpoint into a single batch request to circumvent the configured rate limit. Any Parse Server deployment that relies on the built-in rate limiting feature is affected. This vulnerability is fixed in 9.5.2-alpha.10 and 8.6.23.",
+      "published": "2026-03-10T21:16:49.517",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29177"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30972"
     }
   ]
 }
