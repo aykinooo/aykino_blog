@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-10T19:51:00+00:00",
+  "generated_at": "2026-03-10T20:49:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-28292",
-      "summary": "`simple-git`, an interface for running git commands in any node.js application, has an issue in versions 3.15.0 through 3.32.2 that allows an attacker to bypass two prior CVE fixes (CVE-2022-25860 and CVE-2022-25912) and achieve full remote code execution on the host machine. Version 3.23.0 contains an updated fix for the vulnerability.",
-      "published": "2026-03-10T19:17:20.840",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28292"
+      "id": "CVE-2026-3582",
+      "summary": "An Incorrect Authorization vulnerability was identified in GitHub Enterprise Server that allowed an authenticated user with a classic personal access token (PAT) lacking the repo scope to retrieve issues and commits from private and internal repositories via the search REST API endpoints. The user must have had existing access to the repository through organization membership or as a collaborator for the vulnerability to be exploitable. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.20 and was fixed in versions 3.16.15, 3.17.12, 3.18.6 and 3.19.3. This vulnerability was reported via the GitHub Bug Bounty program.",
+      "published": "2026-03-10T20:16:41.373",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3582"
     },
     {
-      "id": "CVE-2026-27826",
-      "summary": "MCP Atlassian is a Model Context Protocol (MCP) server for Atlassian products (Confluence and Jira). Prior to version 0.17.0, an unauthenticated attacker who can reach the mcp-atlassian HTTP endpoint can force the server process to make outbound HTTP requests to an arbitrary attacker-controlled URL by supplying two custom HTTP headers without an `Authorization` header. No authentication is required. The vulnerability exists in the HTTP middleware and dependency injection layer \u2014 not in any MCP tool handler - making it invisible to tool-level code analysis. In cloud deployments, this could enable theft of IAM role credentials via the instance metadata endpoint (`169[.]254[.]169[.]254`). In any HTTP deployment it enables internal network reconnaissance and injection of attacker-controlled content into LLM tool results. Version 0.17.0 fixes the issue.",
-      "published": "2026-03-10T19:17:20.670",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27826"
+      "id": "CVE-2026-2713",
+      "summary": "IBM Trusteer Rapport installer 3.5.2309.290 IBM Trusteer Rapport could allow a local attacker to execute arbitrary code on the system, caused by DLL uncontrolled search path element vulnerability. By placing a specially crafted file in a compromised folder, an attacker could exploit this vulnerability to execute arbitrary code on the system.",
+      "published": "2026-03-10T20:16:39.930",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2713"
     },
     {
-      "id": "CVE-2026-27281",
-      "summary": "DNG SDK versions 1.7.1 2471 and earlier are affected by an Integer Overflow or Wraparound vulnerability that could lead to application denial-of-service. An attacker could exploit this vulnerability to cause the application to crash or become unresponsive. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-03-10T19:17:20.453",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27281"
+      "id": "CVE-2026-2266",
+      "summary": "An improper neutralization of input vulnerability was identified in GitHub Enterprise Server that allowed DOM-based cross-site scripting via task list content. The task list content extraction logic did not properly re-encode browser-decoded text nodes before rendering, allowing user-supplied HTML to be injected into the page. An authenticated attacker could craft malicious task list items in issues or pull requests to execute arbitrary scripts in the context of another user's browser session. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.20 and was fixed in versions 3.18.6 and 3.19.3. This vulnerability was reported via the GitHub Bug Bounty program.",
+      "published": "2026-03-10T20:16:39.610",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2266"
     },
     {
-      "id": "CVE-2026-27280",
-      "summary": "DNG SDK versions 1.7.1 2471 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-03-10T19:17:20.250",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27280"
+      "id": "CVE-2026-29793",
+      "summary": "Feathersjs is a framework for creating web APIs and real-time applications with TypeScript or JavaScript.  From 5.0.0 to before 5.0.42, Socket.IO clients can send arbitrary JavaScript objects as the id argument to any service method (get, patch, update, remove). The transport layer performs no type checking on this argument. When the service uses the MongoDB adapter, these objects pass through getObjectId() and land directly in the MongoDB query as operators. Sending {$ne: null} as the id matches every document in the collection. This vulnerability is fixed in 5.0.42.",
+      "published": "2026-03-10T20:16:39.437",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29793"
     },
     {
-      "id": "CVE-2026-27279",
-      "summary": "Substance3D - Stager versions 3.1.7 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-03-10T19:17:20.080",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27279"
+      "id": "CVE-2026-29792",
+      "summary": "Feathersjs is a framework for creating web APIs and real-time applications with TypeScript or JavaScript. From 5.0.0 to before 5.0.42, an unauthenticated attacker can send a crafted GET request directly to /oauth/:provider/callback with a forged profile in the query string. The OAuth service's authentication payload has a fallback chain that reaches params.query (the raw request query) when Grant's session/state responses are empty. Since the attacker never initiated an OAuth authorize flow, Grant has no session to work with and produces no response, so the fallback fires. The forged profile then drives entity lookup and JWT minting. The attacker gets a valid access token for an existing user without ever contacting the OAuth provider. This vulnerability is fixed in 5.0.42.",
+      "published": "2026-03-10T20:16:39.283",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29792"
     },
     {
-      "id": "CVE-2026-27277",
-      "summary": "Substance3D - Stager versions 3.1.7 and earlier are affected by a Use After Free vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-03-10T19:17:19.917",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27277"
+      "id": "CVE-2026-29177",
+      "summary": "Craft Commerce is an ecommerce platform for Craft CMS. Prior to 4.10.2 and 5.5.3, a Stored Cross-Site Scripting (XSS) vulnerability exists in the Craft Commerce Order details. Malicious JavaScript can be injected via the Shipping Method Name, Order Reference, or Site Name. When a user opens the order details slideout via a double-click on the order index page, the injected payload executes. This vulnerability is fixed in 4.10.2 and 5.5.3.",
+      "published": "2026-03-10T20:16:39.037",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29177"
     }
   ]
 }
