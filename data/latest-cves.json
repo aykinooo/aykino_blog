@@ -1,10 +1,24 @@
 {
-  "generated_at": "2026-03-11T04:52:04+00:00",
+  "generated_at": "2026-03-11T06:02:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
+      "id": "CVE-2026-2413",
+      "summary": "The Ally \u2013 Web Accessibility & Usability plugin for WordPress is vulnerable to SQL Injection via the URL path in all versions up to, and including, 4.0.3. This is due to insufficient escaping on the user-supplied URL parameter in the `get_global_remediations()` method, where it is directly concatenated into an SQL JOIN clause without proper sanitization for SQL context. While `esc_url_raw()` is applied for URL safety, it does not prevent SQL metacharacters (single quotes, parentheses) from being injected. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database via time-based blind SQL injection techniques. The Remediation module must be active, which requires the plugin to be connected to an Elementor account.",
+      "published": "2026-03-11T05:18:01.063",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2413"
+    },
+    {
+      "id": "CVE-2025-13067",
+      "summary": "The Royal Addons for Elementor plugin for WordPress is vulnerable to arbitrary file upload in all versions up to, and including, 1.7.1049. This is due to insufficient file type validation detecting files named main.php, allowing a file with such a name to bypass sanitization. This makes it possible for authenticated attackers, with author-level access and above, to upload arbitrary files on the affected site's server which may make remote code execution possible.",
+      "published": "2026-03-11T05:17:46.027",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13067"
+    },
+    {
       "id": "CVE-2026-29515",
-      "summary": "MiCode FileExplorer contains an authentication bypass vulnerability in the embedded SwiFTP FTP server component that allows network attackers to log in without valid credentials. Attackers can send arbitrary username and password combinations to the PASS command handler, which unconditionally grants access and allows listing, reading, writing, and deleting files exposed by the FTP server.",
+      "summary": "MiCode FileExplorer contains an authentication bypass vulnerability in the embedded SwiFTP FTP server component that allows network attackers to log in without valid credentials. Attackers can send arbitrary username and password combinations to the PASS command handler, which unconditionally grants access and allows listing, reading, writing, and deleting files exposed by the FTP server. The MiCode/Explorer open source project has reached end-of-life status.",
       "published": "2026-03-11T04:17:37.213",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29515"
@@ -29,20 +43,6 @@
       "published": "2026-03-11T04:17:35.080",
       "cvss": 7.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23815"
-    },
-    {
-      "id": "CVE-2026-23814",
-      "summary": "A vulnerability in the command parameters of a certain AOS-CX CLI command could allow a low-privilege authenticated remote attacker to inject malicious commands resulting in unwanted behavior.",
-      "published": "2026-03-11T04:17:34.883",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23814"
-    },
-    {
-      "id": "CVE-2026-23813",
-      "summary": "A vulnerability has been identified in the web-based management interface of AOS-CX switches that could potentially allow an unauthenticated remote actor to circumvent existing authentication controls. In some cases this could enable resetting the admin password.",
-      "published": "2026-03-11T04:17:34.677",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23813"
     }
   ]
 }
