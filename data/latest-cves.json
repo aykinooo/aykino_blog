@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T19:50:23+00:00",
+  "generated_at": "2026-03-11T20:49:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3949",
-      "summary": "A vulnerability was determined in strukturag libheif up to 1.21.2. This affects the function vvdec_push_data2 of the file libheif/plugins/decoder_vvdec.cc of the component HEIF File Parser. Executing a manipulation of the argument size can lead to out-of-bounds read. The attack needs to be launched locally. The exploit has been publicly disclosed and may be utilized. This patch is called b97c8b5f198b27f375127cd597a35f2113544d03. It is advisable to implement a patch to correct this issue.",
-      "published": "2026-03-11T19:16:05.297",
+      "id": "CVE-2026-3954",
+      "summary": "A weakness has been identified in OpenBMB XAgent 1.0.0. Affected by this vulnerability is the function workspace of the file XAgentServer/application/routers/workspace.py. This manipulation of the argument file_name causes path traversal. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-03-11T20:16:23.477",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3954"
+    },
+    {
+      "id": "CVE-2026-3951",
+      "summary": "A security flaw has been discovered in LockerProject Locker 0.0.0/0.0.1/0.1.0. Affected is the function authIsAwesome of the file source-code/Locker-master/Ops/registry.js of the component Error Response Handler. The manipulation of the argument ID results in cross site scripting. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-03-11T20:16:23.253",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3951"
+    },
+    {
+      "id": "CVE-2026-3950",
+      "summary": "A vulnerability was identified in strukturag libheif up to 1.21.2. This impacts the function Track::load of the file libheif/sequences/track.cc of the component stsz/stts. The manipulation leads to out-of-bounds read. The attack needs to be performed locally. The exploit is publicly available and might be used. Applying a patch is the recommended action to fix this issue. The patch available is inofficial and not approved yet.",
+      "published": "2026-03-11T20:16:22.567",
       "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3949"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3950"
     },
     {
-      "id": "CVE-2026-31888",
-      "summary": "Shopware is an open commerce platform. Prior to 6.7.8.1 and 6.6.10.15, the Store API login endpoint (POST /store-api/account/login) returns different error codes depending on whether the submitted email address belongs to a registered customer (CHECKOUT__CUSTOMER_AUTH_BAD_CREDENTIALS) or is unknown (CHECKOUT__CUSTOMER_NOT_FOUND). The \"not found\" response also echoes the probed email address. This allows an unauthenticated attacker to enumerate valid customer accounts. The storefront login controller correctly unifies both error paths, but the Store API does not \u2014 indicating an inconsistent defense. This vulnerability is fixed in 6.7.8.1 and 6.6.10.15.",
-      "published": "2026-03-11T19:16:05.113",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31888"
-    },
-    {
-      "id": "CVE-2026-31887",
-      "summary": "Shopware is an open commerce platform. Prior to 6.7.8.1 and 6.6.10.15, an insufficient check on the filter types for unauthenticated customers allows access to orders of other customers. This is part of the deepLinkCode support on the store-api.order endpoint. This vulnerability is fixed in 6.7.8.1 and 6.6.10.15.",
-      "published": "2026-03-11T19:16:04.950",
+      "id": "CVE-2026-32234",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.10 and 8.6.36, an attacker with access to the master key can inject malicious SQL via crafted field names used in query constraints when Parse Server is configured with PostgreSQL as the database. The field name in a $regex query operator is passed to PostgreSQL using unparameterized string interpolation, allowing the attacker to manipulate the SQL query. While the master key controls what can be done through the Parse Server abstraction layer, this SQL injection bypasses Parse Server entirely and operates at the database level. This vulnerability only affects Parse Server deployments using PostgreSQL. This vulnerability is fixed in 9.6.0-alpha.10 and 8.6.36.",
+      "published": "2026-03-11T20:16:18.563",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31887"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32234"
     },
     {
-      "id": "CVE-2026-31881",
-      "summary": "Runtipi is a personal homeserver orchestrator. Prior to 4.8.0, an unauthenticated attacker can reset the operator (admin) password when a password-reset request is active, resulting in full account takeover. The endpoint POST /api/auth/reset-password is exposed without authentication/authorization checks. During the 15-minute reset window, any remote user can set a new operator password and log in as admin. This vulnerability is fixed in 4.8.0.",
-      "published": "2026-03-11T19:16:04.787",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31881"
-    },
-    {
-      "id": "CVE-2026-31879",
-      "summary": "Frappe is a full-stack web application framework. Prior to 14.100.2, 15.101.0, and 16.10.0, due to a lack of validation and improper permission checks, users could modify other user's private workspaces. Specially crafted requests could lead to stored XSS here. This vulnerability is fixed in 14.100.2, 15.101.0, and 16.10.0.",
-      "published": "2026-03-11T19:16:04.627",
+      "id": "CVE-2026-32098",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.9 and 8.6.35, an attacker can exploit LiveQuery subscriptions to infer the values of protected fields without directly receiving them. By subscribing with a WHERE clause that references a protected field (including via dot-notation or $regex), the attacker can observe whether LiveQuery events are delivered for matching objects. This creates a boolean oracle that leaks protected field values. The attack affects any class that has both protectedFields configured in Class-Level Permissions and LiveQuery enabled. This vulnerability is fixed in 9.6.0-alpha.9 and 8.6.35.",
+      "published": "2026-03-11T20:16:18.400",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31879"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32098"
     },
     {
-      "id": "CVE-2026-31878",
-      "summary": "Frappe is a full-stack web application framework. Prior to 14.100.1, 15.100.0, and 16.6.0, a malicious user could send a crafted request to an endpoint which would lead to the server making an HTTP call to a service of the user's choice. This vulnerability is fixed in 14.100.1, 15.100.0, and 16.6.0.",
-      "published": "2026-03-11T19:16:04.470",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31878"
+      "id": "CVE-2026-32097",
+      "summary": "PingPong is a platform for using large language models (LLMs) for teaching and learning. Prior to 7.27.2, an authenticated user may be able to retrieve or delete files outside the intended authorization scope. This issue could result in retrieval or deletion of private files, including user-uploaded files and model-generated output files. Exploitation required authentication and permission to view at least one thread for retrieval, and authentication and permission to participate in at least one thread for deletion. This vulnerability is fixed in 7.27.2.",
+      "published": "2026-03-11T20:16:18.243",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32097"
     }
   ]
 }
