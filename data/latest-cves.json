@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-03-11T08:59:35+00:00",
+  "generated_at": "2026-03-11T09:59:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-1454",
+      "summary": "The Responsive Contact Form Builder & Lead Generation Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 2.0.1 via form field submissions. This is due to insufficient input sanitization in the lfb_lead_sanitize() function which omits certain field types from its sanitization whitelist, combined with an overly permissive wp_kses() filter at output time that allows onclick attributes on anchor tags. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrator views the lead entries in the WordPress dashboard.",
+      "published": "2026-03-11T09:16:12.647",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1454"
+    },
     {
       "id": "CVE-2026-3903",
       "summary": "The Modular DS: Monitor, update, and backup multiple websites plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.5.1. This is due to missing nonce validation on the postConfirmOauth() function. This makes it possible for unauthenticated attackers to disconnect the plugin's OAuth/SSO connection via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
@@ -36,13 +43,6 @@
       "published": "2026-03-11T08:16:02.923",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-14026"
-    },
-    {
-      "id": "CVE-2024-14025",
-      "summary": "An SQL injection vulnerability has been reported to affect Video Station. If an attacker gains local network access who have also gained an administrator account, they can then exploit the vulnerability to execute unauthorized code or commands.\n\nWe have already fixed the vulnerability in the following version:\nVideo Station 5.8.2 and later",
-      "published": "2026-03-11T08:16:02.747",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-14025"
     }
   ]
 }
