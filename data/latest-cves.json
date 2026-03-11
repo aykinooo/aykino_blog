@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T07:54:08+00:00",
+  "generated_at": "2026-03-11T08:59:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3826",
-      "summary": "IFTOP developed by WellChoose has a Local File Inclusion vulnerability, allowing unauthenticated remote attackers to execute arbitrary code on the server.",
-      "published": "2026-03-11T07:17:00.207",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3826"
+      "id": "CVE-2026-3903",
+      "summary": "The Modular DS: Monitor, update, and backup multiple websites plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.5.1. This is due to missing nonce validation on the postConfirmOauth() function. This makes it possible for unauthenticated attackers to disconnect the plugin's OAuth/SSO connection via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-03-11T08:16:04.087",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3903"
     },
     {
-      "id": "CVE-2026-3825",
-      "summary": "Update to verison IFTOP_P4_181 or later.",
-      "published": "2026-03-11T07:16:59.967",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3825"
-    },
-    {
-      "id": "CVE-2026-3824",
-      "summary": "IFTOP developed by WellChoose has an Open redirect vulnerability, allowing authenticated remote attackers to craft a URL that tricks users into visiting malicious website.",
-      "published": "2026-03-11T07:16:59.717",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3824"
-    },
-    {
-      "id": "CVE-2026-3534",
-      "summary": "The Astra theme for WordPress is vulnerable to Stored Cross-Site Scripting via the `ast-page-background-meta` and `ast-content-background-meta` post meta fields in all versions up to, and including, 4.12.3. This is due to insufficient input sanitization on meta registration and missing output escaping in the `astra_get_responsive_background_obj()` function for four CSS-context sub-properties (`background-color`, `background-image`, `overlay-color`, `overlay-gradient`). This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-03-11T07:16:45.213",
+      "id": "CVE-2026-2918",
+      "summary": "The Happy Addons for Elementor plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 3.21.0 via the `ha_condition_update` AJAX action. This is due to the `validate_reqeust()` method using `current_user_can('edit_posts', $template_id)` instead of `current_user_can('edit_post', $template_id)` \u2014 failing to perform object-level authorization. Additionally, the `ha_get_current_condition` AJAX action lacks a capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to modify the display conditions of any published `ha_library` template. Because the `cond_to_html()` renderer outputs condition values into HTML attributes without proper escaping (using string concatenation instead of `esc_attr()`), an attacker can inject event handler attributes (e.g., `onmouseover`) that execute JavaScript when an administrator views the Template Conditions panel, resulting in Stored Cross-Site Scripting.",
+      "published": "2026-03-11T08:16:03.567",
       "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3534"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2918"
     },
     {
-      "id": "CVE-2026-31844",
-      "summary": "An authenticated SQL Injection vulnerability (CWE-89) in the displayby parameter of /cgi-bin/koha/suggestion/suggestion.pl in Koha allows a low-privileged staff user to execute arbitrary SQL queries and retrieve sensitive database information.",
-      "published": "2026-03-11T07:16:43.900",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31844"
+      "id": "CVE-2026-2917",
+      "summary": "The Happy Addons for Elementor plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 3.21.0 via the `ha_duplicate_thing` admin action handler. This is due to the `can_clone()` method only checking `current_user_can('edit_posts')` (a general capability) without performing object-level authorization such as `current_user_can('edit_post', $post_id)`, and the nonce being tied to the generic action name `ha_duplicate_thing` rather than to a specific post ID. This makes it possible for authenticated attackers, with Contributor-level access and above, to clone any published post, page, or custom post type by obtaining a valid clone nonce from their own posts and changing the `post_id` parameter to target other users' content. The clone operation copies the full post content, all post metadata (including potentially sensitive widget configurations and API tokens), and taxonomies into a new draft owned by the attacker.",
+      "published": "2026-03-11T08:16:03.367",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2917"
     },
     {
-      "id": "CVE-2026-3911",
-      "summary": "A flaw was found in Keycloak. An authenticated user with the view-users role could exploit a vulnerability in the UserResource component. By accessing a specific administrative endpoint, this user could improperly retrieve user attributes that were configured to be hidden. This unauthorized information disclosure could expose sensitive user data.",
-      "published": "2026-03-11T06:17:15.377",
-      "cvss": 2.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3911"
+      "id": "CVE-2026-1708",
+      "summary": "The Appointment Booking Calendar \u2014 Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to blind SQL Injection in all versions up to, and including, 1.6.9.27. This is due to the `db_where_conditions` method in the `TD_DB_Model` class failing to prevent the `append_where_sql` parameter from being passed through JSON request bodies, while only checking for its presence in the `$_REQUEST` superglobal. This makes it possible for unauthenticated attackers to append arbitrary SQL commands to queries and extract sensitive information from the database via the `append_where_sql` parameter in JSON payloads granted they have obtained a valid `public_token` that is inadvertently exposed during the booking flow.",
+      "published": "2026-03-11T08:16:03.150",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1708"
+    },
+    {
+      "id": "CVE-2024-14026",
+      "summary": "A command injection vulnerability has been reported to affect several QNAP operating system versions. If an attacker gains local network access who have also gained a user account, they can then exploit the vulnerability to execute arbitrary commands.\n\nWe have already fixed the vulnerability in the following versions:\nQTS 5.1.9.2954 build 20241120 and later\nQTS 5.2.3.3006 build 20250108 and later\nQuTS hero h5.1.9.2954 build 20241120 and later\nQuTS hero h5.2.3.3006 build 20250108 and later",
+      "published": "2026-03-11T08:16:02.923",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-14026"
+    },
+    {
+      "id": "CVE-2024-14025",
+      "summary": "An SQL injection vulnerability has been reported to affect Video Station. If an attacker gains local network access who have also gained an administrator account, they can then exploit the vulnerability to execute unauthorized code or commands.\n\nWe have already fixed the vulnerability in the following version:\nVideo Station 5.8.2 and later",
+      "published": "2026-03-11T08:16:02.747",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-14025"
     }
   ]
 }
