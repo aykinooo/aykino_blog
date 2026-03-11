@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T07:10:34+00:00",
+  "generated_at": "2026-03-11T07:54:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3826",
+      "summary": "IFTOP developed by WellChoose has a Local File Inclusion vulnerability, allowing unauthenticated remote attackers to execute arbitrary code on the server.",
+      "published": "2026-03-11T07:17:00.207",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3826"
+    },
+    {
+      "id": "CVE-2026-3825",
+      "summary": "Update to verison IFTOP_P4_181 or later.",
+      "published": "2026-03-11T07:16:59.967",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3825"
+    },
+    {
+      "id": "CVE-2026-3824",
+      "summary": "IFTOP developed by WellChoose has an Open redirect vulnerability, allowing authenticated remote attackers to craft a URL that tricks users into visiting malicious website.",
+      "published": "2026-03-11T07:16:59.717",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3824"
+    },
+    {
+      "id": "CVE-2026-3534",
+      "summary": "The Astra theme for WordPress is vulnerable to Stored Cross-Site Scripting via the `ast-page-background-meta` and `ast-content-background-meta` post meta fields in all versions up to, and including, 4.12.3. This is due to insufficient input sanitization on meta registration and missing output escaping in the `astra_get_responsive_background_obj()` function for four CSS-context sub-properties (`background-color`, `background-image`, `overlay-color`, `overlay-gradient`). This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-03-11T07:16:45.213",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3534"
+    },
+    {
+      "id": "CVE-2026-31844",
+      "summary": "An authenticated SQL Injection vulnerability (CWE-89) in the displayby parameter of /cgi-bin/koha/suggestion/suggestion.pl in Koha allows a low-privileged staff user to execute arbitrary SQL queries and retrieve sensitive database information.",
+      "published": "2026-03-11T07:16:43.900",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31844"
+    },
     {
       "id": "CVE-2026-3911",
       "summary": "A flaw was found in Keycloak. An authenticated user with the view-users role could exploit a vulnerability in the UserResource component. By accessing a specific administrative endpoint, this user could improperly retrieve user attributes that were configured to be hidden. This unauthorized information disclosure could expose sensitive user data.",
       "published": "2026-03-11T06:17:15.377",
       "cvss": 2.7,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3911"
-    },
-    {
-      "id": "CVE-2026-3884",
-      "summary": "Versions of the package spin.js before 3.0.0 are vulnerable to Cross-site Scripting (XSS) via the spin() function that allows a creation of more than 1 alert for each 'target' element. An attacker would need to set an arbitrary key-value pair on Object.prototype through a crafted URL achieving a prototype pollution first, before being able to execute arbitrary JavaScript in the context of the user's browser.",
-      "published": "2026-03-11T06:17:15.183",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3884"
-    },
-    {
-      "id": "CVE-2026-3222",
-      "summary": "The WP Maps plugin for WordPress is vulnerable to time-based blind SQL Injection via the 'location_id' parameter in all versions up to, and including, 4.9.1. This is due to the plugin's database abstraction layer (`FlipperCode_Model_Base::is_column()`) treating user input wrapped in backticks as column names, bypassing the `esc_sql()` escaping function. Additionally, the `wpgmp_ajax_call` AJAX handler (registered for unauthenticated users via `wp_ajax_nopriv`) allows calling arbitrary class methods including `wpgmp_return_final_capability`, which passes the unsanitized `location_id` GET parameter directly to a database query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-03-11T06:17:14.777",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3222"
-    },
-    {
-      "id": "CVE-2026-2707",
-      "summary": "The weForms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the REST API entry submission endpoint in all versions up to, and including, 1.6.27. This is due to inconsistent input sanitization between the frontend AJAX handler and the REST API endpoint. When entries are submitted via the REST API (`/wp-json/weforms/v1/forms/{id}/entries/`), the `prepare_entry()` method in `class-abstract-fields.php` receives the WP_REST_Request object as `$args`, bypassing the `weforms_clean()` fallback that sanitizes `$_POST` data for frontend submissions. The base field handler only applies `trim()` to the value. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary web scripts into form entry hidden field values via the REST API that execute when an administrator views the form entries page, where data is rendered using a Vue.js `v-html` directive without escaping.",
-      "published": "2026-03-11T06:17:14.587",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2707"
-    },
-    {
-      "id": "CVE-2026-2631",
-      "summary": "The Datalogics Ecommerce Delivery  WordPress plugin before 2.6.60 exposes an unauthenticated REST endpoint that allows any remote user to modify the option `datalogics_token` without verification. This token is subsequently used for authentication in a protected endpoint that allows users to perform arbitrary WordPress `update_option()` operations. Attackers can use this to enable registartion and to set the default role as Administrator.",
-      "published": "2026-03-11T06:17:14.467",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2631"
-    },
-    {
-      "id": "CVE-2026-2626",
-      "summary": "The divi-booster WordPress plugin before 5.0.2 does not have authorization and CSRF checks in one of its fixing function, allowing unauthenticated users to modify stored divi-booster WordPress plugin before 5.0.2 options. Furthermore, due to the use of unserialize() on the data, this could be further exploited when combined with a PHP gadget chain to achieve PHP Object Injection",
-      "published": "2026-03-11T06:17:14.353",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2626"
     }
   ]
 }
