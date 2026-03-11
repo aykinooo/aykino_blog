@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-03-11T11:47:04+00:00",
+  "generated_at": "2026-03-11T13:37:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3944",
+      "summary": "A vulnerability was determined in itsourcecode University Management System 1.0. This vulnerability affects unknown code of the file /att_add.php. This manipulation of the argument Name causes sql injection. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-03-11T13:16:12.537",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3944"
+    },
+    {
+      "id": "CVE-2026-3943",
+      "summary": "A vulnerability was found in H3C ACG1000-AK230 up to 20260227. This affects an unknown part of the file /webui/?aaa_portal_auth_local_submit. The manipulation of the argument suffix results in command injection. The attack can be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-11T13:16:11.470",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3943"
+    },
+    {
+      "id": "CVE-2026-3178",
+      "summary": "The Name Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'name_directory_name' parameter in all versions up to, and including, 1.32.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability was partially patched in versions 1.30.3 and 1.32.1.",
+      "published": "2026-03-11T12:15:54.523",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3178"
+    },
     {
       "id": "CVE-2026-3805",
       "summary": "When doing a second SMB request to the same host again, curl would wrongly use\na data pointer pointing into already freed memory.",
@@ -22,27 +43,6 @@
       "published": "2026-03-11T11:16:00.080",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3783"
-    },
-    {
-      "id": "CVE-2026-1965",
-      "summary": "libcurl can in some circumstances reuse the wrong connection when asked to do\nan Negotiate-authenticated HTTP or HTTPS request.\n\nlibcurl features a pool of recent connections so that subsequent requests can\nreuse an existing connection to avoid overhead.\n\nWhen reusing a connection a range of criterion must first be met. Due to a\nlogical error in the code, a request that was issued by an application could\nwrongfully reuse an existing connection to the same server that was\nauthenticated using different credentials. One underlying reason being that\nNegotiate sometimes authenticates *connections* and not *requests*, contrary\nto how HTTP is designed to work.\n\nAn application that allows Negotiate authentication to a server (that responds\nwanting Negotiate) with `user1:password1` and then does another operation to\nthe same server also using Negotiate but with `user2:password2` (while the\nprevious connection is still alive) - the second request wrongly reused the\nsame connection and since it then sees that the Negotiate negotiation is\nalready made, it just sends the request over that connection thinking it uses\nthe user2 credentials when it is in fact still using the connection\nauthenticated for user1...\n\nThe set of authentication methods to use is set with  `CURLOPT_HTTPAUTH`.\n\nApplications can disable libcurl's reuse of connections and thus mitigate this\nproblem, by using one of the following libcurl options to alter how\nconnections are or are not reused: `CURLOPT_FRESH_CONNECT`,\n`CURLOPT_MAXCONNECTS` and `CURLMOPT_MAX_HOST_CONNECTIONS` (if using the\ncurl_multi API).",
-      "published": "2026-03-11T11:15:59.177",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1965"
-    },
-    {
-      "id": "CVE-2026-3906",
-      "summary": "WordPress core is vulnerable to unauthorized access in versions 6.9 through 6.9.1. The Notes feature (block-level collaboration annotations) was introduced in WordPress 6.9 to allow editorial comments directly on posts in the block editor. However, the REST API `create_item_permissions_check()` method in the comments controller did not verify that the authenticated user has `edit_post` permission on the target post when creating a note. This makes it possible for authenticated attackers with Subscriber-level access to create notes on any post, including posts authored by other users, private posts, and posts in any status.",
-      "published": "2026-03-11T10:16:14.217",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3906"
-    },
-    {
-      "id": "CVE-2026-3492",
-      "summary": "The Gravity Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 2.9.28.1. This is due to a compound failure involving missing authorization on the `create_from_template` AJAX endpoint (allowing any authenticated user to create forms), insufficient input sanitization (`sanitize_text_field()` preserves single quotes), and missing output escaping when the form title is rendered in the Form Switcher dropdown (`title` attribute constructed without `esc_attr()`, and JavaScript `saferHtml` utility only escapes `&`, `<`, `>` but not quotes). This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary JavaScript that executes when an Administrator searches in the Form Switcher dropdown in the Form Editor.",
-      "published": "2026-03-11T10:16:14.050",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3492"
     }
   ]
 }
