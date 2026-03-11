@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T17:09:35+00:00",
+  "generated_at": "2026-03-11T18:02:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3848",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 8.11 before 18.7.6, 18.8 before 18.8.6, and 18.9 before 18.9.2 that could have allowed an authenticated user to make unintended internal requests through proxy environments under certain conditions due to improper input validation in import functionality.",
-      "published": "2026-03-11T16:16:47.310",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3848"
+      "id": "CVE-2026-3429",
+      "summary": "A flaw was identified in the Account REST API of Keycloak that allows a user authenticated at a lower security level to perform sensitive actions intended only for higher-assurance sessions. Specifically, an attacker who has already obtained a victim\u2019s password can delete the victim\u2019s registered MFA/OTP credential without first proving possession of that factor. The attacker can then register their own MFA device, effectively taking full control of the account. This weakness undermines the intended protection provided by multi-factor authentication.",
+      "published": "2026-03-11T17:16:59.270",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3429"
     },
     {
-      "id": "CVE-2026-31892",
-      "summary": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. From 2.9.0 to before 4.0.2 and 3.7.11, A user who can submit Workflows can completely bypass all security settings defined in a WorkflowTemplate by including a podSpecPatch field in their Workflow submission. This works even when the controller is configured with templateReferencing: Strict, which is specifically documented as a mechanism to restrict users to admin-approved templates. The podSpecPatch field on a submitted Workflow takes precedence over the referenced WorkflowTemplate during spec merging and is applied directly to the pod spec at creation time with no security validation. This vulnerability is fixed in 4.0.2 and 3.7.11.",
-      "published": "2026-03-11T16:16:44.033",
+      "id": "CVE-2026-31854",
+      "summary": "Cursor is a code editor built for programming with AI. Prior to 2.0 ,if a visited website contains maliciously crafted instructions, the model may attempt to follow them in order to \u201cassist\u201d the user. When combined with a bypass of the command whitelist mechanism, such indirect prompt injections could result in commands being executed automatically, without the user\u2019s explicit intent, thereby posing a significant security risk. This vulnerability is fixed in 2.0.",
+      "published": "2026-03-11T17:16:58.917",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31892"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31854"
     },
     {
-      "id": "CVE-2026-30741",
-      "summary": "A remote code execution (RCE) vulnerability in OpenClaw Agent Platform v2026.2.6 allows attackers to execute arbitrary code via a Request-Side prompt injection attack.",
-      "published": "2026-03-11T16:16:41.530",
+      "id": "CVE-2026-31853",
+      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-16 and 6.9.13-41, an overflow on 32-bit systems can cause a crash in the SFW decoder when processing extremely large images. This vulnerability is fixed in 7.1.2-16 and 6.9.13-41.",
+      "published": "2026-03-11T17:16:58.760",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31853"
+    },
+    {
+      "id": "CVE-2026-31852",
+      "summary": "Jellyfin is an open-source media system. The code-quality.yml GitHub Actions workflow in jellyfin/jellyfin-ios is vulnerable to arbitrary code execution via pull requests from forked repositories. Due to the workflow's elevated permissions (nearly all write permissions), this vulnerability enables full repository takeover of jellyfin/jellyfin-ios, exfiltration of highly privileged secrets, Apple App Store supply chain attack, GitHub Container Registry (ghcr.io) package poisoning, and full jellyfin organization compromise via cross-repository token usage. Note: This is not a code vulnerability, but a vulnerability in the GitHub Actions workflows. No new version is required for this GHSA and end users do not need to take any actions.",
+      "published": "2026-03-11T17:16:58.600",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31852"
+    },
+    {
+      "id": "CVE-2026-31840",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.2 and 8.6.28, an attacker can use a dot-notation field name in combination with the sort query parameter to inject SQL into the PostgreSQL database through an improper escaping of sub-field values in dot-notation queries. The vulnerability may also affect queries that use dot-notation field names with the distinct and where query parameters. This vulnerability only affects deployments using a PostgreSQL database. This vulnerability is fixed in 9.6.0-alpha.2 and 8.6.28.",
+      "published": "2026-03-11T17:16:58.447",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30741"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31840"
     },
     {
-      "id": "CVE-2026-30234",
-      "summary": "OpenProject is an open-source, web-based project management software. Prior to 17.2.0, an authenticated project member with BCF import permissions can upload a crafted .bcf archive where the <Snapshot> value in markup.bcf is manipulated to contain an absolute or traversal local path (for example: /etc/passwd or ../../../../etc/passwd). During import, this untrusted <Snapshot> value is used as file.path during attachment processing. As a result, local filesystem content can be read outside the intended ZIP scope. This results in an Arbitrary File Read (AFR) within the read permissions of the OpenProject application user. This vulnerability is fixed in 17.2.0.",
-      "published": "2026-03-11T16:16:41.383",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30234"
-    },
-    {
-      "id": "CVE-2026-29777",
-      "summary": "Traefik is an HTTP reverse proxy and load balancer. Prior to 3.6.10, A tenant with write access to an HTTPRoute resource can inject backtick-delimited rule tokens into Traefik's router rule language via unsanitized header or query parameter match values. In shared gateway deployments, this can bypass listener hostname constraints and redirect traffic for victim hostnames to attacker-controlled backends. This vulnerability is fixed in 3.6.10.",
-      "published": "2026-03-11T16:16:40.830",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29777"
-    },
-    {
-      "id": "CVE-2026-28803",
-      "summary": "Open Forms allows users create and publish smart forms. Prior to 3.3.13 and 3.4.5, to be able to cosign, the cosigner receives an e-mail with instructions or a deep-link to start the cosign flow. The submission reference is communicated so that the user can retrieve the submission to be cosigned. Attackers can guess a code or modify the received code to look up arbitrary submissions, after logging in (with DigiD/eHerkenning/... depending on form configuration). This vulnerability is fixed in 3.3.13 and 3.4.5.",
-      "published": "2026-03-11T16:16:40.630",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28803"
+      "id": "CVE-2026-31839",
+      "summary": "Striae is a firearms examiner's comparison companion. A high-severity integrity bypass vulnerability existed in Striae's digital confirmation workflow prior to v3.0.0. Hash-only validation trusted manifest hash fields that could be modified together with package content, allowing tampered confirmation packages to pass integrity checks. This vulnerability is fixed in 3.0.0.",
+      "published": "2026-03-11T17:16:58.270",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31839"
     }
   ]
 }
