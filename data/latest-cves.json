@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-11T10:59:24+00:00",
+  "generated_at": "2026-03-11T11:47:04+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3805",
+      "summary": "When doing a second SMB request to the same host again, curl would wrongly use\na data pointer pointing into already freed memory.",
+      "published": "2026-03-11T11:16:00.967",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3805"
+    },
+    {
+      "id": "CVE-2026-3784",
+      "summary": "curl would wrongly reuse an existing HTTP proxy connection doing CONNECT to a\nserver, even if the new request uses different credentials for the HTTP proxy.\nThe proper behavior is to create or use a separate connection.",
+      "published": "2026-03-11T11:16:00.437",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3784"
+    },
+    {
+      "id": "CVE-2026-3783",
+      "summary": "When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer\nperforms a redirect to a second URL, curl could leak that token to the second\nhostname under some circumstances.\n\nIf the hostname that the first request is redirected to has information in the\nused .netrc file, with either of the `machine` or `default` keywords, curl\nwould pass on the bearer token set for the first host also to the second one.",
+      "published": "2026-03-11T11:16:00.080",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3783"
+    },
+    {
+      "id": "CVE-2026-1965",
+      "summary": "libcurl can in some circumstances reuse the wrong connection when asked to do\nan Negotiate-authenticated HTTP or HTTPS request.\n\nlibcurl features a pool of recent connections so that subsequent requests can\nreuse an existing connection to avoid overhead.\n\nWhen reusing a connection a range of criterion must first be met. Due to a\nlogical error in the code, a request that was issued by an application could\nwrongfully reuse an existing connection to the same server that was\nauthenticated using different credentials. One underlying reason being that\nNegotiate sometimes authenticates *connections* and not *requests*, contrary\nto how HTTP is designed to work.\n\nAn application that allows Negotiate authentication to a server (that responds\nwanting Negotiate) with `user1:password1` and then does another operation to\nthe same server also using Negotiate but with `user2:password2` (while the\nprevious connection is still alive) - the second request wrongly reused the\nsame connection and since it then sees that the Negotiate negotiation is\nalready made, it just sends the request over that connection thinking it uses\nthe user2 credentials when it is in fact still using the connection\nauthenticated for user1...\n\nThe set of authentication methods to use is set with  `CURLOPT_HTTPAUTH`.\n\nApplications can disable libcurl's reuse of connections and thus mitigate this\nproblem, by using one of the following libcurl options to alter how\nconnections are or are not reused: `CURLOPT_FRESH_CONNECT`,\n`CURLOPT_MAXCONNECTS` and `CURLMOPT_MAX_HOST_CONNECTIONS` (if using the\ncurl_multi API).",
+      "published": "2026-03-11T11:15:59.177",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1965"
+    },
     {
       "id": "CVE-2026-3906",
       "summary": "WordPress core is vulnerable to unauthorized access in versions 6.9 through 6.9.1. The Notes feature (block-level collaboration annotations) was introduced in WordPress 6.9 to allow editorial comments directly on posts in the block editor. However, the REST API `create_item_permissions_check()` method in the comments controller did not verify that the authenticated user has `edit_post` permission on the target post when creating a note. This makes it possible for authenticated attackers with Subscriber-level access to create notes on any post, including posts authored by other users, private posts, and posts in any status.",
@@ -15,34 +43,6 @@
       "published": "2026-03-11T10:16:14.050",
       "cvss": 6.4,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3492"
-    },
-    {
-      "id": "CVE-2026-3231",
-      "summary": "The Checkout Field Editor (Checkout Manager) for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via custom radio and checkboxgroup field values submitted through the WooCommerce Block Checkout Store API in all versions up to, and including, 2.1.7. This is due to the `prepare_single_field_data()` method in `class-thwcfd-block-order-data.php` first escaping values with `esc_html()` then immediately reversing the escaping with `html_entity_decode()` for radio and checkboxgroup field types, combined with a permissive `wp_kses()` allowlist in `get_allowed_html()` that explicitly permits the `<select>` element with the `onchange` event handler attribute. This makes it possible for unauthenticated attackers to inject arbitrary web scripts via the Store API checkout endpoint that execute when an administrator views the order details page.",
-      "published": "2026-03-11T10:16:13.873",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3231"
-    },
-    {
-      "id": "CVE-2026-1993",
-      "summary": "The ExactMetrics \u2013 Google Analytics Dashboard for WordPress plugin is vulnerable to Improper Privilege Management in versions 7.1.0 through 9.0.2. This is due to the `update_settings()` function accepting arbitrary plugin setting names without a whitelist of allowed settings. This makes it possible for authenticated attackers with the `exactmetrics_save_settings` capability to modify any plugin setting, including the `save_settings` option that controls which user roles have access to plugin functionality. The admin intended to delegate configuration access to a trusted user, not enable that user to delegate access to everyone. By setting `save_settings` to include `subscriber`, an attacker can grant plugin administrative access to all subscribers on the site.",
-      "published": "2026-03-11T10:16:13.673",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1993"
-    },
-    {
-      "id": "CVE-2026-1992",
-      "summary": "The ExactMetrics \u2013 Google Analytics Dashboard for WordPress plugin is vulnerable to Insecure Direct Object Reference in versions 8.6.0 through 9.0.2. This is due to the `store_settings()` method in the `ExactMetrics_Onboarding` class accepting a user-supplied `triggered_by` parameter that is used instead of the current user's ID to check permissions. This makes it possible for authenticated attackers with the `exactmetrics_save_settings` capability to bypass the `install_plugins` capability check by specifying an administrator's user ID in the `triggered_by` parameter, allowing them to install arbitrary plugins and achieve Remote Code Execution. This vulnerability only affects sites on which administrator has given other user types the permission to view reports and can only be exploited by users of that type.",
-      "published": "2026-03-11T10:16:13.280",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1992"
-    },
-    {
-      "id": "CVE-2026-1454",
-      "summary": "The Responsive Contact Form Builder & Lead Generation Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 2.0.1 via form field submissions. This is due to insufficient input sanitization in the lfb_lead_sanitize() function which omits certain field types from its sanitization whitelist, combined with an overly permissive wp_kses() filter at output time that allows onclick attributes on anchor tags. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an administrator views the lead entries in the WordPress dashboard.",
-      "published": "2026-03-11T09:16:12.647",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1454"
     }
   ]
 }
