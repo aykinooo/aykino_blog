@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T19:09:32+00:00",
+  "generated_at": "2026-03-11T19:50:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-31975",
-      "summary": "Cloud CLI (aka Claude Code UI) is a desktop and mobile UI for Claude Code, Cursor CLI, Codex, and Gemini-CLI. Prior to 1.25.0, OS Command Injection via WebSocket Shell. Both projectPath and initialCommand in server/index.js are taken directly from the WebSocket message payload and interpolated into a bash command string without any sanitization, enabling arbitrary OS command execution. A secondary injection vector exists via unsanitized sessionId. This vulnerability is fixed in 1.25.0.",
-      "published": "2026-03-11T18:16:27.177",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31975"
+      "id": "CVE-2026-3949",
+      "summary": "A vulnerability was determined in strukturag libheif up to 1.21.2. This affects the function vvdec_push_data2 of the file libheif/plugins/decoder_vvdec.cc of the component HEIF File Parser. Executing a manipulation of the argument size can lead to out-of-bounds read. The attack needs to be launched locally. The exploit has been publicly disclosed and may be utilized. This patch is called b97c8b5f198b27f375127cd597a35f2113544d03. It is advisable to implement a patch to correct this issue.",
+      "published": "2026-03-11T19:16:05.297",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3949"
     },
     {
-      "id": "CVE-2026-31875",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.7 and 8.6.33, when multi-factor authentication (MFA) via TOTP is enabled for a user account, Parse Server generates two single-use recovery codes. These codes are intended as a fallback when the user cannot provide a TOTP token. However, recovery codes are not consumed after use, allowing the same recovery code to be used an unlimited number of times. This defeats the single-use design of recovery codes and weakens the security of MFA-protected accounts. An attacker who obtains a single recovery code can repeatedly authenticate as the affected user without the code ever being invalidated. This vulnerability is fixed in 9.6.0-alpha.7 and 8.6.33.",
-      "published": "2026-03-11T18:16:27.003",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31875"
+      "id": "CVE-2026-31888",
+      "summary": "Shopware is an open commerce platform. Prior to 6.7.8.1 and 6.6.10.15, the Store API login endpoint (POST /store-api/account/login) returns different error codes depending on whether the submitted email address belongs to a registered customer (CHECKOUT__CUSTOMER_AUTH_BAD_CREDENTIALS) or is unknown (CHECKOUT__CUSTOMER_NOT_FOUND). The \"not found\" response also echoes the probed email address. This allows an unauthenticated attacker to enumerate valid customer accounts. The storefront login controller correctly unifies both error paths, but the Store API does not \u2014 indicating an inconsistent defense. This vulnerability is fixed in 6.7.8.1 and 6.6.10.15.",
+      "published": "2026-03-11T19:16:05.113",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31888"
     },
     {
-      "id": "CVE-2026-31872",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.6 and 8.6.32, the protectedFields class-level permission (CLP) can be bypassed using dot-notation in query WHERE clauses and sort parameters. An attacker can use dot-notation to query or sort by sub-fields of a protected field, enabling a binary oracle attack to enumerate protected field values. This affects both MongoDB and PostgreSQL deployments. This vulnerability is fixed in 9.6.0-alpha.6 and 8.6.32.",
-      "published": "2026-03-11T18:16:26.830",
+      "id": "CVE-2026-31887",
+      "summary": "Shopware is an open commerce platform. Prior to 6.7.8.1 and 6.6.10.15, an insufficient check on the filter types for unauthenticated customers allows access to orders of other customers. This is part of the deepLinkCode support on the store-api.order endpoint. This vulnerability is fixed in 6.7.8.1 and 6.6.10.15.",
+      "published": "2026-03-11T19:16:04.950",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31872"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31887"
     },
     {
-      "id": "CVE-2026-31871",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.5 and 8.6.31, a SQL injection vulnerability exists in the PostgreSQL storage adapter when processing Increment operations on nested object fields using dot notation (e.g., stats.counter). The sub-key name is interpolated directly into SQL string literals without escaping. An attacker who can send write requests to the Parse Server REST API can inject arbitrary SQL via a crafted sub-key name containing single quotes, potentially executing commands or reading data from the database, bypassing CLPs and ACLs. Only Postgres deployments are affected. This vulnerability is fixed in 9.6.0-alpha.5 and 8.6.31.",
-      "published": "2026-03-11T18:16:26.663",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31871"
+      "id": "CVE-2026-31881",
+      "summary": "Runtipi is a personal homeserver orchestrator. Prior to 4.8.0, an unauthenticated attacker can reset the operator (admin) password when a password-reset request is active, resulting in full account takeover. The endpoint POST /api/auth/reset-password is exposed without authentication/authorization checks. During the 15-minute reset window, any remote user can set a new operator password and log in as admin. This vulnerability is fixed in 4.8.0.",
+      "published": "2026-03-11T19:16:04.787",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31881"
     },
     {
-      "id": "CVE-2026-31870",
-      "summary": "cpp-httplib is a C++11 single-file header-only cross platform HTTP/HTTPS library. Prior to 0.37.1, when a cpp-httplib client uses the streaming API (httplib::stream::Get, httplib::stream::Post, etc.), the library calls std::stoull() directly on the Content-Length header value received from the server with no input validation and no exception handling. std::stoull throws std::invalid_argument for non-numeric strings and std::out_of_range for values exceeding ULLONG_MAX. Since nothing catches these exceptions, the C++ runtime calls std::terminate(), which kills the process with SIGABRT. Any server the client connects to \u2014 including servers reached via HTTP redirects, third-party APIs, or man-in-the-middle positions can crash the client application with a single HTTP response. No authentication is required. No interaction from the end user is required. The crash is deterministic and immediate. This vulnerability is fixed in 0.37.1.",
-      "published": "2026-03-11T18:16:26.487",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31870"
+      "id": "CVE-2026-31879",
+      "summary": "Frappe is a full-stack web application framework. Prior to 14.100.2, 15.101.0, and 16.10.0, due to a lack of validation and improper permission checks, users could modify other user's private workspaces. Specially crafted requests could lead to stored XSS here. This vulnerability is fixed in 14.100.2, 15.101.0, and 16.10.0.",
+      "published": "2026-03-11T19:16:04.627",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31879"
     },
     {
-      "id": "CVE-2026-31868",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.4 and 8.6.30, an attacker can upload a file with a file extension or content type that is not blocked by the default configuration of the Parse Server fileUpload.fileExtensions option. The file can contain malicious code, for example JavaScript in an SVG or XHTML file. When the file is accessed via its URL, the browser renders the file and executes the malicious code in the context of the Parse Server domain. This is a stored Cross-Site Scripting (XSS) vulnerability that can be exploited to steal session tokens, redirect users, or perform actions on behalf of other users. Affected file extensions and content types include .svgz, .xht, .xml, .xsl, .xslt, and content types application/xhtml+xml and application/xslt+xml for extensionless uploads. Uploading of .html, .htm, .shtml, .xhtml, and .svg files was already blocked. This vulnerability is fixed in 9.6.0-alpha.4 and 8.6.30.",
-      "published": "2026-03-11T18:16:25.850",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31868"
+      "id": "CVE-2026-31878",
+      "summary": "Frappe is a full-stack web application framework. Prior to 14.100.1, 15.100.0, and 16.6.0, a malicious user could send a crafted request to an endpoint which would lead to the server making an HTTP call to a service of the user's choice. This vulnerability is fixed in 14.100.1, 15.100.0, and 16.6.0.",
+      "published": "2026-03-11T19:16:04.470",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31878"
     }
   ]
 }
