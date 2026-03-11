@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T06:02:33+00:00",
+  "generated_at": "2026-03-11T07:10:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2413",
-      "summary": "The Ally \u2013 Web Accessibility & Usability plugin for WordPress is vulnerable to SQL Injection via the URL path in all versions up to, and including, 4.0.3. This is due to insufficient escaping on the user-supplied URL parameter in the `get_global_remediations()` method, where it is directly concatenated into an SQL JOIN clause without proper sanitization for SQL context. While `esc_url_raw()` is applied for URL safety, it does not prevent SQL metacharacters (single quotes, parentheses) from being injected. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database via time-based blind SQL injection techniques. The Remediation module must be active, which requires the plugin to be connected to an Elementor account.",
-      "published": "2026-03-11T05:18:01.063",
+      "id": "CVE-2026-3911",
+      "summary": "A flaw was found in Keycloak. An authenticated user with the view-users role could exploit a vulnerability in the UserResource component. By accessing a specific administrative endpoint, this user could improperly retrieve user attributes that were configured to be hidden. This unauthorized information disclosure could expose sensitive user data.",
+      "published": "2026-03-11T06:17:15.377",
+      "cvss": 2.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3911"
+    },
+    {
+      "id": "CVE-2026-3884",
+      "summary": "Versions of the package spin.js before 3.0.0 are vulnerable to Cross-site Scripting (XSS) via the spin() function that allows a creation of more than 1 alert for each 'target' element. An attacker would need to set an arbitrary key-value pair on Object.prototype through a crafted URL achieving a prototype pollution first, before being able to execute arbitrary JavaScript in the context of the user's browser.",
+      "published": "2026-03-11T06:17:15.183",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3884"
+    },
+    {
+      "id": "CVE-2026-3222",
+      "summary": "The WP Maps plugin for WordPress is vulnerable to time-based blind SQL Injection via the 'location_id' parameter in all versions up to, and including, 4.9.1. This is due to the plugin's database abstraction layer (`FlipperCode_Model_Base::is_column()`) treating user input wrapped in backticks as column names, bypassing the `esc_sql()` escaping function. Additionally, the `wpgmp_ajax_call` AJAX handler (registered for unauthenticated users via `wp_ajax_nopriv`) allows calling arbitrary class methods including `wpgmp_return_final_capability`, which passes the unsanitized `location_id` GET parameter directly to a database query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-03-11T06:17:14.777",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2413"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3222"
     },
     {
-      "id": "CVE-2025-13067",
-      "summary": "The Royal Addons for Elementor plugin for WordPress is vulnerable to arbitrary file upload in all versions up to, and including, 1.7.1049. This is due to insufficient file type validation detecting files named main.php, allowing a file with such a name to bypass sanitization. This makes it possible for authenticated attackers, with author-level access and above, to upload arbitrary files on the affected site's server which may make remote code execution possible.",
-      "published": "2026-03-11T05:17:46.027",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13067"
+      "id": "CVE-2026-2707",
+      "summary": "The weForms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the REST API entry submission endpoint in all versions up to, and including, 1.6.27. This is due to inconsistent input sanitization between the frontend AJAX handler and the REST API endpoint. When entries are submitted via the REST API (`/wp-json/weforms/v1/forms/{id}/entries/`), the `prepare_entry()` method in `class-abstract-fields.php` receives the WP_REST_Request object as `$args`, bypassing the `weforms_clean()` fallback that sanitizes `$_POST` data for frontend submissions. The base field handler only applies `trim()` to the value. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary web scripts into form entry hidden field values via the REST API that execute when an administrator views the form entries page, where data is rendered using a Vue.js `v-html` directive without escaping.",
+      "published": "2026-03-11T06:17:14.587",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2707"
     },
     {
-      "id": "CVE-2026-29515",
-      "summary": "MiCode FileExplorer contains an authentication bypass vulnerability in the embedded SwiFTP FTP server component that allows network attackers to log in without valid credentials. Attackers can send arbitrary username and password combinations to the PASS command handler, which unconditionally grants access and allows listing, reading, writing, and deleting files exposed by the FTP server. The MiCode/Explorer open source project has reached end-of-life status.",
-      "published": "2026-03-11T04:17:37.213",
+      "id": "CVE-2026-2631",
+      "summary": "The Datalogics Ecommerce Delivery  WordPress plugin before 2.6.60 exposes an unauthenticated REST endpoint that allows any remote user to modify the option `datalogics_token` without verification. This token is subsequently used for authentication in a protected endpoint that allows users to perform arbitrary WordPress `update_option()` operations. Attackers can use this to enable registartion and to set the default role as Administrator.",
+      "published": "2026-03-11T06:17:14.467",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29515"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2631"
     },
     {
-      "id": "CVE-2026-23817",
-      "summary": "A vulnerability in the web-based management interface of AOS-CX Switches could allow an unauthenticated remote attacker to redirect users to an arbitrary URL.",
-      "published": "2026-03-11T04:17:35.810",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23817"
-    },
-    {
-      "id": "CVE-2026-23816",
-      "summary": "A vulnerability in the command line interface of AOS-CX Switches could allow an authenticated remote attacker to execute arbitrary commands on the underlying operating system.",
-      "published": "2026-03-11T04:17:35.533",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23816"
-    },
-    {
-      "id": "CVE-2026-23815",
-      "summary": "A vulnerability in a custom binary used in AOS-CX Switches' CLI could allow an authenticated remote attacker with high privileges to perform command injection. Successful exploitation could allow an attacker to execute unauthorized commands.",
-      "published": "2026-03-11T04:17:35.080",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23815"
+      "id": "CVE-2026-2626",
+      "summary": "The divi-booster WordPress plugin before 5.0.2 does not have authorization and CSRF checks in one of its fixing function, allowing unauthenticated users to modify stored divi-booster WordPress plugin before 5.0.2 options. Furthermore, due to the use of unserialize() on the data, this could be further exploited when combined with a PHP gadget chain to achieve PHP Object Injection",
+      "published": "2026-03-11T06:17:14.353",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2626"
     }
   ]
 }
