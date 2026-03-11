@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-11T13:37:06+00:00",
+  "generated_at": "2026-03-11T15:03:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3944",
-      "summary": "A vulnerability was determined in itsourcecode University Management System 1.0. This vulnerability affects unknown code of the file /att_add.php. This manipulation of the argument Name causes sql injection. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-03-11T13:16:12.537",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3944"
-    },
-    {
-      "id": "CVE-2026-3943",
-      "summary": "A vulnerability was found in H3C ACG1000-AK230 up to 20260227. This affects an unknown part of the file /webui/?aaa_portal_auth_local_submit. The manipulation of the argument suffix results in command injection. The attack can be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-11T13:16:11.470",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3943"
-    },
-    {
-      "id": "CVE-2026-3178",
-      "summary": "The Name Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'name_directory_name' parameter in all versions up to, and including, 1.32.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability was partially patched in versions 1.30.3 and 1.32.1.",
-      "published": "2026-03-11T12:15:54.523",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3178"
-    },
-    {
-      "id": "CVE-2026-3805",
-      "summary": "When doing a second SMB request to the same host again, curl would wrongly use\na data pointer pointing into already freed memory.",
-      "published": "2026-03-11T11:16:00.967",
+      "id": "CVE-2026-3904",
+      "summary": "Calling NSS-backed functions that support caching via nscd may call the \nnscd client side code and in the GNU C Library version 2.36 under high \nload on x86_64 systems, the client may call memcmp on inputs that are \nconcurrently modified by other processes or threads and crash.\n\n\n\n\nThe nscd client in the GNU C Library uses the memcmp function with \ninputs that may be concurrently modified by another thread, potentially \nresulting in spurious cache misses, which in itself is not a security \nissue.\u00a0 However in the GNU C Library version 2.36 an optimized \nimplementation of memcmp was introduced for x86_64 which could crash \nwhen invoked with such undefined behaviour, turning this into a \npotential crash of the nscd client and the application that uses it. \nThis implementation was backported to the 2.35 branch, making the nscd \nclient in that branch vulnerable as well.\u00a0 Subsequently, the fix for \nthis issue was backported to all vulnerable branches in the GNU C \nLibrary repository.\n\n\nIt is advised that distributions that may have cherry-picked the memcpy \nSSE2 optimization in their copy of the GNU C Library, also apply the fix \nto avoid the potential crash in the nscd client.",
+      "published": "2026-03-11T14:16:30.113",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3805"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3904"
     },
     {
-      "id": "CVE-2026-3784",
-      "summary": "curl would wrongly reuse an existing HTTP proxy connection doing CONNECT to a\nserver, even if the new request uses different credentials for the HTTP proxy.\nThe proper behavior is to create or use a separate connection.",
-      "published": "2026-03-11T11:16:00.437",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3784"
+      "id": "CVE-2026-3496",
+      "summary": "The JetBooking plugin for WordPress is vulnerable to SQL Injection via the 'check_in_date' parameter in all versions up to, and including, 4.0.3. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-03-11T14:16:28.980",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3496"
     },
     {
-      "id": "CVE-2026-3783",
-      "summary": "When an OAuth2 bearer token is used for an HTTP(S) transfer, and that transfer\nperforms a redirect to a second URL, curl could leak that token to the second\nhostname under some circumstances.\n\nIf the hostname that the first request is redirected to has information in the\nused .netrc file, with either of the `machine` or `default` keywords, curl\nwould pass on the bearer token set for the first host also to the second one.",
-      "published": "2026-03-11T11:16:00.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3783"
+      "id": "CVE-2026-32063",
+      "summary": "OpenClaw version 2026.2.19-2 prior to 2026.2.21 contains a command injection vulnerability in systemd unit file generation where attacker-controlled environment values are not validated for CR/LF characters, allowing newline injection to break out of Environment= lines and inject arbitrary systemd directives. An attacker who can influence config.env.vars and trigger service install or restart can execute arbitrary commands with the privileges of the OpenClaw gateway service user.",
+      "published": "2026-03-11T14:16:28.580",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32063"
+    },
+    {
+      "id": "CVE-2026-32062",
+      "summary": "OpenClaw versions2026.2.21-2 prior to 2026.2.22 and @openclaw/voice-call versions 2026.2.21 prior to 2026.2.22 accept media-stream WebSocket upgrades before stream validation, allowing unauthenticated clients to establish connections. Remote attackers can hold idle pre-authenticated sockets open to consume connection resources and degrade service availability for legitimate streams.",
+      "published": "2026-03-11T14:16:28.340",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32062"
+    },
+    {
+      "id": "CVE-2026-32061",
+      "summary": "OpenClaw versions prior to 2026.2.17 contain a path traversal vulnerability in the $include directive resolution that allows reading arbitrary local files outside the config directory boundary. Attackers with config modification capabilities can exploit this by specifying absolute paths, traversal sequences, or symlinks to access sensitive files readable by the OpenClaw process user, including API keys and credentials.",
+      "published": "2026-03-11T14:16:28.140",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32061"
+    },
+    {
+      "id": "CVE-2026-32060",
+      "summary": "OpenClaw versions prior to 2026.2.14 contain a path traversal vulnerability in apply_patch that allows attackers to write or delete files outside the configured workspace directory. When apply_patch is enabled without filesystem sandbox containment, attackers can exploit crafted paths including directory traversal sequences or absolute paths to escape workspace boundaries and modify arbitrary files.",
+      "published": "2026-03-11T14:16:27.943",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32060"
     }
   ]
 }
