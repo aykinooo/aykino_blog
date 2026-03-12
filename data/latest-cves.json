@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-12T18:01:14+00:00",
+  "generated_at": "2026-03-12T19:10:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4045",
-      "summary": "A flaw has been found in projectsend up to r1945. This impacts an unknown function of the file includes/Classes/Auth.php. Executing a manipulation of the argument ldap_email can lead to observable response discrepancy. The attack can be executed remotely. A high complexity level is associated with this attack. The exploitability is said to be difficult. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-12T17:16:52.457",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4045"
+      "id": "CVE-2026-3841",
+      "summary": "A command injection vulnerability has been identified in the Telnet command-line interface (CLI) of TP-Link TL-MR6400 v5.3.  This issue is caused by insufficient sanitization of data processed during specific CLI operations.  An authenticated attacker with elevated privileges may be able to execute arbitrary system commands.  Successful exploitation may lead to full device compromise, including potential loss of confidentiality, integrity, and availability.",
+      "published": "2026-03-12T18:16:26.107",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3841"
     },
     {
-      "id": "CVE-2026-31841",
-      "summary": "Hyperterse is a tool-first MCP framework for building AI-ready backend surfaces from declarative config. Prior to v2.2.0, the search tool allows LLMs to search for tools using natural language. While returning results, Hyperterse also returned the raw SQL queries, exposing statements which were supposed to be executed under the hood, and protected from being displayed publicly. This issue has been fixed as of v2.2.0.",
-      "published": "2026-03-12T17:16:51.050",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31841"
+      "id": "CVE-2026-32141",
+      "summary": "flatted is a circular JSON parser. Prior to 3.4.0, flatted's parse() function uses a recursive revive() phase to resolve circular references in deserialized JSON. When given a crafted payload with deeply nested or self-referential $ indices, the recursion depth is unbounded, causing a stack overflow that crashes the Node.js process. This vulnerability is fixed in 3.4.0.",
+      "published": "2026-03-12T18:16:25.837",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32141"
     },
     {
-      "id": "CVE-2026-29066",
-      "summary": "Tina is a headless content management system. Prior to 2.1.8, the TinaCMS CLI dev server configures Vite with server.fs.strict: false, which disables Vite's built-in filesystem access restriction. This allows any unauthenticated attacker who can reach the dev server to read arbitrary files on the host system. This vulnerability is fixed in 2.1.8.",
-      "published": "2026-03-12T17:16:50.700",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29066"
+      "id": "CVE-2026-32140",
+      "summary": "Dataease is an open source data visualization analysis tool. Prior to 2.10.20, By controlling the IniFile parameter, an attacker can force the JDBC driver to load an attacker-controlled configuration file. This configuration file can inject dangerous JDBC properties, leading to remote code execution. The Redshift JDBC driver execution flow reaches a method named getJdbcIniFile. The getJdbcIniFile method implements an aggressive automatic configuration file discovery mechanism. If not explicitly restricted, it searches for a file named rsjdbc.ini. In a JDBC URL context, users can explicitly specify the configuration file via URL parameters, which allows arbitrary files on the server to be loaded as JDBC configuration files. Within the Redshift JDBC driver properties, the parameter IniFile is explicitly supported and used to load an external configuration file. This vulnerability is fixed in 2.10.20.",
+      "published": "2026-03-12T18:16:25.573",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32140"
     },
     {
-      "id": "CVE-2026-28793",
-      "summary": "Tina is a headless content management system. Prior to 2.1.8, the TinaCMS CLI development server exposes media endpoints that are vulnerable to path traversal, allowing attackers to read and write arbitrary files on the filesystem outside the intended media directory. When running tinacms dev, the CLI starts a local HTTP server (default port 4001) exposing endpoints such as /media/list/*, /media/upload/*, and /media/*. These endpoints process user-controlled path segments using decodeURI() and path.join() without validating that the resolved path remains within the configured media directory. This vulnerability is fixed in 2.1.8.",
-      "published": "2026-03-12T17:16:50.543",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28793"
+      "id": "CVE-2026-32139",
+      "summary": "Dataease is an open source data visualization analysis tool. In DataEase 2.10.19 and earlier, the static resource upload interface allows SVG uploads. However, backend validation only checks whether the XML is parseable and whether the root node is svg. It does not sanitize active content such as onload/onerror event handlers or script-capable attributes. As a result, an attacker can upload a malicious SVG and then trigger script execution in a browser by visiting the exposed static resource URL, forming a full stored XSS exploitation chain. This vulnerability is fixed in 2.10.20.",
+      "published": "2026-03-12T18:16:25.410",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32139"
     },
     {
-      "id": "CVE-2026-28792",
-      "summary": "Tina is a headless content management system. Prior to 2.1.8 , the TinaCMS CLI dev server combines a permissive CORS configuration (Access-Control-Allow-Origin: *) with the path traversal vulnerability (previously reported) to enable a browser-based drive-by attack. A remote attacker can enumerate the filesystem, write arbitrary files, and delete arbitrary files on developer's machines by simply tricking them into visiting a malicious website while tinacms dev is running. This vulnerability is fixed in 2.1.8.",
-      "published": "2026-03-12T17:16:50.387",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28792"
+      "id": "CVE-2026-32137",
+      "summary": "Dataease is an open source data visualization analysis tool. Prior to 2.10.20, The table parameter for /de2api/datasource/previewData is directly concatenated into the SQL statement without any filtering or parameterization. Since tableName is a user-controllable string, attackers can inject malicious SQL statements by constructing malicious table names. This vulnerability is fixed in 2.10.20.",
+      "published": "2026-03-12T18:16:25.257",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32137"
     },
     {
-      "id": "CVE-2026-28791",
-      "summary": "Tina is a headless content management system. Prior to 2.1.7, a path traversal vulnerability exists in the TinaCMS development server's media upload handler. The code at media.ts joins user-controlled path segments using path.join() without validating that the resulting path stays within the intended media directory. This allows writing files to arbitrary locations on the filesystem. This vulnerability is fixed in 2.1.7.",
-      "published": "2026-03-12T17:16:50.237",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28791"
+      "id": "CVE-2026-32129",
+      "summary": "soroban-poseidon provides Poseidon and Poseidon2 cryptographic hash functions for Soroban smart contracts. Poseidon V1 (PoseidonSponge) accepts variable-length inputs without injective padding. When a caller provides fewer inputs than the sponge rate (inputs.len() < T - 1), unused rate positions are implicitly zero-filled. This allows trivial hash collisions: for any input vector [m1, ..., mk] hashed with a sponge of rate > k, hash([m1, ..., mk]) equals hash([m1, ..., mk, 0]) because both produce identical pre-permutation states. This affects any use of PoseidonSponge or poseidon_hash where the number of inputs is less than T - 1 (e.g., hashing 1 input with T=3). Poseidon2 (Poseidon2Sponge) is not affected.",
+      "published": "2026-03-12T18:16:25.097",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32129"
     }
   ]
 }
