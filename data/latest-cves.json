@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-12T19:10:40+00:00",
+  "generated_at": "2026-03-12T19:51:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3841",
-      "summary": "A command injection vulnerability has been identified in the Telnet command-line interface (CLI) of TP-Link TL-MR6400 v5.3.  This issue is caused by insufficient sanitization of data processed during specific CLI operations.  An authenticated attacker with elevated privileges may be able to execute arbitrary system commands.  Successful exploitation may lead to full device compromise, including potential loss of confidentiality, integrity, and availability.",
-      "published": "2026-03-12T18:16:26.107",
+      "id": "CVE-2026-3497",
+      "summary": "Vulnerability in the OpenSSH GSSAPI delta included in various Linux distributions. This vulnerability affects the GSSAPI patches added by various Linux distributions and does not affect the OpenSSH upstream project itself. The usage of sshpkt_disconnect() on an error, which does not terminate the process, allows an attacker to send an unexpected GSSAPI message type during the GSSAPI key exchange to the server, which will call the underlying function and continue the execution of the program without setting the related connection variables. As the variables are not initialized to NULL the code later accesses those uninitialized variables, accessing random memory, which could lead to undefined behavior. The recommended workaround is to use ssh_packet_disconnect() instead, which does terminate the process. The impact of the vulnerability depends heavily on the compiler flag hardening configuration.",
+      "published": "2026-03-12T19:16:19.910",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3841"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3497"
     },
     {
-      "id": "CVE-2026-32141",
-      "summary": "flatted is a circular JSON parser. Prior to 3.4.0, flatted's parse() function uses a recursive revive() phase to resolve circular references in deserialized JSON. When given a crafted payload with deeply nested or self-referential $ indices, the recursion depth is unbounded, causing a stack overflow that crashes the Node.js process. This vulnerability is fixed in 3.4.0.",
-      "published": "2026-03-12T18:16:25.837",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32141"
+      "id": "CVE-2026-32247",
+      "summary": "Graphiti is a framework for building and querying temporal context graphs for AI agents. Graphiti versions before 0.28.2 contained a Cypher injection vulnerability in shared search-filter construction for non-Kuzu backends. Attacker-controlled label values supplied through SearchFilters.node_labels were concatenated directly into Cypher label expressions without validation. In MCP deployments, this was exploitable not only through direct untrusted access to the Graphiti MCP server, but also through prompt injection against an LLM client that could be induced to call search_nodes with attacker-controlled entity_types values. The MCP server mapped entity_types to SearchFilters.node_labels, which then reached the vulnerable Cypher construction path. Affected backends included Neo4j, FalkorDB, and Neptune. Kuzu was not affected by the label-injection issue because it used parameterized label handling rather than string-interpolated Cypher labels. This issue was mitigated in 0.28.2.",
+      "published": "2026-03-12T19:16:19.733",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32247"
     },
     {
-      "id": "CVE-2026-32140",
-      "summary": "Dataease is an open source data visualization analysis tool. Prior to 2.10.20, By controlling the IniFile parameter, an attacker can force the JDBC driver to load an attacker-controlled configuration file. This configuration file can inject dangerous JDBC properties, leading to remote code execution. The Redshift JDBC driver execution flow reaches a method named getJdbcIniFile. The getJdbcIniFile method implements an aggressive automatic configuration file discovery mechanism. If not explicitly restricted, it searches for a file named rsjdbc.ini. In a JDBC URL context, users can explicitly specify the configuration file via URL parameters, which allows arbitrary files on the server to be loaded as JDBC configuration files. Within the Redshift JDBC driver properties, the parameter IniFile is explicitly supported and used to load an external configuration file. This vulnerability is fixed in 2.10.20.",
-      "published": "2026-03-12T18:16:25.573",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32140"
+      "id": "CVE-2026-32246",
+      "summary": "Tinyauth is an authentication and authorization server. Prior to 5.0.3, the OIDC authorization endpoint allows users with a TOTP-pending session (password verified, TOTP not yet completed) to obtain authorization codes. An attacker who knows a user's password but not their TOTP secret can obtain valid OIDC tokens, completely bypassing the second factor. This vulnerability is fixed in 5.0.3.",
+      "published": "2026-03-12T19:16:19.577",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32246"
     },
     {
-      "id": "CVE-2026-32139",
-      "summary": "Dataease is an open source data visualization analysis tool. In DataEase 2.10.19 and earlier, the static resource upload interface allows SVG uploads. However, backend validation only checks whether the XML is parseable and whether the root node is svg. It does not sanitize active content such as onload/onerror event handlers or script-capable attributes. As a result, an attacker can upload a malicious SVG and then trigger script execution in a browser by visiting the exposed static resource URL, forming a full stored XSS exploitation chain. This vulnerability is fixed in 2.10.20.",
-      "published": "2026-03-12T18:16:25.410",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32139"
+      "id": "CVE-2026-32245",
+      "summary": "Tinyauth is an authentication and authorization server. Prior to 5.0.3, the OIDC token endpoint does not verify that the client exchanging an authorization code is the same client the code was issued to. A malicious OIDC client operator can exchange another client's authorization code using their own client credentials, obtaining tokens for users who never authorized their application. This violates RFC 6749 Section 4.1.3. This vulnerability is fixed in 5.0.3.",
+      "published": "2026-03-12T19:16:19.413",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32245"
     },
     {
-      "id": "CVE-2026-32137",
-      "summary": "Dataease is an open source data visualization analysis tool. Prior to 2.10.20, The table parameter for /de2api/datasource/previewData is directly concatenated into the SQL statement without any filtering or parameterization. Since tableName is a user-controllable string, attackers can inject malicious SQL statements by constructing malicious table names. This vulnerability is fixed in 2.10.20.",
-      "published": "2026-03-12T18:16:25.257",
+      "id": "CVE-2026-32242",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.11 and 8.6.37, Parse Server's built-in OAuth2 auth adapter exports a singleton instance that is reused directly across all OAuth2 provider configurations. Under concurrent authentication requests for different OAuth2 providers, one provider's token validation may execute using another provider's configuration, potentially allowing a token that should be rejected by one provider to be accepted because it is validated against a different provider's policy. Deployments that configure multiple OAuth2 providers via the oauth2: true flag are affected. This vulnerability is fixed in 9.6.0-alpha.11 and 8.6.37.",
+      "published": "2026-03-12T19:16:19.230",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32137"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32242"
     },
     {
-      "id": "CVE-2026-32129",
-      "summary": "soroban-poseidon provides Poseidon and Poseidon2 cryptographic hash functions for Soroban smart contracts. Poseidon V1 (PoseidonSponge) accepts variable-length inputs without injective padding. When a caller provides fewer inputs than the sponge rate (inputs.len() < T - 1), unused rate positions are implicitly zero-filled. This allows trivial hash collisions: for any input vector [m1, ..., mk] hashed with a sponge of rate > k, hash([m1, ..., mk]) equals hash([m1, ..., mk, 0]) because both produce identical pre-permutation states. This affects any use of PoseidonSponge or poseidon_hash where the number of inputs is less than T - 1 (e.g., hashing 1 input with T=3). Poseidon2 (Poseidon2Sponge) is not affected.",
-      "published": "2026-03-12T18:16:25.097",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32129"
+      "id": "CVE-2026-32237",
+      "summary": "Backstage is an open framework for building developer portals. Prior to 3.1.5, authenticated users with permission to execute scaffolder dry-runs can gain access to server-configured environment secrets through the dry-run API response. Secrets are properly redacted in log output but not in all parts of the response payload. Deployments that have configured scaffolder.defaultEnvironment.secrets are affected. This is patched in @backstage/plugin-scaffolder-backend version 3.1.5.",
+      "published": "2026-03-12T19:16:19.040",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32237"
     }
   ]
 }
