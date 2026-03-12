@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-12T20:51:12+00:00",
+  "generated_at": "2026-03-12T21:47:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32274",
-      "summary": "Black is the uncompromising Python code formatter. Prior to 26.3.1, Black writes a cache file, the name of which is computed from various formatting options. The value of the --python-cell-magics option was placed in the filename without sanitization, which allowed an attacker who controls the value of this argument to write cache files to arbitrary file system locations. Fixed in Black 26.3.1.",
-      "published": "2026-03-12T20:16:06.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32274"
+      "id": "CVE-2026-3611",
+      "summary": "The Honeywell IQ4x building management controller, exposes its full web-based HMI without authentication in its factory-default configuration. With no user module configured, security is disabled by design and the system operates under a System Guest (level 100) context, granting read/write privileges to any party able to reach the HTTP interface. Authentication controls are only enforced after a web user is created via U.htm, which dynamically enables the user module. Because this function is accessible prior to authentication, a remote user can create a new account with administrative read/write permissions enabling the user module and imposing authentication under attacker-controlled credentials. This action can effectively lock legitimate operators out of local and web-based configuration and administration.",
+      "published": "2026-03-12T21:16:27.693",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3611"
     },
     {
-      "id": "CVE-2026-32269",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.13 and 8.6.39, the OAuth2 authentication adapter does not correctly validate app IDs when appidField and appIds are configured. During app ID validation, a malformed value is sent to the token introspection endpoint instead of the user's actual access token. Depending on the introspection endpoint's behavior, this could either cause all OAuth2 logins to fail, or allow authentication from disallowed app contexts if the endpoint returns valid-looking data for the malformed request. Deployments using the OAuth2 adapter with appidField and appIds configured are affected. This vulnerability is fixed in 9.6.0-alpha.13 and 8.6.39.",
-      "published": "2026-03-12T20:16:06.187",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32269"
+      "id": "CVE-2026-2581",
+      "summary": "This is an uncontrolled resource consumption vulnerability (CWE-400) that can lead to Denial of Service (DoS).\n\nIn vulnerable Undici versions, when\u00a0interceptors.deduplicate()\u00a0is enabled, response data for deduplicated requests could be accumulated in memory for downstream handlers. An attacker-controlled or untrusted upstream endpoint can exploit this with large/chunked responses and concurrent identical requests, causing high memory usage and potential OOM process termination.\n\nImpacted users are applications that use Undici\u2019s deduplication interceptor against endpoints that may produce large or long-lived response bodies.\n\nPatchesThe issue has been patched by changing deduplication behavior to stream response chunks to downstream handlers as they arrive (instead of full-body accumulation), and by preventing late deduplication when body streaming has already started.\n\nUsers should upgrade to the first official Undici (and Node.js, where applicable) releases that include this patch.",
+      "published": "2026-03-12T21:16:25.930",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2581"
     },
     {
-      "id": "CVE-2026-32260",
-      "summary": "Deno is a JavaScript, TypeScript, and WebAssembly runtime. From 2.7.0 to 2.7.1,  A command injection vulnerability exists in Deno's node:child_process polyfill (shell: true mode) that bypasses the fix for CVE-2026-27190. The two-stage argument sanitization in transformDenoShellCommand (ext/node/polyfills/internal/child_process.ts) has a priority bug: when an argument contains a $VAR pattern, it is wrapped in double quotes (L1290) instead of single quotes. Double quotes in POSIX sh do not suppress backtick command substitution, allowing injected commands to execute. An attacker who controls arguments passed to spawnSync or spawn with shell: true can execute arbitrary OS commands, bypassing Deno's permission system. This vulnerability is fixed in 2.7.2.",
-      "published": "2026-03-12T20:16:06.020",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32260"
+      "id": "CVE-2026-2229",
+      "summary": "ImpactThe undici WebSocket client is vulnerable to a denial-of-service attack due to improper validation of the\u00a0server_max_window_bits\u00a0parameter in the permessage-deflate extension. When a WebSocket client connects to a server, it automatically advertises support for permessage-deflate compression. A malicious server can respond with an out-of-range\u00a0server_max_window_bits\u00a0value (outside zlib's valid range of 8-15). When the server subsequently sends a compressed frame, the client attempts to create a zlib InflateRaw instance with the invalid windowBits value, causing a synchronous RangeError exception that is not caught, resulting in immediate process termination.\n\nThe vulnerability exists because:\n\n  *  The\u00a0isValidClientWindowBits()\u00a0function only validates that the value contains ASCII digits, not that it falls within the valid range 8-15\n  *  The\u00a0createInflateRaw()\u00a0call is not wrapped in a try-catch block\n  *  The resulting exception propagates up through the call stack and crashes the Node.js process",
+      "published": "2026-03-12T21:16:25.573",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2229"
     },
     {
-      "id": "CVE-2026-32259",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-16 and 6.9.13-41, when a memory allocation fails in the sixel encoder it would be possible to write past the end of a buffer on the stack. This vulnerability is fixed in 7.1.2-16 and 6.9.13-41.",
-      "published": "2026-03-12T20:16:05.863",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32259"
+      "id": "CVE-2026-1528",
+      "summary": "ImpactA server can reply with a WebSocket frame using the 64-bit length form and an extremely large length. undici's ByteParser overflows internal math, ends up in an invalid state, and throws a fatal TypeError that terminates the process.\n\nPatches\n\nPatched in the undici version v7.24.0 and v6.24.0. Users should upgrade to this version or later.",
+      "published": "2026-03-12T21:16:25.330",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1528"
     },
     {
-      "id": "CVE-2026-32251",
-      "summary": "Tolgee is an open-source localization platform. Prior to 3.166.3, the XML parsers used for importing Android XML resources (.xml) and .resx files don't disable external entity processing. An authenticated user who can import translation files into a project can exploit this to read arbitrary files from the server and make server-side requests to internal services. This vulnerability is fixed in 3.166.3.",
-      "published": "2026-03-12T20:16:05.697",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32251"
+      "id": "CVE-2026-1527",
+      "summary": "ImpactWhen an application passes user-controlled input to the\u00a0upgrade\u00a0option of\u00a0client.request(), an attacker can inject CRLF sequences (\\r\\n) to:\n\n  *  Inject arbitrary HTTP headers\n  *  Terminate the HTTP request prematurely and smuggle raw data to non-HTTP services (Redis, Memcached, Elasticsearch)\nThe vulnerability exists because undici writes the\u00a0upgrade\u00a0value directly to the socket without validating for invalid header characters:\n\n// lib/dispatcher/client-h1.js:1121\nif (upgrade) {\n  header += `connection: upgrade\\r\\nupgrade: ${upgrade}\\r\\n`\n}",
+      "published": "2026-03-12T21:16:25.137",
+      "cvss": 4.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1527"
     },
     {
-      "id": "CVE-2026-32249",
-      "summary": "Vim is an open source, command line text editor. From 9.1.0011 to before 9.2.0137, Vim's NFA regex compiler, when encountering a collection containing a combining character as the endpoint of a character range (e.g. [0-0\\u05bb]), incorrectly emits the composing bytes of that character as separate NFA states. This corrupts the NFA postfix stack, resulting in NFA_START_COLL having a NULL out1 pointer. When nfa_max_width() subsequently traverses the compiled NFA to estimate match width for the look-behind assertion, it dereferences state->out1->out without a NULL check, causing a segmentation fault. This vulnerability is fixed in 9.2.0137.",
-      "published": "2026-03-12T20:16:05.523",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32249"
+      "id": "CVE-2026-1526",
+      "summary": "The undici WebSocket client is vulnerable to a denial-of-service attack via unbounded memory consumption during permessage-deflate decompression. When a WebSocket connection negotiates the permessage-deflate extension, the client decompresses incoming compressed frames without enforcing any limit on the decompressed data size. A malicious WebSocket server can send a small compressed frame (a \"decompression bomb\") that expands to an extremely large size in memory, causing the Node.js process to exhaust available memory and crash or become unresponsive.\n\nThe vulnerability exists in the\u00a0PerMessageDeflate.decompress()\u00a0method, which accumulates all decompressed chunks in memory and concatenates them into a single Buffer without checking whether the total size exceeds a safe threshold.",
+      "published": "2026-03-12T21:16:23.933",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1526"
     }
   ]
 }
