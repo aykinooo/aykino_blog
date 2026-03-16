@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-16T20:56:59+00:00",
+  "generated_at": "2026-03-16T21:53:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32267",
-      "summary": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.6 and from version 5.0.0-RC1 to before version 5.9.12, a low-privilege user (or an unauthenticated user who has been sent a shared URL) can escalate their privileges to admin by abusing UsersController->actionImpersonateWithToken. This issue has been patched in versions 4.17.6 and 5.9.12.",
-      "published": "2026-03-16T20:16:19.480",
+      "id": "CVE-2026-2454",
+      "summary": "Mattermost versions 11.3.x <= 11.3.0, 11.2.x <= 11.2.2, 10.11.x <= 10.11.10 fail to handle incorrectly reported array lengths which allows malicious user to cause OOM errors and crash the server via sending corrupted msgpack frames within websocket messages to calls plugin. Mattermost Advisory ID: MMSA-2025-00537",
+      "published": "2026-03-16T21:16:33.890",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2454"
+    },
+    {
+      "id": "CVE-2026-29522",
+      "summary": "ZwickRoell Test Data Management versions prior to\u00a03.0.8 contain a local file inclusion (LFI) vulnerability in the /server/node_upgrade_srv.js endpoint. An unauthenticated attacker can supply directory traversal sequences via the firmware parameter to access arbitrary files on the server, leading to information disclosure of sensitive system files.",
+      "published": "2026-03-16T21:16:33.717",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32267"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29522"
     },
     {
-      "id": "CVE-2026-32264",
-      "summary": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.5 and from version 5.0.0-RC1 to before version 5.9.11, there is a Behavior injection RCE vulnerability in ElementIndexesController and FieldsController. Craft control panel administrator permissions and allowAdminChanges must be enabled for this to work. This issue has been patched in versions 4.17.5 and 5.9.11.",
-      "published": "2026-03-16T20:16:19.327",
+      "id": "CVE-2026-26230",
+      "summary": "Mattermost versions 10.11.x <= 10.11.10 fail to properly validate permission requirements in the team member roles API endpoint which allows team administrators to demote members to guest role. Mattermost Advisory ID: MMSA-2025-00531",
+      "published": "2026-03-16T21:16:33.480",
+      "cvss": 3.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26230"
+    },
+    {
+      "id": "CVE-2026-1629",
+      "summary": "Mattermost versions 10.11.x <= 10.11.10 Fail to invalidate cached permalink preview data when a user loses channel access which allows the user to continue viewing private channel content via previously cached permalink previews until cache reset or relogin.. Mattermost Advisory ID: MMSA-2026-00580",
+      "published": "2026-03-16T21:16:19.727",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1629"
+    },
+    {
+      "id": "CVE-2025-69902",
+      "summary": "A command injection vulnerability in the minimal_wrapper.py component of kubectl-mcp-server v1.2.0 allows attackers to execute arbitrary commands via injecting arbitrary shell metacharacters.",
+      "published": "2026-03-16T21:16:17.700",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32264"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69902"
     },
     {
-      "id": "CVE-2026-32263",
-      "summary": "Craft CMS is a content management system (CMS). From version 5.6.0 to before version 5.9.11, in src/controllers/EntryTypesController.php, the $settings array from parse_str is passed directly to Craft::configure() without Component::cleanseConfig(). This allows injecting Yii2 behavior/event handlers via \"as\" or \"on\" prefixed keys, the same attack vector as the original advisory. Craft control panel administrator permissions and allowAdminChanges must be enabled for this to work. This issue has been patched in version 5.9.11.",
-      "published": "2026-03-16T20:16:19.170",
+      "id": "CVE-2025-50881",
+      "summary": "The `flow/admin/moniteur.php` script in Use It Flow administration website before 10.0.0 is vulnerable to Remote Code Execution. When handling GET requests, the script takes user-supplied input from the `action` URL parameter, performs insufficient validation, and incorporates this input into a string that is subsequently executed by the `eval()` function. Although a `method_exists()` check is performed, it only validates the part of the user input *before* the first parenthesis `(`, allowing an attacker to append arbitrary PHP code after a valid method call structure. Successful exploitation allows an unauthenticated or trivially authenticated attacker to execute arbitrary PHP code on the server with the privileges of the web server process.",
+      "published": "2026-03-16T21:16:16.670",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32263"
-    },
-    {
-      "id": "CVE-2026-32262",
-      "summary": "Craft CMS is a content management system (CMS). From version 4.0.0-RC1 to before version 4.17.5 and from version 5.0.0-RC1 to before version 5.9.11, the AssetsController->replaceFile() method has a targetFilename body parameter that is used unsanitized in a deleteFile() call before Assets::prepareAssetName() is applied on save. This allows an authenticated user with replaceFiles permission to delete arbitrary files within the same filesystem root by injecting ../ path traversal sequences into the filename. This could allow an authenticated user with replaceFiles permission on one volume to delete files in other folders/volumes that share the same filesystem root. This only affects local filesystems. This issue has been patched in versions 4.17.5 and 5.9.11.",
-      "published": "2026-03-16T20:16:19.013",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32262"
-    },
-    {
-      "id": "CVE-2026-30882",
-      "summary": "Chamilo LMS is a learning management system. Chamilo LMS version 1.11.34 and prior contains a Reflected Cross-Site Scripting (XSS) vulnerability in the session category listing page. The keyword parameter from $_REQUEST is echoed directly into an HTML href attribute without any encoding or sanitization. An attacker can inject arbitrary HTML/JavaScript by breaking out of the attribute context using \">followed by a malicious payload. The vulnerability is triggered when the pagination controls are rendered \u2014 which occurs when the number of session categories exceeds 20 (the page limit). This issue has been patched in version 1.11.36.",
-      "published": "2026-03-16T20:16:18.790",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30882"
-    },
-    {
-      "id": "CVE-2026-30881",
-      "summary": "Chamilo LMS is a learning management system. Version 1.11.34 and prior contains a SQL Injection vulnerability in the statistics AJAX endpoint. The parameters date_start and date_end from $_REQUEST are embedded directly into a raw SQL string without proper sanitization. Although Database::escape_string() is called downstream, its output is immediately neutralized by str_replace(\"\\'\", \"'\", ...), which restores any injected single quotes \u2014 effectively bypassing the escaping mechanism entirely. This allows an authenticated attacker to inject arbitrary SQL statements into the database query, enabling blind time-based and conditional data extraction. This issue has been patched in version 1.11.36.",
-      "published": "2026-03-16T20:16:18.640",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30881"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-50881"
     }
   ]
 }
