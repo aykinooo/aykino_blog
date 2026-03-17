@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-17T10:07:42+00:00",
+  "generated_at": "2026-03-17T11:07:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3634",
+      "summary": "A flaw was found in libsoup. An attacker controlling the value used to set the Content-Type header can inject a Carriage Return Line Feed (CRLF) sequence due to improper input sanitization in the `soup_message_headers_set_content_type()` function. This vulnerability allows for the injection of arbitrary header-value pairs, potentially leading to HTTP header injection and response splitting attacks.",
+      "published": "2026-03-17T10:16:00.860",
+      "cvss": 3.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3634"
+    },
+    {
+      "id": "CVE-2026-3633",
+      "summary": "A flaw was found in libsoup. A remote attacker, by controlling the method parameter of the `soup_message_new()` function, could inject arbitrary headers and additional request data. This vulnerability, known as CRLF (Carriage Return Line Feed) injection, occurs because the method value is not properly escaped during request line construction, potentially leading to HTTP request injection.",
+      "published": "2026-03-17T10:16:00.677",
+      "cvss": 3.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3633"
+    },
+    {
+      "id": "CVE-2026-3632",
+      "summary": "A flaw was found in libsoup, a library used by applications to send network requests. This vulnerability occurs because libsoup does not properly validate hostnames, allowing special characters to be injected into HTTP headers. A remote attacker could exploit this to perform HTTP smuggling, where they can send hidden, malicious requests alongside legitimate ones. In certain situations, this could lead to Server-Side Request Forgery (SSRF), enabling an attacker to force the server to make unauthorized requests to other internal or external systems. The impact is low, as SoupServer is not actually used in internet infrastructure.",
+      "published": "2026-03-17T10:16:00.297",
+      "cvss": 3.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3632"
+    },
+    {
+      "id": "CVE-2026-23241",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\naudit: add missing syscalls to read class\n\nThe \"at\" variant of getxattr() and listxattr() are missing from the\naudit read class. Calling getxattrat() or listxattrat() on a file to\nread its extended attributes will bypass audit rules such as:\n\n-w /tmp/test -p rwa -k test_rwa\n\nThe current patch adds missing syscalls to the audit read class.",
+      "published": "2026-03-17T10:16:00.127",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23241"
+    },
+    {
+      "id": "CVE-2025-71239",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\naudit: add fchmodat2() to change attributes class\n\nfchmodat2(), introduced in version 6.6 is currently not in the change\nattribute class of audit. Calling fchmodat2() to change a file\nattribute in the same fashion than chmod() or fchmodat() will bypass\naudit rules such as:\n\n-w /tmp/test -p rwa -k test_rwa\n\nThe current patch adds fchmodat2() to the change attributes class.",
+      "published": "2026-03-17T10:15:59.010",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71239"
+    },
     {
       "id": "CVE-2026-4208",
       "summary": "The extension fails to properly reset the generated MFA code after successful authentication. This leads to a possible MFA bypass for future login attempts by providing an empty string as MFA code to the extensions MFA provider.",
       "published": "2026-03-17T09:16:14.810",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4208"
-    },
-    {
-      "id": "CVE-2026-4202",
-      "summary": "The extension fails to verify, if an authenticated user has permissions to access to redirects resulting in exposure of redirect records when editing a page.",
-      "published": "2026-03-17T09:16:14.627",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4202"
-    },
-    {
-      "id": "CVE-2026-32586",
-      "summary": "Missing Authorization vulnerability in Pluggabl Booster for WooCommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Booster for WooCommerce: from n/a before 7.11.3.",
-      "published": "2026-03-17T09:16:14.440",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32586"
-    },
-    {
-      "id": "CVE-2026-1323",
-      "summary": "The extension fails to properly define allowed classes used when deserializing transport failure metadata. An attacker may exploit this to execute untrusted serialized code. Note that an active exploit requires write access to the directory configured at $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_spool_filepath'].",
-      "published": "2026-03-17T09:16:13.507",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1323"
-    },
-    {
-      "id": "CVE-2026-4312",
-      "summary": "GCB/FCB Audit Software developed by DrangSoft has a Missing Authentication vulnerability, allowing unauthenticated remote attackers to directly access certain APIs to create a new administrative account.",
-      "published": "2026-03-17T08:15:57.417",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4312"
-    },
-    {
-      "id": "CVE-2026-3237",
-      "summary": "In affected versions of Octopus Server it was possible for a low privileged user to manipulate an API request to change the signing key expiration and revocation time frames via an API endpoint that had incorrect permission validation. It was not possible to expose the signing keys using this vulnerability.",
-      "published": "2026-03-17T07:16:03.610",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3237"
     }
   ]
 }
