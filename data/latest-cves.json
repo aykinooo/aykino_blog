@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-17T17:16:40+00:00",
+  "generated_at": "2026-03-17T19:19:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4148",
-      "summary": "A use-after-free vulnerability can be triggered in sharded clusters by an authenticated user with the read role who issues a specially crafted $lookup or $graphLookup aggregation pipeline.",
-      "published": "2026-03-17T16:16:23.807",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4148"
+      "id": "CVE-2026-3207",
+      "summary": "Configuration issue\u00a0in Java Management Extensions (JMX) in TIBCO BPM Enterprise version 4.x allows unauthorised access.",
+      "published": "2026-03-17T19:16:02.637",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3207"
     },
     {
-      "id": "CVE-2026-4147",
-      "summary": "An authenticated user with the read role may read limited amounts of uninitialized stack memory via specially-crafted issuances of the filemd5 command.",
-      "published": "2026-03-17T16:16:23.497",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4147"
+      "id": "CVE-2026-25790",
+      "summary": "Wazuh is a free and open source platform used for threat prevention, detection, and response. Starting in version 3.9.0 and prior to version 4.14.3, multiple stack-based buffer overflows exist in the Security Configuration Assessment (SCA) decoder (`wazuh-analysisd`). The use of `sprintf` with a floating-point (`%lf`) format specifier on a fixed-size 128-byte buffer allows a remote attacker to overflow the stack. A specially crafted JSON event can trigger this overflow, leading to a denial of service (crash) or potential RCE on the Wazuh manager. The vulnerability is located in `/src/analysisd/decoders/security_configuration_assessment.c`, within the `FillScanInfo` and `FillCheckEventInfo` functions. In multiple locations, a 128-byte buffer (`char value[OS_SIZE_128];`) is allocated on the stack to hold the string representation of a number from a JSON event. The code checks if the number is an integer or a double. If it's a double, it uses `sprintf(value, \"%lf\", ...)` to perform the conversion. This `sprintf` call is unbounded. If a floating-point number with a large exponent (e.g., `1.0e150`) is provided, `sprintf` will attempt to write its full string representation (a \"1\" followed by 150 zeros), which is larger than the 128-byte buffer, corrupting the stack. Version 4.14.3 patches the issue.",
+      "published": "2026-03-17T19:16:01.493",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25790"
     },
     {
-      "id": "CVE-2026-28506",
-      "summary": "Outline is a service that allows for collaborative documentation. Prior to 1.5.0, the events.list API endpoint, used for retrieving activity logs, contains a logic flaw in its filtering mechanism. It allows any authenticated user to retrieve activity events associated with documents that have no collection (e.g., Private Drafts, Deleted Documents), regardless of the user's actual permissions on those documents. While the document content is not directly exposed, this vulnerability leaks sensitive metadata (such as Document IDs, user activity timestamps, and in some specific cases like the Document Title of Permanent Delete). Crucially, leaking valid Document IDs of deleted drafts removes the protection of UUID randomness, making High-severity IDOR attacks (such as the one identified in documents.restore) trivially exploitable by lowering the attack complexity. Version 1.5.0 fixes the issue.",
-      "published": "2026-03-17T16:16:20.940",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28506"
+      "id": "CVE-2026-25772",
+      "summary": "Wazuh is a free and open source platform used for threat prevention, detection, and response. Starting in version 4.4.0 and prior to version 4.14.3, a stack-based buffer overflow vulnerability exists in the Wazuh Database synchronization module (`wdb_delta_event.c`). The SQL query construction logic allows for an integer underflow when calculating the remaining buffer size. This occurs because the code incorrectly aggregates the return value of `snprintf`. If a specific database synchronization payload exceeds the size of the query buffer (2048 bytes), the size calculation wraps around to a massive integer, effectively removing bounds checking for subsequent writes. This allows an attacker to corrupt the stack, leading to a Denial of Service (DoS) or potentially RCE. Version 4.14.3 fixes the issue.",
+      "published": "2026-03-17T19:16:01.260",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25772"
     },
     {
-      "id": "CVE-2026-24901",
-      "summary": "Outline is a service that allows for collaborative documentation. Prior to 1.4.0, an Insecure Direct Object Reference (IDOR) vulnerability in the document restoration logic allows any team member to unauthorizedly restore, view, and seize ownership of deleted drafts belonging to other users, including administrators. By bypassing ownership validation during the restore process, an attacker can access sensitive private information and effectively lock the original owner out of their own content. Version 1.4.0 fixes the issue.",
-      "published": "2026-03-17T16:16:20.350",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24901"
+      "id": "CVE-2026-25771",
+      "summary": "Wazuh is a free and open source platform used for threat prevention, detection, and response. Starting in version 4.3.0 and prior to version 4.14.3, a Denial of Service (DoS) vulnerability exists in the Wazuh API authentication middleware (`middlewares.py`). The application uses an asynchronous event loop (Starlette/Asyncio) to call a synchronous function (`generate_keypair`) that performs blocking disk I/O on every request containing a Bearer token. An unauthenticated remote attacker can exploit this by flooding the API with requests containing invalid Bearer tokens. This forces the single-threaded event loop to pause for file read operations repeatedly, starving the application of CPU resources and potentially preventing it from accepting or processing legitimate connections. Version 4.14.3 fixes the issue.",
+      "published": "2026-03-17T19:16:01.083",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25771"
     },
     {
-      "id": "CVE-2026-23759",
-      "summary": "Perle IOLAN STS/SCS terminal server models with firmware versions prior to 6.0 allow authenticated OS command injection via the restricted shell accessed over Telnet or SSH. The shell 'ps' command does not perform proper argument sanitization and passes user-supplied parameters into an 'sh -c' invocation running as root. An authenticated attacker who can log in to the device can inject shell metacharacters after the 'ps' subcommand to execute arbitrary OS commands with root privileges, leading to full compromise of the underlying operating system.",
-      "published": "2026-03-17T16:16:20.127",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23759"
+      "id": "CVE-2026-22882",
+      "summary": "An out-of-bounds read vulnerability exists in the EMF functionality of Canva Affinity. By using a specially crafted EMF file, an attacker could exploit this vulnerability to perform an out-of-bounds read, potentially leading to the disclosure of sensitive information.",
+      "published": "2026-03-17T19:16:00.780",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22882"
     },
     {
-      "id": "CVE-2026-21886",
-      "summary": "OpenCTI is an open source platform for managing cyber threat intelligence knowledge and observables. Prior to version 6.9.1, the GraphQL mutations \"IndividualDeletionDeleteMutation\" is intended to allow users to delete individual entity objects respectively. However, it was observed that this mutation can be misused to delete unrelated and sensitive objects such as analyses reports etc. This behavior stems from the lack of validation in the API to ensure that the targeted object is contextually related to the mutation being executed. Version 6.9.1 fixes the issue.",
-      "published": "2026-03-17T16:16:19.953",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21886"
+      "id": "CVE-2026-20726",
+      "summary": "An out-of-bounds read vulnerability exists in the EMF functionality of Canva Affinity. By using a specially crafted EMF file, an attacker could exploit this vulnerability to perform an out-of-bounds read, potentially leading to the disclosure of sensitive information.",
+      "published": "2026-03-17T19:16:00.430",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20726"
     }
   ]
 }
