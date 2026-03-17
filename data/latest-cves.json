@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-03-17T11:54:27+00:00",
+  "generated_at": "2026-03-17T13:50:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2025-62320",
+      "summary": "HTML Injection can be carried out in Product when a web application does not properly check or clean user input before showing it on a webpage. Because of this, an attacker may insert unwanted HTML code into the page. When the browser loads the page, it may automatically interact with external resources included in that HTML, which can cause unexpected requests from the user\u2019s browser.",
+      "published": "2026-03-17T13:16:16.503",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62320"
+    },
+    {
+      "id": "CVE-2026-4271",
+      "summary": "A flaw was found in libsoup, a library for handling HTTP requests. This vulnerability, known as a Use-After-Free, occurs in the HTTP/2 server implementation. A remote attacker can exploit this by sending specially crafted HTTP/2 requests that cause authentication failures. This can lead to the application attempting to access memory that has already been freed, potentially causing application instability or crashes, resulting in a Denial of Service (DoS).",
+      "published": "2026-03-17T12:16:13.280",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4271"
+    },
+    {
+      "id": "CVE-2025-31966",
+      "summary": "HCL Sametime is vulnerable to broken server-side validation. While the application performs client-side input checks, these are not enforced by the web server. An attacker can bypass these restrictions by sending manipulated HTTP requests directly to the server.",
+      "published": "2026-03-17T12:16:12.337",
+      "cvss": 2.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-31966"
+    },
     {
       "id": "CVE-2026-30911",
       "summary": "Apache Airflow versions 3.1.0 through 3.1.7 missing authorization vulnerability in the Execution API's Human-in-the-Loop (HITL) endpoints that allows any authenticated task instance to read, approve, or reject HITL workflows belonging to any other task instance.\n\n\nUsers are recommended to upgrade to Apache Airflow 3.1.8 or later, which resolves this issue.",
@@ -22,27 +43,6 @@
       "published": "2026-03-17T11:16:11.647",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28563"
-    },
-    {
-      "id": "CVE-2026-26929",
-      "summary": "Apache Airflow versions 3.0.0 through 3.1.7\u00a0FastAPI DagVersion listing API does not apply per-DAG authorization filtering when the request is made with dag_id set to \"~\" (wildcard for all DAGs). As a result, version metadata of DAGs that the requester is not authorized to access is returned.\n\n\nUsers are recommended to upgrade to Apache Airflow 3.1.8 or later, which resolves this issue.",
-      "published": "2026-03-17T11:16:11.490",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26929"
-    },
-    {
-      "id": "CVE-2026-3634",
-      "summary": "A flaw was found in libsoup. An attacker controlling the value used to set the Content-Type header can inject a Carriage Return Line Feed (CRLF) sequence due to improper input sanitization in the `soup_message_headers_set_content_type()` function. This vulnerability allows for the injection of arbitrary header-value pairs, potentially leading to HTTP header injection and response splitting attacks.",
-      "published": "2026-03-17T10:16:00.860",
-      "cvss": 3.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3634"
-    },
-    {
-      "id": "CVE-2026-3633",
-      "summary": "A flaw was found in libsoup. A remote attacker, by controlling the method parameter of the `soup_message_new()` function, could inject arbitrary headers and additional request data. This vulnerability, known as CRLF (Carriage Return Line Feed) injection, occurs because the method value is not properly escaped during request line construction, potentially leading to HTTP request injection.",
-      "published": "2026-03-17T10:16:00.677",
-      "cvss": 3.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3633"
     }
   ]
 }
