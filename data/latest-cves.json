@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T21:49:26+00:00",
+  "generated_at": "2026-03-18T22:48:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32700",
-      "summary": "Devise is an authentication solution for Rails based on Warden. Prior to version 5.0.3, a race condition in Devise's Confirmable module allows an attacker to confirm an email address they do not own. This affects any Devise application using the `reconfirmable` option (the default when using Confirmable with email changes). By sending two concurrent email change requests, an attacker can desynchronize the `confirmation_token` and `unconfirmed_email` fields. The confirmation token is sent to an email the attacker controls, but the `unconfirmed_email` in the database points to a victim's email address. When the attacker uses the token, the victim's email is confirmed on the attacker's account. This is patched in Devise v5.0.3. Users should upgrade as soon as possible. As a workaround, applications can override a specific method from Devise models to force `unconfirmed_email` to be persisted when unchanged. Note that Mongoid does not seem to respect that `will_change!` should force the attribute to be persisted, even if it did not really change, so the user might have to implement a workaround similar to Devise by setting `changed_attributes[\"unconfirmed_email\"] = nil` as well.",
-      "published": "2026-03-18T21:16:26.943",
+      "id": "CVE-2026-4407",
+      "summary": "Out-of-bounds array write in Xpdf 4.06 and earlier, due to incorrect validation of the \"N\" field in ICCBased color spaces.",
+      "published": "2026-03-18T22:16:26.437",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32700"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4407"
     },
     {
-      "id": "CVE-2026-32638",
-      "summary": "StudioCMS is a server-side-rendered, Astro native, headless content management system. Prior to 0.4.4, the REST API `getUsers` endpoint in StudioCMS uses the attacker-controlled `rank` query parameter to decide whether owner accounts should be filtered from the result set. As a result, an admin token can request `rank=owner` and receive owner account records, including IDs, usernames, display names, and email addresses, even though the adjacent `getUser` endpoint correctly blocks admins from viewing owner users. This is an authorization inconsistency inside the same user-management surface. Version 0.4.4 fixes the issue.",
-      "published": "2026-03-18T21:16:26.770",
-      "cvss": 2.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32638"
-    },
-    {
-      "id": "CVE-2026-32636",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-17 and 6.9.13-42, the NewXMLTree method contains a bug that could result in a crash due to an out of write bounds of a single zero byte. Versions 7.1.2-17 and 6.9.13-42 fix the issue.",
-      "published": "2026-03-18T21:16:26.583",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32636"
-    },
-    {
-      "id": "CVE-2026-32321",
-      "summary": "ClipBucket v5 is an open source video sharing platform. An authenticated time-based blind SQL injection vulnerability exists in ClipBucket prior to 5.5.3 #80 within the `actions/ajax.php` endpoint. Due to insufficient input sanitization of the `userid` parameter, an authenticated attacker can execute arbitrary SQL queries, leading to full database disclosure and potential administrative account takeover. Version 5.5.3 #80 fixes the issue.",
-      "published": "2026-03-18T21:16:26.410",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32321"
-    },
-    {
-      "id": "CVE-2026-31973",
-      "summary": "SAMtools is a program for reading, manipulating and writing bioinformatics file formats. Starting in version 1.17, in the cram-size command, used to write information about how well CRAM files are compressed, a check to see if the `cram_decode_compression_header()` was missing. If the function returned an error, this could lead to a NULL pointer dereference. Exploiting this bug causes a NULL pointer dereference. Typically this will cause the program to crash. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
-      "published": "2026-03-18T21:16:26.250",
+      "id": "CVE-2026-33163",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.35 and 8.6.50, when a `Parse.Cloud.afterLiveQueryEvent` trigger is registered for a class, the LiveQuery server leaks protected fields and `authData` to all subscribers of that class. Fields configured as protected via Class-Level Permissions (`protectedFields`) are included in LiveQuery event payloads for all event types (create, update, delete, enter, leave). Any user with sufficient CLP permissions to subscribe to the affected class can receive protected field data of other users, including sensitive personal information and OAuth tokens from third-party authentication providers. The vulnerability was caused by a reference detachment bug. When an `afterEvent` trigger is registered, the LiveQuery server converts the event object to a `Parse.Object` for the trigger, then creates a new JSON copy via `toJSONwithObjects()`. The sensitive data filter was applied to the `Parse.Object` reference, but the unfiltered JSON copy was sent to clients. The fix in versions 9.6.0-alpha.35 and 8.6.50 ensures that the JSON copy is assigned back to the response object before filtering, so the filter operates on the actual data sent to clients. As a workaround, remove all `Parse.Cloud.afterLiveQueryEvent` trigger registrations. Without an `afterEvent` trigger, the reference detachment does not occur and protected fields are correctly filtered.",
+      "published": "2026-03-18T22:16:26.270",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31973"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33163"
     },
     {
-      "id": "CVE-2026-31972",
-      "summary": "SAMtools is a program for reading, manipulating and writing bioinformatics file formats. The `mpileup` command outputs DNA sequences that have been aligned against a known reference. On each output line it writes the reference position, optionally the reference DNA base at that position (obtained from a separate file) and all of the DNA bases that aligned to that position. As the output is ordered by position, reference data that is no longer needed is discarded once it has been printed out. Under certain conditions the data could be discarded too early, leading to an attempt to read from a pointer to freed memory. This bug may allow information about program state to be leaked. It may also cause a program crash through an attempt to access invalid memory. This bug is fixed in versions 1.21.1 and 1.22. There is no workaround for this issue.",
-      "published": "2026-03-18T21:16:26.070",
+      "id": "CVE-2026-33042",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.29 and 8.6.49, a user can sign up without providing credentials by sending an empty `authData` object, bypassing the username and password requirement. This allows the creation of authenticated sessions without proper credentials, even when anonymous users are disabled. The fix in 9.6.0-alpha.29 and 8.6.49 ensures that empty or non-actionable `authData` is treated the same as absent `authData` for the purpose of credential validation on new user creation. Username and password are now required when no valid auth provider data is present. As a workaround, use a Cloud Code `beforeSave` trigger on the `_User` class to reject signups where `authData` is empty and no username/password is provided.",
+      "published": "2026-03-18T22:16:26.120",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31972"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33042"
+    },
+    {
+      "id": "CVE-2026-32944",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.21 and 8.6.45, an unauthenticated attacker can crash the Parse Server process by sending a single request with deeply nested query condition operators. This terminates the server and denies service to all connected clients. Starting in version 9.6.0-alpha.21 and 8.6.45, a depth limit for query condition operator nesting has been added via the `requestComplexity.queryDepth` server option. The option is disabled by default to avoid a breaking change. To mitigate, upgrade and set the option to a value appropriate for your app. No known workarounds are available.",
+      "published": "2026-03-18T22:16:25.970",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32944"
+    },
+    {
+      "id": "CVE-2026-32943",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.28 and 8.6.48, the password reset mechanism does not enforce single-use guarantees for reset tokens. When a user requests a password reset, the generated token can be consumed by multiple concurrent requests within a short time window. An attacker who has intercepted a password reset token can race the legitimate user's password reset request, causing both requests to succeed. This may result in the legitimate user believing their password was changed successfully while the attacker's password takes effect instead. All Parse Server deployments that use the password reset feature are affected. Starting in versions 9.6.0-alpha.28 and 8.6.48, the password reset token is now atomically validated and consumed as part of the password update operation. The database query that updates the password includes the reset token as a condition, ensuring that only one concurrent request can successfully consume the token. Subsequent requests using the same token will fail because the token has already been cleared. There is no known workaround other than upgrading.",
+      "published": "2026-03-18T22:16:25.810",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32943"
+    },
+    {
+      "id": "CVE-2026-32886",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.24 and 8.6.47, remote clients can crash the Parse Server process by calling a cloud function endpoint with a crafted function name that traverses the JavaScript prototype chain of a registered cloud function handler, causing a stack overflow. The fix in versions 9.6.0-alpha.24 and 8.6.47 restricts property lookups during cloud function name resolution to own properties only, preventing prototype chain traversal from stored function handlers. There is no known workaround.",
+      "published": "2026-03-18T22:16:25.663",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32886"
     }
   ]
 }
