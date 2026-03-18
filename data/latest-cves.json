@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T17:16:41+00:00",
+  "generated_at": "2026-03-18T19:16:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32610",
-      "summary": "Glances is an open-source system cross-platform monitoring tool. Prior to version 4.5.2, the Glances REST API web server ships with a default CORS configuration that sets `allow_origins=[\"*\"]` combined with `allow_credentials=True`. When both of these options are enabled together, Starlette's `CORSMiddleware` reflects the requesting `Origin` header value in the `Access-Control-Allow-Origin` response header instead of returning the literal `*` wildcard. This effectively grants any website the ability to make credentialed cross-origin API requests to the Glances server, enabling cross-site data theft of system monitoring information, configuration secrets, and command line arguments from any user who has an active browser session with a Glances instance. Version 4.5.2 fixes the issue.",
-      "published": "2026-03-18T17:16:06.947",
+      "id": "CVE-2026-3479",
+      "summary": "pkgutil.get_data() did not validate the resource argument as documented, allowing path traversals.",
+      "published": "2026-03-18T19:16:06.810",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3479"
+    },
+    {
+      "id": "CVE-2026-31965",
+      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data. In the `cram_decode_slice()` function called while reading CRAM records, validation of the reference id field occurred too late, allowing two out of bounds reads to occur before the invalid data was detected. The bug does allow two values to be leaked to the caller, however as the function reports an error it may be difficult to exploit them. It is also possible that the program will crash due to trying to access invalid memory. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
+      "published": "2026-03-18T19:16:04.823",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31965"
+    },
+    {
+      "id": "CVE-2026-31964",
+      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data using a variety of encodings and compression methods.  While most alignment records store DNA sequence and quality values, the format also allows them to omit this data in certain cases to save space. Due to some quirks of the CRAM format, it is necessary to handle these records carefully as they will actually store data that needs to be consumed and then discarded. Unfortunately the `CONST`, `XPACK` and `XRLE` encodings did not properly implement the interface needed to do this. Trying to decode records with omitted sequence or quality data using these encodings would result in an attempt to write to a NULL pointer. Exploiting this bug causes a NULL pointer dereference. Typically this will cause the program to crash. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
+      "published": "2026-03-18T19:16:04.633",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31964"
+    },
+    {
+      "id": "CVE-2026-31963",
+      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data. As one method of removing redundant data, CRAM uses reference-based compression so that instead of storing the full sequence for each alignment record it stores a location in an external reference sequence along with a list of differences to the reference at that location as a sequence of \"features\". When decoding these features, an out-by-one error in a test for CRAM features that appear beyond the extent of the CRAM record sequence could result in an invalid write of one attacker-controlled byte beyond the end of a heap buffer. Exploiting this bug causes a heap buffer overflow. If a user opens a file crafted to exploit this issue, it could lead to the program crashing, or overwriting of data and heap structures in ways not expected by the program.  It may be possible to use this to obtain arbitrary code execution. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
+      "published": "2026-03-18T19:16:04.440",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31963"
+    },
+    {
+      "id": "CVE-2025-58112",
+      "summary": "Microsoft Dynamics 365 Customer Engagement (on-premises) 1612 (9.0.2.3034) allows the generation of customized reports via raw SQL queries in an upload of a .rdl (Report Definition Language) file; this is then processed by the SQL Server Reporting Service. An account with the privilege Add Reporting Services Reports can upload a malicious rdl file. If the malicious rdl file is already loaded and it is executable by the user, the Add Reporting Services Reports privilege is not required. A malicious actor can trigger the generation of the report, causing the execution of arbitrary SQL commands in the underlying database. Depending on the permissions of the account running SQL Server Reporting Services, the attacker may be able to perform additional actions, such as accessing linked servers or executing operating system commands.",
+      "published": "2026-03-18T19:16:03.497",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-58112"
+    },
+    {
+      "id": "CVE-2026-32634",
+      "summary": "Glances is an open-source system cross-platform monitoring tool. Prior to version 4.5.2, in Central Browser mode, Glances stores both the Zeroconf-advertised server name and the discovered IP address for dynamic servers, but later builds connection URIs from the untrusted advertised name instead of the discovered IP. When a dynamic server reports itself as protected, Glances also uses that same untrusted name as the lookup key for saved passwords and the global `[passwords] default` credential. An attacker on the same local network can advertise a fake Glances service over Zeroconf and cause the browser to automatically send a reusable Glances authentication secret to an attacker-controlled host. This affects the background polling path and the REST/WebUI click-through path in Central Browser mode. Version 4.5.2 fixes the issue.",
+      "published": "2026-03-18T18:16:29.097",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32610"
-    },
-    {
-      "id": "CVE-2026-30695",
-      "summary": "A Cross-Site Scripting (XSS) vulnerability exists in the web-based configuration interface of Zucchetti Axess access control devices, including XA4, X3/X3BIO, X4, X7, and XIO / i-door / i-door+. The vulnerability is caused by improper sanitization of user-supplied input in the dirBrowse parameter of the /file_manager.cgi endpoint.",
-      "published": "2026-03-18T17:16:06.817",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30695"
-    },
-    {
-      "id": "CVE-2026-30345",
-      "summary": "A zip slip vulnerability in the Admin import functionality of CTFd v3.8.1-18-gdb5a18c4 allows attackers to write arbitrary files outside the intended directories via supplying a crafted import.",
-      "published": "2026-03-18T17:16:06.703",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30345"
-    },
-    {
-      "id": "CVE-2026-1463",
-      "summary": "The Photo Gallery, Sliders, Proofing and Themes \u2013 NextGEN Gallery plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 4.0.3 via the 'template' parameter in gallery shortcodes. This makes it possible for authenticated attackers, with Author-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included.",
-      "published": "2026-03-18T17:16:05.510",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1463"
-    },
-    {
-      "id": "CVE-2025-67830",
-      "summary": "Mura before 10.1.14 allows beanFeed.cfc getQuery sortby SQL injection.",
-      "published": "2026-03-18T17:16:04.593",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67830"
-    },
-    {
-      "id": "CVE-2026-3090",
-      "summary": "The Post SMTP \u2013 Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP & Mobile App plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018event_type\u2019 parameter in all versions up to, and including, 3.8.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability is only exploitable when the Post SMTP Pro plugin is also installed and its Reporting and Tracking extension is enabled.",
-      "published": "2026-03-18T16:16:28.560",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3090"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32634"
     }
   ]
 }
