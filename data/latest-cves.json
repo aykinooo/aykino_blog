@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-18T13:52:26+00:00",
+  "generated_at": "2026-03-18T15:36:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-32609",
+      "summary": "Glances is an open-source system cross-platform monitoring tool. The GHSA-gh4x fix (commit 5d3de60) addressed unauthenticated configuration secrets exposure on the `/api/v4/config` endpoints by introducing `as_dict_secure()` redaction. However, the `/api/v4/args` and `/api/v4/args/{item}` endpoints were not addressed by this fix. These endpoints return the complete command-line arguments namespace via `vars(self.args)`, which includes the password hash (salt + pbkdf2_hmac), SNMP community strings, SNMP authentication keys, and the configuration file path. When Glances runs without `--password` (the default), these endpoints are accessible without any authentication. Version 4.5.2 provides a more complete fix.",
+      "published": "2026-03-18T15:16:30.780",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32609"
+    },
+    {
+      "id": "CVE-2026-3278",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in OpenText\u2122 ZENworks Service Desk allows Cross-Site Scripting (XSS).\u00a0The vulnerability could allow an attacker to execute arbitrary JavaScript leading to unauthorized actions on behalf of the user.This issue affects ZENworks Service Desk: 25.2, 25.3.",
+      "published": "2026-03-18T14:16:40.813",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3278"
+    },
+    {
+      "id": "CVE-2026-32694",
+      "summary": "In Juju from version 3.0.0 through 3.6.18, when a secret owner grants permissions to a secret to a grantee, the secret owner relies exclusively on a predictable XID of the secret to verify ownership. This allows a malicious grantee which can request secrets to predict past secrets granted by the same secret owner to different grantees, allowing them to use the resources granted by those past secrets. Successful exploitation relies on a very specific configuration, specific data semantic, and the administrator having the need to deploy at least two different applications, one of them controlled by the attacker.",
+      "published": "2026-03-18T14:16:40.503",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32694"
+    },
+    {
+      "id": "CVE-2026-25449",
+      "summary": "Deserialization of Untrusted Data vulnerability in Shinetheme Traveler allows Object Injection.This issue affects Traveler: from n/a before 3.2.8.1.",
+      "published": "2026-03-18T14:16:39.297",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25449"
+    },
     {
       "id": "CVE-2026-32693",
       "summary": "In Juju from version 3.0.0 through 3.6.18, the authorization of the \"secret-set\" tool is not performed correctly, which allows a grantee to update the secret content, and can lead to reading or updating other secrets. When the \"secret-set\" tool logs an error in an exploitation attempt, the secret is still updated contrary to expectations, and the new value is visible to both the owner and the grantee.",
@@ -15,34 +43,6 @@
       "published": "2026-03-18T13:16:18.710",
       "cvss": 7.6,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32692"
-    },
-    {
-      "id": "CVE-2026-32691",
-      "summary": "A race condition in the secrets management subsystem of Juju versions 3.0.0 through 3.6.18 allows an authenticated unit agent to claim ownership of a newly initialized secret. Between generating a Juju Secret ID and creating the secret's first revision, an attacker authenticated as another unit agent can claim ownership of a known secret. This leads to the attacking unit being able to read the content of the initial secret revision.",
-      "published": "2026-03-18T13:16:18.163",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32691"
-    },
-    {
-      "id": "CVE-2026-33265",
-      "summary": "In LibreChat 0.8.1-rc2, a logged-in user obtains a JWT for both the LibreChat API and the RAG API.",
-      "published": "2026-03-18T12:16:19.850",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33265"
-    },
-    {
-      "id": "CVE-2025-41258",
-      "summary": "LibreChat version 0.8.1-rc2 uses the same JWT secret for the user session mechanism and RAG API which compromises the service-level authentication of the RAG API.",
-      "published": "2026-03-18T12:16:18.713",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41258"
-    },
-    {
-      "id": "CVE-2026-23248",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nperf/core: Fix refcount bug and potential UAF in perf_mmap\n\nSyzkaller reported a refcount_t: addition on 0; use-after-free warning\nin perf_mmap.\n\nThe issue is caused by a race condition between a failing mmap() setup\nand a concurrent mmap() on a dependent event (e.g., using output\nredirection).\n\nIn perf_mmap(), the ring_buffer (rb) is allocated and assigned to\nevent->rb with the mmap_mutex held. The mutex is then released to\nperform map_range().\n\nIf map_range() fails, perf_mmap_close() is called to clean up.\nHowever, since the mutex was dropped, another thread attaching to\nthis event (via inherited events or output redirection) can acquire\nthe mutex, observe the valid event->rb pointer, and attempt to\nincrement its reference count. If the cleanup path has already\ndropped the reference count to zero, this results in a\nuse-after-free or refcount saturation warning.\n\nFix this by extending the scope of mmap_mutex to cover the\nmap_range() call. This ensures that the ring buffer initialization\nand mapping (or cleanup on failure) happens atomically effectively,\npreventing other threads from accessing a half-initialized or\ndying ring buffer.",
-      "published": "2026-03-18T11:16:16.863",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23248"
     }
   ]
 }
