@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T15:36:38+00:00",
+  "generated_at": "2026-03-18T17:16:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32609",
-      "summary": "Glances is an open-source system cross-platform monitoring tool. The GHSA-gh4x fix (commit 5d3de60) addressed unauthenticated configuration secrets exposure on the `/api/v4/config` endpoints by introducing `as_dict_secure()` redaction. However, the `/api/v4/args` and `/api/v4/args/{item}` endpoints were not addressed by this fix. These endpoints return the complete command-line arguments namespace via `vars(self.args)`, which includes the password hash (salt + pbkdf2_hmac), SNMP community strings, SNMP authentication keys, and the configuration file path. When Glances runs without `--password` (the default), these endpoints are accessible without any authentication. Version 4.5.2 provides a more complete fix.",
-      "published": "2026-03-18T15:16:30.780",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32609"
+      "id": "CVE-2026-32610",
+      "summary": "Glances is an open-source system cross-platform monitoring tool. Prior to version 4.5.2, the Glances REST API web server ships with a default CORS configuration that sets `allow_origins=[\"*\"]` combined with `allow_credentials=True`. When both of these options are enabled together, Starlette's `CORSMiddleware` reflects the requesting `Origin` header value in the `Access-Control-Allow-Origin` response header instead of returning the literal `*` wildcard. This effectively grants any website the ability to make credentialed cross-origin API requests to the Glances server, enabling cross-site data theft of system monitoring information, configuration secrets, and command line arguments from any user who has an active browser session with a Glances instance. Version 4.5.2 fixes the issue.",
+      "published": "2026-03-18T17:16:06.947",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32610"
     },
     {
-      "id": "CVE-2026-3278",
-      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in OpenText\u2122 ZENworks Service Desk allows Cross-Site Scripting (XSS).\u00a0The vulnerability could allow an attacker to execute arbitrary JavaScript leading to unauthorized actions on behalf of the user.This issue affects ZENworks Service Desk: 25.2, 25.3.",
-      "published": "2026-03-18T14:16:40.813",
+      "id": "CVE-2026-30695",
+      "summary": "A Cross-Site Scripting (XSS) vulnerability exists in the web-based configuration interface of Zucchetti Axess access control devices, including XA4, X3/X3BIO, X4, X7, and XIO / i-door / i-door+. The vulnerability is caused by improper sanitization of user-supplied input in the dirBrowse parameter of the /file_manager.cgi endpoint.",
+      "published": "2026-03-18T17:16:06.817",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3278"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30695"
     },
     {
-      "id": "CVE-2026-32694",
-      "summary": "In Juju from version 3.0.0 through 3.6.18, when a secret owner grants permissions to a secret to a grantee, the secret owner relies exclusively on a predictable XID of the secret to verify ownership. This allows a malicious grantee which can request secrets to predict past secrets granted by the same secret owner to different grantees, allowing them to use the resources granted by those past secrets. Successful exploitation relies on a very specific configuration, specific data semantic, and the administrator having the need to deploy at least two different applications, one of them controlled by the attacker.",
-      "published": "2026-03-18T14:16:40.503",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32694"
+      "id": "CVE-2026-30345",
+      "summary": "A zip slip vulnerability in the Admin import functionality of CTFd v3.8.1-18-gdb5a18c4 allows attackers to write arbitrary files outside the intended directories via supplying a crafted import.",
+      "published": "2026-03-18T17:16:06.703",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30345"
     },
     {
-      "id": "CVE-2026-25449",
-      "summary": "Deserialization of Untrusted Data vulnerability in Shinetheme Traveler allows Object Injection.This issue affects Traveler: from n/a before 3.2.8.1.",
-      "published": "2026-03-18T14:16:39.297",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25449"
-    },
-    {
-      "id": "CVE-2026-32693",
-      "summary": "In Juju from version 3.0.0 through 3.6.18, the authorization of the \"secret-set\" tool is not performed correctly, which allows a grantee to update the secret content, and can lead to reading or updating other secrets. When the \"secret-set\" tool logs an error in an exploitation attempt, the secret is still updated contrary to expectations, and the new value is visible to both the owner and the grantee.",
-      "published": "2026-03-18T13:16:18.860",
+      "id": "CVE-2026-1463",
+      "summary": "The Photo Gallery, Sliders, Proofing and Themes \u2013 NextGEN Gallery plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 4.0.3 via the 'template' parameter in gallery shortcodes. This makes it possible for authenticated attackers, with Author-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included.",
+      "published": "2026-03-18T17:16:05.510",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32693"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1463"
     },
     {
-      "id": "CVE-2026-32692",
-      "summary": "An authorization bypass vulnerability in the Vault secrets back-end implementation of Juju versions 3.1.6 through 3.6.18 allows an authenticated unit agent to perform unauthorized updates to secret revisions. With sufficient information, an attacker can poison any existing secret revision within the scope of that Vault secret back-end.",
-      "published": "2026-03-18T13:16:18.710",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32692"
+      "id": "CVE-2025-67830",
+      "summary": "Mura before 10.1.14 allows beanFeed.cfc getQuery sortby SQL injection.",
+      "published": "2026-03-18T17:16:04.593",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67830"
+    },
+    {
+      "id": "CVE-2026-3090",
+      "summary": "The Post SMTP \u2013 Complete Email Deliverability and SMTP Solution with Email Logs, Alerts, Backup SMTP & Mobile App plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018event_type\u2019 parameter in all versions up to, and including, 3.8.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerability is only exploitable when the Post SMTP Pro plugin is also installed and its Reporting and Tracking extension is enabled.",
+      "published": "2026-03-18T16:16:28.560",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3090"
     }
   ]
 }
