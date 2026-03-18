@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T20:55:38+00:00",
+  "generated_at": "2026-03-18T21:49:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4396",
-      "summary": "Improper certificate validation in Devolutions Hub Reporting Service \n2025.3.1.1 and earlier allows a network attacker to perform a \nman-in-the-middle attack via disabled TLS certificate verification.",
-      "published": "2026-03-18T20:16:22.933",
+      "id": "CVE-2026-32700",
+      "summary": "Devise is an authentication solution for Rails based on Warden. Prior to version 5.0.3, a race condition in Devise's Confirmable module allows an attacker to confirm an email address they do not own. This affects any Devise application using the `reconfirmable` option (the default when using Confirmable with email changes). By sending two concurrent email change requests, an attacker can desynchronize the `confirmation_token` and `unconfirmed_email` fields. The confirmation token is sent to an email the attacker controls, but the `unconfirmed_email` in the database points to a victim's email address. When the attacker uses the token, the victim's email is confirmed on the attacker's account. This is patched in Devise v5.0.3. Users should upgrade as soon as possible. As a workaround, applications can override a specific method from Devise models to force `unconfirmed_email` to be persisted when unchanged. Note that Mongoid does not seem to respect that `will_change!` should force the attribute to be persisted, even if it did not really change, so the user might have to implement a workaround similar to Devise by setting `changed_attributes[\"unconfirmed_email\"] = nil` as well.",
+      "published": "2026-03-18T21:16:26.943",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4396"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32700"
     },
     {
-      "id": "CVE-2026-31971",
-      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data using a variety of encodings and compression methods. When reading data encoded using the `BYTE_ARRAY_LEN` method, the `cram_byte_array_len_decode()` failed to validate that the amount of data being unpacked matched the size of the output buffer where it was to be stored. Depending on the data series being read, this could result either in a heap or a stack overflow with attacker-controlled bytes. Depending on the data stream this could result either in a heap buffer overflow or a stack overflow. If a user opens a file crafted to exploit this issue it could lead to the program crashing, overwriting of data structures on the heap or stack in ways not expected by the program, or changing the control flow of the program. It may be possible to use this to obtain arbitrary code execution. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
-      "published": "2026-03-18T20:16:22.243",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31971"
+      "id": "CVE-2026-32638",
+      "summary": "StudioCMS is a server-side-rendered, Astro native, headless content management system. Prior to 0.4.4, the REST API `getUsers` endpoint in StudioCMS uses the attacker-controlled `rank` query parameter to decide whether owner accounts should be filtered from the result set. As a result, an admin token can request `rank=owner` and receive owner account records, including IDs, usernames, display names, and email addresses, even though the adjacent `getUser` endpoint correctly blocks admins from viewing owner users. This is an authorization inconsistency inside the same user-management surface. Version 0.4.4 fixes the issue.",
+      "published": "2026-03-18T21:16:26.770",
+      "cvss": 2.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32638"
     },
     {
-      "id": "CVE-2026-31970",
-      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. GZI files are used to index block-compressed GZIP [BGZF] files.  In the GZI loading function, `bgzf_index_load_hfile()`, it was possible to trigger an integer overflow, leading to an under- or zero-sized buffer being allocated to store the index.  Sixteen zero bytes would then be written to this buffer, and, depending on the result of the overflow the rest of the file may also be loaded into the buffer as well.  If the function did attempt to load the data, it would eventually fail due to not reading the expected number of records, and then try to free the overflowed heap buffer. Exploiting this bug causes a heap buffer overflow. If a user opens a file crafted to exploit this issue, it could lead to the program crashing, or overwriting of data and heap structures in ways not expected by the program.  It may be possible to use this to obtain arbitrary code execution. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. The easiest work-around is to discard any `.gzi` index files from untrusted sources, and use the `bgzip -r` option to recreate them.",
-      "published": "2026-03-18T20:16:21.980",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31970"
+      "id": "CVE-2026-32636",
+      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-17 and 6.9.13-42, the NewXMLTree method contains a bug that could result in a crash due to an out of write bounds of a single zero byte. Versions 7.1.2-17 and 6.9.13-42 fix the issue.",
+      "published": "2026-03-18T21:16:26.583",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32636"
     },
     {
-      "id": "CVE-2026-31969",
-      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data using a variety of encodings and compression methods.  When reading data encoded using the `BYTE_ARRAY_STOP` method, an out-by-one error in the `cram_byte_array_stop_decode_char()` function check for a full output buffer could result in a single attacker-controlled byte being written beyond the end of a heap allocation. Exploiting this bug causes a heap buffer overflow. If a user opens a file crafted to exploit this issue, it could lead to the program crashing, or overwriting of data and heap structures in ways not expected by the program.  It may be possible to use this to obtain arbitrary code execution. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
-      "published": "2026-03-18T20:16:21.743",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31969"
+      "id": "CVE-2026-32321",
+      "summary": "ClipBucket v5 is an open source video sharing platform. An authenticated time-based blind SQL injection vulnerability exists in ClipBucket prior to 5.5.3 #80 within the `actions/ajax.php` endpoint. Due to insufficient input sanitization of the `userid` parameter, an authenticated attacker can execute arbitrary SQL queries, leading to full database disclosure and potential administrative account takeover. Version 5.5.3 #80 fixes the issue.",
+      "published": "2026-03-18T21:16:26.410",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32321"
     },
     {
-      "id": "CVE-2026-31968",
-      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data using a variety of encodings and compression methods. For the `VARINT` and `CONST` encodings, incomplete validation of the context in which the encodings were used could result in up to eight bytes being written beyond the end of a heap allocation, or up to eight bytes being written to the location of a one byte variable on the stack, possibly causing the values to adjacent variables to change unexpectedly. Depending on the data stream this could result either in a heap buffer overflow or a stack overflow. If a user opens a file crafted to exploit this issue it could lead to the program crashing, overwriting of data structures on the heap or stack in ways not expected by the program, or changing the control flow of the program. It may be possible to use this to obtain arbitrary code execution. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
-      "published": "2026-03-18T20:16:21.480",
+      "id": "CVE-2026-31973",
+      "summary": "SAMtools is a program for reading, manipulating and writing bioinformatics file formats. Starting in version 1.17, in the cram-size command, used to write information about how well CRAM files are compressed, a check to see if the `cram_decode_compression_header()` was missing. If the function returned an error, this could lead to a NULL pointer dereference. Exploiting this bug causes a NULL pointer dereference. Typically this will cause the program to crash. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
+      "published": "2026-03-18T21:16:26.250",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31968"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31973"
     },
     {
-      "id": "CVE-2026-31967",
-      "summary": "HTSlib is a library for reading and writing bioinformatics file formats. CRAM is a compressed format which stores DNA sequence alignment data. In the `cram_decode_slice()` function called while reading CRAM records, the value of the mate reference id field was not validated. Later use of this value, for example when converting the data to SAM format, could result in the out of bounds array reads when looking up the corresponding reference name. If the array value obtained also happened to be a valid pointer, it would be interpreted as a string and an attempt would be made to write the data as part of the SAM record. This bug may allow information about program state to be leaked. It may also cause a program crash through an attempt to access invalid memory. Versions 1.23.1, 1.22.2 and 1.21.1 include fixes for this issue. There is no workaround for this issue.",
-      "published": "2026-03-18T20:16:21.280",
+      "id": "CVE-2026-31972",
+      "summary": "SAMtools is a program for reading, manipulating and writing bioinformatics file formats. The `mpileup` command outputs DNA sequences that have been aligned against a known reference. On each output line it writes the reference position, optionally the reference DNA base at that position (obtained from a separate file) and all of the DNA bases that aligned to that position. As the output is ordered by position, reference data that is no longer needed is discarded once it has been printed out. Under certain conditions the data could be discarded too early, leading to an attempt to read from a pointer to freed memory. This bug may allow information about program state to be leaked. It may also cause a program crash through an attempt to access invalid memory. This bug is fixed in versions 1.21.1 and 1.22. There is no workaround for this issue.",
+      "published": "2026-03-18T21:16:26.070",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31967"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31972"
     }
   ]
 }
