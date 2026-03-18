@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T03:19:16+00:00",
+  "generated_at": "2026-03-18T05:40:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4356",
-      "summary": "A flaw has been found in itsourcecode University Management System 1.0. Affected is an unknown function of the file /add_result.php. Executing a manipulation of the argument vr can lead to cross site scripting. The attack may be launched remotely. The exploit has been published and may be used.",
-      "published": "2026-03-18T02:16:25.223",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4356"
+      "id": "CVE-2026-4366",
+      "summary": "A flaw was identified in Keycloak, an identity and access management solution, where it improperly follows HTTP redirects when processing certain client configuration requests. This behavior allows an attacker to trick the server into making unintended requests to internal or restricted resources. As a result, sensitive internal services such as cloud metadata endpoints could be accessed. This issue may lead to information disclosure and enable attackers to map internal network infrastructure.",
+      "published": "2026-03-18T04:17:32.450",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4366"
     },
     {
-      "id": "CVE-2026-4268",
-      "summary": "The WP Go Maps (formerly WP Google Maps) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018wpgmza_custom_js\u2019 parameter in all versions up to, and including, 10.0.05 due to insufficient input sanitization and output escaping and missing capability check in the 'admin_post_wpgmza_save_settings' hook anonymous function. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-03-18T02:16:25.047",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4268"
-    },
-    {
-      "id": "CVE-2026-2603",
-      "summary": "A flaw was found in Keycloak. A remote attacker could bypass security controls by sending a valid SAML response from an external Identity Provider (IdP) to the Keycloak SAML endpoint for IdP-initiated broker logins. This allows the attacker to complete broker logins even when the SAML Identity Provider is disabled, leading to unauthorized authentication.",
-      "published": "2026-03-18T02:16:24.813",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2603"
-    },
-    {
-      "id": "CVE-2026-2092",
-      "summary": "A flaw was found in Keycloak. Keycloak's Security Assertion Markup Language (SAML) broker endpoint does not properly validate encrypted assertions when the overall SAML response is not signed. An attacker with a valid signed SAML assertion can exploit this by crafting a malicious SAML response. This allows the attacker to inject an encrypted assertion for an arbitrary principal, leading to unauthorized access and potential information disclosure.",
-      "published": "2026-03-18T02:16:24.577",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2092"
-    },
-    {
-      "id": "CVE-2026-29056",
-      "summary": "Kanboard is project management software focused on Kanban methodology. Prior to 1.2.51, Kanboard's user invite registration endpoint (`UserInviteController::register()`) accepts all POST parameters and passes them to `UserModel::create()` without filtering out the `role` field. An attacker who receives an invite link can inject `role=app-admin` in the registration form to create an administrator account. Version 1.2.51 fixes the issue.",
-      "published": "2026-03-18T02:16:24.407",
+      "id": "CVE-2026-33058",
+      "summary": "Kanboard is project management software focused on Kanban methodology. Versions prior to 1.2.51 have an authenticated SQL injection vulnerability. Attackers with the permission to add users to a project can leverage this vulnerability to dump the entirety of the kanboard database. Version 1.2.51 fixes the issue.",
+      "published": "2026-03-18T04:17:27.727",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29056"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33058"
     },
     {
-      "id": "CVE-2026-28500",
-      "summary": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. In versions up to and including 1.20.1, a security control bypass exists in onnx.hub.load() due to improper logic in the repository trust verification mechanism. While the function is designed to warn users when loading models from non-official sources, the use of the silent=True parameter completely suppresses all security warnings and confirmation prompts. This vulnerability transforms a standard model-loading function into a vector for Zero-Interaction Supply-Chain Attacks. When chained with file-system vulnerabilities, an attacker can silently exfiltrate sensitive files (SSH keys, cloud credentials) from the victim's machine the moment the model is loaded. As of time of publication, no known patched versions are available.",
-      "published": "2026-03-18T02:16:24.227",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28500"
+      "id": "CVE-2026-32266",
+      "summary": "The Google Cloud Storage for Craft CMS plugin provides a Google Cloud Storage integration for Craft CMS. In versions on the 2.x branch prior to 2.2.1, the `DefaultController->actionLoadBucketData()` endpoint allows unauthenticated users with a valid CSRF token to view a list of buckets that the plugin is allowed to see. Users should update to version 2.2.1 of the plugin to mitigate the issue.",
+      "published": "2026-03-18T04:17:27.540",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32266"
+    },
+    {
+      "id": "CVE-2026-32265",
+      "summary": "The Amazon S3 for Craft CMS plugin provides an Amazon S3 integration for Craft CMS. In versions 2.0.2 through 2.2.4, unauthenticated users can view a list of buckets the plugin has access to. The `BucketsController->actionLoadBucketData()` endpoint allows unauthenticated users with a valid CSRF token to view a list of buckets that the plugin is allowed to see. Users should update to version 2.2.5 of the plugin to mitigate the issue.",
+      "published": "2026-03-18T04:17:27.337",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32265"
+    },
+    {
+      "id": "CVE-2026-32256",
+      "summary": "music-metadata is a metadata parser for audio and video media files. Prior to version 11.12.3, music-metadata's ASF parser (`parseExtensionObject()` in `lib/asf/AsfParser.ts:112-158`) enters an infinite loop when a sub-object inside the ASF Header Extension Object has `objectSize = 0`. Version 11.12.3 fixes the issue.",
+      "published": "2026-03-18T04:17:25.523",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32256"
+    },
+    {
+      "id": "CVE-2026-32254",
+      "summary": "Kube-router is a turnkey solution for Kubernetes networking. Prior to version 2.8.0, Kube-router's proxy module does not validate externalIPs or loadBalancer IPs before programming them into the node's network configuration. Version 2.8.0 contains a patch for the issue. Available workarounds include enabling DenyServiceExternalIPs feature gate, deploying admission policy, restricting service creation RBAC, monitoring service changes, and applying BGP prefix filtering.",
+      "published": "2026-03-18T04:17:24.340",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32254"
     }
   ]
 }
