@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T11:09:20+00:00",
+  "generated_at": "2026-03-18T11:57:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32565",
-      "summary": "Missing Authorization vulnerability in WebberZone Contextual Related Posts allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Contextual Related Posts: from n/a before 4.2.2.",
-      "published": "2026-03-18T10:16:25.307",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32565"
+      "id": "CVE-2026-23248",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nperf/core: Fix refcount bug and potential UAF in perf_mmap\n\nSyzkaller reported a refcount_t: addition on 0; use-after-free warning\nin perf_mmap.\n\nThe issue is caused by a race condition between a failing mmap() setup\nand a concurrent mmap() on a dependent event (e.g., using output\nredirection).\n\nIn perf_mmap(), the ring_buffer (rb) is allocated and assigned to\nevent->rb with the mmap_mutex held. The mutex is then released to\nperform map_range().\n\nIf map_range() fails, perf_mmap_close() is called to clean up.\nHowever, since the mutex was dropped, another thread attaching to\nthis event (via inherited events or output redirection) can acquire\nthe mutex, observe the valid event->rb pointer, and attempt to\nincrement its reference count. If the cleanup path has already\ndropped the reference count to zero, this results in a\nuse-after-free or refcount saturation warning.\n\nFix this by extending the scope of mmap_mutex to cover the\nmap_range() call. This ensures that the ring buffer initialization\nand mapping (or cleanup on failure) happens atomically effectively,\npreventing other threads from accessing a half-initialized or\ndying ring buffer.",
+      "published": "2026-03-18T11:16:16.863",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23248"
     },
     {
-      "id": "CVE-2026-1217",
-      "summary": "The Yoast Duplicate Post plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the clone_bulk_action_handler() and republish_request() functions in all versions up to, and including, 4.5. This makes it possible for authenticated attackers, with Contributor-level access and above, to duplicate any post on the site including private, draft, and trashed posts they shouldn't have access to. Additionally, attackers with Author-level access and above can use the Rewrite & Republish feature to overwrite any published post with their own content.",
-      "published": "2026-03-18T10:16:23.960",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1217"
+      "id": "CVE-2026-23247",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ntcp: secure_seq: add back ports to TS offset\n\nThis reverts 28ee1b746f49 (\"secure_seq: downgrade to per-host timestamp offsets\")\n\ntcp_tw_recycle went away in 2017.\n\nZhouyan Deng reported off-path TCP source port leakage via\nSYN cookie side-channel that can be fixed in multiple ways.\n\nOne of them is to bring back TCP ports in TS offset randomization.\n\nAs a bonus, we perform a single siphash() computation\nto provide both an ISN and a TS offset.",
+      "published": "2026-03-18T11:16:16.723",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23247"
     },
     {
-      "id": "CVE-2026-22730",
-      "summary": "A critical SQL injection vulnerability in Spring AI's MariaDBFilterExpressionConverter allows attackers to bypass metadata-based access controls and execute arbitrary SQL commands.\n\nThe vulnerability exists due to missing input sanitization.",
-      "published": "2026-03-18T08:16:31.170",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22730"
+      "id": "CVE-2026-23246",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mac80211: bounds-check link_id in ieee80211_ml_reconfiguration\n\nlink_id is taken from the ML Reconfiguration element (control & 0x000f),\nso it can be 0..15. link_removal_timeout[] has IEEE80211_MLD_MAX_NUM_LINKS\n(15) elements, so index 15 is out-of-bounds. Skip subelements with\nlink_id >= IEEE80211_MLD_MAX_NUM_LINKS to avoid a stack out-of-bounds\nwrite.",
+      "published": "2026-03-18T11:16:16.570",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23246"
     },
     {
-      "id": "CVE-2026-22729",
-      "summary": "A JSONPath injection vulnerability in Spring AI's AbstractFilterExpressionConverter allows authenticated users to bypass metadata-based access controls through crafted filter expressions. User-controlled input passed to FilterExpressionBuilder is concatenated into JSONPath queries without proper escaping, enabling attackers to inject arbitrary JSONPath logic and access unauthorized documents.\n\nThis vulnerability affects applications using vector stores that extend AbstractFilterExpressionConverter for multi-tenant isolation, role-based access control, or document filtering based on metadata.\n\nThe vulnerability occurs when user-supplied values in filter expressions are not escaped before being inserted into JSONPath queries. Special characters like\u00a0\",\u00a0||, and\u00a0&&\u00a0are passed through unescaped, allowing injection of arbitrary JSONPath logic that can alter the intended query semantics.",
-      "published": "2026-03-18T08:16:31.000",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22729"
+      "id": "CVE-2026-23245",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: act_gate: snapshot parameters with RCU on replace\n\nThe gate action can be replaced while the hrtimer callback or dump path is\nwalking the schedule list.\n\nConvert the parameters to an RCU-protected snapshot and swap updates under\ntcf_lock, freeing the previous snapshot via call_rcu(). When REPLACE omits\nthe entry list, preserve the existing schedule so the effective state is\nunchanged.",
+      "published": "2026-03-18T11:16:16.437",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23245"
     },
     {
-      "id": "CVE-2026-22323",
-      "summary": "A CSRF vulnerability in the Link Aggregation configuration interface allows an unauthenticated remote attacker to trick authenticated users into sending unauthorized POST requests to the device by luring them to a malicious webpage. This can silently alter the device\u2019s configuration without the victim\u2019s knowledge or consent. Availability impact was set to low because after a successful attack the device will automatically recover without external intervention.",
-      "published": "2026-03-18T08:16:30.513",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22323"
+      "id": "CVE-2026-23244",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnvme: fix memory allocation in nvme_pr_read_keys()\n\nnvme_pr_read_keys() takes num_keys from userspace and uses it to\ncalculate the allocation size for rse via struct_size(). The upper\nlimit is PR_KEYS_MAX (64K).\n\nA malicious or buggy userspace can pass a large num_keys value that\nresults in a 4MB allocation attempt at most, causing a warning in\nthe page allocator when the order exceeds MAX_PAGE_ORDER.\n\nTo fix this, use kvzalloc() instead of kzalloc().\n\nThis bug has the same reasoning and fix with the patch below:\nhttps://lore.kernel.org/linux-block/20251212013510.3576091-1-kartikey406@gmail.com/\n\nWarning log:\nWARNING: mm/page_alloc.c:5216 at __alloc_frozen_pages_noprof+0x5aa/0x2300 mm/page_alloc.c:5216, CPU#1: syz-executor117/272\nModules linked in:\nCPU: 1 UID: 0 PID: 272 Comm: syz-executor117 Not tainted 6.19.0 #1 PREEMPT(voluntary)\nHardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org 04/01/2014\nRIP: 0010:__alloc_frozen_pages_noprof+0x5aa/0x2300 mm/page_alloc.c:5216\nCode: ff 83 bd a8 fe ff ff 0a 0f 86 69 fb ff ff 0f b6 1d f9 f9 c4 04 80 fb 01 0f 87 3b 76 30 ff 83 e3 01 75 09 c6 05 e4 f9 c4 04 01 <0f> 0b 48 c7 85 70 fe ff ff 00 00 00 00 e9 8f fd ff ff 31 c0 e9 0d\nRSP: 0018:ffffc90000fcf450 EFLAGS: 00010246\nRAX: 0000000000000000 RBX: 0000000000000000 RCX: 1ffff920001f9ea0\nRDX: 0000000000000000 RSI: 000000000000000b RDI: 0000000000040dc0\nRBP: ffffc90000fcf648 R08: ffff88800b6c3380 R09: 0000000000000001\nR10: ffffc90000fcf840 R11: ffff88807ffad280 R12: 0000000000000000\nR13: 0000000000040dc0 R14: 0000000000000001 R15: ffffc90000fcf620\nFS:  0000555565db33c0(0000) GS:ffff8880be26c000(0000) knlGS:0000000000000000\nCS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033\nCR2: 000000002000000c CR3: 0000000003b72000 CR4: 00000000000006f0\nCall Trace:\n <TASK>\n alloc_pages_mpol+0x236/0x4d0 mm/mempolicy.c:2486\n alloc_frozen_pages_noprof+0x149/0x180 mm/mempolicy.c:2557\n ___kmalloc_large_node+0x10c/0x140 mm/slub.c:5598\n __kmalloc_large_node_noprof+0x25/0xc0 mm/slub.c:5629\n __do_kmalloc_node mm/slub.c:5645 [inline]\n __kmalloc_noprof+0x483/0x6f0 mm/slub.c:5669\n kmalloc_noprof include/linux/slab.h:961 [inline]\n kzalloc_noprof include/linux/slab.h:1094 [inline]\n nvme_pr_read_keys+0x8f/0x4c0 drivers/nvme/host/pr.c:245\n blkdev_pr_read_keys block/ioctl.c:456 [inline]\n blkdev_common_ioctl+0x1b71/0x29b0 block/ioctl.c:730\n blkdev_ioctl+0x299/0x700 block/ioctl.c:786\n vfs_ioctl fs/ioctl.c:51 [inline]\n __do_sys_ioctl fs/ioctl.c:597 [inline]\n __se_sys_ioctl fs/ioctl.c:583 [inline]\n __x64_sys_ioctl+0x1bf/0x220 fs/ioctl.c:583\n x64_sys_call+0x1280/0x21b0 mnt/fuzznvme_1/fuzznvme/linux-build/v6.19/./arch/x86/include/generated/asm/syscalls_64.h:17\n do_syscall_x64 arch/x86/entry/syscall_64.c:63 [inline]\n do_syscall_64+0x71/0x330 arch/x86/entry/syscall_64.c:94\n entry_SYSCALL_64_after_hwframe+0x76/0x7e\nRIP: 0033:0x7fb893d3108d\nCode: 28 c3 e8 46 1e 00 00 66 0f 1f 44 00 00 f3 0f 1e fa 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 b8 ff ff ff f7 d8 64 89 01 48\nRSP: 002b:00007ffff61f2f38 EFLAGS: 00000246 ORIG_RAX: 0000000000000010\nRAX: ffffffffffffffda RBX: 00007ffff61f3138 RCX: 00007fb893d3108d\nRDX: 0000000020000040 RSI: 00000000c01070ce RDI: 0000000000000003\nRBP: 0000000000000001 R08: 0000000000000000 R09: 00007ffff61f3138\nR10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000001\nR13: 00007ffff61f3128 R14: 00007fb893dae530 R15: 0000000000000001\n </TASK>",
+      "published": "2026-03-18T11:16:16.270",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23244"
     },
     {
-      "id": "CVE-2026-22322",
-      "summary": "A stored cross\u2011site scripting (XSS) vulnerability in the Link Aggregation configuration interface allows an unauthenticated remote attacker to create a trunk entry containing malicious HTML/JavaScript code. When the affected page is viewed, the injected script executes in the context of the victim\u2019s browser, enabling unauthorized actions such as interface manipulation. The session cookie is secured by the httpOnly Flag. Therefore an attacker is not able to take over the session of an authenticated user.",
-      "published": "2026-03-18T08:16:30.000",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22322"
+      "id": "CVE-2026-23243",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nRDMA/umad: Reject negative data_len in ib_umad_write\n\nib_umad_write computes data_len from user-controlled count and the\nMAD header sizes. With a mismatched user MAD header size and RMPP\nheader length, data_len can become negative and reach ib_create_send_mad().\nThis can make the padding calculation exceed the segment size and trigger\nan out-of-bounds memset in alloc_send_rmpp_list().\n\nAdd an explicit check to reject negative data_len before creating the\nsend buffer.\n\nKASAN splat:\n[  211.363464] BUG: KASAN: slab-out-of-bounds in ib_create_send_mad+0xa01/0x11b0\n[  211.364077] Write of size 220 at addr ffff88800c3fa1f8 by task spray_thread/102\n[  211.365867] ib_create_send_mad+0xa01/0x11b0\n[  211.365887] ib_umad_write+0x853/0x1c80",
+      "published": "2026-03-18T11:16:16.090",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23243"
     }
   ]
 }
