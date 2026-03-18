@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T22:48:24+00:00",
+  "generated_at": "2026-03-18T23:41:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4407",
-      "summary": "Out-of-bounds array write in Xpdf 4.06 and earlier, due to incorrect validation of the \"N\" field in ICCBased color spaces.",
-      "published": "2026-03-18T22:16:26.437",
+      "id": "CVE-2026-32805",
+      "summary": "Romeo gives the capability to reach high code coverage of Go \u22651.20 apps by helping to measure code coverage for functional and integration tests within GitHub Actions. Prior to version 0.2.2, the `sanitizeArchivePath` function in `webserver/api/v1/decoder.go` (lines 80-88) is vulnerable to a path traversal bypass due to a missing trailing path separator in the `strings.HasPrefix` check. A crafted tar archive can write files outside the intended destination directory. Version 0.2.2 fixes the issue.",
+      "published": "2026-03-18T23:17:30.213",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4407"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32805"
     },
     {
-      "id": "CVE-2026-33163",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.35 and 8.6.50, when a `Parse.Cloud.afterLiveQueryEvent` trigger is registered for a class, the LiveQuery server leaks protected fields and `authData` to all subscribers of that class. Fields configured as protected via Class-Level Permissions (`protectedFields`) are included in LiveQuery event payloads for all event types (create, update, delete, enter, leave). Any user with sufficient CLP permissions to subscribe to the affected class can receive protected field data of other users, including sensitive personal information and OAuth tokens from third-party authentication providers. The vulnerability was caused by a reference detachment bug. When an `afterEvent` trigger is registered, the LiveQuery server converts the event object to a `Parse.Object` for the trigger, then creates a new JSON copy via `toJSONwithObjects()`. The sensitive data filter was applied to the `Parse.Object` reference, but the unfiltered JSON copy was sent to clients. The fix in versions 9.6.0-alpha.35 and 8.6.50 ensures that the JSON copy is assigned back to the response object before filtering, so the filter operates on the actual data sent to clients. As a workaround, remove all `Parse.Cloud.afterLiveQueryEvent` trigger registrations. Without an `afterEvent` trigger, the reference detachment does not occur and protected fields are correctly filtered.",
-      "published": "2026-03-18T22:16:26.270",
+      "id": "CVE-2026-32737",
+      "summary": "Romeo gives the capability to reach high code coverage of Go \u22651.20 apps by helping to measure code coverage for functional and integration tests within GitHub Actions. Prior to version 0.2.1, due to a mis-written NetworkPolicy, a malicious actor can pivot from the \"hardened\" namespace to any Pod out of it. This breaks the security-by-default property expected as part of the deployment program, leading to a potential lateral movement. Removing the `inter-ns` NetworkPolicy patches the vulnerability in version 0.2.1. If updates are not possible in production environments, manually delete `inter-ns` and update as soon as possible. Given one's context, delete the failing network policy that should be prefixed by `inter-ns-` in the target namespace.",
+      "published": "2026-03-18T23:17:30.050",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33163"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32737"
     },
     {
-      "id": "CVE-2026-33042",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.29 and 8.6.49, a user can sign up without providing credentials by sending an empty `authData` object, bypassing the username and password requirement. This allows the creation of authenticated sessions without proper credentials, even when anonymous users are disabled. The fix in 9.6.0-alpha.29 and 8.6.49 ensures that empty or non-actionable `authData` is treated the same as absent `authData` for the purpose of credential validation on new user creation. Username and password are now required when no valid auth provider data is present. As a workaround, use a Cloud Code `beforeSave` trigger on the `_User` class to reject signups where `authData` is empty and no username/password is provided.",
-      "published": "2026-03-18T22:16:26.120",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33042"
+      "id": "CVE-2026-32736",
+      "summary": "The Hytale Modding Wiki is a free service for Hytale mods to host their documentation & wikis. An Insecure Direct Object Reference (IDOR) vulnerability in versions of the wiki prior to 1.0.0 exposes mod authors' personal information - including full names and email addresses - to any authenticated user who visits a mod page. Any user who creates an account can access sensitive author details by simply navigating to a mod's page via its slug. Version 1.0.0 fixes the issue.",
+      "published": "2026-03-18T23:17:29.883",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32736"
     },
     {
-      "id": "CVE-2026-32944",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.21 and 8.6.45, an unauthenticated attacker can crash the Parse Server process by sending a single request with deeply nested query condition operators. This terminates the server and denies service to all connected clients. Starting in version 9.6.0-alpha.21 and 8.6.45, a depth limit for query condition operator nesting has been added via the `requestComplexity.queryDepth` server option. The option is disabled by default to avoid a breaking change. To mitigate, upgrade and set the option to a value appropriate for your app. No known workarounds are available.",
-      "published": "2026-03-18T22:16:25.970",
+      "id": "CVE-2026-32735",
+      "summary": "openapi-to-java-records-mustache-templates allows users to generate Java Records from OpenAPI specifications. Starting in version 5.1.1 and prior to version 5.5.1, the parent POM file of this project (`openapi-to-java-records-mustache-templates-parent`), which is used to centralize plugin configurations for multiple unit-test modules, uses `maven-dependency-plugin` to unpack arbitrary `.mustache` files from the `openapi-to-java-records-mustache-templates` artifact (of the same version). While this parent POM file is not intended for external use, it is published, and could be used by anyone, and does not follow the best security practices. The risk, is that if `openapi-to-java-records-mustache-templates` would be compromised, and malicious `.mustache` files were to be included in the resulting JAR/artifact, users would unpack these files automatically during a dependency update. This is addressed in the v3.5.1 release of `openapi-to-java-records-mustache-templates-parent`. It is strongly recommended NOT to use the parent POM for external use. The `openapi-to-java-records-mustache-templates` module is the center of this project, and surrounding modules and configurations are not intended for production-use. These only exist for testing purposes and maintainability.",
+      "published": "2026-03-18T23:17:29.710",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32944"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32735"
     },
     {
-      "id": "CVE-2026-32943",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.28 and 8.6.48, the password reset mechanism does not enforce single-use guarantees for reset tokens. When a user requests a password reset, the generated token can be consumed by multiple concurrent requests within a short time window. An attacker who has intercepted a password reset token can race the legitimate user's password reset request, causing both requests to succeed. This may result in the legitimate user believing their password was changed successfully while the attacker's password takes effect instead. All Parse Server deployments that use the password reset feature are affected. Starting in versions 9.6.0-alpha.28 and 8.6.48, the password reset token is now atomically validated and consumed as part of the password update operation. The database query that updates the password includes the reset token as a condition, ensuring that only one concurrent request can successfully consume the token. Subsequent requests using the same token will fail because the token has already been cleared. There is no known workaround other than upgrading.",
-      "published": "2026-03-18T22:16:25.810",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32943"
+      "id": "CVE-2026-32731",
+      "summary": "ApostropheCMS is an open-source content management framework. Prior to version 3.5.3 of `@apostrophecms/import-export`,\nThe `extract()` function in `gzip.js` constructs file-write paths using `fs.createWriteStream(path.join(exportPath, header.name))`. `path.join()` does not resolve or sanitise traversal segments such as `../`. It concatenates them as-is, meaning a tar entry named `../../evil.js` resolves to a path outside the intended extraction directory. No canonical-path check is performed before the write stream is opened. This is a textbook Zip Slip vulnerability. Any user who has been granted the Global Content Modify permission \u2014 a role routinely assigned to content editors and site managers \u2014 can upload a crafted `.tar.gz` file through the standard CMS import UI and write attacker-controlled content to any path the Node.js process can reach on the host filesystem. Version 3.5.3 of `@apostrophecms/import-export` fixes the issue.",
+      "published": "2026-03-18T23:17:29.543",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32731"
     },
     {
-      "id": "CVE-2026-32886",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to 9.6.0-alpha.24 and 8.6.47, remote clients can crash the Parse Server process by calling a cloud function endpoint with a crafted function name that traverses the JavaScript prototype chain of a registered cloud function handler, causing a stack overflow. The fix in versions 9.6.0-alpha.24 and 8.6.47 restricts property lookups during cloud function name resolution to own properties only, preventing prototype chain traversal from stored function handlers. There is no known workaround.",
-      "published": "2026-03-18T22:16:25.663",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32886"
+      "id": "CVE-2026-32730",
+      "summary": "ApostropheCMS is an open-source content management framework. Prior to version 4.28.0, the bearer token authentication middleware in `@apostrophecms/express/index.js` (lines 386-389) contains an incorrect MongoDB query that allows incomplete login tokens \u2014 where the password was verified but TOTP/MFA requirements were NOT \u2014 to be used as fully authenticated bearer tokens. This completely bypasses multi-factor authentication for any ApostropheCMS deployment using `@apostrophecms/login-totp` or any custom `afterPasswordVerified` login requirement. Version 4.28.0 fixes the issue.",
+      "published": "2026-03-18T23:17:29.370",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32730"
     }
   ]
 }
