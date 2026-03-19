@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-19T22:47:53+00:00",
+  "generated_at": "2026-03-19T23:43:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4342",
-      "summary": "A security issue was discovered in ingress-nginx where a combination of Ingress annotations can be used to inject configuration into nginx. This can lead to arbitrary code execution in the context of the ingress-nginx controller, and disclosure of Secrets accessible to the controller. (Note that in the default installation, the controller can access all Secrets cluster-wide.)",
-      "published": "2026-03-19T22:16:43.143",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4342"
+      "id": "CVE-2026-33408",
+      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, moderators were able to see the first 40 characters of post edits in PMs and private categories. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
+      "published": "2026-03-19T23:16:44.887",
+      "cvss": 2.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33408"
     },
     {
-      "id": "CVE-2026-4159",
-      "summary": "1-byte OOB heap read in wc_PKCS7_DecodeEnvelopedData via zero-length encrypted content. A vulnerability existed in wolfSSL 5.8.4 and earlier, where a 1-byte out-of-bounds heap read in wc_PKCS7_DecodeEnvelopedData could be triggered by a crafted CMS EnvelopedData message with zero-length encrypted content. Note that PKCS7 support is disabled by default.",
-      "published": "2026-03-19T22:16:42.993",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4159"
+      "id": "CVE-2026-33395",
+      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, the discourse-graphviz plugin contains a stored cross-site scripting (XSS) vulnerability that allows authenticated users to inject malicious JavaScript code through DOT graph definitions. For instances with CSP disabled only. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. As a workaround, disable the graphviz plugin, upgrade to a patched version, or enable a content security policy.",
+      "published": "2026-03-19T23:16:44.710",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33395"
     },
     {
-      "id": "CVE-2026-33410",
-      "summary": "Discourse is an open-source discussion platform. Versions prior to 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 have two authorization issues in the chat direct message API. First, when creating a direct message channel or adding users to an existing one, the `target_groups` parameter was passed directly to the user resolution query without checking group or member visibility for the acting user. An authenticated chat user could craft an API request with a known private/hidden group name and receive a channel containing that group's members, leaking their identities. Second, `can_chat?` only checked group membership, not the `chat_enabled` user preference. A chat-disabled user could create or query DM channels between other users via the direct messages API, potentially exposing private `last_message` content from the serialized channel response. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
-      "published": "2026-03-19T22:16:42.827",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33410"
-    },
-    {
-      "id": "CVE-2026-33394",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, the Post Edits admin report (/admin/reports/post_edits) leaked the first 40 characters of raw post content from private messages and secure categories to moderators who shouldn't have access. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
-      "published": "2026-03-19T22:16:42.660",
-      "cvss": 2.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33394"
-    },
-    {
-      "id": "CVE-2026-33393",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, the `allowed_spam_host_domains` check used `String#end_with?` without domain boundary validation, allowing domains like `attacker-example.com` to bypass spam protection when `example.com` was allowlisted. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 require exact match or proper subdomain match (preceded by `.`) to prevent suffix-based bypass of `newuser_spam_host_threshold`. No known workarounds are available.",
-      "published": "2026-03-19T22:16:42.497",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33393"
-    },
-    {
-      "id": "CVE-2026-33355",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, the `/private-posts` endpoint did not apply post-type visibility filtering, allowing regular PM participants to see whisper posts in PM topics they had access to. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
-      "published": "2026-03-19T22:16:42.320",
+      "id": "CVE-2026-32818",
+      "summary": "Admidio is an open-source user management solution. In versions 5.0.0 through 5.0.6, the forum module in Admidio does not verify whether the current user has permission to delete forum topics or posts. Both the topic_delete and post_delete actions in forum.php only validate the CSRF token but perform no authorization check before calling delete(). Any authenticated user with forum access can delete any topic (with all its posts) or any individual post by providing its UUID. This is inconsistent with the save/edit operations, which properly check isAdministratorForum() and ownership before allowing modifications. Any logged-in user can permanently and irreversibly delete any forum topic (including all its posts) or any individual post by simply knowing its UUID (which is publicly visible in URLs), completely bypassing authorization checks. This issue has been fixed in version 5.0.7.",
+      "published": "2026-03-19T23:16:44.543",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33355"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32818"
+    },
+    {
+      "id": "CVE-2026-32816",
+      "summary": "Admidio is an open-source user management solution. In versions 5.0.0 through 5.0.6, the delete, activate, and deactivate modes in modules/groups-roles/groups_roles.php perform destructive state changes on organizational roles but never validate an anti-CSRF token. The client-side UI passes a CSRF token to callUrlHideElement(), which includes it in the POST body, but the server-side handlers ignore $_POST[\"adm_csrf_token\"] entirely for these three modes. An attacker who can discover a role UUID (visible in the public cards view when the module is publicly accessible) can embed a forged POST form on any external page and trick any user with the rol_assign_roles right into deleting or toggling roles for the organization. Role deletion is permanent and cascades to all memberships, event associations, and rights data. If exploited, an attacker can trick any user with delegated role-assignment rights into permanently deleting roles, mass-revoking all associated memberships and access to events, documents, and mailing lists, or silently activating or deactivating entire groups, with target role UUIDs trivially harvested from the unauthenticated public cards view and no undo path short of a database restore. This issue has been fixed in version 5.0.7.",
+      "published": "2026-03-19T23:16:44.380",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32816"
+    },
+    {
+      "id": "CVE-2026-32755",
+      "summary": "Admidio is an open-source user management solution. In versions 5.0.6 and below, the save_membership action in modules/profile/profile_function.php saves changes to a member's role membership start and end dates but does not validate the CSRF token. The handler checks stop_membership and remove_former_membership against the CSRF token but omits save_membership from that check. Because membership UUIDs appear in the HTML source visible to authenticated users, an attacker can embed a crafted POST form on any external page and trick a role leader into submitting it, silently altering membership dates for any member of roles the victim leads. A role leader's session can be silently exploited via CSRF to manipulate any member's membership dates, terminating access by backdating, covertly extending unauthorized access, or revoking role-restricted features, all without confirmation, notification, or administrative approval. This issue has been fixed in version 5.0.7.",
+      "published": "2026-03-19T23:16:44.203",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32755"
+    },
+    {
+      "id": "CVE-2026-32721",
+      "summary": "LuCI is the OpenWrt Configuration Interface. Versions prior to both 24.10.5 and 25.12.0, contain a stored XSS vulnerability in the wireless scan modal, where SSID values from scan results are rendered as raw HTML without any sanitization. The wireless.js file in the luci-mod-network package passes SSIDs via a template literal to dom.append(), which processes them through innerHTML, allowing an attacker to craft a malicious SSID containing arbitrary HTML/JavaScript. Exploitation requires the user to actively open the wireless scan modal (e.g., to connect to a Wi-Fi access point or survey nearby channels), and only affects OpenWrt versions newer than 23.05/22.03 up to the patched releases (24.10.6 and 25.12.1). The issue has been fixed in version LuCI 26.072.65753~068150b.",
+      "published": "2026-03-19T23:16:44.030",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32721"
     }
   ]
 }
