@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-19T07:13:21+00:00",
+  "generated_at": "2026-03-19T07:56:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-28073",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Tips and Tricks HQ WP eMember allows Reflected XSS.This issue affects WP eMember: from n/a through v10.2.2.",
-      "published": "2026-03-19T06:16:26.550",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28073"
+      "id": "CVE-2026-4120",
+      "summary": "The Info Cards \u2013 Add Text and Media in Card Layouts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'btnUrl' parameter within the Info Cards block in all versions up to, and including, 2.0.7. This is due to insufficient input validation on URL schemes, specifically the lack of javascript: protocol filtering. The block's render.php passes all attributes as JSON to the frontend via a data-attributes HTML attribute using esc_attr(wp_json_encode()), which prevents HTML attribute injection but does not validate URL protocols within the JSON data. The client-side view.js then renders the btnUrl value directly as an href attribute on anchor elements without any protocol sanitization. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject javascript: URLs that execute arbitrary web scripts when a user clicks the rendered button link.",
+      "published": "2026-03-19T07:16:00.290",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4120"
     },
     {
-      "id": "CVE-2026-28070",
-      "summary": "Missing Authorization vulnerability in Tips and Tricks HQ WP eMember allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP eMember: from n/a through v10.2.2.",
-      "published": "2026-03-19T06:16:26.360",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28070"
+      "id": "CVE-2026-4068",
+      "summary": "The Add Custom Fields to Media plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.0.3. This is due to missing nonce validation on the field deletion functionality in the admin display template. The plugin properly validates a nonce for the 'add field' operation (line 24-36), but the 'delete field' operation (lines 38-49) processes the $_GET['delete'] parameter and calls update_option() without any nonce verification. This makes it possible for unauthenticated attackers to delete arbitrary custom media fields via a forged request, granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-03-19T07:16:00.090",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4068"
     },
     {
-      "id": "CVE-2026-28044",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WP Media WP Rocket allows Stored XSS.This issue affects WP Rocket: from n/a through 3.19.4.",
-      "published": "2026-03-19T06:16:26.173",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28044"
+      "id": "CVE-2026-4006",
+      "summary": "The Simple Draft List plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name' post meta (Custom Field) in all versions up to and including 2.6.2. This is due to insufficient input sanitization and output escaping on the author display name when no author URL is present. The plugin accesses `$draft_data->display_name` which, because `display_name` is not a native WP_Post property, triggers WP_Post::__get() and resolves to `get_post_meta($post_id, 'display_name', true)`. When the `user_url` meta field is empty, the `$author` value is assigned to `$author_link` on line 383 without any escaping (unlike line 378 which uses `esc_html()` for the `{{author}}` tag, and line 381 which uses `esc_html()` when a URL is present). This unescaped value is then inserted into the shortcode output via `str_replace()`. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses a page containing the `[drafts]` shortcode with the `{{author+link}}` template tag.",
+      "published": "2026-03-19T07:15:59.887",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4006"
     },
     {
-      "id": "CVE-2026-27542",
-      "summary": "Incorrect Privilege Assignment vulnerability in Rymera Web Co Pty Ltd. Woocommerce Wholesale Lead Capture allows Privilege Escalation.This issue affects Woocommerce Wholesale Lead Capture: from n/a through 2.0.3.1.",
-      "published": "2026-03-19T06:16:25.983",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27542"
+      "id": "CVE-2026-2571",
+      "summary": "The Download Manager plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the 'reviewUserStatus' function in all versions up to, and including, 3.3.49. This makes it possible for authenticated attackers, with Subscriber-level access and above, to retrieve sensitive information for any user on the site including email addresses, display names, and registration dates.",
+      "published": "2026-03-19T07:15:59.697",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2571"
     },
     {
-      "id": "CVE-2026-27540",
-      "summary": "Unrestricted Upload of File with Dangerous Type vulnerability in Rymera Web Co Pty Ltd. Woocommerce Wholesale Lead Capture allows Using Malicious Files.This issue affects Woocommerce Wholesale Lead Capture: from n/a through 2.0.3.1.",
-      "published": "2026-03-19T06:16:25.787",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27540"
+      "id": "CVE-2026-27093",
+      "summary": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in Ovatheme Tripgo allows PHP Local File Inclusion.This issue affects Tripgo: from n/a before 1.5.6.",
+      "published": "2026-03-19T07:15:59.410",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27093"
     },
     {
-      "id": "CVE-2026-27413",
-      "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Cozmoslabs Profile Builder Pro allows Blind SQL Injection.This issue affects Profile Builder Pro: from n/a through 3.13.9.",
-      "published": "2026-03-19T06:16:25.600",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27413"
+      "id": "CVE-2026-27091",
+      "summary": "Missing Authorization vulnerability in UiPress UiPress lite allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects UiPress lite: from n/a through 3.5.09.",
+      "published": "2026-03-19T07:15:58.263",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27091"
     }
   ]
 }
