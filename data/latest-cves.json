@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-19T09:00:56+00:00",
+  "generated_at": "2026-03-19T10:00:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3475",
-      "summary": "The Instant Popup Builder plugin for WordPress is vulnerable to Unauthenticated Arbitrary Shortcode Execution in all versions up to and including 1.1.7. This is due to the handle_email_verification_page() function constructing a shortcode string from user-supplied GET parameters (token, email) and passing it to do_shortcode() without properly sanitizing square bracket characters, combined with missing authorization checks on the init hook. While sanitize_text_field() and esc_attr() are applied, neither function strips or escapes square bracket characters ([ and ]). WordPress's shortcode regex uses [^\\]\\/]* to match content inside shortcode tags, meaning a ] character in the token value prematurely closes the shortcode tag. This makes it possible for unauthenticated attackers to inject and execute arbitrary registered shortcodes by crafting a malicious token parameter containing ] followed by arbitrary shortcode syntax.",
-      "published": "2026-03-19T08:16:19.327",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3475"
+      "id": "CVE-2026-27070",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPEverest Everest Forms Pro allows Stored XSS.This issue affects Everest Forms Pro: from n/a through 1.9.10.",
+      "published": "2026-03-19T09:16:18.340",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27070"
     },
     {
-      "id": "CVE-2026-25471",
-      "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Themepaste Admin Safety Guard allows Password Recovery Exploitation.This issue affects Admin Safety Guard: from n/a through 1.2.6.",
-      "published": "2026-03-19T08:16:19.140",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25471"
+      "id": "CVE-2026-27068",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Ryan Howard Website LLMs.Txt allows Reflected XSS.This issue affects Website LLMs.Txt: from n/a through 8.2.6.",
+      "published": "2026-03-19T09:16:18.157",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27068"
     },
     {
-      "id": "CVE-2026-25312",
-      "summary": "Missing Authorization vulnerability in EventPrime allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects EventPrime: from n/a through 4.2.8.3.",
-      "published": "2026-03-19T08:16:18.940",
+      "id": "CVE-2026-27067",
+      "summary": "Unrestricted Upload of File with Dangerous Type vulnerability in Syarif Mobile App Editor allows Upload a Web Shell to a Web Server.This issue affects Mobile App Editor: from n/a through 1.3.1.",
+      "published": "2026-03-19T09:16:17.980",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27067"
+    },
+    {
+      "id": "CVE-2026-27065",
+      "summary": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File Inclusion') vulnerability in ThimPress BuilderPress allows PHP Local File Inclusion.This issue affects BuilderPress: from n/a through 2.0.1.",
+      "published": "2026-03-19T09:16:17.807",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27065"
+    },
+    {
+      "id": "CVE-2026-25445",
+      "summary": "Deserialization of Untrusted Data vulnerability in Membership Software WishList Member X allows Object Injection.This issue affects WishList Member X: from n/a through 3.29.0.",
+      "published": "2026-03-19T09:16:17.630",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25445"
+    },
+    {
+      "id": "CVE-2026-25443",
+      "summary": "Missing Authorization vulnerability in Dotstore Fraud Prevention For Woocommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Fraud Prevention For Woocommerce: from n/a through 2.3.3.",
+      "published": "2026-03-19T09:16:17.453",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25312"
-    },
-    {
-      "id": "CVE-2024-42210",
-      "summary": "A Stored cross-site scripting (XSS) vulnerability affects HCL Unica Marketing Operations v12.1.8 and lower. \u00a0Stored cross-site scripting (also known as second-order or persistent XSS) arises when an application receives data from an untrusted source and includes that data within its later HTTP responses in an unsafe way.",
-      "published": "2026-03-19T08:16:18.700",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-42210"
-    },
-    {
-      "id": "CVE-2026-4120",
-      "summary": "The Info Cards \u2013 Add Text and Media in Card Layouts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'btnUrl' parameter within the Info Cards block in all versions up to, and including, 2.0.7. This is due to insufficient input validation on URL schemes, specifically the lack of javascript: protocol filtering. The block's render.php passes all attributes as JSON to the frontend via a data-attributes HTML attribute using esc_attr(wp_json_encode()), which prevents HTML attribute injection but does not validate URL protocols within the JSON data. The client-side view.js then renders the btnUrl value directly as an href attribute on anchor elements without any protocol sanitization. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject javascript: URLs that execute arbitrary web scripts when a user clicks the rendered button link.",
-      "published": "2026-03-19T07:16:00.290",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4120"
-    },
-    {
-      "id": "CVE-2026-4068",
-      "summary": "The Add Custom Fields to Media plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.0.3. This is due to missing nonce validation on the field deletion functionality in the admin display template. The plugin properly validates a nonce for the 'add field' operation (line 24-36), but the 'delete field' operation (lines 38-49) processes the $_GET['delete'] parameter and calls update_option() without any nonce verification. This makes it possible for unauthenticated attackers to delete arbitrary custom media fields via a forged request, granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-03-19T07:16:00.090",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4068"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25443"
     }
   ]
 }
