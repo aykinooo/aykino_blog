@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-19T13:41:37+00:00",
+  "generated_at": "2026-03-19T15:04:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2025-71260",
+      "summary": "BMC FootPrints ITSM versions 20.20.02 through 20.24.01.001 contain a deserialization of untrusted data vulnerability in the ASP.NET servlet's VIEWSTATE handling that allows authenticated attackers to execute arbitrary code. Attackers can supply crafted serialized objects to the VIEWSTATE parameter to achieve remote code execution and fully compromise the application.\u00a0The following hotfixes remediate the vulnerability: 20.20.02, 20.20.03.002, 20.21.01.001, 20.21.02.002, 20.22.01, 20.22.01.001, 20.23.01, 20.23.01.002, and 20.24.01.",
+      "published": "2026-03-19T14:16:13.583",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71260"
+    },
+    {
+      "id": "CVE-2025-71259",
+      "summary": "BMC FootPrints ITSM versions 20.20.02 through 20.24.01.001 contain a blind server-side request forgery vulnerability in the externalfeed/RSS API component that allows authenticated attackers to trigger arbitrary outbound requests from the server. Attackers can exploit insufficient validation of externally supplied resource references to interact with internal services or cause resource exhaustion impacting availability.\u00a0The following hotfixes remediate the vulnerability: 20.20.02, 20.20.03.002, 20.21.01.001, 20.21.02.002, 20.22.01, 20.22.01.001, 20.23.01, 20.23.01.002, and 20.24.01.",
+      "published": "2026-03-19T14:16:13.380",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71259"
+    },
+    {
+      "id": "CVE-2025-71258",
+      "summary": "BMC FootPrints ITSM versions 20.20.02 through 20.24.01.001 contain a blind server-side request forgery vulnerability in the searchWeb API component that allows authenticated attackers to cause the server to initiate arbitrary outbound requests. Attackers can exploit improper URL validation to perform internal network scanning or interact with internal services, impacting system availability.\u00a0The following hotfixes remediate the vulnerability: 20.20.02, 20.20.03.002, 20.21.01.001, 20.21.02.002, 20.22.01, 20.22.01.001, 20.23.01, 20.23.01.002, and 20.24.01.",
+      "published": "2026-03-19T14:16:13.180",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71258"
+    },
+    {
+      "id": "CVE-2025-71257",
+      "summary": "BMC FootPrints ITSM versions 20.20.02 through 20.24.01.001 contain an authentication bypass vulnerability due to improper enforcement of security filters on restricted REST API endpoints and servlets. Unauthenticated remote attackers can bypass access controls to invoke restricted functionality and gain unauthorized access to application data and modify system resources.\u00a0The following hotfixes remediate the vulnerability: 20.20.02, 20.20.03.002, 20.21.01.001, 20.21.02.002, 20.22.01, 20.22.01.001, 20.23.01, 20.23.01.002, and 20.24.01.",
+      "published": "2026-03-19T14:16:12.953",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71257"
+    },
     {
       "id": "CVE-2026-3658",
       "summary": "The Appointment Booking Calendar \u2014 Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to SQL Injection via the 'fields' parameter in all versions up to, and including, 1.6.10.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database, including usernames, email addresses, and password hashes.",
@@ -15,34 +43,6 @@
       "published": "2026-03-19T12:16:18.647",
       "cvss": 8.6,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3511"
-    },
-    {
-      "id": "CVE-2006-10003",
-      "summary": "XML::Parser versions through 2.47 for Perl has an off-by-one heap buffer overflow in st_serial_stack.\n\nIn the case (stackptr == stacksize - 1), the stack will NOT be expanded. Then the new value will be written at location (++stackptr), which equals stacksize and therefore falls just outside the allocated buffer.\n\nThe bug can be observed when parsing an XML file with very deep element nesting",
-      "published": "2026-03-19T12:16:17.047",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-10003"
-    },
-    {
-      "id": "CVE-2006-10002",
-      "summary": "XML::Parser versions through 2.47 for Perl could overflow the pre-allocated buffer size cause a heap corruption (double free or corruption) and crashes.\n\nA :utf8 PerlIO layer, parse_stream() in Expat.xs could overflow the XML input buffer because Perl's read() returns decoded characters while SvPV() gives back multi-byte UTF-8 bytes that can exceed the pre-allocated buffer size. This can cause heap corruption (double free or corruption) and crashes.",
-      "published": "2026-03-19T12:16:16.120",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2006-10002"
-    },
-    {
-      "id": "CVE-2025-14716",
-      "summary": "Improper Authentication vulnerability in Secomea GateManager (webserver modules) allows Authentication Bypass.This issue affects GateManager: 11.4;0.",
-      "published": "2026-03-19T11:16:14.857",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14716"
-    },
-    {
-      "id": "CVE-2026-27070",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPEverest Everest Forms Pro allows Stored XSS.This issue affects Everest Forms Pro: from n/a through 1.9.10.",
-      "published": "2026-03-19T09:16:18.340",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27070"
     }
   ]
 }
