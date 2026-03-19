@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-19T17:13:11+00:00",
+  "generated_at": "2026-03-19T18:02:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-30403",
+      "summary": "There is an arbitrary file read vulnerability in the test connection function of backend database management in wgcloud v3.6.3 and before, which can be used to read any file on the victim's server.",
+      "published": "2026-03-19T17:16:23.950",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30403"
+    },
+    {
+      "id": "CVE-2026-26931",
+      "summary": "Memory Allocation with Excessive Size Value (CWE-789) in the Prometheus remote_write HTTP handler in Metricbeat can lead Denial of Service via Excessive Allocation (CAPEC-130).",
+      "published": "2026-03-19T17:16:23.320",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26931"
+    },
+    {
+      "id": "CVE-2026-1005",
+      "summary": "Integer underflow in wolfSSL packet sniffer <= 5.8.4 allows an attacker to cause a buffer overflow in the AEAD decryption path by injecting a TLS record shorter than the explicit IV plus authentication tag into traffic inspected by ssl_DecodePacket. The underflow wraps a 16-bit length to a large value that is passed to AEAD decryption routines, causing heap buffer overflow and a crash. An unauthenticated attacker can trigger this remotely via malformed TLS Application Data records.",
+      "published": "2026-03-19T17:16:21.873",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1005"
+    },
+    {
+      "id": "CVE-2026-0819",
+      "summary": "A stack buffer overflow vulnerability exists in wolfSSL's PKCS7 SignedData encoding functionality. In wc_PKCS7_BuildSignedAttributes(), when adding custom signed attributes, the code passes an incorrect capacity value (esd->signedAttribsCount) to EncodeAttributes() instead of the remaining available space in the fixed-size signedAttribs[7] array. When an application sets pkcs7->signedAttribsSz to a value greater than MAX_SIGNED_ATTRIBS_SZ (default 7) minus the number of default attributes already added, EncodeAttributes() writes beyond the array bounds, causing stack memory corruption. In WOLFSSL_SMALL_STACK builds, this becomes heap corruption. Exploitation requires an application that allows untrusted input to control the signedAttribs array size when calling wc_PKCS7_EncodeSignedData() or related signing functions.",
+      "published": "2026-03-19T17:16:21.657",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0819"
+    },
     {
       "id": "CVE-2026-3029",
       "summary": "A path traversal and arbitrary file write vulnerability exist in the embedded get function in '_main_.py' in PyMuPDF version, 1.26.5.",
@@ -15,34 +43,6 @@
       "published": "2026-03-19T16:16:04.013",
       "cvss": 5.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32869"
-    },
-    {
-      "id": "CVE-2026-32868",
-      "summary": "OPEXUS eComplaint and eCASE before 10.2.0.0 do not correctly sanitize the contents of first and last name fields in the 'My Information' screen. An authenticated attacker can inject parts of an XSS payload in the first and last name fields. The payload is executed when the full name is rendered. The attacker can run script in the context of a victim's session.",
-      "published": "2026-03-19T16:16:03.833",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32868"
-    },
-    {
-      "id": "CVE-2026-32867",
-      "summary": "OPEXUS eComplaint before version 10.1.0.0 allows an unauthenticated attacker to obtain or guess an existing case number and upload arbitrary files via 'Portal/EEOC/DocumentUploadPub.aspx'. Users would see these unexpected files in cases. Uploading a large number of files could consume storage.",
-      "published": "2026-03-19T16:16:03.640",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32867"
-    },
-    {
-      "id": "CVE-2026-32866",
-      "summary": "OPEXUS eComplaint and eCASE before 10.2.0.0 do not correctly sanitize the contents of first and last name fields in a user profile. An authenticated attacker can inject parts of an XSS payload in their first and last name fields. The payload is executed when the user's full name is rendered. The attacker can run script in the context of a victim's session.",
-      "published": "2026-03-19T16:16:03.460",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32866"
-    },
-    {
-      "id": "CVE-2026-32865",
-      "summary": "OPEXUS eComplaint and eCASE before version 10.1.0.0 include the secret verification code in the HTTP response when requesting a password reset via 'ForcePasswordReset.aspx'. An attacker who knows an existing user's email address can reset the user's password and security questions. Existing security questions are not asked during the process.",
-      "published": "2026-03-19T16:16:03.260",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32865"
     }
   ]
 }
