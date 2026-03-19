@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-19T19:52:29+00:00",
+  "generated_at": "2026-03-19T20:55:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3503",
-      "summary": "Protection mechanism failure in wolfCrypt post-quantum implementations (ML-KEM and ML-DSA) in wolfSSL on ARM Cortex-M microcontrollers allows a physical attacker to compromise key material and/or cryptographic outcomes via induced transient faults that corrupt or redirect seed/pointer values during Keccak-based expansion.\n\n\n\n\nThis issue affects wolfSSL (wolfCrypt): commit hash d86575c766e6e67ef93545fa69c04d6eb49400c6.",
-      "published": "2026-03-19T19:16:20.570",
+      "id": "CVE-2026-3580",
+      "summary": "In wolfSSL 5.8.4, constant-time masking logic in sp_256_get_entry_256_9 is optimized into conditional branches (bnez) by GCC when targeting RISC-V RV32I with -O3. This transformation breaks the side-channel resistance of ECC scalar multiplication, potentially allowing a local attacker to recover secret keys via timing analysis.",
+      "published": "2026-03-19T20:16:14.450",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3503"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3580"
     },
     {
-      "id": "CVE-2026-25667",
-      "summary": "ASP.NET Core Kestrel in Microsoft .NET 8.0 before 8.0.22 and .NET 9.0 before 9.0.11 allows a remote attacker to cause excessive CPU consumption by sending a crafted QUIC packet, because of an incorrect exit condition for HTTP/3 Encoder/Decoder stream processing.",
-      "published": "2026-03-19T19:16:19.880",
+      "id": "CVE-2026-3579",
+      "summary": "wolfSSL 5.8.4 on RISC-V RV32I architectures lacks a constant-time software implementation for 64-bit multiplication. The compiler-inserted __muldi3 subroutine executes in variable time based on operand values. This affects multiple SP math functions (sp_256_mul_9, sp_256_sqr_9, etc.), leading to a timing side-channel that may expose sensitive cryptographic data.",
+      "published": "2026-03-19T20:16:14.300",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25667"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3579"
     },
     {
-      "id": "CVE-2026-3548",
-      "summary": "Two buffer overflow vulnerabilities existed in the wolfSSL CRL parser when parsing CRL numbers: a heap-based buffer overflow could occur when improperly storing the CRL number as a hexadecimal string, and a stack-based overflow for sufficiently sized CRL numbers. With appropriately crafted CRLs, either of these out of bound writes could be triggered. Note this only affects builds that specifically enable CRL support, and the user would need to load a CRL from an untrusted source.",
-      "published": "2026-03-19T18:16:22.953",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3548"
+      "id": "CVE-2026-32238",
+      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. Versions prior to 8.0.0.2 contain a Command injection vulnerability in the backup functionality that can be exploited by authenticated attackers. The vulnerability exists due to insufficient input validation in the backup functionality. Version 8.0.0.2 fixes the issue.",
+      "published": "2026-03-19T20:16:14.057",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32238"
     },
     {
-      "id": "CVE-2026-30694",
-      "summary": "An issue in DedeCMS v.5.7.118 and before allows a remote attacker to execute arbitrary code via the array_filter component",
-      "published": "2026-03-19T18:16:22.400",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30694"
+      "id": "CVE-2026-32119",
+      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to 8.0.0.2, DOM-based stored XSS in the jQuery SearchHighlight plugin (`library/js/SearchHighlight.js`) allows an authenticated user with encounter form write access to inject arbitrary JavaScript that executes in another clinician's browser session when they use the search/find feature on the Custom Report page. The plugin reverses server-side HTML entity encoding by reading decoded text from DOM text nodes, concatenating it into a raw HTML string, and passing it to jQuery's `$()` constructor for HTML parsing. Version 8.0.0.2 fixes the issue.",
+      "published": "2026-03-19T20:16:13.900",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32119"
     },
     {
-      "id": "CVE-2026-2646",
-      "summary": "A heap-buffer-overflow vulnerability exists in wolfSSL's wolfSSL_d2i_SSL_SESSION() function. When deserializing session data with SESSION_CERTS enabled, certificate and session id lengths are read from an untrusted input without bounds validation, allowing an attacker to overflow fixed-size buffers and corrupt heap memory. A maliciously crafted session would need to be loaded from an external source to trigger this vulnerability. Internal sessions were not vulnerable.",
-      "published": "2026-03-19T18:16:22.223",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2646"
+      "id": "CVE-2026-25928",
+      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to 8.0.0.2, the DICOM zip/export feature uses a user-supplied destination or path component when creating the zip file, without sanitizing path traversal sequences (e.g. `../`). An attacker with DICOM upload/export permission can write files outside the intended directory, potentially under the web root, leading to arbitrary file write and possibly remote code execution if PHP or other executable files can be written. Version 8.0.0.2 fixes the issue.",
+      "published": "2026-03-19T20:16:13.720",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25928"
     },
     {
-      "id": "CVE-2026-2645",
-      "summary": "In wolfSSL 5.8.2 and earlier, a logic flaw existed in the TLS 1.2 server state machine implementation. The server could incorrectly accept the CertificateVerify message before the ClientKeyExchange message had been received. This issue affects wolfSSL before 5.8.4 (wolfSSL 5.8.2 and earlier is vulnerable, 5.8.4 is not vulnerable). In 5.8.4 wolfSSL would detect the issue later in the handshake. 5.9.0 was further hardened to catch the issue earlier in the handshake.",
-      "published": "2026-03-19T18:16:22.043",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2645"
+      "id": "CVE-2026-25744",
+      "summary": "OpenEMR is a free and open source electronic health records and medical practice management application. Prior to 8.0.0.2, the encounter vitals API accepts an `id` in the request body and treats it as an UPDATE. There is no verification that the vital belongs to the current patient or encounter. An authenticated user with encounters/notes permission can overwrite any patient's vitals by supplying another patient's vital `id`, leading to medical record tampering. Version 8.0.0.2 fixes the issue.",
+      "published": "2026-03-19T20:16:13.480",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25744"
     }
   ]
 }
