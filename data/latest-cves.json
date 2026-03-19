@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-18T23:41:26+00:00",
+  "generated_at": "2026-03-19T03:19:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32805",
-      "summary": "Romeo gives the capability to reach high code coverage of Go \u22651.20 apps by helping to measure code coverage for functional and integration tests within GitHub Actions. Prior to version 0.2.2, the `sanitizeArchivePath` function in `webserver/api/v1/decoder.go` (lines 80-88) is vulnerable to a path traversal bypass due to a missing trailing path separator in the `strings.HasPrefix` check. A crafted tar archive can write files outside the intended destination directory. Version 0.2.2 fixes the issue.",
-      "published": "2026-03-18T23:17:30.213",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32805"
+      "id": "CVE-2026-1276",
+      "summary": "IBM QRadar SIEM 7.5.0 through 7.5.0 Update Package 14 is vulnerable to cross-site scripting. This vulnerability allows an authenticated user to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "published": "2026-03-19T03:16:01.657",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1276"
     },
     {
-      "id": "CVE-2026-32737",
-      "summary": "Romeo gives the capability to reach high code coverage of Go \u22651.20 apps by helping to measure code coverage for functional and integration tests within GitHub Actions. Prior to version 0.2.1, due to a mis-written NetworkPolicy, a malicious actor can pivot from the \"hardened\" namespace to any Pod out of it. This breaks the security-by-default property expected as part of the deployment program, leading to a potential lateral movement. Removing the `inter-ns` NetworkPolicy patches the vulnerability in version 0.2.1. If updates are not possible in production environments, manually delete `inter-ns` and update as soon as possible. Given one's context, delete the failing network policy that should be prefixed by `inter-ns-` in the target namespace.",
-      "published": "2026-03-18T23:17:30.050",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32737"
+      "id": "CVE-2025-36051",
+      "summary": "IBM QRadar SIEM 7.5.0 through 7.5.0 Update Package 14 stores potentially sensitive information in configuration files that could be read by a local user.",
+      "published": "2026-03-19T03:16:01.460",
+      "cvss": 6.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36051"
     },
     {
-      "id": "CVE-2026-32736",
-      "summary": "The Hytale Modding Wiki is a free service for Hytale mods to host their documentation & wikis. An Insecure Direct Object Reference (IDOR) vulnerability in versions of the wiki prior to 1.0.0 exposes mod authors' personal information - including full names and email addresses - to any authenticated user who visits a mod page. Any user who creates an account can access sensitive author details by simply navigating to a mod's page via its slug. Version 1.0.0 fixes the issue.",
-      "published": "2026-03-18T23:17:29.883",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32736"
+      "id": "CVE-2025-15051",
+      "summary": "IBM QRadar SIEM\u00a07.5.0 through 7.5.0 Update Package 14 is vulnerable to cross-site scripting. This vulnerability allows users to embed arbitrary JavaScript code in the Web UI thus altering the intended functionality.",
+      "published": "2026-03-19T03:16:01.270",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15051"
     },
     {
-      "id": "CVE-2026-32735",
-      "summary": "openapi-to-java-records-mustache-templates allows users to generate Java Records from OpenAPI specifications. Starting in version 5.1.1 and prior to version 5.5.1, the parent POM file of this project (`openapi-to-java-records-mustache-templates-parent`), which is used to centralize plugin configurations for multiple unit-test modules, uses `maven-dependency-plugin` to unpack arbitrary `.mustache` files from the `openapi-to-java-records-mustache-templates` artifact (of the same version). While this parent POM file is not intended for external use, it is published, and could be used by anyone, and does not follow the best security practices. The risk, is that if `openapi-to-java-records-mustache-templates` would be compromised, and malicious `.mustache` files were to be included in the resulting JAR/artifact, users would unpack these files automatically during a dependency update. This is addressed in the v3.5.1 release of `openapi-to-java-records-mustache-templates-parent`. It is strongly recommended NOT to use the parent POM for external use. The `openapi-to-java-records-mustache-templates` module is the center of this project, and surrounding modules and configurations are not intended for production-use. These only exist for testing purposes and maintainability.",
-      "published": "2026-03-18T23:17:29.710",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32735"
+      "id": "CVE-2025-13995",
+      "summary": "IBM QRadar SIEM\u00a07.5.0 through 7.5.0 Update Package 14 could allow an attacker with access to one tenant to access hostname data from another tenant's account.",
+      "published": "2026-03-19T03:16:01.053",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13995"
     },
     {
-      "id": "CVE-2026-32731",
-      "summary": "ApostropheCMS is an open-source content management framework. Prior to version 3.5.3 of `@apostrophecms/import-export`,\nThe `extract()` function in `gzip.js` constructs file-write paths using `fs.createWriteStream(path.join(exportPath, header.name))`. `path.join()` does not resolve or sanitise traversal segments such as `../`. It concatenates them as-is, meaning a tar entry named `../../evil.js` resolves to a path outside the intended extraction directory. No canonical-path check is performed before the write stream is opened. This is a textbook Zip Slip vulnerability. Any user who has been granted the Global Content Modify permission \u2014 a role routinely assigned to content editors and site managers \u2014 can upload a crafted `.tar.gz` file through the standard CMS import UI and write attacker-controlled content to any path the Node.js process can reach on the host filesystem. Version 3.5.3 of `@apostrophecms/import-export` fixes the issue.",
-      "published": "2026-03-18T23:17:29.543",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32731"
+      "id": "CVE-2026-32000",
+      "summary": "OpenClaw versions prior to 2026.2.19 contain a command injection vulnerability in the Lobster extension tool execution that uses Windows shell fallback with shell: true after spawn failures. Attackers can inject shell metacharacters in command arguments to execute arbitrary commands when subprocess launch fails with EINVAL or ENOENT errors.",
+      "published": "2026-03-19T02:16:05.793",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32000"
     },
     {
-      "id": "CVE-2026-32730",
-      "summary": "ApostropheCMS is an open-source content management framework. Prior to version 4.28.0, the bearer token authentication middleware in `@apostrophecms/express/index.js` (lines 386-389) contains an incorrect MongoDB query that allows incomplete login tokens \u2014 where the password was verified but TOTP/MFA requirements were NOT \u2014 to be used as fully authenticated bearer tokens. This completely bypasses multi-factor authentication for any ApostropheCMS deployment using `@apostrophecms/login-totp` or any custom `afterPasswordVerified` login requirement. Version 4.28.0 fixes the issue.",
-      "published": "2026-03-18T23:17:29.370",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32730"
+      "id": "CVE-2026-31999",
+      "summary": "OpenClaw versions 2026.2.26 prior to 2026.3.1 on Windows contain a current working directory injection vulnerability in wrapper resolution for .cmd/.bat files that allows attackers to influence execution behavior through cwd manipulation. Remote attackers can exploit improper shell execution fallback mechanisms to achieve command execution integrity loss by controlling the current working directory during wrapper resolution.",
+      "published": "2026-03-19T02:16:05.580",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31999"
     }
   ]
 }
