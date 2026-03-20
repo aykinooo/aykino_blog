@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-03-20T11:45:14+00:00",
+  "generated_at": "2026-03-20T13:33:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4434",
+      "summary": "Improper certificate validation in the PAM propagation WinRM connections\n allows a network attacker to perform a man-in-the-middle attack via \ndisabled TLS certificate verification.",
+      "published": "2026-03-20T13:16:13.043",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4434"
+    },
     {
       "id": "CVE-2026-33136",
       "summary": "WeGIA is a web manager for charitable institutions. Versions 3.6.6 and below have a Reflected Cross-Site Scripting (XSS) vulnerability in the listar_memorandos_ativos.php endpoint. An attacker can inject arbitrary JavaScript or HTML tags into the sccd GET parameter, which is then directly echoed into the HTML response without any sanitization or encoding. The script /html/memorando/listar_memorandos_ativos.php handles dynamic success messages to users using query string parameters. Similar to other endpoints in the Memorando module, it checks if $_GET['msg'] equals 'success'. If this condition is met, it directly concatenates and reflects $_GET['sccd'] into an HTML alert <div>. This issue is resolved in version 3.6.7.",
@@ -36,13 +43,6 @@
       "published": "2026-03-20T11:18:02.857",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33132"
-    },
-    {
-      "id": "CVE-2026-33131",
-      "summary": "H3 is a minimal H(TTP) framework. Versions 2.0.0-0 through 2.0.1-rc.14 contain a Host header spoofing vulnerability in the NodeRequestUrl (which extends FastURL) which allows middleware bypass. When event.url, event.url.hostname, or event.url._url is accessed, such as in a logging middleware, the _url getter constructs a URL from untrusted data, including the user-controlled Host header. Because H3's router resolves the route handler before middleware runs, an attacker can supply a crafted Host header (e.g., Host: localhost:3000/abchehe?) to make the middleware path check fail while the route handler still matches, effectively bypassing authentication or authorization middleware. This affects any application built on H3 (including Nitro/Nuxt) that accesses event.url properties in middleware guarding sensitive routes. The issue requires an immediate fix to prevent FastURL.href from being constructed with unsanitized, attacker-controlled input. Version 2.0.1-rc.15 contains a patch for this issue.",
-      "published": "2026-03-20T11:18:02.700",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33131"
     }
   ]
 }
