@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-20T07:54:49+00:00",
+  "generated_at": "2026-03-20T08:58:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4478",
-      "summary": "A vulnerability was identified in Yi Technology YI Home Camera 2 2.1.1_20171024151200. This impacts an unknown function of the file home/web/ipc of the component HTTP Firmware Update Handler. The manipulation leads to improper verification of cryptographic signature. The attack is possible to be carried out remotely. The complexity of an attack is rather high. The exploitability is said to be difficult. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-20T07:16:14.713",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4478"
-    },
-    {
-      "id": "CVE-2026-4477",
-      "summary": "A vulnerability was determined in Yi Technology YI Home Camera 2 2.1.1_20171024151200. This affects an unknown function of the component WPA/WPS. Executing a manipulation can lead to use of hard-coded cryptographic key\r . The attack can only be done within the local network. This attack is characterized by high complexity. The exploitability is reported as difficult. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-20T07:16:14.497",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4477"
-    },
-    {
-      "id": "CVE-2026-4476",
-      "summary": "A vulnerability was found in Yi Technology YI Home Camera 2 2.1.1_20171024151200. The impacted element is an unknown function of the file home/web/ipc of the component CGI Endpoint. Performing a manipulation results in missing authentication. Access to the local network is required for this attack. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-20T07:16:14.260",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4476"
-    },
-    {
-      "id": "CVE-2026-4475",
-      "summary": "A vulnerability has been found in Yi Technology YI Home Camera 2 2.1.1_20171024151200. The affected element is an unknown function of the file home/web/ipc. Such manipulation leads to hard-coded credentials. Access to the local network is required for this attack to succeed. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-20T07:16:14.043",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4475"
-    },
-    {
-      "id": "CVE-2026-4474",
-      "summary": "A flaw has been found in itsourcecode University Management System 1.0. Impacted is an unknown function of the file /admin_single_student_update.php. This manipulation of the argument st_name causes cross site scripting. The attack may be initiated remotely. The exploit has been published and may be used.",
-      "published": "2026-03-20T07:16:13.833",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4474"
-    },
-    {
-      "id": "CVE-2026-33055",
-      "summary": "tar-rs is a tar archive reading/writing library for Rust. Versions 0.4.44 and below have conditional logic that skips the PAX size header in cases where the base header size is nonzero. As part of CVE-2025-62518, the astral-tokio-tar project was changed to correctly honor PAX size headers in the case where it was different from the base header. This is almost the inverse of the astral-tokio-tar issue. Any discrepancy in how tar parsers honor file size can be used to create archives that appear differently when unpacked by different archivers. In this case, the tar-rs (Rust tar) crate is an outlier in checking for the header size - other tar parsers (including e.g. Go archive/tar) unconditionally use the PAX size override. This can affect anything that uses the tar crate to parse archives and expects to have a consistent view with other parsers. This issue has been fixed in version 0.4.45.",
-      "published": "2026-03-20T07:16:13.543",
+      "id": "CVE-2026-33191",
+      "summary": "Free5GC is an open-source Linux Foundation project for 5th generation (5G) mobile core networks. Versions prior to 1.4.2\nare vulnerable to null byte injection in URL path parameters. A remote attacker can inject null bytes (URL-encoded as %00) into the supi path parameter of the UDM's Nudm_SubscriberDataManagement API. This causes URL parsing failure in Go's net/url package with the error \"invalid control character in URL\", resulting in a 500 Internal Server Error. This null byte injection vulnerability can be exploited for denial of service attacks. When the supi parameter contains null characters, the UDM attempts to construct a URL for UDR that includes these control characters. Go's URL parser rejects them, causing the request to fail with 500 instead of properly validating input and returning 400 Bad Request. This issue has been fixed in version 1.4.2.",
+      "published": "2026-03-20T08:16:12.597",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33055"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33191"
+    },
+    {
+      "id": "CVE-2026-33065",
+      "summary": "Free5GC is an open-source Linux Foundation project for 5th generation (5G) mobile core networks. In versions prior to 1.4.2, the UDM incorrectly converts a downstream 400 Bad Request (from UDR) into a 500 Internal Server Error when handling DELETE requests with an empty supi path parameter. This leaks internal error handling behavior and makes it difficult for clients to distinguish between client-side errors and server-side failures. When a client sends a DELETE request with an empty supi (e.g., double slashes // in URL path), the UDM forwards the malformed request to UDR, which correctly returns 400. However, UDM propagates this as 500 SYSTEM_FAILURE instead of returning the appropriate 400 error to the client. This violates REST API best practices for DELETE operations. The issue has been patched in version 1.4.2.",
+      "published": "2026-03-20T08:16:12.430",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33065"
+    },
+    {
+      "id": "CVE-2026-33064",
+      "summary": "Free5GC is an open-source Linux Foundation project for 5th generation (5G) mobile core networks. Versions prior to 1.4.2 are vulnerable to procedure panic caused by Nil Pointer Dereference in the /sdm-subscriptions endpoint. A remote attacker can cause the UDM service to panic and crash by sending a crafted POST request to the /sdm-subscriptions endpoint with a malformed URL path containing path traversal sequences (../) and a large JSON payload. The DataChangeNotificationProcedure function in notifier.go attempts to access a nil pointer without proper validation, causing a complete service crash with \"runtime error: invalid memory address or nil pointer dereference\". Exploitation would result in UDM functionality disruption until recovery by restart. This issue has been fixed in version 1.4.2.",
+      "published": "2026-03-20T08:16:12.257",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33064"
+    },
+    {
+      "id": "CVE-2026-33061",
+      "summary": "exactyl is a customisable game management panel and billing system. Commits after 025e8dbb0daaa04054276bda814d922cf4af58da and before e28edb204e80efab628d1241198ea4f079779cfd inject server-side objects into client-side JavaScript through resources/views/templates/wrapper.blade.php. Using unescaped {!! json_encode(...) !!} without safe encoding flags  allows string values to break out of the JavaScript context and be interpreted as HTML/JS by the browser. If any serialized fields contain attacker-controlled content, such as a username, display name, or site config value, a malicious payload will execute arbitrary script for any user viewing the page (stored DOM XSS). This issue has been patched by commit  e28edb204e80efab628d1241198ea4f079779cfd.",
+      "published": "2026-03-20T08:16:12.090",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33061"
+    },
+    {
+      "id": "CVE-2026-33060",
+      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Versions prior to 0.4.85 provide tools including ckan_package_search and sparql_query that accept a base_url parameter, making HTTP requests to arbitrary endpoints without restriction. A CKAN portal client has no legitimate reason to contact cloud metadata or internal network services. There is no URL validation on base_url parameter. No private IP blocking (RFC 1918, link-local 169.254.x.x), no cloud metadata blocking. The sparql_query and ckan_datastore_search_sql tools also accept arbitrary base URLs and expose injection surfaces. An attack can lead to internal network scanning, cloud metadata theft (IAM credentials via IMDS at 169.254.169.254), potential SQL/SPARQL injection via unsanitized query parameters. Attack requires prompt injection to control the base_url parameter. This issue has been fixed in version 0.4.85.",
+      "published": "2026-03-20T08:16:11.923",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33060"
+    },
+    {
+      "id": "CVE-2026-33057",
+      "summary": "Mesop is a Python-based UI framework that allows users to build web applications. In versions 1.2.2 and below, an explicit web endpoint inside the ai/ testing module infrastructure directly ingests untrusted Python code strings unconditionally without authentication measures, yielding standard Unrestricted Remote Code Execution. Any individual capable of routing HTTP logic to this server block will gain explicit host-machine command rights. The AI codebase package includes a lightweight debugging Flask server inside ai/sandbox/wsgi_app.py. The /exec-py route accepts base_64 encoded raw string payloads inside the code parameter natively evaluated by a basic POST web request. It saves it rapidly to the operating system logic path and injects it recursively using execute_module(module_path...). This issue has been fixed in version 1.2.3.",
+      "published": "2026-03-20T08:16:11.763",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33057"
     }
   ]
 }
