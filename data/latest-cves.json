@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-20T06:06:18+00:00",
+  "generated_at": "2026-03-20T07:12:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4472",
-      "summary": "A security vulnerability has been detected in itsourcecode Online Frozen Foods Ordering System 1.0. This vulnerability affects unknown code of the file /admin/admin_edit_supplier.php. The manipulation of the argument Supplier_Name leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-03-20T05:16:17.067",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4472"
-    },
-    {
-      "id": "CVE-2026-4471",
-      "summary": "A weakness has been identified in itsourcecode Online Frozen Foods Ordering System 1.0. This affects an unknown part of the file /admin/admin_edit_employee.php. Executing a manipulation of the argument First_Name can lead to sql injection. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks.",
-      "published": "2026-03-20T05:16:16.857",
+      "id": "CVE-2026-4473",
+      "summary": "A vulnerability was detected in itsourcecode Online Doctor Appointment System 1.0. This issue affects some unknown processing of the file /admin/appointment_action.php. The manipulation of the argument appointment_id results in sql injection. The attack can be launched remotely. The exploit is now public and may be used.",
+      "published": "2026-03-20T06:16:12.997",
       "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4471"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4473"
     },
     {
-      "id": "CVE-2026-4470",
-      "summary": "A security flaw has been discovered in itsourcecode Online Frozen Foods Ordering System 1.0. Affected by this issue is some unknown functionality of the file /admin/admin_edit_menu.php. Performing a manipulation of the argument product_name results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-03-20T05:16:16.647",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4470"
-    },
-    {
-      "id": "CVE-2026-4469",
-      "summary": "A vulnerability was identified in itsourcecode Online Frozen Foods Ordering System 1.0. Affected by this vulnerability is an unknown functionality of the file /admin/admin_edit_menu_action.php. Such manipulation of the argument product_name leads to sql injection. The attack may be performed from remote. The exploit is publicly available and might be used.",
-      "published": "2026-03-20T05:16:16.420",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4469"
-    },
-    {
-      "id": "CVE-2026-33035",
-      "summary": "WWBN AVideo is an open source video platform. In versions 25.0 and below, there is a reflected XSS vulnerability that allows unauthenticated attackers to execute arbitrary JavaScript in a victim's browser. User input from a URL parameter flows through PHP's json_encode() into a JavaScript function that renders it via innerHTML, bypassing encoding and achieving full script execution. The vulnerability is caused by two issues working together: unescaped user input passed to JavaScript (videoNotFound.php), and innerHTML rendering HTML tags as executable DOM (script.js).  The attack can be escalated to steal session cookies, take over accounts, phish credentials via injected login forms, spread self-propagating payloads, and compromise admin accounts \u2014 all by exploiting the lack of proper input sanitization and cookie security (e.g., missing HttpOnly flag on PHPSESSID). The issue has been fixed in version 26.0.",
-      "published": "2026-03-20T05:16:16.103",
+      "id": "CVE-2026-33051",
+      "summary": "Craft CMS is a content management system (CMS). In versions 5.9.0-beta.1 through 5.9.10, the revision/draft context menu in the element editor renders the creator\u2019s fullName as raw HTML due to the use of Template::raw() combined with Craft::t() string interpolation. A low-privileged control panel user (e.g., Author) can set their fullName to an XSS payload via the profile editor, then create an entry with two saves. If an administrator is logged in and executes a specifically crafted payload while an elevated session is active, the attacker\u2019s account can be elevated to administrator. This issue has been fixed in version 5.9.11.",
+      "published": "2026-03-20T06:16:12.830",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33035"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33051"
     },
     {
-      "id": "CVE-2026-33025",
-      "summary": "AVideo is a video-sharing Platform. Versions prior to 8.0 contain a SQL Injection vulnerability in the getSqlFromPost() method of Object.php. The $_POST['sort'] array keys are used directly as SQL column identifiers inside an ORDER BY clause. Although real_escape_string() was applied, it only escapes string-context characters (quotes, null bytes) and provides no protection for SQL identifiers \u2014 making it entirely ineffective here. This issue has been fixed in version 8.0. To workaround this issue without upgrading, operators can apply a WAF rule to block POST requests where any sort[*] key contains characters outside [A-Za-z0-9_]. Alternatively, restrict access to the queue view (queue.json.php, index.php) to trusted IP ranges only.",
-      "published": "2026-03-20T05:16:15.877",
+      "id": "CVE-2026-33043",
+      "summary": "WWBN AVideo is an open source video platform. In versions 25.0 and below, /objects/phpsessionid.json.php exposes the current PHP session ID to any unauthenticated request. The allowOrigin() function reflects any Origin header back in Access-Control-Allow-Origin with Access-Control-Allow-Credentials: true, enabling cross-origin session theft and full account takeover. This issue has been fixed in version 26.0.",
+      "published": "2026-03-20T06:16:12.670",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33043"
+    },
+    {
+      "id": "CVE-2026-33041",
+      "summary": "WWBN AVideo is an open source video platform. In versions 25.0 and below, /objects/encryptPass.json.php exposes the application's password hashing algorithm to any unauthenticated user. An attacker can submit arbitrary passwords and receive their hashed equivalents, enabling offline password cracking against leaked database hashes. If an attacker obtains password hashes from the database (via SQL injection, backup exposure, etc.), they can instantly crack them by comparing against pre-computed hashes from this endpoint. This endpoint eliminates the need for an attacker to reverse-engineer the hashing algorithm. Combined with the weak hash chain (md5+whirlpool+sha1, no salt by default), an attacker with access to database hashes can crack passwords extremely quickly. This issue was fixed in version 26.0.",
+      "published": "2026-03-20T06:16:12.503",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33041"
+    },
+    {
+      "id": "CVE-2026-33040",
+      "summary": "libp2p-rust is the official rust language Implementation of the libp2p networking stack. In versions prior to 0.49.3, the Gossipsub implementation accepts attacker-controlled PRUNE backoff values and may perform unchecked time arithmetic when storing backoff state. A specially crafted PRUNE control message with an extremely large backoff (e.g. u64::MAX) can lead to Duration/Instant overflow during backoff update logic, triggering a panic in the networking state machine. This is remotely reachable over a normal libp2p connection and does not require authentication. Any application exposing a libp2p Gossipsub listener and using the affected backoff-handling path can be crashed by a network attacker that can reach the service port. The attack can be repeated by reconnecting and replaying the crafted control message. This issue has been fixed in version 0.49.3.",
+      "published": "2026-03-20T06:16:12.330",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33025"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33040"
+    },
+    {
+      "id": "CVE-2026-33039",
+      "summary": "WWBN AVideo is an open source video platform. In versions 25.0 and below, the plugin/LiveLinks/proxy.php endpoint validates user-supplied URLs against internal/private networks using isSSRFSafeURL(), but only checks the initial URL. When the initial URL responds with an HTTP redirect (Location header), the redirect target is fetched via fakeBrowser() without re-validation, allowing an attacker to reach internal services (cloud metadata, RFC1918 addresses) through an attacker-controlled redirect. This issue is fixed in version 26.0.",
+      "published": "2026-03-20T06:16:12.150",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33039"
     }
   ]
 }
