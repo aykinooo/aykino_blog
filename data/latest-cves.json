@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-20T09:57:29+00:00",
+  "generated_at": "2026-03-20T10:56:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3550",
-      "summary": "The RockPress plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 1.0.17. This is due to missing capability checks on multiple AJAX actions (rockpress_import, rockpress_import_status, rockpress_last_import, rockpress_reset_import, and rockpress_check_services) combined with the plugin's nonce being exposed to all authenticated users via an unconditionally enqueued admin script. The plugin enqueues the 'rockpress-admin' script on all admin pages (including profile.php) without any page or capability restrictions, and the nonce for the 'rockpress-nonce' action is passed to this script via wp_localize_script. Since the AJAX handlers only verify this nonce and do not check current_user_can(), any authenticated user, including Subscribers, can extract the nonce from any admin page's HTML source and use it to trigger imports, reset import data (deleting options), check service connectivity, and read import status information. This makes it possible for authenticated attackers, with Subscriber-level access and above, to trigger resource-intensive import operations, reset import tracking data, and perform system connection checks that should be restricted to administrators.",
-      "published": "2026-03-20T09:16:16.390",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3550"
+      "id": "CVE-2026-33130",
+      "summary": "Uptime Kuma is an open source, self-hosted monitoring tool. In versions 1.23.0 through 2.2.0, the fix from GHSA-vffh-c9pq-4crh doesn't fully work to preventServer-side Template Injection (SSTI). The three mitigations added to the Liquid engine (root, relativeReference, dynamicPartials) only block quoted paths. If a project uses an unquoted absolute path, attackers can still read any file on the server. The original fix in notification-provider.js only constrains the first two steps of LiquidJS's file resolution (via root, relativeReference, and dynamicPartials options), but the  third step, the require.resolve() fallback in liquid.node.js has no containment check, allowing unquoted absolute paths like /etc/passwd to resolve successfully. Quoted paths happen to be blocked only because the literal quote characters cause require.resolve('\"/etc/passwd\"') to throw a MODULE_NOT_FOUND error, not because of any intentional security measure. This issue has been fixed in version 2.2.1.",
+      "published": "2026-03-20T10:16:19.463",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33130"
     },
     {
-      "id": "CVE-2026-33192",
-      "summary": "Free5GC is an open-source Linux Foundation project for 5th generation (5G) mobile core networks. In versions prior to 1.4.2, the UDM incorrectly converts a downstream 400 Bad Request (from UDR) into a 500 Internal Server Error when handling PATCH requests with an empty supi path parameter. Additionally, the UDM incorrectly translates the PATCH method to PUT when forwarding to UDR, indicating a deeper architectural issue. This leaks internal error handling behavior, making it difficult for clients to distinguish between client-side errors and server-side failures. The issue has been patched in version 1.4.2.",
-      "published": "2026-03-20T09:16:16.230",
+      "id": "CVE-2026-33129",
+      "summary": "H3 is a minimal H(TTP) framework. Versions 2.0.1-beta.0 through 2.0.0-rc.8 contain a Timing Side-Channel vulnerability in the requireBasicAuth function due to the use of unsafe string comparison (!==). This allows an attacker to deduce the valid password character-by-character by measuring the server's response time, effectively bypassing password complexity protections. This issue is fixed in version 2.0.1-rc.9.",
+      "published": "2026-03-20T10:16:19.317",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33129"
+    },
+    {
+      "id": "CVE-2026-33128",
+      "summary": "H3 is a minimal H(TTP) framework. In versions prior to 1.15.6 and between 2.0.0 through 2.0.1-rc.14, createEventStream is vulnerable to Server-Sent Events (SSE) injection due to missing newline sanitization in formatEventStreamMessage() and formatEventStreamComment(). An attacker who controls any part of an SSE message field (id, event, data, or comment) can inject arbitrary SSE events to connected clients. This issue is fixed in versions 1.15.6 and 2.0.1-rc.15.",
+      "published": "2026-03-20T10:16:19.160",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33128"
+    },
+    {
+      "id": "CVE-2026-33125",
+      "summary": "Frigate is a network video recorder (NVR) with realtime local object detection for IP cameras. In versions 0.16.2 and below, users with the viewer role can delete admin and low-privileged user accounts. Exploitation can lead to DoS and affect data integrity. This issue has been patched in version 0.16.3.",
+      "published": "2026-03-20T10:16:19.013",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33125"
+    },
+    {
+      "id": "CVE-2026-33124",
+      "summary": "Frigate is a network video recorder (NVR) with realtime local object detection for IP cameras. Versions prior to 0.17.0-beta1 allow any authenticated user to change their own password without verifying the current password through the /users/{username}/password endpoint. Changing a password does not invalidate existing JWT tokens, and there is no validation of password strength. If an attacker obtains a valid session token (e.g., via accidentally exposed JWT, stolen cookie, XSS, compromised device, or sniffing over HTTP), they can change the victim\u2019s password and gain permanent control of the account. Since password changes do not invalidate existing JWT tokens, session hijacks persist even after a password reset. Additionally, the lack of password strength validation exposes accounts to brute-force attacks. This issue has been resolved in version 0.17.0-beta1.",
+      "published": "2026-03-20T10:16:18.870",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33192"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33124"
     },
     {
-      "id": "CVE-2026-33080",
-      "summary": "Filament is a collection of full-stack components for accelerated Laravel development. Versions 4.0.0 through 4.8.4 and 5.0.0 through 5.3.4 have two Filament Table summarizers (Range, Values) that render raw database values without escaping HTML. If there is a lack of validation for the data in the columns that use these summarizers, an attacker could plant malicious HTML / JavaScript and achieve stored XSS that executes for users who view the table with those summarizers. This issue has been patched in versions 4.8.5 and 5.3.5.",
-      "published": "2026-03-20T09:16:16.050",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33080"
-    },
-    {
-      "id": "CVE-2026-33075",
-      "summary": "FastGPT is an AI Agent building platform. In versions 4.14.8.3 and below, the fastgpt-preview-image.yml workflow is vulnerable to arbitrary code execution and secret exfiltration by any external contributor. It uses pull_request_target (which runs with access to repository secrets) but checks out code from the pull request author's fork, then builds and pushes Docker images using attacker-controlled Dockerfiles. This also enables a supply chain attack via the production container registry. A patch was not available at the time of publication.",
-      "published": "2026-03-20T09:16:15.877",
+      "id": "CVE-2026-33123",
+      "summary": "pypdf is a free and open-source pure-python PDF library. Versions prior to 6.9.1 allow an attacker to craft a malicious PDF which leads to long runtimes and/or large memory usage. Exploitation requires accessing an array-based stream with many entries. This issue has been fixed in version 6.9.1.",
+      "published": "2026-03-20T10:16:18.717",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33075"
-    },
-    {
-      "id": "CVE-2026-33072",
-      "summary": "FileRise is a self-hosted web file manager / WebDAV server. In versions prior to 3.9.0, a hardcoded default encryption key (default_please_change_this_key) is used for all cryptographic operations \u2014 HMAC token generation, AES config encryption, and session tokens \u2014 allowing any unauthenticated attacker to forge upload tokens for arbitrary file upload to shared folders, and to decrypt admin configuration secrets including OIDC client secrets and SMTP passwords. FileRise uses a single key (PERSISTENT_TOKENS_KEY) for all crypto operations. The default value default_please_change_this_key is hardcoded in two places and used unless the deployer explicitly overrides the environment variable. This issue is fixed in version 3.9.0.",
-      "published": "2026-03-20T09:16:15.710",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33072"
-    },
-    {
-      "id": "CVE-2026-33071",
-      "summary": "FileRise is a self-hosted web file manager / WebDAV server. In versions prior to 3.8.0, the WebDAV upload endpoint accepts any file extension including .phtml, .php5, .htaccess, and other server-side executable types, bypassing the filename validation enforced by the regular upload path. In non-default deployments lacking Apache's LocationMatch protection, this leads to remote code execution. When files are uploaded via WebDAV, the createFile() method in FileRiseDirectory.php and the put() method in FileRiseFile.php accept the filename directly from the WebDAV client without any validation. In contrast, the regular upload endpoint in UploadModel::upload() validates filenames against REGEX_FILE_NAME. This issue is fixed in version 3.8.0.",
-      "published": "2026-03-20T09:16:15.537",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33071"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33123"
     }
   ]
 }
