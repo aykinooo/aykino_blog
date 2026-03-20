@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-20T21:44:18+00:00",
+  "generated_at": "2026-03-20T22:47:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33179",
-      "summary": "libfuse is the reference implementation of the Linux FUSE. From version 3.18.0 to before version 3.18.2, a NULL pointer dereference and memory leak in fuse_uring_init_queue allows a local user to crash the FUSE daemon or cause resource exhaustion. When numa_alloc_local fails during io_uring queue entry setup, the code proceeds with NULL pointers. When fuse_uring_register_queue fails, NUMA allocations are leaked and the function incorrectly returns success. Only the io_uring transport is affected; the traditional /dev/fuse path is not affected. PoC confirmed with AddressSanitizer/LeakSanitizer. This issue has been patched in version 3.18.2.",
-      "published": "2026-03-20T21:17:16.593",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33179"
+      "id": "CVE-2026-4507",
+      "summary": "A vulnerability was determined in Mindinventory MindSQL up to 0.2.1. The affected element is the function ask_db of the file mindsql/core/mindsql_core.py. Executing a manipulation can lead to sql injection. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-20T22:16:30.170",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4507"
     },
     {
-      "id": "CVE-2026-33165",
-      "summary": "libde265 is an open source implementation of the h.265 video codec. Prior to version 1.0.17, a crafted HEVC bitstream causes an out-of-bounds heap write confirmed by AddressSanitizer. The trigger is a stale ctb_info.log2unitSize after an SPS change where PicWidthInCtbsY and PicHeightInCtbsY stay constant but Log2CtbSizeY changes, causing set_SliceHeaderIndex to index past the allocated image metadata array and write 2 bytes past the end of a heap allocation. This issue has been patched in version 1.0.17.",
-      "published": "2026-03-20T21:17:16.453",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33165"
+      "id": "CVE-2026-4506",
+      "summary": "A vulnerability was found in Mindinventory MindSQL up to 0.2.1. Impacted is the function ask_db of the file mindsql/core/mindsql_core.py. Performing a manipulation results in code injection. The attack can be initiated remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-20T22:16:29.960",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4506"
     },
     {
-      "id": "CVE-2026-33164",
-      "summary": "libde265 is an open source implementation of the h.265 video codec. Prior to version 1.0.17, a malformed H.265 PPS NAL unit causes a segmentation fault in pic_parameter_set::set_derived_values(). This issue has been patched in version 1.0.17.",
-      "published": "2026-03-20T21:17:16.233",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33164"
+      "id": "CVE-2026-3584",
+      "summary": "The Kali Forms plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 2.4.9 via the 'form_process' function. This is due to the 'prepare_post_data' function mapping user-supplied keys directly into internal placeholder storage, combined with the use of 'call_user_func' on these placeholder values. This makes it possible for unauthenticated attackers to execute code on the server.",
+      "published": "2026-03-20T22:16:29.267",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3584"
     },
     {
-      "id": "CVE-2026-33156",
-      "summary": "ScreenToGif is a screen recording tool. In versions from 2.42.1 and prior, ScreenToGif is vulnerable to DLL sideloading via version.dll . When the portable executable is run from a user-writable directory, it loads version.dll from the application directory instead of the Windows System32 directory, allowing arbitrary code execution in the user's context. This is especially impactful because ScreenToGif is primarily distributed as a portable application intended to be run from user-writable locations. At time of publication, there are no publicly available patches.",
-      "published": "2026-03-20T21:17:16.070",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33156"
+      "id": "CVE-2026-33177",
+      "summary": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.14 and 6.7.0, low-privileged Control Panel users could create taxonomy terms by submitting requests to the field action processing endpoint with attacker-controlled field definitions. This bypasses the authorization checks enforced on the standard taxonomy term creation endpoint. This has been fixed in 5.73.14 and 6.7.0.",
+      "published": "2026-03-20T22:16:29.117",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33177"
     },
     {
-      "id": "CVE-2026-33155",
-      "summary": "DeepDiff is a project focused on Deep Difference and search of any Python data. From version 5.0.0 to before version 8.6.2, the pickle unpickler _RestrictedUnpickler validates which classes can be loaded but does not limit their constructor arguments. A few of the types in SAFE_TO_IMPORT have constructors that allocate memory proportional to their input (builtins.bytes, builtins.list, builtins.range). A 40-byte pickle payload can force 10+ GB of memory, which crashes applications that load delta objects or call pickle_load with untrusted data. This issue has been patched in version 8.6.2.",
-      "published": "2026-03-20T21:17:15.910",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33155"
+      "id": "CVE-2026-33172",
+      "summary": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.14 and 6.7.0, a stored XSS vulnerability in SVG asset reuploads allows authenticated users with asset upload permissions to bypass SVG sanitization and inject malicious JavaScript that executes when the asset is viewed. This has been fixed in 5.73.14 and 6.7.0.",
+      "published": "2026-03-20T22:16:28.973",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33172"
     },
     {
-      "id": "CVE-2026-33154",
-      "summary": "dynaconf is a configuration management tool for Python. Prior to version 3.2.13, Dynaconf is vulnerable to Server-Side Template Injection (SSTI) due to unsafe template evaluation in the @Jinja resolver. When the jinja2 package is installed, Dynaconf evaluates template expressions embedded in configuration values without a sandboxed environment. This issue has been patched in version 3.2.13.",
-      "published": "2026-03-20T21:17:15.740",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33154"
+      "id": "CVE-2026-33171",
+      "summary": "Statamic is a Laravel and Git powered content management system (CMS). Prior to versions 5.73.14 and 6.7.0, authenticated Control Panel users could read arbitrary `.json`, `.yaml`, and `.csv` files from the server by manipulating the file dictionary's `filename` configuration parameter in the fieldtype's endpoint. This has been fixed in 5.73.14 and 6.7.0.",
+      "published": "2026-03-20T22:16:28.820",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33171"
     }
   ]
 }
