@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-19T23:43:36+00:00",
+  "generated_at": "2026-03-20T03:09:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33408",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, moderators were able to see the first 40 characters of post edits in PMs and private categories. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
-      "published": "2026-03-19T23:16:44.887",
-      "cvss": 2.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33408"
+      "id": "CVE-2026-4466",
+      "summary": "A vulnerability has been found in Comfast CF-AC100 2.6.0.8. This affects an unknown function of the file /cgi-bin/mbox-config?method=SET&section=ntp_timezone. The manipulation leads to command injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-20T02:16:40.313",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4466"
     },
     {
-      "id": "CVE-2026-33395",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, the discourse-graphviz plugin contains a stored cross-site scripting (XSS) vulnerability that allows authenticated users to inject malicious JavaScript code through DOT graph definitions. For instances with CSP disabled only. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. As a workaround, disable the graphviz plugin, upgrade to a patched version, or enable a content security policy.",
-      "published": "2026-03-19T23:16:44.710",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33395"
+      "id": "CVE-2026-4465",
+      "summary": "A flaw has been found in D-Link DIR-513 1.10. The impacted element is an unknown function of the file /goform/formSysCmd. Executing a manipulation of the argument sysCmd can lead to os command injection. The attack may be launched remotely. The exploit has been published and may be used. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "published": "2026-03-20T02:16:40.043",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4465"
     },
     {
-      "id": "CVE-2026-32818",
-      "summary": "Admidio is an open-source user management solution. In versions 5.0.0 through 5.0.6, the forum module in Admidio does not verify whether the current user has permission to delete forum topics or posts. Both the topic_delete and post_delete actions in forum.php only validate the CSRF token but perform no authorization check before calling delete(). Any authenticated user with forum access can delete any topic (with all its posts) or any individual post by providing its UUID. This is inconsistent with the save/edit operations, which properly check isAdministratorForum() and ownership before allowing modifications. Any logged-in user can permanently and irreversibly delete any forum topic (including all its posts) or any individual post by simply knowing its UUID (which is publicly visible in URLs), completely bypassing authorization checks. This issue has been fixed in version 5.0.7.",
-      "published": "2026-03-19T23:16:44.543",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32818"
+      "id": "CVE-2026-4464",
+      "summary": "Integer overflow in ANGLE in Google Chrome prior to 146.0.7680.153 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: Medium)",
+      "published": "2026-03-20T02:16:39.907",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4464"
     },
     {
-      "id": "CVE-2026-32816",
-      "summary": "Admidio is an open-source user management solution. In versions 5.0.0 through 5.0.6, the delete, activate, and deactivate modes in modules/groups-roles/groups_roles.php perform destructive state changes on organizational roles but never validate an anti-CSRF token. The client-side UI passes a CSRF token to callUrlHideElement(), which includes it in the POST body, but the server-side handlers ignore $_POST[\"adm_csrf_token\"] entirely for these three modes. An attacker who can discover a role UUID (visible in the public cards view when the module is publicly accessible) can embed a forged POST form on any external page and trick any user with the rol_assign_roles right into deleting or toggling roles for the organization. Role deletion is permanent and cascades to all memberships, event associations, and rights data. If exploited, an attacker can trick any user with delegated role-assignment rights into permanently deleting roles, mass-revoking all associated memberships and access to events, documents, and mailing lists, or silently activating or deactivating entire groups, with target role UUIDs trivially harvested from the unauthenticated public cards view and no undo path short of a database restore. This issue has been fixed in version 5.0.7.",
-      "published": "2026-03-19T23:16:44.380",
-      "cvss": 5.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32816"
+      "id": "CVE-2026-4463",
+      "summary": "Heap buffer overflow in WebRTC in Google Chrome prior to 146.0.7680.153 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-20T02:16:39.753",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4463"
     },
     {
-      "id": "CVE-2026-32755",
-      "summary": "Admidio is an open-source user management solution. In versions 5.0.6 and below, the save_membership action in modules/profile/profile_function.php saves changes to a member's role membership start and end dates but does not validate the CSRF token. The handler checks stop_membership and remove_former_membership against the CSRF token but omits save_membership from that check. Because membership UUIDs appear in the HTML source visible to authenticated users, an attacker can embed a crafted POST form on any external page and trick a role leader into submitting it, silently altering membership dates for any member of roles the victim leads. A role leader's session can be silently exploited via CSRF to manipulate any member's membership dates, terminating access by backdating, covertly extending unauthorized access, or revoking role-restricted features, all without confirmation, notification, or administrative approval. This issue has been fixed in version 5.0.7.",
-      "published": "2026-03-19T23:16:44.203",
-      "cvss": 5.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32755"
+      "id": "CVE-2026-4462",
+      "summary": "Out of bounds read in Blink in Google Chrome prior to 146.0.7680.153 allowed a remote attacker to perform an out of bounds memory read via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-20T02:16:39.603",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4462"
     },
     {
-      "id": "CVE-2026-32721",
-      "summary": "LuCI is the OpenWrt Configuration Interface. Versions prior to both 24.10.5 and 25.12.0, contain a stored XSS vulnerability in the wireless scan modal, where SSID values from scan results are rendered as raw HTML without any sanitization. The wireless.js file in the luci-mod-network package passes SSIDs via a template literal to dom.append(), which processes them through innerHTML, allowing an attacker to craft a malicious SSID containing arbitrary HTML/JavaScript. Exploitation requires the user to actively open the wireless scan modal (e.g., to connect to a Wi-Fi access point or survey nearby channels), and only affects OpenWrt versions newer than 23.05/22.03 up to the patched releases (24.10.6 and 25.12.1). The issue has been fixed in version LuCI 26.072.65753~068150b.",
-      "published": "2026-03-19T23:16:44.030",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32721"
+      "id": "CVE-2026-4461",
+      "summary": "Inappropriate implementation in V8 in Google Chrome prior to 146.0.7680.153 allowed a remote attacker to potentially exploit heap corruption via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-20T02:16:39.440",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4461"
     }
   ]
 }
