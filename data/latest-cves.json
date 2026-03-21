@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-21T02:46:42+00:00",
+  "generated_at": "2026-03-21T04:46:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4302",
-      "summary": "The WowOptin: Next-Gen Popup Maker plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 1.4.29. This is due to the plugin exposing a publicly accessible REST API endpoint (optn/v1/integration-action) with a permission_callback of __return_true that passes user-supplied URLs directly to wp_remote_get() and wp_remote_post() in the Webhook::add_subscriber() method without any URL validation or restriction. The plugin does not use wp_safe_remote_get/post which provide built-in SSRF protection. This makes it possible for unauthenticated attackers to make web requests to arbitrary locations originating from the web application, which can be used to query and modify information from internal services.",
-      "published": "2026-03-21T02:16:18.260",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4302"
+      "id": "CVE-2026-4261",
+      "summary": "The Expire Users plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.2.2. This is due to the plugin allowing a user to update the 'on_expire_default_to_role' meta through the 'save_extra_user_profile_fields' function. This makes it possible for authenticated attackers, with Subscriber-level access and above, to elevate their privileges to that of an administrator.",
+      "published": "2026-03-21T04:17:44.223",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4261"
     },
     {
-      "id": "CVE-2026-32899",
-      "summary": "OpenClaw versions prior to 2026.2.25 fail to consistently apply sender-policy checks to reaction_* and pin_* non-message events before adding them to system-event context. Attackers can bypass configured DM policies and channel user allowlists to inject unauthorized reaction and pin events from restricted senders.",
-      "published": "2026-03-21T01:17:11.067",
+      "id": "CVE-2026-4161",
+      "summary": "The Review Map by RevuKangaroo plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin settings in all versions up to, and including, 1.7 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
+      "published": "2026-03-21T04:17:43.893",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4161"
+    },
+    {
+      "id": "CVE-2026-4143",
+      "summary": "The Neos Connector for Fakturama plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to and including 0.0.14. This is due to missing nonce validation in the ncff_add_plugin_page() function which handles settings updates. This makes it possible for unauthenticated attackers to modify plugin settings via a forged request, granted they can trick a site administrator into performing an action such as clicking a link.",
+      "published": "2026-03-21T04:17:42.840",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32899"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4143"
     },
     {
-      "id": "CVE-2026-32898",
-      "summary": "OpenClaw versions prior to 2026.2.23 contain an authorization bypass vulnerability in the ACP client that auto-approves tool calls based on untrusted toolCall.kind metadata and permissive name heuristics. Attackers can bypass interactive approval prompts for read-class operations by spoofing tool metadata or using non-core read-like names to reach auto-approve paths.",
-      "published": "2026-03-21T01:17:10.870",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32898"
+      "id": "CVE-2026-4127",
+      "summary": "The Speedup Optimization plugin for WordPress is vulnerable to Missing Authorization in all versions up to and including 1.5.9. The `speedup01_ajax_enabled()` function, which handles the `wp_ajax_speedup01_enabled` AJAX action, does not perform any capability check via `current_user_can()` and also lacks nonce verification. This is in contrast to other AJAX handlers in the same plugin (e.g., `speedup01_ajax_install_iox` and `speedup01_ajax_delete_cache_file`) which properly check for `install_plugins` and `manage_options` capabilities respectively. This makes it possible for authenticated attackers, with Subscriber-level access and above, to enable or disable the site's optimization module by sending a POST request to admin-ajax.",
+      "published": "2026-03-21T04:17:41.393",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4127"
     },
     {
-      "id": "CVE-2026-32897",
-      "summary": "OpenClaw versions prior to 2026.2.22 reuse gateway.auth.token as a fallback hash secret for owner-ID prompt obfuscation when commands.ownerDisplay is set to hash and commands.ownerDisplaySecret is unset, creating dual-use of authentication secrets across security domains. Attackers with access to system prompts sent to third-party model providers can derive the gateway authentication token from the hash outputs, compromising gateway authentication security.",
-      "published": "2026-03-21T01:17:10.673",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32897"
+      "id": "CVE-2026-4087",
+      "summary": "The Pre* Party Resource Hints plugin for WordPress is vulnerable to SQL Injection via the 'hint_ids' parameter of the pprh_update_hints AJAX action in all versions up to, and including, 1.8.20. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-03-21T04:17:41.190",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4087"
     },
     {
-      "id": "CVE-2026-32896",
-      "summary": "OpenClaw versions prior to 2026.2.21 BlueBubbles webhook handler contains a passwordless fallback authentication path that allows unauthenticated webhook events in certain reverse-proxy or local routing configurations. Attackers can bypass webhook authentication by exploiting the loopback/proxy heuristics to send unauthenticated webhook events to the BlueBubbles plugin.",
-      "published": "2026-03-21T01:17:10.510",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32896"
-    },
-    {
-      "id": "CVE-2026-32895",
-      "summary": "OpenClaw versions prior to 2026.2.26 fail to enforce sender authorization in member and message subtype system event handlers, allowing unauthorized events to be enqueued. Attackers can bypass Slack DM allowlists and per-channel user allowlists by sending system events from non-allowlisted senders through message_changed, message_deleted, and thread_broadcast events.",
-      "published": "2026-03-21T01:17:10.303",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32895"
+      "id": "CVE-2026-4086",
+      "summary": "The WP Random Button plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'cat', 'nocat', and 'text' shortcode attributes of the 'wp_random_button' shortcode in all versions up to, and including, 1.0. This is due to insufficient input sanitization and output escaping on user-supplied shortcode attributes. Specifically, the random_button_html() function directly concatenates the 'cat' and 'nocat' parameters into HTML data-attributes without esc_attr(), and the 'text' parameter into HTML content without esc_html(). This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-03-21T04:17:41.020",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4086"
     }
   ]
 }
