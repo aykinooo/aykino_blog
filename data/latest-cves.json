@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-20T23:42:21+00:00",
+  "generated_at": "2026-03-21T02:46:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4508",
-      "summary": "A vulnerability was identified in PbootCMS up to 3.2.12. The impacted element is the function checkUsername of the file apps/home/controller/MemberController.php of the component Member Login. The manipulation of the argument Username leads to sql injection. The attack may be initiated remotely. The exploit is publicly available and might be used.",
-      "published": "2026-03-20T23:16:48.493",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4508"
+      "id": "CVE-2026-4302",
+      "summary": "The WowOptin: Next-Gen Popup Maker plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 1.4.29. This is due to the plugin exposing a publicly accessible REST API endpoint (optn/v1/integration-action) with a permission_callback of __return_true that passes user-supplied URLs directly to wp_remote_get() and wp_remote_post() in the Webhook::add_subscriber() method without any URL validation or restriction. The plugin does not use wp_safe_remote_get/post which provide built-in SSRF protection. This makes it possible for unauthenticated attackers to make web requests to arbitrary locations originating from the web application, which can be used to query and modify information from internal services.",
+      "published": "2026-03-21T02:16:18.260",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4302"
     },
     {
-      "id": "CVE-2026-3864",
-      "summary": "A vulnerability was discovered in the Kubernetes CSI Driver for NFS where the subDir parameter in volume identifiers was insufficiently validated. Attackers with the ability to create PersistentVolumes referencing the NFS CSI driver could craft volume identifiers containing path traversal sequences (../). During volume deletion or cleanup operations, the driver could operate on unintended directories outside the intended managed path within the NFS export. This may lead to deletion or modification of directories on the NFS server.",
-      "published": "2026-03-20T23:16:48.303",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3864"
+      "id": "CVE-2026-32899",
+      "summary": "OpenClaw versions prior to 2026.2.25 fail to consistently apply sender-policy checks to reaction_* and pin_* non-message events before adding them to system-event context. Attackers can bypass configured DM policies and channel user allowlists to inject unauthorized reaction and pin events from restricted senders.",
+      "published": "2026-03-21T01:17:11.067",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32899"
     },
     {
-      "id": "CVE-2026-33476",
-      "summary": "SiYuan is a personal knowledge management system. Prior to version 3.6.2, the Siyuan kernel exposes an unauthenticated file-serving endpoint under `/appearance/*filepath.` Due to improper path sanitization, attackers can perform directory traversal and read arbitrary files accessible to the server process. Authentication checks explicitly exclude this endpoint, allowing exploitation without valid credentials. Version 3.6.2 fixes this issue.",
-      "published": "2026-03-20T23:16:48.137",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33476"
-    },
-    {
-      "id": "CVE-2026-33423",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, staff can modify any user's group notification level. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
-      "published": "2026-03-20T23:16:47.983",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33423"
-    },
-    {
-      "id": "CVE-2026-33422",
-      "summary": "Discourse is an open-source discussion platform. Prior to versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2, the  `ip_address` of a flagged user is exposed to any user who can access the review queue, including users who should not be able to see IP addresses. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. No known workarounds are available.",
-      "published": "2026-03-20T23:16:47.830",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33422"
-    },
-    {
-      "id": "CVE-2026-33411",
-      "summary": "Discourse is an open-source discussion platform. Versions prior to 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 have a potential stored XSS in topic titles for the solved posts stream. Versions 2026.3.0-latest.1, 2026.2.1, and 2026.1.2 contain a patch. As a workaround, ensure that the Content Security Policy is enabled, and has not been modified in a way which would make it more vulnerable to XSS attacks.",
-      "published": "2026-03-20T23:16:47.660",
+      "id": "CVE-2026-32898",
+      "summary": "OpenClaw versions prior to 2026.2.23 contain an authorization bypass vulnerability in the ACP client that auto-approves tool calls based on untrusted toolCall.kind metadata and permissive name heuristics. Attackers can bypass interactive approval prompts for read-class operations by spoofing tool metadata or using non-core read-like names to reach auto-approve paths.",
+      "published": "2026-03-21T01:17:10.870",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33411"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32898"
+    },
+    {
+      "id": "CVE-2026-32897",
+      "summary": "OpenClaw versions prior to 2026.2.22 reuse gateway.auth.token as a fallback hash secret for owner-ID prompt obfuscation when commands.ownerDisplay is set to hash and commands.ownerDisplaySecret is unset, creating dual-use of authentication secrets across security domains. Attackers with access to system prompts sent to third-party model providers can derive the gateway authentication token from the hash outputs, compromising gateway authentication security.",
+      "published": "2026-03-21T01:17:10.673",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32897"
+    },
+    {
+      "id": "CVE-2026-32896",
+      "summary": "OpenClaw versions prior to 2026.2.21 BlueBubbles webhook handler contains a passwordless fallback authentication path that allows unauthenticated webhook events in certain reverse-proxy or local routing configurations. Attackers can bypass webhook authentication by exploiting the loopback/proxy heuristics to send unauthenticated webhook events to the BlueBubbles plugin.",
+      "published": "2026-03-21T01:17:10.510",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32896"
+    },
+    {
+      "id": "CVE-2026-32895",
+      "summary": "OpenClaw versions prior to 2026.2.26 fail to enforce sender authorization in member and message subtype system event handlers, allowing unauthorized events to be enqueued. Attackers can bypass Slack DM allowlists and per-channel user allowlists by sending system events from non-allowlisted senders through message_changed, message_deleted, and thread_broadcast events.",
+      "published": "2026-03-21T01:17:10.303",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32895"
     }
   ]
 }
