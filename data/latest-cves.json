@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-23T19:55:06+00:00",
+  "generated_at": "2026-03-23T20:53:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4595",
-      "summary": "A vulnerability was determined in code-projects Exam Form Submission 1.0. This vulnerability affects unknown code of the file /admin/update_s6.php. Executing a manipulation of the argument sname can lead to cross site scripting. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. If you want to get the best quality for vulnerability data then you always have to consider VulDB.",
-      "published": "2026-03-23T19:16:43.190",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4595"
+      "id": "CVE-2026-4596",
+      "summary": "A vulnerability was identified in projectworlds Lawyer Management System 1.0. This issue affects some unknown processing of the file /lawyers.php. The manipulation of the argument first_Name leads to cross site scripting. The attack may be initiated remotely. The exploit is publicly available and might be used.",
+      "published": "2026-03-23T20:16:27.837",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4596"
     },
     {
-      "id": "CVE-2026-33723",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `Subscribe::save()` method in `objects/subscribe.php` concatenates the `$this->users_id` property directly into an INSERT SQL query without sanitization or parameterized binding. This property originates from `$_POST['user_id']` in both `subscribe.json.php` and `subscribeNotify.json.php`. An authenticated attacker can inject arbitrary SQL to extract sensitive data from any database table, including password hashes, API keys, and encryption salts. Commit 36dfae22059fbd66fd34bbc5568a838fc0efd66c contains a patch.",
-      "published": "2026-03-23T19:16:42.807",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33723"
+      "id": "CVE-2026-33548",
+      "summary": "Mantis Bug Tracker (MantisBT) is an open source issue tracker. In version 2.28.0, improper escaping of tag names retrieved from History in Timeline (my_view_page.php) allows an attacker to inject HTML and, if CSP settings permit, achieve execution of arbitrary JavaScript, when displaying a tag that has been renamed or deleted. Version 2.28.1 contains a patch. Workarounds include editing offending History entries (using SQL) and wrapping `$this->tag_name` in a string_html_specialchars() call in IssueTagTimelineEvent::html().",
+      "published": "2026-03-23T20:16:27.687",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33548"
     },
     {
-      "id": "CVE-2026-33719",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the CDN plugin endpoints `plugin/CDN/status.json.php` and `plugin/CDN/disable.json.php` use key-based authentication with an empty string default key. When the CDN plugin is enabled but the key has not been configured (the default state), the key validation check is completely bypassed, allowing any unauthenticated attacker to modify the full CDN configuration \u2014 including CDN URLs, storage credentials, and the authentication key itself \u2014 via mass-assignment through the `par` request parameter. Commit adeff0a31ba04a56f411eef256139fd7ed7d4310 contains a patch.",
-      "published": "2026-03-23T19:16:42.647",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33719"
+      "id": "CVE-2026-33517",
+      "summary": "Mantis Bug Tracker (MantisBT) is an open source issue tracker. In version 2.28.0, when deleting a Tag (tag_delete.php), improper escaping of its name when displaying the confirmation message allows an attacker to inject HTML and, if CSP settings permit, achieve execution of arbitrary JavaScript. Version 2.28.1 fixes the issue. Workarounds include reverting commit d6890320752ecf37bd74d11fe14fe7dc12335be9 and/or manually editing language files to remove the sprintf placeholder `%1$s` from `$s_tag_delete_message` string.",
+      "published": "2026-03-23T20:16:27.533",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33517"
     },
     {
-      "id": "CVE-2026-33717",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `downloadVideoFromDownloadURL()` function in `objects/aVideoEncoder.json.php` saves remote content to a web-accessible temporary directory using the original URL's filename and extension (including `.php`). By providing an invalid `resolution` parameter, an attacker triggers an early `die()` via `forbiddenPage()` before the temp file can be moved or cleaned up, leaving an executable PHP file persistently accessible under the web root at `videos/cache/tmpFile/`. Commit 6da79b43484099a0b660d1544a63c07b633ed3a2 contains a patch.",
-      "published": "2026-03-23T19:16:42.497",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33717"
+      "id": "CVE-2026-32879",
+      "summary": "New API is a large language mode (LLM) gateway and artificial intelligence (AI) asset management system. Starting in version 0.10.0, a logic flaw in the universal secure verification flow allows an authenticated user with a registered passkey to satisfy secure verification without completing a WebAuthn assertion. As of time of publication, no known patched versions are available. Until a patched release is applied, do not rely on passkey as the step-up method for privileged secure-verification actions; require TOTP/2FA for those actions where operationally possible; or temporarily restrict access to affected secure-verification-protected endpoints.",
+      "published": "2026-03-23T20:16:27.373",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32879"
     },
     {
-      "id": "CVE-2026-33716",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the standalone live stream control endpoint at `plugin/Live/standAloneFiles/control.json.php` accepts a user-supplied `streamerURL` parameter that overrides where the server sends token verification requests. An attacker can redirect token verification to a server they control that always returns `{\"error\": false}`, completely bypassing authentication. This grants unauthenticated control over any live stream on the platform, including dropping active publishers, starting/stopping recordings, and probing stream existence. Commit 388fcd57dbd16f6cb3ebcdf1d08cf2b929941128 contains a patch.",
-      "published": "2026-03-23T19:16:42.323",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33716"
+      "id": "CVE-2026-32852",
+      "summary": "MailEnable versions prior to\u00a010.55 contain a reflected cross-site scripting vulnerability in the webmail interface that allows remote attackers to execute arbitrary JavaScript in a victim's browser by crafting a malicious URL. Attackers can inject malicious code through the StartDate parameter in the FreeBusy.aspx form, which is not properly sanitized before being embedded into dynamically generated JavaScript.",
+      "published": "2026-03-23T20:16:27.197",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32852"
     },
     {
-      "id": "CVE-2026-33690",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `getRealIpAddr()` function in `objects/functions.php` trusts user-controlled HTTP headers to determine the client's IP address. An attacker can spoof their IP address by sending forged headers, bypassing any IP-based access controls or audit logging. Commit 1a1df6a9377e5cc67d1d0ac8ef571f7abbffbc6c contains a patch.",
-      "published": "2026-03-23T19:16:42.173",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33690"
+      "id": "CVE-2026-32851",
+      "summary": "MailEnable versions prior to\u00a010.55 contain a reflected cross-site scripting vulnerability in the webmail interface that allows remote attackers to execute arbitrary JavaScript in a victim's browser by crafting a malicious URL. Attackers can inject malicious code through the Attendees parameter in the FreeBusy.aspx form, which is not properly sanitized before being embedded into dynamically generated JavaScript.",
+      "published": "2026-03-23T20:16:27.020",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32851"
     }
   ]
 }
