@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-23T16:11:09+00:00",
+  "generated_at": "2026-03-23T17:08:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4590",
-      "summary": "A security flaw has been discovered in kalcaddle kodbox 1.64. The impacted element is an unknown function of the file /workspace/source-code/plugins/oauth/controller/bind/index.class.php of the component loginSubmit API. Performing a manipulation of the argument third results in cross-site request forgery. Remote exploitation of the attack is possible. A high degree of complexity is needed for the attack. The exploitability is regarded as difficult. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-23T15:16:36.187",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4590"
+      "id": "CVE-2026-4592",
+      "summary": "A security vulnerability has been detected in kalcaddle kodbox 1.64. This impacts the function loginAfter/tfaVerify of the file /workspace/source-code/plugins/client/controller/tfa/index.class.php of the component Password Login. The manipulation leads to improper authentication. The attack is possible to be carried out remotely. The attack is considered to have high complexity. The exploitability is said to be difficult. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-23T16:16:52.973",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4592"
     },
     {
-      "id": "CVE-2026-4404",
-      "summary": "Use of hard coded credentials in GoHarbor Harbor version 2.15.0 and below, allows attackers to use the default password and gain access to the web UI.",
-      "published": "2026-03-23T15:16:35.403",
+      "id": "CVE-2026-4591",
+      "summary": "A weakness has been identified in kalcaddle kodbox 1.64. This affects the function checkBin of the file /workspace/source-code/plugins/fileThumb/app.php of the component fileThumb Endpoint. Executing a manipulation can lead to os command injection. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-23T16:16:52.750",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4591"
+    },
+    {
+      "id": "CVE-2026-33493",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `objects/import.json.php` endpoint accepts a user-controlled `fileURI` POST parameter with only a regex check that the value ends in `.mp4`. Unlike `objects/listFiles.json.php`, which was hardened with a `realpath()` + directory prefix check to restrict paths to the `videos/` directory, `import.json.php` performs no directory restriction. This allows an authenticated user with upload permission to: (1) steal any other user's private video files by importing them into their own account, (2) read `.txt`/`.html`/`.htm` files adjacent to any `.mp4` file on the filesystem, and (3) delete `.mp4` and adjacent text files if writable by the web server process. Commit e110ff542acdd7e3b81bdd02b8402b9f6a61ad78 contains a patch.",
+      "published": "2026-03-23T16:16:49.433",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33493"
+    },
+    {
+      "id": "CVE-2026-33492",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, AVideo's `_session_start()` function accepts arbitrary session IDs via the `PHPSESSID` GET parameter and sets them as the active PHP session. A session regeneration bypass exists for specific blacklisted endpoints when the request originates from the same domain. Combined with the explicitly disabled session regeneration in `User::login()`, this allows a classic session fixation attack where an attacker can fix a victim's session ID before authentication and then hijack the authenticated session. Commit 5647a94d79bf69a972a86653fe02144079948785 contains a patch.",
+      "published": "2026-03-23T16:16:49.257",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33492"
+    },
+    {
+      "id": "CVE-2026-33488",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `createKeys()` function in the LoginControl plugin's PGP 2FA system generates 512-bit RSA keys, which have been publicly factorable since 1999. An attacker who obtains a target user's public key can factor the 512-bit RSA modulus on commodity hardware in hours, derive the complete private key, and decrypt any PGP 2FA challenge issued by the system \u2014 completely bypassing the second authentication factor. Additionally, the `generateKeys.json.php` and `encryptMessage.json.php` endpoints lack any authentication checks, exposing CPU-intensive key generation to anonymous users. Commit 00d979d87f8182095c8150609153a43f834e351e contains a patch.",
+      "published": "2026-03-23T16:16:49.103",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33488"
+    },
+    {
+      "id": "CVE-2026-32845",
+      "summary": "cgltf version 1.15 and prior contain an integer overflow vulnerability in the cgltf_validate() function when validating sparse accessors that allows attackers to trigger out-of-bounds reads by supplying crafted glTF/GLB input files with attacker-controlled size values. Attackers can exploit unchecked arithmetic operations in sparse accessor validation to cause heap buffer over-reads in cgltf_calc_index_bound(), resulting in denial of service crashes and potential memory disclosure.",
+      "published": "2026-03-23T16:16:48.583",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4404"
-    },
-    {
-      "id": "CVE-2026-33485",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the RTMP `on_publish` callback at `plugin/Live/on_publish.php` is accessible without authentication. The `$_POST['name']` parameter (stream key) is interpolated directly into SQL queries in two locations \u2014 `LiveTransmitionHistory::getLatest()` and `LiveTransmition::keyExists()` \u2014 without parameterized binding or escaping. An unauthenticated attacker can exploit time-based blind SQL injection to extract all database contents including user password hashes, email addresses, and other sensitive data. Commit af59eade82de645b20183cc3d74467a7eac76549 contains a patch.",
-      "published": "2026-03-23T15:16:34.887",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33485"
-    },
-    {
-      "id": "CVE-2026-33483",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `aVideoEncoderChunk.json.php` endpoint is a completely standalone PHP script with no authentication, no framework includes, and no resource limits. An unauthenticated remote attacker can send arbitrary POST data which is written to persistent temp files in `/tmp/` with no size cap, no rate limiting, and no cleanup mechanism. This allows trivial disk space exhaustion leading to denial of service of the entire server. Commit 33d1bae6c731ef1682fcdc47b428313be073a5d1 contains a patch.",
-      "published": "2026-03-23T15:16:34.717",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33483"
-    },
-    {
-      "id": "CVE-2026-33482",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `sanitizeFFmpegCommand()` function in `plugin/API/standAlone/functions.php` is designed to prevent OS command injection in ffmpeg commands by stripping dangerous shell metacharacters (`&&`, `;`, `|`, `` ` ``, `<`, `>`). However, it fails to strip `$()` (bash command substitution syntax). Since the sanitized command is executed inside a double-quoted `sh -c` context in `execAsync()`, an attacker who can craft a valid encrypted payload can achieve arbitrary command execution on the standalone encoder server. Commit 25c8ab90269e3a01fb4cf205b40a373487f022e1 contains a patch.",
-      "published": "2026-03-23T15:16:34.560",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33482"
-    },
-    {
-      "id": "CVE-2026-33480",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `isSSRFSafeURL()` function in AVideo can be bypassed using IPv4-mapped IPv6 addresses (`::ffff:x.x.x.x`). The unauthenticated `plugin/LiveLinks/proxy.php` endpoint uses this function to validate URLs before fetching them with curl, but the IPv4-mapped IPv6 prefix passes all checks, allowing an attacker to access cloud metadata services, internal networks, and localhost services. Commit 75ce8a579a58c9d4c7aafe453fbced002cb8f373 contains a patch.",
-      "published": "2026-03-23T15:16:34.400",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33480"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32845"
     }
   ]
 }
