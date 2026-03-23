@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-23T18:02:46+00:00",
+  "generated_at": "2026-03-23T19:12:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4594",
+      "summary": "A vulnerability has been found in erupts erupt up to 1.13.3. Affected by this issue is the function geneEruptHqlOrderBy of the file erupt-data/erupt-jpa/src/main/java/xyz/erupt/jpa/dao/EruptJpaUtils.java. Such manipulation of the argument sort.field leads to sql injection hibernate. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-23T18:16:26.937",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4594"
+    },
+    {
+      "id": "CVE-2025-15605",
+      "summary": "A hardcoded cryptographic key within the configuration mechanism on TP-Link Archer NX200, NX210, NX500 and NX600 enables decryption and re-encryption of device configuration data. An authenticated attacker may decrypt configuration files, modify them, and re-encrypt them, affecting the confidentiality and integrity of device configuration data.",
+      "published": "2026-03-23T18:16:24.067",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15605"
+    },
+    {
+      "id": "CVE-2025-15519",
+      "summary": "Improper input handling in a modem-management administrative CLI command on TP-Link Archer NX200, NX210, NX500 and NX600 allows crafted input to be executed as part of an operating system command. An authenticated attacker with administrative privileges may execute arbitrary commands on the operating system, impacting the confidentiality, integrity, and availability of the device.",
+      "published": "2026-03-23T18:16:23.840",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15519"
+    },
+    {
+      "id": "CVE-2025-15518",
+      "summary": "Improper input handling in a wireless-control administrative CLI command on TP-Link Archer NX200, NX210, NX500 and NX600 allows crafted input to be executed as part of an operating system command. An authenticated attacker with administrative privileges may execute arbitrary commands on the operating system, impacting the confidentiality, integrity, and availability of the device.",
+      "published": "2026-03-23T18:16:23.630",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15518"
+    },
+    {
+      "id": "CVE-2025-15517",
+      "summary": "A missing authentication check in the HTTP server on TP-Link Archer NX200, NX210, NX500 and NX600 to certain cgi endpoints allows unauthenticated access intended for authenticated users. An attacker may perform privileged HTTP actions without authentication, including firmware upload and configuration operations.",
+      "published": "2026-03-23T18:16:22.347",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15517"
+    },
     {
       "id": "CVE-2026-4593",
       "summary": "A flaw has been found in erupts erupt bis 1.13.3. Affected by this vulnerability is the function EruptDataQuery of the file erupt-ai/src/main/java/xyz/erupt/ai/call/impl/EruptDataQuery.java of the component MCP Tool Interface. This manipulation causes sql injection hibernate. It is possible to initiate the attack remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
       "published": "2026-03-23T17:16:57.977",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4593"
-    },
-    {
-      "id": "CVE-2026-33507",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `objects/pluginImport.json.php` endpoint allows admin users to upload and install plugin ZIP files containing executable PHP code, but lacks any CSRF protection. Combined with the application explicitly setting `session.cookie_samesite = 'None'` for HTTPS connections, an unauthenticated attacker can craft a page that, when visited by an authenticated admin, silently uploads a malicious plugin containing a PHP webshell, achieving Remote Code Execution on the server. Commit d1bc1695edd9ad4468a48cea0df6cd943a2635f3 contains a patch.",
-      "published": "2026-03-23T17:16:51.803",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33507"
-    },
-    {
-      "id": "CVE-2026-33502",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, an unauthenticated server-side request forgery vulnerability in `plugin/Live/test.php` allows any remote user to make the AVideo server send HTTP requests to arbitrary URLs. This can be used to probe localhost/internal services and, when reachable, access internal HTTP resources or cloud metadata endpoints. Commit 1e6cf03e93b5a5318204b010ea28440b0d9a5ab3 contains a patch.",
-      "published": "2026-03-23T17:16:51.653",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33502"
-    },
-    {
-      "id": "CVE-2026-33501",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the endpoint `plugin/Permissions/View/Users_groups_permissions/list.json.php` lacks any authentication or authorization check, allowing unauthenticated users to retrieve the complete permission matrix mapping user groups to plugins. All sibling endpoints in the same directory (`add.json.php`, `delete.json.php`, `index.php`) properly require `User::isAdmin()`, indicating this is an oversight. Commits dc3c825734628bb32550d0daa125f05bacb6829c and b583acdc9a9d1eab461543caa363e1a104fb4516 contain patches.",
-      "published": "2026-03-23T17:16:51.490",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33501"
-    },
-    {
-      "id": "CVE-2026-33500",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the fix for CVE-2026-27568 (GHSA-rcqw-6466-3mv7) introduced a custom `ParsedownSafeWithLinks` class that sanitizes raw HTML `<a>` and `<img>` tags in comments, but explicitly disables Parsedown's `safeMode`. This creates a bypass: markdown link syntax `[text](javascript:alert(1))` is processed by Parsedown's `inlineLink()` method, which does not go through the custom `sanitizeATag()` sanitization (that only handles raw HTML tags). With `safeMode` disabled, Parsedown's built-in `javascript:` URI filtering (`sanitiseElement()`/`filterUnsafeUrlInAttribute()`) is also inactive. An attacker can inject stored XSS via comment markdown links. Commit 3ae02fa240939dbefc5949d64f05790fd25d728d contains a patch.",
-      "published": "2026-03-23T17:16:51.340",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33500"
-    },
-    {
-      "id": "CVE-2026-33499",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `view/forbiddenPage.php` and `view/warningPage.php` templates reflect the `$_REQUEST['unlockPassword']` parameter directly into an HTML `<input>` tag's attributes without any output encoding or sanitization. An attacker can craft a URL that breaks out of the `value` attribute and injects arbitrary HTML attributes including JavaScript event handlers, achieving reflected XSS against any visitor who clicks the link. Commit f154167251c9cf183ce09cd018d07e9352310457 contains a patch.",
-      "published": "2026-03-23T17:16:51.180",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33499"
     }
   ]
 }
