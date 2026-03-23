@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-23T15:14:17+00:00",
+  "generated_at": "2026-03-23T16:11:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4647",
-      "summary": "A flaw was found in the GNU Binutils BFD library, a widely used component for handling binary files such as object files and executables. The issue occurs when processing specially crafted XCOFF object files, where a relocation type value is not properly validated before being used. This can cause the program to read memory outside of intended bounds. As a result, affected tools may crash or expose unintended memory contents, leading to denial-of-service or limited information disclosure risks.",
-      "published": "2026-03-23T14:16:36.753",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4647"
+      "id": "CVE-2026-4590",
+      "summary": "A security flaw has been discovered in kalcaddle kodbox 1.64. The impacted element is an unknown function of the file /workspace/source-code/plugins/oauth/controller/bind/index.class.php of the component loginSubmit API. Performing a manipulation of the argument third results in cross-site request forgery. Remote exploitation of the attack is possible. A high degree of complexity is needed for the attack. The exploitability is regarded as difficult. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-23T15:16:36.187",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4590"
     },
     {
-      "id": "CVE-2026-4645",
-      "summary": "A flaw was found in the `github.com/antchfx/xpath` component. A remote attacker could exploit this vulnerability by submitting crafted Boolean XPath expressions that evaluate to true. This can cause an infinite loop in the `logicalQuery.Select` function, leading to 100% CPU utilization and a Denial of Service (DoS) condition for the affected system.",
-      "published": "2026-03-23T14:16:36.063",
+      "id": "CVE-2026-4404",
+      "summary": "Use of hard coded credentials in GoHarbor Harbor version 2.15.0 and below, allows attackers to use the default password and gain access to the web UI.",
+      "published": "2026-03-23T15:16:35.403",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4404"
+    },
+    {
+      "id": "CVE-2026-33485",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the RTMP `on_publish` callback at `plugin/Live/on_publish.php` is accessible without authentication. The `$_POST['name']` parameter (stream key) is interpolated directly into SQL queries in two locations \u2014 `LiveTransmitionHistory::getLatest()` and `LiveTransmition::keyExists()` \u2014 without parameterized binding or escaping. An unauthenticated attacker can exploit time-based blind SQL injection to extract all database contents including user password hashes, email addresses, and other sensitive data. Commit af59eade82de645b20183cc3d74467a7eac76549 contains a patch.",
+      "published": "2026-03-23T15:16:34.887",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4645"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33485"
     },
     {
-      "id": "CVE-2026-4589",
-      "summary": "A vulnerability was identified in kalcaddle kodbox 1.64. The affected element is the function PathDriverUrl of the file /workspace/source-code/app/controller/explorer/editor.class.php of the component fileGet Endpoint. Such manipulation of the argument path leads to server-side request forgery. The attack may be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way. Statistical analysis made it clear that VulDB provides the best quality for vulnerability data.",
-      "published": "2026-03-23T14:16:35.323",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4589"
+      "id": "CVE-2026-33483",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `aVideoEncoderChunk.json.php` endpoint is a completely standalone PHP script with no authentication, no framework includes, and no resource limits. An unauthenticated remote attacker can send arbitrary POST data which is written to persistent temp files in `/tmp/` with no size cap, no rate limiting, and no cleanup mechanism. This allows trivial disk space exhaustion leading to denial of service of the entire server. Commit 33d1bae6c731ef1682fcdc47b428313be073a5d1 contains a patch.",
+      "published": "2026-03-23T15:16:34.717",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33483"
     },
     {
-      "id": "CVE-2026-3635",
-      "summary": "Summary\nWhen trustProxy is configured with a restrictive trust function (e.g., a specific IP like trustProxy: '10.0.0.1', a subnet, a hop count, or a custom function), the request.protocol and request.host getters read X-Forwarded-Proto and X-Forwarded-Host headers from any connection \u2014 including connections from untrusted IPs. This allows an attacker connecting directly to Fastify (bypassing the proxy) to spoof both the protocol and host seen by the application.\n\nAffected Versions\nfastify <= 5.8.2\n\nImpact\nApplications using request.protocol or request.host for security decisions (HTTPS enforcement, secure cookie flags, CSRF origin checks, URL construction, host-based routing) are affected when trustProxy is configured with a restrictive trust function.\n\nWhen trustProxy: true (trust everything), both host and protocol trust all forwarded headers \u2014 this is expected behavior. The vulnerability only manifests with restrictive trust configurations.",
-      "published": "2026-03-23T14:16:34.720",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3635"
+      "id": "CVE-2026-33482",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `sanitizeFFmpegCommand()` function in `plugin/API/standAlone/functions.php` is designed to prevent OS command injection in ffmpeg commands by stripping dangerous shell metacharacters (`&&`, `;`, `|`, `` ` ``, `<`, `>`). However, it fails to strip `$()` (bash command substitution syntax). Since the sanitized command is executed inside a double-quoted `sh -c` context in `execAsync()`, an attacker who can craft a valid encrypted payload can achieve arbitrary command execution on the standalone encoder server. Commit 25c8ab90269e3a01fb4cf205b40a373487f022e1 contains a patch.",
+      "published": "2026-03-23T15:16:34.560",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33482"
     },
     {
-      "id": "CVE-2026-33352",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 26.0, an unauthenticated SQL injection vulnerability exists in `objects/category.php` in the `getAllCategories()` method. The `doNotShowCats` request parameter is sanitized only by stripping single-quote characters (`str_replace(\"'\", '', ...)`), but this is trivially bypassed using a backslash escape technique to shift SQL string boundaries. The parameter is not covered by any of the application's global input filters in `objects/security.php`. Version 26.0 contains a patch for the issue.",
-      "published": "2026-03-23T14:16:33.580",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33352"
-    },
-    {
-      "id": "CVE-2026-33351",
-      "summary": "WWBN AVideo is an open source video platform. Prior to version 26.0, a Server-Side Request Forgery (SSRF) vulnerability exists in `plugin/Live/standAloneFiles/saveDVR.json.php`. When the AVideo Live plugin is deployed in standalone mode (the intended configuration for this file), the `$_REQUEST['webSiteRootURL']` parameter is used directly to construct a URL that is fetched server-side via `file_get_contents()`. No authentication, origin validation, or URL allowlisting is performed. Version 26.0 contains a patch for the issue.",
-      "published": "2026-03-23T14:16:33.423",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33351"
+      "id": "CVE-2026-33480",
+      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 26.0, the `isSSRFSafeURL()` function in AVideo can be bypassed using IPv4-mapped IPv6 addresses (`::ffff:x.x.x.x`). The unauthenticated `plugin/LiveLinks/proxy.php` endpoint uses this function to validate URLs before fetching them with curl, but the IPv4-mapped IPv6 prefix passes all checks, allowing an attacker to access cloud metadata services, internal networks, and localhost services. Commit 75ce8a579a58c9d4c7aafe453fbced002cb8f373 contains a patch.",
+      "published": "2026-03-23T15:16:34.400",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33480"
     }
   ]
 }
