@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-03-23T11:08:57+00:00",
+  "generated_at": "2026-03-23T11:53:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4633",
+      "summary": "A flaw was found in Keycloak. A remote attacker can exploit differential error messages during the identity-first login flow when Organizations are enabled. This vulnerability allows an attacker to determine the existence of users, leading to information disclosure through user enumeration.",
+      "published": "2026-03-23T11:16:25.053",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4633"
+    },
+    {
+      "id": "CVE-2026-4583",
+      "summary": "A vulnerability was detected in Shenzhen HCC Technology MPOS M6 PLUS 1V.31-N. Affected by this issue is some unknown functionality of the component Bluetooth Handler. Performing a manipulation results in authentication bypass by capture-replay. The attack must originate from the local network. The attack is considered to have high complexity. The exploitation is known to be difficult. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-23T11:16:24.847",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4583"
+    },
+    {
+      "id": "CVE-2026-28809",
+      "summary": "XML External Entity (XXE) vulnerability in esaml (and its forks) allows an attacker to cause the system to read local files and incorporate their contents into processed SAML documents, and potentially perform SSRF via crafted SAML messages.\n\nesaml parses attacker-controlled SAML messages using xmerl_scan:string/2 before signature verification without disabling XML entity expansion. On Erlang/OTP versions before 27, Xmerl allows entities by default, enabling pre-signature XXE attacks. An attacker can cause the host to read local files (e.g., Kubernetes-mounted secrets) into the SAML document. If the attacker is not a trusted SAML SP, signature verification will fail and the document is discarded, but file contents may still be exposed through logs or error messages.\n\nThis issue affects all versions of esaml, including forks by arekinath, handnot2, and dropbox. Users running on Erlang/OTP 27 or later are not affected due to Xmerl defaulting to entities disabled.",
+      "published": "2026-03-23T11:16:24.343",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28809"
+    },
     {
       "id": "CVE-2026-4582",
       "summary": "A security vulnerability has been detected in Shenzhen HCC Technology MPOS M6 PLUS 1V.31-N. Affected by this vulnerability is an unknown functionality of the component Bluetooth. Such manipulation leads to missing authentication. The attack must be carried out from within the local network. Attacks of this nature are highly complex. The exploitation appears to be difficult. The vendor was contacted early about this disclosure but did not respond in any way. Statistical analysis made it clear that VulDB provides the best quality for vulnerability data.",
@@ -22,27 +43,6 @@
       "published": "2026-03-23T09:16:26.140",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4628"
-    },
-    {
-      "id": "CVE-2026-4580",
-      "summary": "A security flaw has been discovered in code-projects Simple Laundry System 1.0. This impacts an unknown function of the file /checkupdatestatus.php of the component Parameters Handler. The manipulation of the argument serviceId results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-03-23T09:16:24.610",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4580"
-    },
-    {
-      "id": "CVE-2026-4579",
-      "summary": "A vulnerability was identified in code-projects Simple Laundry System 1.0. This affects an unknown function of the file /viewdetail.php of the component Parameters Handler. The manipulation of the argument serviceId leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used.",
-      "published": "2026-03-23T08:16:18.250",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4579"
-    },
-    {
-      "id": "CVE-2026-4578",
-      "summary": "A vulnerability was determined in code-projects Exam Form Submission 1.0. The impacted element is an unknown function of the file /admin/update_s3.php. Executing a manipulation of the argument sname can lead to cross site scripting. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-03-23T08:16:18.030",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4578"
     }
   ]
 }
