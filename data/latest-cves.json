@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-23T22:51:21+00:00",
+  "generated_at": "2026-03-23T23:46:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4681",
-      "summary": "A critical remote code execution (RCE) vulnerability has been reported in PTC Windchill and PTC FlexPLM. The vulnerability may be exploited through the deserialization of untrusted data.\n\nThis issue affects Windchill PDMLink: 11.0 M030, 11.1 M020, 11.2.1.0, 12.0.2.0, 12.1.2.0, 13.0.2.0, 13.1.0.0, 13.1.1.0, 13.1.2.0, 13.1.3.0; FlexPLM: 11.0 M030, 11.1 M020, 11.2.1.0, 12.0.0.0, 12.0.2.0, 12.0.3.0, 12.1.2.0, 12.1.3.0, 13.0.2.0, 13.0.3.0.",
-      "published": "2026-03-23T22:16:31.890",
+      "id": "CVE-2026-4306",
+      "summary": "The WP Job Portal plugin for WordPress is vulnerable to SQL Injection via the 'radius' parameter in all versions up to, and including, 2.4.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-03-23T23:17:13.403",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4306"
+    },
+    {
+      "id": "CVE-2026-4066",
+      "summary": "The Smart Custom Fields plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the relational_posts_search() function in all versions up to, and including, 5.0.6. This makes it possible for authenticated attackers, with Contributor-level access and above, to read private and draft post content from other authors via the smart-cf-relational-posts-search AJAX action. The function queries posts with post_status=any and returns full WP_Post objects including post_content, but only checks the generic edit_posts capability instead of verifying whether the requesting user has permission to read each individual post.",
+      "published": "2026-03-23T23:17:13.227",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4066"
+    },
+    {
+      "id": "CVE-2026-3225",
+      "summary": "The LearnPress \u2013 WordPress LMS Plugin plugin for WordPress is vulnerable to unauthorized deletion of quiz question answers due to a missing capability check in the delete_question_answer() function of the EditQuestionAjax class in all versions up to, and including, 4.3.2.8. The AbstractAjax::catch_lp_ajax() dispatcher verifies a wp_rest nonce but performs no current_user_can() check, and the QuestionAnswerModel::delete() method only validates minimum answer counts without checking user capabilities. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete answer options from any quiz question on the site.",
+      "published": "2026-03-23T23:17:13.047",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3225"
+    },
+    {
+      "id": "CVE-2026-33168",
+      "summary": "Action View provides conventions and helpers for building web pages with the Rails framework. Prior to versions 8.1.2.1, 8.0.4.1, and 7.2.3.1, when a blank string is used as an HTML attribute name in Action View tag helpers, the attribute escaping is bypassed, producing malformed HTML. A carefully crafted attribute value could then be misinterpreted by the browser as a separate attribute name, possibly leading to XSS. Applications that allow users to specify custom HTML attributes are affected. Versions 8.1.2.1, 8.0.4.1, and 7.2.3.1 contain a patch.",
+      "published": "2026-03-23T23:17:12.873",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4681"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33168"
     },
     {
-      "id": "CVE-2026-4612",
-      "summary": "A vulnerability has been found in itsourcecode Free Hotel Reservation System 1.0. This affects an unknown part of the file /hotel/admin/mod_users/index.php?view=edit&id=8 of the component Parameter Handler. The manipulation of the argument account_id leads to sql injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-03-23T22:16:31.677",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4612"
-    },
-    {
-      "id": "CVE-2026-4611",
-      "summary": "A flaw has been found in TOTOLINK X6000R 9.4.0cu.1360_B20241207/9.4.0cu.1498_B20250826. Affected by this issue is the function setLanCfg of the file /usr/sbin/shttpd. Executing a manipulation of the argument Hostname can lead to os command injection. The attack may be launched remotely.",
-      "published": "2026-03-23T22:16:31.463",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4611"
-    },
-    {
-      "id": "CVE-2026-33634",
-      "summary": "Trivy is a security scanner. On March 19, 2026, a threat actor used compromised credentials to publish a malicious Trivy v0.69.4 release, force-push 76 of 77 version tags in `aquasecurity/trivy-action` to credential-stealing malware, and replace all 7 tags in `aquasecurity/setup-trivy` with malicious commits. This incident is a continuation of the supply chain attack that began in late February 2026. Following the initial disclosure on March 1, credential rotation was performed but was not atomic (not all credentials were revoked simultaneously). The attacker could have use a valid token to exfiltrate newly rotated secrets during the rotation window (which lasted a few days). This could have allowed the attacker to retain access and execute the March 19 attack. Affected components include the `aquasecurity/trivy` Go / Container image version 0.69.4, the `aquasecurity/trivy-action` GitHub Action versions 0.0.1 \u2013 0.34.2 (76/77), and the`aquasecurity/setup-trivy` GitHub Action versions 0.2.0 \u2013 0.2.6, prior to the recreation of 0.2.6 with a safe commit. Known safe versions include versions 0.69.2 and 0.69.3 of the Trivy binary, version 0.35.0 of trivy-action, and version 0.2.6 of setup-trivy. Additionally, take other mitigations to ensure the safety of secrets. If there is any possibility that a compromised version ran in one's environment, all secrets accessible to affected pipelines must be treated as exposed and rotated immediately. Check whether one's organization pulled or executed Trivy v0.69.4 from any source. Remove any affected artifacts immediately. Review all workflows using `aquasecurity/trivy-action` or `aquasecurity/setup-trivy`. Those who referenced a version tag rather than a full commit SHA should check workflow run logs from March 19\u201320, 2026 for signs of compromise. Look for repositories named `tpcp-docs` in one's GitHub organization. The presence of such a repository may indicate that the fallback exfiltration mechanism was triggered and secrets were successfully stolen. Pin GitHub Actions to full, immutable commit SHA hashes, don't use mutable version tags.",
-      "published": "2026-03-23T22:16:31.290",
+      "id": "CVE-2026-33167",
+      "summary": "Action Pack is a Rubygem for building web applications on the Rails framework. In versions on the 8.1 branch prior to 8.1.2.1, the debug exceptions page does not properly escape exception messages. A carefully crafted exception message could inject arbitrary HTML and JavaScript into the page, leading to XSS. This affects applications with detailed exception pages enabled (`config.consider_all_requests_local = true`), which is the default in development. Version 8.1.2.1 contains a patch.",
+      "published": "2026-03-23T23:17:12.707",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33634"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33167"
     },
     {
-      "id": "CVE-2026-32913",
-      "summary": "OpenClaw before 2026.3.7 contains an improper header validation vulnerability in fetchWithSsrFGuard that forwards custom authorization headers across cross-origin redirects. Attackers can trigger redirects to different origins to intercept sensitive headers like X-Api-Key and Private-Token intended for the original destination.",
-      "published": "2026-03-23T22:16:30.433",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32913"
-    },
-    {
-      "id": "CVE-2026-32912",
-      "summary": "OpenClaw versions 2026.2.26 before 2026.3.1 contain a current working directory injection vulnerability in Windows wrapper resolution for .cmd/.bat files that allows shell execution fallback. Attackers can manipulate the current working directory to alter wrapper resolution behavior and achieve command execution integrity loss.",
-      "published": "2026-03-23T22:16:30.247",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32912"
+      "id": "CVE-2026-33046",
+      "summary": "Indico is an event management system that uses Flask-Multipass, a multi-backend authentication system for Flask. In versions prior to 3.3.12, due to vulnerabilities in TeXLive and obscure LaTeX syntax that allowed circumventing Indico's LaTeX sanitizer, it is possible to use specially-crafted LaTeX snippets which can read local files or execute code with the privileges of the user running Indico on the server. Note that if server-side LaTeX rendering is not in use (ie `XELATEX_PATH` was not set in `indico.conf`), this vulnerability does not apply. It is recommended to update to Indico 3.3.12 as soon as possible. It is also strongly recommended to enable the containerized LaTeX renderer (using `podman`), which isolates it from the rest of the system. As a workaround, remove the `XELATEX_PATH` setting from `indico.conf` (or comment it out or set it to `None`) and restart the `indico-uwsgi` and `indico-celery` services to disable LaTeX functionality.",
+      "published": "2026-03-23T23:17:12.520",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33046"
     }
   ]
 }
