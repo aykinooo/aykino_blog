@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-24T18:08:28+00:00",
+  "generated_at": "2026-03-24T19:20:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33340",
-      "summary": "LoLLMs WEBUI provides the Web user interface for Lord of Large Language and Multi modal Systems. A critical Server-Side Request Forgery (SSRF) vulnerability has been identified in all known existing versions of `lollms-webui`. The `@router.post(\"/api/proxy\")` endpoint allows unauthenticated attackers to force the server into making arbitrary GET requests. This can be exploited to access internal services, scan local networks, or exfiltrate sensitive cloud metadata (e.g., AWS/GCP IAM tokens). As of time of publication, no known patched versions are available.",
-      "published": "2026-03-24T17:16:44.423",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33340"
-    },
-    {
-      "id": "CVE-2025-11571",
-      "summary": "Vulnerable endpoints accept user-controlled input through a URL in JSON format which enables command execution. The commands allowed to execute can open executables. However, the commands cannot pass parameters or arguments.\u00a0\nTo successfully execute this attack, the attacker needs to be on the same network.",
-      "published": "2026-03-24T17:16:25.863",
+      "id": "CVE-2026-33769",
+      "summary": "Astro is a web framework. From version 2.10.10 to before version 5.18.1, this issue concerns Astro's remotePatterns path enforcement for remote URLs used by server-side fetchers such as the image optimization endpoint. The path matching logic for /* wildcards is unanchored, so a pathname that contains the allowed prefix later in the path can still match. As a result, an attacker can fetch paths outside the intended allowlisted prefix on an otherwise allowed host. This issue has been patched in version 5.18.1.",
+      "published": "2026-03-24T19:16:55.837",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11571"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33769"
     },
     {
-      "id": "CVE-2026-33700",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `DELETE /api/v1/projects/:project/shares/:share` endpoint does not verify that the link share belongs to the project specified in the URL. An attacker with admin access to any project can delete link shares from other projects by providing their own project ID combined with the target share ID. Version 2.2.1 patches the issue.",
-      "published": "2026-03-24T16:16:35.857",
+      "id": "CVE-2026-33768",
+      "summary": "Astro is a web framework. Prior to version 10.0.2, the @astrojs/vercel serverless entrypoint reads the x-astro-path header and x_astro_path query parameter to rewrite the internal request path, with no authentication whatsoever. On deployments without Edge Middleware, this lets anyone bypass Vercel's platform-level path restrictions entirely. The override preserves the original HTTP method and body, so this isn't limited to GET. POST, PUT, DELETE all land on the rewritten path. A Firewall rule blocking /admin/* does nothing when the request comes in as POST /api/health?x_astro_path=/admin/delete-user. This issue has been patched in version 10.0.2.",
+      "published": "2026-03-24T19:16:55.653",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33768"
+    },
+    {
+      "id": "CVE-2026-33627",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.61 and 9.6.0-alpha.55, an authenticated user calling GET /users/me receives unsanitized auth data, including sensitive credentials such as MFA TOTP secrets and recovery codes. The endpoint internally uses master-level authentication for the session query, and the master context leaks through to the user data, bypassing auth adapter sanitization. An attacker who obtains a user's session token can extract MFA secrets to generate valid TOTP codes indefinitely. This issue has been patched in versions 8.6.61 and 9.6.0-alpha.55.",
+      "published": "2026-03-24T19:16:55.190",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33700"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33627"
     },
     {
-      "id": "CVE-2026-33680",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.2, the `LinkSharing.ReadAll()` method allows link share authenticated users to list all link shares for a project, including their secret hashes. While `LinkSharing.CanRead()` correctly blocks link share users from reading individual shares via `ReadOne`, the `ReadAllWeb` handler bypasses this check by never calling `CanRead()`. An attacker with a read-only link share can retrieve hashes for write or admin link shares on the same project and authenticate with them, escalating to full admin access. Version 2.2.2 patches the issue.",
-      "published": "2026-03-24T16:16:35.570",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33680"
+      "id": "CVE-2026-33624",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.60 and 9.6.0-alpha.54, an attacker who obtains a user's password and a single MFA recovery code can reuse that recovery code an unlimited number of times by sending concurrent login requests. This defeats the single-use design of recovery codes. The attack requires the user's password, a valid recovery code, and the ability to send concurrent requests within milliseconds. This issue has been patched in versions 8.6.60 and 9.6.0-alpha.54.",
+      "published": "2026-03-24T19:16:55.023",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33624"
     },
     {
-      "id": "CVE-2026-33679",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `DownloadImage` function in `pkg/utils/avatar.go` uses a bare `http.Client{}` with no SSRF protection when downloading user avatar images from the OpenID Connect `picture` claim URL. An attacker who controls their OIDC profile picture URL can force the Vikunja server to make HTTP GET requests to arbitrary internal or cloud metadata endpoints. This bypasses the SSRF protections that are correctly applied to the webhook system. Version 2.2.1 patches the issue.",
-      "published": "2026-03-24T16:16:35.420",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33679"
+      "id": "CVE-2026-33539",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.59 and 9.6.0-alpha.53, an attacker with master key access can execute arbitrary SQL statements on the PostgreSQL database by injecting SQL metacharacters into field name parameters of the aggregate $group pipeline stage or the distinct operation. This allows privilege escalation from Parse Server application-level administrator to PostgreSQL database-level access. Only Parse Server deployments using PostgreSQL are affected. MongoDB deployments are not affected. This issue has been patched in versions 8.6.59 and 9.6.0-alpha.53.",
+      "published": "2026-03-24T19:16:54.853",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33539"
     },
     {
-      "id": "CVE-2026-33678",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, `TaskAttachment.ReadOne()` queries attachments by ID only (`WHERE id = ?`), ignoring the task ID from the URL path. The permission check in `CanRead()` validates access to the task specified in the URL, but `ReadOne()` loads a different attachment that may belong to a task in another project. This allows any authenticated user to download or delete any attachment in the system by providing their own accessible task ID with a target attachment ID. Attachment IDs are sequential integers, making enumeration trivial. Version 2.2.1 patches the issue.",
-      "published": "2026-03-24T16:16:35.270",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33678"
+      "id": "CVE-2026-33538",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.58 and 9.6.0-alpha.52, an unauthenticated attacker can cause denial of service by sending authentication requests with arbitrary, unconfigured provider names. The server executes a database query for each unconfigured provider before rejecting the request, and since no database index exists for unconfigured providers, each request triggers a full collection scan on the user database. This can be parallelized to saturate database resources. This issue has been patched in versions 8.6.58 and 9.6.0-alpha.52.",
+      "published": "2026-03-24T19:16:54.673",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33538"
     }
   ]
 }
