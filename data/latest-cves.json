@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-24T03:12:17+00:00",
+  "generated_at": "2026-03-24T05:03:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3079",
-      "summary": "The LearnDash LMS plugin for WordPress is vulnerable to blind time-based SQL Injection via the 'filters[orderby_order]' parameter in the 'learndash_propanel_template' AJAX action in all versions up to, and including, 5.0.3. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-03-24T02:16:05.633",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3079"
+      "id": "CVE-2026-4744",
+      "summary": "Out-of-bounds Read vulnerability in rizonesoft Notepad3 (\u200escintilla/oniguruma/src modules). This vulnerability is associated with program files regcomp.C\u200e.\n\nThis issue affects Notepad3: before 6.25.714.1.",
+      "published": "2026-03-24T04:17:32.880",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4744"
     },
     {
-      "id": "CVE-2026-33307",
-      "summary": "Mod_gnutls is a TLS module for Apache HTTPD based on GnuTLS. In versions prior to 0.12.3 and 0.13.0, code for client certificate verification imported the certificate chain sent by the client into a fixed size `gnutls_x509_crt_t x509[]` array without checking the number of certificates is less than or equal to the array size. `gnutls_x509_crt_t` is a `typedef` for a pointer to an opaque GnuTLS structure created using with `gnutls_x509_crt_init()` before importing certificate data into it, so no attacker-controlled data was written into the stack buffer, but writing a pointer after the last array element generally triggered a segfault, and could theoretically cause stack corruption otherwise (not observed in practice). Server configurations that do not use client certificates (`GnuTLSClientVerify ignore`, the default) are not affected. The problem has been fixed in version 0.12.3 by checking the length of the provided certificate chain and rejecting it if it exceeds the buffer length, and in version 0.13.0 by rewriting certificate verification to use `gnutls_certificate_verify_peers()`, removing the need for the buffer entirely. There is no workaround. Version 0.12.3 provides the minimal fix for users of 0.12.x who do not wish to upgrade to 0.13.0 yet.",
-      "published": "2026-03-24T02:16:05.283",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33307"
+      "id": "CVE-2026-4743",
+      "summary": "NULL Pointer Dereference vulnerability in taurusxin ncmdump (\u200esrc/utils\u200e modules). This vulnerability is associated with program files cJSON.Cpp\u200e.\n\nThis issue affects ncmdump: before 1.4.0.",
+      "published": "2026-03-24T04:17:31.497",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4743"
     },
     {
-      "id": "CVE-2026-4680",
-      "summary": "Use after free in FedCM in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-03-24T01:17:03.743",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4680"
+      "id": "CVE-2026-4742",
+      "summary": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in visualfc liteide (liteidex/src/3rdparty/qjsonrpc/src/http-parser modules). This vulnerability is associated with program files http_parser.C.\n\nThis issue affects liteide: before x38.4.",
+      "published": "2026-03-24T04:17:30.380",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4742"
     },
     {
-      "id": "CVE-2026-4679",
-      "summary": "Integer overflow in Fonts in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to perform an out of bounds memory write via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-03-24T01:17:03.607",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4679"
+      "id": "CVE-2026-4741",
+      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in TeamJCD JoyConDroid (app/src/main/java/com/rdapps/gamepad/util modules). This vulnerability is associated with program files UnzipUtil.Java\u200e.\n\nThis issue affects JoyConDroid: through 1.0.93.",
+      "published": "2026-03-24T04:17:29.367",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4741"
     },
     {
-      "id": "CVE-2026-4678",
-      "summary": "Use after free in WebGPU in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-03-24T01:17:03.477",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4678"
+      "id": "CVE-2026-4739",
+      "summary": "Integer Overflow or Wraparound vulnerability in InsightSoftwareConsortium ITK (\u200eModules/ThirdParty/Expat/src/expat modules).This issue affects ITK: before 2.7.1.",
+      "published": "2026-03-24T04:17:29.193",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4739"
     },
     {
-      "id": "CVE-2026-4677",
-      "summary": "Inappropriate implementation in WebAudio in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to perform an out of bounds memory read via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-03-24T01:17:03.343",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4677"
+      "id": "CVE-2026-4738",
+      "summary": "Improper Restriction of Operations within the Bounds of a Memory Buffer vulnerability in OSGeo gdal (frmts/zlib/contrib/infback9 modules). This vulnerability is associated with program files inftree9.C\u200e.\n\nThis issue affects gdal: before 3.11.0.",
+      "published": "2026-03-24T04:17:29.000",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4738"
     }
   ]
 }
