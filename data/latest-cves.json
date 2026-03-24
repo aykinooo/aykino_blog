@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-24T19:20:42+00:00",
+  "generated_at": "2026-03-24T20:57:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33769",
-      "summary": "Astro is a web framework. From version 2.10.10 to before version 5.18.1, this issue concerns Astro's remotePatterns path enforcement for remote URLs used by server-side fetchers such as the image optimization endpoint. The path matching logic for /* wildcards is unanchored, so a pathname that contains the allowed prefix later in the path can still match. As a result, an attacker can fetch paths outside the intended allowlisted prefix on an otherwise allowed host. This issue has been patched in version 5.18.1.",
-      "published": "2026-03-24T19:16:55.837",
+      "id": "CVE-2026-33511",
+      "summary": "pyLoad is a free and open-source download manager written in Python. From version 0.4.20 to before version 0.5.0b3.dev97, the local_check decorator in pyLoad's ClickNLoad feature can be bypassed by any remote attacker through HTTP Host header spoofing. This allows unauthenticated remote users to access localhost-restricted endpoints, enabling them to inject arbitrary downloads, write files to the storage directory, and execute JavaScript code. This issue has been patched in version 0.5.0b3.dev97.",
+      "published": "2026-03-24T20:16:30.203",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33769"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33511"
     },
     {
-      "id": "CVE-2026-33768",
-      "summary": "Astro is a web framework. Prior to version 10.0.2, the @astrojs/vercel serverless entrypoint reads the x-astro-path header and x_astro_path query parameter to rewrite the internal request path, with no authentication whatsoever. On deployments without Edge Middleware, this lets anyone bypass Vercel's platform-level path restrictions entirely. The override preserves the original HTTP method and body, so this isn't limited to GET. POST, PUT, DELETE all land on the rewritten path. A Firewall rule blocking /admin/* does nothing when the request comes in as POST /api/health?x_astro_path=/admin/delete-user. This issue has been patched in version 10.0.2.",
-      "published": "2026-03-24T19:16:55.653",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33768"
+      "id": "CVE-2026-33509",
+      "summary": "pyLoad is a free and open-source download manager written in Python. From version 0.4.0 to before version 0.5.0b3.dev97, the set_config_value() API endpoint allows users with the non-admin SETTINGS permission to modify any configuration option without restriction. The reconnect.script config option controls a file path that is passed directly to subprocess.run() in the thread manager's reconnect logic. A SETTINGS user can set this to any executable file on the system, achieving Remote Code Execution. The only validation in set_config_value() is a hardcoded check for general.storage_folder \u2014 all other security-critical settings including reconnect.script are writable without any allowlist or path restriction. This issue has been patched in version 0.5.0b3.dev97.",
+      "published": "2026-03-24T20:16:30.053",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33509"
     },
     {
-      "id": "CVE-2026-33627",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.61 and 9.6.0-alpha.55, an authenticated user calling GET /users/me receives unsanitized auth data, including sensitive credentials such as MFA TOTP secrets and recovery codes. The endpoint internally uses master-level authentication for the session query, and the master context leaks through to the user data, bypassing auth adapter sanitization. An attacker who obtains a user's session token can extract MFA secrets to generate valid TOTP codes indefinitely. This issue has been patched in versions 8.6.61 and 9.6.0-alpha.55.",
-      "published": "2026-03-24T19:16:55.190",
+      "id": "CVE-2026-33419",
+      "summary": "MinIO is a high-performance object storage system. Prior to RELEASE.2026-03-17T21-25-16Z, MinIO AIStor's STS (Security Token Service) AssumeRoleWithLDAPIdentity endpoint is vulnerable to LDAP credential brute-forcing due to two combined weaknesses: (1) distinguishable error responses that enable username enumeration, and (2) absence of rate limiting on authentication attempts. An unauthenticated network attacker can enumerate valid LDAP usernames and then perform unlimited password guessing to obtain temporary AWS-style STS credentials, gaining access to the victim's S3 buckets and objects. This issue has been patched in RELEASE.2026-03-17T21-25-16Z.",
+      "published": "2026-03-24T20:16:29.900",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33627"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33419"
     },
     {
-      "id": "CVE-2026-33624",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.60 and 9.6.0-alpha.54, an attacker who obtains a user's password and a single MFA recovery code can reuse that recovery code an unlimited number of times by sending concurrent login requests. This defeats the single-use design of recovery codes. The attack requires the user's password, a valid recovery code, and the ability to send concurrent requests within milliseconds. This issue has been patched in versions 8.6.60 and 9.6.0-alpha.54.",
-      "published": "2026-03-24T19:16:55.023",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33624"
+      "id": "CVE-2026-33412",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0202, a command injection vulnerability exists in Vim's glob() function on Unix-like systems. By including a newline character (\\n) in a pattern passed to glob(), an attacker may be able to execute arbitrary shell commands. This vulnerability depends on the user's 'shell' setting. This issue has been patched in version 9.2.0202.",
+      "published": "2026-03-24T20:16:29.740",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33412"
     },
     {
-      "id": "CVE-2026-33539",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.59 and 9.6.0-alpha.53, an attacker with master key access can execute arbitrary SQL statements on the PostgreSQL database by injecting SQL metacharacters into field name parameters of the aggregate $group pipeline stage or the distinct operation. This allows privilege escalation from Parse Server application-level administrator to PostgreSQL database-level access. Only Parse Server deployments using PostgreSQL are affected. MongoDB deployments are not affected. This issue has been patched in versions 8.6.59 and 9.6.0-alpha.53.",
-      "published": "2026-03-24T19:16:54.853",
+      "id": "CVE-2026-33353",
+      "summary": "Soft Serve is a self-hostable Git server for the command line. From version 0.6.0 to before version 0.11.6, an authorization flaw in repo import allows any authenticated SSH user to clone a server-local Git repository, including another user's private repo, into a new repository they control. This issue has been patched in version 0.11.6.",
+      "published": "2026-03-24T20:16:29.573",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33539"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33353"
     },
     {
-      "id": "CVE-2026-33538",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.58 and 9.6.0-alpha.52, an unauthenticated attacker can cause denial of service by sending authentication requests with arbitrary, unconfigured provider names. The server executes a database query for each unconfigured provider before rejecting the request, and since no database index exists for unconfigured providers, each request triggers a full collection scan on the user database. This can be parallelized to saturate database resources. This issue has been patched in versions 8.6.58 and 9.6.0-alpha.52.",
-      "published": "2026-03-24T19:16:54.673",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33538"
+      "id": "CVE-2026-33349",
+      "summary": "fast-xml-parser allows users to process XML from JS object without C/C++ based libraries or callbacks. From version 4.0.0-beta.3 to before version 5.5.7, the DocTypeReader in fast-xml-parser uses JavaScript truthy checks to evaluate maxEntityCount and maxEntitySize configuration limits. When a developer explicitly sets either limit to 0 \u2014 intending to disallow all entities or restrict entity size to zero bytes \u2014 the falsy nature of 0 in JavaScript causes the guard conditions to short-circuit, completely bypassing the limits. An attacker who can supply XML input to such an application can trigger unbounded entity expansion, leading to memory exhaustion and denial of service. This issue has been patched in version 5.5.7.",
+      "published": "2026-03-24T20:16:29.407",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33349"
     }
   ]
 }
