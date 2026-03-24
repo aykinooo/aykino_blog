@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-03-24T17:13:44+00:00",
+  "generated_at": "2026-03-24T18:08:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-33340",
+      "summary": "LoLLMs WEBUI provides the Web user interface for Lord of Large Language and Multi modal Systems. A critical Server-Side Request Forgery (SSRF) vulnerability has been identified in all known existing versions of `lollms-webui`. The `@router.post(\"/api/proxy\")` endpoint allows unauthenticated attackers to force the server into making arbitrary GET requests. This can be exploited to access internal services, scan local networks, or exfiltrate sensitive cloud metadata (e.g., AWS/GCP IAM tokens). As of time of publication, no known patched versions are available.",
+      "published": "2026-03-24T17:16:44.423",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33340"
+    },
+    {
+      "id": "CVE-2025-11571",
+      "summary": "Vulnerable endpoints accept user-controlled input through a URL in JSON format which enables command execution. The commands allowed to execute can open executables. However, the commands cannot pass parameters or arguments.\u00a0\nTo successfully execute this attack, the attacker needs to be on the same network.",
+      "published": "2026-03-24T17:16:25.863",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11571"
+    },
     {
       "id": "CVE-2026-33700",
       "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `DELETE /api/v1/projects/:project/shares/:share` endpoint does not verify that the link share belongs to the project specified in the URL. An attacker with admin access to any project can delete link shares from other projects by providing their own project ID combined with the target share ID. Version 2.2.1 patches the issue.",
@@ -29,20 +43,6 @@
       "published": "2026-03-24T16:16:35.270",
       "cvss": 8.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33678"
-    },
-    {
-      "id": "CVE-2026-33677",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `GET /api/v1/projects/:project/webhooks` endpoint returns webhook BasicAuth credentials (`basic_auth_user` and `basic_auth_password`) in plaintext to any user with read access to the project. While the existing code correctly masks the HMAC `secret` field, the BasicAuth fields added in a later migration were not given the same treatment. This allows read-only collaborators to steal credentials intended for authenticating against external webhook receivers. Version 2.2.1 patches the issue.",
-      "published": "2026-03-24T16:16:35.113",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33677"
-    },
-    {
-      "id": "CVE-2026-33676",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, when the Vikunja API returns tasks, it populates the `related_tasks` field with full task objects for all related tasks without checking whether the requesting user has read permission on those tasks' projects. An authenticated user who can read a task that has cross-project relations will receive full details (title, description, due dates, priority, percent completion, project ID, etc.) of tasks in projects they have no access to. Version 2.2.1 patches the issue.",
-      "published": "2026-03-24T16:16:34.947",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33676"
     }
   ]
 }
