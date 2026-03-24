@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-24T13:49:53+00:00",
+  "generated_at": "2026-03-24T15:18:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4729",
-      "summary": "Memory safety bugs present in Firefox 148 and Thunderbird 148. Some of these bugs showed evidence of memory corruption and we presume that with enough effort some of these could have been exploited to run arbitrary code. This vulnerability affects Firefox < 149.",
-      "published": "2026-03-24T13:16:08.830",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4729"
+      "id": "CVE-2026-4775",
+      "summary": "A flaw was found in the libtiff library. A remote attacker could exploit a signed integer overflow vulnerability in the putcontig8bitYCbCr44tile function by providing a specially crafted TIFF file. This flaw can lead to an out-of-bounds heap write due to incorrect memory pointer calculations, potentially causing a denial of service (application crash) or arbitrary code execution.",
+      "published": "2026-03-24T15:16:39.693",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4775"
     },
     {
-      "id": "CVE-2026-4728",
-      "summary": "Spoofing issue in the Privacy: Anti-Tracking component. This vulnerability affects Firefox < 149.",
-      "published": "2026-03-24T13:16:08.680",
+      "id": "CVE-2026-33554",
+      "summary": "ipmi-oem in FreeIPMI before 1.16.17 has exploitable buffer overflows on response messages. The Intelligent Platform Management Interface (IPMI) specification defines a set of interfaces for platform management. It is implemented by a large number of hardware manufacturers to support system management. It is most commonly used for sensor reading (e.g., CPU temperatures through the ipmi-sensors command within FreeIPMI) and remote power control (the ipmipower command). The ipmi-oem client command implements a set of a IPMI OEM commands for specific hardware vendors. If a user has supported hardware, they may wish to use the ipmi-oem command to send a request to a server to retrieve specific information. Three subcommands were found to have exploitable buffer overflows on response messages. They are: \"ipmi-oem dell get-last-post-code - get the last POST code and string describing the error on some Dell servers,\" \"ipmi-oem supermicro extra-firmware-info - get extra firmware info on Supermicro servers,\" and \"ipmi-oem wistron read-proprietary-string - read a proprietary string on Wistron servers.\"",
+      "published": "2026-03-24T15:16:35.743",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4728"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33554"
     },
     {
-      "id": "CVE-2026-4727",
-      "summary": "Denial-of-service in the Libraries component in NSS. This vulnerability affects Firefox < 149.",
-      "published": "2026-03-24T13:16:08.570",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4727"
+      "id": "CVE-2026-33316",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.0, a flaw in Vikunja\u2019s password reset logic allows disabled users to regain access to their accounts. The `ResetPassword()` function sets the user\u2019s status to `StatusActive` after a successful password reset without verifying whether the account was previously disabled. By requesting a reset token through `/api/v1/user/password/token` and completing the reset via `/api/v1/user/password/reset`, a disabled user can reactivate their account and bypass administrator-imposed account disablement. Version 2.2.0 patches the issue.",
+      "published": "2026-03-24T15:16:35.370",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33316"
     },
     {
-      "id": "CVE-2026-4726",
-      "summary": "Denial-of-service in the XML component. This vulnerability affects Firefox < 149.",
-      "published": "2026-03-24T13:16:08.473",
+      "id": "CVE-2026-33315",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.0, the Caldav endpoint allows login using Basic Authentication, which in turn allows users to bypass the TOTP on 2FA-enabled accounts. The user can then access standard project information that would normally be protected behind 2FA (if enabled), such as project name, description, etc. Version 2.2.0 patches the issue.",
+      "published": "2026-03-24T15:16:35.227",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4726"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33315"
     },
     {
-      "id": "CVE-2026-4725",
-      "summary": "Sandbox escape due to use-after-free in the Graphics: Canvas2D component. This vulnerability affects Firefox < 149.",
-      "published": "2026-03-24T13:16:08.377",
+      "id": "CVE-2026-33313",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.0, an authenticated user can read any task comment by ID, regardless of whether they have access to the task the comment belongs to, by substituting the task ID in the API URL with a task they do have access to. Version 2.2.0 fixes the issue.",
+      "published": "2026-03-24T15:16:35.073",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4725"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33313"
     },
     {
-      "id": "CVE-2026-4724",
-      "summary": "Undefined behavior in the Audio/Video component. This vulnerability affects Firefox < 149.",
-      "published": "2026-03-24T13:16:08.280",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4724"
+      "id": "CVE-2026-32647",
+      "summary": "NGINX Open Source and NGINX Plus have a vulnerability in the ngx_http_mp4_module module, which might allow an attacker to trigger a buffer over-read or over-write to the NGINX worker memory resulting in its termination or possibly code execution, using a specially crafted MP4 file. This issue affects NGINX Open Source and NGINX Plus if it is built with the ngx_http_mp4_module module and the mp4 directive is used in the configuration file. Additionally, the attack is possible only if an attacker can trigger the processing of a specially crafted MP4 file with the ngx_http_mp4_module module. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
+      "published": "2026-03-24T15:16:34.667",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32647"
     }
   ]
 }
