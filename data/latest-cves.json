@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-24T15:18:30+00:00",
+  "generated_at": "2026-03-24T17:13:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4775",
-      "summary": "A flaw was found in the libtiff library. A remote attacker could exploit a signed integer overflow vulnerability in the putcontig8bitYCbCr44tile function by providing a specially crafted TIFF file. This flaw can lead to an out-of-bounds heap write due to incorrect memory pointer calculations, potentially causing a denial of service (application crash) or arbitrary code execution.",
-      "published": "2026-03-24T15:16:39.693",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4775"
-    },
-    {
-      "id": "CVE-2026-33554",
-      "summary": "ipmi-oem in FreeIPMI before 1.16.17 has exploitable buffer overflows on response messages. The Intelligent Platform Management Interface (IPMI) specification defines a set of interfaces for platform management. It is implemented by a large number of hardware manufacturers to support system management. It is most commonly used for sensor reading (e.g., CPU temperatures through the ipmi-sensors command within FreeIPMI) and remote power control (the ipmipower command). The ipmi-oem client command implements a set of a IPMI OEM commands for specific hardware vendors. If a user has supported hardware, they may wish to use the ipmi-oem command to send a request to a server to retrieve specific information. Three subcommands were found to have exploitable buffer overflows on response messages. They are: \"ipmi-oem dell get-last-post-code - get the last POST code and string describing the error on some Dell servers,\" \"ipmi-oem supermicro extra-firmware-info - get extra firmware info on Supermicro servers,\" and \"ipmi-oem wistron read-proprietary-string - read a proprietary string on Wistron servers.\"",
-      "published": "2026-03-24T15:16:35.743",
+      "id": "CVE-2026-33700",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `DELETE /api/v1/projects/:project/shares/:share` endpoint does not verify that the link share belongs to the project specified in the URL. An attacker with admin access to any project can delete link shares from other projects by providing their own project ID combined with the target share ID. Version 2.2.1 patches the issue.",
+      "published": "2026-03-24T16:16:35.857",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33554"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33700"
     },
     {
-      "id": "CVE-2026-33316",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.0, a flaw in Vikunja\u2019s password reset logic allows disabled users to regain access to their accounts. The `ResetPassword()` function sets the user\u2019s status to `StatusActive` after a successful password reset without verifying whether the account was previously disabled. By requesting a reset token through `/api/v1/user/password/token` and completing the reset via `/api/v1/user/password/reset`, a disabled user can reactivate their account and bypass administrator-imposed account disablement. Version 2.2.0 patches the issue.",
-      "published": "2026-03-24T15:16:35.370",
+      "id": "CVE-2026-33680",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.2, the `LinkSharing.ReadAll()` method allows link share authenticated users to list all link shares for a project, including their secret hashes. While `LinkSharing.CanRead()` correctly blocks link share users from reading individual shares via `ReadOne`, the `ReadAllWeb` handler bypasses this check by never calling `CanRead()`. An attacker with a read-only link share can retrieve hashes for write or admin link shares on the same project and authenticate with them, escalating to full admin access. Version 2.2.2 patches the issue.",
+      "published": "2026-03-24T16:16:35.570",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33680"
+    },
+    {
+      "id": "CVE-2026-33679",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `DownloadImage` function in `pkg/utils/avatar.go` uses a bare `http.Client{}` with no SSRF protection when downloading user avatar images from the OpenID Connect `picture` claim URL. An attacker who controls their OIDC profile picture URL can force the Vikunja server to make HTTP GET requests to arbitrary internal or cloud metadata endpoints. This bypasses the SSRF protections that are correctly applied to the webhook system. Version 2.2.1 patches the issue.",
+      "published": "2026-03-24T16:16:35.420",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33679"
+    },
+    {
+      "id": "CVE-2026-33678",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, `TaskAttachment.ReadOne()` queries attachments by ID only (`WHERE id = ?`), ignoring the task ID from the URL path. The permission check in `CanRead()` validates access to the task specified in the URL, but `ReadOne()` loads a different attachment that may belong to a task in another project. This allows any authenticated user to download or delete any attachment in the system by providing their own accessible task ID with a target attachment ID. Attachment IDs are sequential integers, making enumeration trivial. Version 2.2.1 patches the issue.",
+      "published": "2026-03-24T16:16:35.270",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33316"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33678"
     },
     {
-      "id": "CVE-2026-33315",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.0, the Caldav endpoint allows login using Basic Authentication, which in turn allows users to bypass the TOTP on 2FA-enabled accounts. The user can then access standard project information that would normally be protected behind 2FA (if enabled), such as project name, description, etc. Version 2.2.0 patches the issue.",
-      "published": "2026-03-24T15:16:35.227",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33315"
+      "id": "CVE-2026-33677",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, the `GET /api/v1/projects/:project/webhooks` endpoint returns webhook BasicAuth credentials (`basic_auth_user` and `basic_auth_password`) in plaintext to any user with read access to the project. While the existing code correctly masks the HMAC `secret` field, the BasicAuth fields added in a later migration were not given the same treatment. This allows read-only collaborators to steal credentials intended for authenticating against external webhook receivers. Version 2.2.1 patches the issue.",
+      "published": "2026-03-24T16:16:35.113",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33677"
     },
     {
-      "id": "CVE-2026-33313",
-      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.0, an authenticated user can read any task comment by ID, regardless of whether they have access to the task the comment belongs to, by substituting the task ID in the API URL with a task they do have access to. Version 2.2.0 fixes the issue.",
-      "published": "2026-03-24T15:16:35.073",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33313"
-    },
-    {
-      "id": "CVE-2026-32647",
-      "summary": "NGINX Open Source and NGINX Plus have a vulnerability in the ngx_http_mp4_module module, which might allow an attacker to trigger a buffer over-read or over-write to the NGINX worker memory resulting in its termination or possibly code execution, using a specially crafted MP4 file. This issue affects NGINX Open Source and NGINX Plus if it is built with the ngx_http_mp4_module module and the mp4 directive is used in the configuration file. Additionally, the attack is possible only if an attacker can trigger the processing of a specially crafted MP4 file with the ngx_http_mp4_module module. \n\n\nNote: Software versions which have reached End of Technical Support (EoTS) are not evaluated.",
-      "published": "2026-03-24T15:16:34.667",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32647"
+      "id": "CVE-2026-33676",
+      "summary": "Vikunja is an open-source self-hosted task management platform. Prior to version 2.2.1, when the Vikunja API returns tasks, it populates the `related_tasks` field with full task objects for all related tasks without checking whether the requesting user has read permission on those tasks' projects. An authenticated user who can read a task that has cross-project relations will receive full details (title, description, due dates, priority, percent completion, project ID, etc.) of tasks in projects they have no access to. Version 2.2.1 patches the issue.",
+      "published": "2026-03-24T16:16:34.947",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33676"
     }
   ]
 }
