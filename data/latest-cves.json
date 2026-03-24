@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-23T23:46:41+00:00",
+  "generated_at": "2026-03-24T03:12:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4306",
-      "summary": "The WP Job Portal plugin for WordPress is vulnerable to SQL Injection via the 'radius' parameter in all versions up to, and including, 2.4.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-03-23T23:17:13.403",
+      "id": "CVE-2026-3079",
+      "summary": "The LearnDash LMS plugin for WordPress is vulnerable to blind time-based SQL Injection via the 'filters[orderby_order]' parameter in the 'learndash_propanel_template' AJAX action in all versions up to, and including, 5.0.3. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-03-24T02:16:05.633",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3079"
+    },
+    {
+      "id": "CVE-2026-33307",
+      "summary": "Mod_gnutls is a TLS module for Apache HTTPD based on GnuTLS. In versions prior to 0.12.3 and 0.13.0, code for client certificate verification imported the certificate chain sent by the client into a fixed size `gnutls_x509_crt_t x509[]` array without checking the number of certificates is less than or equal to the array size. `gnutls_x509_crt_t` is a `typedef` for a pointer to an opaque GnuTLS structure created using with `gnutls_x509_crt_init()` before importing certificate data into it, so no attacker-controlled data was written into the stack buffer, but writing a pointer after the last array element generally triggered a segfault, and could theoretically cause stack corruption otherwise (not observed in practice). Server configurations that do not use client certificates (`GnuTLSClientVerify ignore`, the default) are not affected. The problem has been fixed in version 0.12.3 by checking the length of the provided certificate chain and rejecting it if it exceeds the buffer length, and in version 0.13.0 by rewriting certificate verification to use `gnutls_certificate_verify_peers()`, removing the need for the buffer entirely. There is no workaround. Version 0.12.3 provides the minimal fix for users of 0.12.x who do not wish to upgrade to 0.13.0 yet.",
+      "published": "2026-03-24T02:16:05.283",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4306"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33307"
     },
     {
-      "id": "CVE-2026-4066",
-      "summary": "The Smart Custom Fields plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the relational_posts_search() function in all versions up to, and including, 5.0.6. This makes it possible for authenticated attackers, with Contributor-level access and above, to read private and draft post content from other authors via the smart-cf-relational-posts-search AJAX action. The function queries posts with post_status=any and returns full WP_Post objects including post_content, but only checks the generic edit_posts capability instead of verifying whether the requesting user has permission to read each individual post.",
-      "published": "2026-03-23T23:17:13.227",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4066"
+      "id": "CVE-2026-4680",
+      "summary": "Use after free in FedCM in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-24T01:17:03.743",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4680"
     },
     {
-      "id": "CVE-2026-3225",
-      "summary": "The LearnPress \u2013 WordPress LMS Plugin plugin for WordPress is vulnerable to unauthorized deletion of quiz question answers due to a missing capability check in the delete_question_answer() function of the EditQuestionAjax class in all versions up to, and including, 4.3.2.8. The AbstractAjax::catch_lp_ajax() dispatcher verifies a wp_rest nonce but performs no current_user_can() check, and the QuestionAnswerModel::delete() method only validates minimum answer counts without checking user capabilities. This makes it possible for authenticated attackers, with Subscriber-level access and above, to delete answer options from any quiz question on the site.",
-      "published": "2026-03-23T23:17:13.047",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3225"
+      "id": "CVE-2026-4679",
+      "summary": "Integer overflow in Fonts in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to perform an out of bounds memory write via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-24T01:17:03.607",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4679"
     },
     {
-      "id": "CVE-2026-33168",
-      "summary": "Action View provides conventions and helpers for building web pages with the Rails framework. Prior to versions 8.1.2.1, 8.0.4.1, and 7.2.3.1, when a blank string is used as an HTML attribute name in Action View tag helpers, the attribute escaping is bypassed, producing malformed HTML. A carefully crafted attribute value could then be misinterpreted by the browser as a separate attribute name, possibly leading to XSS. Applications that allow users to specify custom HTML attributes are affected. Versions 8.1.2.1, 8.0.4.1, and 7.2.3.1 contain a patch.",
-      "published": "2026-03-23T23:17:12.873",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33168"
+      "id": "CVE-2026-4678",
+      "summary": "Use after free in WebGPU in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to execute arbitrary code inside a sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-24T01:17:03.477",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4678"
     },
     {
-      "id": "CVE-2026-33167",
-      "summary": "Action Pack is a Rubygem for building web applications on the Rails framework. In versions on the 8.1 branch prior to 8.1.2.1, the debug exceptions page does not properly escape exception messages. A carefully crafted exception message could inject arbitrary HTML and JavaScript into the page, leading to XSS. This affects applications with detailed exception pages enabled (`config.consider_all_requests_local = true`), which is the default in development. Version 8.1.2.1 contains a patch.",
-      "published": "2026-03-23T23:17:12.707",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33167"
-    },
-    {
-      "id": "CVE-2026-33046",
-      "summary": "Indico is an event management system that uses Flask-Multipass, a multi-backend authentication system for Flask. In versions prior to 3.3.12, due to vulnerabilities in TeXLive and obscure LaTeX syntax that allowed circumventing Indico's LaTeX sanitizer, it is possible to use specially-crafted LaTeX snippets which can read local files or execute code with the privileges of the user running Indico on the server. Note that if server-side LaTeX rendering is not in use (ie `XELATEX_PATH` was not set in `indico.conf`), this vulnerability does not apply. It is recommended to update to Indico 3.3.12 as soon as possible. It is also strongly recommended to enable the containerized LaTeX renderer (using `podman`), which isolates it from the rest of the system. As a workaround, remove the `XELATEX_PATH` setting from `indico.conf` (or comment it out or set it to `None`) and restart the `indico-uwsgi` and `indico-celery` services to disable LaTeX functionality.",
-      "published": "2026-03-23T23:17:12.520",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33046"
+      "id": "CVE-2026-4677",
+      "summary": "Inappropriate implementation in WebAudio in Google Chrome prior to 146.0.7680.165 allowed a remote attacker to perform an out of bounds memory read via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-03-24T01:17:03.343",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4677"
     }
   ]
 }
