@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-25T21:52:35+00:00",
+  "generated_at": "2026-03-25T22:55:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4824",
+      "summary": "A vulnerability has been found in Enter Software Iperius Backup up to 8.7.3. Affected by this issue is some unknown functionality of the component Backup Job Configuration File Handler. The manipulation leads to improper privilege management. The attack must be carried out locally. The attack is considered to have high complexity. The exploitation is known to be difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 8.7.4 can resolve this issue. It is advisable to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-03-25T22:16:19.497",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4824"
+    },
+    {
+      "id": "CVE-2026-4823",
+      "summary": "A flaw has been found in Enter Software Iperius Backup up to 8.7.3. Affected by this vulnerability is an unknown functionality of the component NTLM2 Handler. Executing a manipulation can lead to information disclosure. The attack is restricted to local execution. Attacks of this nature are highly complex. The exploitation appears to be difficult. The exploit has been published and may be used. Upgrading to version 8.7.4 addresses this issue. Upgrading the affected component is advised. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-03-25T22:16:19.280",
+      "cvss": 2.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4823"
+    },
+    {
+      "id": "CVE-2025-36187",
+      "summary": "IBM Knowledge Catalog Standard Cartridge 5.0.0, 5.0.1, 5.0.2, 5.0.3, 5.1, 5.1.1, 5,1.2, 5.1.3, 5.2.0, 5.2.1 stores potentially sensitive information in log files that could be read by a local privileged user.",
+      "published": "2026-03-25T22:16:19.090",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36187"
+    },
+    {
+      "id": "CVE-2025-14684",
+      "summary": "IBM Maximo Application Suite - Monitor Component 9.1, 9.0, 8.11, and 8.10 could allow an unauthorized user to inject data into log messages due to improper neutralization of special elements when written to log files.",
+      "published": "2026-03-25T22:16:18.660",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14684"
+    },
     {
       "id": "CVE-2026-4822",
       "summary": "A vulnerability was detected in Enter Software Iperius Backup bis 8.7.3. Affected is an unknown function of the file C:\\ProgramData\\IperiusBackup\\Jobs\\ of the component Backup Service. Performing a manipulation results in creation of temporary file with insecure permissions. The attack is only possible with local access. A high degree of complexity is needed for the attack. The exploitability is told to be difficult. The exploit is now public and may be used. Upgrading to version 8.7.4 is able to address this issue. It is recommended to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
@@ -15,34 +43,6 @@
       "published": "2026-03-25T21:16:47.737",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33249"
-    },
-    {
-      "id": "CVE-2026-33248",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, when using mTLS for client identity, with `verify_and_map` to derive a NATS identity from the client certificate's Subject DN, certain patterns of RDN would not be correctly enforced, allowing for authentication bypass. This does require a valid certificate from a CA already trusted for client certificates, and `DN` naming patterns which the NATS maintainers consider highly unlikely. So this is an unlikely attack. Nonetheless, administrators who have been very sophisticated in their `DN` construction patterns might conceivably be impacted. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, developers should review their CA issuing practices.",
-      "published": "2026-03-25T21:16:47.563",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33248"
-    },
-    {
-      "id": "CVE-2026-33223",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, the NATS message header `Nats-Request-Info:` is supposed to be a guarantee of identity by the NATS server, but the stripping of this header from inbound messages was not fully effective. An attacker with valid credentials for any regular client interface could thus spoof their identity to services which rely upon this header. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
-      "published": "2026-03-25T21:16:47.397",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33223"
-    },
-    {
-      "id": "CVE-2026-33222",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, users with JetStream admin API access to restore one stream could restore to other stream names, impacting data which should have been protected against them. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, if developers have configured users to have limited JetStream restore permissions, temporarily remove those permissions.",
-      "published": "2026-03-25T21:16:47.237",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33222"
-    },
-    {
-      "id": "CVE-2026-30976",
-      "summary": "Sonarr is a PVR for Usenet and BitTorrent users. In versions on the 4.x branch prior to 4.0.17.2950, an unauthenticated remote attacker can potentially read any file readable by the Sonarr process. These include application configuration files (containing API keys and database credentials), Windows system files, and any user-accessible files on the same drive This issue only impacts Windows systems; macOS and Linux are unaffected. Files returned from the API were not limited to the directory on disk they were intended to be served from. This problem has been patched in 4.0.17.2950 in the nightly/develop branch or 4.0.17.2952 for stable/main releases. It's possible to work around the issue by only hosting Sonarr on a secure internal network and accessing it via VPN, Tailscale or similar solution outside that network.",
-      "published": "2026-03-25T21:16:41.623",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30976"
     }
   ]
 }
