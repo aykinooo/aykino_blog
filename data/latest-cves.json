@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-03-25T11:54:47+00:00",
+  "generated_at": "2026-03-25T13:49:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4761",
+      "summary": "When\na certificate and its private key are installed in the Windows machine\ncertificate store using Network and Security tool, access rights to the private\nkey are\u00a0unnecessarily \n\ngranted to the operator group.\n\n\n\n\n  *  Installations based on Panorama Suite\u00a02025\u00a0(25.00.004) are vulnerable unless update\u00a0PS-2500-00-0357 (or higher) is installed\n  *  \nInstallations based on Panorama Suite\u00a02025 Updated Dec. 25 (25.10.007) are not vulnerable\n\n\nPlease refer to security bulletin BS-036, available on the Panorama CSIRT website:\u00a0 https://my.codra.net/en-gb/csirt .",
+      "published": "2026-03-25T13:16:28.310",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4761"
+    },
+    {
+      "id": "CVE-2026-4760",
+      "summary": "From\nPanorama Web HMI, an attacker can gain read access to certain Web HMI server\nfiles, if he knows their paths and if these files are accessible to the Servin\nprocess execution account.\n\n  *  Installations based on Panorama Suite 2022-SP1 (22.50.005) are vulnerable unless update\u00a0PS-2210-02-4079\u00a0(or higher) is installed\n  *  Installations based on Panorama Suite 2023 (23.00.004) are vulnerable \nunless updates\u00a0PS-2300-03-3078\u00a0(or higher) and\u00a0PS-2300-04-3078\u00a0(or higher)\nand\u00a0PS-2300-82-3078\n\n(or higher)\n\nare installed\n  *  Installations based on Panorama Suite 2025\u00a0(25.00.016)\n\nare vulnerable unless updates\u00a0PS-2500-02-1078\u00a0(or higher) and\u00a0PS-2500-04-1078\u00a0(or higher) are installed\u00a0\n  *  Installations based on Panorama Suite 2025 Updated Dec. 25\u00a0(25.10.007)\n\nare vulnerable unless updates\u00a0PS-2510-02-1077\u00a0(or higher) and\u00a0PS-2510-04-1077\u00a0(or higher)\n\nare installed\n\n\n\n\nPlease refer to security bulletin BS-035, available on the Panorama CSIRT website:\u00a0 https://my.codra.net/en-gb/csirt .",
+      "published": "2026-03-25T13:16:27.990",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4760"
+    },
     {
       "id": "CVE-2026-31788",
       "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxen/privcmd: restrict usage in unprivileged domU\n\nThe Xen privcmd driver allows to issue arbitrary hypercalls from\nuser space processes. This is normally no problem, as access is\nusually limited to root and the hypervisor will deny any hypercalls\naffecting other domains.\n\nIn case the guest is booted using secure boot, however, the privcmd\ndriver would be enabling a root user process to modify e.g. kernel\nmemory contents, thus breaking the secure boot feature.\n\nThe only known case where an unprivileged domU is really needing to\nuse the privcmd driver is the case when it is acting as the device\nmodel for another guest. In this case all hypercalls issued via the\nprivcmd driver will target that other guest.\n\nFortunately the privcmd driver can already be locked down to allow\nonly hypercalls targeting a specific domain, but this mode can be\nactivated from user land only today.\n\nThe target domain can be obtained from Xenstore, so when not running\nin dom0 restrict the privcmd driver to that target domain from the\nbeginning, resolving the potential problem of breaking secure boot.\n\nThis is XSA-482\n\n---\nV2:\n- defer reading from Xenstore if Xenstore isn't ready yet (Jan Beulich)\n- wait in open() if target domain isn't known yet\n- issue message in case no target domain found (Jan Beulich)",
@@ -29,20 +43,6 @@
       "published": "2026-03-25T11:16:40.040",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23393"
-    },
-    {
-      "id": "CVE-2026-23392",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: nf_tables: release flowtable after rcu grace period on error\n\nCall synchronize_rcu() after unregistering the hooks from error path,\nsince a hook that already refers to this flowtable can be already\nregistered, exposing this flowtable to packet path and nfnetlink_hook\ncontrol plane.\n\nThis error path is rare, it should only happen by reaching the maximum\nnumber hooks or by failing to set up to hardware offload, just call\nsynchronize_rcu().\n\nThere is a check for already used device hooks by different flowtable\nthat could result in EEXIST at this late stage. The hook parser can be\nupdated to perform this check earlier to this error path really becomes\nrarely exercised.\n\nUncovered by KASAN reported as use-after-free from nfnetlink_hook path\nwhen dumping hooks.",
-      "published": "2026-03-25T11:16:39.873",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23392"
-    },
-    {
-      "id": "CVE-2026-23391",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: xt_CT: drop pending enqueued packets on template removal\n\nTemplates refer to objects that can go away while packets are sitting in\nnfqueue refer to:\n\n- helper, this can be an issue on module removal.\n- timeout policy, nfnetlink_cttimeout might remove it.\n\nThe use of templates with zone and event cache filter are safe, since\nthis just copies values.\n\nFlush these enqueued packets in case the template rule gets removed.",
-      "published": "2026-03-25T11:16:39.707",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23391"
     }
   ]
 }
