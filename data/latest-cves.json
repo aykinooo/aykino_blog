@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-25T19:53:08+00:00",
+  "generated_at": "2026-03-25T20:54:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33809",
-      "summary": "A maliciously crafted TIFF file can cause image decoding to attempt to allocate up 4GiB of memory, causing either excessive resource consumption or an out-of-memory error.",
-      "published": "2026-03-25T19:16:51.830",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33809"
+      "id": "CVE-2026-33247",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, if a nats-server is run with static credentials for all clients provided via argv (the command-line), then those credentials are visible to any user who can see the monitoring port, if that too is enabled. The `/debug/vars` end-point contains an unredacted copy of argv. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, configure credentials inside a configuration file instead of via argv, and do not enable the monitoring port if using secrets in argv. Best practice remains to not expose the monitoring port to the Internet, or to untrusted network sources.",
+      "published": "2026-03-25T20:16:33.223",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33247"
     },
     {
-      "id": "CVE-2026-33751",
-      "summary": "n8n is an open source workflow automation platform. Prior to versions 1.123.27, 2.13.3, and 2.14.1, a flaw in the LDAP node's filter escape logic allowed LDAP metacharacters to pass through unescaped when user-controlled input was interpolated into LDAP search filters. In workflows where external user input is passed via expressions into the LDAP node's search parameters, an attacker could manipulate the constructed filter to retrieve unintended LDAP records or bypass authentication checks implemented in the workflow. Exploitation requires a specific workflow configuration. The LDAP node must be used with user-controlled input passed via expressions (e.g., from a form or webhook). The issue has been fixed in n8n versions 1.123.27, 2.13.3, and 2.14.1. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Limit workflow creation and editing permissions to fully trusted users only, disable the LDAP node by adding `n8n-nodes-base.ldap` to the `NODES_EXCLUDE` environment variable, and/or avoid passing unvalidated external user input into LDAP node search parameters via expressions. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
-      "published": "2026-03-25T19:16:51.670",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33751"
+      "id": "CVE-2026-33246",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. The nats-server offers a `Nats-Request-Info:` message header, providing information about a request. This is supposed to provide enough information to allow for account/user identification, such that NATS clients could make their own decisions on how to trust a message, provided that they trust the nats-server as a broker. A leafnode connecting to a nats-server is not fully trusted unless the system account is bridged too. Thus identity claims should not have propagated unchecked. Prior to versions 2.11.15 and 2.12.6, NATS clients relying upon the Nats-Request-Info: header could be spoofed. This does not directly affect the nats-server itself, but the CVSS Confidentiality and Integrity scores are based upon what a hypothetical client might choose to do with this NATS header. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
+      "published": "2026-03-25T20:16:33.010",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33246"
     },
     {
-      "id": "CVE-2026-33749",
-      "summary": "n8n is an open source workflow automation platform. Prior to versions 1.123.27, 2.13.3, and 2.14.1, an authenticated user with permission to create or modify workflows could craft a workflow that produces an HTML binary data object without a filename. The `/rest/binary-data` endpoint served such responses inline on the n8n origin without `Content-Disposition` or `Content-Security-Policy` headers, allowing the HTML to render in the browser with full same-origin JavaScript access. By sending the resulting URL to a higher-privileged user, an attacker could execute JavaScript in the victim's authenticated session, enabling exfiltration of workflows and credentials, modification of workflows, or privilege escalation to admin. The issue has been fixed in n8n versions 1.123.27, 2.13.3, and 2.14.1. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Limit workflow creation and editing permissions to fully trusted users only, and/or restrict network access to the n8n instance to prevent untrusted users from accessing binary data URLs. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
-      "published": "2026-03-25T19:16:51.497",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33749"
+      "id": "CVE-2026-33219",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, a malicious client which can connect to the WebSockets port can cause unbounded memory use in the nats-server before authentication; this requires sending a corresponding amount of data. This is a milder variant of CVE-2026-27571. That earlier issue was a compression bomb, this vulnerability is not. Attacks against this new issue thus require significant client bandwidth. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, disable websockets if not required for project deployment.",
+      "published": "2026-03-25T20:16:32.777",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33219"
     },
     {
-      "id": "CVE-2026-33724",
-      "summary": "n8n is an open source workflow automation platform. Prior to version 2.5.0, when the Source Control feature is configured to use SSH, the SSH command used for git operations explicitly disabled host key verification. A network attacker positioned between the n8n instance and the remote Git server could intercept the connection and present a fraudulent host key, potentially injecting malicious content into workflows or intercepting repository data. This issue only affects instances where the Source Control feature has been explicitly enabled and configured to use SSH (non-default). The issue has been fixed in n8n version 2.5.0. Users should upgrade to this version or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Disable the Source Control feature if it is not actively required, and/or restrict network access to ensure the n8n instance communicates with the Git server only over trusted, controlled network paths. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
-      "published": "2026-03-25T19:16:51.323",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33724"
+      "id": "CVE-2026-33218",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, a client which can connect to the leafnode port can crash the nats-server with a certain malformed message pre-authentication. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, disable leafnode support if not needed or restrict network connections to the leafnode port, if plausible without compromising the service offered.",
+      "published": "2026-03-25T20:16:32.623",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33218"
     },
     {
-      "id": "CVE-2026-33722",
-      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.6.4 and 1.123.23, an authenticated user without permission to list external secrets could reference a secret by the external name in a credential and retrieve its plaintext value when saving the credential. This bypassed the `externalSecret:list` permission check and allowed access to secrets stored in connected vaults without admin or owner privileges. This issue requires the instance to have an external secrets vault configured. The attacker must know or be able to guess the name of a target secret. The issue has been fixed in n8n versions 1.123.23 and 2.6.4. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Restrict n8n access to fully trusted users only, and/or disable external secrets integration until the patch can be applied. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
-      "published": "2026-03-25T19:16:51.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33722"
+      "id": "CVE-2026-33217",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, when using ACLs on message subjects, these ACLs were not applied in the `$MQTT.>` namespace, allowing MQTT clients to bypass ACL checks for MQTT subjects. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
+      "published": "2026-03-25T20:16:32.473",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33217"
     },
     {
-      "id": "CVE-2026-33720",
-      "summary": "n8n is an open source workflow automation platform. Prior to version 2.8.0, when the `N8N_SKIP_AUTH_ON_OAUTH_CALLBACK` environment variable is set to `true`, the OAuth callback handler skips ownership verification of the OAuth state parameter. This allows an attacker to trick a victim into completing an OAuth flow against a credential object the attacker controls, causing the victim's OAuth tokens to be stored in the attacker's credential. The attacker can then use those tokens to execute workflows in their name. This issue only affects instances where `N8N_SKIP_AUTH_ON_OAUTH_CALLBACK=true` is explicitly configured (non-default). The issue has been fixed in n8n version 2.8.0. Users should upgrade to this version or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Avoid enabling `N8N_SKIP_AUTH_ON_OAUTH_CALLBACK=true` unless strictly required, and/ or restrict access to the n8n instance to fully trusted users only. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
-      "published": "2026-03-25T19:16:50.967",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33720"
+      "id": "CVE-2026-33216",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, for MQTT deployments using usercodes/passwords: MQTT passwords are incorrectly classified as a non-authenticating identity statement (JWT) and exposed via monitoring endpoints. Versions 2.11.14 and 2.12.6 contain a fix. As a workaround, ensure monitoring end-points are adequately secured. Best practice remains to not expose the monitoring endpoint to the Internet or other untrusted network users.",
+      "published": "2026-03-25T20:16:32.320",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33216"
     }
   ]
 }
