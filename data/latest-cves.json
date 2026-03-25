@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-25T17:16:47+00:00",
+  "generated_at": "2026-03-25T19:10:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-25035",
-      "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Wasiliy Strecker / ContestGallery developer Contest Gallery contest-gallery allows Authentication Abuse.This issue affects Contest Gallery: from n/a through <= 28.1.2.2.",
-      "published": "2026-03-25T17:16:43.377",
+      "id": "CVE-2026-33713",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.14.1, 2.13.3, and 1.123.26, an authenticated user with permission to create or modify workflows could exploit a SQL injection vulnerability in the Data Table Get node. On default SQLite DB, single statements can be manipulated and the attack surface is practically limited. On PostgreSQL deployments, multi-statement execution is possible, enabling data modification and deletion. The issue has been fixed in n8n versions 1.123.26, 2.13.3, and 2.14.1. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Limit workflow creation and editing permissions to fully trusted users only, disable the Data Table node by adding `n8n-nodes-base.dataTable` to the `NODES_EXCLUDE` environment variable, and/or review existing workflows for Data Table Get nodes where `orderByColumn` is set to an expression that incorporates external or user-supplied input. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-03-25T18:16:32.700",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25035"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33713"
     },
     {
-      "id": "CVE-2026-25034",
-      "summary": "Missing Authorization vulnerability in Iqonic Design KiviCare kivicare-clinic-management-system allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects KiviCare: from n/a through <= 3.6.16.",
-      "published": "2026-03-25T17:16:43.237",
+      "id": "CVE-2026-33696",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.14.1, 2.13.3, and 1.123.27, an authenticated user with permission to create or modify workflows could exploit a prototype pollution vulnerability in the XML and the GSuiteAdmin nodes. By supplying a crafted parameters as part of node configuration, an attacker could write attacker-controlled values onto `Object.prototype`. An attacker could use this prototype pollution to achieve remote code execution on the n8n instance. The issue has been fixed in n8n versions 2.14.1, 2.13.3, and 1.123.27. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Limit workflow creation and editing permissions to fully trusted users only, and/or disable the XML node by adding `n8n-nodes-base.xml` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-03-25T18:16:32.550",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25034"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33696"
     },
     {
-      "id": "CVE-2026-25033",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in uixthemes Motta Addons motta-addons allows Reflected XSS.This issue affects Motta Addons: from n/a through < 1.6.1.",
-      "published": "2026-03-25T17:16:43.103",
+      "id": "CVE-2026-33665",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.4.0 and 1.121.0, when LDAP authentication is enabled, n8n automatically linked an LDAP identity to an existing local account if the LDAP email attribute matched the local account's email. An authenticated LDAP user who could control their own LDAP email attribute could set it to match another user's email \u2014 including an administrator's \u2014 and upon login gain full access to that account. The account linkage persisted even if the LDAP email was later reverted, resulting in a permanent account takeover. LDAP authentication must be configured and active (non-default). The issue has been fixed in n8n versions 2.4.0 and 1.121.0. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Disable LDAP authentication until the instance can be upgraded, restrict LDAP directory permissions so that users cannot modify their own email attributes, and/or audit existing LDAP-linked accounts for unexpected account associations. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-03-25T18:16:32.390",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25033"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33665"
     },
     {
-      "id": "CVE-2026-25032",
-      "summary": "Deserialization of Untrusted Data vulnerability in park_of_ideas Ricky ricky allows Object Injection.This issue affects Ricky: from n/a through < 2.31.",
-      "published": "2026-03-25T17:16:42.967",
+      "id": "CVE-2026-33663",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.14.1, 2.13.3, and 1.123.27, an authenticated user with the `global:member` role could exploit chained authorization flaws in n8n's credential pipeline to steal plaintext secrets from generic HTTP credentials (`httpBasicAuth`, `httpHeaderAuth`, `httpQueryAuth`) belonging to other users on the same instance. The attack abuses a name-based credential resolution path that does not enforce ownership or project scope, combined with a bypass in the credentials permission checker that causes generic HTTP credential types to be skipped during pre-execution validation. Together, these flaws allow a member-role user to resolve another user's credential ID and execute a workflow that decrypts and uses that credential without authorization. Native integration credential types (e.g. `slackApi`, `openAiApi`, `postgres`) are not affected by this issue. This vulnerability affects Community Edition only. Enterprise Edition has additional permission gates on workflow creation and execution that independently block this attack chain. The issue has been fixed in n8n versions 1.123.27, 2.13.3, and 2.14.1. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Restrict instance access to fully trusted users only, and/or audit credentials stored on the instance and rotate any generic HTTP credentials (`httpBasicAuth`, `httpHeaderAuth`, `httpQueryAuth`) that may have been exposed. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-03-25T18:16:32.230",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25032"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33663"
     },
     {
-      "id": "CVE-2026-25031",
-      "summary": "Deserialization of Untrusted Data vulnerability in park_of_ideas Tasty Daily tastydaily allows Object Injection.This issue affects Tasty Daily: from n/a through < 1.27.",
-      "published": "2026-03-25T17:16:42.837",
+      "id": "CVE-2026-33660",
+      "summary": "n8n is an open source workflow automation platform. Prior to versions 2.14.1, 2.13.3, and 1.123.26, an authenticated user with permission to create or modify workflows could use the Merge node's \"Combine by SQL\" mode to read local files on the n8n host and achieve remote code execution. The AlaSQL sandbox did not sufficiently restrict certain SQL statements, allowing an attacker to access sensitive files on the server or even compromise the instance. The issue has been fixed in n8n versions 2.14.1, 2.13.3, and 1.123.26. Users should upgrade to one of these versions or later to remediate the vulnerability. If upgrading is not immediately possible, administrators should consider the following temporary mitigations: Limit workflow creation and editing permissions to fully trusted users only, and/or disable the Merge node by adding `n8n-nodes-base.merge` to the `NODES_EXCLUDE` environment variable. These workarounds do not fully remediate the risk and should only be used as short-term mitigation measures.",
+      "published": "2026-03-25T18:16:32.080",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25031"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33660"
     },
     {
-      "id": "CVE-2026-25030",
-      "summary": "Deserialization of Untrusted Data vulnerability in park_of_ideas Goldish goldish allows Object Injection.This issue affects Goldish: from n/a through < 3.47.",
-      "published": "2026-03-25T17:16:42.710",
+      "id": "CVE-2026-30587",
+      "summary": "Multiple Stored XSS vulnerabilities exist in Seafile Server version 13.0.15,13.0.16-pro,12.0.14 and prior and fixed in 13.0.17, 13.0.17-pro, and 12.0.20-pro, via the Seadoc (sdoc) editor. The application fails to properly sanitize WebSocket messages regarding document structure updates. This allows authenticated remote attackers to inject malicious JavaScript payloads via the src attribute of embedded Excalidraw whiteboards or the href attribute of anchor tags",
+      "published": "2026-03-25T18:16:31.793",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25030"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30587"
     }
   ]
 }
