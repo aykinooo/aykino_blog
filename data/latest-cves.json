@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-25T20:54:54+00:00",
+  "generated_at": "2026-03-25T21:52:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33247",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, if a nats-server is run with static credentials for all clients provided via argv (the command-line), then those credentials are visible to any user who can see the monitoring port, if that too is enabled. The `/debug/vars` end-point contains an unredacted copy of argv. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, configure credentials inside a configuration file instead of via argv, and do not enable the monitoring port if using secrets in argv. Best practice remains to not expose the monitoring port to the Internet, or to untrusted network sources.",
-      "published": "2026-03-25T20:16:33.223",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33247"
+      "id": "CVE-2026-4822",
+      "summary": "A vulnerability was detected in Enter Software Iperius Backup bis 8.7.3. Affected is an unknown function of the file C:\\ProgramData\\IperiusBackup\\Jobs\\ of the component Backup Service. Performing a manipulation results in creation of temporary file with insecure permissions. The attack is only possible with local access. A high degree of complexity is needed for the attack. The exploitability is told to be difficult. The exploit is now public and may be used. Upgrading to version 8.7.4 is able to address this issue. It is recommended to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-03-25T21:16:48.377",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4822"
     },
     {
-      "id": "CVE-2026-33246",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. The nats-server offers a `Nats-Request-Info:` message header, providing information about a request. This is supposed to provide enough information to allow for account/user identification, such that NATS clients could make their own decisions on how to trust a message, provided that they trust the nats-server as a broker. A leafnode connecting to a nats-server is not fully trusted unless the system account is bridged too. Thus identity claims should not have propagated unchecked. Prior to versions 2.11.15 and 2.12.6, NATS clients relying upon the Nats-Request-Info: header could be spoofed. This does not directly affect the nats-server itself, but the CVSS Confidentiality and Integrity scores are based upon what a hypothetical client might choose to do with this NATS header. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
-      "published": "2026-03-25T20:16:33.010",
+      "id": "CVE-2026-33249",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Starting in version 2.11.0 and prior to versions 2.11.15 and 2.12.6, a valid client which uses message tracing headers can indicate that the trace messages can be sent to an arbitrary valid subject, including those to which the client does not have publish permission. The payload is a valid trace message and not chosen by the attacker. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
+      "published": "2026-03-25T21:16:47.737",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33249"
+    },
+    {
+      "id": "CVE-2026-33248",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, when using mTLS for client identity, with `verify_and_map` to derive a NATS identity from the client certificate's Subject DN, certain patterns of RDN would not be correctly enforced, allowing for authentication bypass. This does require a valid certificate from a CA already trusted for client certificates, and `DN` naming patterns which the NATS maintainers consider highly unlikely. So this is an unlikely attack. Nonetheless, administrators who have been very sophisticated in their `DN` construction patterns might conceivably be impacted. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, developers should review their CA issuing practices.",
+      "published": "2026-03-25T21:16:47.563",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33248"
+    },
+    {
+      "id": "CVE-2026-33223",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, the NATS message header `Nats-Request-Info:` is supposed to be a guarantee of identity by the NATS server, but the stripping of this header from inbound messages was not fully effective. An attacker with valid credentials for any regular client interface could thus spoof their identity to services which rely upon this header. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
+      "published": "2026-03-25T21:16:47.397",
       "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33246"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33223"
     },
     {
-      "id": "CVE-2026-33219",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, a malicious client which can connect to the WebSockets port can cause unbounded memory use in the nats-server before authentication; this requires sending a corresponding amount of data. This is a milder variant of CVE-2026-27571. That earlier issue was a compression bomb, this vulnerability is not. Attacks against this new issue thus require significant client bandwidth. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, disable websockets if not required for project deployment.",
-      "published": "2026-03-25T20:16:32.777",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33219"
+      "id": "CVE-2026-33222",
+      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, users with JetStream admin API access to restore one stream could restore to other stream names, impacting data which should have been protected against them. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, if developers have configured users to have limited JetStream restore permissions, temporarily remove those permissions.",
+      "published": "2026-03-25T21:16:47.237",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33222"
     },
     {
-      "id": "CVE-2026-33218",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, a client which can connect to the leafnode port can crash the nats-server with a certain malformed message pre-authentication. Versions 2.11.15 and 2.12.6 contain a fix. As a workaround, disable leafnode support if not needed or restrict network connections to the leafnode port, if plausible without compromising the service offered.",
-      "published": "2026-03-25T20:16:32.623",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33218"
-    },
-    {
-      "id": "CVE-2026-33217",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, when using ACLs on message subjects, these ACLs were not applied in the `$MQTT.>` namespace, allowing MQTT clients to bypass ACL checks for MQTT subjects. Versions 2.11.15 and 2.12.6 contain a fix. No known workarounds are available.",
-      "published": "2026-03-25T20:16:32.473",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33217"
-    },
-    {
-      "id": "CVE-2026-33216",
-      "summary": "NATS-Server is a High-Performance server for NATS.io, a cloud and edge native messaging system. Prior to versions 2.11.15 and 2.12.6, for MQTT deployments using usercodes/passwords: MQTT passwords are incorrectly classified as a non-authenticating identity statement (JWT) and exposed via monitoring endpoints. Versions 2.11.14 and 2.12.6 contain a fix. As a workaround, ensure monitoring end-points are adequately secured. Best practice remains to not expose the monitoring endpoint to the Internet or other untrusted network users.",
-      "published": "2026-03-25T20:16:32.320",
+      "id": "CVE-2026-30976",
+      "summary": "Sonarr is a PVR for Usenet and BitTorrent users. In versions on the 4.x branch prior to 4.0.17.2950, an unauthenticated remote attacker can potentially read any file readable by the Sonarr process. These include application configuration files (containing API keys and database credentials), Windows system files, and any user-accessible files on the same drive This issue only impacts Windows systems; macOS and Linux are unaffected. Files returned from the API were not limited to the directory on disk they were intended to be served from. This problem has been patched in 4.0.17.2950 in the nightly/develop branch or 4.0.17.2952 for stable/main releases. It's possible to work around the issue by only hosting Sonarr on a secure internal network and accessing it via VPN, Tailscale or similar solution outside that network.",
+      "published": "2026-03-25T21:16:41.623",
       "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33216"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30976"
     }
   ]
 }
