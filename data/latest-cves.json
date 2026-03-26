@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-26T20:49:56+00:00",
+  "generated_at": "2026-03-26T21:45:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33632",
-      "summary": "ClearanceKit intercepts file-system access events on macOS and enforces per-process access policies. Prior to version 4.2.4, two file operation event types \u2014 ES_EVENT_TYPE_AUTH_EXCHANGEDATA and ES_EVENT_TYPE_AUTH_CLONE \u2014 were not intercepted by ClearanceKit's opfilter system extension, allowing local processes to bypass file access policies. Commit 6181c4a patches the vulnerability by subscribing to both event types and routing them through the existing policy evaluator. Users must upgrade to v4.2.4 or later and reactivate the system extension.",
-      "published": "2026-03-26T20:16:16.277",
+      "id": "CVE-2026-4933",
+      "summary": "Incorrect Authorization vulnerability in Drupal Unpublished Node Permissions allows Forceful Browsing.This issue affects Unpublished Node Permissions: from 0.0.0 before 1.7.0.",
+      "published": "2026-03-26T21:17:10.360",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33632"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4933"
     },
     {
-      "id": "CVE-2026-33631",
-      "summary": "ClearanceKit intercepts file-system access events on macOS and enforces per-process access policies. In versions on the 4.1 branch and earlier, the opfilter Endpoint Security system extension enforced file access policy exclusively by intercepting ES_EVENT_TYPE_AUTH_OPEN events. Seven additional file operation event types were not intercepted, allowing any locally running process to bypass the configured FAA policy without triggering a denial. Commit a3d1733 adds subscriptions for all seven event types and routes them through the existing FAA policy evaluator. AUTH_RENAME and AUTH_UNLINK additionally preserve XProtect change detection: events on the XProtect path are allowed and trigger the existing onXProtectChanged callback rather than being evaluated against user policy. All versions on the 4.2 branch contain the fix. No known workarounds are available.",
-      "published": "2026-03-26T20:16:16.110",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33631"
-    },
-    {
-      "id": "CVE-2026-33536",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-18 and 6.9.13-43, due to an incorrect return value on certain platforms a pointer is incremented past the end of a buffer that is on the stack and that could result in an out of bounds write. Versions 7.1.2-18 and 6.9.13-43 patch the issue.",
-      "published": "2026-03-26T20:16:15.877",
-      "cvss": 5.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33536"
-    },
-    {
-      "id": "CVE-2026-33535",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-18 and 6.9.13-43, an out-of-bounds write of a zero byte exists in the X11 `display` interaction path that could lead to a crash. Versions 7.1.2-18 and 6.9.13-43 patch the issue.",
-      "published": "2026-03-26T20:16:15.723",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33535"
-    },
-    {
-      "id": "CVE-2026-33532",
-      "summary": "`yaml` is a YAML parser and serialiser for JavaScript. Parsing a YAML document with a version of `yaml` on the 1.x branch prior to 1.10.3 or on the 2.x branch prior to 2.8.3 may throw a RangeError due to a stack overflow. The node resolution/composition phase uses recursive function calls without a depth bound. An attacker who can supply YAML for parsing can trigger a `RangeError: Maximum call stack size exceeded` with a small payload (~2\u201310 KB). The `RangeError` is not a `YAMLParseError`, so applications that only catch YAML-specific errors will encounter an unexpected exception type. Depending on the host application's exception handling, this can fail requests or terminate the Node.js process. Flow sequences allow deep nesting with minimal bytes (2 bytes per level: one `[` and one `]`). On the default Node.js stack, approximately 1,000\u20135,000 levels of nesting (2\u201310 KB input) exhaust the call stack. The exact threshold is environment-dependent (Node.js version, stack size, call stack depth at invocation). Note: the library's `Parser` (CST phase) uses a stack-based iterative approach and is not affected. Only the compose/resolve phase uses actual call-stack recursion. All three public parsing APIs are affected: `YAML.parse()`, `YAML.parseDocument()`, and `YAML.parseAllDocuments()`. Versions 1.10.3 and 2.8.3 contain a patch.",
-      "published": "2026-03-26T20:16:15.543",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33532"
-    },
-    {
-      "id": "CVE-2026-33531",
-      "summary": "InvenTree is an Open Source Inventory Management System. Prior to version 1.2.6, a path traversal vulnerability in the report template engine allows a staff-level user to read arbitrary files from the server filesystem via crafted template tags. Affected functions: `encode_svg_image()`, `asset()`, and `uploaded_image()` in `src/backend/InvenTree/report/templatetags/report.py`. This requires staff access (to upload / edit templates with maliciously crafted tags). If the InvenTree installation is configured with high access privileges on the host system, this path traversal may allow file access outside of the InvenTree source directory. This issue is patched in version 1.2.6, and 1.3.0 (or above). Users should update to the patched versions. No known workarounds are available.",
-      "published": "2026-03-26T20:16:15.400",
+      "id": "CVE-2026-4393",
+      "summary": "Cross-Site Request Forgery (CSRF) vulnerability in Drupal Automated Logout allows Cross Site Request Forgery.This issue affects Automated Logout: from 0.0.0 before 1.7.0, from 2.0.0 before 2.0.2.",
+      "published": "2026-03-26T21:17:10.220",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33531"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4393"
+    },
+    {
+      "id": "CVE-2026-3622",
+      "summary": "The vulnerability exists in the UPnP component of TL-WR841N v14, where improper input validation leads to an out-of-bounds read, potentially causing a crash of the UPnP service.  \n\nSuccessful exploitation can cause the UPnP service to crash, resulting in a Denial-of-Service condition.\u00a0\nThis vulnerability affects TL-WR841N v14\u00a0< EN_0.9.1 4.19 Build 260303 Rel.42399n (V14_260303) and\u00a0< US_0.9.1.4.19 Build 260312 Rel. 49108n (V14_0304).",
+      "published": "2026-03-26T21:17:09.697",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3622"
+    },
+    {
+      "id": "CVE-2026-3573",
+      "summary": "Incorrect Authorization vulnerability in Drupal AI (Artificial Intelligence) allows Resource Injection.This issue affects AI (Artificial Intelligence): from 0.0.0 before 1.1.11, from 1.2.0 before 1.2.12.",
+      "published": "2026-03-26T21:17:09.557",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3573"
+    },
+    {
+      "id": "CVE-2026-3532",
+      "summary": "Improper Handling of Case Sensitivity vulnerability in Drupal OpenID Connect / OAuth client allows Privilege Escalation.This issue affects OpenID Connect / OAuth client: from 0.0.0 before 1.5.0.",
+      "published": "2026-03-26T21:17:09.420",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3532"
+    },
+    {
+      "id": "CVE-2026-3531",
+      "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal OpenID Connect / OAuth client allows Authentication Bypass.This issue affects OpenID Connect / OAuth client: from 0.0.0 before 1.5.0.",
+      "published": "2026-03-26T21:17:09.283",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3531"
     }
   ]
 }
