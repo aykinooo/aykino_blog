@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-26T19:31:06+00:00",
+  "generated_at": "2026-03-26T20:49:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4926",
-      "summary": "Impact:\n\nA bad regular expression is generated any time you have multiple sequential optional groups (curly brace syntax), such as `{a}{b}{c}:z`. The generated regex grows exponentially with the number of groups, causing denial of service.\n\nPatches:\n\nFixed in version 8.4.0.\n\nWorkarounds:\n\nLimit the number of sequential optional groups in route patterns. Avoid passing user-controlled input as route patterns.",
-      "published": "2026-03-26T19:17:08.387",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4926"
+      "id": "CVE-2026-33632",
+      "summary": "ClearanceKit intercepts file-system access events on macOS and enforces per-process access policies. Prior to version 4.2.4, two file operation event types \u2014 ES_EVENT_TYPE_AUTH_EXCHANGEDATA and ES_EVENT_TYPE_AUTH_CLONE \u2014 were not intercepted by ClearanceKit's opfilter system extension, allowing local processes to bypass file access policies. Commit 6181c4a patches the vulnerability by subscribing to both event types and routing them through the existing policy evaluator. Users must upgrade to v4.2.4 or later and reactivate the system extension.",
+      "published": "2026-03-26T20:16:16.277",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33632"
     },
     {
-      "id": "CVE-2026-4923",
-      "summary": "Impact:\n\nWhen using multiple wildcards, combined with at least one parameter, a regular expression can be generated that is vulnerable to ReDoS. This backtracking vulnerability requires the second wildcard to be somewhere other than the end of the path.\n\nUnsafe examples:\n\n/*foo-*bar-:baz\n/*a-:b-*c-:d\n/x/*a-:b/*c/y\n\nSafe examples:\n\n/*foo-:bar\n/*foo-:bar-*baz\n\nPatches:\n\nUpgrade to version 8.4.0.\n\nWorkarounds:\n\nIf you are using multiple wildcard parameters, you can check the regex output with a tool such as https://makenowjust-labs.github.io/recheck/playground/ to confirm whether a path is vulnerable.",
-      "published": "2026-03-26T19:17:08.187",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4923"
+      "id": "CVE-2026-33631",
+      "summary": "ClearanceKit intercepts file-system access events on macOS and enforces per-process access policies. In versions on the 4.1 branch and earlier, the opfilter Endpoint Security system extension enforced file access policy exclusively by intercepting ES_EVENT_TYPE_AUTH_OPEN events. Seven additional file operation event types were not intercepted, allowing any locally running process to bypass the configured FAA policy without triggering a denial. Commit a3d1733 adds subscriptions for all seven event types and routes them through the existing FAA policy evaluator. AUTH_RENAME and AUTH_UNLINK additionally preserve XProtect change detection: events on the XProtect path are allowed and trigger the existing onXProtectChanged callback rather than being evaluated against user policy. All versions on the 4.2 branch contain the fix. No known workarounds are available.",
+      "published": "2026-03-26T20:16:16.110",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33631"
     },
     {
-      "id": "CVE-2026-3190",
-      "summary": "A flaw was found in Keycloak. The User-Managed Access (UMA) 2.0 Protection API endpoint for permission tickets fails to enforce the `uma_protection` role check. This allows any authenticated user with a token issued for a resource server client, even without the `uma_protection` role, to enumerate all permission tickets in the system. This vulnerability partial leads to information disclosure.",
-      "published": "2026-03-26T19:17:06.413",
+      "id": "CVE-2026-33536",
+      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-18 and 6.9.13-43, due to an incorrect return value on certain platforms a pointer is incremented past the end of a buffer that is on the stack and that could result in an out of bounds write. Versions 7.1.2-18 and 6.9.13-43 patch the issue.",
+      "published": "2026-03-26T20:16:15.877",
+      "cvss": 5.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33536"
+    },
+    {
+      "id": "CVE-2026-33535",
+      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to 7.1.2-18 and 6.9.13-43, an out-of-bounds write of a zero byte exists in the X11 `display` interaction path that could lead to a crash. Versions 7.1.2-18 and 6.9.13-43 patch the issue.",
+      "published": "2026-03-26T20:16:15.723",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33535"
+    },
+    {
+      "id": "CVE-2026-33532",
+      "summary": "`yaml` is a YAML parser and serialiser for JavaScript. Parsing a YAML document with a version of `yaml` on the 1.x branch prior to 1.10.3 or on the 2.x branch prior to 2.8.3 may throw a RangeError due to a stack overflow. The node resolution/composition phase uses recursive function calls without a depth bound. An attacker who can supply YAML for parsing can trigger a `RangeError: Maximum call stack size exceeded` with a small payload (~2\u201310 KB). The `RangeError` is not a `YAMLParseError`, so applications that only catch YAML-specific errors will encounter an unexpected exception type. Depending on the host application's exception handling, this can fail requests or terminate the Node.js process. Flow sequences allow deep nesting with minimal bytes (2 bytes per level: one `[` and one `]`). On the default Node.js stack, approximately 1,000\u20135,000 levels of nesting (2\u201310 KB input) exhaust the call stack. The exact threshold is environment-dependent (Node.js version, stack size, call stack depth at invocation). Note: the library's `Parser` (CST phase) uses a stack-based iterative approach and is not affected. Only the compose/resolve phase uses actual call-stack recursion. All three public parsing APIs are affected: `YAML.parse()`, `YAML.parseDocument()`, and `YAML.parseAllDocuments()`. Versions 1.10.3 and 2.8.3 contain a patch.",
+      "published": "2026-03-26T20:16:15.543",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3190"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33532"
     },
     {
-      "id": "CVE-2026-3121",
-      "summary": "A flaw was found in Keycloak. An administrator with `manage-clients` permission can exploit a misconfiguration where this permission is equivalent to `manage-permissions`. This allows the administrator to escalate privileges and gain control over roles, users, or other administrative functions within the realm. This privilege escalation can occur when admin permissions are enabled at the realm level.",
-      "published": "2026-03-26T19:17:06.213",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3121"
-    },
-    {
-      "id": "CVE-2026-33506",
-      "summary": "Ory Polis, formerly known as BoxyHQ Jackson, bridges or proxies a SAML login flow to OAuth 2.0 or OpenID Connect. Versions prior to 26.2.0 contain a DOM-based Cross-Site Scripting (XSS) vulnerability in Ory Polis's login functionality. The application improperly trusts a URL parameter (`callbackUrl`), which is passed to `router.push`. An attacker can craft a malicious link that, when opened by an authenticated user (or an unauthenticated user that later logs in), performs a client-side redirect and executes arbitrary JavaScript in the context of their browser. This could lead to credential theft, internal network pivoting, and unauthorized actions performed on behalf of the victim. Version 26.2.0 contains a patch for the issue.",
-      "published": "2026-03-26T19:17:05.680",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33506"
-    },
-    {
-      "id": "CVE-2026-33505",
-      "summary": "Ory Keto is am open source authorization server for managing permissions at scale. Prior to version 26.2.0, the GetRelationships API in Ory Keto is vulnerable to SQL injection due to flaws in its pagination implementation. Pagination tokens are encrypted using the secret configured in `secrets.pagination`. An attacker who knows this secret can craft their own tokens, including malicious tokens that lead to SQL injection. If this configuration value is not set, Keto falls back to a hard-coded default pagination encryption secret. Because this default value is publicly known, attackers can generate valid and malicious pagination tokens manually for installations where this secret is not set. This issue can be exploited when GetRelationships API is directly or indirectly accessible to the attacker, the attacker can pass a raw pagination token to the affected API, and the configuration value `secrets.pagination` is not set or known to the attacker. An attacker can execute arbitrary SQL queries through forged pagination tokens. As a first line of defense, immediately configure a custom value for `secrets.pagination` by generating a cryptographically secure random secret. Next, upgrade Keto to a fixed version, 26.2.0 or later, as soon as possible.",
-      "published": "2026-03-26T19:17:04.753",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33505"
+      "id": "CVE-2026-33531",
+      "summary": "InvenTree is an Open Source Inventory Management System. Prior to version 1.2.6, a path traversal vulnerability in the report template engine allows a staff-level user to read arbitrary files from the server filesystem via crafted template tags. Affected functions: `encode_svg_image()`, `asset()`, and `uploaded_image()` in `src/backend/InvenTree/report/templatetags/report.py`. This requires staff access (to upload / edit templates with maliciously crafted tags). If the InvenTree installation is configured with high access privileges on the host system, this path traversal may allow file access outside of the InvenTree source directory. This issue is patched in version 1.2.6, and 1.3.0 (or above). Users should update to the patched versions. No known workarounds are available.",
+      "published": "2026-03-26T20:16:15.400",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33531"
     }
   ]
 }
