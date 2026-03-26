@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-26T17:17:51+00:00",
+  "generated_at": "2026-03-26T19:31:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4867",
-      "summary": "Impact:\n\nA bad regular expression is generated any time you have three or more parameters within a single segment, separated by something that is not a period (.). For example, /:a-:b-:c or /:a-:b-:c-:d. The backtrack protection added in path-to-regexp@0.1.12 only prevents ambiguity for two parameters. With three or more, the generated lookahead does not block single separator characters, so capture groups overlap and cause catastrophic backtracking.\n\nPatches:\n\nUpgrade to path-to-regexp@0.1.13\n\nCustom regex patterns in route definitions (e.g., /:a-:b([^-/]+)-:c([^-/]+)) are not affected because they override the default capture group.\n\nWorkarounds:\n\nAll versions can be patched by providing a custom regular expression for parameters after the first in a single segment. As long as the custom regular expression does not match the text before the parameter, you will be safe. For example, change /:a-:b-:c to /:a-:b([^-/]+)-:c([^-/]+).\n\nIf paths cannot be rewritten and versions cannot be upgraded, another alternative is to limit the URL length.",
-      "published": "2026-03-26T17:16:42.983",
+      "id": "CVE-2026-4926",
+      "summary": "Impact:\n\nA bad regular expression is generated any time you have multiple sequential optional groups (curly brace syntax), such as `{a}{b}{c}:z`. The generated regex grows exponentially with the number of groups, causing denial of service.\n\nPatches:\n\nFixed in version 8.4.0.\n\nWorkarounds:\n\nLimit the number of sequential optional groups in route patterns. Avoid passing user-controlled input as route patterns.",
+      "published": "2026-03-26T19:17:08.387",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4867"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4926"
     },
     {
-      "id": "CVE-2026-3116",
-      "summary": "Mattermost Plugins versions <=11.4 11.0.4 11.1.3 11.3.2 10.11.11.0 fail to validate incoming request size which allows an authenticated attacker to cause service disruption via the webhook endpoint. Mattermost Advisory ID: MMSA-2026-00589",
-      "published": "2026-03-26T17:16:42.823",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3116"
+      "id": "CVE-2026-4923",
+      "summary": "Impact:\n\nWhen using multiple wildcards, combined with at least one parameter, a regular expression can be generated that is vulnerable to ReDoS. This backtracking vulnerability requires the second wildcard to be somewhere other than the end of the path.\n\nUnsafe examples:\n\n/*foo-*bar-:baz\n/*a-:b-*c-:d\n/x/*a-:b/*c/y\n\nSafe examples:\n\n/*foo-:bar\n/*foo-:bar-*baz\n\nPatches:\n\nUpgrade to version 8.4.0.\n\nWorkarounds:\n\nIf you are using multiple wildcard parameters, you can check the regex output with a tool such as https://makenowjust-labs.github.io/recheck/playground/ to confirm whether a path is vulnerable.",
+      "published": "2026-03-26T19:17:08.187",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4923"
     },
     {
-      "id": "CVE-2026-3115",
-      "summary": "Mattermost versions 11.2.x <= 11.2.2, 10.11.x <= 10.11.10, 11.4.x <= 11.4.0, 11.3.x <= 11.3.1 fail to apply view restrictions when retrieving group member IDs, which allows authenticated guest users to enumerate user IDs outside their allowed visibility scope via the group retrieval endpoint.. Mattermost Advisory ID: MMSA-2026-00594",
-      "published": "2026-03-26T17:16:42.660",
+      "id": "CVE-2026-3190",
+      "summary": "A flaw was found in Keycloak. The User-Managed Access (UMA) 2.0 Protection API endpoint for permission tickets fails to enforce the `uma_protection` role check. This allows any authenticated user with a token issued for a resource server client, even without the `uma_protection` role, to enumerate all permission tickets in the system. This vulnerability partial leads to information disclosure.",
+      "published": "2026-03-26T19:17:06.413",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3115"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3190"
     },
     {
-      "id": "CVE-2026-3114",
-      "summary": "Mattermost versions 11.4.x <= 11.4.0, 11.3.x <= 11.3.1, 11.2.x <= 11.2.3, 10.11.x <= 10.11.11 fail to validate decompressed archive entry sizes during file extraction which allows authenticated users with file upload permissions to cause a denial of service via crafted zip archives containing highly compressed entries (zip bombs) that exhaust server memory.. Mattermost Advisory ID: MMSA-2026-00598",
-      "published": "2026-03-26T17:16:42.480",
+      "id": "CVE-2026-3121",
+      "summary": "A flaw was found in Keycloak. An administrator with `manage-clients` permission can exploit a misconfiguration where this permission is equivalent to `manage-permissions`. This allows the administrator to escalate privileges and gain control over roles, users, or other administrative functions within the realm. This privilege escalation can occur when admin permissions are enabled at the realm level.",
+      "published": "2026-03-26T19:17:06.213",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3114"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3121"
     },
     {
-      "id": "CVE-2026-3113",
-      "summary": "Mattermost versions 11.4.x <= 11.4.0, 11.3.x <= 11.3.1, 11.2.x <= 11.2.3, 10.11.x <= 10.11.11 fail to set permissions on downloaded bulk export which allows other local users on the server to be able to read contents of the bulk export.. Mattermost Advisory ID: MMSA-2026-00593",
-      "published": "2026-03-26T17:16:42.307",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3113"
+      "id": "CVE-2026-33506",
+      "summary": "Ory Polis, formerly known as BoxyHQ Jackson, bridges or proxies a SAML login flow to OAuth 2.0 or OpenID Connect. Versions prior to 26.2.0 contain a DOM-based Cross-Site Scripting (XSS) vulnerability in Ory Polis's login functionality. The application improperly trusts a URL parameter (`callbackUrl`), which is passed to `router.push`. An attacker can craft a malicious link that, when opened by an authenticated user (or an unauthenticated user that later logs in), performs a client-side redirect and executes arbitrary JavaScript in the context of their browser. This could lead to credential theft, internal network pivoting, and unauthorized actions performed on behalf of the victim. Version 26.2.0 contains a patch for the issue.",
+      "published": "2026-03-26T19:17:05.680",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33506"
     },
     {
-      "id": "CVE-2026-3112",
-      "summary": "Mattermost versions 11.4.x <= 11.4.0, 11.3.x <= 11.3.1, 11.2.x <= 11.2.3, 10.11.x <= 10.11.11 fail to validate Advanced Logging file target paths which allows system administrators to read arbitrary host files via malicious AdvancedLoggingJSON configuration in support packet generation. Mattermost Advisory ID: MMSA-2025-00562",
-      "published": "2026-03-26T17:16:42.123",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3112"
+      "id": "CVE-2026-33505",
+      "summary": "Ory Keto is am open source authorization server for managing permissions at scale. Prior to version 26.2.0, the GetRelationships API in Ory Keto is vulnerable to SQL injection due to flaws in its pagination implementation. Pagination tokens are encrypted using the secret configured in `secrets.pagination`. An attacker who knows this secret can craft their own tokens, including malicious tokens that lead to SQL injection. If this configuration value is not set, Keto falls back to a hard-coded default pagination encryption secret. Because this default value is publicly known, attackers can generate valid and malicious pagination tokens manually for installations where this secret is not set. This issue can be exploited when GetRelationships API is directly or indirectly accessible to the attacker, the attacker can pass a raw pagination token to the affected API, and the configuration value `secrets.pagination` is not set or known to the attacker. An attacker can execute arbitrary SQL queries through forged pagination tokens. As a first line of defense, immediately configure a custom value for `secrets.pagination` by generating a cryptographically secure random secret. Next, upgrade Keto to a fixed version, 26.2.0 or later, as soon as possible.",
+      "published": "2026-03-26T19:17:04.753",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33505"
     }
   ]
 }
