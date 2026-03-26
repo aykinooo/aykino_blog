@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-26T15:39:18+00:00",
+  "generated_at": "2026-03-26T17:17:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4897",
-      "summary": "A flaw was found in polkit. A local user can exploit this by providing a specially crafted, excessively long input to the `polkit-agent-helper-1` setuid binary via standard input (stdin). This unbounded input can lead to an out-of-memory (OOM) condition, resulting in a Denial of Service (DoS) for the system.",
-      "published": "2026-03-26T15:16:43.017",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4897"
+      "id": "CVE-2026-4867",
+      "summary": "Impact:\n\nA bad regular expression is generated any time you have three or more parameters within a single segment, separated by something that is not a period (.). For example, /:a-:b-:c or /:a-:b-:c-:d. The backtrack protection added in path-to-regexp@0.1.12 only prevents ambiguity for two parameters. With three or more, the generated lookahead does not block single separator characters, so capture groups overlap and cause catastrophic backtracking.\n\nPatches:\n\nUpgrade to path-to-regexp@0.1.13\n\nCustom regex patterns in route definitions (e.g., /:a-:b([^-/]+)-:c([^-/]+)) are not affected because they override the default capture group.\n\nWorkarounds:\n\nAll versions can be patched by providing a custom regular expression for parameters after the first in a single segment. As long as the custom regular expression does not match the text before the parameter, you will be safe. For example, change /:a-:b-:c to /:a-:b([^-/]+)-:c([^-/]+).\n\nIf paths cannot be rewritten and versions cannot be upgraded, another alternative is to limit the URL length.",
+      "published": "2026-03-26T17:16:42.983",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4867"
     },
     {
-      "id": "CVE-2026-33397",
-      "summary": "The Angular SSR is a server-rise rendering tool for Angular applications. Versions on the 22.x branch prior to 22.0.0-next.2, the 21.x branch prior to 21.2.3, and the 20.x branch prior to 20.3.21 have an Open Redirect vulnerability in `@angular/ssr` due to an incomplete fix for CVE-2026-27738. While the original fix successfully blocked multiple leading slashes (e.g., `///`), the internal validation logic fails to account for a single backslash (`\\`) bypass. When an Angular SSR application is deployed behind a proxy that passes the `X-Forwarded-Prefix` header, an attacker provides a value starting with a single backslash, the internal validation failed to flag the single backslash as invalid, the application prepends a leading forward slash, resulting in a `Location` header containing the URL, and modern browsers interpret the `/\\` sequence as `//`, treating it as a protocol-relative URL and redirecting the user to the attacker-controlled domain. Furthermore, the response lacks the `Vary: X-Forwarded-Prefix` header, allowing the malicious redirect to be stored in intermediate caches (Web Cache Poisoning). Versions 22.0.0-next.2, 21.2.3, and 20.3.21 contain a patch. Until the patch is applied, developers should sanitize the `X-Forwarded-Prefix` header in their `server.ts` before the Angular engine processes the request.",
-      "published": "2026-03-26T15:16:38.533",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33397"
+      "id": "CVE-2026-3116",
+      "summary": "Mattermost Plugins versions <=11.4 11.0.4 11.1.3 11.3.2 10.11.11.0 fail to validate incoming request size which allows an authenticated attacker to cause service disruption via the webhook endpoint. Mattermost Advisory ID: MMSA-2026-00589",
+      "published": "2026-03-26T17:16:42.823",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3116"
     },
     {
-      "id": "CVE-2026-30162",
-      "summary": "Cross Site Scripting (xss) vulnerability in Timo 2.0.3 via crafted links in the title field.",
-      "published": "2026-03-26T15:16:36.600",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30162"
+      "id": "CVE-2026-3115",
+      "summary": "Mattermost versions 11.2.x <= 11.2.2, 10.11.x <= 10.11.10, 11.4.x <= 11.4.0, 11.3.x <= 11.3.1 fail to apply view restrictions when retrieving group member IDs, which allows authenticated guest users to enumerate user IDs outside their allowed visibility scope via the group retrieval endpoint.. Mattermost Advisory ID: MMSA-2026-00594",
+      "published": "2026-03-26T17:16:42.660",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3115"
     },
     {
-      "id": "CVE-2026-29976",
-      "summary": "Buffer Overflow vulnerability in ZerBea hcxpcapngtool v. 7.0.1-43-g2ee308e allows a local attacker to obtain sensitive information via the getradiotapfield() function",
-      "published": "2026-03-26T15:16:36.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29976"
+      "id": "CVE-2026-3114",
+      "summary": "Mattermost versions 11.4.x <= 11.4.0, 11.3.x <= 11.3.1, 11.2.x <= 11.2.3, 10.11.x <= 10.11.11 fail to validate decompressed archive entry sizes during file extraction which allows authenticated users with file upload permissions to cause a denial of service via crafted zip archives containing highly compressed entries (zip bombs) that exhaust server memory.. Mattermost Advisory ID: MMSA-2026-00598",
+      "published": "2026-03-26T17:16:42.480",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3114"
     },
     {
-      "id": "CVE-2026-29934",
-      "summary": "A reflected cross-site scripting (XSS) vulnerability in the /admin/menus component of Lightcms v2.0 allows attackers to execute arbitrary Javascript in the context of the user's browser via modifying the referer value in the request header.",
-      "published": "2026-03-26T15:16:36.017",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29934"
+      "id": "CVE-2026-3113",
+      "summary": "Mattermost versions 11.4.x <= 11.4.0, 11.3.x <= 11.3.1, 11.2.x <= 11.2.3, 10.11.x <= 10.11.11 fail to set permissions on downloaded bulk export which allows other local users on the server to be able to read contents of the bulk export.. Mattermost Advisory ID: MMSA-2026-00593",
+      "published": "2026-03-26T17:16:42.307",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3113"
     },
     {
-      "id": "CVE-2026-29933",
-      "summary": "A reflected cross-site scripting (XSS) vulnerability in the /index/login.html component of YZMCMS v7.4 allows attackers to execute arbitrary Javascript in the context of the user's browser via modifying the referrer value in the request header.",
-      "published": "2026-03-26T15:16:35.890",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29933"
+      "id": "CVE-2026-3112",
+      "summary": "Mattermost versions 11.4.x <= 11.4.0, 11.3.x <= 11.3.1, 11.2.x <= 11.2.3, 10.11.x <= 10.11.11 fail to validate Advanced Logging file target paths which allows system administrators to read arbitrary host files via malicious AdvancedLoggingJSON configuration in support packet generation. Mattermost Advisory ID: MMSA-2025-00562",
+      "published": "2026-03-26T17:16:42.123",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3112"
     }
   ]
 }
