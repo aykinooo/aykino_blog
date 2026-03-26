@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-26T13:57:32+00:00",
+  "generated_at": "2026-03-26T15:39:18+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4887",
-      "summary": "A flaw was found in GIMP. This issue is a heap buffer over-read in GIMP PCX file loader due to an off-by-one error. A remote attacker could exploit this by convincing a user to open a specially crafted PCX image. Successful exploitation could lead to out-of-bounds memory disclosure and a possible application crash, resulting in a Denial of Service (DoS).",
-      "published": "2026-03-26T13:16:30.780",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4887"
+      "id": "CVE-2026-4897",
+      "summary": "A flaw was found in polkit. A local user can exploit this by providing a specially crafted, excessively long input to the `polkit-agent-helper-1` setuid binary via standard input (stdin). This unbounded input can lead to an out-of-memory (OOM) condition, resulting in a Denial of Service (DoS) for the system.",
+      "published": "2026-03-26T15:16:43.017",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4897"
     },
     {
-      "id": "CVE-2026-4875",
-      "summary": "A vulnerability was determined in itsourcecode Free Hotel Reservation System 1.0. The affected element is an unknown function of the file /admin/mod_amenities/index.php?view=add. This manipulation of the argument image causes unrestricted upload. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-03-26T13:16:30.563",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4875"
+      "id": "CVE-2026-33397",
+      "summary": "The Angular SSR is a server-rise rendering tool for Angular applications. Versions on the 22.x branch prior to 22.0.0-next.2, the 21.x branch prior to 21.2.3, and the 20.x branch prior to 20.3.21 have an Open Redirect vulnerability in `@angular/ssr` due to an incomplete fix for CVE-2026-27738. While the original fix successfully blocked multiple leading slashes (e.g., `///`), the internal validation logic fails to account for a single backslash (`\\`) bypass. When an Angular SSR application is deployed behind a proxy that passes the `X-Forwarded-Prefix` header, an attacker provides a value starting with a single backslash, the internal validation failed to flag the single backslash as invalid, the application prepends a leading forward slash, resulting in a `Location` header containing the URL, and modern browsers interpret the `/\\` sequence as `//`, treating it as a protocol-relative URL and redirecting the user to the attacker-controlled domain. Furthermore, the response lacks the `Vary: X-Forwarded-Prefix` header, allowing the malicious redirect to be stored in intermediate caches (Web Cache Poisoning). Versions 22.0.0-next.2, 21.2.3, and 20.3.21 contain a patch. Until the patch is applied, developers should sanitize the `X-Forwarded-Prefix` header in their `server.ts` before the Angular engine processes the request.",
+      "published": "2026-03-26T15:16:38.533",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33397"
     },
     {
-      "id": "CVE-2026-1961",
-      "summary": "A flaw was found in Foreman. A remote attacker could exploit a command injection vulnerability in Foreman's WebSocket proxy implementation. This vulnerability arises from the system's use of unsanitized hostname values from compute resource providers when constructing shell commands. By operating a malicious compute resource server, an attacker could achieve remote code execution on the Foreman server when a user accesses VM VNC console functionality. This could lead to the compromise of sensitive credentials and the entire managed infrastructure.",
-      "published": "2026-03-26T13:16:27.650",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1961"
+      "id": "CVE-2026-30162",
+      "summary": "Cross Site Scripting (xss) vulnerability in Timo 2.0.3 via crafted links in the title field.",
+      "published": "2026-03-26T15:16:36.600",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30162"
     },
     {
-      "id": "CVE-2025-55277",
-      "summary": "HCL Aftermarket DPC is affected by Use of Vulnerable/Outdated Versions vulnerability using which an attacker may make use of the exploits available across the internet and craft attacks against the application.",
-      "published": "2026-03-26T13:16:27.487",
-      "cvss": 2.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55277"
+      "id": "CVE-2026-29976",
+      "summary": "Buffer Overflow vulnerability in ZerBea hcxpcapngtool v. 7.0.1-43-g2ee308e allows a local attacker to obtain sensitive information via the getradiotapfield() function",
+      "published": "2026-03-26T15:16:36.137",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29976"
     },
     {
-      "id": "CVE-2025-55276",
-      "summary": "HCL Aftermarket DPC is affected by Internal IP Disclosure vulnerability will give attackers a clearer map of the organization\u2019s network layout.",
-      "published": "2026-03-26T13:16:27.343",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55276"
+      "id": "CVE-2026-29934",
+      "summary": "A reflected cross-site scripting (XSS) vulnerability in the /admin/menus component of Lightcms v2.0 allows attackers to execute arbitrary Javascript in the context of the user's browser via modifying the referer value in the request header.",
+      "published": "2026-03-26T15:16:36.017",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29934"
     },
     {
-      "id": "CVE-2025-55275",
-      "summary": "HCL Aftermarket DPC is affected by Admin Session Concurrency vulnerability using which an attacker can exploit concurrent sessions to hijack or impersonate an admin user.",
-      "published": "2026-03-26T13:16:27.187",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-55275"
+      "id": "CVE-2026-29933",
+      "summary": "A reflected cross-site scripting (XSS) vulnerability in the /index/login.html component of YZMCMS v7.4 allows attackers to execute arbitrary Javascript in the context of the user's browser via modifying the referrer value in the request header.",
+      "published": "2026-03-26T15:16:35.890",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29933"
     }
   ]
 }
