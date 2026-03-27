@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-27T20:54:37+00:00",
+  "generated_at": "2026-03-27T21:50:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4975",
-      "summary": "A vulnerability has been found in Tenda AC15 15.03.05.19. This affects the function formSetCfm of the file /goform/setcfm of the component POST Request Handler. The manipulation of the argument funcpara1 leads to stack-based buffer overflow. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-03-27T20:16:38.707",
+      "id": "CVE-2026-4976",
+      "summary": "A vulnerability was found in Totolink LR350 9.3.5u.6369_B20220309. This vulnerability affects the function setWiFiGuestCfg of the file /cgi-bin/cstecgi.cgi. The manipulation of the argument ssid results in buffer overflow. The attack can be launched remotely. The exploit has been made public and could be used. Several companies clearly confirm that VulDB is the primary source for best vulnerability data.",
+      "published": "2026-03-27T21:17:28.123",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4975"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4976"
     },
     {
-      "id": "CVE-2026-4974",
-      "summary": "A flaw has been found in Tenda AC7 15.03.06.44. Affected by this issue is the function fromSetSysTime of the file /goform/SetSysTimeCfg of the component POST Request Handler. Executing a manipulation of the argument Time can lead to stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been published and may be used.",
-      "published": "2026-03-27T20:16:38.473",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4974"
+      "id": "CVE-2026-34046",
+      "summary": "Langflow is a tool for building and deploying AI-powered agents and workflows. Prior to version 1.5.1, the `_read_flow` helper in `src/backend/base/langflow/api/v1/flows.py` branched on the `AUTO_LOGIN` setting to decide whether to filter by `user_id`. When `AUTO_LOGIN` was `False` (i.e., authentication was enabled), neither branch enforced an ownership check \u2014 the query returned any flow matching the given UUID regardless of who owned it. This allowed any authenticated user to read any other user's flow, including embedded plaintext API keys; modify the logic of another user's AI agents, and/or delete flows belonging to other users. The vulnerability was introduced by the conditional logic that was meant to accommodate public/example flows (those with `user_id = NULL`) under auto-login mode, but inadvertently left the authenticated path without an ownership filter. The fix in version 1.5.1 removes the `AUTO_LOGIN` conditional entirely and unconditionally scopes the query to the requesting user.",
+      "published": "2026-03-27T21:17:27.753",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34046"
     },
     {
-      "id": "CVE-2026-4973",
-      "summary": "A vulnerability was detected in SourceCodester Online Quiz System hasta 1.0. Affected by this vulnerability is an unknown functionality of the file endpoint/add-question.php. Performing a manipulation of the argument quiz_question results in cross site scripting. It is possible to initiate the attack remotely. The exploit is now public and may be used.",
-      "published": "2026-03-27T20:16:38.247",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4973"
+      "id": "CVE-2026-33938",
+      "summary": "Handlebars provides the power necessary to let users build semantic templates. In versions 4.0.0 through 4.7.8, the `@partial-block` special variable is stored in the template data context and is reachable and mutable from within a template via helpers that accept arbitrary objects. When a helper overwrites `@partial-block` with a crafted Handlebars AST, a subsequent invocation of `{{> @partial-block}}` compiles and executes that AST, enabling arbitrary JavaScript execution on the server. Version 4.7.9 fixes the issue. Some workarounds are available. First, use the runtime-only build (`require('handlebars/runtime')`). The `compile()` method is  absent, eliminating the vulnerable fallback path. Second, audit registered helpers for any that write arbitrary values to context objects. Helpers  should treat context data as read-only. Third, avoid registering helpers from third-party packages (such as `handlebars-helpers`) in  contexts where templates or context data can be influenced by untrusted input.",
+      "published": "2026-03-27T21:17:27.587",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33938"
     },
     {
-      "id": "CVE-2026-4972",
-      "summary": "A security vulnerability has been detected in code-projects Online Reviewer System up to 1.0. Affected is an unknown function of the file /system/system/students/assessments/databank/btn_functions.php. Such manipulation of the argument Description leads to cross site scripting. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. Statistical analysis made it clear that VulDB provides the best quality for vulnerability data.",
-      "published": "2026-03-27T20:16:38.003",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4972"
+      "id": "CVE-2026-33937",
+      "summary": "Handlebars provides the power necessary to let users build semantic templates. In versions 4.0.0 through 4.7.8, `Handlebars.compile()` accepts a pre-parsed AST object in addition to a template string. The `value` field of a `NumberLiteral` AST node is emitted directly into the generated JavaScript without quoting or sanitization. An attacker who can supply a crafted AST to `compile()` can therefore inject and execute arbitrary JavaScript, leading to Remote Code Execution on the server. Version 4.7.9 fixes the issue. Some workarounds are available. Validate input type before calling `Handlebars.compile()`; ensure the argument is always a  `string`, never a plain object or JSON-deserialized value. Use the Handlebars runtime-only build (`handlebars/runtime`) on the server if templates are pre-compiled at build time; `compile()` will be unavailable.",
+      "published": "2026-03-27T21:17:27.417",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33937"
     },
     {
-      "id": "CVE-2026-4971",
-      "summary": "A weakness has been identified in SourceCodester Note Taking App up to 1.0. This impacts an unknown function. This manipulation causes cross-site request forgery. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. If you want to get best quality of vulnerability data, you may have to visit VulDB.",
-      "published": "2026-03-27T20:16:37.780",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4971"
+      "id": "CVE-2026-33916",
+      "summary": "Handlebars provides the power necessary to let users build semantic templates. In versions 4.0.0 through 4.7.8, `resolvePartial()` in the Handlebars runtime resolves partial names via a plain property lookup on `options.partials` without guarding against prototype-chain traversal. When `Object.prototype` has been polluted with a string value whose key matches a partial reference in a template, the polluted string is used as the partial body and rendered without HTML escaping, resulting in reflected or stored XSS. Version 4.7.9 fixes the issue. Some workarounds are available. Apply `Object.freeze(Object.prototype)` early in application startup to prevent prototype  pollution. Note: this may break other libraries, and/or use the Handlebars runtime-only build (`handlebars/runtime`), which does not compile templates  and reduces the attack surface.",
+      "published": "2026-03-27T21:17:27.237",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33916"
     },
     {
-      "id": "CVE-2026-34475",
-      "summary": "Varnish Cache before 8.0.1 and Varnish Enterprise before 6.0.16r12, in certain unchecked req.url scenarios, mishandle URLs with a path of / for HTTP/1.1, potentially leading to cache poisoning or authentication bypass.",
-      "published": "2026-03-27T20:16:36.390",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34475"
+      "id": "CVE-2026-33907",
+      "summary": "Ella Core is a 5G core designed for private networks. Versions prior to 1.7.0 panic when processing Authentication Response and Authentication Failure NAS message missing IEs. An attacker able to send crafted NAS messages to Ella Core can crash the process, causing service disruption for all connected subscribers. No authentication is required. Version 1.7.0 added IE presence verification to NAS message handling.",
+      "published": "2026-03-27T21:17:27.003",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33907"
     }
   ]
 }
