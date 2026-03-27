@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-27T15:08:11+00:00",
+  "generated_at": "2026-03-27T16:04:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-32859",
-      "summary": "ByteDance Deer-Flow versions prior to commit 5dbb362\u00a0contain a stored cross-site scripting vulnerability in the artifacts API that allows attackers to execute arbitrary scripts by uploading malicious HTML or script content as artifacts. Attackers can store malicious content that executes in the browser context when users view artifacts, leading to session compromise, credential theft, and arbitrary script execution.",
-      "published": "2026-03-27T14:16:08.703",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32859"
+      "id": "CVE-2026-5027",
+      "summary": "The 'POST /api/v2/files' endpoint does not sanitize the 'filename' parameter from the multipart form data, allowing an attacker to write files to arbitrary locations on the filesystem using path traversal sequences ('../').",
+      "published": "2026-03-27T15:17:04.743",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5027"
     },
     {
-      "id": "CVE-2026-32695",
-      "summary": "Traefik is an HTTP reverse proxy and load balancer. Prior to versions 3.6.11 and 3.7.0-ea.2, Traefik's Knative provider builds router rules by interpolating user-controlled values into backtick-delimited rule expressions without escaping. In live cluster validation, Knative `rules[].hosts[]` was exploitable for host restriction bypass (for example `tenant.example.com`) || Host(`attacker.com`), producing a router that serves attacker-controlled hosts. Knative `headers[].exact` also allows rule-syntax injection and proves unsafe rule construction. In multi-tenant clusters, this can route unauthorized traffic to victim services and lead to cross-tenant traffic exposure. Versions 3.6.11 and 3.7.0-ea.2 patch the issue.",
-      "published": "2026-03-27T14:16:08.537",
+      "id": "CVE-2026-5026",
+      "summary": "The '/api/v1/files/images/{flow_id}/{file_name}' endpoint serves SVG files with the 'image/svg+xml' content type without sanitizing their content.\n\nSince SVG files can contain embedded JavaScript, an attacker can upload a malicious SVG that executes arbitrary JavaScript when viewed by other users, leading to stored cross-site scripting (XSS). This allows stealing authentication tokens stored in cookies, including JWT access and refresh tokens.",
+      "published": "2026-03-27T15:17:04.597",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32695"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5026"
     },
     {
-      "id": "CVE-2025-13478",
-      "summary": "Cache misconfiguration vulnerability in OpenText Identity Manager on Windows, Linux allows remote authenticated users to obtain another user's session data via insecure application cache handling. This issue affects Identity Manager: 25.2(v4.10.1).",
-      "published": "2026-03-27T14:16:07.450",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13478"
+      "id": "CVE-2026-5025",
+      "summary": "The '/logs' and '/logs-stream' endpoints in the log router allow any authenticated user to read the full application log buffer. These endpoints only require basic authentication ('get_current_active_user') without any privilege checks (e.g., 'is_superuser').",
+      "published": "2026-03-27T15:17:04.447",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5025"
     },
     {
-      "id": "CVE-2026-4982",
-      "summary": "A user with permission \"update world\" in any Venueless world is able to exfiltrate chat messages from direct messages or channels in other worlds on the same server due to a bug in the reporting feature.\n\nThe exploitability is limited by the fact that the attacker needs to know the internal channel UUID of the chat channel, which is unlikely to be obtained by an outside attacker, especially for direct messages.",
-      "published": "2026-03-27T13:16:25.297",
+      "id": "CVE-2026-5022",
+      "summary": "The '/api/v1/files/images/{flow_id}/{file_name}' endpoint does not enforce any authentication or authorization checks, allowing any unauthenticated user to download images belonging to any flow by knowing (or guessing) the flow ID and file name.",
+      "published": "2026-03-27T15:17:04.293",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4982"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5022"
     },
     {
-      "id": "CVE-2026-4622",
-      "summary": "OS Command Injection vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to execute arbitrary OS commands via network.",
-      "published": "2026-03-27T12:16:21.133",
+      "id": "CVE-2026-5010",
+      "summary": "A reflected Cross-Site Scripting (XSS) vulnerability has been discovered in Clickedu. This vulnerability allows an attacker to execute JavaScript code in the victim\u2019s browser by sending them a malicious URL using the endpoint \u201c/user.php/\u201d. This vulnerability can be exploited to steal sensitive user data, such as session cookies, or to perform actions on the user\u2019s behalf.",
+      "published": "2026-03-27T15:17:04.113",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4622"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5010"
     },
     {
-      "id": "CVE-2026-4621",
-      "summary": "Hidden Functionality vulnerability in NEC Platforms, Ltd. Aterm Series allows a attacker to enable telnet via network.",
-      "published": "2026-03-27T12:16:20.910",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4621"
+      "id": "CVE-2026-4984",
+      "summary": "The Twilio integration webhook handler accepts any POST request without validating Twilio's 'X-Twilio-Signature'.\n\nWhen processing media messages, it fetches user-controlled URLs ('MediaUrlN' parameters) using HTTP requests that include the integration's Twilio credentials in the 'Authorization' header.\n\nAn attacker can forge a webhook payload pointing to their own server and receive the victim's 'accountSID' and 'authToken' in plaintext (base64-encoded Basic Auth), leading to full compromise of the Twilio account.",
+      "published": "2026-03-27T15:17:03.953",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4984"
     }
   ]
 }
