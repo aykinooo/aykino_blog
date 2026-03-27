@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-26T23:46:54+00:00",
+  "generated_at": "2026-03-27T03:28:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4903",
-      "summary": "A flaw has been found in Tenda AC5 15.03.06.47. This vulnerability affects the function formQuickIndex of the file /goform/QuickIndex of the component POST Request Handler. This manipulation of the argument PPPOEPassword causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been published and may be used.",
-      "published": "2026-03-26T23:16:21.307",
+      "id": "CVE-2026-4909",
+      "summary": "A weakness has been identified in code-projects Exam Form Submission 1.0/7.php. This impacts an unknown function of the file /admin/update_s7.php. This manipulation of the argument sname causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-03-27T03:16:02.763",
+      "cvss": 2.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4909"
+    },
+    {
+      "id": "CVE-2026-4908",
+      "summary": "A security flaw has been discovered in code-projects Simple Laundry System 1.0. This affects an unknown function of the file /modstaffinfo.php of the component Parameter Handler. The manipulation of the argument userid results in sql injection. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks.",
+      "published": "2026-03-27T03:16:01.670",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4908"
+    },
+    {
+      "id": "CVE-2026-4907",
+      "summary": "A vulnerability was identified in Page-Replica Page Replica up to e4a7f52e75093ee318b4d5a9a9db6751050d2ad0. The impacted element is the function sitemap.fetch of the file /sitemap of the component Endpoint. The manipulation of the argument url leads to server-side request forgery. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-27T02:16:00.330",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4907"
+    },
+    {
+      "id": "CVE-2026-4906",
+      "summary": "A vulnerability was determined in Tenda AC5 15.03.06.47. The affected element is the function decodePwd of the file /goform/WizardHandle of the component POST Request Handler. Executing a manipulation of the argument WANT/WANS can lead to stack-based buffer overflow. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-03-27T01:16:21.807",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4903"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4906"
     },
     {
-      "id": "CVE-2026-4902",
-      "summary": "A vulnerability was detected in Tenda AC5 15.03.06.47. This affects the function fromAddressNat of the file /goform/addressNat of the component POST Request Handler. The manipulation of the argument page results in stack-based buffer overflow. The attack can be launched remotely. The exploit is now public and may be used.",
-      "published": "2026-03-26T23:16:21.090",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4902"
-    },
-    {
-      "id": "CVE-2026-34352",
-      "summary": "In TigerVNC before 1.16.2, Image.cxx in x0vncserver allows other users to observe or manipulate the screen contents, or cause an application crash, because of incorrect permissions.",
-      "published": "2026-03-26T23:16:20.903",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34352"
-    },
-    {
-      "id": "CVE-2026-33897",
-      "summary": "Incus is a system container and virtual machine manager. Prior to version 6.23.0, instance template files can be used to cause arbitrary read or writes as root on the host server. Incus allows for pongo2 templates within instances which can be used at various times in the instance lifecycle to template files inside of the instance. This particular implementation of pongo2 within Incus allowed for file read/write but with the expectation that the pongo2 chroot feature would isolate all such access to the instance's filesystem. This was allowed such that a template could theoretically read a file and then generate a new version of said file. Unfortunately the chroot isolation mechanism is entirely skipped by pongo2 leading to easy access to the entire system's filesystem with root privileges. Version 6.23.0 patches the issue.",
-      "published": "2026-03-26T23:16:20.743",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33897"
-    },
-    {
-      "id": "CVE-2026-33743",
-      "summary": "Incus is a system container and virtual machine manager. Prior to version 6.23.0, a specially crafted storage bucket backup can be used by an user with access to Incus' storage bucket feature to crash the Incus daemon. Repeated use of this attack can be used to keep the server offline causing a denial of service of the control plane API. This does not impact any running workload, existing containers and virtual machines will keep operating. Version 6.23.0 fixes the issue.",
-      "published": "2026-03-26T23:16:20.583",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33743"
-    },
-    {
-      "id": "CVE-2026-33711",
-      "summary": "Incus is a system container and virtual machine manager. Incus provides an API to retrieve VM screenshots. That API relies on the use of a temporary file for QEMU to write the screenshot to which is then picked up and sent to the user prior to deletion. As versions prior to 6.23.0 use predictable paths under /tmp for this, an attacker with local access to the system can abuse this mechanism by creating their own symlinks ahead of time. On the vast majority of Linux systems, this will result in a \"Permission denied\" error when requesting a screenshot. That's because the Linux kernel has a security feature designed to block such attacks, `protected_symlinks`. On the rare systems with this purposefully disabled, it's then possible to trick Incus intro truncating and altering the mode and permissions of arbitrary files on the filesystem, leading to a potential denial of service or possible local privilege escalation. Version 6.23.0 fixes the issue.",
-      "published": "2026-03-26T23:16:20.423",
+      "id": "CVE-2026-33935",
+      "summary": "MyTube is a self-hosted downloader and player for several video websites Prior to version 1.8.72, an unauthenticated attacker can lock out administrator and visitor accounts from password-based authentication by triggering failed login attempts. The application exposes three password verification endpoints, all of which are publicly accessible. All three endpoints share a single file-backed login attempt state stored in `login-attempts.json`. When any endpoint records a failed authentication attempt via `recordFailedAttempt()`, the shared login attempt state is updated, increasing the `failedAttempts` counter and adjusting the associated timestamps and cooldown values. Before verifying a password, each endpoint calls `canAttemptLogin()`. This function checks the shared JSON file to determine whether a cooldown period is active. If the cooldown has not expired, the request is rejected before the password is validated. Because the failed attempt counter and cooldown timer are globally shared, failed authentication attempts against any endpoint affect all other endpoints. An attacker can exploit this by repeatedly sending invalid authentication requests to any of these endpoints, incrementing the shared counter and waiting for the cooldown period between attempts. By doing so, the attacker can progressively increase the lockout duration until it reaches 24 hours, effectively preventing legitimate users from authenticating. Once the maximum lockout is reached, the attacker can maintain the denial of service indefinitely by waiting for the cooldown to expire and sending another failed attempt, which immediately triggers another 24-hour lockout if no successful login occurred in the meantime. Version 1.8.72 fixes the vulnerability.",
+      "published": "2026-03-27T01:16:21.647",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33711"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33935"
+    },
+    {
+      "id": "CVE-2026-33890",
+      "summary": "MyTube is a self-hosted downloader and player for several video websites Prior to version 1.8.71, an unauthenticated attacker can register an arbitrary passkey and subsequently authenticate with it to obtain a full admin session. The application exposes passkey registration endpoints without requiring prior authentication. Any successfully authenticated passkey is automatically granted an administrator token, allowing full administrative access to the application. This enables a complete compromise of the application without requiring any existing credentials. Version 1.8.71 fixes the issue.",
+      "published": "2026-03-27T01:16:21.493",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33890"
     }
   ]
 }
