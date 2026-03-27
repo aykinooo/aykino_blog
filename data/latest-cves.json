@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-27T16:04:57+00:00",
+  "generated_at": "2026-03-27T17:09:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5027",
-      "summary": "The 'POST /api/v2/files' endpoint does not sanitize the 'filename' parameter from the multipart form data, allowing an attacker to write files to arbitrary locations on the filesystem using path traversal sequences ('../').",
-      "published": "2026-03-27T15:17:04.743",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5027"
+      "id": "CVE-2026-4959",
+      "summary": "A vulnerability was found in OpenBMB XAgent 1.0.0. This impacts the function check_user of the file XAgentServer/application/websockets/share.py of the component ShareServer WebSocket Endpoint. Performing a manipulation of the argument interaction_id results in missing authentication. Remote exploitation of the attack is possible. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-27T16:16:25.163",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4959"
     },
     {
-      "id": "CVE-2026-5026",
-      "summary": "The '/api/v1/files/images/{flow_id}/{file_name}' endpoint serves SVG files with the 'image/svg+xml' content type without sanitizing their content.\n\nSince SVG files can contain embedded JavaScript, an attacker can upload a malicious SVG that executes arbitrary JavaScript when viewed by other users, leading to stored cross-site scripting (XSS). This allows stealing authentication tokens stored in cookies, including JWT access and refresh tokens.",
-      "published": "2026-03-27T15:17:04.597",
+      "id": "CVE-2026-4958",
+      "summary": "A vulnerability has been found in OpenBMB XAgent 1.0.0. This affects the function ReplayServer.on_connect/ReplayServer.send_data of the file XAgentServer/application/websockets/replayer.py of the component WebSocket Endpoint. Such manipulation of the argument interaction_id leads to authorization bypass. The attack may be launched remotely. Attacks of this nature are highly complex. The exploitability is reported as difficult. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-27T16:16:24.943",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4958"
+    },
+    {
+      "id": "CVE-2026-32984",
+      "summary": "Wazuh authd contains a heap-buffer overflow vulnerability that allows attackers to cause memory corruption and malformed heap data by sending specially crafted input. Attackers can exploit this vulnerability to trigger a denial of service condition, resulting in low availability impact to the authentication daemon.",
+      "published": "2026-03-27T16:16:24.500",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32984"
+    },
+    {
+      "id": "CVE-2026-32983",
+      "summary": "Wazuh Manager authd service in wazuh-manager packages through version 4.7.3 contains an improper restriction of client-initiated SSL/TLS renegotiation vulnerability that allows remote attackers to cause a denial of service by sending excessive renegotiation requests. Attackers can exploit the lack of renegotiation limits to consume CPU resources and render the authd service unavailable.",
+      "published": "2026-03-27T16:16:24.297",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32983"
+    },
+    {
+      "id": "CVE-2026-30534",
+      "summary": "A SQL Injection vulnerability exists in SourceCodester Online Food Ordering System v1.0 in admin/manage_category.php via the \"id\" parameter.",
+      "published": "2026-03-27T16:16:24.030",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5026"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30534"
     },
     {
-      "id": "CVE-2026-5025",
-      "summary": "The '/logs' and '/logs-stream' endpoints in the log router allow any authenticated user to read the full application log buffer. These endpoints only require basic authentication ('get_current_active_user') without any privilege checks (e.g., 'is_superuser').",
-      "published": "2026-03-27T15:17:04.447",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5025"
-    },
-    {
-      "id": "CVE-2026-5022",
-      "summary": "The '/api/v1/files/images/{flow_id}/{file_name}' endpoint does not enforce any authentication or authorization checks, allowing any unauthenticated user to download images belonging to any flow by knowing (or guessing) the flow ID and file name.",
-      "published": "2026-03-27T15:17:04.293",
+      "id": "CVE-2026-30533",
+      "summary": "A SQL Injection vulnerability exists in SourceCodester Online Food Ordering System v1.0 in the admin/manage_product.php file via the \"id\" parameter.",
+      "published": "2026-03-27T16:16:23.917",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5022"
-    },
-    {
-      "id": "CVE-2026-5010",
-      "summary": "A reflected Cross-Site Scripting (XSS) vulnerability has been discovered in Clickedu. This vulnerability allows an attacker to execute JavaScript code in the victim\u2019s browser by sending them a malicious URL using the endpoint \u201c/user.php/\u201d. This vulnerability can be exploited to steal sensitive user data, such as session cookies, or to perform actions on the user\u2019s behalf.",
-      "published": "2026-03-27T15:17:04.113",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5010"
-    },
-    {
-      "id": "CVE-2026-4984",
-      "summary": "The Twilio integration webhook handler accepts any POST request without validating Twilio's 'X-Twilio-Signature'.\n\nWhen processing media messages, it fetches user-controlled URLs ('MediaUrlN' parameters) using HTTP requests that include the integration's Twilio credentials in the 'Authorization' header.\n\nAn attacker can forge a webhook payload pointing to their own server and receive the victim's 'accountSID' and 'authToken' in plaintext (base64-encoded Basic Auth), leading to full compromise of the Twilio account.",
-      "published": "2026-03-27T15:17:03.953",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4984"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30533"
     }
   ]
 }
