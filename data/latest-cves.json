@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-03-28T20:47:33+00:00",
+  "generated_at": "2026-03-28T21:43:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5015",
+      "summary": "A vulnerability was determined in elecV2 elecV2P up to 3.8.3. The impacted element is an unknown function of the file /logs of the component Endpoint. This manipulation of the argument filename causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-03-28T21:17:00.633",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5015"
+    },
+    {
+      "id": "CVE-2026-5014",
+      "summary": "A vulnerability was found in elecV2 elecV2P up to 3.8.3. The affected element is the function path.join of the file /log/ of the component Wildcard Handler. The manipulation results in path traversal. The attack may be performed from remote. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-03-28T21:17:00.423",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5014"
+    },
     {
       "id": "CVE-2026-5013",
       "summary": "A vulnerability has been found in elecV2 elecV2P up to 3.8.3. Impacted is the function path.join of the file /store/:key. The manipulation of the argument URL leads to path traversal. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -29,20 +43,6 @@
       "published": "2026-03-28T19:16:56.710",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5007"
-    },
-    {
-      "id": "CVE-2026-3256",
-      "summary": "HTTP::Session versions through 0.53 for Perl defaults to using insecurely generated session ids.\n\nHTTP::Session defaults to using HTTP::Session::ID::SHA1 to generate session ids using a SHA-1 hash seeded with the built-in rand function, the high resolution epoch time, and the PID. The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Date header. The built-in rand function is unsuitable for cryptographic usage.\n\nThe distribution includes HTTP::session::ID::MD5 which contains a similar flaw, but uses the MD5 hash instead.",
-      "published": "2026-03-28T19:16:56.570",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3256"
-    },
-    {
-      "id": "CVE-2025-15604",
-      "summary": "Amon2 versions before 6.17 for Perl use an insecure random_string implementation for security functions.\n\nIn versions 6.06 through 6.16, the random_string function will attempt to read bytes from the /dev/urandom device, but if that is unavailable then it generates bytes by concatenating a SHA-1 hash seeded with the built-in rand() function, the PID, and the high resolution epoch time.  The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Date header. The built-in rand function is unsuitable for cryptographic usage.\n\nBefore version 6.06, there was no fallback when /dev/urandom was not available.\n\nBefore version 6.04, the random_string function used the built-in rand() function to generate a mixed-case alphanumeric string.\n\nThis function may be used for generating session ids, generating secrets for signing or encrypting cookie session data and generating tokens used for Cross Site Request Forgery (CSRF) protection.",
-      "published": "2026-03-28T19:16:53.387",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15604"
     }
   ]
 }
