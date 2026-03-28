@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-03-27T23:45:29+00:00",
+  "generated_at": "2026-03-28T03:16:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4987",
+      "summary": "The SureForms \u2013 Contact Form, Payment Form & Other Custom Form Builder plugin for WordPress is vulnerable to Payment Amount Bypass in all versions up to, and including, 2.5.2. This is due to the create_payment_intent() function performing a payment validation solely based on the value of a user-controlled parameter. This makes it possible for unauthenticated attackers to bypass configured form payment-amount validation and create underpriced payment/subscription intents by setting form_id to 0.",
+      "published": "2026-03-28T02:16:14.793",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4987"
+    },
+    {
+      "id": "CVE-2026-1679",
+      "summary": "The eswifi socket offload driver copies user-provided payloads into a fixed buffer without checking available space; oversized sends overflow `eswifi->buf`, corrupting kernel memory (CWE-120). Exploit requires local code that can call the socket send API; no remote attacker can reach it directly.",
+      "published": "2026-03-28T00:16:04.740",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1679"
+    },
     {
       "id": "CVE-2026-4992",
       "summary": "A flaw has been found in wandb OpenUI up to 1.0. This affects the function create_share/get_share of the file backend/openui/server.py of the component HTMLAnnotator Component. Executing a manipulation of the argument ID can lead to HTML injection. The attack may be performed from remote. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -29,20 +43,6 @@
       "published": "2026-03-27T23:17:14.590",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33996"
-    },
-    {
-      "id": "CVE-2026-33994",
-      "summary": "Locutus brings stdlibs of other programming languages to JavaScript for educational purposes. Starting in version 2.0.39 and prior to version 3.0.25, a prototype pollution vulnerability exists in the `parse_str` function of the npm package locutus. An attacker can pollute `Object.prototype` by overriding `RegExp.prototype.test` and then passing a crafted query string to `parse_str`, bypassing the prototype pollution guard. This vulnerability stems from an incomplete fix for CVE-2026-25521. The CVE-2026-25521 patch replaced the `String.prototype.includes()`-based guard with a `RegExp.prototype.test()`-based guard. However, `RegExp.prototype.test` is itself a writable prototype method that can be overridden, making the new guard bypassable in the same way as the original \u2014 trading one hijackable built-in for another. Version 3.0.25 contains an updated fix.",
-      "published": "2026-03-27T23:17:14.413",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33994"
-    },
-    {
-      "id": "CVE-2026-33993",
-      "summary": "Locutus brings stdlibs of other programming languages to JavaScript for educational purposes. Prior to version 3.0.25, the `unserialize()` function in `locutus/php/var/unserialize` assigns deserialized keys to plain objects via bracket notation without filtering the `__proto__` key. When a PHP serialized payload contains `__proto__` as an array or object key, JavaScript's `__proto__` setter is invoked, replacing the deserialized object's prototype with attacker-controlled content. This enables property injection, for...in propagation of injected properties, and denial of service via built-in method override. This is distinct from the previously reported prototype pollution in `parse_str` (GHSA-f98m-q3hr-p5wq, GHSA-rxrv-835q-v5mh) \u2014 `unserialize` is a different function with no mitigation applied. Version 3.0.25 patches the issue.",
-      "published": "2026-03-27T23:17:14.237",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33993"
     }
   ]
 }
