@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-03-28T09:52:32+00:00",
+  "generated_at": "2026-03-28T10:50:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4994",
+      "summary": "A vulnerability was found in wandb OpenUI up to 1.0/3.5-turb. Affected is the function generic_exception_handler of the file backend/openui/server.py of the component APIStatusError Handler. The manipulation of the argument key results in information exposure through error message. Access to the local network is required for this attack. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-28T10:16:32.110",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4994"
+    },
+    {
+      "id": "CVE-2026-4993",
+      "summary": "A vulnerability has been found in wandb OpenUI up to 0.0.0.0/1.0. This impacts an unknown function of the file backend/openui/config.py. The manipulation of the argument LITELLM_MASTER_KEY leads to hard-coded credentials. An attack has to be approached locally. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-28T10:16:31.853",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4993"
+    },
+    {
+      "id": "CVE-2026-2442",
+      "summary": "The Page Builder: Pagelayer \u2013 Drag and Drop website builder plugin for WordPress is vulnerable to Improper Neutralization of CRLF Sequences ('CRLF Injection') in all versions up to, and including, 2.0.7. This is due to the contact form handler performing placeholder substitution on attacker-controlled form fields and then passing the resulting values into email headers without removing CR/LF characters. This makes it possible for unauthenticated attackers to inject arbitrary email headers (for example Bcc / Cc) and abuse form email delivery via the 'email' parameter granted they can target a contact form configured to use placeholders in mail template headers.",
+      "published": "2026-03-28T10:16:30.980",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2442"
+    },
     {
       "id": "CVE-2026-23399",
       "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnf_tables: nft_dynset: fix possible stateful expression memleak in error path\n\nIf cloning the second stateful expression in the element via GFP_ATOMIC\nfails, then the first stateful expression remains in place without being\nreleased.\n\n \u00a0 unreferenced object (percpu) 0x607b97e9cab8 (size 16):\n \u00a0 \u00a0 comm \"softirq\", pid 0, jiffies 4294931867\n \u00a0 \u00a0 hex dump (first 16 bytes on cpu 3):\n \u00a0 \u00a0 \u00a0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n \u00a0 \u00a0 backtrace (crc 0):\n \u00a0 \u00a0 \u00a0 pcpu_alloc_noprof+0x453/0xd80\n \u00a0 \u00a0 \u00a0 nft_counter_clone+0x9c/0x190 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_expr_clone+0x8f/0x1b0 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_dynset_new+0x2cb/0x5f0 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_rhash_update+0x236/0x11c0 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_dynset_eval+0x11f/0x670 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_do_chain+0x253/0x1700 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_do_chain_ipv4+0x18d/0x270 [nf_tables]\n \u00a0 \u00a0 \u00a0 nf_hook_slow+0xaa/0x1e0\n \u00a0 \u00a0 \u00a0 ip_local_deliver+0x209/0x330",
@@ -22,27 +43,6 @@
       "published": "2026-03-28T06:16:00.137",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15445"
-    },
-    {
-      "id": "CVE-2025-12886",
-      "summary": "The Oxygen Theme theme for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 6.0.8 via the laborator_calc_route AJAX action. This makes it possible for unauthenticated attackers to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services.",
-      "published": "2026-03-28T04:16:49.323",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12886"
-    },
-    {
-      "id": "CVE-2026-4987",
-      "summary": "The SureForms \u2013 Contact Form, Payment Form & Other Custom Form Builder plugin for WordPress is vulnerable to Payment Amount Bypass in all versions up to, and including, 2.5.2. This is due to the create_payment_intent() function performing a payment validation solely based on the value of a user-controlled parameter. This makes it possible for unauthenticated attackers to bypass configured form payment-amount validation and create underpriced payment/subscription intents by setting form_id to 0.",
-      "published": "2026-03-28T02:16:14.793",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4987"
-    },
-    {
-      "id": "CVE-2026-1679",
-      "summary": "The eswifi socket offload driver copies user-provided payloads into a fixed buffer without checking available space; oversized sends overflow `eswifi->buf`, corrupting kernel memory (CWE-120). Exploit requires local code that can call the socket send API; no remote attacker can reach it directly.",
-      "published": "2026-03-28T00:16:04.740",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1679"
     }
   ]
 }
