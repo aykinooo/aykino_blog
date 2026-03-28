@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-03-28T07:53:02+00:00",
+  "generated_at": "2026-03-28T08:56:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-23399",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnf_tables: nft_dynset: fix possible stateful expression memleak in error path\n\nIf cloning the second stateful expression in the element via GFP_ATOMIC\nfails, then the first stateful expression remains in place without being\nreleased.\n\n \u00a0 unreferenced object (percpu) 0x607b97e9cab8 (size 16):\n \u00a0 \u00a0 comm \"softirq\", pid 0, jiffies 4294931867\n \u00a0 \u00a0 hex dump (first 16 bytes on cpu 3):\n \u00a0 \u00a0 \u00a0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n \u00a0 \u00a0 backtrace (crc 0):\n \u00a0 \u00a0 \u00a0 pcpu_alloc_noprof+0x453/0xd80\n \u00a0 \u00a0 \u00a0 nft_counter_clone+0x9c/0x190 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_expr_clone+0x8f/0x1b0 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_dynset_new+0x2cb/0x5f0 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_rhash_update+0x236/0x11c0 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_dynset_eval+0x11f/0x670 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_do_chain+0x253/0x1700 [nf_tables]\n \u00a0 \u00a0 \u00a0 nft_do_chain_ipv4+0x18d/0x270 [nf_tables]\n \u00a0 \u00a0 \u00a0 nf_hook_slow+0xaa/0x1e0\n \u00a0 \u00a0 \u00a0 ip_local_deliver+0x209/0x330",
+      "published": "2026-03-28T08:15:56.720",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23399"
+    },
     {
       "id": "CVE-2026-1307",
       "summary": "The Ninja Forms - The Contact Form Builder That Grows With You plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 3.14.1 via a callback function for the admin_enqueue_scripts action handler in blocks/bootstrap.php. This makes it possible for authenticated attackers, with Contributor-level access and above, to gain access to an authorization token to view form submissions for arbitrary forms, which could potentially contain sensitive information.",
@@ -36,13 +43,6 @@
       "published": "2026-03-28T00:16:04.740",
       "cvss": 7.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1679"
-    },
-    {
-      "id": "CVE-2026-4992",
-      "summary": "A flaw has been found in wandb OpenUI up to 1.0. This affects the function create_share/get_share of the file backend/openui/server.py of the component HTMLAnnotator Component. Executing a manipulation of the argument ID can lead to HTML injection. The attack may be performed from remote. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-27T23:17:19.567",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4992"
     }
   ]
 }
