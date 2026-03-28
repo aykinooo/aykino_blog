@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-28T18:59:02+00:00",
+  "generated_at": "2026-03-28T19:44:04+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5011",
+      "summary": "A vulnerability was detected in elecV2 elecV2P up to 3.8.3. This vulnerability affects the function runJSFile of the file /webhook of the component JSON Parser. Performing a manipulation of the argument rawcode results in code injection. Remote exploitation of the attack is possible. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-03-28T19:16:57.027",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5011"
+    },
+    {
+      "id": "CVE-2026-5007",
+      "summary": "A vulnerability was identified in kazuph mcp-docs-rag up to 0.5.0. Affected is the function cloneRepository of the file src/index.ts of the component add_git_repository/add_text_file. The manipulation leads to os command injection. The attack needs to be performed locally. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-03-28T19:16:56.710",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5007"
+    },
+    {
+      "id": "CVE-2026-3256",
+      "summary": "HTTP::Session versions through 0.53 for Perl defaults to using insecurely generated session ids.\n\nHTTP::Session defaults to using HTTP::Session::ID::SHA1 to generate session ids using a SHA-1 hash seeded with the built-in rand function, the high resolution epoch time, and the PID. The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Date header. The built-in rand function is unsuitable for cryptographic usage.\n\nThe distribution includes HTTP::session::ID::MD5 which contains a similar flaw, but uses the MD5 hash instead.",
+      "published": "2026-03-28T19:16:56.570",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3256"
+    },
+    {
+      "id": "CVE-2025-15604",
+      "summary": "Amon2 versions before 6.17 for Perl use an insecure random_string implementation for security functions.\n\nIn versions 6.06 through 6.16, the random_string function will attempt to read bytes from the /dev/urandom device, but if that is unavailable then it generates bytes by concatenating a SHA-1 hash seeded with the built-in rand() function, the PID, and the high resolution epoch time.  The PID will come from a small set of numbers, and the epoch time may be guessed, if it is not leaked from the HTTP Date header. The built-in rand function is unsuitable for cryptographic usage.\n\nBefore version 6.06, there was no fallback when /dev/urandom was not available.\n\nBefore version 6.04, the random_string function used the built-in rand() function to generate a mixed-case alphanumeric string.\n\nThis function may be used for generating session ids, generating secrets for signing or encrypting cookie session data and generating tokens used for Cross Site Request Forgery (CSRF) protection.",
+      "published": "2026-03-28T19:16:53.387",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15604"
+    },
     {
       "id": "CVE-2026-5004",
       "summary": "A vulnerability was determined in Wavlink WL-WN579X3-C 231124. This impacts the function sub_4019FC of the file /cgi-bin/firewall.cgi of the component UPNP Handler. Executing a manipulation of the argument UpnpEnabled can lead to stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -15,34 +43,6 @@
       "published": "2026-03-28T18:15:57.127",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5003"
-    },
-    {
-      "id": "CVE-2026-5002",
-      "summary": "A vulnerability has been found in PromtEngineer localGPT up to 4d41c7d1713b16b216d8e062e51a5dd88b20b054. The impacted element is the function _route_using_overviews of the file backend/server.py of the component LLM Prompt Handler. Such manipulation leads to injection. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-28T17:16:45.450",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5002"
-    },
-    {
-      "id": "CVE-2026-5001",
-      "summary": "A flaw has been found in PromtEngineer localGPT up to 4d41c7d1713b16b216d8e062e51a5dd88b20b054. The affected element is the function do_POST of the file backend/server.py. This manipulation causes unrestricted upload. The attack is possible to be carried out remotely. The exploit has been published and may be used. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-28T16:15:58.260",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5001"
-    },
-    {
-      "id": "CVE-2026-5000",
-      "summary": "A vulnerability was detected in PromtEngineer localGPT up to 4d41c7d1713b16b216d8e062e51a5dd88b20b054. Impacted is the function LocalGPTHandler of the file backend/server.py of the component API Endpoint. The manipulation of the argument BaseHTTPRequestHandler results in missing authentication. The attack can be executed remotely. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-28T15:16:38.563",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5000"
-    },
-    {
-      "id": "CVE-2026-4999",
-      "summary": "A security vulnerability has been detected in z-9527 admin up to 72aaf2dd05cf4ec2e98f390668b41e128eec5ad2. This issue affects the function uploadFile of the file /server/utils/upload.js of the component isImg Check. The manipulation of the argument fileType leads to path traversal. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-03-28T15:16:38.330",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4999"
     }
   ]
 }
