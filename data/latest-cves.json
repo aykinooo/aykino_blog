@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-30T17:10:39+00:00",
+  "generated_at": "2026-03-30T18:05:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5124",
+      "summary": "A security vulnerability has been detected in osrg GoBGP up to 4.3.0. Affected is the function BGPHeader.DecodeFromBytes of the file pkg/packet/bgp/bgp.go of the component BGP Header Handler. The manipulation leads to improper access controls. Remote exploitation of the attack is possible. The attack is considered to have high complexity. The exploitability is told to be difficult. The identifier of the patch is f0f24a2a901cbf159260698211ab15c583ced131. To fix this issue, it is recommended to deploy a patch.",
+      "published": "2026-03-30T17:16:16.087",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5124"
+    },
+    {
+      "id": "CVE-2026-29954",
+      "summary": "In KubePlus 4.1.4, the mutating webhook and kubeconfiggenerator components have an SSRF vulnerability when processing the chartURL field of ResourceComposition resources. The field is only URL-encoded without validating the target address. More critically, when kubeconfiggenerator uses wget to download charts, the chartURL is directly concatenated into the command, allowing attackers to inject wget's `--header` option to achieve arbitrary HTTP header injection.",
+      "published": "2026-03-30T17:16:15.867",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29954"
+    },
+    {
+      "id": "CVE-2026-29909",
+      "summary": "MRCMS V3.1.2 contains an unauthenticated directory enumeration vulnerability in the file management module. The /admin/file/list.do endpoint lacks authentication controls and proper input validation, allowing remote attackers to enumerate directory contents on the server without any credentials.",
+      "published": "2026-03-30T17:16:15.750",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29909"
+    },
+    {
+      "id": "CVE-2026-27508",
+      "summary": "Smoothwall Express versions prior to 3.1 Update 13 contain a reflected cross-site scripting vulnerability in the /redirect.cgi endpoint due to improper sanitation of the url parameter. Attackers can craft malicious URLs with javascript: schemes that execute arbitrary JavaScript in victims' browsers when clicked through the unsanitized link.",
+      "published": "2026-03-30T17:16:15.440",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27508"
+    },
+    {
+      "id": "CVE-2026-26352",
+      "summary": "Smoothwall Express versions prior to 3.1 Update 13 contain a stored cross-site scripting vulnerability in the /cgi-bin/vpnmain.cgi script due to improper sanitation of the VPN_IP parameter. Authenticated attackers can inject arbitrary JavaScript through VPN configuration settings that executes when the affected page is viewed by other users.",
+      "published": "2026-03-30T17:16:14.363",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26352"
+    },
     {
       "id": "CVE-2026-5170",
       "summary": "A user with access to the cluster with a limited set of privilege actions can trigger a crash of a\u00a0mongod process during the limited and unpredictable window when the cluster is being promoted from a replica set to a sharded cluster. This may cause a denial of service by taking down the primary of the replica set.\n\nThis issue affects MongoDB Server v8.2 versions prior to 8.2.2, MongoDB Server v8.0 versions between 8.0.18, MongoDB Server v7.0 versions between 7.0.31.",
       "published": "2026-03-30T16:16:10.610",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5170"
-    },
-    {
-      "id": "CVE-2026-5123",
-      "summary": "A weakness has been identified in osrg GoBGP up to 4.3.0. This impacts the function DecodeFromBytes of the file pkg/packet/bgp/bgp.go. Executing a manipulation of the argument data[1] can lead to off-by-one. The attack may be launched remotely. Attacks of this nature are highly complex. The exploitability is said to be difficult. This patch is called 67c059413470df64bc20801c46f64058e88f800f. A patch should be applied to remediate this issue.",
-      "published": "2026-03-30T16:16:10.123",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5123"
-    },
-    {
-      "id": "CVE-2026-34472",
-      "summary": "Unauthenticated credential disclosure in the wizard interface in ZTE ZXHN H188A V6.0.10P2_TE and V6.0.10P3N3_TE allows unauthenticated attackers on the local network to retrieve sensitive credentials from the router's web management interface, including the default administrator password, WLAN PSK, and PPPoE credentials. In some observed cases, configuration changes may also be performed without authentication.",
-      "published": "2026-03-30T16:16:07.703",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34472"
-    },
-    {
-      "id": "CVE-2026-33643",
-      "summary": "SQL Injection vulnerability in SchemaHero 0.23.0 via the column parameter to the mysqlColumnAsInsert function in file plugins/mysql/lib/column.go.",
-      "published": "2026-03-30T16:16:06.880",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33643"
-    },
-    {
-      "id": "CVE-2026-30562",
-      "summary": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the add_stock.php file via the \"msg\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
-      "published": "2026-03-30T16:16:05.840",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30562"
-    },
-    {
-      "id": "CVE-2026-30561",
-      "summary": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the add_purchase.php file via the \"msg\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
-      "published": "2026-03-30T16:16:05.737",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30561"
     }
   ]
 }
