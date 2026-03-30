@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-30T11:17:51+00:00",
+  "generated_at": "2026-03-30T14:01:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-1612",
-      "summary": "AL-KO Robolinho Update Software has hard-coded AWS Access and Secret keys that allow anyone to access AL-KO's AWS bucket. Using the keys directly might give the attacker greater access than the app itself. Key grants AT LEAST read access to some of the objects in bucket.\n\nThe vendor was notified early about this vulnerability, but didn't respond with the details of vulnerability or vulnerable version range. Only versions 8.0.21.0610 was tested and confirmed as vulnerable, other versions were not tested and might also be vulnerable.",
-      "published": "2026-03-30T11:16:04.557",
+      "id": "CVE-2026-4315",
+      "summary": "A Cross-Site Request Forgery (CSRF) vulnerability in the WatchGuard Fireware OS WebUI could allow a remote attacker to trigger a denial-of-service (DoS) condition in the Fireware Web UI by convincing an authenticated administrator into visiting a malicious web page.This issue affects Fireware OS: 11.8 through 11.12.4+541730, 12.0 through 12.11.8, and 2025.1 through 2026.1.2.",
+      "published": "2026-03-30T13:16:22.750",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1612"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4315"
     },
     {
-      "id": "CVE-2026-5128",
-      "summary": "A sensitive information exposure vulnerability exists in ArthurFiorette steam-trader 2.1.1. An unauthenticated attacker can send a request to the /users\u00a0API endpoint to retrieve highly sensitive Steam account data, including the account username, password, identity secret, and shared secret. In addition, application logs expose authentication artifacts such as access tokens, refresh tokens, and session identifiers. This information allows an attacker to generate valid Steam Guard (2FA) codes, hijack authenticated sessions, and obtain full control over the affected Steam account, including unauthorized access to inventory and trading functionality. No fix is available because the repository is archived and no longer maintained.",
-      "published": "2026-03-30T10:16:02.610",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5128"
-    },
-    {
-      "id": "CVE-2026-5121",
-      "summary": "A flaw was found in libarchive. On 32-bit systems, an integer overflow vulnerability exists in the zisofs block pointer allocation logic. A remote attacker can exploit this by providing a specially crafted ISO9660 image, which can lead to a heap buffer overflow. This could potentially allow for arbitrary code execution on the affected system.",
-      "published": "2026-03-30T08:16:18.780",
+      "id": "CVE-2026-4266",
+      "summary": "An Insecure Deserialization vulnerability in WatchGuard Fireware OS allows an attacker that has obtained write access to the local filesystem through another vulnerability to execute arbitrary code in the context of the portald user.This issue affects Fireware OS: 12.1 through 12.11.8 and 2025.1 through 2026.1.2.\n\nNote, this vulnerability does not affect Firebox platforms that do not support the Access Portal feature, including the T-15 and T-35.",
+      "published": "2026-03-30T13:16:22.573",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5121"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4266"
     },
     {
-      "id": "CVE-2026-4416",
-      "summary": "The Performance Library component of Gigabyte Control Center has an Insecure Deserialization vulnerability. Authenticated local attackers can send a malicious serialized payload to the EasyTune Engine service, resulting in privilege escalation.",
-      "published": "2026-03-30T08:16:18.360",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4416"
+      "id": "CVE-2019-25655",
+      "summary": "Device Monitoring Studio 8.10.00.8925 contains a denial of service vulnerability that allows local attackers to crash the application by supplying an excessively long string to the server connection dialog. Attackers can trigger the crash by entering a malformed server name or address containing repeated characters through the Tools menu Connect to New Server interface.",
+      "published": "2026-03-30T12:16:18.380",
+      "cvss": 6.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25655"
     },
     {
-      "id": "CVE-2026-4415",
-      "summary": "Gigabyte Control Center developed by GIGABYTE has an Arbitrary File Write vulnerability. When the pairing feature is enabled, unauthenticated remote attackers can write arbitrary files to any location on the underlying operating system, leading to arbitrary code execution or privilege escalation.",
-      "published": "2026-03-30T08:16:18.107",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4415"
-    },
-    {
-      "id": "CVE-2026-3945",
-      "summary": "An integer overflow vulnerability in the HTTP chunked transfer encoding parser in tinyproxy up to and including version 1.11.3 allows an unauthenticated remote attacker to cause a denial of service (DoS). The issue occurs because chunk size values are parsed using strtol() without properly validating overflow conditions (e.g., errno == ERANGE). A crafted chunk size such as 0x7fffffffffffffff (LONG_MAX) bypasses the existing validation check (chunklen < 0), leading to a signed integer overflow during arithmetic operations (chunklen + 2). This results in incorrect size calculations, causing the proxy to attempt reading an extremely large amount of request-body data and holding worker connections open indefinitely. An attacker can exploit this behavior to exhaust all available worker slots, preventing new connections from being accepted and causing complete service unavailability. Upstream addressed this issue in commit bb7edc4; however, the latest stable release (1.11.3) remains affected at the time of publication.",
-      "published": "2026-03-30T08:16:17.653",
+      "id": "CVE-2019-25654",
+      "summary": "Core FTP/SFTP Server 1.2 contains a buffer overflow vulnerability that allows attackers to crash the service by supplying an excessively long string in the User domain field. Attackers can paste a malicious payload containing 7000 bytes of data into the domain configuration to trigger an application crash and deny service.",
+      "published": "2026-03-30T12:16:18.150",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3945"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25654"
+    },
+    {
+      "id": "CVE-2019-25653",
+      "summary": "Navicat for Oracle 12.1.15 contains a denial of service vulnerability that allows local attackers to crash the application by supplying an excessively long string in the password field. Attackers can paste a buffer of 550 repeated characters into the password parameter during Oracle connection configuration to trigger an application crash.",
+      "published": "2026-03-30T12:16:17.953",
+      "cvss": 6.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25653"
+    },
+    {
+      "id": "CVE-2018-25235",
+      "summary": "NetworkActiv Web Server 4.0 contains a buffer overflow vulnerability in the username field of the Security options that allows local attackers to crash the application by supplying an excessively long string. Attackers can trigger a denial of service by entering a crafted username value exceeding the expected buffer size through the Set username interface.",
+      "published": "2026-03-30T12:16:17.720",
+      "cvss": 6.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25235"
     }
   ]
 }
