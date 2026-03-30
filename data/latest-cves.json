@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-30T14:01:33+00:00",
+  "generated_at": "2026-03-30T15:38:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4315",
-      "summary": "A Cross-Site Request Forgery (CSRF) vulnerability in the WatchGuard Fireware OS WebUI could allow a remote attacker to trigger a denial-of-service (DoS) condition in the Fireware Web UI by convincing an authenticated administrator into visiting a malicious web page.This issue affects Fireware OS: 11.8 through 11.12.4+541730, 12.0 through 12.11.8, and 2025.1 through 2026.1.2.",
-      "published": "2026-03-30T13:16:22.750",
+      "id": "CVE-2026-5165",
+      "summary": "A flaw was found in virtio-win, specifically within the VirtIO Block (BLK) device. When the device undergoes a reset, it fails to properly manage memory, resulting in a use-after-free vulnerability. This issue could allow a local attacker to corrupt system memory, potentially leading to system instability or unexpected behavior.",
+      "published": "2026-03-30T15:16:36.520",
+      "cvss": 6.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5165"
+    },
+    {
+      "id": "CVE-2026-5164",
+      "summary": "A flaw was found in virtio-win. The `RhelDoUnMap()` function does not properly validate the number of descriptors provided by a user during an unmap request. A local user could exploit this input validation vulnerability by supplying an excessive number of descriptors, leading to a buffer overrun. This can cause a system crash, resulting in a Denial of Service (DoS).",
+      "published": "2026-03-30T15:16:36.180",
+      "cvss": 6.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5164"
+    },
+    {
+      "id": "CVE-2026-5122",
+      "summary": "A security flaw has been discovered in osrg GoBGP up to 4.3.0. This affects the function DecodeFromBytes of the file pkg/packet/bgp/bgp.go of the component BGP OPEN Message Handler. Performing a manipulation of the argument domainNameLen results in improper access controls. The attack may be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is reported as difficult. The patch is named 2b09db390a3d455808363c53e409afe6b1b86d2d. It is suggested to install a patch to address this issue.",
+      "published": "2026-03-30T15:16:35.947",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5122"
+    },
+    {
+      "id": "CVE-2026-33373",
+      "summary": "An issue was discovered in Zimbra Collaboration (ZCS) 10.0 and 10.1. A Cross-Site Request Forgery (CSRF) vulnerability exists in Zimbra Web Client due to the issuance of authentication tokens without CSRF protection during certain account state transitions. Specifically, tokens generated after operations such as enabling two-factor authentication or changing a password may lack CSRF enforcement. While such a token is active, authenticated SOAP requests that trigger token generation or state changes can be performed without CSRF validation. An attacker could exploit this by inducing a victim to submit crafted requests, potentially allowing sensitive account actions such as disabling two-factor authentication. The issue is mitigated by ensuring CSRF protection is consistently enforced for all issued authentication tokens.",
+      "published": "2026-03-30T15:16:29.410",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4315"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33373"
     },
     {
-      "id": "CVE-2026-4266",
-      "summary": "An Insecure Deserialization vulnerability in WatchGuard Fireware OS allows an attacker that has obtained write access to the local filesystem through another vulnerability to execute arbitrary code in the context of the portald user.This issue affects Fireware OS: 12.1 through 12.11.8 and 2025.1 through 2026.1.2.\n\nNote, this vulnerability does not affect Firebox platforms that do not support the Access Portal feature, including the T-15 and T-35.",
-      "published": "2026-03-30T13:16:22.573",
+      "id": "CVE-2026-30566",
+      "summary": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the view_customers.php file via the \"limit\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
+      "published": "2026-03-30T15:16:26.843",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4266"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30566"
     },
     {
-      "id": "CVE-2019-25655",
-      "summary": "Device Monitoring Studio 8.10.00.8925 contains a denial of service vulnerability that allows local attackers to crash the application by supplying an excessively long string to the server connection dialog. Attackers can trigger the crash by entering a malformed server name or address containing repeated characters through the Tools menu Connect to New Server interface.",
-      "published": "2026-03-30T12:16:18.380",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25655"
-    },
-    {
-      "id": "CVE-2019-25654",
-      "summary": "Core FTP/SFTP Server 1.2 contains a buffer overflow vulnerability that allows attackers to crash the service by supplying an excessively long string in the User domain field. Attackers can paste a malicious payload containing 7000 bytes of data into the domain configuration to trigger an application crash and deny service.",
-      "published": "2026-03-30T12:16:18.150",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25654"
-    },
-    {
-      "id": "CVE-2019-25653",
-      "summary": "Navicat for Oracle 12.1.15 contains a denial of service vulnerability that allows local attackers to crash the application by supplying an excessively long string in the password field. Attackers can paste a buffer of 550 repeated characters into the password parameter during Oracle connection configuration to trigger an application crash.",
-      "published": "2026-03-30T12:16:17.953",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-25653"
-    },
-    {
-      "id": "CVE-2018-25235",
-      "summary": "NetworkActiv Web Server 4.0 contains a buffer overflow vulnerability in the username field of the Security options that allows local attackers to crash the application by supplying an excessively long string. Attackers can trigger a denial of service by entering a crafted username value exceeding the expected buffer size through the Set username interface.",
-      "published": "2026-03-30T12:16:17.720",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2018-25235"
+      "id": "CVE-2026-30565",
+      "summary": "A Reflected Cross-Site Scripting (XSS) vulnerability exists in SourceCodester Sales and Inventory System 1.0. The vulnerability is located in the view_supplier.php file via the \"limit\" parameter. The application fails to sanitize the input, allowing remote attackers to inject arbitrary web script or HTML via a crafted URL.",
+      "published": "2026-03-30T15:16:26.710",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30565"
     }
   ]
 }
