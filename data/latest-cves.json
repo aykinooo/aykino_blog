@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-31T14:01:22+00:00",
+  "generated_at": "2026-03-31T15:21:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5198",
-      "summary": "A vulnerability was determined in code-projects Student Membership System 1.0. The impacted element is an unknown function of the file /admin/index.php of the component Admin Login. This manipulation of the argument username/password causes sql injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-03-31T12:16:31.530",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5198"
-    },
-    {
-      "id": "CVE-2026-4267",
-      "summary": "The Query Monitor \u2013 The developer tools panel for WordPress plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the \u2018$_SERVER['REQUEST_URI']\u2019 parameter in all versions up to, and including, 3.20.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
-      "published": "2026-03-31T12:16:31.360",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4267"
-    },
-    {
-      "id": "CVE-2026-3191",
-      "summary": "The Minify HTML plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.1.12. This is due to missing or incorrect nonce validation on the 'minify_html_menu_options' function. This makes it possible for unauthenticated attackers to update plugin settings via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-03-31T12:16:31.200",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3191"
-    },
-    {
-      "id": "CVE-2026-3139",
-      "summary": "The User Profile Builder \u2013 Beautiful User Registration Forms, User Profiles & User Role Editor plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to, and including, 3.15.5 via the wppb_save_avatar_value() function due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with subscriber-level access and above, to reassign ownership of arbitrary posts and attachments by changing 'post_author'.",
-      "published": "2026-03-31T12:16:31.037",
+      "id": "CVE-2026-4799",
+      "summary": "In Search Guard FLX up to version 4.0.1, it is possible to use specially crafted requests to redirect the user to an untrusted URL.",
+      "published": "2026-03-31T15:16:21.137",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3139"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4799"
     },
     {
-      "id": "CVE-2026-34509",
-      "summary": "OpenClaw before 2026.3.8 contains a sender allowlist bypass vulnerability in its Microsoft Teams plugin that allows unauthorized senders to bypass intended authorization checks. When a team/channel route allowlist is configured with an empty groupAllowFrom parameter, the message handler synthesizes wildcard sender authorization, permitting any sender in the matched team/channel to trigger replies in allowlisted Teams routes.",
-      "published": "2026-03-31T12:16:30.840",
+      "id": "CVE-2026-34532",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.67 and 9.7.0-alpha.11, an attacker can bypass Cloud Function validator access controls by appending \"prototype.constructor\" to the function name in the URL. When a Cloud Function handler is declared using the function keyword and its validator is a plain object or arrow function, the trigger store traversal resolves the handler through its own prototype chain while the validator store fails to mirror this traversal, causing all access control enforcement to be skipped. This allows unauthenticated callers to invoke Cloud Functions that are meant to be protected by validators such as requireUser, requireMaster, or custom validation logic. This issue has been patched in versions 8.6.67 and 9.7.0-alpha.11.",
+      "published": "2026-03-31T15:16:20.010",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34532"
+    },
+    {
+      "id": "CVE-2026-34504",
+      "summary": "OpenClaw before 2026.3.28 contains a server-side request forgery vulnerability in the fal provider image-generation-provider.ts component that allows attackers to fetch internal URLs. A malicious or compromised fal relay can exploit unguarded image download fetches to expose internal service metadata and responses through the image pipeline.",
+      "published": "2026-03-31T15:16:19.687",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34504"
+    },
+    {
+      "id": "CVE-2026-34503",
+      "summary": "OpenClaw before 2026.3.28 fails to disconnect active WebSocket sessions when devices are removed or tokens are revoked. Attackers with revoked credentials can maintain unauthorized access through existing live sessions until forced reconnection.",
+      "published": "2026-03-31T15:16:19.470",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34509"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34503"
     },
     {
-      "id": "CVE-2026-34508",
-      "summary": "OpenClaw before 2026.3.12 applies rate limiting only after webhook authentication succeeds, allowing attackers to bypass rate limits and brute-force webhook secrets without triggering 429 responses. Attackers can repeatedly guess invalid secrets to discover valid credentials and subsequently submit forged Zalo webhook traffic.",
-      "published": "2026-03-31T12:16:30.647",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34508"
+      "id": "CVE-2026-34377",
+      "summary": "ZEBRA is a Zcash node written entirely in Rust. Prior to zebrad version 4.3.0 and zebra-consensus version 5.0.1, a logic error in Zebra's transaction verification cache could allow a malicious miner to induce a consensus split. By matching a valid transaction's txid while providing invalid authorization data, a miner could cause vulnerable Zebra nodes to accept an invalid block, leading to a consensus split from the rest of the Zcash network. This would not allow invalid transactions to be accepted but could result in a consensus split between vulnerable Zebra nodes and invulnerable Zebra and Zcashd nodes. This issue has been patched in zebrad version 4.3.0 and zebra-consensus version 5.0.1.",
+      "published": "2026-03-31T15:16:19.233",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34377"
+    },
+    {
+      "id": "CVE-2026-34373",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.66 and 9.7.0-alpha.10, the GraphQL API endpoint does not respect the allowOrigin server option and unconditionally allows cross-origin requests from any website. This bypasses origin restrictions that operators configure to control which websites can interact with the Parse Server API. The REST API correctly enforces the configured allowOrigin restriction. This issue has been patched in versions 8.6.66 and 9.7.0-alpha.10.",
+      "published": "2026-03-31T15:16:19.060",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34373"
     }
   ]
 }
