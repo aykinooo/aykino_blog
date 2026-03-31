@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-03-31T17:12:33+00:00",
+  "generated_at": "2026-03-31T18:05:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5204",
-      "summary": "A vulnerability was determined in Tenda CH22 1.0.0.1. Affected is the function formWebTypeLibrary of the file /goform/webtypelibrary of the component Parameter Handler. This manipulation of the argument webSiteId causes stack-based buffer overflow. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-03-31T16:16:35.973",
+      "id": "CVE-2026-5205",
+      "summary": "A vulnerability was identified in chatwoot up to 4.11.2. Affected by this vulnerability is the function Webhooks::Trigger in the library lib/webhooks/trigger.rb of the component Webhook API. Such manipulation of the argument url leads to server-side request forgery. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-03-31T17:16:33.090",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5205"
+    },
+    {
+      "id": "CVE-2026-34361",
+      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to version 6.9.4, the FHIR Validator HTTP service exposes an unauthenticated \"/loadIG\" endpoint that makes outbound HTTP requests to attacker-controlled URLs. Combined with a startsWith() URL prefix matching flaw in the credential provider (ManagedWebAccessUtils.getServer()), an attacker can steal authentication tokens (Bearer, Basic, API keys) configured for legitimate FHIR servers by registering a domain that prefix-matches a configured server URL. This issue has been patched in version 6.9.4.",
+      "published": "2026-03-31T17:16:32.923",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34361"
+    },
+    {
+      "id": "CVE-2026-34360",
+      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to version 6.9.4, the /loadIG HTTP endpoint in the FHIR Validator HTTP service accepts a user-supplied URL via JSON body and makes server-side HTTP requests to it without any hostname, scheme, or domain validation. An unauthenticated attacker with network access to the validator can probe internal network services, cloud metadata endpoints, and map network topology through error-based information leakage. With explore=true (the default for this code path), each request triggers multiple outbound HTTP calls, amplifying reconnaissance capability. This issue has been patched in version 6.9.4.",
+      "published": "2026-03-31T17:16:32.767",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34360"
+    },
+    {
+      "id": "CVE-2026-34359",
+      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to version 6.9.4, ManagedWebAccessUtils.getServer() uses String.startsWith() to match request URLs against configured server URLs for authentication credential dispatch. Because configured server URLs (e.g., http://tx.fhir.org) lack a trailing slash or host boundary check, an attacker-controlled domain like http://tx.fhir.org.attacker.com matches the prefix and receives Bearer tokens, Basic auth credentials, or API keys when the HTTP client follows a redirect to that domain. This issue has been patched in version 6.9.4.",
+      "published": "2026-03-31T17:16:31.937",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34359"
+    },
+    {
+      "id": "CVE-2026-24165",
+      "summary": "NVIDIA BioNeMo contains a vulnerability where a user could cause a deserialization of untrusted data. A successful exploit of this vulnerability might lead to code execution, denial of service, information disclosure, and data tampering.",
+      "published": "2026-03-31T17:16:31.727",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24165"
+    },
+    {
+      "id": "CVE-2026-24164",
+      "summary": "NVIDIA BioNeMo contains a vulnerability where a user could cause a deserialization of untrusted data. A successful exploit of this vulnerability might lead to code execution, denial of service, information disclosure, and data tampering.",
+      "published": "2026-03-31T17:16:30.937",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5204"
-    },
-    {
-      "id": "CVE-2026-5203",
-      "summary": "A vulnerability was found in CMS Made Simple up to 2.2.22. This impacts the function _copyFilesToFolder in the library modules/UserGuide/lib/class.UserGuideImporterExporter.php of the component UserGuide Module XML Import. The manipulation results in path traversal. It is possible to launch the attack remotely. The exploit has been made public and could be used. This issue has been reported early to the project. They confirmed, that \"this has already been discovered and fixed for the next release.\"",
-      "published": "2026-03-31T16:16:35.723",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5203"
-    },
-    {
-      "id": "CVE-2026-5087",
-      "summary": "PAGI::Middleware::Session::Store::Cookie versions through 0.001003 for Perl generates random bytes insecurely.\n\nPAGI::Middleware::Session::Store::Cookie attempts to read bytes from the /dev/urandom device directly. If that fails (for example, on systems without the device, such as Windows), then it will emit a warning that recommends the user install Crypt::URandom, and then return a string of random bytes generated by the built-in rand function, which is unsuitable for cryptographic applications.\n\nThis modules does not use the Crypt::URandom module, and installing it will not fix the problem.\n\nThe random bytes are used for generating an initialisation vector (IV) to encrypt the cookie.\n\nA predictable IV may make it easier for malicious users to decrypt and tamper with the session data that is stored in the cookie.",
-      "published": "2026-03-31T16:16:35.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5087"
-    },
-    {
-      "id": "CVE-2026-4819",
-      "summary": "In Search Guard FLX versions from 1.0.0 up to 4.0.1, the audit logging feature might log user credentials from users logging into Kibana.",
-      "published": "2026-03-31T16:16:34.730",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4819"
-    },
-    {
-      "id": "CVE-2026-4818",
-      "summary": "In Search Guard FLX versions from 3.0.0 up to 4.0.1, there exists an issue which allows users without the necessary privileges to execute some management operations against data streams.",
-      "published": "2026-03-31T16:16:34.580",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4818"
-    },
-    {
-      "id": "CVE-2026-34595",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.70 and 9.7.0-alpha.18, an authenticated user with find class-level permission can bypass the protectedFields class-level permission setting on LiveQuery subscriptions. By sending a subscription with a $or, $and, or $nor operator value as a plain object with numeric keys and a length property (an \"array-like\" object) instead of an array, the protected-field guard is bypassed. The subscription event firing acts as a binary oracle, allowing the attacker to infer whether a protected field matches a given test value. This issue has been patched in versions 8.6.70 and 9.7.0-alpha.18.",
-      "published": "2026-03-31T16:16:34.087",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34595"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24164"
     }
   ]
 }
