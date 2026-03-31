@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-03-31T11:09:45+00:00",
+  "generated_at": "2026-03-31T11:58:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4400",
+      "summary": "Insecure Direct Object Reference (IDOR) vulnerability in 1millionbot Millie chat that allows private conversations of other users being viewed by simply changing the conversation ID. The vulnerability is present in the endpoint 'api.1millionbot.com/api/public/conversations/' and, if exploited, could allow a remote attacker to access other users private chatbot conversations, revealing sensitive or confidential data without requiring credentials or impersonating users. In order for the vulnerability to be exploited, the attacker must have the user's conversation ID.",
+      "published": "2026-03-31T11:16:14.470",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4400"
+    },
+    {
+      "id": "CVE-2026-4399",
+      "summary": "Prompt injection vulnerability in 1millionbot Millie chatbot that occurs when a user manages to evade chat restrictions using Boolean prompt injection techniques (formulating a question in such a way that, upon receiving an affirmative response ('true'), the model executes the injected instruction), causing it to return prohibited information and information outside its intended context. Successful exploitation of this vulnerability could allow a malicious remote attacker to abuse the service for purposes other than those originally intended, or even execute out-of-context tasks using 1millionbot's resources and/or OpenAI's API key. This allows the attacker to evade the containment mechanisms implemented during LLM model training and obtain responses or chat behaviors that were originally restricted.",
+      "published": "2026-03-31T11:16:14.103",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4399"
+    },
+    {
+      "id": "CVE-2026-34887",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Extend Themes Kubio AI Page Builder allows Stored XSS.This issue affects Kubio AI Page Builder: from n/a through 2.7.0.",
+      "published": "2026-03-31T11:16:13.523",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34887"
+    },
+    {
+      "id": "CVE-2025-15618",
+      "summary": "Business::OnlinePayment::StoredTransaction versions through 0.01 for Perl uses an insecure secret key.\n\nBusiness::OnlinePayment::StoredTransaction generates a secret key by using a MD5 hash of a single call to the built-in rand function, which is unsuitable for cryptographic use.\n\nThis key is intended for encrypting credit card transaction data.",
+      "published": "2026-03-31T11:16:11.950",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15618"
+    },
     {
       "id": "CVE-2026-5197",
       "summary": "A vulnerability was found in code-projects Student Membership System 1.0. The affected element is an unknown function of the file /delete_user.php. The manipulation of the argument ID results in sql injection. The attack may be launched remotely. The exploit has been made public and could be used.",
@@ -15,34 +43,6 @@
       "published": "2026-03-31T10:16:19.153",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4317"
-    },
-    {
-      "id": "CVE-2026-5201",
-      "summary": "A flaw was found in the gdk-pixbuf library. This heap-based buffer overflow vulnerability occurs in the JPEG image loader due to improper validation of color component counts when processing a specially crafted JPEG image. A remote attacker can exploit this flaw without user interaction, for example, via thumbnail generation. Successful exploitation leads to application crashes and denial of service (DoS) conditions.",
-      "published": "2026-03-31T09:16:23.440",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5201"
-    },
-    {
-      "id": "CVE-2026-5196",
-      "summary": "A vulnerability has been found in code-projects Student Membership System 1.0. Impacted is an unknown function of the file /delete_member.php. The manipulation of the argument ID leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-03-31T09:16:23.220",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5196"
-    },
-    {
-      "id": "CVE-2026-5195",
-      "summary": "A flaw has been found in code-projects Student Membership System 1.0. This issue affects some unknown processing of the component User Registration Handler. Executing a manipulation can lead to sql injection. The attack can be launched remotely.",
-      "published": "2026-03-31T09:16:23.013",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5195"
-    },
-    {
-      "id": "CVE-2026-3107",
-      "summary": "Stored Cross-Site Scripting (XSS) in Teampass versions prior to 3.1.5.16, affecting the password manager's password import functionality at the endpoint 'redacted/index.php?page=items'. The application fails to properly sanitize and encode user-input data during the import process, allowing malicious JavaScript payloads to be persistently stored in the database. When other users view the imported passwords, the payload is automatically executed in their browsers, resulting in a stored XSS condition at the endpoint 'redacted/index.php?page=items'. Exploiting this vulnerability allows an attacker to execute arbitrary JavaScript code in the context of multiple users and the administrator, which can lead to session hijacking, credential theft, privilege abuse, and compromise of application integrity.",
-      "published": "2026-03-31T09:16:22.860",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3107"
     }
   ]
 }
