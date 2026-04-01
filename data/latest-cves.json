@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-01T09:20:57+00:00",
+  "generated_at": "2026-04-01T11:12:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5261",
-      "summary": "A vulnerability was identified in Shandong Hoteam InforCenter PLM up to 8.3.8. The impacted element is the function uploadFileToIIS of the file /Base/BaseHandler.ashx. The manipulation of the argument File leads to unrestricted upload. It is possible to initiate the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-04-01T09:16:17.920",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5261"
-    },
-    {
-      "id": "CVE-2026-4370",
-      "summary": "A vulnerability was identified in Juju from version 3.2.0 until 3.6.19 and from version 4.0 until 4.0.4, where the internal Dqlite database cluster fails to perform proper TLS client and server authentication. Specifically, the Juju controller's database endpoint does not validate client certificates when a new node attempts to join the cluster. An unauthenticated attacker with network reachability to the Juju controller's Dqlite port can exploit this flaw to join the database cluster. Once joined, the attacker gains full read and write access to the underlying database, allowing for total data compromise.",
-      "published": "2026-04-01T09:16:17.717",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4370"
-    },
-    {
-      "id": "CVE-2026-34889",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Brainstorm Force Ultimate Addons for WPBakery Page Builder allows DOM-Based XSS.This issue affects Ultimate Addons for WPBakery Page Builder: from n/a before 3.21.4.",
-      "published": "2026-04-01T09:16:17.457",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34889"
-    },
-    {
-      "id": "CVE-2026-23411",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\napparmor: fix race between freeing data and fs accessing it\n\nAppArmor was putting the reference to i_private data on its end after\nremoving the original entry from the file system. However the inode\ncan aand does live beyond that point and it is possible that some of\nthe fs call back functions will be invoked after the reference has\nbeen put, which results in a race between freeing the data and\naccessing it through the fs.\n\nWhile the rawdata/loaddata is the most likely candidate to fail the\nrace, as it has the fewest references. If properly crafted it might be\npossible to trigger a race for the other types stored in i_private.\n\nFix this by moving the put of i_private referenced data to the correct\nplace which is during inode eviction.",
-      "published": "2026-04-01T09:16:17.270",
+      "id": "CVE-2026-23899",
+      "summary": "An improper access check allows unauthorized access to webservice endpoints.",
+      "published": "2026-04-01T10:16:16.543",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23411"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23899"
     },
     {
-      "id": "CVE-2026-23410",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\napparmor: fix race on rawdata dereference\n\nThere is a race condition that leads to a use-after-free situation:\nbecause the rawdata inodes are not refcounted, an attacker can start\nopen()ing one of the rawdata files, and at the same time remove the\nlast reference to this rawdata (by removing the corresponding profile,\nfor example), which frees its struct aa_loaddata; as a result, when\nseq_rawdata_open() is reached, i_private is a dangling pointer and\nfreed memory is accessed.\n\nThe rawdata inodes weren't refcounted to avoid a circular refcount and\nwere supposed to be held by the profile rawdata reference.  However\nduring profile removal there is a window where the vfs and profile\ndestruction race, resulting in the use after free.\n\nFix this by moving to a double refcount scheme. Where the profile\nrefcount on rawdata is used to break the circular dependency. Allowing\nfor freeing of the rawdata once all inode references to the rawdata\nare put.",
-      "published": "2026-04-01T09:16:17.093",
+      "id": "CVE-2026-23898",
+      "summary": "Lack of input validation leads to an arbitrary file deletion vulnerability in the autoupdate server mechanism.",
+      "published": "2026-04-01T10:16:16.397",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23410"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23898"
     },
     {
-      "id": "CVE-2026-23409",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\napparmor: fix differential encoding verification\n\nDifferential encoding allows loops to be created if it is abused. To\nprevent this the unpack should verify that a diff-encode chain\nterminates.\n\nUnfortunately the differential encode verification had two bugs.\n\n1. it conflated states that had gone through check and already been\n   marked, with states that were currently being checked and marked.\n   This means that loops in the current chain being verified are treated\n   as a chain that has already been verified.\n\n2. the order bailout on already checked states compared current chain\n   check iterators j,k instead of using the outer loop iterator i.\n   Meaning a step backwards in states in the current chain verification\n   was being mistaken for moving to an already verified state.\n\nMove to a double mark scheme where already verified states get a\ndifferent mark, than the current chain being kept. This enables us\nto also drop the backwards verification check that was the cause of\nthe second error as any already verified state is already marked.",
-      "published": "2026-04-01T09:16:16.913",
+      "id": "CVE-2026-21632",
+      "summary": "Lack of output escaping for article titles leads to XSS vectors in various locations.",
+      "published": "2026-04-01T10:16:16.250",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23409"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21632"
+    },
+    {
+      "id": "CVE-2026-21631",
+      "summary": "Lack of output escaping leads to a XSS vector in the multilingual associations component.",
+      "published": "2026-04-01T10:16:16.097",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21631"
+    },
+    {
+      "id": "CVE-2026-21630",
+      "summary": "Improperly built order clauses lead to a SQL injection vulnerability in the articles webservice endpoint.",
+      "published": "2026-04-01T10:16:15.943",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21630"
+    },
+    {
+      "id": "CVE-2026-21629",
+      "summary": "The ajax component was excluded from the default logged-in-user check in the administrative area. This behavior was potentially unexpected by 3rd party developers.",
+      "published": "2026-04-01T10:16:15.790",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21629"
     }
   ]
 }
