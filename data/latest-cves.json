@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-02T11:09:30+00:00",
+  "generated_at": "2026-04-02T11:56:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5326",
+      "summary": "A vulnerability was identified in SourceCodester Leave Application System 1.0. Impacted is an unknown function of the file /index.php?page=manage_user of the component User Information Handler. Such manipulation of the argument ID leads to authorization bypass. The attack can be executed remotely. The exploit is publicly available and might be used.",
+      "published": "2026-04-02T11:16:23.010",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5326"
+    },
+    {
+      "id": "CVE-2026-32145",
+      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in gleam-wisp wisp allows a denial of service via multipart form body parsing.\n\nThe multipart_body function bypasses configured max_body_size and max_files_size limits. When a multipart boundary is not present in a chunk, the parser takes the MoreRequiredForBody path, which appends the chunk to the output but passes the quota unchanged to the recursive call. Only the final chunk containing the boundary is counted via decrement_quota. The same pattern exists in multipart_headers, where MoreRequiredForHeaders recurses without calling decrement_body_quota.\n\nAn unauthenticated attacker can exhaust server memory or disk by sending arbitrarily large multipart form submissions in a single HTTP request.\n\nThis issue affects wisp: from 0.2.0 before 2.2.2.",
+      "published": "2026-04-02T11:16:21.870",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32145"
+    },
     {
       "id": "CVE-2026-5246",
       "summary": "A vulnerability was determined in Cesanta Mongoose up to 7.20. Affected is the function mg_tls_verify_cert_signature of the file mongoose.c of the component P-384 Public Key Handler. Executing a manipulation can lead to authorization bypass. The attack can be executed remotely. Attacks of this nature are highly complex. The exploitability is told to be difficult. The exploit has been publicly disclosed and may be utilized. Upgrading to version 7.21 is able to address this issue. This patch is called 0d882f1b43ff2308b7486a56a9d60cd6dba8a3f1. The affected component should be upgraded. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
@@ -29,20 +43,6 @@
       "published": "2026-04-02T10:16:17.080",
       "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33616"
-    },
-    {
-      "id": "CVE-2026-33615",
-      "summary": "An unauthenticated remote attacker can exploit an unauthenticated SQL Injection vulnerability in the setinfo endpoint due to improper neutralization of special elements in a SQL UPDATE command. This can result in a total loss of integrity and availability.",
-      "published": "2026-04-02T10:16:16.910",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33615"
-    },
-    {
-      "id": "CVE-2026-33614",
-      "summary": "An unauthenticated remote attacker can exploit an unauthenticated SQL Injection vulnerability in the getinfo endpoint due to improper neutralization of special elements in a SQL SELECT command. This can result in a total loss of confidentiality.",
-      "published": "2026-04-02T10:16:16.723",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33614"
     }
   ]
 }
