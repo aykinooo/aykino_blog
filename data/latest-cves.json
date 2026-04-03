@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-04-03T16:56:22+00:00",
+  "generated_at": "2026-04-03T17:52:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5474",
+      "summary": "A vulnerability was found in NASA cFS up to 7.0.0. This affects the function CFE_MSG_GetSize of the file apps/to_lab/fsw/src/to_lab_passthru_encode.c of the component CCSDS Packet Header Handler. Performing a manipulation results in heap-based buffer overflow. The attacker must have access to the local network to execute the attack. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-04-03T17:16:54.450",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5474"
+    },
+    {
+      "id": "CVE-2026-5473",
+      "summary": "A vulnerability has been found in NASA cFS up to 7.0.0. The impacted element is the function pickle.load of the component Pickle Module. Such manipulation leads to deserialization. The attack needs to be performed locally. The attack requires a high level of complexity. The exploitability is regarded as difficult. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-04-03T17:16:54.203",
+      "cvss": 4.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5473"
+    },
+    {
+      "id": "CVE-2026-28373",
+      "summary": "The Stackfield Desktop App before 1.10.2 for macOS and Windows contains a path traversal vulnerability in certain decryption functionality when processing the filePath property. A malicious export can write arbitrary content to any path on the victim's filesystem.",
+      "published": "2026-04-03T17:16:42.140",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28373"
+    },
     {
       "id": "CVE-2026-5472",
       "summary": "A flaw has been found in ProjectsAndPrograms School Management System up to 6b6fae5426044f89c08d0dd101c7fa71f9042a59. The affected element is an unknown function of the file /admin_panel/settings.php of the component Profile Picture Handler. This manipulation of the argument File causes unrestricted upload. Remote exploitation of the attack is possible. The exploit has been published and may be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided.",
@@ -22,27 +43,6 @@
       "published": "2026-04-03T16:16:43.787",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5470"
-    },
-    {
-      "id": "CVE-2026-35218",
-      "summary": "Budibase is an open-source low-code platform. Prior to version 3.32.5, Budibase's Builder Command Palette renders entity names (tables, views, queries, automations) using Svelte's {@html} directive without any sanitization. An authenticated user with Builder access can create a table, automation, view, or query whose name contains an HTML payload (e.g. <img src=x onerror=alert(document.domain)>). When any Builder-role user in the same workspace opens the Command Palette (Ctrl+K), the payload executes in their browser, stealing their session cookie and enabling full account takeover. This issue has been patched in version 3.32.5.",
-      "published": "2026-04-03T16:16:41.977",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35218"
-    },
-    {
-      "id": "CVE-2026-35216",
-      "summary": "Budibase is an open-source low-code platform. Prior to version 3.33.4, an unauthenticated attacker can achieve Remote Code Execution (RCE) on the Budibase server by triggering an automation that contains a Bash step via the public webhook endpoint. No authentication is required to trigger the exploit. The process executes as root inside the container. This issue has been patched in version 3.33.4.",
-      "published": "2026-04-03T16:16:41.800",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35216"
-    },
-    {
-      "id": "CVE-2026-35214",
-      "summary": "Budibase is an open-source low-code platform. Prior to version 3.33.4, the plugin file upload endpoint (POST /api/plugin/upload) passes the user-supplied filename directly to createTempFolder() without sanitizing path traversal sequences. An attacker with Global Builder privileges can craft a multipart upload with a filename containing ../ to delete arbitrary directories via rmSync and write arbitrary files via tarball extraction to any filesystem path the Node.js process can access. This issue has been patched in version 3.33.4.",
-      "published": "2026-04-03T16:16:41.607",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35214"
     }
   ]
 }
