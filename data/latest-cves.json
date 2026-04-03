@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-04-03T19:52:11+00:00",
+  "generated_at": "2026-04-03T20:52:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5484",
+      "summary": "A weakness has been identified in BookStackApp BookStack up to 26.03. Affected is the function chapterToMarkdown of the file app/Exports/ExportFormatter.php of the component Chapter Export Handler. Executing a manipulation of the argument pages can lead to improper access controls. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 26.03.1 is able to address this issue. This patch is called 8a59895ba063040cc8dafd82e94024c406df3d04. It is advisable to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-04-03T20:16:05.347",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5484"
+    },
+    {
+      "id": "CVE-2026-28798",
+      "summary": "ZimaOS is a fork of CasaOS, an operating system for Zima devices and x86-64 systems with UEFI. Prior to version 1.5.3, a proxy endpoint (/v1/sys/proxy) exposed by ZimaOS's web interface can be abused (via an externally reachable domain using a Cloudflare Tunnel) to make requests to internal localhost services. This results in unauthenticated access to internal-only endpoints and sensitive local services when the product is reachable from the Internet through a Cloudflare Tunnel. This issue has been patched in version 1.5.3.",
+      "published": "2026-04-03T20:16:02.433",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28798"
+    },
+    {
+      "id": "CVE-2026-25726",
+      "summary": "Cloudreve is a self-hosted file management and sharing system. Prior to version 4.13.0, the application uses the weak pseudo-random number generator math/rand seeded with time.Now().UnixNano() to generate critical security secrets, including the secret_key, and hash_id_salt. These secrets are generated upon first startup and persisted in the database. An attacker can exploit this by obtaining the administrator's account creation time (via public API endpoints) to narrow the search window for the PRNG seed, and use known hashid to validate the seed. By brute-forcing the seed (demonstrated to take <3 hours on general consumer PC), an attacker can predict the secret_key. This allows them to forge valid JSON Web Tokens (JWTs) for any user, including administrators, leading to full account takeover and privilege escalation. This issue has been patched in version 4.13.0.",
+      "published": "2026-04-03T20:16:02.263",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25726"
+    },
     {
       "id": "CVE-2026-3184",
       "summary": "A flaw was found in util-linux. Improper hostname canonicalization in the `login(1)` utility, when invoked with the `-h` option, can modify the supplied remote hostname before setting `PAM_RHOST`. A remote attacker could exploit this by providing a specially crafted hostname, potentially bypassing host-based Pluggable Authentication Modules (PAM) access control rules that rely on fully qualified domain names. This could lead to unauthorized access.",
@@ -22,27 +43,6 @@
       "published": "2026-04-03T18:16:26.687",
       "cvss": 4.6,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5476"
-    },
-    {
-      "id": "CVE-2026-5475",
-      "summary": "A vulnerability was determined in NASA cFS up to 7.0.0. This impacts the function CFE_SB_TransmitMsg of the file cfe_sb_priv.c of the component CCSDS Header Size Handler. Executing a manipulation can lead to memory corruption. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-04-03T18:16:26.250",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5475"
-    },
-    {
-      "id": "CVE-2026-32186",
-      "summary": "Microsoft Bing Elevation of Privilege Vulnerability",
-      "published": "2026-04-03T18:16:24.993",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32186"
-    },
-    {
-      "id": "CVE-2026-0545",
-      "summary": "In mlflow/mlflow, the FastAPI job endpoints under `/ajax-api/3.0/jobs/*` are not protected by authentication or authorization when the `basic-auth` app is enabled. This vulnerability affects the latest version of the repository. If job execution is enabled (`MLFLOW_SERVER_ENABLE_JOB_EXECUTION=true`) and any job function is allowlisted, any network client can submit, read, search, and cancel jobs without credentials, bypassing basic-auth entirely. This can lead to unauthenticated remote code execution if allowed jobs perform privileged actions such as shell execution or filesystem changes. Even if jobs are deemed safe, this still constitutes an authentication bypass, potentially resulting in job spam, denial of service (DoS), or data exposure in job results.",
-      "published": "2026-04-03T18:16:21.540",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0545"
     }
   ]
 }
