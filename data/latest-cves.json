@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-03T19:04:16+00:00",
+  "generated_at": "2026-04-03T19:52:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3184",
+      "summary": "A flaw was found in util-linux. Improper hostname canonicalization in the `login(1)` utility, when invoked with the `-h` option, can modify the supplied remote hostname before setting `PAM_RHOST`. A remote attacker could exploit this by providing a specially crafted hostname, potentially bypassing host-based Pluggable Authentication Modules (PAM) access control rules that rely on fully qualified domain names. This could lead to unauthorized access.",
+      "published": "2026-04-03T19:17:23.377",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3184"
+    },
+    {
+      "id": "CVE-2026-2625",
+      "summary": "A flaw was found in rust-rpm-sequoia. An attacker can exploit this vulnerability by providing a specially crafted Red Hat Package Manager (RPM) file. During the RPM signature verification process, this crafted file can trigger an error in the OpenPGP signature parsing code, leading to an unconditional termination of the rpm process. This issue results in an application level denial of service, making the system unable to process RPM files for signature verification.",
+      "published": "2026-04-03T19:17:22.340",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2625"
+    },
     {
       "id": "CVE-2026-5476",
       "summary": "A vulnerability was identified in NASA cFS up to 7.0.0 on 32-bit. Affected is the function CFE_TBL_ValidateCodecLoadSize of the file cfe/modules/tbl/fsw/src/cfe_tbl_passthru_codec.c. The manipulation leads to integer overflow. The complexity of an attack is rather high. The exploitability is told to be difficult. A fix is planned for the upcoming version milestone of the project.",
@@ -29,20 +43,6 @@
       "published": "2026-04-03T18:16:21.540",
       "cvss": 9.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0545"
-    },
-    {
-      "id": "CVE-2026-5474",
-      "summary": "A vulnerability was found in NASA cFS up to 7.0.0. This affects the function CFE_MSG_GetSize of the file apps/to_lab/fsw/src/to_lab_passthru_encode.c of the component CCSDS Packet Header Handler. Performing a manipulation results in heap-based buffer overflow. The attacker must have access to the local network to execute the attack. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-04-03T17:16:54.450",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5474"
-    },
-    {
-      "id": "CVE-2026-5473",
-      "summary": "A vulnerability has been found in NASA cFS up to 7.0.0. The impacted element is the function pickle.load of the component Pickle Module. Such manipulation leads to deserialization. The attack needs to be performed locally. The attack requires a high level of complexity. The exploitability is regarded as difficult. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-04-03T17:16:54.203",
-      "cvss": 4.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5473"
     }
   ]
 }
