@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-03T22:52:37+00:00",
+  "generated_at": "2026-04-03T23:47:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-34990",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, a local unprivileged user can coerce cupsd into authenticating to an attacker-controlled localhost IPP service with a reusable Authorization: Local ... token. That token is enough to drive /admin/ requests on localhost, and the attacker can combine CUPS-Create-Local-Printer with printer-is-shared=true to persist a file:///... queue even though the normal FileDevice policy rejects such URIs. Printing to that queue gives an arbitrary root file overwrite; the PoC below uses that primitive to drop a sudoers fragment and demonstrate root command execution. At time of publication, there are no publicly available patches.",
-      "published": "2026-04-03T22:16:27.400",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34990"
-    },
-    {
-      "id": "CVE-2026-34980",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, in a network-exposed cupsd with a shared target queue, an unauthorized client can send a Print-Job to that shared PostScript queue without authentication. The server accepts a page-border value supplied as textWithoutLanguage, preserves an embedded newline through option escaping and reparse, and then reparses the resulting second-line PPD: text as a trusted scheduler control record. A follow-up raw print job can therefore make the server execute an attacker-chosen existing binary such as /usr/bin/vim as lp. At time of publication, there are no publicly available patches.",
-      "published": "2026-04-03T22:16:27.243",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34980"
-    },
-    {
-      "id": "CVE-2026-34979",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, there is a heap-based buffer overflow in the CUPS scheduler when building filter option strings from job attribute. At time of publication, there are no publicly available patches.",
-      "published": "2026-04-03T22:16:27.097",
+      "id": "CVE-2026-35468",
+      "summary": "nimiq/core-rs-albatross is a Rust implementation of the Nimiq Proof-of-Stake protocol based on the Albatross consensus algorithm. Prior to version 1.3.0, two peer-facing consensus request handlers assume that the history index is always available and call blockchain.history_store.history_index().unwrap() directly. That assumption is false by construction. HistoryStoreProxy::history_index() explicitly returns None for the valid HistoryStoreProxy::WithoutIndex state. when a full node is syncing or otherwise running without the history index, a remote peer can send RequestTransactionsProof or RequestTransactionReceiptsByAddress and trigger an Option::unwrap() panic on the request path. This issue has been patched in version 1.3.0.",
+      "published": "2026-04-03T23:17:06.963",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34979"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35468"
     },
     {
-      "id": "CVE-2026-34978",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, the RSS notifier allows .. path traversal in notify-recipient-uri (e.g., rss:///../job.cache), letting a remote IPP client write RSS XML bytes outside CacheDir/rss (anywhere that is lp-writable). In particular, because CacheDir is group-writable by default (typically root:lp and mode 0770), the notifier (running as lp) can replace root-managed state files via temp-file + rename(). This PoC clobbers CacheDir/job.cache with RSS XML, and after restarting cupsd the scheduler fails to parse the job cache and previously queued jobs disappear. At time of publication, there are no publicly available patches.",
-      "published": "2026-04-03T22:16:26.947",
+      "id": "CVE-2026-34954",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to version 1.5.95, FileTools.download_file() in praisonaiagents validates the destination path but performs no validation on the url parameter, passing it directly to httpx.stream() with follow_redirects=True. An attacker who controls the URL can reach any host accessible from the server including cloud metadata services and internal network services. This issue has been patched in version 1.5.95.",
+      "published": "2026-04-03T23:17:06.810",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34954"
+    },
+    {
+      "id": "CVE-2026-34953",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to version 4.5.97, OAuthManager.validate_token() returns True for any token not found in its internal store, which is empty by default. Any HTTP request to the MCP server with an arbitrary Bearer token is treated as authenticated, granting full access to all registered tools and agent capabilities. This issue has been patched in version 4.5.97.",
+      "published": "2026-04-03T23:17:06.653",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34953"
+    },
+    {
+      "id": "CVE-2026-34952",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to version 4.5.97, the PraisonAI Gateway server accepts WebSocket connections at /ws and serves agent topology at /info with no authentication. Any network client can connect, enumerate registered agents, and send arbitrary messages to agents and their tool sets. This issue has been patched in version 4.5.97.",
+      "published": "2026-04-03T23:17:06.490",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34952"
+    },
+    {
+      "id": "CVE-2026-34939",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to version 4.5.90, MCPToolIndex.search_tools() compiles a caller-supplied string directly as a Python regular expression with no validation, sanitization, or timeout. A crafted regex causes catastrophic backtracking in the re engine, blocking the Python thread for hundreds of seconds and causing a complete service outage. This issue has been patched in version 4.5.90.",
+      "published": "2026-04-03T23:17:06.330",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34978"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34939"
     },
     {
-      "id": "CVE-2026-34947",
-      "summary": "Discourse is an open-source discussion platform. From versions 2026.1.0-latest to before 2026.1.3, 2026.2.0-latest to before 2026.2.2, and 2026.3.0-latest to before 2026.3.0, staged user custom fields and username are exposed on public invite pages without email verification. This issue has been patched in versions 2026.1.3, 2026.2.2, and 2026.3.0.",
-      "published": "2026-04-03T22:16:26.803",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34947"
-    },
-    {
-      "id": "CVE-2026-33709",
-      "summary": "JupyterHub is software that allows one to create a multi-user server for Jupyter notebooks. Prior to version 5.4.4, an open redirect vulnerability in JupyterHub allows attackers to construct links which, when clicked, take users to the JupyterHub login page, after which they are sent to an arbitrary attacker-controlled site outside JupyterHub instead of a JupyterHub page, bypassing JupyterHub's check to prevent this. This issue has been patched in version 5.4.4.",
-      "published": "2026-04-03T22:16:26.657",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33709"
+      "id": "CVE-2026-34938",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to version 1.5.90, execute_code() in praisonai-agents runs attacker-controlled Python inside a three-layer sandbox that can be fully bypassed by passing a str subclass with an overridden startswith() method to the _safe_getattr wrapper, achieving arbitrary OS command execution on the host. This issue has been patched in version 1.5.90.",
+      "published": "2026-04-03T23:17:06.170",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34938"
     }
   ]
 }
