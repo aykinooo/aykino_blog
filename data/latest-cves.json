@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-03T20:52:25+00:00",
+  "generated_at": "2026-04-03T21:48:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5484",
-      "summary": "A weakness has been identified in BookStackApp BookStack up to 26.03. Affected is the function chapterToMarkdown of the file app/Exports/ExportFormatter.php of the component Chapter Export Handler. Executing a manipulation of the argument pages can lead to improper access controls. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 26.03.1 is able to address this issue. This patch is called 8a59895ba063040cc8dafd82e94024c406df3d04. It is advisable to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
-      "published": "2026-04-03T20:16:05.347",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5484"
+      "id": "CVE-2026-5485",
+      "summary": "OS command injection in the browser-based authentication component in Amazon Athena ODBC driver before 2.0.5.1 on Linux might allow a threat actor to execute arbitrary code by using specially crafted connection parameters that are loaded by the driver during a local user-initiated connection.\n\nTo remediate this issue, users should upgrade to version 2.0.5.1 or later.",
+      "published": "2026-04-03T21:17:12.603",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5485"
     },
     {
-      "id": "CVE-2026-28798",
-      "summary": "ZimaOS is a fork of CasaOS, an operating system for Zima devices and x86-64 systems with UEFI. Prior to version 1.5.3, a proxy endpoint (/v1/sys/proxy) exposed by ZimaOS's web interface can be abused (via an externally reachable domain using a Cloudflare Tunnel) to make requests to internal localhost services. This results in unauthenticated access to internal-only endpoints and sensitive local services when the product is reachable from the Internet through a Cloudflare Tunnel. This issue has been patched in version 1.5.3.",
-      "published": "2026-04-03T20:16:02.433",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28798"
+      "id": "CVE-2026-35562",
+      "summary": "Allocation of resources without limits in the parsing components in Amazon Athena ODBC driver before 2.1.0.0 might allow a threat actor to cause a denial of service by delivering crafted input that triggers excessive resource consumption during the driver's parsing operations.\n\nTo remediate this issue, users should upgrade to version 2.1.0.0.",
+      "published": "2026-04-03T21:17:12.427",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35562"
     },
     {
-      "id": "CVE-2026-25726",
-      "summary": "Cloudreve is a self-hosted file management and sharing system. Prior to version 4.13.0, the application uses the weak pseudo-random number generator math/rand seeded with time.Now().UnixNano() to generate critical security secrets, including the secret_key, and hash_id_salt. These secrets are generated upon first startup and persisted in the database. An attacker can exploit this by obtaining the administrator's account creation time (via public API endpoints) to narrow the search window for the PRNG seed, and use known hashid to validate the seed. By brute-forcing the seed (demonstrated to take <3 hours on general consumer PC), an attacker can predict the secret_key. This allows them to forge valid JSON Web Tokens (JWTs) for any user, including administrators, leading to full account takeover and privilege escalation. This issue has been patched in version 4.13.0.",
-      "published": "2026-04-03T20:16:02.263",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25726"
+      "id": "CVE-2026-35561",
+      "summary": "Insufficient authentication security controls in the browser-based authentication components in Amazon Athena ODBC driver before 2.1.0.0 might allow a threat actor to intercept or hijack authentication sessions due to insufficient protections in the browser-based authentication flows.\n\nTo remediate this issue, users should upgrade to version 2.1.0.0.",
+      "published": "2026-04-03T21:17:12.250",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35561"
     },
     {
-      "id": "CVE-2026-3184",
-      "summary": "A flaw was found in util-linux. Improper hostname canonicalization in the `login(1)` utility, when invoked with the `-h` option, can modify the supplied remote hostname before setting `PAM_RHOST`. A remote attacker could exploit this by providing a specially crafted hostname, potentially bypassing host-based Pluggable Authentication Modules (PAM) access control rules that rely on fully qualified domain names. This could lead to unauthorized access.",
-      "published": "2026-04-03T19:17:23.377",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3184"
+      "id": "CVE-2026-35560",
+      "summary": "Improper certificate validation in the identity provider connection components in Amazon Athena ODBC driver before 2.1.0.0 might allow a man-in-the-middle threat actor to intercept authentication credentials due to insufficient default transport security when connecting to identity providers. This only applies to connections with external identity providers and does not apply to connections with Athena.\n\nTo remediate this issue, users should upgrade to version 2.1.0.0.",
+      "published": "2026-04-03T21:17:12.073",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35560"
     },
     {
-      "id": "CVE-2026-2625",
-      "summary": "A flaw was found in rust-rpm-sequoia. An attacker can exploit this vulnerability by providing a specially crafted Red Hat Package Manager (RPM) file. During the RPM signature verification process, this crafted file can trigger an error in the OpenPGP signature parsing code, leading to an unconditional termination of the rpm process. This issue results in an application level denial of service, making the system unable to process RPM files for signature verification.",
-      "published": "2026-04-03T19:17:22.340",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2625"
+      "id": "CVE-2026-35559",
+      "summary": "Out-of-bounds write in the query processing components in Amazon Athena ODBC driver before 2.1.0.0 might allow a threat actor to crash the driver by using specially crafted data that is processed by the driver during query operations.\n\nTo remediate this issue, users should upgrade to version 2.1.0.0.",
+      "published": "2026-04-03T21:17:11.900",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35559"
     },
     {
-      "id": "CVE-2026-5476",
-      "summary": "A vulnerability was identified in NASA cFS up to 7.0.0 on 32-bit. Affected is the function CFE_TBL_ValidateCodecLoadSize of the file cfe/modules/tbl/fsw/src/cfe_tbl_passthru_codec.c. The manipulation leads to integer overflow. The complexity of an attack is rather high. The exploitability is told to be difficult. A fix is planned for the upcoming version milestone of the project.",
-      "published": "2026-04-03T18:16:26.687",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5476"
+      "id": "CVE-2026-35558",
+      "summary": "Improper neutralization of special elements in the authentication components in Amazon Athena ODBC driver before 2.1.0.0 might allow a threat actor to execute arbitrary code or redirect authentication flows by using specially crafted connection parameters that are processed by the driver during user-initiated authentication.\n\nTo remediate this issue, users should upgrade to version 2.1.0.0.",
+      "published": "2026-04-03T21:17:11.710",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35558"
     }
   ]
 }
