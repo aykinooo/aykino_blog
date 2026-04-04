@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-04T11:42:24+00:00",
+  "generated_at": "2026-04-04T13:19:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5425",
-      "summary": "The Widgets for Social Photo Feed plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'feed_data' parameter keys in all versions up to, and including, 1.7.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-04T09:16:20.500",
+      "id": "CVE-2026-3666",
+      "summary": "The wpForo Forum plugin for WordPress is vulnerable to arbitrary file deletion in all versions up to, and including, 2.4.16. This is due to a missing file name/path validation against path traversal sequences. This makes it possible for authenticated attackers, with subscriber level access and above, to delete arbitrary files on the server by embedding a crafted path traversal string in a forum post body and then deleting the post.",
+      "published": "2026-04-04T12:16:03.390",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3666"
+    },
+    {
+      "id": "CVE-2026-3309",
+      "summary": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content \u2013 ProfilePress plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 4.16.11. This is due to the plugin allowing user-supplied billing field values from the checkout process to be interpolated into shortcode template strings that are subsequently processed without proper sanitization of shortcode syntax. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes by submitting crafted billing field values during the checkout process.",
+      "published": "2026-04-04T12:16:03.237",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3309"
+    },
+    {
+      "id": "CVE-2026-2936",
+      "summary": "The Visitor Traffic Real Time Statistics plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'page_title' parameter in all versions up to, and including, 8.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an admin user accesses the Traffic by Title section.",
+      "published": "2026-04-04T12:16:03.090",
       "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5425"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2936"
     },
     {
-      "id": "CVE-2026-3445",
-      "summary": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content \u2013 ProfilePress plugin for WordPress is vulnerable to unauthorized membership payment bypass in all versions up to, and including, 4.16.11. This is due to a missing ownership verification on the `change_plan_sub_id` parameter in the `process_checkout()` function. This makes it possible for authenticated attackers, with subscriber level access and above, to reference another user's active subscription during checkout to manipulate proration calculations, allowing them to obtain paid lifetime membership plans without payment via the `ppress_process_checkout` AJAX action.",
-      "published": "2026-04-04T09:16:20.330",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3445"
+      "id": "CVE-2026-1233",
+      "summary": "The Text to Speech for WP (AI Voices by Mementor) plugin for WordPress is vulnerable to sensitive information exposure in all versions up to, and including, 1.9.8. This is due to the plugin containing hardcoded MySQL database credentials for the vendor's external telemetry server in the `Mementor_TTS_Remote_Telemetry` class. This makes it possible for unauthenticated attackers to extract and decode these credentials, gaining unauthorized write access to the vendor's telemetry database.",
+      "published": "2026-04-04T12:16:02.943",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1233"
     },
     {
-      "id": "CVE-2026-2826",
-      "summary": "The Kadence Blocks \u2014 Page Builder Toolkit for Gutenberg Editor plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.6.3. This is due to the plugin not properly verifying that a user has the `upload_files` capability in the `process_pattern` REST API endpoint. This makes it possible for authenticated attackers, with contributor level access and above, to upload images to the WordPress Media Library by supplying remote image URLs that the server downloads and creates as media attachments.",
-      "published": "2026-04-04T09:16:20.167",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2826"
-    },
-    {
-      "id": "CVE-2026-2437",
-      "summary": "The WP Travel Engine \u2013 Tour Booking Plugin \u2013 Tour Operator Software plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'wte_trip_tax' shortcode in all versions up to, and including, 6.7.5 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-04T09:16:20.003",
+      "id": "CVE-2026-0626",
+      "summary": "The WPFunnels \u2013 Easy Funnel Builder To Optimize Buyer Journeys And Get More Leads & Sales plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'wpf_optin_form' shortcode in all versions up to, and including, 3.7.9 due to insufficient input sanitization and output escaping of the 'button_icon' parameter. This makes it possible for authenticated attackers, with contributor level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-04T12:16:02.787",
       "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2437"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0626"
     },
     {
-      "id": "CVE-2026-4896",
-      "summary": "The WCFM \u2013 Frontend Manager for WooCommerce along with Bookings Subscription Listings Compatible plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 6.7.25 via multiple AJAX actions including `wcfm_modify_order_status`, `delete_wcfm_article`, `delete_wcfm_product`, and the article management controller due to missing validation on user-supplied object IDs. This makes it possible for authenticated attackers, with Vendor-level access and above, to modify the status of any order, delete or modify any post/product/page, regardless of ownership.",
-      "published": "2026-04-04T08:16:06.543",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4896"
-    },
-    {
-      "id": "CVE-2026-2600",
-      "summary": "The ElementsKit Elementor Addons and Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'ekit_tab_title' parameter in the Simple Tab widget in all versions up to, and including, 3.7.9 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-04T08:16:06.370",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2600"
+      "id": "CVE-2025-14938",
+      "summary": "The Listeo Core plugin for WordPress is vulnerable to unauthenticated arbitrary media upload in all versions up to, and including, 2.0.27 via the \"listeo_core_handle_dropped_media\" function. This is due to missing authorization and capability checks on the AJAX endpoint handling file uploads. This makes it possible for unauthenticated attackers to upload arbitrary media to the site's media library, without achieving direct code execution.",
+      "published": "2026-04-04T12:16:01.450",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14938"
     }
   ]
 }
