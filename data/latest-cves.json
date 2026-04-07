@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-07T17:14:40+00:00",
+  "generated_at": "2026-04-07T18:09:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5745",
-      "summary": "A flaw was found in libarchive. A NULL pointer dereference vulnerability exists in the ACL parsing logic, specifically within the archive_acl_from_text_nl() function. When processing a malformed ACL string (such as a bare \"d\" or \"default\" tag without subsequent fields), the function fails to perform adequate validation before advancing the pointer. An attacker can exploit this by providing a maliciously crafted archive, causing an application utilizing the libarchive API (such as bsdtar) to crash, resulting in a Denial of Service (DoS).",
-      "published": "2026-04-07T16:16:32.307",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5745"
+      "id": "CVE-2026-4631",
+      "summary": "Cockpit's remote login feature passes user-supplied hostnames and usernames from the web interface to the SSH client without validation or sanitization. An attacker with network access to the Cockpit web service can craft a single HTTP request to the login endpoint that injects malicious SSH options or shell commands, achieving code execution on the Cockpit host without valid credentials. The injection occurs during the authentication flow before any credential verification takes place, meaning no login is required to exploit the vulnerability.",
+      "published": "2026-04-07T17:16:38.010",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4631"
     },
     {
-      "id": "CVE-2026-4931",
-      "summary": "Smart contract Marginal v1 performs unsafe downcast, allowing attackers to settle a large debt position for a negligible asset cost.",
-      "published": "2026-04-07T16:16:30.410",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4931"
-    },
-    {
-      "id": "CVE-2026-35571",
-      "summary": "Emissary is a P2P based data-driven workflow engine. Prior to 8.39.0, Mustache navigation templates interpolated configuration-controlled link values directly into href attributes without URL scheme validation. An administrator who could modify the navItems configuration could inject javascript: URIs, enabling stored cross-site scripting (XSS) against other authenticated users viewing the Emissary web interface. This vulnerability is fixed in 8.39.0.",
-      "published": "2026-04-07T16:16:29.920",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35571"
-    },
-    {
-      "id": "CVE-2026-35567",
-      "summary": "ChurchCRM is an open-source church management system. Prior to 7.1.0, the NewRole POST parameter in src/MemberRoleChange.php is used in an SQL query without proper integer validation, allowing authenticated users to inject arbitrary SQL. The attack requires an authenticated session with ManageGroups role, knowledge of a valid GroupID and PersonID (obtainable from GroupView or PersonView pages) This vulnerability is fixed in 7.1.0.",
-      "published": "2026-04-07T16:16:29.747",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35567"
-    },
-    {
-      "id": "CVE-2026-35566",
-      "summary": "ChurchCRM is an open-source church management system. Prior to 7.1.0, a critical SQL injection vulnerability exists in src/Reports/FundRaiserStatement.php where the $_SESSION['iCurrentFundraiser'] value is used in an unquoted numeric SQL context without integer validation. The value originates from src/FundRaiserEditor.php where InputUtils::legacyFilterInputArr() is called without the 'int' type specifier. This vulnerability is fixed in 7.1.0.",
-      "published": "2026-04-07T16:16:29.587",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35566"
-    },
-    {
-      "id": "CVE-2026-35534",
-      "summary": "ChurchCRM is an open-source church management system. Prior to 7.1.0, a stored cross-site scripting vulnerability exists in PersonView.php due to incorrect use of sanitizeText() as an output sanitizer for HTML attribute context. The function only strips HTML tags, it does not escape quote characters allowing an attacker to break out of the href attribute and inject arbitrary JavaScript event handlers. Any authenticated user with the EditRecords role can store the payload in a person's Facebook field. The XSS fires against any user who views that person's profile page, including administrators, enabling session hijacking and full account takeover. This vulnerability is fixed in 7.1.0.",
-      "published": "2026-04-07T16:16:29.213",
+      "id": "CVE-2026-39384",
+      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. Prior to 1.8.212, FreeScout does not take the limit_user_customer_visibility parameter into account when merging customers. This vulnerability is fixed in 1.8.212.",
+      "published": "2026-04-07T17:16:37.373",
       "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35534"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39384"
+    },
+    {
+      "id": "CVE-2026-39316",
+      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, a use-after-free vulnerability exists in the CUPS scheduler (cupsd) when temporary printers are automatically deleted. cupsdDeleteTemporaryPrinters() in scheduler/printers.c calls cupsdDeletePrinter() without first expiring subscriptions that reference the printer, leaving cupsd_subscription_t.dest as a dangling pointer to freed heap memory. The dangling pointer is subsequently dereferenced at multiple code sites, causing a crash (denial of service) of the cupsd daemon. With heap grooming, this can be leveraged for code execution.",
+      "published": "2026-04-07T17:16:37.230",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39316"
+    },
+    {
+      "id": "CVE-2026-39314",
+      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, an integer underflow vulnerability in _ppdCreateFromIPP() (cups/ppd-cache.c) allows any unprivileged local user to crash the cupsd root process by supplying a negative job-password-supported IPP attribute. The bounds check only caps the upper bound, so a negative value passes validation, is cast to size_t (wrapping to ~2^64), and is used as the length argument to memset() on a 33-byte stack buffer. This causes an immediate SIGSEGV in the cupsd root process. Combined with systemd's Restart=on-failure, an attacker can repeat the crash for sustained denial of service.",
+      "published": "2026-04-07T17:16:37.073",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39314"
+    },
+    {
+      "id": "CVE-2026-39312",
+      "summary": "SoftEtherVPN is a an open-source cross-platform multi-protocol VPN Program. In 5.2.5188 and earlier, a pre-authentication denial-of-service vulnerability exists in SoftEther VPN Developer Edition 5.2.5188 (and likely earlier versions of Developer Edition). An unauthenticated remote attacker can crash the vpnserver process by sending a single malformed EAP-TLS packet over raw L2TP (UDP/1701), terminating all active VPN sessions.",
+      "published": "2026-04-07T17:16:36.920",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39312"
+    },
+    {
+      "id": "CVE-2026-39308",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to 1.5.113, PraisonAI's recipe registry publish endpoint writes uploaded recipe bundles to a filesystem path derived from the bundle's internal manifest.json before it verifies that the manifest name and version match the HTTP route. A malicious publisher can place ../ traversal sequences in the bundle manifest and cause the registry server to create files outside the configured registry root even though the request is ultimately rejected with HTTP 400. This is an arbitrary file write / path traversal issue on the registry host. It affects deployments that expose the recipe registry publish flow. If the registry is intentionally run without a token, any network client that can reach the service can trigger it. If a token is configured, any user with publish access can still exploit it. This vulnerability is fixed in 1.5.113.",
+      "published": "2026-04-07T17:16:36.770",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39308"
     }
   ]
 }
