@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-07T21:57:07+00:00",
+  "generated_at": "2026-04-07T22:57:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-39401",
-      "summary": "Cronicle is a multi-server task scheduler and runner, with a web based front-end UI. Prior to 0.9.111, jb child processes can include an update_event key in their JSON output. The server applies this directly to the parent event's stored configuration without any authorization check. A low-privilege user who can create and run events can modify any event property, including webhook URLs and notification emails. This vulnerability is fixed in 0.9.111.",
-      "published": "2026-04-07T21:17:18.547",
+      "id": "CVE-2026-4065",
+      "summary": "The Smart Slider 3 plugin for WordPress is vulnerable to unauthorized access and modification of data due to missing capability checks on multiple wp_ajax_smart-slider3 controller actions in all versions up to, and including, 3.5.1.33. The display_admin_ajax() method does not call checkForCap() (which requires unfiltered_html capability), and several controller actions only validate the nonce (validateToken()) without calling validatePermission(). This makes it possible for authenticated attackers, with Contributor-level access and above, to enumerate slider metadata and create, modify, and delete image storage records by obtaining the nextend_nonce exposed on post editor pages.",
+      "published": "2026-04-07T22:16:24.740",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4065"
+    },
+    {
+      "id": "CVE-2026-39937",
+      "summary": "Improper removal of sensitive information before storage or transfer vulnerability in The Wikimedia Foundation Mediawiki - CentralAuth Extension allows Resource Leak Exposure.This issue affects non release branches.",
+      "published": "2026-04-07T22:16:24.283",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39401"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39937"
     },
     {
-      "id": "CVE-2026-39400",
-      "summary": "Cronicle is a multi-server task scheduler and runner, with a web based front-end UI. Prior to 0.9.111, a non-admin user with create_events and run_events privileges can inject arbitrary JavaScript through job output fields (html.content, html.title, table.header, table.rows, table.caption). The server stores this data without sanitization, and the client renders it via innerHTML on the Job Details page. This vulnerability is fixed in 0.9.111.",
-      "published": "2026-04-07T21:17:18.333",
+      "id": "CVE-2026-39934",
+      "summary": "Loop with unreachable exit condition ('infinite loop') vulnerability in The Wikimedia Foundation Mediawiki - GrowthExperiments Extension allows Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions.This issue affects Mediawiki - GrowthExperiments Extension: 1.45.2, 1.44.4, 1.43.7.",
+      "published": "2026-04-07T22:16:24.137",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39400"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39934"
     },
     {
-      "id": "CVE-2026-39397",
-      "summary": "@delmaredigital/payload-puck is a PayloadCMS plugin for integrating Puck visual page builder. Prior to 0.6.23, all /api/puck/* CRUD endpoint handlers registered by createPuckPlugin() called Payload's local API with the default overrideAccess: true, bypassing all collection-level access control. The access option passed to createPuckPlugin() and any access rules defined on Puck-registered collections were silently ignored on these endpoints. This vulnerability is fixed in 0.6.23.",
-      "published": "2026-04-07T21:17:18.160",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39397"
-    },
-    {
-      "id": "CVE-2026-35533",
-      "summary": "mise manages dev tools like node, python, cmake, and terraform. From 2026.2.18 through 2026.4.5, mise loads trust-control settings from a local project .mise.toml before the trust check runs. An attacker who can place a malicious .mise.toml in a repository can make that same file appear trusted and then reach dangerous directives such as [env] _.source, templates, hooks, or tasks.",
-      "published": "2026-04-07T21:17:17.870",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35533"
-    },
-    {
-      "id": "CVE-2026-34080",
-      "summary": "xdg-dbus-proxy is a filtering proxy for D-Bus connections. Prior to 0.1.7, a policy parser vulnerability allows bypassing eavesdrop restrictions. The proxy checks for eavesdrop=true in policy rules but fails to handle eavesdrop ='true' (with a space before the equals sign) and similar cases. Clients can intercept D-Bus messages they should not have access to. This vulnerability is fixed in 0.1.7.",
-      "published": "2026-04-07T21:17:17.720",
+      "id": "CVE-2026-39933",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in The Wikimedia Foundation Mediawiki - GlobalWatchlist Extension allows Cross-Site Scripting (XSS).This issue affects non release branches.",
+      "published": "2026-04-07T22:16:23.980",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34080"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39933"
     },
     {
-      "id": "CVE-2026-34045",
-      "summary": "Podman Desktop is a graphical tool for developing on containers and Kubernetes. Prior to 1.26.2, an unauthenticated HTTP server exposed by Podman Desktop allows any network attacker to remotely trigger denial-of-service conditions and extract sensitive information. By abusing missing connection limits and timeouts, an attacker can exhaust file descriptors and kernel memory, leading to application crash or full host freeze. Additionally, verbose error responses disclose internal paths and system details (including usernames on Windows), aiding further exploitation. The issue requires no authentication or user interaction and is exploitable over the network. This vulnerability is fixed in 1.26.2.",
-      "published": "2026-04-07T21:17:17.557",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34045"
+      "id": "CVE-2026-39847",
+      "summary": "Emmett is a full-stack Python web framework designed with simplicity. From 2.5.0 to before 2.8.1, the RSGI static handler for Emmett's internal assets (/__emmett__ paths) is vulnerable to path traversal attacks. An attacker can use ../ sequences (eg /__emmett__/../rsgi/handlers.py) to read arbitrary files outside the assets directory. This vulnerability is fixed in 2.8.1.",
+      "published": "2026-04-07T22:16:23.793",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39847"
+    },
+    {
+      "id": "CVE-2026-39846",
+      "summary": "SiYuan is a personal knowledge management system. Prior to 3.6.4, a malicious note synced to another user can trigger remote code execution in the SiYuan Electron desktop client. The root cause is that table caption content is stored without safe escaping and later unescaped into rendered HTML, creating a stored XSS sink. Because the desktop renderer runs with nodeIntegration enabled and contextIsolation disabled, attacker-controlled JavaScript executes with access to Node.js APIs. In practice, an attacker can import a crafted note into a synced workspace, wait for the victim to sync, and achieve code execution when the victim opens the note. This vulnerability is fixed in 3.6.4.",
+      "published": "2026-04-07T22:16:23.597",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39846"
     }
   ]
 }
