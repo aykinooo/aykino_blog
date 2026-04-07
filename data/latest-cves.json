@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-07T18:09:39+00:00",
+  "generated_at": "2026-04-07T19:21:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4631",
-      "summary": "Cockpit's remote login feature passes user-supplied hostnames and usernames from the web interface to the SSH client without validation or sanitization. An attacker with network access to the Cockpit web service can craft a single HTTP request to the login endpoint that injects malicious SSH options or shell commands, achieving code execution on the Cockpit host without valid credentials. The injection occurs during the authentication flow before any credential verification takes place, meaning no login is required to exploit the vulnerability.",
-      "published": "2026-04-07T17:16:38.010",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4631"
+      "id": "CVE-2026-5762",
+      "summary": "Allocation of resources without limits or throttling vulnerability in Wikimedia Foundation MediaWiki - ReportIncident Extension allows HTTP DoS.This issue affects MediaWiki - ReportIncident Extension: 1.43.7, 1.44.4, 1.45.2.",
+      "published": "2026-04-07T19:16:48.347",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5762"
     },
     {
-      "id": "CVE-2026-39384",
-      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. Prior to 1.8.212, FreeScout does not take the limit_user_customer_visibility parameter into account when merging customers. This vulnerability is fixed in 1.8.212.",
-      "published": "2026-04-07T17:16:37.373",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39384"
+      "id": "CVE-2026-5736",
+      "summary": "A vulnerability was identified in PowerJob 5.1.0/5.1.1/5.1.2. Impacted is an unknown function of the file powerjob-server/powerjob-server-starter/src/main/java/tech/powerjob/server/web/controller/InstanceController.java of the component detailPlus Endpoint. The manipulation of the argument customQuery leads to sql injection. Remote exploitation of the attack is possible. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-04-07T19:16:48.137",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5736"
     },
     {
-      "id": "CVE-2026-39316",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, a use-after-free vulnerability exists in the CUPS scheduler (cupsd) when temporary printers are automatically deleted. cupsdDeleteTemporaryPrinters() in scheduler/printers.c calls cupsdDeletePrinter() without first expiring subscriptions that reference the printer, leaving cupsd_subscription_t.dest as a dangling pointer to freed heap memory. The dangling pointer is subsequently dereferenced at multiple code sites, causing a crash (denial of service) of the cupsd daemon. With heap grooming, this can be leveraged for code execution.",
-      "published": "2026-04-07T17:16:37.230",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39316"
+      "id": "CVE-2026-39360",
+      "summary": "RustFS is a distributed object storage system built in Rust. Prior to alpha.90, RustFS contains a missing authorization check in the multipart copy path (UploadPartCopy). A low-privileged user who cannot read objects from a victim bucket can still exfiltrate victim objects by copying them into an attacker-controlled multipart upload and completing the upload. This breaks tenant isolation in multi-user / multi-tenant deployments. This vulnerability is fixed in alpha.90.",
+      "published": "2026-04-07T19:16:46.673",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39360"
     },
     {
-      "id": "CVE-2026-39314",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. In versions 2.4.16 and prior, an integer underflow vulnerability in _ppdCreateFromIPP() (cups/ppd-cache.c) allows any unprivileged local user to crash the cupsd root process by supplying a negative job-password-supported IPP attribute. The bounds check only caps the upper bound, so a negative value passes validation, is cast to size_t (wrapping to ~2^64), and is used as the length argument to memset() on a 33-byte stack buffer. This causes an immediate SIGSEGV in the cupsd root process. Combined with systemd's Restart=on-failure, an attacker can repeat the crash for sustained denial of service.",
-      "published": "2026-04-07T17:16:37.073",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39314"
+      "id": "CVE-2026-39355",
+      "summary": "Genealogy is a family tree PHP application. Prior to 5.9.1, a critical broken access control vulnerability in the genealogy application allows any authenticated user to transfer ownership of arbitrary non-personal teams to themselves. This enables complete takeover of other users\u2019 team workspaces and unrestricted access to all genealogy data associated with the compromised team. This vulnerability is fixed in 5.9.1.",
+      "published": "2026-04-07T19:16:46.523",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39355"
     },
     {
-      "id": "CVE-2026-39312",
-      "summary": "SoftEtherVPN is a an open-source cross-platform multi-protocol VPN Program. In 5.2.5188 and earlier, a pre-authentication denial-of-service vulnerability exists in SoftEther VPN Developer Edition 5.2.5188 (and likely earlier versions of Developer Edition). An unauthenticated remote attacker can crash the vpnserver process by sending a single malformed EAP-TLS packet over raw L2TP (UDP/1701), terminating all active VPN sessions.",
-      "published": "2026-04-07T17:16:36.920",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39312"
+      "id": "CVE-2026-39354",
+      "summary": "Scoold is a Q&A and a knowledge sharing platform for teams. Prior to 1.66.2, an authenticated authorization flaw in Scoold allows any logged-in, low-privilege user to overwrite another user's existing question by supplying that question's public ID as the postId parameter to POST /questions/ask. Because question IDs are exposed in normal question URLs, a low-privilege attacker can take a victim question ID from a public page and cause attacker-controlled content to be stored under that existing question object. This causes direct integrity loss of user-generated content and corrupts the integrity of the existing discussion thread. This vulnerability is fixed in 1.66.2.",
+      "published": "2026-04-07T19:16:46.357",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39354"
     },
     {
-      "id": "CVE-2026-39308",
-      "summary": "PraisonAI is a multi-agent teams system. Prior to 1.5.113, PraisonAI's recipe registry publish endpoint writes uploaded recipe bundles to a filesystem path derived from the bundle's internal manifest.json before it verifies that the manifest name and version match the HTTP route. A malicious publisher can place ../ traversal sequences in the bundle manifest and cause the registry server to create files outside the configured registry root even though the request is ultimately rejected with HTTP 400. This is an arbitrary file write / path traversal issue on the registry host. It affects deployments that expose the recipe registry publish flow. If the registry is intentionally run without a token, any network client that can reach the service can trigger it. If a token is configured, any user with publish access can still exploit it. This vulnerability is fixed in 1.5.113.",
-      "published": "2026-04-07T17:16:36.770",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39308"
+      "id": "CVE-2026-39351",
+      "summary": "Frappe is a full-stack web application framework. Prior to 16.14.0 and 15.104.0, Frappe allows unrestricted Doctype access via API exploit.",
+      "published": "2026-04-07T19:16:46.213",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39351"
     }
   ]
 }
