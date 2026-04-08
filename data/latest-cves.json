@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-08T17:19:38+00:00",
+  "generated_at": "2026-04-08T19:38:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2023-46945",
-      "summary": "QD 20230821 is vulnerable to Server-side request forgery (SSRF) via a crafted request",
-      "published": "2026-04-08T17:17:01.010",
+      "id": "CVE-2026-39851",
+      "summary": "Saleor is an e-commerce platform. From 2.10.0 to before 3.23.0a3, 3.22.47, 3.21.54, and 3.20.118, the requestEmailChange() mutation was revealing the existence of user-provided email addresses in error messages. This vulnerability is fixed in 3.23.0a3, 3.22.47, 3.21.54, and 3.20.118.",
+      "published": "2026-04-08T19:25:26.620",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-46945"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39851"
     },
     {
-      "id": "CVE-2026-33753",
-      "summary": "rfc3161-client is a Python library implementing the Time-Stamp Protocol (TSP) described in RFC 3161. Prior to 1.0.6, an Authorization Bypass vulnerability in rfc3161-client's signature verification allows any attacker to impersonate a trusted TimeStamping Authority (TSA). By exploiting a logic flaw in how the library extracts the leaf certificate from an unordered PKCS#7 bag of certificates, an attacker can append a spoofed certificate matching the target common_name and Extended Key Usage (EKU) requirements. This tricks the library into verifying these authorization rules against the forged certificate while validating the cryptographic signature against an actual trusted TSA (such as FreeTSA), thereby bypassing the intended TSA authorization pinning entirely. This vulnerability is fixed in 1.0.6.",
-      "published": "2026-04-08T16:16:23.670",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33753"
+      "id": "CVE-2026-35455",
+      "summary": "immich is a high performance self-hosted photo and video management solution. Prior to 2.7.0, sStored Cross-Site Scripting (XSS) in the 360\u00b0 panorama viewer allows any authenticated user to execute arbitrary JavaScript in the browser of any other user who views the malicious panorama with the OCR overlay enabled. The attacker uploads an equirectangular image containing crafted text; OCR extracts it, and the panorama viewer renders it via innerHTML without sanitization. This enables session hijacking (via persistent API key creation), private photo exfiltration, and access to GPS location history and face biometric data. This vulnerability is fixed in 2.7.0.",
+      "published": "2026-04-08T19:25:24.357",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35455"
     },
     {
-      "id": "CVE-2026-33229",
-      "summary": "XWiki Platform is a generic wiki platform offering runtime services for applications built on top of it. Prior to 17.4.8 and 17.10.1, an improperly protected scripting API allows any user with script right to bypass the sandboxing of the Velocity scripting API and execute, e.g., arbitrary Python scripts, allowing full access to the XWiki instance and thereby compromising the confidentiality, integrity and availability of the whole instance. Note that script right already constitutes a high level of access that we don't recommend giving to untrusted users. This vulnerability is fixed in 17.4.8 and 17.10.1.",
-      "published": "2026-04-08T16:16:23.430",
+      "id": "CVE-2026-35446",
+      "summary": "LORIS (Longitudinal Online Research and Imaging System) is a self-hosted web application that provides data- and project-management for neuroimaging research. From 24.0.0 to before 27.0.3 and 28.0.1, an incorrect order of operations in the FilesDownloadHandler could result in an attacker escaping the intended download directories. This vulnerability is fixed in 27.0.3 and 28.0.1.",
+      "published": "2026-04-08T19:25:24.217",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35446"
+    },
+    {
+      "id": "CVE-2026-35407",
+      "summary": "Saleor is an e-commerce platform. From 2.10.0 to before 3.23.0a3, 3.22.47, 3.21.54, and 3.20.118, a business-logic and authorization flaw was found in the account email change workflow, the confirmation flow did not verify that the email change confirmation token was issued for the given authenticated user. As a result, a valid email-change token generated for one account can be replayed while authenticated as a different account. The second account\u2019s email address is then updated to the token's new_email, even though that token was never issued for that account. This vulnerability is fixed in 3.23.0a3, 3.22.47, 3.21.54, and 3.20.118.",
+      "published": "2026-04-08T19:25:24.040",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33229"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35407"
     },
     {
-      "id": "CVE-2026-31040",
-      "summary": "A vulnerability was identified in stata-mcp prior to v1.13.0 where insufficient validation of user-supplied Stata do-file content can lead to command execution.",
-      "published": "2026-04-08T16:16:22.977",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31040"
+      "id": "CVE-2026-35403",
+      "summary": "LORIS (Longitudinal Online Research and Imaging System) is a self-hosted web application that provides data- and project-management for neuroimaging research. From 15.10 to before 27.0.3 and 28.0.1, there is a potential for a cross-site scripting attack in the survey_accounts module if a user provides an invalid visit label. While the data is properly JSON encoded, the Content-Type header is not set causing the web browser to interpret the payload as HTML, opening the possibility of a cross-site scripting if a user is tricked into following an invalid link. This vulnerability is fixed in 27.0.3 and 28.0.1.",
+      "published": "2026-04-08T19:25:23.893",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35403"
     },
     {
-      "id": "CVE-2026-39865",
-      "summary": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.13.2, Axios HTTP/2 session cleanup logic contains a state corruption bug that allows a malicious server to crash the client process through concurrent session closures. The vulnerability exists in the Http2Sessions.getSession() method in lib/adapters/http.js. The session cleanup logic contains a control flow error when removing sessions from the sessions array. This vulnerability is fixed in 1.13.2.",
-      "published": "2026-04-08T15:16:16.210",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39865"
-    },
-    {
-      "id": "CVE-2026-39410",
-      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. Prior to 4.12.12, a discrepancy between browser cookie parsing and parse() handling allows cookie prefix protections to be bypassed. Cookie names that are treated as distinct by the browser may be normalized to the same key by parse(), allowing attacker-controlled cookies to override legitimate ones. This vulnerability is fixed in 4.12.12.",
-      "published": "2026-04-08T15:16:15.143",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39410"
+      "id": "CVE-2026-35401",
+      "summary": "Saleor is an e-commerce platform. From 2.0.0 to before 3.23.0a3, 3.22.47, 3.21.54, and 3.20.118, a malicious actor can include many GraphQL mutations or queries in a single API call using aliases or chaining multiple mutations, resulting in resource exhaustion. This vulnerability is fixed in 3.23.0a3, 3.22.47, 3.21.54, and 3.20.118.",
+      "published": "2026-04-08T19:25:23.740",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35401"
     }
   ]
 }
