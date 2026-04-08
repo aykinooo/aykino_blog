@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-08T21:58:46+00:00",
+  "generated_at": "2026-04-08T22:59:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5805",
-      "summary": "A weakness has been identified in code-projects Easy Blog Site up to 1.0. The impacted element is an unknown function of the file /users/contact_us.php. Executing a manipulation of the argument Name can lead to sql injection. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
-      "published": "2026-04-08T21:17:02.200",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5805"
-    },
-    {
-      "id": "CVE-2026-5803",
-      "summary": "A security flaw has been discovered in bigsk1 openai-realtime-ui up to 188ccde27fdf3d8fab8da81f3893468f53b2797c. The affected element is an unknown function of the file server.js of the component API Proxy Endpoint. Performing a manipulation of the argument Query results in server-side request forgery. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The patch is named 54f8f50f43af97c334a881af7b021e84b5b8310f. It is suggested to install a patch to address this issue.",
-      "published": "2026-04-08T21:17:01.977",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5803"
-    },
-    {
-      "id": "CVE-2026-5451",
-      "summary": "The Extensions for Leaflet Map plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'elevation-track' shortcode in all versions up to, and including, 4.14. This is due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-08T21:17:01.837",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5451"
-    },
-    {
-      "id": "CVE-2026-5436",
-      "summary": "The MW WP Form plugin for WordPress is vulnerable to Arbitrary File Move/Read in all versions up to and including 5.1.1. This is due to insufficient validation of the $name parameter (upload field key) passed to the generate_user_file_dirpath() function, which uses WordPress's path_join() \u2014 a function that returns absolute paths unchanged, discarding the intended base directory. The attacker-controlled key is injected via the mwf_upload_files[] POST parameter, which is loaded into the plugin's Data model via _set_request_valiables(). During form processing, regenerate_upload_file_keys() iterates over these keys and calls generate_user_filepath() with the attacker-supplied key as the $name argument \u2014 the key survives validation because the targeted file (e.g., wp-config.php) genuinely exists at the absolute path. The _get_attachments() method then re-reads the same surviving keys and passes the resolved file path to move_temp_file_to_upload_dir(), which calls rename() to move the file into the uploads folder. This makes it possible for unauthenticated attackers to move arbitrary files on the server, which can easily lead to remote code execution when the right file is moved (such as wp-config.php). The vulnerability is only exploitable if a file upload field is added to the form and the \u201cSaving inquiry data in database\u201d option is enabled.",
-      "published": "2026-04-08T21:17:01.690",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5436"
-    },
-    {
-      "id": "CVE-2026-39892",
-      "summary": "cryptography is a package designed to expose cryptographic primitives and recipes to Python developers. From 45.0.0 to before 46.0.7, if a non-contiguous buffer was passed to APIs which accepted Python buffers (e.g. Hash.update()), this could lead to buffer overflows. This vulnerability is fixed in 46.0.7.",
-      "published": "2026-04-08T21:17:01.547",
+      "id": "CVE-2026-5919",
+      "summary": "Insufficient validation of untrusted input in WebSockets in Google Chrome prior to 147.0.7727.55 allowed a remote attacker who had compromised the renderer process to bypass same origin policy via a crafted HTML page. (Chromium security severity: Low)",
+      "published": "2026-04-08T22:16:31.667",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39892"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5919"
     },
     {
-      "id": "CVE-2026-39891",
-      "summary": "PraisonAI is a multi-agent teams system. Prior to 4.5.115, the create_agent_centric_tools() function returns tools (like acp_create_file) that process file content using template rendering. When user input from agent.start() is passed directly into these tools without escaping, template expressions in the input are executed rather than treated as literal text. This vulnerability is fixed in 4.5.115.",
-      "published": "2026-04-08T21:17:01.403",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39891"
+      "id": "CVE-2026-5918",
+      "summary": "Inappropriate implementation in Navigation in Google Chrome prior to 147.0.7727.55 allowed a remote attacker who had compromised the renderer process to leak cross-origin data via a crafted HTML page. (Chromium security severity: Low)",
+      "published": "2026-04-08T22:16:31.570",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5918"
+    },
+    {
+      "id": "CVE-2026-5915",
+      "summary": "Insufficient validation of untrusted input in WebML in Google Chrome prior to 147.0.7727.55 allowed a remote attacker to perform an out of bounds memory write via a crafted HTML page. (Chromium security severity: Low)",
+      "published": "2026-04-08T22:16:31.460",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5915"
+    },
+    {
+      "id": "CVE-2026-5914",
+      "summary": "Type Confusion in CSS in Google Chrome prior to 147.0.7727.55 allowed an attacker who convinced a user to install a malicious extension to potentially exploit heap corruption via a crafted Chrome Extension. (Chromium security severity: Low)",
+      "published": "2026-04-08T22:16:31.343",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5914"
+    },
+    {
+      "id": "CVE-2026-5913",
+      "summary": "Out of bounds read in Blink in Google Chrome prior to 147.0.7727.55 allowed a remote attacker to perform an out of bounds memory read via a crafted HTML page. (Chromium security severity: Low)",
+      "published": "2026-04-08T22:16:31.220",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5913"
+    },
+    {
+      "id": "CVE-2026-5912",
+      "summary": "Integer overflow in WebRTC in Google Chrome prior to 147.0.7727.55 allowed a remote attacker to perform an out of bounds memory write via a crafted HTML page. (Chromium security severity: Low)",
+      "published": "2026-04-08T22:16:31.110",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5912"
     }
   ]
 }
