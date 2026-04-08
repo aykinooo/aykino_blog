@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-08T03:30:54+00:00",
+  "generated_at": "2026-04-08T05:56:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5726",
-      "summary": "ASDA-Soft Stack-based Buffer Overflow Vulnerability",
-      "published": "2026-04-08T03:16:07.700",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5726"
+      "id": "CVE-2026-4785",
+      "summary": "The LatePoint \u2013 Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'button_caption' parameter in the [latepoint_resources] shortcode in versions up to and including 5.3.0. This is due to insufficient output escaping when the 'items' parameter is set to 'bundles'. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-08T05:16:06.997",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4785"
     },
     {
-      "id": "CVE-2026-1163",
-      "summary": "An insufficient session expiration vulnerability exists in the latest version of parisneo/lollms. The application fails to invalidate active sessions after a password reset, allowing an attacker to continue using an old session token. This issue arises due to the absence of logic to reject requests after a period of inactivity and the excessively long default session duration of 31 days. The vulnerability enables an attacker to maintain persistent access to a compromised account, even after the victim resets their password.",
-      "published": "2026-04-08T03:16:07.500",
-      "cvss": 4.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1163"
+      "id": "CVE-2026-4341",
+      "summary": "The Prime Slider \u2013 Addons for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'follow_us_text' setting of the Mount widget in all versions up to, and including, 4.1.10. This is due to insufficient input sanitization and output escaping. Specifically, the `render_social_link()` function in `modules/mount/widgets/mount.php` outputs the `follow_us_text` Elementor widget setting using `echo` without any escaping function. The setting value is stored in `_elementor_data` post meta via `update_post_meta`. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-08T05:16:06.840",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4341"
     },
     {
-      "id": "CVE-2026-3499",
-      "summary": "The Product Feed PRO for WooCommerce by AdTribes \u2013 Product Feeds for WooCommerce plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions 13.4.6 through 13.5.2.1. This is due to missing or incorrect nonce validation on the ajax_migrate_to_custom_post_type, ajax_adt_clear_custom_attributes_product_meta_keys, ajax_update_file_url_to_lower_case, ajax_use_legacy_filters_and_rules, and ajax_fix_duplicate_feed functions. This makes it possible for unauthenticated attackers to trigger feed migration, clear custom-attribute transient caches, rewrite feed file URLs to lowercase, toggle legacy filter and rule settings, and delete duplicated feed posts via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-04-08T02:16:04.237",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3499"
+      "id": "CVE-2026-4333",
+      "summary": "The LearnPress \u2013 WordPress LMS Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'skin' attribute of the learn_press_courses shortcode in all versions up to and including 4.3.3. This is due to insufficient input sanitization and output escaping on the 'skin' shortcode attribute. The attribute value is used directly in an sprintf() call that generates HTML (class attribute and data-layout attribute) without any esc_attr() escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-08T05:16:06.683",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4333"
     },
     {
-      "id": "CVE-2026-3296",
-      "summary": "The Everest Forms plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.4.3 via deserialization of untrusted input from form entry metadata. This is due to the html-admin-page-entries-view.php file calling PHP's native unserialize() on stored entry meta values without passing the allowed_classes parameter. This makes it possible for unauthenticated attackers to inject a serialized PHP object payload through any public Everest Forms form field. The payload survives sanitize_text_field() sanitization (serialization control characters are not stripped) and is stored in the wp_evf_entrymeta database table. When an administrator views entries or views an individual entry, the unsafe unserialize() call processes the stored data without class restrictions.",
-      "published": "2026-04-08T02:16:04.067",
+      "id": "CVE-2026-4299",
+      "summary": "The MainWP Child Reports plugin for WordPress is vulnerable to Missing Authorization in all versions up to and including 2.2.6. This is due to a missing capability check in the heartbeat_received() function in the Live_Update class. This makes it possible for authenticated attackers, with Subscriber-level access and above, to obtain MainWP Child Reports activity log entries (including action summaries, user information, IP addresses, and contextual data) via the WordPress Heartbeat API by sending a crafted heartbeat request with the 'wp-mainwp-stream-heartbeat' data key.",
+      "published": "2026-04-08T05:16:06.520",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4299"
+    },
+    {
+      "id": "CVE-2026-4003",
+      "summary": "The Users manager \u2013 PN plugin for WordPress is vulnerable to Privilege Escalation via Arbitrary User Meta Update in all versions up to and including 1.1.15. This is due to a flawed authorization logic check in the userspn_ajax_nopriv_server() function within the 'userspn_form_save' case. The conditional only blocks unauthenticated users when the user_id is empty, but when a non-empty user_id is supplied, execution bypasses this check entirely and proceeds to update arbitrary user meta via update_user_meta() without any authentication or authorization verification. Additionally, the nonce required for this AJAX endpoint ('userspn-nonce') is exposed to all visitors via wp_localize_script on the public wp_enqueue_scripts hook, rendering the nonce check ineffective as a security control. This makes it possible for unauthenticated attackers to update arbitrary user metadata for any user account, including the userspn_secret_token field.",
+      "published": "2026-04-08T05:16:06.347",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3296"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4003"
     },
     {
-      "id": "CVE-2026-33810",
-      "summary": "When verifying a certificate chain containing excluded DNS constraints, these constraints are not correctly applied to wildcard DNS SANs which use a different case than the constraint. This only affects validation of otherwise trusted certificate chains, issued by a root CA in the VerifyOptions.Roots CertPool, or in the system certificate pool.",
-      "published": "2026-04-08T02:16:03.950",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33810"
-    },
-    {
-      "id": "CVE-2026-32289",
-      "summary": "Context was not properly tracked across template branches for JS template literals, leading to possibly incorrect escaping of content when branches were used. Additionally template actions within JS template literals did not properly track the brace depth, leading to incorrect escaping being applied. These issues could cause actions within JS template literals to be incorrectly or improperly escaped, leading to XSS vulnerabilities.",
-      "published": "2026-04-08T02:16:03.820",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32289"
+      "id": "CVE-2026-3646",
+      "summary": "The LTL Freight Quotes \u2013 R+L Carriers Edition plugin for WordPress is vulnerable to Missing Authorization via the plugin's webhook handler in all versions up to, and including, 3.3.13. This is due to missing authentication, authorization, and nonce verification on a standalone PHP file that directly processes GET parameters and updates WordPress options. This makes it possible for unauthenticated attackers to modify the plugin's subscription plan settings, effectively downgrading the store from a paid plan to the Trial Plan, changing the store type, and manipulating subscription expiration dates, potentially disabling premium features such as Dropship and Hazardous Material handling.",
+      "published": "2026-04-08T05:16:06.130",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3646"
     }
   ]
 }
