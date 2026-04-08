@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-08T12:03:32+00:00",
+  "generated_at": "2026-04-08T14:00:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4303",
-      "summary": "The WP Visitor Statistics (Real Time Traffic) plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'wsm_showDayStatsGraph' shortcode in all versions up to, and including, 8.4 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-08T10:16:02.173",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4303"
-    },
-    {
-      "id": "CVE-2026-4300",
-      "summary": "The Robo Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'Loading Label' setting in all versions up to, and including, 5.1.3. The plugin uses a custom `|***...***|` marker pattern in its `fixJsFunction()` method to embed raw JavaScript function references within JSON-encoded configuration objects. When a gallery's options are rendered on the frontend, `json_encode()` wraps all string values in double quotes. The `fixJsFunction()` method then strips the `\"|***` and `***|\"` sequences, effectively converting a JSON string value into raw JavaScript code. The Loading Label field (stored as `rbs_gallery_LoadingWord` post_meta) is an `rbstext` type field that is sanitized with `sanitize_text_field()` on save. While this strips HTML tags, it does not strip the `|***...***|` markers since they contain no HTML. When a user inputs `|***alert(document.domain)***|`, the value passes through sanitization intact, is stored in post_meta, and is later retrieved and output within an inline `<script>` tag via `renderMainBlock()` with the quote markers stripped \u2014 resulting in arbitrary JavaScript execution. The gallery post type uses `capability_type => 'post'`, allowing Author-level users to create galleries. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses a page containing the gallery shortcode.",
-      "published": "2026-04-08T10:16:01.953",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4300"
-    },
-    {
-      "id": "CVE-2026-4073",
-      "summary": "The pdfl.io plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'pdflio' shortcode in all versions up to, and including, 1.0.5. This is due to insufficient input sanitization and output escaping on the 'text' shortcode attribute. The output_shortcode() function directly concatenates the user-supplied $text variable into HTML output without applying esc_html() or any other escaping function. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-08T10:16:01.777",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4073"
-    },
-    {
-      "id": "CVE-2026-4025",
-      "summary": "The PrivateContent Free plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'align' shortcode attribute in the [pc-login-form] shortcode in all versions up to, and including, 1.2.0. This is due to insufficient input sanitization and output escaping on the 'align' attribute. Specifically, the attribute value flows from the shortcode through pc_login_form() to pc_static::form_align(), where it is directly concatenated into an HTML class attribute without esc_attr() or any escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-08T10:16:00.813",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4025"
-    },
-    {
-      "id": "CVE-2026-39716",
-      "summary": "Missing Authorization vulnerability in CKThemes Flipmart flipmart allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Flipmart: from n/a through <= 2.8.",
-      "published": "2026-04-08T09:16:44.663",
+      "id": "CVE-2026-5600",
+      "summary": "A new API endpoint introduced in pretix 2025 that is supposed to \nreturn all check-in events of a specific event in fact returns all \ncheck-in events belonging to the respective organizer. This allows an \nAPI consumer to access information for all other events under the same \norganizer, even those they should not have access to.\n\n\nThese records contain information on the time and result of every ticket scan as well as the ID of the matched ticket. Example:\n\n\n{\n  \"id\": 123,\n  \"successful\": true,\n  \"error_reason\": null,\n  \"error_explanation\": null,\n  \"position\": 321,\n  \"datetime\": \"2020-08-23T09:00:00+02:00\",\n  \"list\": 456,\n  \"created\": \"2020-08-23T09:00:00+02:00\",\n  \"auto_checked_in\": false,\n  \"gate\": null,\n  \"device\": 1,\n  \"device_id\": 1,\n  \"type\": \"entry\"\n}\n\n\n\nAn unauthorized user usually has no way to match these IDs (position) back to individual people.",
+      "published": "2026-04-08T13:16:43.543",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39716"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5600"
     },
     {
-      "id": "CVE-2026-39715",
-      "summary": "Missing Authorization vulnerability in AnyTrack AnyTrack Affiliate Link Manager anytrack-affiliate-link-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects AnyTrack Affiliate Link Manager: from n/a through <= 1.5.5.",
-      "published": "2026-04-08T09:16:44.533",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39715"
+      "id": "CVE-2026-5302",
+      "summary": "CORS misconfiguration in CoolerControl/coolercontrold <4.0.0 allows unauthenticated remote attackers to read data and send commands to the service via malicious websites",
+      "published": "2026-04-08T13:16:43.403",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5302"
+    },
+    {
+      "id": "CVE-2026-5301",
+      "summary": "Stored XSS in log viewer in CoolerControl/coolercontrol-ui <4.0.0 allows unauthenticated attackers to take over the service via malicious JavaScript in poisoned log entries",
+      "published": "2026-04-08T13:16:43.260",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5301"
+    },
+    {
+      "id": "CVE-2026-5300",
+      "summary": "Unauthenticated functionality in  CoolerControl/coolercontrold <4.0.0 allows unauthenticated attackers to view and modify potentially sensitive data via HTTP requests",
+      "published": "2026-04-08T13:16:43.123",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5300"
+    },
+    {
+      "id": "CVE-2026-28261",
+      "summary": "Dell Elastic Cloud Storage, version 3.8.1.7 and prior, and Dell ObjectScale,\u00a0versions prior to 4.1.0.3 and version 4.2.0.0, contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to secret exposure. The attacker may be able to use the exposed secret to access the vulnerable system with privileges of the compromised account.",
+      "published": "2026-04-08T13:16:41.533",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28261"
+    },
+    {
+      "id": "CVE-2026-27102",
+      "summary": "Dell PowerScale OneFS,\u00a0versions 9.5.0.0 through 9.10.1.6 and\u00a0versions 9.11.0.0 through 9.13.0.1,\u00a0contains an incorrect privilege assignment vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to elevation of privileges.",
+      "published": "2026-04-08T13:16:41.370",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27102"
     }
   ]
 }
