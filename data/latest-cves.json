@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-09T15:54:43+00:00",
+  "generated_at": "2026-04-09T17:21:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5959",
-      "summary": "A security flaw has been discovered in GL.iNet GL-RM1, GL-RM10, GL-RM10RC and GL-RM1PE 1.8.1. Affected by this issue is some unknown functionality of the component Factory Reset Handler. Performing a manipulation results in improper authentication. The attack can be initiated remotely. The complexity of an attack is rather high. The exploitation is known to be difficult. Upgrading to version 1.8.2 can resolve this issue. It is advisable to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
-      "published": "2026-04-09T15:16:17.760",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5959"
+      "id": "CVE-2026-5962",
+      "summary": "A vulnerability was detected in Tenda CH22 1.0.0.6(468). This issue affects the function R7WebsSecurityHandlerfunction of the component httpd. The manipulation results in path traversal. The attack may be launched remotely. The exploit is now public and may be used.",
+      "published": "2026-04-09T17:16:35.037",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5962"
     },
     {
-      "id": "CVE-2026-5445",
-      "summary": "An out-of-bounds read vulnerability exists in the `DecodeLookupTable` function within `DicomImageDecoder.cpp`. The lookup-table decoding logic used for `PALETTE COLOR` images does not validate pixel indices against the lookup table size. Crafted images containing indices larger than the palette size cause the decoder to read beyond allocated lookup table memory and expose heap contents in the output image.",
-      "published": "2026-04-09T15:16:16.863",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5445"
+      "id": "CVE-2026-5961",
+      "summary": "A security vulnerability has been detected in code-projects Simple IT Discussion Forum 1.0. This vulnerability affects unknown code of the file /topic-details.php. The manipulation of the argument post_id leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-04-09T17:16:33.957",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5961"
     },
     {
-      "id": "CVE-2026-5444",
-      "summary": "A heap buffer overflow vulnerability exists in the PAM image parsing logic. When Orthanc processes a crafted PAM image embedded in a DICOM file, image dimensions are multiplied using 32-bit unsigned arithmetic. Specially chosen values can cause an integer overflow during buffer size calculation, resulting in the allocation of a small buffer followed by a much larger write operation during pixel processing.",
-      "published": "2026-04-09T15:16:16.760",
+      "id": "CVE-2026-40046",
+      "summary": "Integer Overflow or Wraparound vulnerability in Apache ActiveMQ, Apache ActiveMQ All, Apache ActiveMQ MQTT.\n\nThe fix for \"CVE-2025-66168: MQTT control packet remaining length field is not properly validated\" was only applied to 5.19.2 (and future 5.19.x) releases but was missed for all 6.0.0+ versions.\n\n\nThis issue affects Apache ActiveMQ: from 6.0.0 before 6.2.4; Apache ActiveMQ All: from 6.0.0 before 6.2.4; Apache ActiveMQ MQTT: from 6.0.0 before 6.2.4.\n\n\n\nUsers are recommended to upgrade to version 6.2.4 or a 5.19.x version starting with 5.19.2 or later (currently latest is 5.19.5), which fixes the issue.",
+      "published": "2026-04-09T17:16:31.650",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5444"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40046"
     },
     {
-      "id": "CVE-2026-5443",
-      "summary": "A heap buffer overflow vulnerability exists during the decoding of `PALETTE COLOR` DICOM images. Pixel length validation uses 32-bit multiplication for width and height calculations. If these values overflow, the validation check incorrectly succeeds, allowing the decoder to read and write to memory beyond allocated buffers.",
-      "published": "2026-04-09T15:16:16.653",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5443"
+      "id": "CVE-2026-39976",
+      "summary": "Laravel Passport provides OAuth2 server support to Laravel. From 13.0.0 to before 13.7.1, there is an Authentication Bypass for client_credentials tokens. the league/oauth2-server library sets the JWT sub claim to the client identifier (since there's no user). The token guard then passes this value to retrieveById() without validating it's actually a user identifier, potentially resolving an unrelated real user. Any machine-to-machine token can inadvertently authenticate as an actual user. This vulnerability is fixed in 13.7.1.",
+      "published": "2026-04-09T17:16:31.267",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39976"
     },
     {
-      "id": "CVE-2026-5442",
-      "summary": "A heap buffer overflow vulnerability exists in the DICOM image decoder. Dimension fields are encoded using Value Representation (VR) Unsigned Long (UL), instead of the expected VR Unsigned Short (US), which allows extremely large dimensions to be processed. This causes an integer overflow during frame size calculation and results in out-of-bounds memory access during image decoding.",
-      "published": "2026-04-09T15:16:16.543",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5442"
+      "id": "CVE-2026-39974",
+      "summary": "n8n-MCP is a Model Context Protocol (MCP) server that provides AI assistants with comprehensive access to n8n node documentation, properties, and operations. Prior to 2.47.4, an authenticated Server-Side Request Forgery in n8n-mcp allows a caller holding a valid AUTH_TOKEN to cause the server to issue HTTP requests to arbitrary URLs supplied through multi-tenant HTTP headers. Response bodies are reflected back through JSON-RPC, so an attacker can read the contents of any URL the server can reach \u2014 including cloud instance metadata endpoints (AWS IMDS, GCP, Azure, Alibaba, Oracle), internal network services, and any other host the server process has network access to. The primary at-risk deployments are multi-tenant HTTP installations where more than one operator can present a valid AUTH_TOKEN, or where a token is shared with less-trusted clients. Single-tenant stdio deployments and HTTP deployments without multi-tenant headers are not affected. This vulnerability is fixed in 2.47.4.",
+      "published": "2026-04-09T17:16:30.933",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39974"
     },
     {
-      "id": "CVE-2026-5441",
-      "summary": "An out-of-bounds read vulnerability exists in the `DecodePsmctRle1` function of `DicomImageDecoder.cpp`. The `PMSCT_RLE1` decompression routine, which decodes the proprietary Philips Compression format, does not properly validate escape markers placed near the end of the compressed data stream. A crafted sequence at the end of the buffer can cause the decoder to read beyond the allocated memory region and leak heap data into the rendered image output.",
-      "published": "2026-04-09T15:16:16.443",
+      "id": "CVE-2026-39972",
+      "summary": "Mercure is a protocol for pushing data updates to web browsers and other HTTP clients in a battery-efficient way. Prior to 0.22.0, a cache key collision vulnerability in TopicSelectorStore allows an attacker to poison the match result cache, potentially causing private updates to be delivered to unauthorized subscribers or blocking delivery to authorized ones. The cache key was constructed by concatenating the topic selector and topic with an underscore separator. Because both topic selectors and topics can contain underscores, two distinct pairs can produce the same key. An attacker who can subscribe to the hub or publish updates with crafted topic names can exploit this to bypass authorization checks on private updates. This vulnerability is fixed in 0.22.0.",
+      "published": "2026-04-09T17:16:30.770",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5441"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39972"
     }
   ]
 }
