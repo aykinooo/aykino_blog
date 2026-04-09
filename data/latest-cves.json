@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-09T11:16:04+00:00",
+  "generated_at": "2026-04-09T14:12:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4901",
-      "summary": "Hydrosystem Control System saves sensitive information into a log file. Critically, user credentials are logged allowing the attacker to obtain further authorized access into the system. Combined with vulnerability CVE-2026-34184, these sensitive information could be accessed by an unauthorized user.This issue was fixed in Hydrosystem Control System version 9.8.5",
-      "published": "2026-04-09T10:16:22.543",
+      "id": "CVE-2026-3005",
+      "summary": "The List category posts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'catlist' shortcode in all versions up to, and including, 0.94.0 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-09T13:16:43.980",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3005"
+    },
+    {
+      "id": "CVE-2026-2519",
+      "summary": "The Online Scheduling and Appointment Booking System \u2013 Bookly plugin for WordPress is vulnerable to price manipulation via the 'tips' parameter in all versions up to, and including, 27.0. This is due to the plugin trusting a user-supplied input without server-side validation against the configured price. This makes it possible for unauthenticated attackers to submit a negative number to the 'tips' parameter, causing the total price to be reduced to zero.",
+      "published": "2026-04-09T13:16:42.843",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2519"
+    },
+    {
+      "id": "CVE-2026-24661",
+      "summary": "Mattermost Plugins versions <=2.1.3.0 fail to limit the request body size on the {{/changes}} webhook endpoint which allows an authenticated attacker to cause memory exhaustion and denial of service via sending an oversized JSON payload. Mattermost Advisory ID: MMSA-2026-00611",
+      "published": "2026-04-09T11:16:21.047",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24661"
+    },
+    {
+      "id": "CVE-2026-21388",
+      "summary": "Mattermost Plugins versions <=2.3.1 fail to limit the request body size on the {{/lifecycle}} webhook endpoint which allows an authenticated attacker to cause memory exhaustion and denial of service via sending an oversized JSON payload. Mattermost Advisory ID: MMSA-2026-00610",
+      "published": "2026-04-09T11:16:20.897",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21388"
+    },
+    {
+      "id": "CVE-2025-57735",
+      "summary": "When user logged out, the JWT token the user had authtenticated with was not invalidated, which could lead to reuse of that token in case it was intercepted. In Airflow 3.2 we implemented the mechanism that implements token invalidation at logout. Users who are concerned about the logout scenario and possibility of intercepting the tokens, should upgrade to Airflow 3.2+\n\n\n\nUsers are recommended to upgrade to version 3.2.0, which fixes this issue.",
+      "published": "2026-04-09T11:16:20.757",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4901"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-57735"
     },
     {
-      "id": "CVE-2026-34538",
-      "summary": "Apache Airflow versions 3.0.0 through 3.1.8 DagRun wait endpoint returns XCom result values even to users who only have DAG Run read permissions, such as the Viewer role.This behavior conflicts with the FAB RBAC model, which treats XCom as a separate protected resource, and with the security model documentation that defines the Viewer role as read-only.\n\nAirflow uses the FAB Auth Manager to manage access control on a per-resource basis. The Viewer role is intended to be read-only by default, and the security model documentation defines Viewer users as those who can inspect DAGs without accessing sensitive execution results.\n\nUsers are recommended to upgrade to Apache Airflow 3.2.0 which resolves this issue.",
-      "published": "2026-04-09T10:16:22.407",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34538"
-    },
-    {
-      "id": "CVE-2026-34185",
-      "summary": "Hydrosystem Control System is vulnerable to SQL Injection across most scripts and input parameters. Because no protections are in place, an authenticated attacker can inject arbitrary SQL commands, potentially gaining full control over the database.This issue was fixed in Hydrosystem Control System version 9.8.5",
-      "published": "2026-04-09T10:16:22.260",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34185"
-    },
-    {
-      "id": "CVE-2026-34184",
-      "summary": "Hydrosystem Control System does not enforce authorization for some directories. This allows an unauthorized attacker to read all files in these directories and even execute some of them. Critically the attacker could run PHP scripts directly on the connected database.This issue was fixed in\u00a0Hydrosystem Control System version\u00a09.8.5",
-      "published": "2026-04-09T10:16:22.110",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34184"
-    },
-    {
-      "id": "CVE-2026-34179",
-      "summary": "In Canonical LXD versions 4.12 through 6.7, the doCertificateUpdate function in lxd/certificates.go does not validate the Type field when handling PUT/PATCH requests to /1.0/certificates/{fingerprint} for restricted TLS certificate users, allowing a remote authenticated attacker to escalate privileges to cluster admin.",
-      "published": "2026-04-09T10:16:21.963",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34179"
-    },
-    {
-      "id": "CVE-2026-34178",
-      "summary": "In Canonical LXD before 6.8, the backup import path validates project restrictions against backup/index.yaml in the supplied tar archive but creates the instance from backup/container/backup.yaml, a separate file in the same archive that is never checked against project restrictions. An authenticated remote attacker with instance-creation permission in a restricted project can craft a backup archive where backup.yaml carries restricted settings such as security.privileged=true or raw.lxc directives, bypassing all project restriction enforcement and allowing full host compromise.",
-      "published": "2026-04-09T10:16:21.820",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34178"
+      "id": "CVE-2024-1490",
+      "summary": "An authenticated remote attacker with high privileges can exploit the OpenVPN configuration via the web-based management interface of a WAGO PLC. If user-defined scripts are permitted, OpenVPN may allow the execution of arbitrary shell commands enabling the attacker to run arbitrary commands on the device.",
+      "published": "2026-04-09T11:16:19.657",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-1490"
     }
   ]
 }
