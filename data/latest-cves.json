@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-10T19:10:28+00:00",
+  "generated_at": "2026-04-10T19:52:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5483",
-      "summary": "A flaw was found in odh-dashboard in Red Hat Openshift AI. This vulnerability in the `odh-dashboard` component of Red Hat OpenShift AI (RHOAI) allows for the disclosure of Kubernetes Service Account tokens through a NodeJS endpoint. This could enable an attacker to gain unauthorized access to Kubernetes resources.",
-      "published": "2026-04-10T18:16:46.567",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5483"
+      "id": "CVE-2026-3446",
+      "summary": "When calling base64.b64decode() or related functions the decoding process would stop after encountering the first padded quad regardless of whether there was more information to be processed. This can lead to data being accepted which may be processed differently by other implementations. Use \"validate=True\" to enable stricter processing of base64 data.",
+      "published": "2026-04-10T19:16:26.220",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3446"
     },
     {
-      "id": "CVE-2026-40163",
-      "summary": "Saltcorn is an extensible, open source, no-code database application builder. Prior to 1.4.5, 1.5.5, and 1.6.0-beta.4, the POST /sync/offline_changes endpoint allows an unauthenticated attacker to create arbitrary directories and write a changes.json file with attacker-controlled JSON content anywhere on the server filesystem. The GET /sync/upload_finished endpoint allows an unauthenticated attacker to list arbitrary directory contents and read specific JSON files. This vulnerability is fixed in 1.4.5, 1.5.5, and 1.6.0-beta.4.",
-      "published": "2026-04-10T18:16:46.233",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40163"
+      "id": "CVE-2026-33737",
+      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, multiple files use simplexml_load_string() without XXE protection. With LIBXML_NOENT flag, arbitrary server files can be read. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
+      "published": "2026-04-10T19:16:24.560",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33737"
     },
     {
-      "id": "CVE-2026-40162",
-      "summary": "Bugsink is a self-hosted error tracking tool. In 2.1.0, an authenticated file write vulnerability was identified in Bugsink 2.1.0 in the artifact bundle assembly flow. A user with a valid authentication token could cause the application to write attacker-controlled content to a filesystem location writable by the Bugsink process. This vulnerability is fixed in 2.1.1.",
-      "published": "2026-04-10T18:16:46.083",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40162"
-    },
-    {
-      "id": "CVE-2026-33141",
-      "summary": "Chamilo LMS is a learning management system. Prior to 2.0.0-RC.3, an Insecure Direct Object Reference (IDOR) vulnerability in the REST API stats endpoint allows any authenticated user (including low-privilege students with ROLE_USER) to read any other user's learning progress, certificates, and gradebook scores for any course, without enrollment or supervisory relationship. This vulnerability is fixed in 2.0.0-RC.3.",
-      "published": "2026-04-10T18:16:42.743",
+      "id": "CVE-2026-33736",
+      "summary": "Chamilo LMS is a learning management system. Prior to 2.0.0-RC.3, any authenticated user (including ROLE_STUDENT) can enumerate all platform users and access personal information (email, phone, roles) via GET /api/users, including administrator accounts. This vulnerability is fixed in 2.0.0-RC.3.",
+      "published": "2026-04-10T19:16:24.410",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33141"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33736"
     },
     {
-      "id": "CVE-2026-32932",
-      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, an Open Redirect vulnerability in the session course edit page allows an attacker to redirect an authenticated administrator to an arbitrary external URL after saving coach assignment changes. The redirect also leaks the id_session parameter to the attacker's server. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
-      "published": "2026-04-10T18:16:42.590",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32932"
-    },
-    {
-      "id": "CVE-2026-32931",
-      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, an unrestricted file upload vulnerability in the exercise sound upload function allows an authenticated teacher to upload a PHP webshell by spoofing the Content-Type header to audio/mpeg. The uploaded file retains its original .php extension and is placed in a web-accessible directory, enabling Remote Code Execution as the web server user (www-data). This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
-      "published": "2026-04-10T18:16:42.430",
+      "id": "CVE-2026-33710",
+      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, REST API keys are generated using md5(time() + (user_id * 5) - rand(10000, 10000)). The rand(10000, 10000) call always returns exactly 10000 (min == max), making the formula effectively md5(timestamp + user_id*5 - 10000). An attacker who knows a username and approximate key creation time can brute-force the API key. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
+      "published": "2026-04-10T19:16:24.257",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32931"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33710"
+    },
+    {
+      "id": "CVE-2026-33708",
+      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38, the get_user_info_from_username REST API endpoint returns personal information (email, first name, last name, user ID, active status) of any user to any authenticated user, including students. There is no authorization check. This vulnerability is fixed in 1.11.38.",
+      "published": "2026-04-10T19:16:24.107",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33708"
+    },
+    {
+      "id": "CVE-2026-33707",
+      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, the default password reset mechanism generates tokens using sha1($email) with no random component, no expiration, and no rate limiting. An attacker who knows a user's email can compute the reset token and change the victim's password without authentication. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
+      "published": "2026-04-10T19:16:23.950",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33707"
     }
   ]
 }
