@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-10T21:52:49+00:00",
+  "generated_at": "2026-04-10T22:55:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-40199",
+      "summary": "Net::CIDR::Lite versions before 0.23 for Perl mishandles IPv4 mapped IPv6 addresses, which may allow IP ACL bypass.\n\n_pack_ipv6() includes the sentinel byte from _pack_ipv4() when building the packed representation of IPv4 mapped addresses like ::ffff:192.168.1.1. This produces an 18 byte value instead of 17 bytes, misaligning the IPv4 part of the address.\n\nThe wrong length causes incorrect results in mask operations (bitwise AND truncates to the shorter operand) and in find() / bin_find() which use Perl string comparison (lt/gt). This can cause find() to incorrectly match or miss addresses.\n\nExample:\n\n  my $cidr = Net::CIDR::Lite->new(\"::ffff:192.168.1.0/120\");\n  $cidr->find(\"::ffff:192.168.2.0\");  # incorrectly returns true\n\nThis is triggered by valid RFC 4291 IPv4 mapped addresses (::ffff:x.x.x.x).\n\nSee also CVE-2026-40198, a related issue in the same function affecting malformed IPv6 addresses.",
+      "published": "2026-04-10T22:16:21.597",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40199"
+    },
+    {
+      "id": "CVE-2026-40198",
+      "summary": "Net::CIDR::Lite versions before 0.23 for Perl does not validate IPv6 group count, which may allow IP ACL bypass.\n\n_pack_ipv6() does not check that uncompressed IPv6 addresses (without ::) have exactly 8 hex groups. Inputs like \"abcd\", \"1:2:3\", or \"1:2:3:4:5:6:7\" are accepted and produce packed values of wrong length (3, 7, or 15 bytes instead of 17).\n\nThe packed values are used internally for mask and comparison operations. find() and bin_find() use Perl string comparison (lt/gt) on these values, and comparing strings of different lengths gives wrong results. This can cause find() to incorrectly report an address as inside or outside a range.\n\nExample:\n\n  my $cidr = Net::CIDR::Lite->new(\"::/8\");\n  $cidr->find(\"1:2:3\");  # invalid input, incorrectly returns true\n\nThis is the same class of input validation issue as CVE-2021-47154 (IPv4 leading zeros) previously fixed in this module.\n\nSee also CVE-2026-40199, a related issue in the same function affecting IPv4 mapped IPv6 addresses.",
+      "published": "2026-04-10T22:16:21.463",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40198"
+    },
+    {
+      "id": "CVE-2026-33119",
+      "summary": "User interface (ui) misrepresentation of critical information in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform spoofing over a network.",
+      "published": "2026-04-10T22:16:21.287",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33119"
+    },
+    {
+      "id": "CVE-2026-33118",
+      "summary": "Microsoft Edge (Chromium-based) Spoofing Vulnerability",
+      "published": "2026-04-10T22:16:21.123",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33118"
+    },
     {
       "id": "CVE-2026-5724",
       "summary": "The frontend gRPC server's streaming interceptor chain did not include the authorization interceptor. When a\u00a0ClaimMapper\u00a0and\u00a0Authorizer\u00a0are configured, unary RPCs enforce authentication and authorization, but the streaming\u00a0AdminService/StreamWorkflowReplicationMessages\u00a0endpoint accepted requests without credentials. This endpoint is registered on the same port as\u00a0WorkflowService\u00a0and cannot be disabled independently. An attacker with network access to the frontend port could open the replication stream without authentication. Data exfiltration is possible, but\u00a0 only when a configured replication target is correctly configured and the attacker has knowledge of the cluster configuration, as the history service validates cluster IDs and peer membership before returning replication data.\n\n\n\n\nTemporal Cloud is not affected.",
@@ -15,34 +43,6 @@
       "published": "2026-04-10T21:16:27.907",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40252"
-    },
-    {
-      "id": "CVE-2026-40242",
-      "summary": "Arcane is an interface for managing Docker containers, images, networks, and volumes. Prior to 1.17.3, the /api/templates/fetch endpoint accepts a caller-supplied url parameter and performs a server-side HTTP GET request to that URL without authentication and without URL scheme or host validation. The server's response is returned directly to the caller. type. This constitutes an unauthenticated SSRF vulnerability affecting any publicly reachable Arcane instance. This vulnerability is fixed in 1.17.3.",
-      "published": "2026-04-10T21:16:27.747",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40242"
-    },
-    {
-      "id": "CVE-2026-40194",
-      "summary": "phpseclib is a PHP secure communications library. Prior to 3.0.51, 2.0.53, and 1.0.28, phpseclib\\Net\\SSH2::get_binary_packet() uses PHP's != operator to compare a received SSH packet HMAC against the locally computed HMAC. != on equal-length binary strings in PHP uses memcmp(), which short-circuits on the first differing byte. This is a real variable-time comparison (CWE-208), proven by scaling benchmarks. This vulnerability is fixed in 3.0.51, 2.0.53, and 1.0.28.",
-      "published": "2026-04-10T21:16:27.583",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40194"
-    },
-    {
-      "id": "CVE-2026-40191",
-      "summary": "ClearanceKit intercepts file-system access events on macOS and enforces per-process access policies. Prior to 5.0.4-beta-1f46165,  ClearanceKit's Endpoint Security event handler only checked the source path of dual-path file operations against File Access Authorization (FAA) rules and App Jail policies. The destination path was ignored entirely. This allowed any local process to bypass file-access protection by using rename, link, copyfile, exchangedata, or clone operations to place or replace files inside protected directories. This vulnerability is fixed in 5.0.4-beta-1f46165.",
-      "published": "2026-04-10T21:16:27.440",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40191"
-    },
-    {
-      "id": "CVE-2026-40190",
-      "summary": "LangSmith Client SDKs provide SDK's for interacting with the LangSmith platform. Prior to 0.5.18, the LangSmith JavaScript/TypeScript SDK (langsmith) contains an incomplete prototype pollution fix in its internally vendored lodash set() utility. The baseAssignValue() function only guards against the __proto__ key, but fails to prevent traversal via constructor.prototype. This allows an attacker who controls keys in data processed by the createAnonymizer() API to pollute Object.prototype, affecting all objects in the Node.js process. This vulnerability is fixed in 0.5.18.",
-      "published": "2026-04-10T20:16:24.043",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40190"
     }
   ]
 }
