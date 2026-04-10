@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-10T19:52:52+00:00",
+  "generated_at": "2026-04-10T20:54:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3446",
-      "summary": "When calling base64.b64decode() or related functions the decoding process would stop after encountering the first padded quad regardless of whether there was more information to be processed. This can lead to data being accepted which may be processed differently by other implementations. Use \"validate=True\" to enable stricter processing of base64 data.",
-      "published": "2026-04-10T19:16:26.220",
+      "id": "CVE-2026-40190",
+      "summary": "LangSmith Client SDKs provide SDK's for interacting with the LangSmith platform. Prior to 0.5.18, the LangSmith JavaScript/TypeScript SDK (langsmith) contains an incomplete prototype pollution fix in its internally vendored lodash set() utility. The baseAssignValue() function only guards against the __proto__ key, but fails to prevent traversal via constructor.prototype. This allows an attacker who controls keys in data processed by the createAnonymizer() API to pollute Object.prototype, affecting all objects in the Node.js process. This vulnerability is fixed in 0.5.18.",
+      "published": "2026-04-10T20:16:24.043",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40190"
+    },
+    {
+      "id": "CVE-2026-40189",
+      "summary": "goshs is a SimpleHTTPServer written in Go. Prior to 2.0.0-beta.4, goshs enforces the documented per-folder .goshs ACL/basic-auth mechanism for directory listings and file reads, but it does not enforce the same authorization checks for state-changing routes. An unauthenticated attacker can upload files with PUT, upload files with multipart POST /upload, create directories with ?mkdir, and delete files with ?delete inside a .goshs-protected directory. By deleting the .goshs file itself, the attacker can remove the folder's auth policy and then access previously protected content without credentials. This results in a critical authorization bypass affecting confidentiality, integrity, and availability. This vulnerability is fixed in 2.0.0-beta.4.",
+      "published": "2026-04-10T20:16:23.890",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3446"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40189"
     },
     {
-      "id": "CVE-2026-33737",
-      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, multiple files use simplexml_load_string() without XXE protection. With LIBXML_NOENT flag, arbitrary server files can be read. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
-      "published": "2026-04-10T19:16:24.560",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33737"
+      "id": "CVE-2026-40188",
+      "summary": "goshs is a SimpleHTTPServer written in Go. From 1.0.7 to before 2.0.0-beta.4, the SFTP command rename sanitizes only the source path and not the destination, so it is possible to write outside of the root directory of the SFTP. This vulnerability is fixed in 2.0.0-beta.4.",
+      "published": "2026-04-10T20:16:23.733",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40188"
     },
     {
-      "id": "CVE-2026-33736",
-      "summary": "Chamilo LMS is a learning management system. Prior to 2.0.0-RC.3, any authenticated user (including ROLE_STUDENT) can enumerate all platform users and access personal information (email, phone, roles) via GET /api/users, including administrator accounts. This vulnerability is fixed in 2.0.0-RC.3.",
-      "published": "2026-04-10T19:16:24.410",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33736"
+      "id": "CVE-2026-40185",
+      "summary": "TREK is a collaborative travel planner. Prior to 2.7.2, TREK was missing authorization checks on the Immich trip photo management routes. This vulnerability is fixed in 2.7.2.",
+      "published": "2026-04-10T20:16:23.573",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40185"
     },
     {
-      "id": "CVE-2026-33710",
-      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, REST API keys are generated using md5(time() + (user_id * 5) - rand(10000, 10000)). The rand(10000, 10000) call always returns exactly 10000 (min == max), making the formula effectively md5(timestamp + user_id*5 - 10000). An attacker who knows a username and approximate key creation time can brute-force the API key. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
-      "published": "2026-04-10T19:16:24.257",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33710"
+      "id": "CVE-2026-40184",
+      "summary": "TREK is a collaborative travel planner. Prior to 2.7.2, TREK served uploaded photos without requiring authentication. This vulnerability is fixed in 2.7.2.",
+      "published": "2026-04-10T20:16:23.417",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40184"
     },
     {
-      "id": "CVE-2026-33708",
-      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38, the get_user_info_from_username REST API endpoint returns personal information (email, first name, last name, user ID, active status) of any user to any authenticated user, including students. There is no authorization check. This vulnerability is fixed in 1.11.38.",
-      "published": "2026-04-10T19:16:24.107",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33708"
-    },
-    {
-      "id": "CVE-2026-33707",
-      "summary": "Chamilo LMS is a learning management system. Prior to 1.11.38 and 2.0.0-RC.3, the default password reset mechanism generates tokens using sha1($email) with no random component, no expiration, and no rate limiting. An attacker who knows a user's email can compute the reset token and change the victim's password without authentication. This vulnerability is fixed in 1.11.38 and 2.0.0-RC.3.",
-      "published": "2026-04-10T19:16:23.950",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33707"
+      "id": "CVE-2026-40180",
+      "summary": "Quarkus OpenAPI Generator is Quarkus' extensions for generation of Rest Clients and server stubs generation. Prior to 2.16.0 and 2.15.0-lts, the unzip() method in ApicurioCodegenWrapper.java extracts ZIP entries without validating that the resolved file path stays within the intended output directory. At line 101, the destination is constructed as new File(toOutputDir, entry.getName()) and the content is written immediately. A malicious ZIP archive containing entries with path traversal sequences (e.g., ../../malicious.java) would write files outside the target directory. This vulnerability is fixed in 2.16.0 and 2.15.0-lts.",
+      "published": "2026-04-10T20:16:23.260",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40180"
     }
   ]
 }
