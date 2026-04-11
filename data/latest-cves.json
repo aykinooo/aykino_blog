@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-04-11T19:04:19+00:00",
+  "generated_at": "2026-04-11T19:48:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-31845",
+      "summary": "A reflected cross-site scripting (XSS) vulnerability exists in Rukovoditel CRM version 3.6.4 and earlier in the Zadarma telephony API endpoint (/api/tel/zadarma.php). The application directly reflects user-supplied input from the 'zd_echo' GET parameter into the HTTP response without proper sanitization, output encoding, or content-type restrictions.\n\nThe vulnerable code is:\n\nif (isset($_GET['zd_echo'])) exit($_GET['zd_echo']);\n\nAn unauthenticated attacker can exploit this issue by crafting a malicious URL containing JavaScript payloads. When a victim visits the link, the payload executes in the context of the application within the victim's browser, potentially leading to session hijacking, credential theft, phishing, or account takeover.\n\nThe issue is fixed in version 3.7, which introduces proper input validation and output encoding to prevent script injection.",
+      "published": "2026-04-11T19:16:28.537",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31845"
+    },
     {
       "id": "CVE-2026-32146",
       "summary": "Improper path validation vulnerability in the Gleam compiler's handling of git dependencies allows arbitrary file system modification during dependency download.\n\nDependency names from gleam.toml and manifest.toml are incorporated into filesystem paths without sufficient validation or confinement to the intended dependency directory, allowing attacker-controlled paths (via relative traversal such as ../ or absolute paths) to target filesystem locations outside that directory. When resolving git dependencies (e.g. via gleam deps download), the computed path is used for filesystem operations including directory deletion and creation.\n\nThis vulnerability occurs during the dependency resolution and download phase, which is generally expected to be limited to fetching and preparing dependencies within a confined directory. A malicious direct or transitive git dependency can exploit this issue to delete and overwrite arbitrary directories outside the intended dependency directory, including attacker-chosen absolute paths, potentially causing data loss. In some environments, this may be further leveraged to achieve code execution, for example by overwriting git hooks or shell configuration files.\n\nThis issue affects Gleam from 1.9.0-rc1 until 1.15.3 and 1.16.0-rc1.",
@@ -36,13 +43,6 @@
       "published": "2026-04-11T02:16:03.120",
       "cvss": 6.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5226"
-    },
-    {
-      "id": "CVE-2026-5217",
-      "summary": "The Optimole \u2013 Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 4.2.2. This is due to insufficient input sanitization and output escaping on the user-supplied 's' parameter (srcset descriptor) in the unauthenticated /wp-json/optimole/v1/optimizations REST endpoint. The endpoint validates requests using an HMAC signature and timestamp, but these values are exposed directly in the frontend HTML making them accessible to any visitor. The plugin uses sanitize_text_field() on the descriptor value of rest.php, which strips HTML tags but does not escape double quotes. The poisoned descriptor is then stored via transients (backed by the WordPress options table) and later retrieved and injected verbatim into the srcset attribute of tag_replacer.php without proper escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts into pages that will execute whenever a user accesses the injected page.",
-      "published": "2026-04-11T02:16:02.953",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5217"
     }
   ]
 }
