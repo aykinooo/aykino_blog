@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-11T13:21:28+00:00",
+  "generated_at": "2026-04-11T14:54:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-32146",
+      "summary": "Improper path validation vulnerability in the Gleam compiler's handling of git dependencies allows arbitrary file system modification during dependency download.\n\nDependency names from gleam.toml and manifest.toml are incorporated into filesystem paths without sufficient validation or confinement to the intended dependency directory, allowing attacker-controlled paths (via relative traversal such as ../ or absolute paths) to target filesystem locations outside that directory. When resolving git dependencies (e.g. via gleam deps download), the computed path is used for filesystem operations including directory deletion and creation.\n\nThis vulnerability occurs during the dependency resolution and download phase, which is generally expected to be limited to fetching and preparing dependencies within a confined directory. A malicious direct or transitive git dependency can exploit this issue to delete and overwrite arbitrary directories outside the intended dependency directory, including attacker-chosen absolute paths, potentially causing data loss. In some environments, this may be further leveraged to achieve code execution, for example by overwriting git hooks or shell configuration files.\n\nThis issue affects Gleam from 1.9.0-rc1 until 1.15.3 and 1.16.0-rc1.",
+      "published": "2026-04-11T14:16:03.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32146"
+    },
+    {
+      "id": "CVE-2026-23900",
+      "summary": "Various stored XSS vulnerabilities in the maps- and icon rendering logic in Phoca Maps component 5.0.0-6.0.2 have been discovered.",
+      "published": "2026-04-11T14:16:03.377",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23900"
+    },
     {
       "id": "CVE-2026-5809",
       "summary": "The wpForo Forum plugin for WordPress is vulnerable to Arbitrary File Deletion in versions up to and including 3.0.2. This is due to a two-step logic flaw: the topic_add() and topic_edit() action handlers accept arbitrary user-supplied data[*] arrays from $_REQUEST and store them as postmeta without restricting which fields may contain array values. Because 'body' is included in the allowed topic fields list, an attacker can supply data[body][fileurl] with an arbitrary file path (e.g., wp-config.php or an absolute server path). This poisoned fileurl is persisted to the plugin's custom postmeta database table. Subsequently, when the attacker submits wpftcf_delete[]=body on a topic_edit request, the add_file() method retrieves the stored postmeta record, extracts the attacker-controlled fileurl, passes it through wpforo_fix_upload_dir() which only rewrites legitimate wpforo upload paths and returns all other paths unchanged, and then calls wp_delete_file() on the unvalidated path. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files writable by the PHP process on the server, including critical files such as wp-config.",
@@ -29,20 +43,6 @@
       "published": "2026-04-11T02:16:02.953",
       "cvss": 7.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5217"
-    },
-    {
-      "id": "CVE-2026-5207",
-      "summary": "The LifterLMS plugin for WordPress is vulnerable to SQL Injection via the 'order' parameter in all versions up to, and including, 9.2.1. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Instructor-level access and above who have the edit_post capability on the quiz, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-04-11T02:16:02.800",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5207"
-    },
-    {
-      "id": "CVE-2026-5144",
-      "summary": "The BuddyPress Groupblog plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.9.3. This is due to the group blog settings handler accepting the `groupblog-blogid`, `default-member`, and `groupblog-silent-add` parameters from user input without proper authorization checks. The `groupblog-blogid` parameter allows any group admin (including Subscribers who create their own group) to associate their group with any blog on the Multisite network, including the main site (blog ID 1). The `default-member` parameter accepts any WordPress role, including `administrator`, without validation against a whitelist. When combined with `groupblog-silent-add`, any user who joins the attacker's group is automatically added to the targeted blog with the injected role. This makes it possible for authenticated attackers, with Subscriber-level access and above, to escalate any user (including themselves via a second account) to Administrator on the main site of the Multisite network.",
-      "published": "2026-04-11T02:16:02.633",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5144"
     }
   ]
 }
