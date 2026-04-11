@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-10T23:50:57+00:00",
+  "generated_at": "2026-04-11T03:18:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40199",
-      "summary": "Net::CIDR::Lite versions before 0.23 for Perl mishandles IPv4 mapped IPv6 addresses, which may allow IP ACL bypass.\n\n_pack_ipv6() includes the sentinel byte from _pack_ipv4() when building the packed representation of IPv4 mapped addresses like ::ffff:192.168.1.1. This produces an 18 byte value instead of 17 bytes, misaligning the IPv4 part of the address.\n\nThe wrong length causes incorrect results in mask operations (bitwise AND truncates to the shorter operand) and in find() / bin_find() which use Perl string comparison (lt/gt). This can cause find() to incorrectly match or miss addresses.\n\nExample:\n\n  my $cidr = Net::CIDR::Lite->new(\"::ffff:192.168.1.0/120\");\n  $cidr->find(\"::ffff:192.168.2.0\");  # incorrectly returns true\n\nThis is triggered by valid RFC 4291 IPv4 mapped addresses (::ffff:x.x.x.x).\n\nSee also CVE-2026-40198, a related issue in the same function affecting malformed IPv6 addresses.",
-      "published": "2026-04-10T22:16:21.597",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40199"
+      "id": "CVE-2026-5226",
+      "summary": "The Optimole \u2013 Optimize Images in Real Time plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via URL paths in versions up to, and including, 4.2.3 This is due to insufficient output escaping on user-supplied URL paths in the get_current_url() function, which are inserted into JavaScript code via str_replace() without proper JavaScript context escaping in the replace_content() function. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "published": "2026-04-11T02:16:03.120",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5226"
     },
     {
-      "id": "CVE-2026-40198",
-      "summary": "Net::CIDR::Lite versions before 0.23 for Perl does not validate IPv6 group count, which may allow IP ACL bypass.\n\n_pack_ipv6() does not check that uncompressed IPv6 addresses (without ::) have exactly 8 hex groups. Inputs like \"abcd\", \"1:2:3\", or \"1:2:3:4:5:6:7\" are accepted and produce packed values of wrong length (3, 7, or 15 bytes instead of 17).\n\nThe packed values are used internally for mask and comparison operations. find() and bin_find() use Perl string comparison (lt/gt) on these values, and comparing strings of different lengths gives wrong results. This can cause find() to incorrectly report an address as inside or outside a range.\n\nExample:\n\n  my $cidr = Net::CIDR::Lite->new(\"::/8\");\n  $cidr->find(\"1:2:3\");  # invalid input, incorrectly returns true\n\nThis is the same class of input validation issue as CVE-2021-47154 (IPv4 leading zeros) previously fixed in this module.\n\nSee also CVE-2026-40199, a related issue in the same function affecting IPv4 mapped IPv6 addresses.",
-      "published": "2026-04-10T22:16:21.463",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40198"
+      "id": "CVE-2026-5217",
+      "summary": "The Optimole \u2013 Optimize Images | Convert WebP & AVIF | CDN & Lazy Load | Image Optimization plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 4.2.2. This is due to insufficient input sanitization and output escaping on the user-supplied 's' parameter (srcset descriptor) in the unauthenticated /wp-json/optimole/v1/optimizations REST endpoint. The endpoint validates requests using an HMAC signature and timestamp, but these values are exposed directly in the frontend HTML making them accessible to any visitor. The plugin uses sanitize_text_field() on the descriptor value of rest.php, which strips HTML tags but does not escape double quotes. The poisoned descriptor is then stored via transients (backed by the WordPress options table) and later retrieved and injected verbatim into the srcset attribute of tag_replacer.php without proper escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts into pages that will execute whenever a user accesses the injected page.",
+      "published": "2026-04-11T02:16:02.953",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5217"
     },
     {
-      "id": "CVE-2026-33119",
-      "summary": "User interface (ui) misrepresentation of critical information in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform spoofing over a network.",
-      "published": "2026-04-10T22:16:21.287",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33119"
+      "id": "CVE-2026-5207",
+      "summary": "The LifterLMS plugin for WordPress is vulnerable to SQL Injection via the 'order' parameter in all versions up to, and including, 9.2.1. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Instructor-level access and above who have the edit_post capability on the quiz, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-04-11T02:16:02.800",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5207"
     },
     {
-      "id": "CVE-2026-33118",
-      "summary": "Microsoft Edge (Chromium-based) Spoofing Vulnerability",
-      "published": "2026-04-10T22:16:21.123",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33118"
+      "id": "CVE-2026-5144",
+      "summary": "The BuddyPress Groupblog plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.9.3. This is due to the group blog settings handler accepting the `groupblog-blogid`, `default-member`, and `groupblog-silent-add` parameters from user input without proper authorization checks. The `groupblog-blogid` parameter allows any group admin (including Subscribers who create their own group) to associate their group with any blog on the Multisite network, including the main site (blog ID 1). The `default-member` parameter accepts any WordPress role, including `administrator`, without validation against a whitelist. When combined with `groupblog-silent-add`, any user who joins the attacker's group is automatically added to the targeted blog with the injected role. This makes it possible for authenticated attackers, with Subscriber-level access and above, to escalate any user (including themselves via a second account) to Administrator on the main site of the Multisite network.",
+      "published": "2026-04-11T02:16:02.633",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5144"
     },
     {
-      "id": "CVE-2026-5724",
-      "summary": "The frontend gRPC server's streaming interceptor chain did not include the authorization interceptor. When a\u00a0ClaimMapper\u00a0and\u00a0Authorizer\u00a0are configured, unary RPCs enforce authentication and authorization, but the streaming\u00a0AdminService/StreamWorkflowReplicationMessages\u00a0endpoint accepted requests without credentials. This endpoint is registered on the same port as\u00a0WorkflowService\u00a0and cannot be disabled independently. An attacker with network access to the frontend port could open the replication stream without authentication. Data exfiltration is possible, but\u00a0 only when a configured replication target is correctly configured and the attacker has knowledge of the cluster configuration, as the history service validates cluster IDs and peer membership before returning replication data.\n\n\n\n\nTemporal Cloud is not affected.",
-      "published": "2026-04-10T21:16:28.497",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5724"
+      "id": "CVE-2026-4979",
+      "summary": "The UsersWP \u2013 Front-end login form, User Registration, User Profile & Members Directory plugin for WP plugin for WordPress is vulnerable to blind Server-Side Request Forgery in all versions up to, and including, 1.2.58. This is due to insufficient URL origin validation in the process_image_crop() method when processing avatar/banner image crop operations. The function accepts a user-controlled URL via the uwp_crop POST parameter and only validates it using esc_url() for sanitization and wp_check_filetype() for extension verification, without enforcing that the URL references a local uploads file. The URL is then passed to uwp_resizeThumbnailImage() which uses it in PHP image processing functions (getimagesize(), imagecreatefrom*()) that support URL wrappers and perform outbound HTTP requests. This makes it possible for authenticated attackers with subscriber-level access and above to coerce the WordPress server into making arbitrary HTTP requests to attacker-controlled or internal network destinations, enabling internal network scanning and potential access to sensitive services.",
+      "published": "2026-04-11T02:16:02.463",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4979"
     },
     {
-      "id": "CVE-2026-40252",
-      "summary": "FastGPT is an AI Agent building platform. Prior to 4.14.10.4, Broken Access Control vulnerability (IDOR/BOLA) allows any authenticated team to access and execute applications belonging to other teams by supplying a foreign appId. While the API correctly validates the team token, it does not verify that the requested application belongs to the authenticated team. This leads to cross-tenant data exposure and unauthorized execution of private AI workflows. This vulnerability is fixed in 4.14.10.4.",
-      "published": "2026-04-10T21:16:27.907",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40252"
+      "id": "CVE-2026-4895",
+      "summary": "The GreenShift - Animation and Page Builder Blocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 12.8.9 This is due to insufficient input sanitization and output escaping in the gspb_greenShift_block_script_assets() function. The function uses str_replace() to insert 'fetchpriority=\"high\"' before 'src=' attributes when processing greenshift-blocks/image blocks with the disablelazy attribute enabled. Because this replacement operates on the entire HTML string without parsing, contributors can inject the string 'src=' into HTML attribute values (such as class attributes). When the str_replace executes, the double quotes in the replacement string break out of the attribute context, allowing injection of malicious HTML attributes like onfocus with JavaScript payloads. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-11T02:16:02.270",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4895"
     }
   ]
 }
