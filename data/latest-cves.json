@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-11T07:15:50+00:00",
+  "generated_at": "2026-04-11T09:00:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5809",
+      "summary": "The wpForo Forum plugin for WordPress is vulnerable to Arbitrary File Deletion in versions up to and including 3.0.2. This is due to a two-step logic flaw: the topic_add() and topic_edit() action handlers accept arbitrary user-supplied data[*] arrays from $_REQUEST and store them as postmeta without restricting which fields may contain array values. Because 'body' is included in the allowed topic fields list, an attacker can supply data[body][fileurl] with an arbitrary file path (e.g., wp-config.php or an absolute server path). This poisoned fileurl is persisted to the plugin's custom postmeta database table. Subsequently, when the attacker submits wpftcf_delete[]=body on a topic_edit request, the add_file() method retrieves the stored postmeta record, extracts the attacker-controlled fileurl, passes it through wpforo_fix_upload_dir() which only rewrites legitimate wpforo upload paths and returns all other paths unchanged, and then calls wp_delete_file() on the unvalidated path. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files writable by the PHP process on the server, including critical files such as wp-config.",
+      "published": "2026-04-11T08:16:05.503",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5809"
+    },
+    {
+      "id": "CVE-2026-34621",
+      "summary": "Acrobat Reader versions 24.001.30356, 26.001.21367 and earlier are affected by an Improperly Controlled Modification of Object Prototype Attributes ('Prototype Pollution') vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "published": "2026-04-11T07:16:03.633",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34621"
+    },
     {
       "id": "CVE-2026-5226",
       "summary": "The Optimole \u2013 Optimize Images in Real Time plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via URL paths in versions up to, and including, 4.2.3 This is due to insufficient output escaping on user-supplied URL paths in the get_current_url() function, which are inserted into JavaScript code via str_replace() without proper JavaScript context escaping in the replace_content() function. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
@@ -29,20 +43,6 @@
       "published": "2026-04-11T02:16:02.633",
       "cvss": 8.8,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5144"
-    },
-    {
-      "id": "CVE-2026-4979",
-      "summary": "The UsersWP \u2013 Front-end login form, User Registration, User Profile & Members Directory plugin for WP plugin for WordPress is vulnerable to blind Server-Side Request Forgery in all versions up to, and including, 1.2.58. This is due to insufficient URL origin validation in the process_image_crop() method when processing avatar/banner image crop operations. The function accepts a user-controlled URL via the uwp_crop POST parameter and only validates it using esc_url() for sanitization and wp_check_filetype() for extension verification, without enforcing that the URL references a local uploads file. The URL is then passed to uwp_resizeThumbnailImage() which uses it in PHP image processing functions (getimagesize(), imagecreatefrom*()) that support URL wrappers and perform outbound HTTP requests. This makes it possible for authenticated attackers with subscriber-level access and above to coerce the WordPress server into making arbitrary HTTP requests to attacker-controlled or internal network destinations, enabling internal network scanning and potential access to sensitive services.",
-      "published": "2026-04-11T02:16:02.463",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4979"
-    },
-    {
-      "id": "CVE-2026-4895",
-      "summary": "The GreenShift - Animation and Page Builder Blocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 12.8.9 This is due to insufficient input sanitization and output escaping in the gspb_greenShift_block_script_assets() function. The function uses str_replace() to insert 'fetchpriority=\"high\"' before 'src=' attributes when processing greenshift-blocks/image blocks with the disablelazy attribute enabled. Because this replacement operates on the entire HTML string without parsing, contributors can inject the string 'src=' into HTML attribute values (such as class attributes). When the str_replace executes, the double quotes in the replacement string break out of the attribute context, allowing injection of malicious HTML attributes like onfocus with JavaScript payloads. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-11T02:16:02.270",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4895"
     }
   ]
 }
