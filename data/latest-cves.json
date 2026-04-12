@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-12T09:03:58+00:00",
+  "generated_at": "2026-04-12T09:59:18+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-6124",
+      "summary": "A vulnerability was determined in Tenda F451 1.0.0.7. This vulnerability affects the function fromSafeMacFilter of the file /goform/SafeMacFilter of the component httpd. Executing a manipulation of the argument page/menufacturer can lead to stack-based buffer overflow. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-04-12T09:16:18.163",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6124"
+    },
+    {
+      "id": "CVE-2026-6123",
+      "summary": "A vulnerability was found in Tenda F451 1.0.0.7. This affects the function fromAddressNat of the file /goform/addressNat of the component httpd. Performing a manipulation of the argument entrys results in stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been made public and could be used.",
+      "published": "2026-04-12T09:16:17.060",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6123"
+    },
     {
       "id": "CVE-2026-6122",
       "summary": "A vulnerability has been found in Tenda F451 1.0.0.7. Affected by this issue is the function frmL7ProtForm of the file /goform/L7Prot of the component httpd. Such manipulation of the argument page leads to stack-based buffer overflow. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
@@ -29,20 +43,6 @@
       "published": "2026-04-12T06:16:21.927",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6119"
-    },
-    {
-      "id": "CVE-2026-31413",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix unsound scalar forking in maybe_fork_scalars() for BPF_OR\n\nmaybe_fork_scalars() is called for both BPF_AND and BPF_OR when the\nsource operand is a constant.  When dst has signed range [-1, 0], it\nforks the verifier state: the pushed path gets dst = 0, the current\npath gets dst = -1.\n\nFor BPF_AND this is correct: 0 & K == 0.\nFor BPF_OR this is wrong:    0 | K == K, not 0.\n\nThe pushed path therefore tracks dst as 0 when the runtime value is K,\nproducing an exploitable verifier/runtime divergence that allows\nout-of-bounds map access.\n\nFix this by passing env->insn_idx (instead of env->insn_idx + 1) to\npush_stack(), so the pushed path re-executes the ALU instruction with\ndst = 0 and naturally computes the correct result for any opcode.",
-      "published": "2026-04-12T06:16:20.050",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31413"
-    },
-    {
-      "id": "CVE-2026-6118",
-      "summary": "A vulnerability was determined in AstrBotDevs AstrBot up to 4.22.1. Impacted is the function add_mcp_server of the file astrbot/dashboard/routes/tools.py of the component MCP Endpoint. This manipulation of the argument command causes command injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-04-12T05:16:01.560",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6118"
     }
   ]
 }
