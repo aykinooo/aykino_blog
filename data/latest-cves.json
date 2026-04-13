@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-13T23:01:36+00:00",
+  "generated_at": "2026-04-13T23:57:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-6203",
+      "summary": "The User Registration & Membership plugin for WordPress is vulnerable to Open Redirect in versions up to and including 5.1.4. This is due to insufficient validation of user-supplied URLs passed via the 'redirect_to_on_logout' GET parameter before redirecting users. The `redirect_to_on_logout` GET parameter is passed directly to WordPress's `wp_redirect()` function instead of the domain-restricted `wp_safe_redirect()`. While `esc_url_raw()` is applied to sanitize malformed URLs, it does not restrict the redirect destination to the local domain, allowing an attacker to craft a specially formed link that redirects users to potentially malicious external URLs after logout, which could be used to facilitate phishing attacks.",
+      "published": "2026-04-13T23:16:28.110",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6203"
+    },
+    {
+      "id": "CVE-2026-5086",
+      "summary": "Crypt::SecretBuffer versions before 0.019 for Perl is suseceptible to timing attacks.\n\nFor example, if Crypt::SecretBuffer was used to store and compare plaintext passwords, then discrepencies in timing could be used to guess the secret password.",
+      "published": "2026-04-13T23:16:27.990",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5086"
+    },
+    {
+      "id": "CVE-2026-39979",
+      "summary": "jq is a command-line JSON processor. In commits before 2f09060afab23fe9390cce7cb860b10416e1bf5f, the jv_parse_sized() API in libjq accepts a counted buffer with an explicit length parameter, but its error-handling path formats the input buffer using %s in jv_string_fmt(), which reads until a NUL terminator is found rather than respecting the caller-supplied length. This means that when malformed JSON is passed in a non-NUL-terminated buffer, the error construction logic performs an out-of-bounds read past the end of the buffer. The vulnerability is reachable by any libjq consumer calling jv_parse_sized() with untrusted input, and depending on memory layout, can result in memory disclosure or process termination. The issue has been patched in commit 2f09060afab23fe9390cce7cb860b10416e1bf5f.",
+      "published": "2026-04-13T23:16:27.823",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39979"
+    },
+    {
+      "id": "CVE-2026-39956",
+      "summary": "jq is a command-line JSON processor. In commits after 69785bf77f86e2ea1b4a20ca86775916889e91c9, the _strindices builtin in jq's src/builtin.c passes its arguments directly to jv_string_indexes() without verifying they are strings, and jv_string_indexes() in src/jv.c relies solely on assert() checks that are stripped in release builds compiled with -DNDEBUG. This allows an attacker to crash jq trivially with input like _strindices(0), and by crafting a numeric value whose IEEE-754 bit pattern maps to a chosen pointer, achieve a controlled pointer dereference and limited memory read/probe primitive. Any deployment that evaluates untrusted jq filters against a release build is vulnerable. This issue has been patched in commit fdf8ef0f0810e3d365cdd5160de43db46f57ed03.",
+      "published": "2026-04-13T23:16:27.653",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39956"
+    },
     {
       "id": "CVE-2026-6224",
       "summary": "A security flaw has been discovered in nocobase plugin-workflow-javascript up to 2.0.23. This issue affects the function createSafeConsole of the file packages/plugins/@nocobase/plugin-workflow-javascript/src/server/Vm.js. Performing a manipulation results in sandbox issue. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -15,34 +43,6 @@
       "published": "2026-04-13T22:16:30.550",
       "cvss": 4.7,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6220"
-    },
-    {
-      "id": "CVE-2026-4786",
-      "summary": "Mitgation of\u00a0CVE-2026-4519 was incomplete. If the URL contained \"%action\" the mitigation could be bypassed for certain browser types the \"webbrowser.open()\" API could have commands injected into the underlying shell. See\u00a0CVE-2026-4519 for details.",
-      "published": "2026-04-13T22:16:30.413",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4786"
-    },
-    {
-      "id": "CVE-2026-40312",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. In versions below 7.1.2-19, an off by one error in the MSL decoder could result in a crash when a malicous MSL file is read. This issue has been fixed in version 7.1.2-19.",
-      "published": "2026-04-13T22:16:30.113",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40312"
-    },
-    {
-      "id": "CVE-2026-40311",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Versions below 7.1.2-19 and 6.9.13-44 contain a heap use-after-free vulnerability that can cause a crash when reading and printing values from an invalid XMP profile. This issue has been fixed in versions 6.9.13-44 and 7.1.2-19.",
-      "published": "2026-04-13T22:16:29.950",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40311"
-    },
-    {
-      "id": "CVE-2026-40310",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Versions below both 7.1.2-19 and 6.9.13-44, contain a heap out-of-bounds write in the JP2 encoder with when a user specifies an invalid sampling index. This issue has been fixed in versions 6.9.13-44 and 7.1.2-19.",
-      "published": "2026-04-13T22:16:29.790",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40310"
     }
   ]
 }
