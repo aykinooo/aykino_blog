@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-13T09:09:53+00:00",
+  "generated_at": "2026-04-13T10:55:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-35565",
+      "summary": "Stored Cross-Site Scripting (XSS) via Unsanitized Topology Metadata in Apache Storm UI\n\n\nVersions Affected: before 2.8.6\n\n\nDescription: The Storm UI visualization component interpolates topology metadata including component IDs, stream names, and grouping values directly into HTML via innerHTML in parseNode() and parseEdge() without sanitization at any layer. An authenticated user with topology submission rights could craft a topology containing malicious HTML/JavaScript in component identifiers (e.g., a bolt ID containing an onerror event handler). This payload flows through Nimbus \u2192 Thrift \u2192 the Visualization API \u2192 vis.js tooltip rendering, resulting in stored cross-site scripting.\u00a0\n\nIn multi-tenant deployments where topology submission is available to less-trusted users but the UI is accessed by operators or administrators, this enables privilege escalation through script execution in an admin's browser session.\n\n\nMitigation:\u00a02.x users should upgrade to 2.8.6. Users who cannot upgrade immediately should monkey-patch the parseNode() and parseEdge() functions in the visualization JavaScript file to HTML-escape all API-supplied values including nodeId, :capacity, :latency, :component, :stream, and :grouping\u00a0before interpolation into tooltip HTML strings, and should additionally restrict topology submission to trusted users via Nimbus ACLs as a defense-in-depth measure.\u00a0A guide on how to do this is available in the release notes of 2.8.6.\n\nCredit: This issue was discovered while investigating another report by K.",
+      "published": "2026-04-13T10:16:11.770",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35565"
+    },
+    {
+      "id": "CVE-2026-35337",
+      "summary": "Deserialization of Untrusted Data vulnerability in Apache Storm.\n\nVersions Affected:\nbefore 2.8.6.\n\n\nDescription:\nWhen processing topology credentials submitted via the Nimbus Thrift API, Storm deserializes the base64-encoded TGT blob using ObjectInputStream.readObject() without any class filtering or validation.\u00a0An authenticated user with topology submission rights could supply a crafted serialized object in the \"TGT\" credential field, leading to remote code execution in both the Nimbus and Worker JVMs.\n\n\nMitigation:\n2.x users should upgrade to 2.8.6.\n\n\nUsers who cannot upgrade immediately should monkey-patch an ObjectInputFilter allow-list to ClientAuthUtils.deserializeKerberosTicket() restricting deserialized classes to javax.security.auth.kerberos.KerberosTicket and its known dependencies. A guide on how to do this is available in the release notes of 2.8.6.\n\nCredit: This issue was discovered by K.",
+      "published": "2026-04-13T10:16:11.610",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35337"
+    },
+    {
+      "id": "CVE-2025-15632",
+      "summary": "A vulnerability has been found in 1Panel-dev MaxKB up to 2.4.2. Impacted is an unknown function of the file ui/src/chat.ts of the component MdPreview. Such manipulation leads to cross site scripting. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 2.5.0 is recommended to address this issue. The name of the patch is 7230daa5ec3e6574b6ede83dd48a4fbc0e70b8d8. It is advisable to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-04-13T10:16:10.160",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15632"
+    },
+    {
+      "id": "CVE-2026-4810",
+      "summary": "A Code Injection and Missing Authentication vulnerability in Google Agent Development Kit (ADK) versions 1.7.0 (and 2.0.0a1) through 1.28.1 (and 2.0.0a2) on Python (OSS), Cloud Run, and GKE allows an unauthenticated remote attacker to execute arbitrary code on the server hosting the ADK instance.\n\nThis vulnerability was patched in versions 1.28.1 and 2.0.0a2.\n\n\nCustomers need to redeploy the upgraded ADK to their production environments. In addition, if they are running ADK Web locally, they also need to upgrade their local instance.",
+      "published": "2026-04-13T09:16:08.883",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4810"
+    },
     {
       "id": "CVE-2026-0234",
       "summary": "An improper verification of cryptographic signature vulnerability exists in Cortex XSOAR and Cortex XSIAM platforms during integration of Microsoft Teams that enables an unauthenticated user to access and modify protected resources.",
@@ -15,34 +43,6 @@
       "published": "2026-04-13T08:16:22.150",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0233"
-    },
-    {
-      "id": "CVE-2026-0232",
-      "summary": "A problem with a protection mechanism in the Palo Alto Networks Cortex XDR agent on Windows allows a local Windows administrator to disable the agent.\u00a0This issue may be leveraged by malware to perform malicious activity without detection.",
-      "published": "2026-04-13T08:16:20.900",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0232"
-    },
-    {
-      "id": "CVE-2026-6168",
-      "summary": "A flaw has been found in TOTOLINK A7000R up to 9.1.0u.6115. The affected element is the function setWiFiEasyGuestCfg of the file /cgi-bin/cstecgi.cgi. This manipulation of the argument ssid5g causes stack-based buffer overflow. Remote exploitation of the attack is possible. The exploit has been published and may be used.",
-      "published": "2026-04-13T07:16:51.283",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6168"
-    },
-    {
-      "id": "CVE-2026-6167",
-      "summary": "A vulnerability was detected in code-projects Faculty Management System 1.0. Impacted is an unknown function of the file /subject-print.php. The manipulation of the argument ID results in sql injection. The attack may be launched remotely. The exploit is now public and may be used.",
-      "published": "2026-04-13T07:16:51.077",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6167"
-    },
-    {
-      "id": "CVE-2026-6166",
-      "summary": "A security vulnerability has been detected in code-projects Vehicle Showroom Management System 1.0. This issue affects some unknown processing of the file /util/UpdateVehicleFunction.php. The manipulation of the argument VEHICLE_ID leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-04-13T07:16:50.860",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6166"
     }
   ]
 }
