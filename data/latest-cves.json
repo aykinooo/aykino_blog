@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-14T23:03:05+00:00",
+  "generated_at": "2026-04-14T23:57:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40291",
-      "summary": "Chamilo LMS is an open-source learning management system. In versions prior to 2.0.0-RC.3, an insecure direct object modification vulnerability in the PUT /api/users/{id} endpoint allows any authenticated user with ROLE_STUDENT to escalate their privileges to ROLE_ADMIN by modifying the roles field on their own user record. The API Platform security expression is_granted('EDIT', object) only verifies record ownership, and the roles field is included in the writable serialization group, enabling any user to set arbitrary roles such as ROLE_ADMIN. Successful exploitation grants full administrative control of the platform, including access to all courses, user data, grades, and administrative settings. This issue has been fixed in version 2.0.0-RC.3.",
-      "published": "2026-04-14T22:16:32.507",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40291"
+      "id": "CVE-2026-40688",
+      "summary": "A out-of-bounds write vulnerability in Fortinet FortiWeb 8.0.0 through 8.0.3, FortiWeb 7.6.0 through 7.6.6, FortiWeb 7.4.0 through 7.4.11 may allow attacker to execute unauthorized code or commands via <insert attack vector here>",
+      "published": "2026-04-14T23:16:29.633",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40688"
     },
     {
-      "id": "CVE-2026-39907",
-      "summary": "Unisys WebPerfect Image Suite versions 3.0.3960.22810 and 3.0.3960.22604 expose an unauthenticated WCF SOAP endpoint on TCP port 1208 that accepts unsanitized file paths in the ReadLicense action's LFName parameter, allowing remote attackers to trigger SMB connections and leak NTLMv2 machine-account hashes. Attackers can submit crafted SOAP requests with UNC paths to force the server to initiate outbound SMB connections, exposing authentication credentials that may be relayed for privilege escalation or lateral movement within the network.",
-      "published": "2026-04-14T22:16:32.340",
+      "id": "CVE-2026-39399",
+      "summary": "NuGet Gallery is a package repository that powers nuget.org. A security vulnerability exists in the NuGetGallery backend job\u2019s handling of .nuspec files within NuGet packages. An attacker can supply a crafted nuspec file with malicious metadata, leading to cross package metadata injection that may result in remote code execution (RCE) and/or arbitrary blob writes due to insufficient input validation. The issue is exploitable via URI fragment injection using unsanitized package identifiers, allowing an attacker to control the resolved blob path. This enables writes to arbitrary blobs within the storage container, not limited to .nupkg files, resulting in potential tampering of existing content. This issue has been patched in commit 0e80f87628349207cdcaf55358491f8a6f1ca276.",
+      "published": "2026-04-14T23:16:29.460",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39399"
+    },
+    {
+      "id": "CVE-2026-39387",
+      "summary": "BoidCMS is an open-source, PHP-based flat-file CMS for building simple websites and blogs, using JSON as its database. Versions prior to 2.1.3 are vulnerable to a critical Local File Inclusion (LFI) attack via the tpl parameter, which can lead to Remote Code Execution (RCE).The application fails to sanitize the tpl (template) parameter during page creation and updates. This parameter is passed directly to a require_once() statement without path validation. An authenticated administrator can exploit this by injecting path traversal sequences (../) into the tpl value to escape the intended theme directory and include arbitrary files \u2014 specifically, files from the server's media/ directory. When combined with the file upload functionality, this becomes a full RCE chain: an attacker can first upload a file with embedded PHP code (e.g., disguised as image data), then use the path traversal vulnerability to include that file via require_once(), executing the embedded code with web server privileges. This issue has been fixed in version 2.1.3.",
+      "published": "2026-04-14T23:16:29.300",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39387"
+    },
+    {
+      "id": "CVE-2026-35589",
+      "summary": "nanobot is a personal AI assistant. Versions prior to 0.1.5 contain a Cross-Site WebSocket Hijacking (CSWSH) vulnerability exists in the bridge's WebSocket server in bridge/src/server.ts, resulting from an incomplete remediation of CVE-2026-2577. The original fix changed the binding from 0.0.0.0 to 127.0.0.1 and added an optional BRIDGE_TOKEN parameter, but token authentication is disabled by default and the server does not validate the Origin header during the WebSocket handshake. Because browsers do not enforce the Same-Origin Policy on WebSockets unless the server explicitly denies cross-origin connections, any website visited by a user running the bridge can establish a WebSocket connection to ws://127.0.0.1:3001/ and gain full access to the bridge API. This allows an attacker to hijack the WhatsApp session, read incoming messages, steal authentication QR codes, and send messages on behalf of the user. This issue has bee fixed in version 0.1.5.",
+      "published": "2026-04-14T23:16:29.130",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35589"
+    },
+    {
+      "id": "CVE-2026-35034",
+      "summary": "Jellyfin is an open source self hosted media server. Versions prior to 10.11.7 contain a denial of service vulnerability in the SyncPlay group creation endpoint (POST /SyncPlay/New), where an authenticated user can create groups with names of unlimited size due to insufficient input validation. By sending large payloads combined with arbitrary group IDs, an attacker can lock out the endpoint for other clients attempting to join SyncPlay groups and significantly increase the memory usage of the Jellyfin process, potentially leading to an out-of-memory crash. This issue has been fixed in version 10.11.7.",
+      "published": "2026-04-14T23:16:28.977",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35034"
+    },
+    {
+      "id": "CVE-2026-35033",
+      "summary": "Jellyfin is an open source self hosted media server. Versions prior to 10.11.7 contain an unauthenticated arbitrary file read vulnerability via ffmpeg argument injection through the StreamOptions query parameter parsing mechanism. The ParseStreamOptions method in StreamingHelpers.cs adds any lowercase query parameter to a dictionary without validation, bypassing the RegularExpression attribute on the level controller parameter, and the unsanitized value is concatenated directly into the ffmpeg command line. By injecting a drawtext filter with a textfile argument, an attacker can read arbitrary server files such as /etc/shadow and exfiltrate their contents as text rendered in the video stream response. The vulnerable /Videos/{itemId}/stream endpoint has no Authorize attribute, making this exploitable without authentication, though item GUIDs are pseudorandom and require an authenticated user to obtain. This issue has been fixed in version 10.11.7.",
+      "published": "2026-04-14T23:16:28.817",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39907"
-    },
-    {
-      "id": "CVE-2026-39906",
-      "summary": "Unisys WebPerfect Image Suite versions 3.0.3960.22810 and 3.0.3960.22604 expose a deprecated .NET Remoting TCP channel that allows remote unauthenticated attackers to leak NTLMv2 machine-account hashes by supplying a Windows UNC path as a target file argument through object-unmarshalling techniques. Attackers can capture the leaked NTLMv2 hash and relay it to other hosts to achieve privilege escalation or lateral movement depending on network configuration and patch level.",
-      "published": "2026-04-14T22:16:32.160",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39906"
-    },
-    {
-      "id": "CVE-2026-35196",
-      "summary": "Chamilo LMS is an open-source learning management system. In versions prior to 2.0.0-RC.3, an OS Command Injection vulnerability exists in the main/inc/ajax/gradebook.ajax.php endpoint within the export_all_certificates action, where the course code retrieved from the session variable $_SESSION['_cid'] via api_get_course_id() is concatenated directly into a shell_exec() command string without sanitization or escaping using escapeshellarg(). If an attacker can manipulate or poison their session data to inject shell metacharacters into the _cid variable, they can achieve arbitrary command execution on the underlying server. Successful exploitation grants full access to read system files and credentials, alters the application and database, or disrupts server availability. This issue has been fixed in version 2.0.0-RC.3.",
-      "published": "2026-04-14T22:16:31.993",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35196"
-    },
-    {
-      "id": "CVE-2026-34631",
-      "summary": "InCopy versions 20.5.2, 21.2 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-04-14T22:16:31.837",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34631"
-    },
-    {
-      "id": "CVE-2026-34619",
-      "summary": "ColdFusion versions 2023.18, 2025.6 and earlier are affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to access unauthorized files or directories outside the intended restrictions. Exploitation of this issue does not require user interaction.",
-      "published": "2026-04-14T22:16:31.680",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34619"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35033"
     }
   ]
 }
