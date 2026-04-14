@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-14T06:08:42+00:00",
+  "generated_at": "2026-04-14T08:02:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2582",
+      "summary": "The The Germanized for WooCommerce plugin for WordPress is vulnerable to arbitrary shortcode execution via 'account_holder' parameter in all versions up to, and including, 3.20.5. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
+      "published": "2026-04-14T07:16:06.993",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2582"
+    },
+    {
+      "id": "CVE-2026-3017",
+      "summary": "The Smart Post Show \u2013 Post Grid, Post Carousel & Slider, and List Category Posts plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.0.12 via deserialization of untrusted input in the import_shortcodes() function. This makes it possible for authenticated attackers, with Administrator-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
+      "published": "2026-04-14T06:16:05.040",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3017"
+    },
     {
       "id": "CVE-2026-4479",
       "summary": "The WholeSale Products Dynamic Pricing Management WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 1.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
@@ -29,20 +43,6 @@
       "published": "2026-04-14T04:17:13.890",
       "cvss": 9.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40313"
-    },
-    {
-      "id": "CVE-2026-40289",
-      "summary": "PraisonAI is a multi-agent teams system. In versions below 4.5.139 of PraisonAI and 1.5.140 of praisonaiagents, the browser bridge (praisonai browser start) is vulnerable to unauthenticated remote session hijacking due to missing authentication and a bypassable origin check on its /ws WebSocket endpoint. The server binds to 0.0.0.0 by default and only validates the Origin header when one is present, meaning any non-browser client that omits the header is accepted without restriction. An unauthenticated network attacker can connect, send a start_session message, and the server will route it to the first idle browser-extension WebSocket (effectively hijacking that session) and then broadcast all resulting automation actions and outputs back to the attacker. This enables unauthorized remote control of connected browser automation sessions, leakage of sensitive page context and automation results, and misuse of model-backed browser actions in any environment where the bridge is network-reachable. This issue has been fixed in versions 4.5.139 of PraisonAI and 1.5.140 of praisonaiagents.",
-      "published": "2026-04-14T04:17:12.710",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40289"
-    },
-    {
-      "id": "CVE-2026-40288",
-      "summary": "PraisonAI is a multi-agent teams system. In versions below 4.5.139 of PraisonAI and 1.5.140 of praisonaiagents, the workflow engine is vulnerable to arbitrary command and code execution through untrusted YAML files. When praisonai workflow run <file.yaml> loads a YAML file with type: job, the JobWorkflowExecutor in job_workflow.py processes steps that support run: (shell commands via subprocess.run()), script: (inline Python via exec()), and python: (arbitrary Python script execution)\u2014all without any validation, sandboxing, or user confirmation. The affected code paths include action_run() in workflow.py and _exec_shell(), _exec_inline_python(), and _exec_python_script() in job_workflow.py. An attacker who can supply or influence a workflow YAML file (particularly in CI pipelines, shared repositories, or multi-tenant deployment environments) can achieve full arbitrary command execution on the host system, compromising the machine and any accessible data or credentials. This issue has been fixed in versions 4.5.139 of PraisonAI and 1.5.140 of praisonaiagents.",
-      "published": "2026-04-14T04:17:12.210",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40288"
     }
   ]
 }
