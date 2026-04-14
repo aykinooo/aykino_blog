@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-14T22:04:01+00:00",
+  "generated_at": "2026-04-14T23:03:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-34161",
-      "summary": "Chamilo LMS is an open-source learning management system. In versions prior to 2.0.0-RC.3, a Stored Cross-Site Scripting (XSS) vulnerability exists in the social post attachment upload functionality, where an authenticated user can upload a malicious HTML file containing JavaScript via the /api/social_post_attachments endpoint. The uploaded file is served back from the application at the generated contentUrl without sanitization, content type restrictions, or a Content-Disposition: attachment header, causing the JavaScript to execute in the browser within the application's origin. Because the payload is stored server-side and runs in the trusted origin, an attacker can perform session hijacking, account takeover, privilege escalation (if an admin views the link), and arbitrary actions on behalf of the victim. This issue has been fixed in version 2.0.0-RC.3.",
-      "published": "2026-04-14T21:16:26.400",
+      "id": "CVE-2026-40291",
+      "summary": "Chamilo LMS is an open-source learning management system. In versions prior to 2.0.0-RC.3, an insecure direct object modification vulnerability in the PUT /api/users/{id} endpoint allows any authenticated user with ROLE_STUDENT to escalate their privileges to ROLE_ADMIN by modifying the roles field on their own user record. The API Platform security expression is_granted('EDIT', object) only verifies record ownership, and the roles field is included in the writable serialization group, enabling any user to set arbitrary roles such as ROLE_ADMIN. Successful exploitation grants full administrative control of the platform, including access to all courses, user data, grades, and administrative settings. This issue has been fixed in version 2.0.0-RC.3.",
+      "published": "2026-04-14T22:16:32.507",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40291"
+    },
+    {
+      "id": "CVE-2026-39907",
+      "summary": "Unisys WebPerfect Image Suite versions 3.0.3960.22810 and 3.0.3960.22604 expose an unauthenticated WCF SOAP endpoint on TCP port 1208 that accepts unsanitized file paths in the ReadLicense action's LFName parameter, allowing remote attackers to trigger SMB connections and leak NTLMv2 machine-account hashes. Attackers can submit crafted SOAP requests with UNC paths to force the server to initiate outbound SMB connections, exposing authentication credentials that may be relayed for privilege escalation or lateral movement within the network.",
+      "published": "2026-04-14T22:16:32.340",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34161"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39907"
     },
     {
-      "id": "CVE-2026-34160",
-      "summary": "Chamilo LMS is an open-source learning management system. In versions prior to 2.0.0-RC.3, the PENS (Package Exchange Notification Services) plugin endpoint at public/plugin/Pens/pens.php is accessible without authentication and accepts a user-controlled package-url parameter that the server fetches using curl without filtering private or internal IP addresses, enabling unauthenticated Server-Side Request Forgery (SSRF). An attacker can exploit this to probe internal network services, access cloud metadata endpoints (such as 169.254.169.254) to steal IAM credentials and sensitive instance metadata, or trigger state-changing operations on internal services via the receipt and alerts callback parameters. No authentication is required to exploit either SSRF vector, significantly increasing the attack surface. This issue has been fixed in version 2.0.0-RC.3.",
-      "published": "2026-04-14T21:16:26.227",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34160"
-    },
-    {
-      "id": "CVE-2026-33715",
-      "summary": "Chamilo LMS is an open-source learning management system. In version 2.0-RC.2, the file public/main/inc/ajax/install.ajax.php is accessible without authentication on fully installed instances because, unlike other AJAX endpoints, it does not include the global.inc.php file that performs authentication and installation-completed checks. Its test_mailer action accepts an arbitrary Symfony Mailer DSN string from POST data and uses it to connect to an attacker-specified SMTP server, enabling Server-Side Request Forgery (SSRF) into internal networks via the SMTP protocol. An unauthenticated attacker can also abuse this to weaponize the Chamilo server as an open email relay for phishing and spam campaigns, with emails appearing to originate from the server's IP address. Additionally, error responses from failed SMTP connections may disclose information about internal network topology and running services. This issue has been fixed in version 2.0.0-RC.3.",
-      "published": "2026-04-14T21:16:26.060",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33715"
-    },
-    {
-      "id": "CVE-2026-33714",
-      "summary": "Chamilo is an open-source learning management system (LMS). Version 2.0.0-RC.2 contains a SQL Injection vulnerability in the statistics AJAX endpoint, which is an incomplete fix for CVE-2026-30881. While CVE-2026-30881 was patched by applying Security::remove_XSS() to the date_start and date_end parameters in the get_user_registration_by_month action, the same parameters remain unsanitized in the users_active action within the same file (public/main/inc/ajax/statistics.ajax.php), where they are directly interpolated into a SQL query. An authenticated admin can exploit this to perform time-based blind SQL injection, enabling extraction of arbitrary data from the database. This issue has been fixed in version 2.0.0.",
-      "published": "2026-04-14T21:16:25.893",
+      "id": "CVE-2026-39906",
+      "summary": "Unisys WebPerfect Image Suite versions 3.0.3960.22810 and 3.0.3960.22604 expose a deprecated .NET Remoting TCP channel that allows remote unauthenticated attackers to leak NTLMv2 machine-account hashes by supplying a Windows UNC path as a target file argument through object-unmarshalling techniques. Attackers can capture the leaked NTLMv2 hash and relay it to other hosts to achieve privilege escalation or lateral movement depending on network configuration and patch level.",
+      "published": "2026-04-14T22:16:32.160",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33714"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39906"
     },
     {
-      "id": "CVE-2026-27287",
-      "summary": "InCopy versions 20.5.2, 21.2 and earlier are affected by an out-of-bounds read vulnerability when parsing a crafted file, which could result in a read past the end of an allocated memory structure. An attacker could leverage this vulnerability to execute code in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-04-14T21:16:25.497",
+      "id": "CVE-2026-35196",
+      "summary": "Chamilo LMS is an open-source learning management system. In versions prior to 2.0.0-RC.3, an OS Command Injection vulnerability exists in the main/inc/ajax/gradebook.ajax.php endpoint within the export_all_certificates action, where the course code retrieved from the session variable $_SESSION['_cid'] via api_get_course_id() is concatenated directly into a shell_exec() command string without sanitization or escaping using escapeshellarg(). If an attacker can manipulate or poison their session data to inject shell metacharacters into the _cid variable, they can achieve arbitrary command execution on the underlying server. Successful exploitation grants full access to read system files and credentials, alters the application and database, or disrupts server availability. This issue has been fixed in version 2.0.0-RC.3.",
+      "published": "2026-04-14T22:16:31.993",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35196"
+    },
+    {
+      "id": "CVE-2026-34631",
+      "summary": "InCopy versions 20.5.2, 21.2 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "published": "2026-04-14T22:16:31.837",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27287"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34631"
     },
     {
-      "id": "CVE-2026-25133",
-      "summary": "October is a Content Management System (CMS) and web platform. Versions prior to 3.7.14 and 4.1.10 contain a stored cross-site scripting (XSS) vulnerability in the SVG sanitization logic. The regex pattern used to strip event handler attributes (such as onclick or onload) could be bypassed using a crafted payload that exploits how the pattern matches attribute boundaries, allowing malicious SVG files to be uploaded through the Media Manager with embedded JavaScript. Exploitation could lead to privilege escalation if a superuser views or embeds the malicious SVG, and requires authenticated backend access with media upload permissions. The SVG must be viewed or embedded in a page for the payload to trigger. This issue has been fixed in versions 3.7.14 and 4.1.10.",
-      "published": "2026-04-14T21:16:25.330",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25133"
+      "id": "CVE-2026-34619",
+      "summary": "ColdFusion versions 2023.18, 2025.6 and earlier are affected by an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to access unauthorized files or directories outside the intended restrictions. Exploitation of this issue does not require user interaction.",
+      "published": "2026-04-14T22:16:31.680",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34619"
     }
   ]
 }
