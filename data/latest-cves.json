@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-14T08:02:35+00:00",
+  "generated_at": "2026-04-14T09:48:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2582",
-      "summary": "The The Germanized for WooCommerce plugin for WordPress is vulnerable to arbitrary shortcode execution via 'account_holder' parameter in all versions up to, and including, 3.20.5. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
-      "published": "2026-04-14T07:16:06.993",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2582"
+      "id": "CVE-2026-4109",
+      "summary": "The Eventin \u2013 Events Calendar, Event Booking, Ticket & Registration (AI Powered) plugin for WordPress is vulnerable to unauthorized access of data due to a improper capability check on the get_item_permissions_check() function in all versions up to, and including, 4.1.8. This makes it possible for authenticated attackers, with Subscriber-level access and above, to read arbitrary order data including customer PII (name, email, phone) by iterating order IDs.",
+      "published": "2026-04-14T09:16:36.460",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4109"
     },
     {
-      "id": "CVE-2026-3017",
-      "summary": "The Smart Post Show \u2013 Post Grid, Post Carousel & Slider, and List Category Posts plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 3.0.12 via deserialization of untrusted input in the import_shortcodes() function. This makes it possible for authenticated attackers, with Administrator-level access and above, to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
-      "published": "2026-04-14T06:16:05.040",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3017"
-    },
-    {
-      "id": "CVE-2026-4479",
-      "summary": "The WholeSale Products Dynamic Pricing Management WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via admin settings in all versions up to, and including, 1.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level permissions and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This only affects multi-site installations and installations where unfiltered_html has been disabled.",
-      "published": "2026-04-14T04:17:18.717",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4479"
-    },
-    {
-      "id": "CVE-2026-4059",
-      "summary": "The ShopLentor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the woolentor_quickview_button shortcode's button_text attribute in all versions up to, and including, 3.3.5. This is due to insufficient input sanitization and missing output escaping on user-supplied shortcode attributes. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-14T04:17:18.137",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4059"
-    },
-    {
-      "id": "CVE-2026-40315",
-      "summary": "PraisonAI is a multi-agent teams system. Prior to 4.5.133, there is an SQL identifier injection vulnerability in SQLiteConversationStore where the table_prefix configuration value is directly concatenated into SQL queries via f-strings without any validation or sanitization. Since SQL identifiers cannot be safely parameterized, an attacker who controls the table_prefix value (e.g., through from_yaml or from_dict configuration input) can inject arbitrary SQL fragments that alter query structure. This enables unauthorized data access, such as reading internal SQLite tables like sqlite_master, and manipulation of query results through techniques like UNION-based injection. The vulnerability propagates from configuration input in config.py, through factory.py, to the SQL query construction in sqlite.py. Exploitation requires the ability to influence configuration input, and successful exploitation leads to internal schema disclosure and full query result tampering. This issue has been fixed in version 4.5.133.",
-      "published": "2026-04-14T04:17:16.057",
+      "id": "CVE-2026-33929",
+      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache PDFBox Examples.\n\nThis issue affects the \nExtractEmbeddedFiles example in Apache PDFBox: from 2.0.24 through 2.0.36, from 3.0.0 through 3.0.7.\n\n\nUsers are recommended to update to version 2.0.37 or 3.0.8 once \navailable. Until then, they should apply the fix provided in GitHub PR \n427.\n\nThe ExtractEmbeddedFiles example contained a path traversal vulnerability (CWE-22) mentioned in CVE-2026-23907. However the change in the releases 2.0.36 and 3.0.7 is flawed because it doesn't consider the file path separator. Because of that, a user having writing rights on /home/ABC could be victim to a malicious PDF resulting in a write attempt to any path starting with\u00a0/home/ABC, e.g.\u00a0\"/home/ABCDEF\".\n\nUsers who have copied this example into their production code should apply the mentioned change. The example \nhas been changed accordingly and is available in the project repository.",
+      "published": "2026-04-14T09:16:36.297",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40315"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33929"
     },
     {
-      "id": "CVE-2026-40313",
-      "summary": "PraisonAI is a multi-agent teams system. In versions 4.5.139 and below, the GitHub Actions workflows are vulnerable to ArtiPACKED attack, a known credential leakage vector caused by using actions/checkout without setting persist-credentials: false. By default, actions/checkout writes the GITHUB_TOKEN (and sometimes ACTIONS_RUNTIME_TOKEN) into the .git/config file for persistence, and if any subsequent workflow step uploads artifacts (build outputs, logs, test results, etc.), these tokens can be inadvertently included. Since PraisonAI is a public repository, any user with read access can download these artifacts and extract the leaked tokens, potentially enabling an attacker to push malicious code, poison releases and PyPI/Docker packages, steal repository secrets, and execute a full supply chain compromise affecting all downstream users. The issue spans numerous workflow and action files across .github/workflows/ and .github/actions/. This issue has been fixed in version 4.5.140.",
-      "published": "2026-04-14T04:17:13.890",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40313"
+      "id": "CVE-2026-33892",
+      "summary": "A vulnerability has been identified in Industrial Edge Management Pro V1 (All versions >= V1.7.6 < V1.15.17), Industrial Edge Management Pro V2 (All versions >= V2.0.0 < V2.1.1), Industrial Edge Management Virtual (All versions >= V2.2.0 < V2.8.0). Affected management systems do not properly enforce user authentication on remote connections to devices.\r\nThis could facilitate an unauthenticated remote attacker to circumvent authentication and impersonate a legitimate user.\r\nSuccessful exploitation requires that the attacker has identified the header and port used for remote connections to devices and that the remote connection feature is enabled for the device.\r\n\r\nExploitation allows the attacker to tunnel to the device. Security features on this device itself (e.g. app specific authentication) are not affected.",
+      "published": "2026-04-14T09:16:36.097",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33892"
+    },
+    {
+      "id": "CVE-2026-31924",
+      "summary": "Cleartext Transmission of Sensitive Information vulnerability in Apache APISIX.\n\ntencent-cloud-cls log export uses plaintext HTTP\nThis issue affects Apache APISIX: from 2.99.0 through 3.15.0.\n\nUsers are recommended to upgrade to version 3.16.0, which fixes the issue.",
+      "published": "2026-04-14T09:16:35.953",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31924"
+    },
+    {
+      "id": "CVE-2026-31923",
+      "summary": "Cleartext Transmission of Sensitive Information vulnerability in Apache APISIX.\n\nThis can occur due to `ssl_verify` in openid-connect plugin configuration being set to false by default.\nThis issue affects Apache APISIX: from 0.7 through 3.15.0.\n\nUsers are recommended to upgrade to version 3.16.0, which fixes the issue.",
+      "published": "2026-04-14T09:16:35.817",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31923"
+    },
+    {
+      "id": "CVE-2026-31908",
+      "summary": "Header injection vulnerability in Apache APISIX.\n\nThe attacker can take advantage of certain configuration in forward-auth plugin to inject malicious headers.\nThis issue affects Apache APISIX: from 2.12.0 through 3.15.0.\n\nUsers are recommended to upgrade to version 3.16.0, which fixes the issue.",
+      "published": "2026-04-14T09:16:35.650",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31908"
     }
   ]
 }
