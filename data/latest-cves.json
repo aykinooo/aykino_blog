@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-14T11:18:23+00:00",
+  "generated_at": "2026-04-14T14:09:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2450",
+      "summary": ".NET misconfiguration: use of impersonation vulnerability in upKeeper Solutions upKeeper Instant Privilege Access allows Hijacking a Privileged Thread of Execution.This issue affects upKeeper Instant Privilege Access: through 1.5.0.",
+      "published": "2026-04-14T13:16:22.333",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2450"
+    },
+    {
+      "id": "CVE-2026-2449",
+      "summary": "Improper neutralization of argument delimiters in a command ('argument injection') vulnerability in upKeeper Solutions upKeeper Instant Privilege Access allows Hijacking a Privileged Thread of Execution.This issue affects upKeeper Instant Privilege Access: through 1.5.0.",
+      "published": "2026-04-14T12:16:21.590",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2449"
+    },
+    {
+      "id": "CVE-2026-2332",
+      "summary": "In Eclipse Jetty, the HTTP/1.1 parser is vulnerable to request smuggling when chunk extensions are used, similar to the \"funky chunks\" techniques outlined here:\n  *  https://w4ke.info/2025/06/18/funky-chunks.html\n\n  *  https://w4ke.info/2025/10/29/funky-chunks-2.html\n\n\nJetty terminates chunk extension parsing at\u00a0\\r\\n\u00a0inside quoted strings instead of treating this as an error.\n\n\nPOST / HTTP/1.1\nHost: localhost\nTransfer-Encoding: chunked\n\n1;ext=\"val\nX\n0\n\nGET /smuggled HTTP/1.1\n...\n\n\n\n\n\nNote how the chunk extension does not close the double quotes, and it is able to inject a smuggled request.",
+      "published": "2026-04-14T12:16:21.333",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2332"
+    },
+    {
+      "id": "CVE-2026-24069",
+      "summary": "Kiuwan SAST improperly authorizes SSO logins for locally disabled mapped user accounts, allowing disabled users to continue accessing the application. Kiuwan Cloud was affected, and Kiuwan SAST on-premise (KOP) was affected before 2.8.2509.4.",
+      "published": "2026-04-14T12:16:20.247",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24069"
+    },
     {
       "id": "CVE-2025-13822",
       "summary": "MCPHub in versions below\u00a00.11.0 is vulnerable to authentication bypass. Some endpoints are not protected by authentication middleware, allowing an unauthenticated attacker to perform actions in the name of other users and using their privileges.",
@@ -15,34 +43,6 @@
       "published": "2026-04-14T09:16:36.460",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4109"
-    },
-    {
-      "id": "CVE-2026-33929",
-      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache PDFBox Examples.\n\nThis issue affects the \nExtractEmbeddedFiles example in Apache PDFBox: from 2.0.24 through 2.0.36, from 3.0.0 through 3.0.7.\n\n\nUsers are recommended to update to version 2.0.37 or 3.0.8 once \navailable. Until then, they should apply the fix provided in GitHub PR \n427.\n\nThe ExtractEmbeddedFiles example contained a path traversal vulnerability (CWE-22) mentioned in CVE-2026-23907. However the change in the releases 2.0.36 and 3.0.7 is flawed because it doesn't consider the file path separator. Because of that, a user having writing rights on /home/ABC could be victim to a malicious PDF resulting in a write attempt to any path starting with\u00a0/home/ABC, e.g.\u00a0\"/home/ABCDEF\".\n\nUsers who have copied this example into their production code should apply the mentioned change. The example \nhas been changed accordingly and is available in the project repository.",
-      "published": "2026-04-14T09:16:36.297",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33929"
-    },
-    {
-      "id": "CVE-2026-33892",
-      "summary": "A vulnerability has been identified in Industrial Edge Management Pro V1 (All versions >= V1.7.6 < V1.15.17), Industrial Edge Management Pro V2 (All versions >= V2.0.0 < V2.1.1), Industrial Edge Management Virtual (All versions >= V2.2.0 < V2.8.0). Affected management systems do not properly enforce user authentication on remote connections to devices.\r\nThis could facilitate an unauthenticated remote attacker to circumvent authentication and impersonate a legitimate user.\r\nSuccessful exploitation requires that the attacker has identified the header and port used for remote connections to devices and that the remote connection feature is enabled for the device.\r\n\r\nExploitation allows the attacker to tunnel to the device. Security features on this device itself (e.g. app specific authentication) are not affected.",
-      "published": "2026-04-14T09:16:36.097",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33892"
-    },
-    {
-      "id": "CVE-2026-31924",
-      "summary": "Cleartext Transmission of Sensitive Information vulnerability in Apache APISIX.\n\ntencent-cloud-cls log export uses plaintext HTTP\nThis issue affects Apache APISIX: from 2.99.0 through 3.15.0.\n\nUsers are recommended to upgrade to version 3.16.0, which fixes the issue.",
-      "published": "2026-04-14T09:16:35.953",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31924"
-    },
-    {
-      "id": "CVE-2026-31923",
-      "summary": "Cleartext Transmission of Sensitive Information vulnerability in Apache APISIX.\n\nThis can occur due to `ssl_verify` in openid-connect plugin configuration being set to false by default.\nThis issue affects Apache APISIX: from 0.7 through 3.15.0.\n\nUsers are recommended to upgrade to version 3.16.0, which fixes the issue.",
-      "published": "2026-04-14T09:16:35.817",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31923"
     }
   ]
 }
