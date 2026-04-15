@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-15T23:00:57+00:00",
+  "generated_at": "2026-04-15T23:57:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-4949",
+      "summary": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content \u2013 ProfilePress plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 4.16.12. This is due to the 'process_checkout' function not properly enforcing the plan active status check when a 'change_plan_sub_id' parameter is provided. This makes it possible for authenticated attackers, with Subscriber-level access and above, to subscribe to inactive membership plans by supplying an arbitrary 'change_plan_sub_id' value in the checkout request.",
+      "published": "2026-04-15T23:16:10.383",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4949"
+    },
+    {
+      "id": "CVE-2026-40316",
+      "summary": "OWASP BLT is a QA testing and vulnerability disclosure platform that encompasses websites, apps, git repositories, and more. Versions prior to 2.1.1 contain an RCE vulnerability in the .github/workflows/regenerate-migrations.yml workflow. The workflow uses the pull_request_target trigger to run with full GITHUB_TOKEN write permissions, copies attacker-controlled files from untrusted pull requests into the trusted runner workspace via git show, and then executes python manage.py makemigrations, which imports Django model modules including attacker-controlled website/models.py at runtime. Any module-level Python code in the attacker's models.py is executed during import, enabling arbitrary code execution in the privileged CI environment with access to GITHUB_TOKEN and repository secrets. The attack is triggerable by any external contributor who can open a pull request, provided a maintainer applies the regenerate-migrations label, potentially leading to secret exfiltration, repository compromise, and supply chain attacks. A patch for this issue is expected to be released in version 2.1.1.",
+      "published": "2026-04-15T23:16:10.220",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40316"
+    },
+    {
+      "id": "CVE-2026-40192",
+      "summary": "Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.",
+      "published": "2026-04-15T23:16:10.053",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40192"
+    },
+    {
+      "id": "CVE-2026-40179",
+      "summary": "Prometheus is an open-source monitoring system and time series database. Versions 3.0 through 3.5.1 and 3.6.0 through 3.11.1 have stored cross-site scripting vulnerabilities in multiple components of the Prometheus web UI where metric names and label values are injected into innerHTML without escaping. In both the Mantine UI and old React UI, chart tooltips on the Graph page render metric names containing HTML/JavaScript without sanitization. In the old React UI, the Metric Explorer fuzzy search results use dangerouslySetInnerHTML without escaping, and heatmap cell tooltips interpolate le label values without sanitization. With Prometheus v3.x defaulting to UTF-8 metric and label name validation, characters like <, >, and \" are now valid in metric names and labels. An attacker who can inject metrics via a compromised scrape target, remote write, or OTLP receiver endpoint can execute arbitrary JavaScript in the browser of any Prometheus user who views the metric in the Graph UI, potentially enabling configuration exfiltration, data deletion, or Prometheus shutdown depending on enabled flags. This issue has been fixed in versions 3.5.2 and 3.11.2. If developers are unable to immediately update, the following workarounds are recommended: ensure that the remote write receiver (--web.enable-remote-write-receiver) and the OTLP receiver (--web.enable-otlp-receiver) are not exposed to untrusted sources; verify that all scrape targets are trusted and not under attacker control; avoid enabling admin or mutating API endpoints (e.g., --web.enable-admin-api or --web.enable-lifecycle) in environments where untrusted data may be ingested; and refrain from clicking untrusted links, particularly those containing functions such as label_replace, as they may generate poisoned label names and values.",
+      "published": "2026-04-15T23:16:09.870",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40179"
+    },
+    {
+      "id": "CVE-2026-39350",
+      "summary": "Istio is an open platform to connect, manage, and secure microservices. In versions 1.25.0 through 1.27.8, 1.28.0 through 1.28.5, 1.29.0, and 1.29.1, the serviceAccounts and notServiceAccounts fields in AuthorizationPolicy incorrectly interpret dots (.) as a regular expression matcher. Because . is a valid character in a service account name, an AuthorizationPolicy ALLOW rule targeting a service account such as cert-manager.io also matches cert-manager-io, cert-managerXio, etc. A DENY rule targeting the same name fails to block those variants. Fixes are available in versions 1.29.2, 1.28.6, and 1.27.9.",
+      "published": "2026-04-15T23:16:09.477",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39350"
+    },
     {
       "id": "CVE-2026-6388",
       "summary": "A flaw was found in ArgoCD Image Updater. This vulnerability allows an attacker, with permissions to create or modify an ImageUpdater resource in a multi-tenant environment, to bypass namespace boundaries. By exploiting insufficient validation, the attacker can trigger unauthorized image updates on applications managed by other tenants. This leads to cross-namespace privilege escalation, impacting application integrity through unauthorized application updates.",
       "published": "2026-04-15T22:17:22.583",
       "cvss": 9.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6388"
-    },
-    {
-      "id": "CVE-2026-40500",
-      "summary": "ProcessWire CMS version 3.0.255 and prior contain a server-side request forgery vulnerability in the admin panel's 'Add Module From URL' feature that allows authenticated administrators to supply arbitrary URLs to the module download parameter, causing the server to issue outbound HTTP requests to attacker-controlled internal or external hosts. Attackers can exploit differentiable error messages returned by the server to perform reliable internal network port scanning, host enumeration across RFC-1918 ranges, and potential access to cloud instance metadata endpoints.",
-      "published": "2026-04-15T22:17:22.377",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40500"
-    },
-    {
-      "id": "CVE-2026-1711",
-      "summary": "Pega Platform versions 8.1.0 through 25.1.1 are affected by a Stored Cross-Site Scripting vulnerability in a user interface component. Requires a high privileged user with a developer role.",
-      "published": "2026-04-15T22:16:51.880",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1711"
-    },
-    {
-      "id": "CVE-2026-1564",
-      "summary": "Pega Platform versions 8.1.0 through 25.1.1 are affected by an HTML Injection vulnerability in a user interface component. Requires a high privileged user with a developer role.",
-      "published": "2026-04-15T22:16:51.250",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1564"
-    },
-    {
-      "id": "CVE-2026-40261",
-      "summary": "Composer is a dependency manager for PHP. Versions 1.0 through 2.2.26 and 2.3 through 2.9.5 contain a command injection vulnerability in the Perforce::syncCodeBase() method, which appends the $sourceReference parameter to a shell command without proper escaping, and additionally in the Perforce::generateP4Command() method as in GHSA-wg36-wvj6-r67p / CVE-2026-40176, which interpolates user-supplied Perforce connection parameters (port, user, client) from the source url field without proper escaping. An attacker can inject arbitrary commands through crafted source reference or source url values containing shell metacharacters, even if Perforce is not installed. Unlike CVE-2026-40176, the source reference and url are provided as part of package metadata, meaning any compromised or malicious Composer repository can serve package metadata declaring perforce as a source type with malicious values. This vulnerability is exploitable when installing or updating dependencies from source, including the default behavior when installing dev-prefixed versions. This issue has been fixed in Composer 2.2.27 (2.2 LTS) and 2.9.6 (mainline). If developers are unable to immediately update, they can avoid installing dependencies from source by using --prefer-dist or the preferred-install: dist config setting, and only use trusted Composer repositories as a workaround.",
-      "published": "2026-04-15T21:17:27.693",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40261"
-    },
-    {
-      "id": "CVE-2026-40186",
-      "summary": "ApostropheCMS is an open-source Node.js content management system. A regression introduced in commit 49d0bb7, included in versions 2.17.1 of the ApostropheCMS-maintained sanitize-html package bypasses allowedTags enforcement for text inside nonTextTagsArray elements (textarea and option). ApostropheCMS version 4.28.0 is affected through its dependency on the vulnerable sanitize-html version. The code at packages/sanitize-html/index.js:569-573 incorrectly assumes that htmlparser2 does not decode entities inside these elements and skips escaping, but htmlparser2 10.x does decode entities before passing text to the ontext callback. As a result, entity-encoded HTML is decoded by the parser and then written directly to the output as literal HTML characters, completely bypassing the allowedTags filter. An attacker can inject arbitrary tags including XSS payloads through any allowed option or textarea element using entity encoding. This affects non-default configurations where option or textarea are included in allowedTags, which is common in form builders and CMS platforms. This issue has been fixed in version 2.17.2 of sanitize-html and 4.29.0 of ApostropheCMS.",
-      "published": "2026-04-15T21:17:27.523",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40186"
     }
   ]
 }
