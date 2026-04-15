@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-15T21:05:11+00:00",
+  "generated_at": "2026-04-15T22:03:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-40261",
+      "summary": "Composer is a dependency manager for PHP. Versions 1.0 through 2.2.26 and 2.3 through 2.9.5 contain a command injection vulnerability in the Perforce::syncCodeBase() method, which appends the $sourceReference parameter to a shell command without proper escaping, and additionally in the Perforce::generateP4Command() method as in GHSA-wg36-wvj6-r67p / CVE-2026-40176, which interpolates user-supplied Perforce connection parameters (port, user, client) from the source url field without proper escaping. An attacker can inject arbitrary commands through crafted source reference or source url values containing shell metacharacters, even if Perforce is not installed. Unlike CVE-2026-40176, the source reference and url are provided as part of package metadata, meaning any compromised or malicious Composer repository can serve package metadata declaring perforce as a source type with malicious values. This vulnerability is exploitable when installing or updating dependencies from source, including the default behavior when installing dev-prefixed versions. This issue has been fixed in Composer 2.2.27 (2.2 LTS) and 2.9.6 (mainline). If developers are unable to immediately update, they can avoid installing dependencies from source by using --prefer-dist or the preferred-install: dist config setting, and only use trusted Composer repositories as a workaround.",
+      "published": "2026-04-15T21:17:27.693",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40261"
+    },
+    {
+      "id": "CVE-2026-40186",
+      "summary": "ApostropheCMS is an open-source Node.js content management system. A regression introduced in commit 49d0bb7, included in versions 2.17.1 of the ApostropheCMS-maintained sanitize-html package bypasses allowedTags enforcement for text inside nonTextTagsArray elements (textarea and option). ApostropheCMS version 4.28.0 is affected through its dependency on the vulnerable sanitize-html version. The code at packages/sanitize-html/index.js:569-573 incorrectly assumes that htmlparser2 does not decode entities inside these elements and skips escaping, but htmlparser2 10.x does decode entities before passing text to the ontext callback. As a result, entity-encoded HTML is decoded by the parser and then written directly to the output as literal HTML characters, completely bypassing the allowedTags filter. An attacker can inject arbitrary tags including XSS payloads through any allowed option or textarea element using entity encoding. This affects non-default configurations where option or textarea are included in allowedTags, which is common in form builders and CMS platforms. This issue has been fixed in version 2.17.2 of sanitize-html and 4.29.0 of ApostropheCMS.",
+      "published": "2026-04-15T21:17:27.523",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40186"
+    },
+    {
+      "id": "CVE-2026-40176",
+      "summary": "Composer is a dependency manager for PHP. Versions 1.0 through 2.2.26 and 2.3 through 2.9.5 contain a command injection vulnerability in the Perforce::generateP4Command() method, which constructs shell commands by interpolating user-supplied Perforce connection parameters (port, user, client) without proper escaping. An attacker can inject arbitrary commands through these values in a malicious composer.json declaring a Perforce VCS repository, leading to command execution in the context of the user running Composer, even if Perforce is not installed. VCS repositories are only loaded from the root composer.json or the composer config directory, so this cannot be exploited through composer.json files of packages installed as dependencies. Users are at risk if they run Composer commands on untrusted projects with attacker-supplied composer.json files. This issue has been fixed in Composer 2.2.27 (2.2 LTS) and 2.9.6 (mainline).",
+      "published": "2026-04-15T21:17:27.357",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40176"
+    },
+    {
+      "id": "CVE-2026-40173",
+      "summary": "Dgraph is an open source distributed GraphQL database. Versions 25.3.1 and prior contain an unauthenticated credential disclosure vulnerability where the /debug/pprof/cmdline endpoint is registered on the default mux and reachable without authentication, exposing the full process command line including the admin token configured via the --security \"token=...\" startup flag. An attacker can retrieve the leaked token and reuse it in the X-Dgraph-AuthToken header to gain unauthorized access to admin-only endpoints such as /admin/config/cache_mb, bypassing the adminAuthHandler token validation. This enables unauthorized privileged administrative access including configuration changes and operational control actions in any deployment where the Alpha HTTP port is reachable by untrusted parties. This issue has been fixed in version 25.3.2.",
+      "published": "2026-04-15T21:17:27.197",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40173"
+    },
+    {
+      "id": "CVE-2026-22676",
+      "summary": "Barracuda RMM versions prior to\u00a02025.2.2 contain a privilege escalation vulnerability that allows local attackers to gain SYSTEM-level privileges by exploiting overly permissive filesystem ACLs on the C:\\Windows\\Automation directory. Attackers can modify existing automation content or place attacker-controlled files in this directory, which are then executed under the NT AUTHORITY\\SYSTEM account during routine automation cycles, typically succeeding within the next execution cycle.",
+      "published": "2026-04-15T21:17:04.447",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22676"
+    },
     {
       "id": "CVE-2026-6385",
       "summary": "A flaw was found in FFmpeg. A remote attacker could exploit this vulnerability by providing a specially crafted MPEG-PS/VOB media file containing a malicious DVD subtitle stream. This vulnerability is caused by a signed integer overflow in the DVD subtitle parser's fragment reassembly bounds checks, leading to a heap out-of-bounds write. Successful exploitation can result in a denial of service (DoS) due to an application crash, and potentially lead to arbitrary code execution.",
       "published": "2026-04-15T20:16:44.230",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6385"
-    },
-    {
-      "id": "CVE-2026-6384",
-      "summary": "A flaw was found in gimp. This buffer overflow vulnerability in the GIF image loading component's `ReadJeffsImage` function allows an attacker to write beyond an allocated buffer by processing a specially crafted GIF file. This can lead to a denial of service or potentially arbitrary code execution.",
-      "published": "2026-04-15T20:16:44.033",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6384"
-    },
-    {
-      "id": "CVE-2026-6364",
-      "summary": "Out of bounds read in Skia in Google Chrome prior to 147.0.7727.101 allowed a remote attacker to obtain potentially sensitive information from process memory via a crafted file. (Chromium security severity: Medium)",
-      "published": "2026-04-15T20:16:43.910",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6364"
-    },
-    {
-      "id": "CVE-2026-6363",
-      "summary": "Type Confusion in V8 in Google Chrome prior to 147.0.7727.101 allowed a remote attacker to potentially perform out of bounds memory access via a crafted HTML page. (Chromium security severity: Medium)",
-      "published": "2026-04-15T20:16:43.690",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6363"
-    },
-    {
-      "id": "CVE-2026-6362",
-      "summary": "Use after free in Codecs in Google Chrome prior to 147.0.7727.101 allowed a remote attacker to potentially perform out of bounds memory access via a crafted video file. (Chromium security severity: High)",
-      "published": "2026-04-15T20:16:43.557",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6362"
-    },
-    {
-      "id": "CVE-2026-6361",
-      "summary": "Heap buffer overflow in PDFium in Google Chrome on Windows prior to 147.0.7727.101 allowed a remote attacker who convinced a user to engage in specific UI gestures to execute arbitrary code inside a sandbox via a crafted PDF file. (Chromium security severity: High)",
-      "published": "2026-04-15T20:16:43.267",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6361"
     }
   ]
 }
