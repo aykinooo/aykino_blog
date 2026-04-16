@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-16T09:47:03+00:00",
+  "generated_at": "2026-04-16T11:18:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2025-12624",
+      "summary": "Active access tokens are not revoked or invalidated when a user account is locked within WSO2 Identity Server. This failure to enforce revocation allows previously issued, valid tokens to remain usable, enabling continued access to protected resources by locked user accounts.\n\nThe security consequence is that a locked user account can maintain access to protected resources through the use of existing, unexpired access tokens. This creates a security gap where access control policies are bypassed, potentially leading to unauthorized data access or actions until the tokens naturally expire.",
+      "published": "2026-04-16T11:16:26.447",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-12624"
+    },
+    {
+      "id": "CVE-2025-6024",
+      "summary": "The authentication endpoint fails to encode user-supplied input before rendering it in the web page, allowing for script injection.\nAn attacker can leverage this by injecting malicious scripts into the authentication endpoint. This can result in the user's browser being redirected to a malicious website, manipulation of the web page's user interface, or the retrieval of information from the browser. However, session hijacking is not possible due to the httpOnly flag protecting session-related cookies.",
+      "published": "2026-04-16T10:16:14.243",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-6024"
+    },
+    {
+      "id": "CVE-2024-8010",
+      "summary": "The component accepts XML input through the publisher without disabling external entity resolution. This allows malicious actors to submit a crafted XML payload that exploits the unescaped external entity references.\n\nBy leveraging this vulnerability, a malicious actor can read confidential files from the product's file system or access limited HTTP resources reachable via HTTP GET requests to the vulnerable product.",
+      "published": "2026-04-16T10:16:14.050",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-8010"
+    },
+    {
+      "id": "CVE-2024-4867",
+      "summary": "The WSO2 API Manager developer portal accepts user-supplied input without enforcing expected validation constraints or proper output encoding. This deficiency allows a malicious actor to inject script content that is executed within the context of a user's browser.\n\nBy leveraging this cross-site scripting vulnerability, a malicious actor can cause the browser to redirect to a malicious website, make changes to the UI of the web page, or retrieve information from the browser. However, session hijacking is not possible as all session-related sensitive cookies are protected by the httpOnly flag.",
+      "published": "2026-04-16T10:16:13.893",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-4867"
+    },
+    {
+      "id": "CVE-2024-10242",
+      "summary": "The authentication endpoint fails to adequately validate user-supplied input before reflecting it back in the response. This allows an attacker to inject malicious script payloads into the input parameters, which are then executed by the victim's browser.\n\nSuccessful exploitation can enable an attacker to redirect the user's browser to a malicious website, modify the UI of the web page, or retrieve information from the browser. However, the impact is limited as session-related sensitive cookies are protected by the httpOnly flag, preventing session hijacking.",
+      "published": "2026-04-16T10:16:12.790",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10242"
+    },
     {
       "id": "CVE-2026-23772",
       "summary": "Dell Storage Manager - Replay Manager for Microsoft Servers, version(s) 8.0, contain(s) an Improper Privilege Management vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
       "published": "2026-04-16T09:16:35.280",
       "cvss": 7.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23772"
-    },
-    {
-      "id": "CVE-2024-2374",
-      "summary": "The XML parsers within multiple WSO2 products accept user-supplied XML data without properly configuring to prevent the resolution of external entities. This omission allows malicious actors to craft XML payloads that exploit the parser's behavior, leading to the inclusion of external resources.\n\nBy leveraging this vulnerability, an attacker can read confidential files from the file system and access limited HTTP resources reachable by the product. Additionally, the vulnerability can be exploited to perform denial of service attacks by exhausting server resources through recursive entity expansion or fetching large external resources.",
-      "published": "2026-04-16T09:16:34.967",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-2374"
-    },
-    {
-      "id": "CVE-2026-0718",
-      "summary": "The Post Grid Gutenberg Blocks for News, Magazines, Blog Websites \u2013 PostX plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the ultp_shareCount_callback() function in all versions up to, and including, 5.0.5. This makes it possible for unauthenticated attackers to modify the share_count post meta for any post, including private or draft posts.",
-      "published": "2026-04-16T08:16:27.170",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0718"
-    },
-    {
-      "id": "CVE-2025-14868",
-      "summary": "The Career Section plugin for WordPress is vulnerable to Cross-Site Request Forgery leading to Path Traversal and Arbitrary File Deletion in all versions up to, and including, 1.6. This is due to missing nonce validation and insufficient file path validation on the delete action in the 'appform_options_page_html' function. This makes it possible for unauthenticated attackers to delete arbitrary files on the server via a forged request, granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-04-16T08:16:26.773",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14868"
-    },
-    {
-      "id": "CVE-2026-41035",
-      "summary": "In rsync 3.0.1 through 3.4.1, receive_xattr relies on an untrusted length value during a qsort call, leading to a receiver use-after-free. The victim must run rsync with -X (aka --xattrs). On Linux, many (but not all) common configurations are vulnerable. Non-Linux platforms are more widely vulnerable.",
-      "published": "2026-04-16T07:16:31.003",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41035"
-    },
-    {
-      "id": "CVE-2026-41034",
-      "summary": "ONLYOFFICE DocumentServer before 9.3.0 has an untrusted pointer dereference in XLS processing/conversion (via pictFmla.cbBufInCtlStm and other vectors), leading to an information leak and ASLR bypass.",
-      "published": "2026-04-16T07:16:30.843",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41034"
     }
   ]
 }
