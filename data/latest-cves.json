@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-15T23:57:54+00:00",
+  "generated_at": "2026-04-16T03:45:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4949",
-      "summary": "The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content \u2013 ProfilePress plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 4.16.12. This is due to the 'process_checkout' function not properly enforcing the plan active status check when a 'change_plan_sub_id' parameter is provided. This makes it possible for authenticated attackers, with Subscriber-level access and above, to subscribe to inactive membership plans by supplying an arbitrary 'change_plan_sub_id' value in the checkout request.",
-      "published": "2026-04-15T23:16:10.383",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4949"
+      "id": "CVE-2026-6351",
+      "summary": "MailGates/MailAudit developed by Openfind has a CRLF Injection vulnerability, allowing unauthenticated remote attackers to exploit this vulnerability to read system files.",
+      "published": "2026-04-16T03:16:31.053",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6351"
     },
     {
-      "id": "CVE-2026-40316",
-      "summary": "OWASP BLT is a QA testing and vulnerability disclosure platform that encompasses websites, apps, git repositories, and more. Versions prior to 2.1.1 contain an RCE vulnerability in the .github/workflows/regenerate-migrations.yml workflow. The workflow uses the pull_request_target trigger to run with full GITHUB_TOKEN write permissions, copies attacker-controlled files from untrusted pull requests into the trusted runner workspace via git show, and then executes python manage.py makemigrations, which imports Django model modules including attacker-controlled website/models.py at runtime. Any module-level Python code in the attacker's models.py is executed during import, enabling arbitrary code execution in the privileged CI environment with access to GITHUB_TOKEN and repository secrets. The attack is triggerable by any external contributor who can open a pull request, provided a maintainer applies the regenerate-migrations label, potentially leading to secret exfiltration, repository compromise, and supply chain attacks. A patch for this issue is expected to be released in version 2.1.1.",
-      "published": "2026-04-15T23:16:10.220",
+      "id": "CVE-2026-6350",
+      "summary": "MailGates/MailAudit developed by Openfind has a Stack-based Buffer Overflow vulnerability, allowing unauthenticated remote attackers to control the program's execution flow and execute arbitrary code.",
+      "published": "2026-04-16T03:16:30.847",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6350"
+    },
+    {
+      "id": "CVE-2026-6349",
+      "summary": "The\u00a0\niSherlock developed by HGiga\u00a0 has an OS Command Injection vulnerability, allowing unauthenticated local attackers to inject arbitrary OS commands and execute them on the server.",
+      "published": "2026-04-16T03:16:30.660",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6349"
+    },
+    {
+      "id": "CVE-2026-6348",
+      "summary": "WinMatrix agent developed by Simopro Technology has a Missing Authentication vulnerability, allowing authenticated local attackers to execute arbitrary code with SYSTEM privileges on the local machine as well as on all hosts within the environment where the agent is installed.",
+      "published": "2026-04-16T03:16:30.383",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40316"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6348"
     },
     {
-      "id": "CVE-2026-40192",
-      "summary": "Pillow is a Python imaging library. Versions 10.3.0 through 12.1.1 did not limit the amount of GZIP-compressed data read when decoding a FITS image, making them vulnerable to decompression bomb attacks. A specially crafted FITS file could cause unbounded memory consumption, leading to denial of service (OOM crash or severe performance degradation). If users are unable to immediately upgrade, they should only open specific image formats, excluding FITS, as a workaround.",
-      "published": "2026-04-15T23:16:10.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40192"
+      "id": "CVE-2026-41015",
+      "summary": "radare2 before 9236f44, when configured on UNIX without SSL, allows command injection via a PDB name to rabin2 -PP. NOTE: although users are supposed to use the latest version from git (not a release), the date range for the vulnerable code was less than a week, occurring after 6.1.2 but before 6.1.3.",
+      "published": "2026-04-16T03:16:27.440",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41015"
     },
     {
-      "id": "CVE-2026-40179",
-      "summary": "Prometheus is an open-source monitoring system and time series database. Versions 3.0 through 3.5.1 and 3.6.0 through 3.11.1 have stored cross-site scripting vulnerabilities in multiple components of the Prometheus web UI where metric names and label values are injected into innerHTML without escaping. In both the Mantine UI and old React UI, chart tooltips on the Graph page render metric names containing HTML/JavaScript without sanitization. In the old React UI, the Metric Explorer fuzzy search results use dangerouslySetInnerHTML without escaping, and heatmap cell tooltips interpolate le label values without sanitization. With Prometheus v3.x defaulting to UTF-8 metric and label name validation, characters like <, >, and \" are now valid in metric names and labels. An attacker who can inject metrics via a compromised scrape target, remote write, or OTLP receiver endpoint can execute arbitrary JavaScript in the browser of any Prometheus user who views the metric in the Graph UI, potentially enabling configuration exfiltration, data deletion, or Prometheus shutdown depending on enabled flags. This issue has been fixed in versions 3.5.2 and 3.11.2. If developers are unable to immediately update, the following workarounds are recommended: ensure that the remote write receiver (--web.enable-remote-write-receiver) and the OTLP receiver (--web.enable-otlp-receiver) are not exposed to untrusted sources; verify that all scrape targets are trusted and not under attacker control; avoid enabling admin or mutating API endpoints (e.g., --web.enable-admin-api or --web.enable-lifecycle) in environments where untrusted data may be ingested; and refrain from clicking untrusted links, particularly those containing functions such as label_replace, as they may generate poisoned label names and values.",
-      "published": "2026-04-15T23:16:09.870",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40179"
-    },
-    {
-      "id": "CVE-2026-39350",
-      "summary": "Istio is an open platform to connect, manage, and secure microservices. In versions 1.25.0 through 1.27.8, 1.28.0 through 1.28.5, 1.29.0, and 1.29.1, the serviceAccounts and notServiceAccounts fields in AuthorizationPolicy incorrectly interpret dots (.) as a regular expression matcher. Because . is a valid character in a service account name, an AuthorizationPolicy ALLOW rule targeting a service account such as cert-manager.io also matches cert-manager-io, cert-managerXio, etc. A DENY rule targeting the same name fails to block those variants. Fixes are available in versions 1.29.2, 1.28.6, and 1.27.9.",
-      "published": "2026-04-15T23:16:09.477",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39350"
-    },
-    {
-      "id": "CVE-2026-6388",
-      "summary": "A flaw was found in ArgoCD Image Updater. This vulnerability allows an attacker, with permissions to create or modify an ImageUpdater resource in a multi-tenant environment, to bypass namespace boundaries. By exploiting insufficient validation, the attacker can trigger unauthorized image updates on applications managed by other tenants. This leads to cross-namespace privilege escalation, impacting application integrity through unauthorized application updates.",
-      "published": "2026-04-15T22:17:22.583",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6388"
+      "id": "CVE-2026-3885",
+      "summary": "The WP Shortcodes Plugin \u2014 Shortcodes Ultimate plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'su_box' shortcode in all versions up to, and including, 7.4.9 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-16T03:16:27.080",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3885"
     }
   ]
 }
