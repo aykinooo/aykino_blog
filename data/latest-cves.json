@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-16T21:57:58+00:00",
+  "generated_at": "2026-04-16T23:01:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40901",
-      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below ship the legacy velocity-1.7.jar, which pulls in commons-collections-3.2.1.jar containing the InvokerTransformer deserialization gadget chain. Quartz 2.3.2, also bundled in the application, deserializes job data BLOBs from the qrtz_job_details table using ObjectInputStream with no deserialization filter or class allowlist. An authenticated attacker who can write to the Quartz job table, such as through the previously described SQL injection in previewSql, can replace a scheduled job's JOB_DATA with a malicious CommonsCollections6 gadget chain payload. When the Quartz cron trigger fires, the payload is deserialized and executes arbitrary commands as root inside the container, achieving full remote code execution. This issue has been fixed in version 2.10.21.",
-      "published": "2026-04-16T21:16:24.270",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40901"
+      "id": "CVE-2026-41113",
+      "summary": "sagredo qmail before 2026.04.07 allows tls_quit remote code execution because of popen in notlshosts_auto in qmail-remote.c.",
+      "published": "2026-04-16T22:16:39.103",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41113"
     },
     {
-      "id": "CVE-2026-40900",
-      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the /de2api/datasetData/previewSql endpoint. The user-supplied SQL is wrapped in a subquery without validation that the input is a single SELECT statement. Combined with the JDBC blocklist bypass that allows enabling allowMultiQueries=true, an attacker can break out of the subquery and execute arbitrary stacked SQL statements, including UPDATE and other write operations, against the connected database. An authenticated attacker with access to valid datasource credentials can achieve full read and write access to the underlying database. This issue has been fixed in version 2.10.21.",
-      "published": "2026-04-16T21:16:24.113",
+      "id": "CVE-2026-40308",
+      "summary": "My Calendar is a WordPress plugin for managing calendar events. In versions 3.7.6 and below, the mc_ajax_mcjs_action AJAX endpoint, registered for unauthenticated users, passes user-supplied arguments through parse_str() without validation, allowing injection of arbitrary parameters including a site value. On WordPress Multisite installations, this enables an unauthenticated attacker to call switch_to_blog() with an arbitrary site ID and extract calendar events from any sub-site on the network, including private or hidden events. On standard Single Site installations, switch_to_blog() does not exist, causing an uncaught PHP fatal error and crashing the worker thread, creating an unauthenticated denial of service vector. This issue has been fixed in version 3.7.7.",
+      "published": "2026-04-16T22:16:38.940",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40900"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40308"
     },
     {
-      "id": "CVE-2026-40899",
-      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a JDBC parameter blocklist bypass vulnerability in the MySQL datasource configuration. The Mysql class uses Lombok's @Data annotation, which auto-generates a public setter for the illegalParameters field that contains the JDBC security blocklist. When a datasource configuration is submitted as JSON, Jackson deserialization calls setIllegalParameters with an attacker-supplied empty list, replacing the blocklist before getJdbc() validation runs. This allows an authenticated attacker to include dangerous JDBC parameters such as allowLoadLocalInfile=true, and by pointing the datasource at a rogue MySQL server, exploit the LOAD DATA LOCAL INFILE protocol feature to read arbitrary files from the DataEase server filesystem, including sensitive environment variables and database credentials. This issue has been fixed in version 2.10.21.",
-      "published": "2026-04-16T20:16:38.957",
+      "id": "CVE-2026-40249",
+      "summary": "free5GC is an open-source implementation of the 5G core network. In versions 4.2.1 and below of the UDR service, the PUT handler for updating Policy Data notification subscriptions at /nudr-dr/v2/policy-data/subs-to-notify/{subsId} does not return after request body retrieval or deserialization errors. Although HTTP 500 or 400 error responses are sent, execution continues and the processor is invoked with a potentially uninitialized or partially initialized PolicyDataSubscription object. This fail-open behavior may allow unintended modification of existing Policy Data notification subscriptions with invalid or empty input, depending on downstream processor and storage behavior. A patched version was not available at the time of publication.",
+      "published": "2026-04-16T22:16:38.793",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40899"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40249"
     },
     {
-      "id": "CVE-2026-33207",
-      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the /datasource/getTableField endpoint. The getTableFiledSql method in CalciteProvider.java incorporates the tableName parameter directly into SQL query strings using String.format without parameterization or sanitization. Although DatasourceServer.java validates that the table name exists in the datasource, an attacker can bypass this by first registering an API datasource with a malicious deTableName, which is then returned by getTables and passes the validation check. An authenticated attacker can execute arbitrary SQL commands, enabling error-based extraction of sensitive database information. This issue has been fixed in version 2.10.21.",
-      "published": "2026-04-16T20:16:38.797",
+      "id": "CVE-2026-40248",
+      "summary": "free5GC is an open-source implementation of the 5G core network. In versions 4.2.1 and below of the UDR service, the handler for creating or updating Traffic Influence Subscriptions checks whether the influenceId path segment equals subs-to-notify, but does not return after sending the HTTP 404 response when validation fails. Execution continues and the subscription is created or overwritten regardless. An unauthenticated attacker with access to the 5G Service Based Interface can create or overwrite arbitrary Traffic Influence Subscriptions, including injecting attacker-controlled notificationUri values and arbitrary SUPIs, by supplying any value for the influenceId path segment. A patched version was not available at the time of publication.",
+      "published": "2026-04-16T22:16:38.657",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33207"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40248"
     },
     {
-      "id": "CVE-2026-33122",
-      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the API datasource update process. When a new table definition is added during a datasource update via /de2api/datasource/update, the deTableName field from the user-submitted configuration is passed to DatasourceSyncManage.createEngineTable, where it is substituted into a CREATE TABLE statement template without any sanitization or identifier escaping. An authenticated attacker can inject arbitrary SQL commands by crafting a deTableName that breaks out of identifier quoting, enabling error-based SQL injection that can extract database information. This issue has been fixed in version 2.10.21.",
-      "published": "2026-04-16T20:16:38.640",
+      "id": "CVE-2026-40247",
+      "summary": "free5GC is an open-source implementation of the 5G core network. In versions 4.2.1 and below of the UDR service, the handler for reading Traffic Influence Subscriptions checks whether the influenceId path segment equals subs-to-notify, but does not return after sending the HTTP 404 response when validation fails. Execution continues and the subscription data is returned alongside the 404 response. An unauthenticated attacker with access to the 5G Service Based Interface can read arbitrary Traffic Influence Subscriptions, including SUPIs/IMSIs, DNNs, S-NSSAIs, and callback URIs, by supplying any value for the influenceId path segment. A patched version was not available at the time of publication.",
+      "published": "2026-04-16T22:16:38.510",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33122"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40247"
     },
     {
-      "id": "CVE-2025-54502",
-      "summary": "Incorrect use of boot service in the AMD Platform Configuration Blob (APCB) SMM driver could allow a privileged attacker with local access (Ring 0) to achieve privilege escalation potentially resulting in arbitrary code execution.",
-      "published": "2026-04-16T20:16:37.393",
+      "id": "CVE-2026-40246",
+      "summary": "free5GC is an open-source implementation of the 5G core network. In versions 1.4.2 and below of the UDR service, the handler for deleting Traffic Influence Subscriptions checks whether the influenceId path segment equals subs-to-notify, but does not return after sending the HTTP 404 response when validation fails. Execution continues and the subscription is deleted regardless. An unauthenticated attacker with access to the 5G Service Based Interface can delete arbitrary Traffic Influence Subscriptions by supplying any value for the influenceId path segment, while the API misleadingly returns a 404 Not Found response. A patched version was not available at the time of publication.",
+      "published": "2026-04-16T22:16:38.370",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54502"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40246"
     }
   ]
 }
