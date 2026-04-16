@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-16T19:36:51+00:00",
+  "generated_at": "2026-04-16T21:02:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-40899",
+      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a JDBC parameter blocklist bypass vulnerability in the MySQL datasource configuration. The Mysql class uses Lombok's @Data annotation, which auto-generates a public setter for the illegalParameters field that contains the JDBC security blocklist. When a datasource configuration is submitted as JSON, Jackson deserialization calls setIllegalParameters with an attacker-supplied empty list, replacing the blocklist before getJdbc() validation runs. This allows an authenticated attacker to include dangerous JDBC parameters such as allowLoadLocalInfile=true, and by pointing the datasource at a rogue MySQL server, exploit the LOAD DATA LOCAL INFILE protocol feature to read arbitrary files from the DataEase server filesystem, including sensitive environment variables and database credentials. This issue has been fixed in version 2.10.21.",
+      "published": "2026-04-16T20:16:38.957",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40899"
+    },
+    {
+      "id": "CVE-2026-33207",
+      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the /datasource/getTableField endpoint. The getTableFiledSql method in CalciteProvider.java incorporates the tableName parameter directly into SQL query strings using String.format without parameterization or sanitization. Although DatasourceServer.java validates that the table name exists in the datasource, an attacker can bypass this by first registering an API datasource with a malicious deTableName, which is then returned by getTables and passes the validation check. An authenticated attacker can execute arbitrary SQL commands, enabling error-based extraction of sensitive database information. This issue has been fixed in version 2.10.21.",
+      "published": "2026-04-16T20:16:38.797",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33207"
+    },
+    {
+      "id": "CVE-2026-33122",
+      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the API datasource update process. When a new table definition is added during a datasource update via /de2api/datasource/update, the deTableName field from the user-submitted configuration is passed to DatasourceSyncManage.createEngineTable, where it is substituted into a CREATE TABLE statement template without any sanitization or identifier escaping. An authenticated attacker can inject arbitrary SQL commands by crafting a deTableName that breaks out of identifier quoting, enabling error-based SQL injection that can extract database information. This issue has been fixed in version 2.10.21.",
+      "published": "2026-04-16T20:16:38.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33122"
+    },
+    {
+      "id": "CVE-2025-54502",
+      "summary": "Incorrect use of boot service in the AMD Platform Configuration Blob (APCB) SMM driver could allow a privileged attacker with local access (Ring 0) to achieve privilege escalation potentially resulting in arbitrary code execution.",
+      "published": "2026-04-16T20:16:37.393",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54502"
+    },
     {
       "id": "CVE-2026-6442",
       "summary": "Improper validation of bash commands in Snowflake Cortex Code CLI versions prior to 1.0.25 allowed subsequent commands to execute outside the sandbox. An attacker could exploit this by embedding specially crafted commands in untrusted content, such as a malicious repository, causing the CLI agent to execute arbitrary code on the local device without user consent. Exploitation is non-deterministic and model-dependent. The fix is automatically applied upon relaunch with no user action required.",
@@ -15,34 +43,6 @@
       "published": "2026-04-16T19:16:33.657",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33121"
-    },
-    {
-      "id": "CVE-2026-33084",
-      "summary": "DataEase is an open-source data visualization and analytics platform. Versions 2.10.20 and below contain a SQL injection vulnerability in the sort parameter of the /de2api/datasetData/enumValueObj endpoint. The DatasetDataManage service layer directly transfers the user-supplied sort value to the sorting metadata DTO, which is passed to Order2SQLObj where it is incorporated into the SQL ORDER BY clause without any whitelist validation, and then executed via CalciteProvider. An authenticated attacker can inject arbitrary SQL commands through the sort parameter, enabling time-based blind SQL injection. This issue has been fixed in version 2.10.21.",
-      "published": "2026-04-16T19:16:33.520",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33084"
-    },
-    {
-      "id": "CVE-2025-54510",
-      "summary": "Missing lock check in AMD Platform Security Processor in AMD EPYC\u2122 9005 Series CPUs allows a privileged attacker to potentially impact guest confidentiality via local access.",
-      "published": "2026-04-16T19:16:32.897",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-54510"
-    },
-    {
-      "id": "CVE-2025-43937",
-      "summary": "Dell PowerScale OneFS, versions prior to 9.12.0.0, contains an insertion of sensitive information into log file vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to the disclosure of certain user credentials. The attacker may be able to use the exposed credentials to access the vulnerable application with privileges of the compromised account.",
-      "published": "2026-04-16T19:16:32.750",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-43937"
-    },
-    {
-      "id": "CVE-2025-43935",
-      "summary": "Dell PowerScale OneFS, versions prior to 9.12.0.0, contains an improper resource shutdown or release vulnerability. A high privileged attacker with local access could potentially exploit this vulnerability, leading to denial of service.",
-      "published": "2026-04-16T19:16:32.610",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-43935"
     }
   ]
 }
