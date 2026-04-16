@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-16T08:03:19+00:00",
+  "generated_at": "2026-04-16T09:47:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-23772",
+      "summary": "Dell Storage Manager - Replay Manager for Microsoft Servers, version(s) 8.0, contain(s) an Improper Privilege Management vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-04-16T09:16:35.280",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23772"
+    },
+    {
+      "id": "CVE-2024-2374",
+      "summary": "The XML parsers within multiple WSO2 products accept user-supplied XML data without properly configuring to prevent the resolution of external entities. This omission allows malicious actors to craft XML payloads that exploit the parser's behavior, leading to the inclusion of external resources.\n\nBy leveraging this vulnerability, an attacker can read confidential files from the file system and access limited HTTP resources reachable by the product. Additionally, the vulnerability can be exploited to perform denial of service attacks by exhausting server resources through recursive entity expansion or fetching large external resources.",
+      "published": "2026-04-16T09:16:34.967",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-2374"
+    },
+    {
+      "id": "CVE-2026-0718",
+      "summary": "The Post Grid Gutenberg Blocks for News, Magazines, Blog Websites \u2013 PostX plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the ultp_shareCount_callback() function in all versions up to, and including, 5.0.5. This makes it possible for unauthenticated attackers to modify the share_count post meta for any post, including private or draft posts.",
+      "published": "2026-04-16T08:16:27.170",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0718"
+    },
+    {
+      "id": "CVE-2025-14868",
+      "summary": "The Career Section plugin for WordPress is vulnerable to Cross-Site Request Forgery leading to Path Traversal and Arbitrary File Deletion in all versions up to, and including, 1.6. This is due to missing nonce validation and insufficient file path validation on the delete action in the 'appform_options_page_html' function. This makes it possible for unauthenticated attackers to delete arbitrary files on the server via a forged request, granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-04-16T08:16:26.773",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14868"
+    },
     {
       "id": "CVE-2026-41035",
       "summary": "In rsync 3.0.1 through 3.4.1, receive_xattr relies on an untrusted length value during a qsort call, leading to a receiver use-after-free. The victim must run rsync with -X (aka --xattrs). On Linux, many (but not all) common configurations are vulnerable. Non-Linux platforms are more widely vulnerable.",
@@ -15,34 +43,6 @@
       "published": "2026-04-16T07:16:30.843",
       "cvss": 5.0,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41034"
-    },
-    {
-      "id": "CVE-2026-41030",
-      "summary": "In ONLYOFFICE DesktopEditors before 9.3.0, the update service allows attackers to perform actions on files with SYSTEM privileges.",
-      "published": "2026-04-16T07:16:30.660",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41030"
-    },
-    {
-      "id": "CVE-2026-3995",
-      "summary": "The OPEN-BRAIN plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'API Key' settings field in all versions up to, and including, 0.5.0. This is due to insufficient input sanitization and output escaping. The plugin uses sanitize_text_field() which strips HTML tags but does not encode double quotes or other HTML-special characters needed for safe attribute context output. The API key value is saved via update_option() and later output into an HTML input element's value attribute without esc_attr() escaping. This makes it possible for authenticated attackers, with Administrator-level access, to inject arbitrary web scripts via attribute breakout payloads (e.g., double quotes followed by event handlers) that execute whenever a user accesses the plugin settings page.",
-      "published": "2026-04-16T07:16:30.503",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3995"
-    },
-    {
-      "id": "CVE-2026-3876",
-      "summary": "The Prismatic plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'prismatic_encoded' pseudo-shortcode in all versions up to, and including, 3.7.3. This is due to insufficient input sanitization and output escaping on user-supplied attributes within the 'prismatic_decode' function. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page by submitting a comment containing a crafted 'prismatic_encoded' pseudo-shortcode.",
-      "published": "2026-04-16T07:16:30.350",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3876"
-    },
-    {
-      "id": "CVE-2026-3875",
-      "summary": "The BetterDocs plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'betterdocs_feedback_form' shortcode in all versions up to, and including, 4.3.8. This is due to insufficient input sanitization and output escaping on user supplied shortcode attributes. This makes it possible for authenticated attackers, with contributor level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-16T07:16:30.207",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3875"
     }
   ]
 }
