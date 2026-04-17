@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-17T17:07:41+00:00",
+  "generated_at": "2026-04-17T18:03:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-40518",
+      "summary": "ByteDance DeerFlow before commit\u00a02176b2b contains a path traversal and arbitrary file write vulnerability in bootstrap-mode custom-agent creation where the agent name validation is bypassed. Attackers can supply traversal-style values or absolute paths as the agent name to influence directory creation and write files outside the intended custom-agent directory, potentially achieving arbitrary file write on the system subject to filesystem permissions.",
+      "published": "2026-04-17T17:17:09.543",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40518"
+    },
+    {
+      "id": "CVE-2026-40516",
+      "summary": "OpenHarness before commit\u00a0bd4df81 contains a server-side request forgery vulnerability in the web_fetch and web_search tools that allows attackers to access private and localhost HTTP services by manipulating tool parameters without proper validation of target addresses. Attackers can influence an agent session to invoke these tools against loopback, RFC1918, link-local, or other non-public addresses to read response bodies from local development services, cloud metadata endpoints, admin panels, or other private HTTP services reachable from the victim host.",
+      "published": "2026-04-17T17:17:09.327",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40516"
+    },
+    {
+      "id": "CVE-2026-40515",
+      "summary": "OpenHarness before commit\u00a0bd4df81 contains a permission bypass vulnerability that allows attackers to read sensitive files by exploiting incomplete path normalization in the permission checker. Attackers can invoke the built-in grep and glob tools with sensitive root directories that are not properly evaluated against configured path rules, allowing disclosure of sensitive local file content, key material, configuration files, or directory contents despite configured path restrictions.",
+      "published": "2026-04-17T17:17:09.067",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40515"
+    },
+    {
+      "id": "CVE-2026-3464",
+      "summary": "The WP Customer Area plugin for WordPress is vulnerable to arbitrary file read and deletion due to insufficient file path validation in the 'ajax_attach_file' function in all versions up to, and including, 8.3.4. This makes it possible for authenticated attackers with a role that an administrator grants access to (e.g., Subscriber) to to read the contents of arbitrary files on the server, which can contain sensitive information, or delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php).",
+      "published": "2026-04-17T17:17:07.217",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3464"
+    },
+    {
+      "id": "CVE-2026-21733",
+      "summary": "Software installed and run as a non-privileged user may conduct improper GPU system calls to gain write permission to read-only wrapped user-mode memory and files.\n\nThis is caused by improper handling of GPU memory reservation protections.",
+      "published": "2026-04-17T17:16:35.220",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21733"
+    },
     {
       "id": "CVE-2026-6497",
       "summary": "A vulnerability was determined in prasathmani TinyFileManager up to 2.6. Affected by this vulnerability is an unknown functionality of the file /filemanager.php?p= ajax=true&type=upload of the component File Upload Handler. This manipulation of the argument uploadurl causes server-side request forgery. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
       "published": "2026-04-17T16:17:07.763",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6497"
-    },
-    {
-      "id": "CVE-2026-6284",
-      "summary": "An attacker with network access to the PLC is able to brute force discover passwords to gain unauthorized access to systems and services. The limited password complexity and no password input limiters makes brute force password enumeration possible.",
-      "published": "2026-04-17T16:17:07.620",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6284"
-    },
-    {
-      "id": "CVE-2026-21709",
-      "summary": "A vulnerability allowing a local attacker with administrator privileges to bypass Windows Driver Signature Enforcement.",
-      "published": "2026-04-17T16:16:36.413",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21709"
-    },
-    {
-      "id": "CVE-2026-6496",
-      "summary": "A vulnerability was found in prasathmani TinyFileManager up to 2.6. Affected is an unknown function of the file /filemanager.php of the component POST Parameter Handler. The manipulation of the argument file[] results in path traversal. The attack may be performed from remote. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-04-17T15:16:52.480",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6496"
-    },
-    {
-      "id": "CVE-2026-6493",
-      "summary": "A flaw has been found in lukevella rallly up to 4.7.4. This affects an unknown function of the file apps/web/src/app/[locale]/(auth)/reset-password/components/reset-password-form.tsx of the component Reset Password Handler. Executing a manipulation of the argument redirectTo can lead to cross site scripting. The attack can be executed remotely. The exploit has been published and may be used. Upgrading to version 4.8.0 mitigates this issue. Upgrading the affected component is advised. The vendor was contacted early about this disclosure.",
-      "published": "2026-04-17T15:16:52.313",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6493"
-    },
-    {
-      "id": "CVE-2026-41153",
-      "summary": "In JetBrains Junie before 252.549.29 command execution was possible via malicious project file",
-      "published": "2026-04-17T15:16:51.853",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41153"
     }
   ]
 }
