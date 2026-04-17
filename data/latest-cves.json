@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-17T06:13:05+00:00",
+  "generated_at": "2026-04-17T08:03:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6080",
-      "summary": "The Tutor LMS plugin for WordPress is vulnerable to SQL Injection in versions up to and including 3.9.8. This is due to insufficient escaping on the 'date' parameter combined with direct interpolation into a SQL fragment before being passed to $wpdb->prepare(). This makes it possible for authenticated attackers with Admin-level access and above to append additional SQL queries and extract sensitive information from the database.",
-      "published": "2026-04-17T05:16:19.430",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6080"
+      "id": "CVE-2026-6443",
+      "summary": "The Accordion and Accordion Slider plugin for WordPress is vulnerable to an injected backdoor in version 1.4.6. This is due to the plugin being sold to a malicious threat actor that embedded a backdoor in all of the plugin's they acquired. This makes it possible for the threat actor to maintain a persistent backdoor and inject spam into the affected sites.",
+      "published": "2026-04-17T07:16:03.160",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6443"
     },
     {
-      "id": "CVE-2026-5807",
-      "summary": "Vault is vulnerable to a denial-of-service condition where an unauthenticated attacker can repeatedly initiate or cancel root token generation or rekey operations, occupying the single in-progress operation slot. This prevents legitimate operators from completing these workflows. This vulnerability, CVE-2026-5807, is fixed in Vault Community Edition 2.0.0 and Vault Enterprise 2.0.0.",
-      "published": "2026-04-17T05:16:19.303",
+      "id": "CVE-2026-6441",
+      "summary": "The Canto plugin for WordPress is vulnerable to Missing Authorization in versions up to and including 3.1.1. This is due to the absence of any capability check or nonce verification in the updateOptions() function, which is exposed via two AJAX hooks: wp_ajax_updateOptions (class-canto.php line 231) and wp_ajax_fbc_updateOptions (class-canto-settings.php line 76). Both hooks are registered exclusively under the wp_ajax_ prefix (requiring only a logged-in user), with no call to current_user_can() or check_ajax_referer(). This makes it possible for authenticated attackers with subscriber-level access and above to arbitrarily modify or delete plugin options controlling cron scheduling behavior (fbc_duplicates, fbc_cron, fbc_schedule, fbc_cron_time_day, fbc_cron_time_hour, fbc_cron_start) and to manipulate or clear the plugin's scheduled WordPress cron event (fbc_scheduled_update).",
+      "published": "2026-04-17T07:16:03.020",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6441"
+    },
+    {
+      "id": "CVE-2026-4659",
+      "summary": "The Unlimited Elements for Elementor plugin for WordPress is vulnerable to Arbitrary File Read via the Repeater JSON/CSV URL parameter in versions up to, and including, 2.0.6. This is due to insufficient path traversal sanitization in the URLtoRelative() and urlToPath() functions, combined with the ability to enable debug output in widget settings. The URLtoRelative() function only performs a simple string replacement to remove the site's base URL without sanitizing path traversal sequences (../), and the cleanPath() function only normalizes directory separators without removing traversal components. This allows an attacker to provide a URL like http://site.com/../../../../etc/passwd which, after URLtoRelative() strips the domain, results in /../../../../etc/passwd being concatenated with the base path and ultimately resolved to /etc/passwd. This makes it possible for authenticated attackers with Author-level access and above to read arbitrary local files from the WordPress host, including sensitive files such as wp-config.",
+      "published": "2026-04-17T07:16:01.967",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5807"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4659"
     },
     {
-      "id": "CVE-2026-5502",
-      "summary": "The Tutor LMS \u2013 eLearning and online course solution plugin for WordPress is vulnerable to unauthorized course content manipulation in versions up to and including 3.9.8. This is due to a missing authorization check in the tutor_update_course_content_order() function. The function only validates the nonce (CSRF protection) but does not verify whether the user has permission to manage course content. The can_user_manage() authorization check only executes when the 'content_parent' parameter is present in the request. When this parameter is omitted, the function proceeds directly to save_course_content_order() which manipulates the wp_posts table without any authorization validation. This makes it possible for authenticated attackers with subscriber-level access and above to detach all lessons from any topic, move lessons between topics, and modify the menu_order of course content, effectively allowing them to disrupt the structure of any course on the site.",
-      "published": "2026-04-17T05:16:19.117",
+      "id": "CVE-2026-6482",
+      "summary": "The Rapid7 Insight Agent (versions > 4.1.0.2) is vulnerable to a local privilege escalation attack that allows users to gain SYSTEM\u00a0level control of a Windows host. Upon startup the agent service attempts to load an OpenSSL configuration file from a non-existent directory that is writable by standard users. By planting a crafted openssl.cnf file an attacker can trick the high-privilege service into executing arbitrary commands. This effectively permits an unprivileged user to bypass security controls and achieve a full host compromise under the agent\u2019s SYSTEM level access.",
+      "published": "2026-04-17T06:16:30.593",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6482"
+    },
+    {
+      "id": "CVE-2026-6421",
+      "summary": "A vulnerability has been found in Mobatek MobaXterm Home Edition up to 26.1. This affects an unknown part in the library msimg32.dll. The manipulation leads to uncontrolled search path. An attack has to be approached locally. The attack is considered to have high complexity. It is indicated that the exploitability is difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 26.2 is able to mitigate this issue. It is suggested to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-04-17T06:16:30.367",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6421"
+    },
+    {
+      "id": "CVE-2026-5797",
+      "summary": "The Quiz And Survey Master plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in versions up to and including 11.1.0. This is due to insufficient input sanitization and the execution of do_shortcode() on user-submitted quiz answer text. User-submitted answers pass through sanitize_text_field() and htmlspecialchars(), which only strip HTML tags but do not encode or remove shortcode brackets [ and ]. When quiz results are displayed, the plugin calls do_shortcode() on the entire results page output (including user answers), causing any injected shortcodes to be executed. This makes it possible for unauthenticated attackers to inject arbitrary WordPress shortcodes such as [qsm_result id=X] to access other users' quiz submissions without authorization, as the qsm_result shortcode lacks any authorization checks.",
+      "published": "2026-04-17T06:16:30.153",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5502"
-    },
-    {
-      "id": "CVE-2026-5427",
-      "summary": "The Kubio plugin for WordPress is vulnerable to Arbitrary File Upload in versions up to and including 2.7.2. This is due to insufficient capability checks in the kubio_rest_pre_insert_import_assets() function, which is hooked to the rest_pre_insert_{post_type} filter for posts, pages, templates, and template parts. When a post is created or updated via the REST API, Kubio parses block attributes looking for URLs in the 'kubio' attribute namespace and automatically imports them via importRemoteFile() without verifying the user has the upload_files capability. This makes it possible for authenticated attackers with Contributor-level access and above to bypass WordPress's normal media upload restrictions and upload files fetched from external URLs to the media library, creating attachment posts in the database.",
-      "published": "2026-04-17T05:16:18.973",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5427"
-    },
-    {
-      "id": "CVE-2026-5234",
-      "summary": "The LatePoint plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 5.3.2. The vulnerability exists because the OsStripeConnectController::create_payment_intent_for_transaction action is registered as a public action (no authentication required) and loads invoices by sequential integer invoice_id without any access_key or ownership verification. This is in contrast to other invoice-related actions (view_by_key, payment_form, summary_before_payment) in OsInvoicesController which properly require a cryptographic UUID access_key. This makes it possible for unauthenticated attackers to enumerate valid invoice IDs via an error message oracle, create unauthorized transaction intent records in the database containing sensitive financial data (invoice_id, order_id, customer_id, charge_amount), and on sites with Stripe Connect configured, the response also leaks Stripe payment_intent_client_secret tokens, transaction_intent_key values, and payment amounts for any invoice.",
-      "published": "2026-04-17T05:16:18.830",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5234"
-    },
-    {
-      "id": "CVE-2026-4853",
-      "summary": "The JetBackup \u2013 Backup, Restore & Migrate plugin for WordPress is vulnerable to Path Traversal leading to Arbitrary Directory Deletion in versions up to and including 3.1.19.8. This is due to insufficient input validation on the fileName parameter in the file upload handler. The plugin sanitizes the fileName parameter using sanitize_text_field(), which removes HTML tags but does not prevent path traversal sequences like '../'. The unsanitized filename is then directly concatenated in Upload::getFileLocation() without using basename() or validating the resolved path stays within the intended directory. When an invalid file is uploaded, the cleanup logic  calls dirname() on the traversed path and passes it to Util::rm(), which recursively deletes the entire resolved directory. This makes it possible for authenticated attackers with administrator-level access to traverse outside the intended upload directory and trigger deletion of critical WordPress directories such as wp-content/plugins, effectively disabling all installed plugins and causing severe site disruption.",
-      "published": "2026-04-17T05:16:18.680",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4853"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5797"
     }
   ]
 }
