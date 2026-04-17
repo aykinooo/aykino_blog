@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-17T21:02:10+00:00",
+  "generated_at": "2026-04-17T21:59:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40461",
-      "summary": "Anviz\u00a0CX2 Lite and CX7\u00a0are vulnerable to unauthenticated POST requests that modify debug \nsettings (e.g., enabling SSH), allowing unauthorized state changes that \ncan facilitate later compromise.",
-      "published": "2026-04-17T20:16:36.217",
+      "id": "CVE-2026-40527",
+      "summary": "radare2 prior to commit bc5a890 contains a command injection vulnerability in the afsv/afsvj command path where crafted ELF binaries can embed malicious r2 command sequences as DWARF DW_TAG_formal_parameter names. Attackers can craft a binary with shell commands in DWARF parameter names that execute when radare2 analyzes the binary with aaa and subsequently runs afsvj, allowing arbitrary shell command execution through the unsanitized parameter interpolation in the pfq command string.",
+      "published": "2026-04-17T21:16:35.373",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40527"
+    },
+    {
+      "id": "CVE-2026-40303",
+      "summary": "zrok is software for sharing web services, files, and network resources. Prior to version 2.0.1, endpoints.GetSessionCookie parses an attacker-supplied cookie chunk count and calls make([]string, count) with no upper bound before any token validation occurs. The function is reached on every request to an OAuth-protected proxy share, allowing an unauthenticated remote attacker to trigger gigabyte-scale heap allocations per request, leading to process-level OOM termination or repeated goroutine panics. Both publicProxy and dynamicProxy are affected. Version 2.0.1 patches the issue.",
+      "published": "2026-04-17T21:16:35.140",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40461"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40303"
     },
     {
-      "id": "CVE-2026-40434",
-      "summary": "Anviz CrossChex Standard\nlacks source verification in the client/server channel, enabling TCP \npacket injection by an attacker on the same network to alter or disrupt \napplication traffic.",
-      "published": "2026-04-17T20:16:36.083",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40434"
+      "id": "CVE-2026-40302",
+      "summary": "zrok is software for sharing web services, files, and network resources. Prior to version 2.0.1, the proxyUi template engine uses Go's text/template (which performs no HTML escaping) instead of html/template. The GitHub OAuth callback handlers in both publicProxy and dynamicProxy embed the attacker-controlled refreshInterval query parameter verbatim into an error message when time.ParseDuration fails, and render that error unescaped into HTML. An attacker can deliver a crafted login URL to a victim; after the victim completes the GitHub OAuth flow, the callback page executes arbitrary JavaScript in the OAuth server's origin. Version 2.0.1 patches the issue.",
+      "published": "2026-04-17T21:16:34.997",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40302"
     },
     {
-      "id": "CVE-2026-40342",
-      "summary": "Firebird is an open-source relational database management system. In versions prior to 5.0.4, 4.0.7 and 3.0.14, the external engine plugin loader concatenates a user-supplied engine name into a filesystem path without filtering path separators or .. components. An authenticated user with CREATE FUNCTION privileges can use a crafted ENGINE name to load an arbitrary shared library from anywhere on the filesystem via path traversal. The library's initialization code executes immediately during loading, before Firebird validates the module, achieving code execution as the server's OS account. This issue has been fixed in versions 5.0.4, 4.0.7 and 3.0.14.",
-      "published": "2026-04-17T20:16:35.930",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40342"
+      "id": "CVE-2026-40301",
+      "summary": "DOMSanitizer is a DOM/SVG/MathML Sanitizer for PHP 7.3+. Prior to version 1.0.10, DOMSanitizer::sanitize() allows <style> elements in SVG content but never inspects their text content. CSS url() references and @import rules pass through unfiltered, causing the browser to issue HTTP requests to attacker-controlled hosts when the sanitized SVG is rendered. Version 1.0.10 fixes the issue.",
+      "published": "2026-04-17T21:16:34.850",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40301"
     },
     {
-      "id": "CVE-2026-40283",
-      "summary": "WeGIA is a web manager for charitable institutions. In versions prior to 3.6.10, a Stored Cross-Site Scripting (XSS) vulnerability allows an authenticated user to inject malicious JavaScript via the \"Nome\" field in the \"Informa\u00e7\u00f5es Pacientes\" page. The payload is stored and executed when the patient information is viewed. Version 3.6.10 fixes the issue.",
-      "published": "2026-04-17T20:16:35.793",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40283"
+      "id": "CVE-2026-40299",
+      "summary": "next-intl provides internationalization for Next.js. Applications using the `next-intl` middleware prior to version 4.9.1with `localePrefix: 'as-needed'` could construct URLs where path handling and the WHATWG URL parser resolved a relative redirect target to another host (e.g. scheme-relative `//` or control characters stripped by the URL parser), so the middleware could redirect the browser off-site while the user still started from a trusted app URL. The problem has been patchedin `next-intl@4.9.1`.",
+      "published": "2026-04-17T21:16:34.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40299"
     },
     {
-      "id": "CVE-2026-40066",
-      "summary": "Anviz\u00a0CX2 Lite and CX7\u00a0are vulnerable to unverified update packages that can be uploaded. The \ndevice unpacks and executes a script resulting in unauthenticated remote\n code execution.",
-      "published": "2026-04-17T20:16:35.637",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40066"
-    },
-    {
-      "id": "CVE-2026-35682",
-      "summary": "Anviz\u00a0CX2 Lite is vulnerable to an authenticated command injection via a \nfilename parameter that enables arbitrary command execution (e.g., \nstarting telnetd), resulting in root\u2011level access.",
-      "published": "2026-04-17T20:16:35.510",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35682"
+      "id": "CVE-2026-40293",
+      "summary": "OpenFGA is an authorization/permission engine built for developers. In versions 0.1.4 through 1.13.1, when OpenFGA is configured to use preshared-key authentication with the built-in playground enabled, the local server includes the preshared API key in the HTML response of the /playground endpoint. The /playground endpoint is enabled by default and does not require authentication. It is intended for local development and debugging and is not designed to be exposed to production environments. Only those who run OpenFGA with `--authn-method` preshared, with the playground enabled, and with the playground endpoint accessible beyond localhost or trusted networks are vulnerable. To remediate the issue, users should upgrade to OpenFGA v1.14.0, or disable the playground by running `./openfga run --playground-enabled=false.`",
+      "published": "2026-04-17T21:16:34.567",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40293"
     }
   ]
 }
