@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-17T08:03:25+00:00",
+  "generated_at": "2026-04-17T09:45:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6443",
-      "summary": "The Accordion and Accordion Slider plugin for WordPress is vulnerable to an injected backdoor in version 1.4.6. This is due to the plugin being sold to a malicious threat actor that embedded a backdoor in all of the plugin's they acquired. This makes it possible for the threat actor to maintain a persistent backdoor and inject spam into the affected sites.",
-      "published": "2026-04-17T07:16:03.160",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6443"
-    },
-    {
-      "id": "CVE-2026-6441",
-      "summary": "The Canto plugin for WordPress is vulnerable to Missing Authorization in versions up to and including 3.1.1. This is due to the absence of any capability check or nonce verification in the updateOptions() function, which is exposed via two AJAX hooks: wp_ajax_updateOptions (class-canto.php line 231) and wp_ajax_fbc_updateOptions (class-canto-settings.php line 76). Both hooks are registered exclusively under the wp_ajax_ prefix (requiring only a logged-in user), with no call to current_user_can() or check_ajax_referer(). This makes it possible for authenticated attackers with subscriber-level access and above to arbitrarily modify or delete plugin options controlling cron scheduling behavior (fbc_duplicates, fbc_cron, fbc_schedule, fbc_cron_time_day, fbc_cron_time_hour, fbc_cron_start) and to manipulate or clear the plugin's scheduled WordPress cron event (fbc_scheduled_update).",
-      "published": "2026-04-17T07:16:03.020",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6441"
-    },
-    {
-      "id": "CVE-2026-4659",
-      "summary": "The Unlimited Elements for Elementor plugin for WordPress is vulnerable to Arbitrary File Read via the Repeater JSON/CSV URL parameter in versions up to, and including, 2.0.6. This is due to insufficient path traversal sanitization in the URLtoRelative() and urlToPath() functions, combined with the ability to enable debug output in widget settings. The URLtoRelative() function only performs a simple string replacement to remove the site's base URL without sanitizing path traversal sequences (../), and the cleanPath() function only normalizes directory separators without removing traversal components. This allows an attacker to provide a URL like http://site.com/../../../../etc/passwd which, after URLtoRelative() strips the domain, results in /../../../../etc/passwd being concatenated with the base path and ultimately resolved to /etc/passwd. This makes it possible for authenticated attackers with Author-level access and above to read arbitrary local files from the WordPress host, including sensitive files such as wp-config.",
-      "published": "2026-04-17T07:16:01.967",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4659"
-    },
-    {
-      "id": "CVE-2026-6482",
-      "summary": "The Rapid7 Insight Agent (versions > 4.1.0.2) is vulnerable to a local privilege escalation attack that allows users to gain SYSTEM\u00a0level control of a Windows host. Upon startup the agent service attempts to load an OpenSSL configuration file from a non-existent directory that is writable by standard users. By planting a crafted openssl.cnf file an attacker can trick the high-privilege service into executing arbitrary commands. This effectively permits an unprivileged user to bypass security controls and achieve a full host compromise under the agent\u2019s SYSTEM level access.",
-      "published": "2026-04-17T06:16:30.593",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6482"
-    },
-    {
-      "id": "CVE-2026-6421",
-      "summary": "A vulnerability has been found in Mobatek MobaXterm Home Edition up to 26.1. This affects an unknown part in the library msimg32.dll. The manipulation leads to uncontrolled search path. An attack has to be approached locally. The attack is considered to have high complexity. It is indicated that the exploitability is difficult. The exploit has been disclosed to the public and may be used. Upgrading to version 26.2 is able to mitigate this issue. It is suggested to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
-      "published": "2026-04-17T06:16:30.367",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6421"
-    },
-    {
-      "id": "CVE-2026-5797",
-      "summary": "The Quiz And Survey Master plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in versions up to and including 11.1.0. This is due to insufficient input sanitization and the execution of do_shortcode() on user-submitted quiz answer text. User-submitted answers pass through sanitize_text_field() and htmlspecialchars(), which only strip HTML tags but do not encode or remove shortcode brackets [ and ]. When quiz results are displayed, the plugin calls do_shortcode() on the entire results page output (including user answers), causing any injected shortcodes to be executed. This makes it possible for unauthenticated attackers to inject arbitrary WordPress shortcodes such as [qsm_result id=X] to access other users' quiz submissions without authorization, as the qsm_result shortcode lacks any authorization checks.",
-      "published": "2026-04-17T06:16:30.153",
+      "id": "CVE-2026-6494",
+      "summary": "A flaw was found in the AAP MCP server. An unauthenticated remote attacker can exploit a log injection vulnerability by sending specially crafted input to the `toolsetroute` parameter. This parameter is not properly sanitized before being written to logs, allowing the attacker to inject control characters such as newlines and ANSI escape sequences. This enables the attacker to obscure legitimate log entries and insert forged ones, which could facilitate social engineering attacks, potentially leading to an operator executing dangerous commands or visiting malicious URLs.",
+      "published": "2026-04-17T09:16:05.600",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5797"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6494"
+    },
+    {
+      "id": "CVE-2026-6439",
+      "summary": "The VideoZen plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to and including 1.0.1. This is due to insufficient input sanitization and output escaping in the videozen_conf() function. The 'lang' POST parameter is stored directly via update_option() without any sanitization, and later echoed inside a <textarea> element without applying esc_textarea() or any equivalent escaping function. This makes it possible for authenticated attackers with Administrator-level access and above to inject arbitrary web scripts into the plugin settings page that will execute whenever any user accesses that page.",
+      "published": "2026-04-17T09:16:05.447",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6439"
+    },
+    {
+      "id": "CVE-2026-23778",
+      "summary": "Dell PowerProtect Data Domain with Data Domain Operating System (DD OS) of Feature Release versions 7.7.1.0 through 8.5, LTS2025 release version 8.3.1.0 through 8.3.1.20, LTS2024 release versions 7.13.1.0 through 7.13.1.50, contain a command injection vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability to gain root-level access.",
+      "published": "2026-04-17T09:16:05.300",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23778"
+    },
+    {
+      "id": "CVE-2026-23775",
+      "summary": "Dell PowerProtect Data Domain appliances with Data Domain Operating System (DD OS) of Feature Release versions 8.0 through 8.5, LTS2025 release version 8.3.1.0 through 8.3.1.10 contain an insertion of sensitive information into log file vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to credential exposures. Authentication attempts as the compromised user would need to be authorized by a high privileged DD user. This vulnerability only affects systems with retention lock enabled.",
+      "published": "2026-04-17T09:16:05.153",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23775"
+    },
+    {
+      "id": "CVE-2025-36568",
+      "summary": "Dell PowerProtect Data Domain BoostFS for client of Feature Release versions 7.7.1.0 through 8.5, LTS2025 release version 8.3.1.0 through 8.3.1.20, LTS2024 release versions 7.13.1.0 through 7.13.1.50, contain an insufficiently protected credentials vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to credential exposure. The attacker may be able to use the exposed credentials to access the system with privileges of the compromised account.",
+      "published": "2026-04-17T09:16:05.000",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-36568"
+    },
+    {
+      "id": "CVE-2025-15625",
+      "summary": "Unauthenticated user is able to\u00a0execute arbitrary SQL commands in Sparx Pro Cloud Server database in certain cases.",
+      "published": "2026-04-17T09:16:04.850",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15625"
     }
   ]
 }
