@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-18T05:49:31+00:00",
+  "generated_at": "2026-04-18T07:33:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6518",
-      "summary": "The CMP \u2013 Coming Soon & Maintenance Plugin by NiteoThemes plugin for WordPress is vulnerable to arbitrary file upload and remote code execution in all versions up to, and including, 4.1.16 via the `cmp_theme_update_install` AJAX action. This is due to the function only checking for the `publish_pages` capability (available to Editors and above) instead of `manage_options` (Administrators only), combined with a lack of proper validation on the user-supplied file URL and no verification of the downloaded file's content before extraction. This makes it possible for authenticated attackers, with Administrator-level access and above, to force the server to download and extract a malicious ZIP file from a remote attacker-controlled URL into a web-accessible directory (`wp-content/plugins/cmp-premium-themes/`), resulting in remote code execution. Due to the lack of a nonce for Editors, they are unable to exploit this vulnerability.",
-      "published": "2026-04-18T05:16:24.377",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6518"
+      "id": "CVE-2026-41254",
+      "summary": "Little CMS (lcms2) through 2.18 has an integer overflow in CubeSize in cmslut.c because the overflow check is performed after the multiplication.",
+      "published": "2026-04-18T07:16:10.807",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41254"
     },
     {
-      "id": "CVE-2026-6048",
-      "summary": "The Flipbox Addon for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Flipbox widget's button URL `custom_attributes` field in all versions up to, and including, 2.1.1 due to insufficient validation of custom attribute names. Specifically, the plugin uses `esc_html()` on the attribute name which does not prevent event handler attributes (e.g., `onmouseover`, `onclick`). This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-18T05:16:24.157",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6048"
+      "id": "CVE-2026-32690",
+      "summary": "Secrets in Variables saved as JSON dictionaries were not properly redacted - in case thee variables were retrieved by the user the secrets stored as nested fields were not masked.\n\nIf you do not store variables with sensitive values in JSON form, you are not affected. Otherwise please upgrade to Apache Airflow 3.2.0 that has the fix implemented",
+      "published": "2026-04-18T07:16:10.683",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32690"
     },
     {
-      "id": "CVE-2026-4801",
-      "summary": "The Page Builder Gutenberg Blocks \u2013 CoBlocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting via external iCal feed data in all versions up to, and including, 3.1.16 due to insufficient output escaping of event titles, descriptions, and locations fetched from external iCal feeds in the Events block rendering function. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-18T05:16:23.987",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4801"
+      "id": "CVE-2026-32228",
+      "summary": "UI / API User with asset materialize permission could trigger dags they had no access to.\nUsers are advised to migrate to Airflow version 3.2.0 that fixes the issue.",
+      "published": "2026-04-18T07:16:10.560",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32228"
     },
     {
-      "id": "CVE-2026-40494",
-      "summary": "SAIL is a cross-platform library for loading and saving images with support for animation, metadata, and ICC profiles. Prior to commit 45d48d1f2e8e0d73e80bc1fd5310cb57f4547302, the TGA codec's RLE decoder in `tga.c` has an asymmetric bounds check vulnerability. The run-packet path (line 297) correctly clamps the repeat count to the remaining buffer space, but the raw-packet path (line 305-311) has no equivalent bounds check. This allows writing up to 496 bytes of attacker-controlled data past the end of a heap buffer. Commit 45d48d1f2e8e0d73e80bc1fd5310cb57f4547302 patches the issue.",
-      "published": "2026-04-18T03:16:13.590",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40494"
+      "id": "CVE-2026-30912",
+      "summary": "In case of SQL errors, exception/stack trace of errors was exposed in API even if \"api/expose_stack_traces\" was set to false. That could lead to exposing additional information to potential attacker. Users are recommended to upgrade to Apache Airflow 3.2.0, which fixes the issue.",
+      "published": "2026-04-18T07:16:10.427",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30912"
     },
     {
-      "id": "CVE-2026-40493",
-      "summary": "SAIL is a cross-platform library for loading and saving images with support for animation, metadata, and ICC profiles. Prior to commit c930284445ea3ff94451ccd7a57c999eca3bc979, the PSD codec computes bytes-per-pixel (`bpp`) from raw header fields `channels * depth`, but the pixel buffer is allocated based on the resolved pixel format. For LAB mode with `channels=3, depth=16`, `bpp = (3*16+7)/8 = 6`, but the format `BPP40_CIE_LAB` allocates only 5 bytes per pixel. Every pixel write overshoots, causing a deterministic heap buffer overflow on every row. Commit c930284445ea3ff94451ccd7a57c999eca3bc979 contains a patch.",
-      "published": "2026-04-18T03:16:13.440",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40493"
+      "id": "CVE-2026-30898",
+      "summary": "An example of BashOperator in Airflow documentation suggested a way of passing dag_run.conf in the way that could cause unsanitized user input to be used to escalate privileges of UI user to allow execute code on worker. Users should review if any of their own DAGs have adopted this incorrect advice.",
+      "published": "2026-04-18T07:16:10.297",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30898"
     },
     {
-      "id": "CVE-2026-40492",
-      "summary": "SAIL is a cross-platform library for loading and saving images with support for animation, metadata, and ICC profiles. Prior to commit 36aa5c7ec8a2bb35f6fb867a1177a6f141156b02, the XWD codec resolves pixel format based on `pixmap_depth` but the byte-swap code uses `bits_per_pixel` independently. When `pixmap_depth=8` (BPP8_INDEXED, 1 byte/pixel buffer) but `bits_per_pixel=32`, the byte-swap loop accesses memory as `uint32_t*`, reading/writing 4x the allocated buffer size. This is a different vulnerability from the previously reported GHSA-3g38-x2pj-mv55 (CVE-2026-27168), which addressed `bytes_per_line` validation. Commit 36aa5c7ec8a2bb35f6fb867a1177a6f141156b02 contains a patch.",
-      "published": "2026-04-18T03:16:13.300",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40492"
+      "id": "CVE-2026-25917",
+      "summary": "Dag Authors, who normally should not be able to execute code in the webserver context could craft XCom payload causing the webserver to execute arbitrary code. Since Dag Authors are already highly trusted, severity of this issue is Low.\n\nUsers are recommended to upgrade to Apache Airflow 3.2.0, which fixes the issue.",
+      "published": "2026-04-18T07:16:09.347",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25917"
     }
   ]
 }
