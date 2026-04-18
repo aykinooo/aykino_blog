@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-04-18T03:29:09+00:00",
+  "generated_at": "2026-04-18T05:49:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-6518",
+      "summary": "The CMP \u2013 Coming Soon & Maintenance Plugin by NiteoThemes plugin for WordPress is vulnerable to arbitrary file upload and remote code execution in all versions up to, and including, 4.1.16 via the `cmp_theme_update_install` AJAX action. This is due to the function only checking for the `publish_pages` capability (available to Editors and above) instead of `manage_options` (Administrators only), combined with a lack of proper validation on the user-supplied file URL and no verification of the downloaded file's content before extraction. This makes it possible for authenticated attackers, with Administrator-level access and above, to force the server to download and extract a malicious ZIP file from a remote attacker-controlled URL into a web-accessible directory (`wp-content/plugins/cmp-premium-themes/`), resulting in remote code execution. Due to the lack of a nonce for Editors, they are unable to exploit this vulnerability.",
+      "published": "2026-04-18T05:16:24.377",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6518"
+    },
+    {
+      "id": "CVE-2026-6048",
+      "summary": "The Flipbox Addon for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Flipbox widget's button URL `custom_attributes` field in all versions up to, and including, 2.1.1 due to insufficient validation of custom attribute names. Specifically, the plugin uses `esc_html()` on the attribute name which does not prevent event handler attributes (e.g., `onmouseover`, `onclick`). This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-18T05:16:24.157",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6048"
+    },
+    {
+      "id": "CVE-2026-4801",
+      "summary": "The Page Builder Gutenberg Blocks \u2013 CoBlocks plugin for WordPress is vulnerable to Stored Cross-Site Scripting via external iCal feed data in all versions up to, and including, 3.1.16 due to insufficient output escaping of event titles, descriptions, and locations fetched from external iCal feeds in the Events block rendering function. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-18T05:16:23.987",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4801"
+    },
     {
       "id": "CVE-2026-40494",
       "summary": "SAIL is a cross-platform library for loading and saving images with support for animation, metadata, and ICC profiles. Prior to commit 45d48d1f2e8e0d73e80bc1fd5310cb57f4547302, the TGA codec's RLE decoder in `tga.c` has an asymmetric bounds check vulnerability. The run-packet path (line 297) correctly clamps the repeat count to the remaining buffer space, but the raw-packet path (line 305-311) has no equivalent bounds check. This allows writing up to 496 bytes of attacker-controlled data past the end of a heap buffer. Commit 45d48d1f2e8e0d73e80bc1fd5310cb57f4547302 patches the issue.",
@@ -22,27 +43,6 @@
       "published": "2026-04-18T03:16:13.300",
       "cvss": 9.8,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40492"
-    },
-    {
-      "id": "CVE-2026-40491",
-      "summary": "gdown is a Google Drive public file/folder downloader. Versions prior to 5.2.2 are vulnerable to a Path Traversal attack within the extractall functionality. When extracting a maliciously crafted ZIP or TAR archive, the library fails to sanitize or validate the filenames of the archive members. This allow files to be written outside the intended destination directory, potentially leading to arbitrary file overwrite and Remote Code Execution (RCE). Version 5.2.2 contains a fix.",
-      "published": "2026-04-18T03:16:13.157",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40491"
-    },
-    {
-      "id": "CVE-2026-40490",
-      "summary": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. When redirect following is enabled (followRedirect(true)), versions of AsyncHttpClient prior to 3.0.9 and 2.14.5 forward Authorization and Proxy-Authorization headers along with Realm credentials to arbitrary redirect targets regardless of domain, scheme, or port changes. This leaks credentials on cross-domain redirects and HTTPS-to-HTTP downgrades. Additionally, even when stripAuthorizationOnRedirect is set to true, the Realm object containing plaintext credentials is still propagated to the redirect request, causing credential re-generation for Basic and Digest authentication schemes via NettyRequestFactory. An attacker who controls a redirect target (via open redirect, DNS rebinding, or MITM on HTTP) can capture Bearer tokens, Basic auth credentials, or any other Authorization header value. The fix in versions 3.0.9 and 2.14.5 automatically strips Authorization and Proxy-Authorization headers and clears Realm credentials whenever a redirect crosses origin boundaries (different scheme, host, or port) or downgrades from HTTPS to HTTP. For users unable to upgrade, set `(stripAuthorizationOnRedirect(true))` in the client config and avoid using Realm-based authentication with redirect following enabled. Note that `(stripAuthorizationOnRedirect(true))` alone is insufficient on versions prior to 3.0.9 and 2.14.5 because the Realm bypass still re-generates credentials. Alternatively, disable redirect following (`followRedirect(false)`) and handle redirects manually with origin validation.",
-      "published": "2026-04-18T02:16:11.977",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40490"
-    },
-    {
-      "id": "CVE-2026-40489",
-      "summary": "editorconfig-core-c  is an EditorConfig core library for use by plugins supporting EditorConfig parsing. Versions up to and including 0.12.10 have a stack-based buffer overflow in ec_glob() that allows an attacker to crash any application using libeditorconfig by providing a specially crafted directory structure and .editorconfig file. This is an incomplete fix for CVE-2023-0341. The pcre_str buffer was protected in 0.12.6 but the adjacent l_pattern[8194] stack buffer received no equivalent protection. On Ubuntu 24.04, FORTIFY_SOURCE converts the overflow to SIGABRT (DoS). Version 0.12.11 contains an updated fix.",
-      "published": "2026-04-18T02:16:11.827",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40489"
     }
   ]
 }
