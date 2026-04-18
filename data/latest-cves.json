@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-04-18T13:34:46+00:00",
+  "generated_at": "2026-04-18T14:56:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-40948",
+      "summary": "The Keycloak authentication manager in `apache-airflow-providers-keycloak` did not generate or validate the OAuth 2.0 `state` parameter on the login / login-callback flow, and did not use PKCE. An attacker with a Keycloak account in the same realm could deliver a crafted callback URL to a victim's browser and cause the victim to be logged into the attacker's Airflow session (login-CSRF / session fixation), where any credentials the victim subsequently stored in Airflow Connections would be harvestable by the attacker. Users are advised to upgrade `apache-airflow-providers-keycloak` to 0.7.0 or later.",
+      "published": "2026-04-18T14:16:10.897",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40948"
+    },
     {
       "id": "CVE-2026-2986",
       "summary": "The Contextual Related Posts plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'other_attributes' parameter in versions up to, and including, 4.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
@@ -36,13 +43,6 @@
       "published": "2026-04-18T07:16:10.683",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32690"
-    },
-    {
-      "id": "CVE-2026-32228",
-      "summary": "UI / API User with asset materialize permission could trigger dags they had no access to.\nUsers are advised to migrate to Airflow version 3.2.0 that fixes the issue.",
-      "published": "2026-04-18T07:16:10.560",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32228"
     }
   ]
 }
