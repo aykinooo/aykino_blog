@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-20T15:42:25+00:00",
+  "generated_at": "2026-04-20T17:17:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6649",
-      "summary": "A vulnerability was determined in Qibo CMS 1.0. Affected by this issue is some unknown functionality of the file /index/image/headers. Executing a manipulation of the argument starts can lead to server-side request forgery. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-04-20T14:16:23.600",
+      "id": "CVE-2026-6662",
+      "summary": "A vulnerability was found in ericc-ch copilot-api up to 0.7.0. The impacted element is the function cors of the file src/server.ts of the component Token Endpoint. Performing a manipulation results in permissive cross-domain policy with untrusted domains. It is possible to initiate the attack remotely. The exploit has been made public and could be used.",
+      "published": "2026-04-20T17:16:39.647",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6662"
+    },
+    {
+      "id": "CVE-2026-41445",
+      "summary": "KissFFT before commit\u00a08a8e66e contains an integer overflow vulnerability in the kiss_fftndr_alloc() function in kiss_fftndr.c where the allocation size calculation dimOther*(dimReal+2)*sizeof(kiss_fft_scalar) overflows signed 32-bit integer arithmetic before being widened to size_t, causing malloc() to allocate an undersized buffer. Attackers can trigger heap buffer overflow by providing crafted dimensions that cause the multiplication to exceed INT_MAX, allowing writes beyond the allocated buffer region when kiss_fftndr() processes the data.",
+      "published": "2026-04-20T17:16:37.160",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41445"
+    },
+    {
+      "id": "CVE-2026-40488",
+      "summary": "Magento Long Term Support (LTS) is an unofficial, community-driven project provides an alternative to the Magento Community Edition e-commerce platform with a high level of backward compatibility. Prior to version 20.17.0, the product custom option file upload in OpenMage LTS uses an incomplete blocklist (`forbidden_extensions = php,exe`) to prevent dangerous file uploads. This blocklist can be trivially bypassed by using alternative PHP-executable extensions such as `.phtml`, `.phar`, `.php3`, `.php4`, `.php5`, `.php7`, and `.pht`. Files are stored in the publicly accessible `media/custom_options/quote/` directory, which lacks server-side execution restrictions for some configurations, enabling Remote Code Execution if this directory is not explicitly denied script execution. Version 20.17.0 patches the issue.",
+      "published": "2026-04-20T17:16:36.300",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40488"
+    },
+    {
+      "id": "CVE-2026-40098",
+      "summary": "Magento Long Term Support (LTS) is an unofficial, community-driven project provides an alternative to the Magento Community Edition e-commerce platform with a high level of backward compatibility. Prior to version 20.17.0, the shared wishlist add-to-cart endpoint authorizes access with a public `sharing_code`, but loads the acted-on wishlist item by a separate global `wishlist_item_id` and never verifies that the item belongs to the shared wishlist referenced by that code. This lets an attacker use a valid shared wishlist code for wishlist A and a wishlist item ID belonging to victim wishlist B to import victim item B into the attacker's cart through the shared wishlist flow for wishlist A. Because the victim item's stored `buyRequest` is reused during cart import, the victim's private custom-option data is copied into the attacker's quote. If the product uses a file custom option, this can be elevated to cross-user file disclosure because the imported file metadata is preserved and the download endpoint is not ownership-bound. Version 20.17.0 patches the issue.",
+      "published": "2026-04-20T17:16:34.543",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40098"
+    },
+    {
+      "id": "CVE-2026-35154",
+      "summary": "Dell PowerProtect Data Domain appliances, versions 7.7.1.0 through 8.7.0.0, LTS2025 release versions 8.3.1.0 through 8.3.1.20, LTS2024 release versions 7.13.1.0 through 7.13.1.60 contain an improper privilege management vulnerability in IDRAC. A high privileged attacker with local access could potentially exploit this vulnerability, leading to elevation of privileges to access unauthorized delete operation in IDRAC.",
+      "published": "2026-04-20T17:16:34.263",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6649"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35154"
     },
     {
-      "id": "CVE-2026-6369",
-      "summary": "An improper access control vulnerability in the canonical-livepatch snap client prior to version\u00a010.15.0 allows a local unprivileged user to obtain a sensitive, root-level authentication token by sending an unauthenticated request to the livepatchd.sock Unix domain socket.\u00a0This vulnerability is exploitable on systems where an administrator has already enabled the Livepatch client with a valid Ubuntu Pro subscription. This token allows an attacker to access Livepatch services using the victim's credentials, as well as potentially cause issues to the Livepatch server.",
-      "published": "2026-04-20T14:16:22.380",
+      "id": "CVE-2026-30269",
+      "summary": "Improper access control in Doorman v0.1.0 and v1.0.2 allows any authenticated user to update their own account role to a non-admin privileged role via /platform/user/{username}. The `role` field is accepted by the update model without a manage_users permission check for self-updates, enabling privilege escalation to high-privileged roles.",
+      "published": "2026-04-20T17:16:33.483",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6369"
-    },
-    {
-      "id": "CVE-2026-5760",
-      "summary": "SGLang's reranking endpoint (/v1/rerank) achieves Remote Code Execution (RCE) when a model file containing a malcious tokenizer.chat_template is loaded, as the Jinja2 chat templates are rendered using an unsandboxed jinja2.Environment().",
-      "published": "2026-04-20T14:16:21.680",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5760"
-    },
-    {
-      "id": "CVE-2026-4048",
-      "summary": "OS Command Injection Remote Code Execution Vulnerability in UI in Progress ADC Products allows an authenticated attacker with \u201cAll\u201d permissions to execute arbitrary commands on the LoadMaster appliance by exploiting unsanitized input in a custom WAF rule file during the file upload process.",
-      "published": "2026-04-20T14:16:20.700",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4048"
-    },
-    {
-      "id": "CVE-2026-3519",
-      "summary": "OS Command Injection Remote Code Execution Vulnerability in API in Progress ADC Products allows an authenticated attacker with \u201cVS Administration\u201d permissions to execute arbitrary commands on the LoadMaster appliance by exploiting unsanitized input in the 'aclcontrol' command",
-      "published": "2026-04-20T14:16:19.683",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3519"
-    },
-    {
-      "id": "CVE-2026-3518",
-      "summary": "OS Command Injection Remote Code Execution Vulnerability in API in Progress ADC Products allows an authenticated attacker with \u201cAll\u201d permissions to execute arbitrary commands on the LoadMaster appliance by exploiting unsanitized input in the 'killsession' command",
-      "published": "2026-04-20T14:16:19.517",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3518"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30269"
     }
   ]
 }
