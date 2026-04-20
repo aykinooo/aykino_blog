@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-20T21:00:19+00:00",
+  "generated_at": "2026-04-20T22:01:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6550",
-      "summary": "Cryptographic algorithm downgrade in the caching layer of Amazon AWS Encryption SDK for Python before version 3.3.1 and before version  4.0.5 might allow an authenticated local threat actor to bypass key commitment policy enforcement via a shared key cache, resulting in ciphertext that can be decrypted to multiple different plaintexts.\n\nTo remediate this issue, users should upgrade to version 3.3.1, 4.0.5 or above.",
-      "published": "2026-04-20T20:16:49.283",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6550"
-    },
-    {
-      "id": "CVE-2026-6257",
-      "summary": "Vvveb CMS v1.0.8 contains a remote code execution vulnerability in its media management functionality where a missing return statement in the file rename handler allows authenticated attackers to rename files to blocked extensions .php or .htaccess. Attackers can exploit this logic flaw by first uploading a text file and renaming it to .htaccess to inject Apache directives that register PHP-executable MIME types, then uploading another file and renaming it to .php to execute arbitrary operating system commands as the www-data user.",
-      "published": "2026-04-20T20:16:49.107",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6257"
-    },
-    {
-      "id": "CVE-2026-6249",
-      "summary": "Vvveb CMS 1.0.8 contains a remote code execution vulnerability in its media upload handler that allows authenticated attackers to execute arbitrary operating system commands by uploading a PHP webshell with a .phtml extension. Attackers can bypass the extension deny-list and upload malicious files to the publicly accessible media directory, then request the file over HTTP to achieve full server compromise.",
-      "published": "2026-04-20T20:16:48.943",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6249"
-    },
-    {
-      "id": "CVE-2026-5478",
-      "summary": "The Everest Forms plugin for WordPress is vulnerable to Arbitrary File Read and Deletion in all versions up to, and including, 3.4.4. This is due to the plugin trusting attacker-controlled old_files data from public form submissions as legitimate server-side upload state, and converting attacker-supplied URLs into local filesystem paths using regex-based string replacement without canonicalization or directory boundary enforcement. This makes it possible for unauthenticated attackers to read arbitrary local files (e.g., wp-config.php) by injecting path-traversal payloads into the old_files upload field parameter, which are then attached to notification emails. The same path resolution is also used in the post-email cleanup routine, which calls unlink() on the resolved path, resulting in the targeted file being deleted after being attached. This can lead to full site compromise through disclosure of database credentials and authentication salts from wp-config.php, and denial of service through deletion of critical files. Prerequisite: The form must contain a file-upload or image-upload field, and disable storing entry information.",
-      "published": "2026-04-20T20:16:48.800",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5478"
-    },
-    {
-      "id": "CVE-2026-32311",
-      "summary": "Flowsint is an open-source OSINT graph exploration tool designed for cybersecurity investigation, transparency, and verification. Flowsint allows a user to create investigations, which are used to manage sketches and analyses. Sketches have controllable graphs, which are comprised of nodes and relationships. The sketches contain information on an OSINT target (usernames, websites, etc) within these nodes and relationships. The nodes can have automated processes execute on them called 'transformers'. A remote attacker can create a sketch, then trigger the 'org_to_asn' transform on an organization node to execute arbitrary OS commands as root on the host machine via shell metacharacters and a docker container escape. Commit b52cbbb904c8013b74308d58af88bc7dbb1b055c appears to remove the code that causes this issue.",
-      "published": "2026-04-20T20:16:48.653",
+      "id": "CVE-2026-5928",
+      "summary": "Calling the ungetwc function on a FILE stream with wide characters encoded in a character set that has overlaps between its single byte and multi-byte character encodings, in the GNU C Library version 2.43 or earlier, may result in an attempt to read bytes before an allocated buffer, potentially resulting in unintentional disclosure of neighboring data in the heap, or a program crash.\n\nA bug in the wide character pushback implementation (_IO_wdefault_pbackfail in libio/wgenops.c) causes ungetwc() to operate on the regular character buffer (fp->_IO_read_ptr) instead of the actual wide-stream read pointer (fp->_wide_data->_IO_read_ptr). The program crash may happen in cases where fp->_IO_read_ptr is not initialized and hence points to NULL. The buffer under-read requires a special situation where the input character encoding is such that there are overlaps between single byte representations and multibyte representations in that encoding, resulting in spurious matches. The spurious match case is not possible in the standard Unicode character sets.",
+      "published": "2026-04-20T21:16:36.963",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32311"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5928"
     },
     {
-      "id": "CVE-2026-32135",
-      "summary": "NanoMQ MQTT Broker (NanoMQ) is an all-around Edge Messaging Platform. Versions prior to 0.24.11 have a remotely triggerable heap buffer overflow in the `uri_param_parse` function of NanoMQ's REST API. The vulnerability occurs due to an off-by-one error when allocating memory for query parameter keys and values, allowing an attacker to write a null byte beyond the allocated buffer. This can be triggered via a crafted HTTP request. Version 0.24.11 patches the issue.",
-      "published": "2026-04-20T20:16:48.510",
+      "id": "CVE-2026-5450",
+      "summary": "Calling the scanf family of functions with a %mc (malloc'd character match) in the GNU C Library version 2.7 to version 2.43 with a format width specifier with an explicit width greater than 1024 could result in a one byte heap buffer overflow.",
+      "published": "2026-04-20T21:16:36.850",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32135"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5450"
+    },
+    {
+      "id": "CVE-2026-5358",
+      "summary": "The obsolete nis_local_principal function in the GNU C Library version 2.43 and older may overflow a buffer in the data section, which could allow an attacker to spoof a crafted response to a UDP request generated by this function and overwrite neighboring static data in the requesting application.\n\nNIS support is obsolete and has been deprecated in the GNU C Library since version 2.26 and is only maintained for legacy usage. Applications should port away from NIS to more modern identity and access management services.",
+      "published": "2026-04-20T21:16:36.713",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5358"
+    },
+    {
+      "id": "CVE-2026-4852",
+      "summary": "The Image Source Control Lite \u2013 Show Image Credits and Captions plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'Image Source' attachment field in all versions up to, and including, 3.9.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-20T21:16:36.560",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4852"
+    },
+    {
+      "id": "CVE-2026-34403",
+      "summary": "Nginx UI is a web user interface for the Nginx web server. Prior to version 2.3.5, all WebSocket endpoints in nginx-ui use a gorilla/websocket Upgrader with CheckOrigin unconditionally returning true, allowing Cross-Site WebSocket Hijacking (CSWSH). Combined with the fact that authentication tokens are stored in browser cookies (set via JavaScript without HttpOnly or explicit SameSite attributes), a malicious webpage can establish authenticated WebSocket connections to the nginx-ui instance when a logged-in administrator visits the attacker-controlled page. Version 2.3.5 patches the issue.",
+      "published": "2026-04-20T21:16:36.267",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34403"
+    },
+    {
+      "id": "CVE-2026-33626",
+      "summary": "LMDeploy is a toolkit for compressing, deploying, and serving large language models. Versions prior to 0.12.3 have a Server-Side Request Forgery (SSRF) vulnerability in LMDeploy's vision-language module. The `load_image()` function in `lmdeploy/vl/utils.py` fetches arbitrary URLs without validating internal/private IP addresses, allowing attackers to access cloud metadata services, internal networks, and sensitive resources. Version 0.12.3 patches the issue.",
+      "published": "2026-04-20T21:16:35.097",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33626"
     }
   ]
 }
