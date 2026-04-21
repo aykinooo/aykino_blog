@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-20T23:57:16+00:00",
+  "generated_at": "2026-04-21T03:44:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5721",
-      "summary": "The wpDataTables \u2013 WordPress Data Table, Dynamic Tables & Table Charts Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 6.5.0.4. This is due to insufficient input sanitization and output escaping in the prepareCellOutput() method of the LinkWDTColumn, ImageWDTColumn, and EmailWDTColumn classes. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page, given that they can trick an Administrator into importing data from an attacker-controlled source and the affected column types (Link, Image, or Email) are configured.",
-      "published": "2026-04-20T23:16:24.403",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5721"
+      "id": "CVE-2026-6675",
+      "summary": "The Responsive Blocks \u2013 Page Builder for Blocks & Patterns plugin for WordPress is vulnerable to Unauthenticated Open Email Relay in all versions up to, and including, 2.2.0. This is due to insufficient authorization checks and missing server-side validation of the recipient email address supplied via a public REST API route. This makes it possible for unauthenticated attackers to send arbitrary emails to any recipient of their choosing through the affected WordPress site's mail server, effectively turning the site into an open mail relay.",
+      "published": "2026-04-21T03:16:09.210",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6675"
     },
     {
-      "id": "CVE-2026-34082",
-      "summary": "Dify is an open-source LLM app development platform. Prior to 1.13.1, the method `DELETE /console/api/installed-apps/<appId>/conversations/<conversationId>` has poor authorization checking and allows any Dify-authenticated user to delete someone else's chat history. Version 1.13.1 patches the issue.",
-      "published": "2026-04-20T23:16:24.250",
+      "id": "CVE-2026-6674",
+      "summary": "The Plugin: CMS f\u00fcr Motorrad Werkst\u00e4tten plugin for WordPress is vulnerable to SQL Injection via the 'arttype' parameter in all versions up to, and including, 1.0.0 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-04-21T03:16:09.070",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6674"
+    },
+    {
+      "id": "CVE-2026-40497",
+      "summary": "FreeScout is a free self-hosted help desk and shared mailbox. Prior to version 1.8.213, FreeScout's `Helper::stripDangerousTags()` removes `<script>`, `<form>`, `<iframe>`, `<object>` but does NOT strip `<style>` tags. The mailbox signature field is saved via POST /mailbox/settings/{id} and later rendered unescaped via `{!! $conversation->getSignatureProcessed([], true) !!}` in conversation views. CSP allows `style-src * 'self' 'unsafe-inline'`, so injected inline styles execute freely. An attacker with access to mailbox settings (admin or agent with mailbox permission) can inject CSS attribute selectors to exfiltrate the CSRF token of any agent/admin who views a conversation in that mailbox. With the CSRF token, the attacker can perform any state-changing action as the victim (create admin accounts, change email/password, etc.) \u2014 privilege escalation from agent to admin. This is the result of an incomplete fix of GHSA-jqjf-f566-485j. That advisory reported XSS via mailbox signature. The fix applied `Helper::stripDangerousTags()` to the signature before saving. However, `stripDangerousTags()` only removes `script`, `form`, `iframe`, and `object` tags \u2014 it does NOT strip `<style>` tags, leaving CSS injection possible. Version 1.8.213 contains an updated fix.",
+      "published": "2026-04-21T03:16:08.403",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40497"
+    },
+    {
+      "id": "CVE-2026-6058",
+      "summary": "** UNSUPPORTED WHEN ASSIGNED ** An improper encoding or escaping vulnerability in the CGI program of Zyxel WRE6505 v2 firmware version V1.00(ABDV.3)C0 could allow an adjacent attacker on the WLAN to cause a denial-of-service (DoS) condition in the web management interface by convincing an authenticated administrator to visit the \u201cAP Select\u201d page while a malformed SSID is present.",
+      "published": "2026-04-21T02:16:08.500",
+      "cvss": 4.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6058"
+    },
+    {
+      "id": "CVE-2026-40496",
+      "summary": "FreeScout is a free self-hosted help desk and shared mailbox. Prior to version 1.8.213, attachment download tokens are generated using a weak and predictable formula: `md5(APP_KEY + attachment_id + size)`. Since attachment_id is sequential and size can be brute-forced in a small range, an unauthenticated attacker can forge valid tokens and download any private attachment without credentials. Version 1.8.213 fixes the issue.",
+      "published": "2026-04-21T02:16:08.350",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34082"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40496"
     },
     {
-      "id": "CVE-2026-6729",
-      "summary": "HKUDS OpenHarness prior to PR #159 remediation contains a session key derivation vulnerability that allows authenticated participants in shared chats or threads to hijack other users' sessions by exploiting a shared ohmo session key that lacks sender identity verification. Attackers can reuse another user's conversation state and replace or interrupt their active tasks by colliding into the same session boundary through the shared chat or thread scope.",
-      "published": "2026-04-20T22:16:23.800",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6729"
-    },
-    {
-      "id": "CVE-2026-29643",
-      "summary": "XiangShan (Open-source high-performance RISC-V processor) commit edb1dfaf7d290ae99724594507dc46c2c2125384 (2024-11-28) contains an improper exceptional-condition handling flaw in its CSR subsystem (NewCSR). On affected versions, certain sequences of CSR operations targeting non-existent/custom CSR addresses may trigger an illegal-instruction exception but fail to reliably transfer control to the configured trap handler (mtvec), causing control-flow disruption and potentially leaving the core in a hung or unrecoverable state. This can be exploited by a local attacker able to execute code on the processor to cause a denial of service and potentially inconsistent architectural state.",
-      "published": "2026-04-20T22:16:23.507",
+      "id": "CVE-2026-40250",
+      "summary": "OpenEXR provides the specification and reference implementation of the EXR file format, an image storage format for the motion picture industry. In versions 3.4.0 through 3.4.9, 3.3.0 through 3.3.9, and 3.2.0 through 3.2.7, `internal_dwa_compressor.h:1040` performs `chan->width * chan->bytes_per_element` in `int32` arithmetic without a `(size_t)` cast. This is the same overflow pattern fixed in other decoders by CVE-2026-34589/34588/34544, but this line was missed. Versions 3.4.10, 3.3.10, and 3.2.8 contain a fix that addresses `internal_dwa_compressor.h:1040`.",
+      "published": "2026-04-21T02:16:08.213",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29643"
-    },
-    {
-      "id": "CVE-2026-22051",
-      "summary": "StorageGRID (formerly StorageGRID Webscale) versions prior to 11.9.0.13 and 12.0.0.6 are susceptible to a Information Disclosure vulnerability. Successful exploit could allow an authenticated attacker with low privileges to run arbitrary metrics queries, revealing metric results that they do not have access to.",
-      "published": "2026-04-20T22:16:23.367",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22051"
-    },
-    {
-      "id": "CVE-2026-0930",
-      "summary": "Potential read out of bounds case with wolfSSHd on\u00a0Windows while handling a terminal resize request. An authenticated user could\u00a0trigger the out of bounds read after establishing a connection which would\u00a0leak the adjacent stack memory to the pseudo-console output.",
-      "published": "2026-04-20T22:16:23.210",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0930"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40250"
     }
   ]
 }
