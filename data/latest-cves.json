@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-21T21:58:12+00:00",
+  "generated_at": "2026-04-21T22:57:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6823",
-      "summary": "HKUDS OpenHarness prior to PR #147 remediation contains an insecure default configuration vulnerability where remote channels inherit allow_from = [\"*\"] permitting arbitrary remote senders to pass admission checks. Attackers who can reach the configured channel can bypass access controls and reach host-backed agent runtimes, potentially leading to unauthorized file disclosure and read access through default-enabled read-only tools.",
-      "published": "2026-04-21T21:16:48.827",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6823"
+      "id": "CVE-2026-6832",
+      "summary": "Hermes WebUI contains an arbitrary file deletion vulnerability in the /api/session/delete endpoint that allows authenticated attackers to delete files outside the session directory by supplying an absolute path or path traversal payload in the session_id parameter. Attackers can exploit unvalidated session identifiers to construct paths that bypass the SESSION_DIR boundary and delete writable JSON files on the host system.",
+      "published": "2026-04-21T22:16:21.040",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6832"
     },
     {
-      "id": "CVE-2026-6797",
-      "summary": "A vulnerability was identified in Sanluan PublicCMS up to 6.202506.d. Affected by this vulnerability is the function ZipSecureFile.setMinflateRatio of the file common/src/main/java/com/publiccms/common/tools/DocToHtmlUtils.java. Such manipulation leads to resource consumption. It is possible to launch the attack remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-04-21T21:16:48.593",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6797"
+      "id": "CVE-2026-6830",
+      "summary": "nesquena hermes-webui contains an environment variable leakage vulnerability where profile switching does not clear environment variables from the previously active profile before loading the next profile. Attackers or users can exploit additive dotenv reload behavior to access provider API keys and other sensitive secrets from one profile context in another profile, breaking expected security isolation between profiles.",
+      "published": "2026-04-21T22:16:20.863",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6830"
     },
     {
-      "id": "CVE-2026-6796",
-      "summary": "A vulnerability was determined in Sanluan PublicCMS up to 6.202506.d. Affected is the function log_login of the file core/src/main/java/com/publiccms/controller/admin/LoginAdminController.java of the component Failed Login Handler. This manipulation of the argument errorPassword causes cleartext storage in a file or on disk. It is possible to initiate the attack remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-04-21T21:16:48.333",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6796"
+      "id": "CVE-2026-6829",
+      "summary": "nesquena hermes-webui contains a trust-boundary failure vulnerability that allows authenticated attackers to set or change a session workspace to an arbitrary existing directory on disk by manipulating workspace path parameters in endpoints such as /api/session/new, /api/session/update, /api/chat/start, and /api/workspaces/add. Attackers can repoint a session workspace to a directory outside the intended trusted root and then use ordinary file read and write APIs to access or modify files outside the intended workspace boundary within the permissions of the hermes-webui process.",
+      "published": "2026-04-21T22:16:20.690",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6829"
     },
     {
-      "id": "CVE-2026-40938",
-      "summary": "Tekton Pipelines project provides k8s-style resources for declaring CI/CD-style pipelines. From 1.0.0 to before 1.11.0, the git resolver's revision parameter is passed directly as a positional argument to git fetch without any validation that it does not begin with a - character. Because git parses flags from mixed positional arguments, an attacker can inject arbitrary git fetch flags such as --upload-pack=<binary>. Combined with the validateRepoURL function explicitly permitting URLs that begin with / (local filesystem paths), a tenant who can submit ResolutionRequest objects can chain these two behaviors to execute an arbitrary binary on the resolver pod. The tekton-pipelines-resolvers ServiceAccount holds cluster-wide get/list/watch on all Secrets, so code execution on the resolver pod enables full cluster-wide secret exfiltration. This vulnerability is fixed in 1.11.1.",
-      "published": "2026-04-21T21:16:46.283",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40938"
+      "id": "CVE-2026-6799",
+      "summary": "A security flaw has been discovered in Comfast CF-N1-S 2.6.0.1. Affected by this issue is some unknown functionality of the file /cgi-bin/mbox-config?method=SET&section=ping_config of the component Endpoint. Performing a manipulation of the argument destination results in command injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-04-21T22:16:20.510",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6799"
     },
     {
-      "id": "CVE-2026-40927",
-      "summary": "Docmost is open-source collaborative wiki and documentation software. Prior to 0.80.0, when leaving a comment on a page, it is possible to include a JavaScript URI as the link. When a user clicks on the link the JavaScript executes. This vulnerability is fixed in 0.80.0.",
-      "published": "2026-04-21T21:16:46.110",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40927"
+      "id": "CVE-2026-41527",
+      "summary": "KDE Kleopatra before 26.08.0 on Windows allows local users to obtain the privileges of a Kleopatra user, because there is an error in the mechanism (KUniqueService) for ensuring that only one instance is running.",
+      "published": "2026-04-21T22:16:20.363",
+      "cvss": 6.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41527"
     },
     {
-      "id": "CVE-2026-40925",
-      "summary": "WWBN AVideo is an open source video platform. In versions 29.0 and prior, `objects/configurationUpdate.json.php` (also routed via `/updateConfig`) persists dozens of global site settings from `$_POST` but protects the endpoint only with `User::isAdmin()`. It does not call `forbidIfIsUntrustedRequest()`, does not verify a `globalToken`, and does not validate the Origin/Referer header. Because AVideo intentionally sets `session.cookie_samesite=None` to support cross-origin iframe embedding, a logged-in administrator who visits an attacker-controlled page will have the browser auto-submit a cross-origin POST that rewrites the site's encoder URL, SMTP credentials, site `<head>` HTML, logo, favicon, contact email, and more in a single request. Commit f9492f5e6123dff0292d5bb3164fde7665dc36b4 contains a fix.",
-      "published": "2026-04-21T21:16:45.903",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40925"
+      "id": "CVE-2026-40946",
+      "summary": "Oxia is a metadata store and coordination system. Prior to 0.16.2, the OIDC authentication provider unconditionally sets SkipClientIDCheck: true in the go-oidc verifier configuration, disabling the standard audience (aud) claim validation at the library level. This allows tokens issued for unrelated services by the same OIDC issuer to be accepted by Oxia. This vulnerability is fixed in 0.16.2.",
+      "published": "2026-04-21T22:16:20.230",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40946"
     }
   ]
 }
