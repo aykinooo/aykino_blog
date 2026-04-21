@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-21T15:41:06+00:00",
+  "generated_at": "2026-04-21T17:15:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5789",
-      "summary": "Vulnerability related to an unquoted search path in CivetWeb v1.16. This vulnerability allows a local attacker to execute arbitrary code with elevated privileges by placing a malicious executable in a directory that is scanned before the intended application path (C:\\Program Files\\CivetWeb\\CivetWeb.exe --), due to the absence of quotes in the service configuration.",
-      "published": "2026-04-21T15:16:37.713",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5789"
+      "id": "CVE-2026-40565",
+      "summary": "FreeScout is a free self-hosted help desk and shared mailbox. Prior to version 1.8.213, FreeScout's linkify() function in app/Misc/Helper.php converts plain-text URLs in email bodies into HTML anchor tags without escaping double-quote characters (\") in the URL. HTMLPurifier (called first via getCleanBody()) preserves literal \" characters in text nodes. linkify() then wraps URLs including those \" chars inside an unescaped href=\"...\" attribute, breaking out of the href and injecting arbitrary HTML attributes. Version 1.8.213 fixes the issue.",
+      "published": "2026-04-21T16:16:20.390",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40565"
     },
     {
-      "id": "CVE-2026-3298",
-      "summary": "The method \"sock_recvfrom_into()\" of \"asyncio.ProacterEventLoop\" (Windows only) was missing a boundary check for the data buffer when using nbytes parameter. This allowed for an out-of-bounds buffer write if data was larger than the buffer size. Non-Windows platforms are not affected.",
-      "published": "2026-04-21T15:16:37.047",
+      "id": "CVE-2026-40498",
+      "summary": "FreeScout is a free self-hosted help desk and shared mailbox. Prior to version 1.8.213, an unauthenticated attacker can access diagnostic and system tools that should be restricted to administrators. The /system/cron endpoint relies on a static MD5 hash derived from the APP_KEY, which is exposed in the response and logs. Accessing these endpoints reveals sensitive server information (Full Path Disclosure), process IDs, and allows for Resource Exhaustion (DoS) by triggering heavy background tasks repeatedly without any rate limiting. The cron hash is generated using md5(APP_KEY . 'web_cron_hash'). Since this hash is often transmitted via GET requests, it is susceptible to exposure in server logs, browser history, and proxy logs. Furthermore, the lack of rate limiting on these endpoints allows for automated resource exhaustion (DoS) and brute-force attempts. Version 1.8.213 fixes the issue.",
+      "published": "2026-04-21T16:16:20.240",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3298"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40498"
     },
     {
-      "id": "CVE-2026-31019",
-      "summary": "In the Website module of Dolibarr ERP & CRM 22.0.4 and below, the application uses blacklist-based filtering to restrict dangerous PHP functions related to system command execution. An authenticated user with permission to edit PHP content can bypass this filtering, resulting in full remote code execution with the ability to execute arbitrary operating system commands on the server.",
-      "published": "2026-04-21T15:16:36.560",
+      "id": "CVE-2026-37748",
+      "summary": "Visitor Management System 1.0 by sanjay1313 is vulnerable to Unrestricted File Upload in vms/php/admin_user_insert.php and vms/php/update_1.php. The move_uploaded_file() function is called without any MIME type, extension, or content validation, allowing an authenticated admin to upload a PHP webshell and achieve Remote Code Execution on the server.",
+      "published": "2026-04-21T16:16:20.113",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31019"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-37748"
     },
     {
-      "id": "CVE-2026-31018",
-      "summary": "In Dolibarr ERP & CRM <= 22.0.4, PHP code detection and editing permission enforcement in the Website module is not applied consistently to all input parameters, allowing an authenticated user restricted to HTML/JavaScript editing to inject PHP code through unprotected inputs during website page creation.",
-      "published": "2026-04-21T15:16:36.443",
+      "id": "CVE-2025-41029",
+      "summary": "SQL injection vulnerability in Zeon Academy Pro by Zeon Global Tech. This vulnerability allows an attacker to retrieve, create, update, and delete databases by sending a POST request using the parameter 'phonenumber' in '/private/continue-upload.php'.",
+      "published": "2026-04-21T16:16:19.350",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31018"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41029"
     },
     {
-      "id": "CVE-2026-31014",
-      "summary": "Dovestones Softwares AD Self Update <4.0.0.5 is vulnerable to Cross Site Request Forgery (CSRF). The affected endpoint processes state-changing requests without requiring a CSRF token or equivalent protection. The endpoint accepts application/x-www-form-urlencoded requests, and an originally POST-based request can be converted to a GET request while still successfully updating user details. This allows an attacker to craft a malicious request that, when visited by an authenticated user, can modify user account information without their consent.",
-      "published": "2026-04-21T15:16:36.337",
+      "id": "CVE-2025-41011",
+      "summary": "HTML injection vulnerability in PHP Point of Sale v19.4. This vulnerability allows an attacker to render HTML in the victim's browser due to a lack of proper validation of user input by sending a request to '/reports/generate/specific_customer', ussing 'start_date_formatted' y 'end_date_formatted' parameters.",
+      "published": "2026-04-21T16:16:19.143",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31014"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41011"
     },
     {
-      "id": "CVE-2026-31013",
-      "summary": "Dovestones Softwares ADPhonebook <4.0.1.1 has a reflected cross-site scripting (XSS) vulnerability in the search parameter of the /ADPhonebook?Department=HR endpoint. User-supplied input is reflected in the HTTP response without proper input validation or output encoding, allowing execution of arbitrary JavaScript in the victim's browser.",
-      "published": "2026-04-21T15:16:36.217",
+      "id": "CVE-2025-15638",
+      "summary": "Net::Dropbear versions before 0.14 for Perl contains a vulnerable version of libtomcrypt.\n\nNet::Dropbear versions before 0.14 includes versions of Dropbear 2019.78 or earlier. These include versions of libtomcrypt v1.18.1 or earlier, which is affected by CVE-2016-6129 and CVE-2018-12437.",
+      "published": "2026-04-21T16:16:19.030",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31013"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15638"
     }
   ]
 }
