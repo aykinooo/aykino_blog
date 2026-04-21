@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-21T19:35:40+00:00",
+  "generated_at": "2026-04-21T21:03:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6745",
-      "summary": "A vulnerability was determined in Bagisto up to 2.3.15. Affected by this vulnerability is an unknown functionality of the component Custom Scripts Handler. This manipulation causes cross site scripting. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure and explains: \"We already replied on the github advisories. All the security issues are addressed through security advisory. We will fix this in our upcomming releases.\"",
-      "published": "2026-04-21T19:16:18.917",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6745"
+      "id": "CVE-2026-6819",
+      "summary": "HKUDS OpenHarness prior to PR #156 remediation exposes plugin lifecycle commands including /plugin install, /plugin enable, /plugin disable, and /reload-plugins to remote senders by default. Attackers who gain access through the channel layer can remotely manage plugin trust and activation state, enabling unauthorized plugin installation and activation on the system.",
+      "published": "2026-04-21T20:17:05.780",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6819"
     },
     {
-      "id": "CVE-2026-6744",
-      "summary": "A vulnerability was found in Bagisto up to 2.3.15. Affected is the function copy of the component Downloadable Link Handler. The manipulation results in server-side request forgery. The attack may be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure and explains: \"We already replied on the github advisories. All the security issues are addressed through security advisory. We will fix this in our upcomming releases.\"",
-      "published": "2026-04-21T19:16:18.727",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6744"
+      "id": "CVE-2026-41320",
+      "summary": "Frappe HR is an open-source human resources management solution (HRMS). Prior to versions 15.54.0 and 14.38.1, a specially crafted request made to a certain endpoint could result in SQL injection, allowing an attacker to extract information they wouldn't otherwise be able to. Versions 15.54.0 and 14.38.1 contain a patch. No known workarounds are available.",
+      "published": "2026-04-21T20:17:03.797",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41320"
     },
     {
-      "id": "CVE-2026-41456",
-      "summary": "Bludit CMS prior to commit 6732dde contains a reflected cross-site scripting vulnerability in the search plugin that allows unauthenticated attackers to inject arbitrary JavaScript by crafting a malicious search query. Attackers can execute malicious scripts in the browsers of users who visit crafted URLs containing the payload, potentially stealing session cookies or performing actions on behalf of affected users.",
-      "published": "2026-04-21T19:16:18.557",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41456"
+      "id": "CVE-2026-40909",
+      "summary": "WWBN AVideo is an open source video platform. In versions 29.0 and prior, the locale save endpoint (`locale/save.php`) constructs a file path by directly concatenating `$_POST['flag']` into the path at line 30 without any sanitization. The `$_POST['code']` parameter is then written verbatim to that path via `fwrite()` at line 40. An admin attacker (or any user who can CSRF an admin, since no CSRF token is checked and cookies use `SameSite=None`) can traverse out of the `locale/` directory and write arbitrary `.php` files to any writable location on the filesystem, achieving Remote Code Execution. Commit 57f89ffbc27d37c9d9dd727212334846e78ac21a fixes the issue.",
+      "published": "2026-04-21T20:17:03.347",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40909"
     },
     {
-      "id": "CVE-2026-40868",
-      "summary": "Kyverno is a policy engine designed for cloud native platform engineering teams. Prior to 1.16.4, kyverno\u2019s apiCall servicecall helper implicitly injects Authorization: Bearer ... using the kyverno controller serviceaccount token when a policy does not explicitly set an Authorization header. Because context.apiCall.service.url is policy-controlled, this can send the kyverno serviceaccount token to an attacker-controlled endpoint (confused deputy). Namespaced policies are blocked from servicecall usage by the namespaced urlPath gate in pkg/engine/apicall/apiCall.go, so this report is scoped to ClusterPolicy and global context usage. This vulnerability is fixed in 1.16.4.",
-      "published": "2026-04-21T19:16:18.420",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40868"
+      "id": "CVE-2026-40908",
+      "summary": "WWBN AVideo is an open source video platform. In versions 29.0 and prior, the file `git.json.php` at the web root executes `git log -1` and returns the full output as JSON to any unauthenticated user. This exposes the exact deployed commit hash (enabling version fingerprinting against known CVEs), developer names and email addresses (PII), and commit messages which may contain references to internal systems or security fixes. As of time of publication, no known patched versions are available.",
+      "published": "2026-04-21T20:17:03.220",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40908"
     },
     {
-      "id": "CVE-2026-40867",
-      "summary": "Horilla is a free and open source Human Resource Management System (HRMS). In 1.5.0, a broken access control vulnerability in the helpdesk attachment viewer allows any authenticated user to view attachments from other tickets by changing the attachment ID. This can expose sensitive support files and internal documents across unrelated users or teams.",
-      "published": "2026-04-21T19:16:18.293",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40867"
+      "id": "CVE-2026-40907",
+      "summary": "WWBN AVideo is an open source video platform. In versions 29.0 and prior, the endpoint `plugin/Live/view/Live_restreams/list.json.php` contains an Insecure Direct Object Reference (IDOR) vulnerability that allows any authenticated user with streaming permission to retrieve other users' live restream configurations, including third-party platform stream keys and OAuth tokens (access_token, refresh_token) for services like YouTube Live, Facebook Live, and Twitch. Commit d5992fff2811df4adad1d9fc7d0a5837b882aed7 fixes the issue.",
+      "published": "2026-04-21T20:17:03.080",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40907"
     },
     {
-      "id": "CVE-2026-40866",
-      "summary": "Horilla is a free and open source Human Resource Management System (HRMS). In 1.5.0, an insecure direct object reference in the employee document upload endpoint allows any authenticated user to overwrite or replace or corrupt another employee\u2019s document by changing the document ID in the upload request. This enables unauthorized modification of HR records.",
-      "published": "2026-04-21T19:16:18.170",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40866"
+      "id": "CVE-2026-40903",
+      "summary": "goshs is a SimpleHTTPServer written in Go. Prior to 2.0.0-beta.6, goshs has an ArtiPACKED vulnerability. ArtiPACKED can lead to leakage of the GITHUB_TOKEN through workflow artifacts, even though the token is not present in the repository source code. This vulnerability is fixed in 2.0.0-beta.6.",
+      "published": "2026-04-21T20:17:02.947",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40903"
     }
   ]
 }
