@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-22T22:03:16+00:00",
+  "generated_at": "2026-04-22T23:05:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41168",
-      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.1 can craft a PDF which leads to long runtimes. This requires cross-reference streams with wrong large `/Size` values or object streams with wrong large `/N` values. This has been fixed in pypdf 6.10.1. As a workaround, one may apply the changes from the patch manually.",
-      "published": "2026-04-22T21:17:09.450",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41168"
+      "id": "CVE-2026-41455",
+      "summary": "WeKan before\u00a08.35 contains a server-side request forgery vulnerability in webhook integration URL handling where the url schema field accepts any string without protocol restriction or destination validation. Attackers who can create or modify integrations can set webhook URLs to internal network addresses, causing the server to issue HTTP POST requests to attacker-controlled internal targets with full board event payloads, and can additionally exploit response handling to overwrite arbitrary comment text without authorization checks.",
+      "published": "2026-04-22T22:16:32.677",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41455"
     },
     {
-      "id": "CVE-2026-41167",
-      "summary": "Jellystat is a free and open source Statistics App for Jellyfin. Prior to version 1.1.10, multiple API endpoints in Jellystat build SQL queries by interpolating unsanitized request-body fields directly into raw SQL strings. An authenticated user can inject arbitrary SQL via `POST /api/getUserDetails` and `POST /api/getLibrary`, enabling full read of any table in the database - including `app_config`, which stores the Jellystat admin credentials, the Jellyfin API key, and the Jellyfin host URL. Because the vulnerable call site dispatches via `node-postgres`'s simple query protocol (no parameter array is passed), stacked queries are allowed, which escalates the injection from data disclosure to arbitrary command execution on the PostgreSQL host via `COPY ... TO PROGRAM`. Under the role shipped by the project's `docker-compose.yml` (a PostgreSQL superuser), no additional privileges are required to reach the RCE primitive. Version 1.1.10 contains a fix.",
-      "published": "2026-04-22T21:17:09.303",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41167"
-    },
-    {
-      "id": "CVE-2026-41166",
-      "summary": "OpenRemote is an open-source internet-of-things platform. Prior to version 1.22.1, a user who has `write:admin` in one Keycloak realm can call the Manager API to update Keycloak realm roles for users in another realm, including `master`. The handler uses the `{realm}` path segment when talking to the identity provider but does not check that the caller may administer that realm. This could result in a privilege escalation to `master` realm administrator if the attacker controls any user in `master` realm. Version 1.22.1 fixes the issue.",
-      "published": "2026-04-22T21:17:09.167",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41166"
-    },
-    {
-      "id": "CVE-2026-41134",
-      "summary": "Kiota is an OpenAPI based HTTP Client code generator. Versions prior to 1.31.1 are affected by a code-generation literal injection vulnerability in multiple writer sinks (for example: serialization/deserialization keys, path/query parameter mappings, URL template metadata, enum/property metadata, and default value emission). When malicious values from an OpenAPI description are emitted into generated source without context-appropriate escaping, an attacker can break out of string literals and inject additional code into generated clients. This issue is only practically exploitable when the OpenAPI description used for generation is from an untrusted source, or a normally trusted OpenAPI description has been compromised/tampered with. Only generating from trusted, integrity-protected API descriptions significantly reduces the risk. To remediate the issue, upgrade Kiota to 1.31.1 or later and regenerate/refresh existing generated clients as a precaution. Refreshing generated clients ensures previously generated vulnerable code is replaced with hardened output.",
-      "published": "2026-04-22T21:17:09.027",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41134"
-    },
-    {
-      "id": "CVE-2026-40937",
-      "summary": "RustFS is a distributed object storage system built in Rust. Prior to 1.0.0-alpha.94, all four notification target admin API endpoints in `rustfs/src/admin/handlers/event.rs` use a `check_permissions` helper that validates authentication only (access key + session token), without performing any admin-action authorization via `validate_admin_request`. Every other admin handler in the codebase correctly calls `validate_admin_request` with a specific `AdminAction`. This is the only admin handler file that skips authorization. A non-admin user can overwrite a shared admin-defined notification target by name, causing subsequent bucket events to be delivered to an attacker-controlled endpoint. This enables cross-user event interception and audit evasion. 1.0.0-alpha.94 contains a patch.",
-      "published": "2026-04-22T21:17:08.877",
+      "id": "CVE-2026-41454",
+      "summary": "WeKan before\u00a08.35 contains a missing authorization vulnerability in the Integration REST API endpoints that allows authenticated board members to perform administrative actions without proper privilege verification. Attackers can enumerate integrations including webhook URLs, create new integrations, modify or delete existing integrations, and manage integration activities by exploiting insufficient authorization checks in the JsonRoutes REST handlers.",
+      "published": "2026-04-22T22:16:32.497",
       "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40937"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41454"
     },
     {
-      "id": "CVE-2026-40882",
-      "summary": "OpenRemote is an open-source internet-of-things platform. Prior to version 1.22.0, the Velbus asset import path parses attacker-controlled XML without explicit XXE hardening. An authenticated user who can call the import endpoint may trigger XML external entity processing, which can lead to server-side file disclosure and SSRF. The target file must be less than 1023 characters. Version 1.22.0 fixes the issue.",
-      "published": "2026-04-22T21:17:08.733",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40882"
+      "id": "CVE-2026-41314",
+      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.2 can craft a PDF which leads to the RAM being exhausted. This requires accessing an image using `/FlateDecode` with large size values. This has been fixed in pypdf 6.10.2. As a workaround, one may apply the changes from the patch manually.",
+      "published": "2026-04-22T22:16:32.367",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41314"
+    },
+    {
+      "id": "CVE-2026-41313",
+      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.2 can craft a PDF which leads to long runtimes. This requires loading a PDF with a large trailer `/Size` value in incremental mode. This has been fixed in pypdf 6.10.2. As a workaround, one may apply the changes from the patch manually.",
+      "published": "2026-04-22T22:16:32.220",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41313"
+    },
+    {
+      "id": "CVE-2026-41312",
+      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.2 can craft a PDF which leads to the RAM being exhausted. This requires accessing a stream compressed using `/FlateDecode` with a `/Predictor` unequal 1 and large predictor parameters. This has been fixed in pypdf 6.10.2. As a workaround, one may apply the changes from the patch manually.",
+      "published": "2026-04-22T22:16:32.093",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41312"
+    },
+    {
+      "id": "CVE-2026-41177",
+      "summary": "Squidex is an open source headless content management system and content management hub. Prior to version 7.23.0, the Squidex Restore API is vulnerable to Blind Server-Side Request Forgery (SSRF). The application fails to validate the URI scheme of the user-supplied `Url` parameter, allowing the use of the `file://` protocol. This allows an authenticated administrator to force the backend server to interact with the local filesystem, which can lead to Local File Interaction (LFI) and potential disclosure of sensitive system information through side-channel analysis of internal logs. Version 7.23.0 contains a fix.",
+      "published": "2026-04-22T22:16:31.957",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41177"
     }
   ]
 }
