@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-23T21:05:43+00:00",
+  "generated_at": "2026-04-23T22:00:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41279",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, the text-to-speech generation endpoint (POST /api/v1/text-to-speech/generate) is whitelisted (no auth) and accepts a credentialId directly in the request body. When called without a chatflowId, the endpoint uses the provided credentialId to decrypt the stored credential (e.g., OpenAI or ElevenLabs API key) and generate speech. This vulnerability is fixed in 3.1.0.",
-      "published": "2026-04-23T20:16:16.687",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41279"
+      "id": "CVE-2026-6942",
+      "summary": "radare2-mcp version 1.6.0 and earlier contains an os command injection vulnerability that allows remote attackers to execute arbitrary commands by bypassing the command filter through shell metacharacters in user-controlled input passed to r2_cmd_str(). Attackers can inject shell metacharacters through the jsonrpc interface parameters to achieve remote code execution on the host running radare2-mcp without requiring authentication.",
+      "published": "2026-04-23T21:16:06.947",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6942"
     },
     {
-      "id": "CVE-2026-41278",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, the GET /api/v1/public-chatflows/:id endpoint returns the full chatflow object without sanitization for public chatflows. Docker validation revealed this is worse than initially assessed: the sanitizeFlowDataForPublicEndpoint function does NOT exist in the released v3.0.13 Docker image. Both public-chatflows AND public-chatbotConfig return completely raw flowData including credential IDs, plaintext API keys, and password-type fields. This vulnerability is fixed in 3.1.0.",
-      "published": "2026-04-23T20:16:16.550",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41278"
+      "id": "CVE-2026-6941",
+      "summary": "radare2 prior to 6.1.4 contains a path traversal vulnerability in its project notes handling that allows attackers to read or write files outside the configured project directory by importing a malicious .zrp archive containing a symlinked notes.txt file. Attackers can craft a .zrp archive with a symlinked notes.txt that bypasses directory confinement checks, allowing note operations to follow the symlink and access arbitrary files outside the dir.projects root directory.",
+      "published": "2026-04-23T21:16:06.790",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6941"
     },
     {
-      "id": "CVE-2026-41277",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, a Mass Assignment vulnerability in the DocumentStore creation endpoint allows authenticated users to control the primary key (id) and internal state fields of DocumentStore entities. Because the service uses repository.save() with a client-supplied primary key, the POST create endpoint behaves as an implicit UPSERT operation. This enables overwriting existing DocumentStore objects. In multi-workspace or multi-tenant deployments, this can lead to cross-workspace object takeover and broken object-level authorization (IDOR), allowing an attacker to reassign or modify DocumentStore objects belonging to other workspaces. This vulnerability is fixed in 3.1.0.",
-      "published": "2026-04-23T20:16:16.410",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41277"
+      "id": "CVE-2026-6940",
+      "summary": "radare2 prior to 6.1.4 contains a path traversal vulnerability in project deletion that allows local attackers to recursively delete arbitrary directories by supplying absolute paths that escape the configured dir.projects root directory. Attackers can craft absolute paths to project marker files outside the project storage boundary to cause recursive deletion of attacker-chosen directories with permissions of the radare2 process, resulting in integrity and availability loss.",
+      "published": "2026-04-23T21:16:06.640",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6940"
     },
     {
-      "id": "CVE-2026-41276",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, this vulnerability allows remote attackers to bypass authentication on affected installations of FlowiseAI Flowise. Authentication is not required to exploit this vulnerability. The specific flaw exists within the resetPassword method of the AccountService class. There is no check performed to ensure that a password reset token has actually been generated for a user account. By default the value of the reset token stored in a users account is null, or an empty string if they've reset their password before. An attacker with knowledge of the user's email address can submit a request to the \"/api/v1/account/reset-password\" endpoint containing a null or empty string reset token value and reset that user's password to a value of their choosing. This vulnerability is fixed in 3.1.0.",
-      "published": "2026-04-23T20:16:16.270",
+      "id": "CVE-2026-6376",
+      "summary": "A weakness in SpiceJet\u2019s public booking retrieval page permits full passenger booking details to be accessed using only a PNR and last name, with no authentication or verification mechanisms. This results in exposure of extensive personal, travel, and booking metadata to any unauthenticated user who can obtain or guess those basic inputs. The issue arises from improper access control on a sensitive data retrieval function.",
+      "published": "2026-04-23T21:16:06.507",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41276"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6376"
     },
     {
-      "id": "CVE-2026-41275",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, the password reset functionality on cloud.flowiseai.com sends a reset password link over the unsecured HTTP protocol instead of HTTPS. This behavior introduces the risk of a man-in-the-middle (MITM) attack, where an attacker on the same network as the user (e.g., public Wi-Fi) can intercept the reset link and gain unauthorized access to the victim\u2019s account. This vulnerability is fixed in 3.1.0.",
-      "published": "2026-04-23T20:16:16.117",
+      "id": "CVE-2026-6375",
+      "summary": "A vulnerability in SpiceJet\u2019s booking API allows unauthenticated users to query passenger name records (PNRs) without any access controls. Because PNR identifiers follow a predictable pattern, an attacker could systematically enumerate valid records and obtain associated passenger names. This flaw stems from missing authorization checks on an endpoint intended for authenticated profile access.",
+      "published": "2026-04-23T21:16:06.370",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41275"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6375"
     },
     {
-      "id": "CVE-2026-41273",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, Flowise contains an authentication bypass vulnerability that allows an unauthenticated attacker to obtain OAuth 2.0 access tokens associated with a public chatflow. By accessing a public chatflow configuration endpoint, an attacker can retrieve internal workflow data, including OAuth credential identifiers, which can then be used to refresh and obtain valid OAuth 2.0 access tokens without authentication. This vulnerability is fixed in 3.1.0.",
-      "published": "2026-04-23T20:16:15.973",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41273"
+      "id": "CVE-2026-28525",
+      "summary": "SWUpdate contains an integer underflow vulnerability in the multipart upload parser in mongoose_multipart.c that allows unauthenticated attackers to cause a denial of service by sending a crafted HTTP POST request to /upload with a malformed multipart boundary and controlled TCP stream timing. Attackers can trigger an integer underflow in the mg_http_multipart_continue_wait_for_chunk() function when the buffer length falls within a specific range, causing an out-of-bounds heap read that writes data beyond the allocated receive buffer to a local IPC socket.",
+      "published": "2026-04-23T21:16:05.367",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28525"
     }
   ]
 }
