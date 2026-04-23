@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-22T23:59:36+00:00",
+  "generated_at": "2026-04-23T03:45:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41455",
-      "summary": "WeKan before\u00a08.35 contains a server-side request forgery vulnerability in webhook integration URL handling where the url schema field accepts any string without protocol restriction or destination validation. Attackers who can create or modify integrations can set webhook URLs to internal network addresses, causing the server to issue HTTP POST requests to attacker-controlled internal targets with full board event payloads, and can additionally exploit response handling to overwrite arbitrary comment text without authorization checks.",
-      "published": "2026-04-22T22:16:32.677",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41455"
+      "id": "CVE-2026-3844",
+      "summary": "The Breeze Cache plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the 'fetch_gravatar_from_remote' function in all versions up to, and including, 2.4.4. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible. The vulnerability can only be exploited if \"Host Files Locally - Gravatars\" is enabled, which is disabled by default.",
+      "published": "2026-04-23T03:16:17.527",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3844"
     },
     {
-      "id": "CVE-2026-41454",
-      "summary": "WeKan before\u00a08.35 contains a missing authorization vulnerability in the Integration REST API endpoints that allows authenticated board members to perform administrative actions without proper privilege verification. Attackers can enumerate integrations including webhook URLs, create new integrations, modify or delete existing integrations, and manage integration activities by exploiting insufficient authorization checks in the JsonRoutes REST handlers.",
-      "published": "2026-04-22T22:16:32.497",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41454"
+      "id": "CVE-2026-2951",
+      "summary": "The Gutentor \u2013 Gutenberg Blocks \u2013 Page Builder for Gutenberg Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 3.5.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-04-23T03:16:16.360",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2951"
     },
     {
-      "id": "CVE-2026-41314",
-      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.2 can craft a PDF which leads to the RAM being exhausted. This requires accessing an image using `/FlateDecode` with large size values. This has been fixed in pypdf 6.10.2. As a workaround, one may apply the changes from the patch manually.",
-      "published": "2026-04-22T22:16:32.367",
+      "id": "CVE-2026-41679",
+      "summary": "Paperclip is a Node.js server and React UI that orchestrates a team of AI agents to run a business. Prior to version 2026.416.0, an unauthenticated attacker can achieve full remote code execution on any network-accessible Paperclip instance running in `authenticated` mode with default configuration. No user interaction, no credentials, just the target's address. The chain consists of six API calls. The attack is fully automated, requires no user interaction, and works against the default deployment configuration. Version 2026.416.0 patches the issue.",
+      "published": "2026-04-23T02:16:19.180",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41679"
+    },
+    {
+      "id": "CVE-2026-41243",
+      "summary": "OpenLearn is open-source educational forum software. Prior to commit 844b2a40a69d0c4911580fe501923f0b391313ab, when `safeMode` is enabled, unapproved forum posts are hidden from the public list, but the direct post-read procedure still returns the full post to anyone with the post UUID. Commit 844b2a40a69d0c4911580fe501923f0b391313ab fixes the issue.",
+      "published": "2026-04-23T02:16:19.040",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41314"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41243"
     },
     {
-      "id": "CVE-2026-41313",
-      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.2 can craft a PDF which leads to long runtimes. This requires loading a PDF with a large trailer `/Size` value in incremental mode. This has been fixed in pypdf 6.10.2. As a workaround, one may apply the changes from the patch manually.",
-      "published": "2026-04-22T22:16:32.220",
+      "id": "CVE-2026-41211",
+      "summary": "Vite+ is a unified toolchain and entry point for web development. Prior to version 0.1.17, `downloadPackageManager()` accepts an untrusted `version` string and uses it directly in filesystem paths. A caller can supply `../` segments or an absolute path to escape the `VP_HOME/package_manager/<pm>/` cache root and make Vite+ delete, replace, and populate directories outside the intended cache location. Version 0.1.17 contains a patch.",
+      "published": "2026-04-23T02:16:18.860",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41313"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41211"
     },
     {
-      "id": "CVE-2026-41312",
-      "summary": "pypdf is a free and open-source pure-python PDF library. An attacker who uses a vulnerability present in versions prior to 6.10.2 can craft a PDF which leads to the RAM being exhausted. This requires accessing a stream compressed using `/FlateDecode` with a `/Predictor` unequal 1 and large predictor parameters. This has been fixed in pypdf 6.10.2. As a workaround, one may apply the changes from the patch manually.",
-      "published": "2026-04-22T22:16:32.093",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41312"
-    },
-    {
-      "id": "CVE-2026-41177",
-      "summary": "Squidex is an open source headless content management system and content management hub. Prior to version 7.23.0, the Squidex Restore API is vulnerable to Blind Server-Side Request Forgery (SSRF). The application fails to validate the URI scheme of the user-supplied `Url` parameter, allowing the use of the `file://` protocol. This allows an authenticated administrator to force the backend server to interact with the local filesystem, which can lead to Local File Interaction (LFI) and potential disclosure of sensitive system information through side-channel analysis of internal logs. Version 7.23.0 contains a fix.",
-      "published": "2026-04-22T22:16:31.957",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41177"
+      "id": "CVE-2026-41208",
+      "summary": "Paperclip is a Node.js server and React UI that orchestrates a team of AI agents to run a business. Versions of @paperclipai/server prior to 2026.416.0 contain a privilege escalation vulnerability that allows an attacker with an Agent API key to execute arbitrary OS commands on the Paperclip server host. An attacker with an agent credential can escalate privileges from the agent runtime to the Paperclip server host. The vulnerability occurs because agents are allowed to update their own adapterConfig via the /agents/:id API endpoint. The configuration field adapterConfig.workspaceStrategy.provisionCommand is later executed by the server runtime. As a result, an attacker controlling an agent credential can inject arbitrary shell commands which are executed by the Paperclip server during workspace provisioning. This breaks the intended trust boundary between agent runtime configuration and server host execution, allowing a compromised or malicious agent to escalate privileges and run commands on the host system. This vulnerability allows remote code execution on the server host. @paperclipai/server version 2026.416.0 fixes the issue.",
+      "published": "2026-04-23T02:16:18.670",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41208"
     }
   ]
 }
