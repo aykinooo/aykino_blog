@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-23T16:06:10+00:00",
+  "generated_at": "2026-04-23T19:39:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41461",
-      "summary": "SocialEngine versions 7.8.0 and prior contain a blind server-side request forgery vulnerability in the /core/link/preview endpoint where user-supplied input passed via the uri request parameter is not sanitized before being used to construct outbound HTTP requests. Authenticated remote attackers can supply arbitrary URLs including internal network addresses and loopback addresses to cause the server to issue HTTP requests to attacker-controlled destinations, enabling internal network enumeration and access to services not intended to be externally reachable.",
-      "published": "2026-04-23T15:37:24.683",
+      "id": "CVE-2026-6074",
+      "summary": "A path traversal condition in Intrado 911 Emergency Gateway could allow an attacker with existing network access the ability to access the EGW management interface without authentication. Successful exploitation of this vulnerability could allow a user to read, modify, or delete files.",
+      "published": "2026-04-23T19:17:30.410",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41461"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6074"
     },
     {
-      "id": "CVE-2026-41460",
-      "summary": "SocialEngine versions 7.8.0 and prior contain a SQL injection vulnerability in the /activity/index/get-memberall endpoint where user-supplied input passed via the text parameter is not sanitized before being incorporated into a SQL query. An unauthenticated remote attacker can exploit this vulnerability to read arbitrary data from the database, reset administrator account passwords, and gain unauthorized access to the Packages Manager in the Admin Panel, potentially enabling remote code execution.",
-      "published": "2026-04-23T15:37:24.540",
+      "id": "CVE-2026-41259",
+      "summary": "Mastodon is a free, open-source social network server based on ActivityPub. Prior to v4.5.9, v4.4.16, and v4.3.22, Mastodon allows restricting new user sign-up based on e-mail domain names, and performs basic validation on e-mail addresses, but fails to restrict characters that are interpreted differently by some mailing servers. This vulnerability is fixed in v4.5.9, v4.4.16, and v4.3.22.",
+      "published": "2026-04-23T19:17:30.027",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41460"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41259"
     },
     {
-      "id": "CVE-2026-35225",
-      "summary": "An unauthenticated remote attacker is able to exhaust all available TCP connections in the CODESYS EtherNet/IP adapter stack, preventing legitimate clients from establishing new connections.",
-      "published": "2026-04-23T15:37:23.377",
+      "id": "CVE-2026-41247",
+      "summary": "elFinder is an open-source file manager for web, written in JavaScript using jQuery UI. Prior to 2.1.67, elFinder contains a command injection vulnerability in the resize command. The bg (background color) parameter is accepted from user input and passed through image resize/rotate processing. In configurations that use the ImageMagick CLI backend, this value is incorporated into shell command strings without sufficient escaping. An attacker able to invoke the resize command with a crafted bg value may achieve arbitrary command execution as the web server process user. This vulnerability is fixed in 2.1.67.",
+      "published": "2026-04-23T19:17:29.850",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35225"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41247"
     },
     {
-      "id": "CVE-2025-70994",
-      "summary": "Yadea T5 Electric Bicycles (models manufactured in/after 2024) have a weak authentication mechanism in their keyless entry system. The system utilizes the EV1527 fixed-code RF protocol without implementing rolling codes or cryptographic challenge-response mechanisms. This is vulnerable to signal forgery after a local attacker intercepts any legitimate key fob transmission, allowing for complete unauthorized vehicle operation via a replay attack.",
-      "published": "2026-04-23T15:36:26.687",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-70994"
+      "id": "CVE-2026-41246",
+      "summary": "Contour is a Kubernetes ingress controller using Envoy proxy. From v1.19.0 to before v1.33.4, v1.32.5, and v1.31.6, Contour's Cookie Rewriting feature is vulnerable to Lua code injection. An attacker with RBAC permissions to create or modify HTTPProxy resources can craft a malicious value in spec.routes[].cookieRewritePolicies[].pathRewrite.value or spec.routes[].services[].cookieRewritePolicies[].pathRewrite.value that results in arbitrary code execution in the Envoy proxy. The cookie rewriting feature is internally implemented using Envoy's HTTP Lua filter. User-controlled values are interpolated into Lua source code using Go text/template without sufficient sanitization. The injected code only executes when processing traffic on the attacker's own route, which they already control. However, since Envoy runs as shared infrastructure, the injected code can also read Envoy's xDS client credentials from the filesystem or cause denial of service for other tenants sharing the Envoy instance. This vulnerability is fixed in v1.33.4, v1.32.5, and v1.31.6.",
+      "published": "2026-04-23T19:17:29.670",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41246"
     },
     {
-      "id": "CVE-2026-39440",
-      "summary": "Improper Control of Generation of Code ('Code Injection') vulnerability in Funnelforms LLC FunnelFormsPro allows Remote Code Inclusion.This issue affects FunnelFormsPro: from n/a through 3.8.1.",
-      "published": "2026-04-23T13:16:11.893",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39440"
+      "id": "CVE-2026-41241",
+      "summary": "pretalx is a conference planning tool. Prior to 2026.1.0, The organiser search in the pretalx backend rendered submission titles, speaker display names, and user names/emails into the result dropdown using innerHTML string interpolation. Any user who controls one of those fields (which includes any registered user whose display name is looked up by an administrator) could include HTML or JavaScript that would execute in an organiser's browser when the organiser's search query matched the malicious record. This vulnerability is fixed in 2026.1.0.",
+      "published": "2026-04-23T19:17:29.533",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41241"
     },
     {
-      "id": "CVE-2025-66286",
-      "summary": "An API design flaw in WebKitGTK and WPE WebKit allows untrusted web content to unexpectedly perform IP connections, DNS lookups, and HTTP requests. Applications expect to use the\nWebPage::send-request signal handler to approve or reject all network requests. However, certain types of HTTP requests bypass this signal handler.",
-      "published": "2026-04-23T13:16:11.007",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66286"
+      "id": "CVE-2026-41213",
+      "summary": "@node-oauth/oauth2-server is a module for implementing an OAuth2 server in Node.js. The token exchange path accepts RFC7636-invalid code_verifier values (including one-character strings) for S256 PKCE flows. Because short/weak verifiers are accepted and failed verifier attempts do not consume the authorization code, an attacker who intercepts an authorization code can brute-force code_verifier guesses online until token issuance succeeds.",
+      "published": "2026-04-23T19:17:29.400",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41213"
     }
   ]
 }
