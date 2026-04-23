@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-23T03:45:12+00:00",
+  "generated_at": "2026-04-23T06:16:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3844",
-      "summary": "The Breeze Cache plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the 'fetch_gravatar_from_remote' function in all versions up to, and including, 2.4.4. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible. The vulnerability can only be exploited if \"Host Files Locally - Gravatars\" is enabled, which is disabled by default.",
-      "published": "2026-04-23T03:16:17.527",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3844"
+      "id": "CVE-2026-41990",
+      "summary": "Libgcrypt before 1.12.2 mishandles Dilithium signing. Writes to a static array lack a bounds check but do not use attacker-controlled data.",
+      "published": "2026-04-23T05:16:05.897",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41990"
     },
     {
-      "id": "CVE-2026-2951",
-      "summary": "The Gutentor \u2013 Gutenberg Blocks \u2013 Page Builder for Gutenberg Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 3.5.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-04-23T03:16:16.360",
+      "id": "CVE-2026-41989",
+      "summary": "Libgcrypt before 1.12.2 sometimes allows a heap-based buffer overflow and denial of service via crafted ECDH ciphertext to gcry_pk_decrypt.",
+      "published": "2026-04-23T05:16:05.750",
+      "cvss": 6.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41989"
+    },
+    {
+      "id": "CVE-2026-41988",
+      "summary": "uuid before 14.0.0 can make unexpected writes when external output buffers are used, and the UUID version is 3, 5, or 6. In particular, UUID version 4, which is very commonly used, is unaffected by this issue.",
+      "published": "2026-04-23T05:16:05.613",
+      "cvss": 3.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41988"
+    },
+    {
+      "id": "CVE-2026-41233",
+      "summary": "Froxlor is open source server administration software. Prior to version 2.3.6, in `Domains.add()`, the `adminid` parameter is accepted from user input and used without validation when the calling reseller does not have the `customers_see_all` permission. This allows a reseller to attribute newly created domains to any other admin, bypassing their own domain quota (since the wrong admin's `domains_used` counter is incremented) and potentially exhausting another admin's quota. Version 2.3.6 fixes the issue.",
+      "published": "2026-04-23T05:16:05.477",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2951"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41233"
     },
     {
-      "id": "CVE-2026-41679",
-      "summary": "Paperclip is a Node.js server and React UI that orchestrates a team of AI agents to run a business. Prior to version 2026.416.0, an unauthenticated attacker can achieve full remote code execution on any network-accessible Paperclip instance running in `authenticated` mode with default configuration. No user interaction, no credentials, just the target's address. The chain consists of six API calls. The attack is fully automated, requires no user interaction, and works against the default deployment configuration. Version 2026.416.0 patches the issue.",
-      "published": "2026-04-23T02:16:19.180",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41679"
+      "id": "CVE-2026-41232",
+      "summary": "Froxlor is open source server administration software. Prior to version 2.3.6, in `EmailSender::add()`, the domain ownership validation for full email sender aliases uses the wrong array index when splitting the email address, passing the local part instead of the domain to `validateLocalDomainOwnership()`. This causes the ownership check to always pass for non-existent \"domains,\" allowing any authenticated customer to add sender aliases for email addresses on domains belonging to other customers. Postfix's `sender_login_maps` then authorizes the attacker to send emails as those addresses. Version 2.3.6 fixes the issue.",
+      "published": "2026-04-23T05:16:05.333",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41232"
     },
     {
-      "id": "CVE-2026-41243",
-      "summary": "OpenLearn is open-source educational forum software. Prior to commit 844b2a40a69d0c4911580fe501923f0b391313ab, when `safeMode` is enabled, unapproved forum posts are hidden from the public list, but the direct post-read procedure still returns the full post to anyone with the post UUID. Commit 844b2a40a69d0c4911580fe501923f0b391313ab fixes the issue.",
-      "published": "2026-04-23T02:16:19.040",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41243"
-    },
-    {
-      "id": "CVE-2026-41211",
-      "summary": "Vite+ is a unified toolchain and entry point for web development. Prior to version 0.1.17, `downloadPackageManager()` accepts an untrusted `version` string and uses it directly in filesystem paths. A caller can supply `../` segments or an absolute path to escape the `VP_HOME/package_manager/<pm>/` cache root and make Vite+ delete, replace, and populate directories outside the intended cache location. Version 0.1.17 contains a patch.",
-      "published": "2026-04-23T02:16:18.860",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41211"
-    },
-    {
-      "id": "CVE-2026-41208",
-      "summary": "Paperclip is a Node.js server and React UI that orchestrates a team of AI agents to run a business. Versions of @paperclipai/server prior to 2026.416.0 contain a privilege escalation vulnerability that allows an attacker with an Agent API key to execute arbitrary OS commands on the Paperclip server host. An attacker with an agent credential can escalate privileges from the agent runtime to the Paperclip server host. The vulnerability occurs because agents are allowed to update their own adapterConfig via the /agents/:id API endpoint. The configuration field adapterConfig.workspaceStrategy.provisionCommand is later executed by the server runtime. As a result, an attacker controlling an agent credential can inject arbitrary shell commands which are executed by the Paperclip server during workspace provisioning. This breaks the intended trust boundary between agent runtime configuration and server host execution, allowing a compromised or malicious agent to escalate privileges and run commands on the host system. This vulnerability allows remote code execution on the server host. @paperclipai/server version 2026.416.0 fixes the issue.",
-      "published": "2026-04-23T02:16:18.670",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41208"
+      "id": "CVE-2026-40529",
+      "summary": "CMS ALAYA provided by KANATA Limited contains an SQL injection vulnerability. Information stored in the database may be obtained or altered by an attacker with access to the administrative interface.",
+      "published": "2026-04-23T05:16:04.583",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40529"
     }
   ]
 }
