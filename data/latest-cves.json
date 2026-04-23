@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-23T19:39:36+00:00",
+  "generated_at": "2026-04-23T21:05:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6074",
-      "summary": "A path traversal condition in Intrado 911 Emergency Gateway could allow an attacker with existing network access the ability to access the EGW management interface without authentication. Successful exploitation of this vulnerability could allow a user to read, modify, or delete files.",
-      "published": "2026-04-23T19:17:30.410",
+      "id": "CVE-2026-41279",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, the text-to-speech generation endpoint (POST /api/v1/text-to-speech/generate) is whitelisted (no auth) and accepts a credentialId directly in the request body. When called without a chatflowId, the endpoint uses the provided credentialId to decrypt the stored credential (e.g., OpenAI or ElevenLabs API key) and generate speech. This vulnerability is fixed in 3.1.0.",
+      "published": "2026-04-23T20:16:16.687",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6074"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41279"
     },
     {
-      "id": "CVE-2026-41259",
-      "summary": "Mastodon is a free, open-source social network server based on ActivityPub. Prior to v4.5.9, v4.4.16, and v4.3.22, Mastodon allows restricting new user sign-up based on e-mail domain names, and performs basic validation on e-mail addresses, but fails to restrict characters that are interpreted differently by some mailing servers. This vulnerability is fixed in v4.5.9, v4.4.16, and v4.3.22.",
-      "published": "2026-04-23T19:17:30.027",
+      "id": "CVE-2026-41278",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, the GET /api/v1/public-chatflows/:id endpoint returns the full chatflow object without sanitization for public chatflows. Docker validation revealed this is worse than initially assessed: the sanitizeFlowDataForPublicEndpoint function does NOT exist in the released v3.0.13 Docker image. Both public-chatflows AND public-chatbotConfig return completely raw flowData including credential IDs, plaintext API keys, and password-type fields. This vulnerability is fixed in 3.1.0.",
+      "published": "2026-04-23T20:16:16.550",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41259"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41278"
     },
     {
-      "id": "CVE-2026-41247",
-      "summary": "elFinder is an open-source file manager for web, written in JavaScript using jQuery UI. Prior to 2.1.67, elFinder contains a command injection vulnerability in the resize command. The bg (background color) parameter is accepted from user input and passed through image resize/rotate processing. In configurations that use the ImageMagick CLI backend, this value is incorporated into shell command strings without sufficient escaping. An attacker able to invoke the resize command with a crafted bg value may achieve arbitrary command execution as the web server process user. This vulnerability is fixed in 2.1.67.",
-      "published": "2026-04-23T19:17:29.850",
+      "id": "CVE-2026-41277",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, a Mass Assignment vulnerability in the DocumentStore creation endpoint allows authenticated users to control the primary key (id) and internal state fields of DocumentStore entities. Because the service uses repository.save() with a client-supplied primary key, the POST create endpoint behaves as an implicit UPSERT operation. This enables overwriting existing DocumentStore objects. In multi-workspace or multi-tenant deployments, this can lead to cross-workspace object takeover and broken object-level authorization (IDOR), allowing an attacker to reassign or modify DocumentStore objects belonging to other workspaces. This vulnerability is fixed in 3.1.0.",
+      "published": "2026-04-23T20:16:16.410",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41247"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41277"
     },
     {
-      "id": "CVE-2026-41246",
-      "summary": "Contour is a Kubernetes ingress controller using Envoy proxy. From v1.19.0 to before v1.33.4, v1.32.5, and v1.31.6, Contour's Cookie Rewriting feature is vulnerable to Lua code injection. An attacker with RBAC permissions to create or modify HTTPProxy resources can craft a malicious value in spec.routes[].cookieRewritePolicies[].pathRewrite.value or spec.routes[].services[].cookieRewritePolicies[].pathRewrite.value that results in arbitrary code execution in the Envoy proxy. The cookie rewriting feature is internally implemented using Envoy's HTTP Lua filter. User-controlled values are interpolated into Lua source code using Go text/template without sufficient sanitization. The injected code only executes when processing traffic on the attacker's own route, which they already control. However, since Envoy runs as shared infrastructure, the injected code can also read Envoy's xDS client credentials from the filesystem or cause denial of service for other tenants sharing the Envoy instance. This vulnerability is fixed in v1.33.4, v1.32.5, and v1.31.6.",
-      "published": "2026-04-23T19:17:29.670",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41246"
+      "id": "CVE-2026-41276",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, this vulnerability allows remote attackers to bypass authentication on affected installations of FlowiseAI Flowise. Authentication is not required to exploit this vulnerability. The specific flaw exists within the resetPassword method of the AccountService class. There is no check performed to ensure that a password reset token has actually been generated for a user account. By default the value of the reset token stored in a users account is null, or an empty string if they've reset their password before. An attacker with knowledge of the user's email address can submit a request to the \"/api/v1/account/reset-password\" endpoint containing a null or empty string reset token value and reset that user's password to a value of their choosing. This vulnerability is fixed in 3.1.0.",
+      "published": "2026-04-23T20:16:16.270",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41276"
     },
     {
-      "id": "CVE-2026-41241",
-      "summary": "pretalx is a conference planning tool. Prior to 2026.1.0, The organiser search in the pretalx backend rendered submission titles, speaker display names, and user names/emails into the result dropdown using innerHTML string interpolation. Any user who controls one of those fields (which includes any registered user whose display name is looked up by an administrator) could include HTML or JavaScript that would execute in an organiser's browser when the organiser's search query matched the malicious record. This vulnerability is fixed in 2026.1.0.",
-      "published": "2026-04-23T19:17:29.533",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41241"
+      "id": "CVE-2026-41275",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, the password reset functionality on cloud.flowiseai.com sends a reset password link over the unsecured HTTP protocol instead of HTTPS. This behavior introduces the risk of a man-in-the-middle (MITM) attack, where an attacker on the same network as the user (e.g., public Wi-Fi) can intercept the reset link and gain unauthorized access to the victim\u2019s account. This vulnerability is fixed in 3.1.0.",
+      "published": "2026-04-23T20:16:16.117",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41275"
     },
     {
-      "id": "CVE-2026-41213",
-      "summary": "@node-oauth/oauth2-server is a module for implementing an OAuth2 server in Node.js. The token exchange path accepts RFC7636-invalid code_verifier values (including one-character strings) for S256 PKCE flows. Because short/weak verifiers are accepted and failed verifier attempts do not consume the authorization code, an attacker who intercepts an authorization code can brute-force code_verifier guesses online until token issuance succeeds.",
-      "published": "2026-04-23T19:17:29.400",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41213"
+      "id": "CVE-2026-41273",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.0, Flowise contains an authentication bypass vulnerability that allows an unauthenticated attacker to obtain OAuth 2.0 access tokens associated with a public chatflow. By accessing a public chatflow configuration endpoint, an attacker can retrieve internal workflow data, including OAuth credential identifiers, which can then be used to refresh and obtain valid OAuth 2.0 access tokens without authentication. This vulnerability is fixed in 3.1.0.",
+      "published": "2026-04-23T20:16:15.973",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41273"
     }
   ]
 }
