@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-04-24T15:35:58+00:00",
+  "generated_at": "2026-04-24T17:11:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-39920",
+      "summary": "BridgeHead FileStore versions prior to 24A (released in early 2024) expose the Apache Axis2 administration module on network-accessible endpoints with default credentials that allows unauthenticated remote attackers to execute arbitrary OS commands. Attackers can authenticate to the admin console using default credentials, upload a malicious Java archive as a web service, and execute arbitrary commands on the host via SOAP requests to the deployed service.",
+      "published": "2026-04-24T16:16:36.267",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39920"
+    },
+    {
+      "id": "CVE-2026-30368",
+      "summary": "A client-side authorization flaw in Lightspeed Classroom v5.1.2.1763770643 allows unauthenticated attackers to impersonate users by bypassing integrity checks and abusing client-generated authorization tokens, leading to unauthorized control and monitoring of student devices.",
+      "published": "2026-04-24T16:16:34.993",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30368"
+    },
+    {
+      "id": "CVE-2025-67259",
+      "summary": "A Broken Access Control vulnerability exists in ClassroomIO v0.1.13 where an authenticated low-privileged \"student\" user can access unauthorized course-level information by modifying intercepted API requests. Changing a captured POST request to a GET request against the /rest/v1/course PostgREST endpoint results in disclosure of sensitive information including other students details, tutor/admin profiles, and internal course metadata.",
+      "published": "2026-04-24T16:16:23.907",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67259"
+    },
+    {
+      "id": "CVE-2025-59308",
+      "summary": "In Mahara before 24.04.10 and 25 before 25.04.1, an institution administrator or institution support administrator on a multi-tenanted site can masquerade as an institution member in an institution for which they are not an administrator, if they also have the 'Site staff' role.",
+      "published": "2026-04-24T16:16:23.610",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59308"
+    },
     {
       "id": "CVE-2026-42095",
       "summary": "bookserver in KDE Arianna before 26.04.1 allows attackers to read files over a socket connection by guessing a URL.",
@@ -15,34 +43,6 @@
       "published": "2026-04-24T15:16:47.017",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31672"
-    },
-    {
-      "id": "CVE-2026-31671",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfrm_user: fix info leak in build_report()\n\nstruct xfrm_user_report is a __u8 proto field followed by a struct\nxfrm_selector which means there is three \"empty\" bytes of padding, but\nthe padding is never zeroed before copying to userspace.  Fix that up by\nzeroing the structure before setting individual member variables.",
-      "published": "2026-04-24T15:16:46.903",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31671"
-    },
-    {
-      "id": "CVE-2026-31670",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: rfkill: prevent unlimited numbers of rfkill events from being created\n\nUserspace can create an unlimited number of rfkill events if the system\nis so configured, while not consuming them from the rfkill file\ndescriptor, causing a potential out of memory situation.  Prevent this\nfrom bounding the number of pending rfkill events at a \"large\" number\n(i.e. 1000) to prevent abuses like this.",
-      "published": "2026-04-24T15:16:46.790",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31670"
-    },
-    {
-      "id": "CVE-2026-31669",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmptcp: fix slab-use-after-free in __inet_lookup_established\n\nThe ehash table lookups are lockless and rely on\nSLAB_TYPESAFE_BY_RCU to guarantee socket memory stability\nduring RCU read-side critical sections. Both tcp_prot and\ntcpv6_prot have their slab caches created with this flag\nvia proto_register().\n\nHowever, MPTCP's mptcp_subflow_init() copies tcpv6_prot into\ntcpv6_prot_override during inet_init() (fs_initcall, level 5),\nbefore inet6_init() (module_init/device_initcall, level 6) has\ncalled proto_register(&tcpv6_prot). At that point,\ntcpv6_prot.slab is still NULL, so tcpv6_prot_override.slab\nremains NULL permanently.\n\nThis causes MPTCP v6 subflow child sockets to be allocated via\nkmalloc (falling into kmalloc-4k) instead of the TCPv6 slab\ncache. The kmalloc-4k cache lacks SLAB_TYPESAFE_BY_RCU, so\nwhen these sockets are freed without SOCK_RCU_FREE (which is\ncleared for child sockets by design), the memory can be\nimmediately reused. Concurrent ehash lookups under\nrcu_read_lock can then access freed memory, triggering a\nslab-use-after-free in __inet_lookup_established.\n\nFix this by splitting the IPv6-specific initialization out of\nmptcp_subflow_init() into a new mptcp_subflow_v6_init(), called\nfrom mptcp_proto_v6_init() before protocol registration. This\nensures tcpv6_prot_override.slab correctly inherits the\nSLAB_TYPESAFE_BY_RCU slab cache.",
-      "published": "2026-04-24T15:16:46.663",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31669"
-    },
-    {
-      "id": "CVE-2026-31668",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nseg6: separate dst_cache for input and output paths in seg6 lwtunnel\n\nThe seg6 lwtunnel uses a single dst_cache per encap route, shared\nbetween seg6_input_core() and seg6_output_core(). These two paths\ncan perform the post-encap SID lookup in different routing contexts\n(e.g., ip rules matching on the ingress interface, or VRF table\nseparation). Whichever path runs first populates the cache, and the\nother reuses it blindly, bypassing its own lookup.\n\nFix this by splitting the cache into cache_input and cache_output,\nso each path maintains its own cached dst independently.",
-      "published": "2026-04-24T15:16:46.533",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31668"
     }
   ]
 }
