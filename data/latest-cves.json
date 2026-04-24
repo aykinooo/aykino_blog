@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-24T09:08:20+00:00",
+  "generated_at": "2026-04-24T10:43:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-6272",
+      "summary": "A client holding only a read JWT scope can still register itself as a signal provider through the production kuksa.val.v2 OpenProviderStream API by sending ProvideSignalRequest.\n\n1. Obtain any valid token with only read scope.\n2. Connect to the normal production gRPC API (kuksa.val.v2).\n3. Open OpenProviderStream.\n4. Send ProvideSignalRequest for a target signal ID.\n5. Wait for the broker to forward GetProviderValueRequest.\n6. Reply with attacker-controlled GetProviderValueResponse.\n7. Other clients performing GetValue / GetValues for that signal receive forged data.",
+      "published": "2026-04-24T09:16:04.227",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6272"
+    },
+    {
+      "id": "CVE-2026-21728",
+      "summary": "Tempo queries with large limits can cause large memory allocations which can impact the availability of the service, depending on its deployment strategy.\n\nMitigation can be done by setting max_result_limit in the search config, e.g. to 262144 (2^18).",
+      "published": "2026-04-24T09:16:03.710",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21728"
+    },
     {
       "id": "CVE-2026-4078",
       "summary": "The ITERAS plugin for WordPress is vulnerable to Stored Cross-Site Scripting via multiple shortcodes (iteras-ordering, iteras-signup, iteras-paywall-login, iteras-selfservice) in all versions up to and including 1.8.2. This is due to insufficient input sanitization and output escaping in the combine_attributes() function. The function directly concatenates shortcode attribute values into JavaScript code within <script> tags using double-quoted string interpolation (line 489: '\"'.$key.'\": \"'.$value.'\"') without any escaping. An attacker can break out of the JavaScript string context by including a double-quote character in a shortcode attribute value and inject arbitrary JavaScript. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
@@ -29,20 +43,6 @@
       "published": "2026-04-24T08:16:29.000",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11762"
-    },
-    {
-      "id": "CVE-2026-1952",
-      "summary": "Delta Electronics AS320T has denial of service via the undocumented subfunction\u00a0vulnerability.",
-      "published": "2026-04-24T07:16:09.627",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1952"
-    },
-    {
-      "id": "CVE-2026-1951",
-      "summary": "Delta Electronics AS320T has no checking of the length of the buffer with the directory name\n\n vulnerability.",
-      "published": "2026-04-24T07:16:09.520",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1951"
     }
   ]
 }
