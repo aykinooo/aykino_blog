@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-24T17:11:30+00:00",
+  "generated_at": "2026-04-24T17:58:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-39920",
-      "summary": "BridgeHead FileStore versions prior to 24A (released in early 2024) expose the Apache Axis2 administration module on network-accessible endpoints with default credentials that allows unauthenticated remote attackers to execute arbitrary OS commands. Attackers can authenticate to the admin console using default credentials, upload a malicious Java archive as a web service, and execute arbitrary commands on the host via SOAP requests to the deployed service.",
-      "published": "2026-04-24T16:16:36.267",
+      "id": "CVE-2026-6912",
+      "summary": "Improperly controlled modification of dynamically-determined object attributes in the Cognito User Pool configuration in AWS Ops Wheel before PR #165 allows remote authenticated users to escalate to deployment admin privileges and manage Cognito user accounts via a crafted UpdateUserAttributes API call that sets the custom:deployment_admin attribute.\n\nTo remediate this issue, users should redeploy from the updated repository and ensure any forked or derivative code is patched to incorporate the new fixes.",
+      "published": "2026-04-24T17:16:22.377",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6912"
+    },
+    {
+      "id": "CVE-2026-6911",
+      "summary": "Missing JWT signature verification in AWS Ops Wheel allows unauthenticated attackers to forge JWT tokens and gain unintended administrative access to the application, including the ability to read, modify, and delete all application data across tenants and manage Cognito user accounts within the deployment's User Pool, via a crafted JWT sent to the API Gateway endpoint.\n\nTo remediate this issue, users should redeploy from the updated repository and ensure any forked or derivative code is patched to incorporate the new fixes.",
+      "published": "2026-04-24T17:16:22.220",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39920"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6911"
     },
     {
-      "id": "CVE-2026-30368",
-      "summary": "A client-side authorization flaw in Lightspeed Classroom v5.1.2.1763770643 allows unauthenticated attackers to impersonate users by bypassing integrity checks and abusing client-generated authorization tokens, leading to unauthorized control and monitoring of student devices.",
-      "published": "2026-04-24T16:16:34.993",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30368"
+      "id": "CVE-2026-41411",
+      "summary": "Vim is an open source, command line text editor. Prior to 9.2.0357, A command injection vulnerability exists in Vim's tag file processing. When resolving a tag, the filename field from the tags file is passed through wildcard expansion to resolve environment variables and wildcards. If the filename field contains backtick syntax (e.g., `command`), Vim executes the embedded command via the system shell with the full privileges of the running user.",
+      "published": "2026-04-24T17:16:22.037",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41411"
     },
     {
-      "id": "CVE-2025-67259",
-      "summary": "A Broken Access Control vulnerability exists in ClassroomIO v0.1.13 where an authenticated low-privileged \"student\" user can access unauthorized course-level information by modifying intercepted API requests. Changing a captured POST request to a GET request against the /rest/v1/course PostgREST endpoint results in disclosure of sensitive information including other students details, tutor/admin profiles, and internal course metadata.",
-      "published": "2026-04-24T16:16:23.907",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67259"
+      "id": "CVE-2026-41079",
+      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. Prior to 2.4.17, a network-adjacent attacker can send a crafted SNMP response to the CUPS SNMP backend that causes an out-of-bounds read of up to 176 bytes past a stack buffer. The leaked memory is converted from UTF-16 to UTF-8 and stored as printer supply description strings, which are subsequently visible to authenticated users via IPP Get-Printer-Attributes responses and the CUPS web interface. This vulnerability is fixed in 2.4.17.",
+      "published": "2026-04-24T17:16:21.340",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41079"
     },
     {
-      "id": "CVE-2025-59308",
-      "summary": "In Mahara before 24.04.10 and 25 before 25.04.1, an institution administrator or institution support administrator on a multi-tenanted site can masquerade as an institution member in an institution for which they are not an administrator, if they also have the 'Site staff' role.",
-      "published": "2026-04-24T16:16:23.610",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59308"
+      "id": "CVE-2026-41067",
+      "summary": "Astro is a web framework. Prior to 6.1.6, the defineScriptVars function in Astro's server-side rendering pipeline uses a case-sensitive regex /<\\/script>/g to sanitize values injected into inline <script> tags via the define:vars directive. HTML parsers close <script> elements case-insensitively and also accept whitespace or / before the closing >, allowing an attacker to bypass the sanitization with payloads like </Script>, </script >, or </script/> and inject arbitrary HTML/JavaScript. This vulnerability is fixed in 6.1.6.",
+      "published": "2026-04-24T17:16:21.083",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41067"
     },
     {
-      "id": "CVE-2026-42095",
-      "summary": "bookserver in KDE Arianna before 26.04.1 allows attackers to read files over a socket connection by guessing a URL.",
-      "published": "2026-04-24T15:16:48.273",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42095"
-    },
-    {
-      "id": "CVE-2026-31672",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: rt2x00usb: fix devres lifetime\n\nUSB drivers bind to USB interfaces and any device managed resources\nshould have their lifetime tied to the interface rather than parent USB\ndevice. This avoids issues like memory leaks when drivers are unbound\nwithout their devices being physically disconnected (e.g. on probe\ndeferral or configuration changes).\n\nFix the USB anchor lifetime so that it is released on driver unbind.",
-      "published": "2026-04-24T15:16:47.017",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31672"
+      "id": "CVE-2026-41066",
+      "summary": "lxml is a library for processing XML and HTML in the Python language. Prior to 6.1.0, using either of the two parsers in the default configuration (with resolve_entities=True) allows untrusted XML input to read local files. Setting the resolve_entities option explicitly to resolve_entities='internal' or resolve_entities=False disables the local file access. This vulnerability is fixed in 6.1.0.",
+      "published": "2026-04-24T17:16:20.933",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41066"
     }
   ]
 }
