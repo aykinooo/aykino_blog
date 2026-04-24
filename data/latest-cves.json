@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-24T17:58:38+00:00",
+  "generated_at": "2026-04-24T19:11:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6912",
-      "summary": "Improperly controlled modification of dynamically-determined object attributes in the Cognito User Pool configuration in AWS Ops Wheel before PR #165 allows remote authenticated users to escalate to deployment admin privileges and manage Cognito user accounts via a crafted UpdateUserAttributes API call that sets the custom:deployment_admin attribute.\n\nTo remediate this issue, users should redeploy from the updated repository and ensure any forked or derivative code is patched to incorporate the new fixes.",
-      "published": "2026-04-24T17:16:22.377",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6912"
+      "id": "CVE-2026-42044",
+      "summary": "Axios is a promise based HTTP client for the browser and Node.js. From 1.0.0 to before 1.15.2, he Axios library is vulnerable to a Prototype Pollution \"Gadget\" attack that allows any Object.prototype pollution in the application's dependency tree to be escalated into surgical, invisible modification of all JSON API responses \u2014 including privilege escalation, balance manipulation, and authorization bypass. The default transformResponse function at lib/defaults/index.js:124 calls JSON.parse(data, this.parseReviver), where this is the merged config object. Because parseReviver is not present in Axios defaults, not validated by assertOptions, and not subject to any constraints, a polluted Object.prototype.parseReviver function is called for every key-value pair in every JSON response, allowing the attacker to selectively modify individual values while leaving the rest of the response intact. This vulnerability is fixed in 1.15.2.",
+      "published": "2026-04-24T18:16:31.613",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42044"
     },
     {
-      "id": "CVE-2026-6911",
-      "summary": "Missing JWT signature verification in AWS Ops Wheel allows unauthenticated attackers to forge JWT tokens and gain unintended administrative access to the application, including the ability to read, modify, and delete all application data across tenants and manage Cognito user accounts within the deployment's User Pool, via a crafted JWT sent to the API Gateway endpoint.\n\nTo remediate this issue, users should redeploy from the updated repository and ensure any forked or derivative code is patched to incorporate the new fixes.",
-      "published": "2026-04-24T17:16:22.220",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6911"
+      "id": "CVE-2026-42043",
+      "summary": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.1 and 0.31.1, an attacker who can influence the target URL of an Axios request can use any address in the 127.0.0.0/8 range (other than 127.0.0.1) to completely bypass the NO_PROXY protection. This vulnerability is due to an incomplete for CVE-2025-62718, This vulnerability is fixed in 1.15.1 and 0.31.1.",
+      "published": "2026-04-24T18:16:31.457",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42043"
     },
     {
-      "id": "CVE-2026-41411",
-      "summary": "Vim is an open source, command line text editor. Prior to 9.2.0357, A command injection vulnerability exists in Vim's tag file processing. When resolving a tag, the filename field from the tags file is passed through wildcard expansion to resolve environment variables and wildcards. If the filename field contains backtick syntax (e.g., `command`), Vim executes the embedded command via the system shell with the full privileges of the running user.",
-      "published": "2026-04-24T17:16:22.037",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41411"
+      "id": "CVE-2026-42042",
+      "summary": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.1 and 0.31.1, the Axios library's XSRF token protection logic uses JavaScript truthy/falsy semantics instead of strict boolean comparison for the withXSRFToken config property. When this property is set to any truthy non-boolean value (via prototype pollution or misconfiguration), the same-origin check (isURLSameOrigin) is short-circuited, causing XSRF tokens to be sent to all request targets including cross-origin servers controlled by an attacker. This vulnerability is fixed in 1.15.1 and 0.31.1.",
+      "published": "2026-04-24T18:16:31.293",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42042"
     },
     {
-      "id": "CVE-2026-41079",
-      "summary": "OpenPrinting CUPS is an open source printing system for Linux and other Unix-like operating systems. Prior to 2.4.17, a network-adjacent attacker can send a crafted SNMP response to the CUPS SNMP backend that causes an out-of-bounds read of up to 176 bytes past a stack buffer. The leaked memory is converted from UTF-16 to UTF-8 and stored as printer supply description strings, which are subsequently visible to authenticated users via IPP Get-Printer-Attributes responses and the CUPS web interface. This vulnerability is fixed in 2.4.17.",
-      "published": "2026-04-24T17:16:21.340",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41079"
+      "id": "CVE-2026-42041",
+      "summary": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.1 and 0.31.1, the Axios library is vulnerable to a Prototype Pollution \"Gadget\" attack that allows any Object.prototype pollution to silently suppress all HTTP error responses (401, 403, 500, etc.), causing them to be treated as successful responses. This completely bypasses application-level authentication and error handling. The root cause is that validateStatus is the only config property using the mergeDirectKeys merge strategy, which uses JavaScript's in operator \u2014 an operator that inherently traverses the prototype chain. When Object.prototype.validateStatus is polluted with () => true, all HTTP status codes are accepted as success. This vulnerability is fixed in 1.15.1 and 0.31.1.",
+      "published": "2026-04-24T18:16:31.133",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42041"
     },
     {
-      "id": "CVE-2026-41067",
-      "summary": "Astro is a web framework. Prior to 6.1.6, the defineScriptVars function in Astro's server-side rendering pipeline uses a case-sensitive regex /<\\/script>/g to sanitize values injected into inline <script> tags via the define:vars directive. HTML parsers close <script> elements case-insensitively and also accept whitespace or / before the closing >, allowing an attacker to bypass the sanitization with payloads like </Script>, </script >, or </script/> and inject arbitrary HTML/JavaScript. This vulnerability is fixed in 6.1.6.",
-      "published": "2026-04-24T17:16:21.083",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41067"
+      "id": "CVE-2026-42040",
+      "summary": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.1 and 0.31.1, the encode() function in lib/helpers/AxiosURLSearchParams.js contains a character mapping (charMap) at line 21 that reverses the safe percent-encoding of null bytes. After encodeURIComponent('\\x00') correctly produces the safe sequence %00, the charMap entry '%00': '\\x00' converts it back to a raw null byte. Primary impact is limited because the standard axios request flow is not affected. This vulnerability is fixed in 1.15.1 and 0.31.1.",
+      "published": "2026-04-24T18:16:30.960",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42040"
     },
     {
-      "id": "CVE-2026-41066",
-      "summary": "lxml is a library for processing XML and HTML in the Python language. Prior to 6.1.0, using either of the two parsers in the default configuration (with resolve_entities=True) allows untrusted XML input to read local files. Setting the resolve_entities option explicitly to resolve_entities='internal' or resolve_entities=False disables the local file access. This vulnerability is fixed in 6.1.0.",
-      "published": "2026-04-24T17:16:20.933",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41066"
+      "id": "CVE-2026-42039",
+      "summary": "Axios is a promise based HTTP client for the browser and Node.js. Prior to 1.15.1 and 0.31.1, toFormData recursively walks nested objects with no depth limit, so a deeply nested value passed as request data crashes the Node.js process with a RangeError. This vulnerability is fixed in 1.15.1 and 0.31.1.",
+      "published": "2026-04-24T18:16:30.827",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42039"
     }
   ]
 }
