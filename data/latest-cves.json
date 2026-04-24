@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-24T20:00:29+00:00",
+  "generated_at": "2026-04-24T21:04:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41907",
-      "summary": "uuid is for the creation of RFC9562 (formerly RFC4122) UUIDs. Prior to 14.0.0, v3, v5, and v6 accept external output buffers but do not reject out-of-range writes (small buf or large offset). This allows silent partial writes into caller-provided buffers. This vulnerability is fixed in 14.0.0.",
-      "published": "2026-04-24T19:17:14.490",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41907"
+      "id": "CVE-2026-6968",
+      "summary": "Incomplete path traversal fixes in awslabs/tough before tough-v0.22.0 allow remote authenticated users with delegated signing authority to write files outside intended output directories via absolute target names in copy_target/link_target, symlinked parent directories in save_target, or symlinked metadata filenames in SignedRole::write, because write paths trust the joined destination path without post-resolution containment verification.\n\nWe recommend you upgrade to tough-v0.22.0 / tuftool-v0.15.0.",
+      "published": "2026-04-24T20:16:29.170",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6968"
     },
     {
-      "id": "CVE-2026-41894",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.6.5, the fix for CVE-2026-30869 only added a denylist check (IsSensitivePath) but did not address the root cause \u2014 a redundant url.PathUnescape() call in serveExport(). An authenticated attacker can use double URL encoding (%252e%252e) to traverse directories and read arbitrary workspace files including the full SQLite database (siyuan.db), kernel log, and all user documents. This vulnerability is fixed in 3.6.5.",
-      "published": "2026-04-24T19:17:14.360",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41894"
+      "id": "CVE-2026-6967",
+      "summary": "Missing expiration, hash, and length enforcement in delegated metadata validation in awslabs/tough before tough-v0.22.0 allows remote authenticated users with delegated signing authority to bypass TUF specification integrity checks for delegated targets metadata and poison the local metadata cache, because load_delegations does not apply the same validation checks as the top-level targets metadata path.\n\nWe recommend you upgrade to tough-v0.22.0 / tuftool-v0.15.0.",
+      "published": "2026-04-24T20:16:29.020",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6967"
     },
     {
-      "id": "CVE-2026-41492",
-      "summary": "Dgraph is an open source distributed GraphQL database. Prior to 25.3.3, Dgraphl exposes the process command line through the unauthenticated /debug/vars endpoint on Alpha. Because the admin token is commonly supplied via the --security \"token=...\" startup flag, an unauthenticated attacker can retrieve that token and replay it in the X-Dgraph-AuthToken header to access admin-only endpoints. This is a variant of the previously fixed /debug/pprof/cmdline issue, but the current fix is incomplete because it blocks only /debug/pprof/cmdline and still serves http.DefaultServeMux, which includes expvar's /debug/vars handler. This vulnerability is fixed in 25.3.3.",
-      "published": "2026-04-24T19:17:14.047",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41492"
-    },
-    {
-      "id": "CVE-2026-41421",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.6.5, SiYuan desktop renders notification messages as raw HTML inside an Electron renderer. The notification route POST /api/notification/pushMsg accepts a user-controlled msg value, forwards it through the backend broadcast layer, and the frontend inserts it into the DOM with insertAdjacentHTML(...) at message.ts. On desktop builds, this is not limited to ordinary XSS. Electron windows are created with nodeIntegration: true, contextIsolation: false, and webSecurity: false at main.js. As a result, JavaScript executed from the notification sink can directly access Node APIs and escalate to desktop code execution. This vulnerability is fixed in 3.6.5.",
-      "published": "2026-04-24T19:17:13.740",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41421"
-    },
-    {
-      "id": "CVE-2026-41419",
-      "summary": "4ga Boards is a boards system for realtime project management. Prior to 3.3.5, a path traversal vulnerability allows an authenticated user with board import privileges to make the server ingest arbitrary host files as board attachments during BOARDS archive import. Once imported, the file can be downloaded through the normal application interface, resulting in unauthorized local file disclosure. This vulnerability is fixed in 3.3.5.",
-      "published": "2026-04-24T19:17:13.603",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41419"
-    },
-    {
-      "id": "CVE-2026-41418",
-      "summary": "4ga Boards is a boards system for realtime project management. Prior to 3.3.5, 4ga Boards is vulnerable to user enumeration via a timing side-channel in the login endpoint (POST /api/access-tokens). When an invalid username/email is provided, the server responds immediately (~17ms average). When a valid username/email is provided with an incorrect password, the server first performs a bcrypt.compareSync() operation (~74ms average) before responding. This ~4.4\u00d7 timing difference is trivially detectable even over a network \u2014 a single request suffices. This vulnerability is fixed in 3.3.5.",
-      "published": "2026-04-24T19:17:13.457",
+      "id": "CVE-2026-6966",
+      "summary": "Improper verification of cryptographic signature uniqueness in delegated role validation in awslabs/tough before tough-v0.22.0 allows remote authenticated users to bypass the TUF signature threshold requirement by duplicating a valid signature, causing the client to accept forged delegated role metadata.\n\nWe recommend you upgrade to tough-v0.22.0 / tuftool-v0.15.0.",
+      "published": "2026-04-24T20:16:28.883",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41418"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6966"
+    },
+    {
+      "id": "CVE-2026-41503",
+      "summary": "BACnet Stack is a BACnet open source protocol stack C library for embedded systems. Prior to 1.4.3, an out-of-bounds read vulnerability in bacnet-stack's ReadPropertyMultiple service property decoder allows unauthenticated remote attackers to read past allocated buffer boundaries by sending an RPM request with a truncated property list. The vulnerability stems from rpm_decode_object_property() calling the deprecated decode_tag_number_and_value() function at src/bacnet/rpm.c:344, which accepts no buffer length parameter and reads blindly from whatever pointer it receives. A crafted BACnet/IP packet with a 1-byte property payload containing an extended tag marker (0xF9) causes the decoder to read 1 byte past the end of the buffer, leading to crashes on embedded BACnet devices. The vulnerability exists in src/bacnet/rpm.c and affects any deployment that enables the ReadPropertyMultiple confirmed service handler (enabled by default in the reference server). This vulnerability is fixed in 1.4.3.",
+      "published": "2026-04-24T20:16:28.697",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41503"
+    },
+    {
+      "id": "CVE-2026-41502",
+      "summary": "BACnet Stack is a BACnet open source protocol stack C library for embedded systems. Prior to 1.4.3, an off-by-one out-of-bounds read vulnerability in bacnet-stack's ReadPropertyMultiple service decoder allows unauthenticated remote attackers to read one byte past an allocated buffer boundary by sending a crafted RPM request with a truncated object identifier. The vulnerability is in rpm_decode_object_id(), which checks apdu_len < 5 but then accesses all 6 byte positions (indices 0-5) \u2014 consuming 1 byte for the context tag, 4 bytes for the object ID, then reading apdu[5] for the opening tag check. A 5-byte input passes the length check but causes a 1-byte OOB read, leading to crashes on embedded BACnet devices. The vulnerability exists in src/bacnet/rpm.c and affects any deployment that enables the ReadPropertyMultiple confirmed service handler (enabled by default in the reference server). This vulnerability is fixed in 1.4.3.",
+      "published": "2026-04-24T20:16:28.563",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41502"
+    },
+    {
+      "id": "CVE-2026-41477",
+      "summary": "Deskflow is a keyboard and mouse sharing app.  In 1.20.0, 1.26.0.134, and earlier, Deskflow daemon runs as SYSTEM and exposes an IPC named pipe with WorldAccessOption enabled. The daemon processes privileged commands without authentication, allowing any local unprivileged user to execute arbitrary commands as SYSTEM. Affects both stable v1.20.0 + and Continuous v1.26.0.134 prerelease.",
+      "published": "2026-04-24T20:16:28.340",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41477"
     }
   ]
 }
