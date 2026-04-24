@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-24T12:04:45+00:00",
+  "generated_at": "2026-04-24T14:05:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41044",
-      "summary": "Improper Input Validation, Improper Control of Generation of Code ('Code Injection') vulnerability in Apache ActiveMQ, Apache ActiveMQ Broker, Apache ActiveMQ All.\n\nAn authenticated attacker can use the admin web console page to construct a malicious broker name that bypasses name validation to include an xbean binding that can be later used by a VM transport to load a remote Spring XML application.\nThe attacker can then use the DestinationView mbean to send a message to trigger a VM transport creation that will reference this malicious broker name which can lead to loading the malicious Spring XML context file.\n\n\nBecause Spring's ResourceXmlApplicationContext instantiates all singleton beans before the BrokerService validates the configuration, arbitrary code execution occurs on the broker's JVM through bean factory methods such as Runtime.exec().\n\nThis issue affects Apache ActiveMQ: before 5.19.6, from 6.0.0 before 6.2.5; Apache ActiveMQ Broker: before 5.19.6, from 6.0.0 before 6.2.5; Apache ActiveMQ All: before 5.19.6, from 6.0.0 before 6.2.5.\n\nUsers are recommended to upgrade to version 6.2.5 or 5.19.6, which fixes the issue.",
-      "published": "2026-04-24T11:16:22.790",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41044"
+      "id": "CVE-2026-5367",
+      "summary": "A flaw was found in OVN (Open Virtual Network). A remote attacker, by sending crafted DHCPv6 (Dynamic Host Configuration Protocol for IPv6) SOLICIT packets with an inflated Client ID length, could cause the ovn-controller to read beyond the bounds of a packet. This out-of-bounds read can lead to the disclosure of sensitive information stored in heap memory, which is then returned to the attacker's virtual machine port.",
+      "published": "2026-04-24T13:16:21.990",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5367"
     },
     {
-      "id": "CVE-2026-41043",
-      "summary": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in Apache ActiveMQ, Apache ActiveMQ Web.\n\nAn authenticated attacker can show malicious content when browsing queues in the web console by overriding the content type to be HTML (instead of XML) and by injecting HTML into a JMS selector field.\n\nThis issue affects Apache ActiveMQ: before 5.19.6, from 6.0.0 before 6.2.5; Apache ActiveMQ Web: before 5.19.6, from 6.0.0 before 6.2.5.\n\nUsers are recommended to upgrade to version 6.2.5 or 5.19.6, which fixes the issue.",
-      "published": "2026-04-24T11:16:22.670",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41043"
+      "id": "CVE-2026-5265",
+      "summary": "When generating an ICMP Destination Unreachable or Packet Too Big response, the handler copies a portion of the original packet into the ICMP error body using the IP header's self-declared total length (ip_tot_len for IPv4, ip6_plen for IPv6) without validating it against the actual packet buffer size. A VM can send a short packet with an inflated IP length field that triggers an ICMP error (e.g., by hitting a reject ACL), causing ovn-controller to read heap memory beyond the valid packet data and include it in the ICMP response sent back to the VM.",
+      "published": "2026-04-24T13:16:21.770",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5265"
     },
     {
-      "id": "CVE-2026-40466",
-      "summary": "Improper Input Validation, Improper Control of Generation of Code ('Code Injection') vulnerability in Apache ActiveMQ Broker, Apache ActiveMQ All, Apache ActiveMQ.\n\n\n\nAn authenticated attacker may bypass the fix in CVE-2026-34197 by adding a connector using an HTTP Discovery transport via\u00a0BrokerView.addNetworkConnector or\u00a0BrokerView.addConnector through\u00a0Jolokia if the activemq-http module is on the classpath.\nA malicious HTTP endpoint can return a VM transport through the HTTP URI which will bypass the validation added in CVE-2026-34197. The attacker can then use the VM transport's brokerConfig parameter to load a remote Spring XML application context using ResourceXmlApplicationContext.\nBecause Spring's ResourceXmlApplicationContext instantiates all singleton beans before the BrokerService validates the configuration, arbitrary code execution occurs on the broker's JVM through bean factory methods such as Runtime.exec().\n\n\nThis issue affects Apache ActiveMQ Broker: before 5.19.6, from 6.0.0 before 6.2.5; Apache ActiveMQ All: before 5.19.6, from 6.0.0 before 6.2.5; Apache ActiveMQ: before 5.19.6, from 6.0.0 before 6.2.5.\n\nUsers are recommended to upgrade to version 5.19.6 or 6.2.5, which fixes the issue.",
-      "published": "2026-04-24T11:16:22.540",
+      "id": "CVE-2026-40690",
+      "summary": "The asset dependency graph did not restrict nodes by the viewer's DAG read permissions: a user with read access to at least one DAG could browse the asset graph for any other asset in the deployment and learn the existence and names of DAGs and assets outside their authorized scope.\n\nUsers are recommended to upgrade to version 3.2.1, which fixes this issue.",
+      "published": "2026-04-24T13:16:21.443",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40466"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40690"
     },
     {
-      "id": "CVE-2025-62233",
-      "summary": "Deserialization of Untrusted Data vulnerability in Apache DolphinScheduler RPC module.\n\nThis issue affects Apache DolphinScheduler:\u00a0\n\nVersion >= 3.2.0 and < 3.3.1.\n\nAttackers who can access the Master or Worker nodes can compromise the system by creating a StandardRpcRequest, injecting a malicious class type into it, and sending RPC requests to the DolphinScheduler Master/Worker nodes.\nUsers are recommended to upgrade to version [3.3.1], which fixes the issue.",
-      "published": "2026-04-24T11:16:21.780",
+      "id": "CVE-2026-38743",
+      "summary": "The authenticated /ui/dags\u00a0endpoint did not enforce per-DAG access control on embedded Human-in-the-Loop (HITL) and TaskInstance records: a logged-in Airflow user with read access to at least one DAG could retrieve HITL prompts (including their request parameters) and full TaskInstance details for DAGs outside their authorized scope. Because HITL prompts and TaskInstance fields routinely carry operator parameters and free-form context attached to a task, the leak widens visibility of DAG-run data beyond the intended per-DAG RBAC boundary for every authenticated user.\n\nUsers are recommended to upgrade to version 3.2.1 , which fixes this issue.",
+      "published": "2026-04-24T13:16:21.110",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62233"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38743"
     },
     {
-      "id": "CVE-2026-6272",
-      "summary": "A client holding only a read JWT scope can still register itself as a signal provider through the production kuksa.val.v2 OpenProviderStream API by sending ProvideSignalRequest.\n\n1. Obtain any valid token with only read scope.\n2. Connect to the normal production gRPC API (kuksa.val.v2).\n3. Open OpenProviderStream.\n4. Send ProvideSignalRequest for a target signal ID.\n5. Wait for the broker to forward GetProviderValueRequest.\n6. Reply with attacker-controlled GetProviderValueResponse.\n7. Other clients performing GetValue / GetValues for that signal receive forged data.",
-      "published": "2026-04-24T09:16:04.227",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6272"
+      "id": "CVE-2026-21515",
+      "summary": "Exposure of sensitive information to an unauthorized actor in Azure IOT Central allows an authorized attacker to elevate privileges over a network.",
+      "published": "2026-04-24T13:16:03.610",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21515"
     },
     {
-      "id": "CVE-2026-21728",
-      "summary": "Tempo queries with large limits can cause large memory allocations which can impact the availability of the service, depending on its deployment strategy.\n\nMitigation can be done by setting max_result_limit in the search config, e.g. to 262144 (2^18).",
-      "published": "2026-04-24T09:16:03.710",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21728"
+      "id": "CVE-2026-6043",
+      "summary": "P4 Server versions prior to 2026.1 are configured with insecure default settings that, when exposed to untrusted networks, allow unauthenticated attackers to create arbitrary user accounts, enumerate existing users, authenticate to accounts with no password set, and access depot contents via the built-in 'remote' user. These default settings, taken together, can lead to unauthorized access to source code repositories and other managed assets. The 2026.1 release, expected in May 2026, enforces secure-by-default configurations on upgrade and new installations",
+      "published": "2026-04-24T12:17:07.660",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6043"
     }
   ]
 }
