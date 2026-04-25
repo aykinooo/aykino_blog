@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-04-25T14:58:50+00:00",
+  "generated_at": "2026-04-25T15:54:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-6982",
+      "summary": "A vulnerability was determined in star7th ShowDoc up to 2.10.10/3.6.2/3.8.0. Affected by this vulnerability is an unknown functionality of the file server/Application/Api/Controller/PageController.class.PHP of the component API Page Sort Endpoint. Executing a manipulation of the argument pages can lead to sql injection. The attack may be launched remotely. Upgrading to version 3.8.1 addresses this issue. It is suggested to upgrade the affected component. According to the researcher, \"[t]he vendor explicitly stated they will not backport patches to the older affected versions.\"",
+      "published": "2026-04-25T15:16:17.823",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6982"
+    },
+    {
+      "id": "CVE-2026-6981",
+      "summary": "A vulnerability was found in IhateCreatingUserNames2 AiraHub2 up to 3e4b77fd7d48ed811ffe5b8d222068c17c76495e. Affected is the function connect_stream_endpoint/sync_agents of the file AiraHub.py of the component Endpoint. Performing a manipulation results in server-side request forgery. The attack may be initiated remotely. The exploit has been made public and could be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. Multiple endpoints are affected. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-04-25T15:16:17.643",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6981"
+    },
     {
       "id": "CVE-2026-6980",
       "summary": "A vulnerability has been found in Divyanshu-hash GitPilot-MCP up to 9ed9f153ba4158a2ad230ee4871b25130da29ffd. This impacts the function repo_path of the file main.py. Such manipulation of the argument command leads to command injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -29,20 +43,6 @@
       "published": "2026-04-25T11:16:19.103",
       "cvss": 7.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6977"
-    },
-    {
-      "id": "CVE-2026-31685",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: ip6t_eui64: reject invalid MAC header for all packets\n\n`eui64_mt6()` derives a modified EUI-64 from the Ethernet source address\nand compares it with the low 64 bits of the IPv6 source address.\n\nThe existing guard only rejects an invalid MAC header when\n`par->fragoff != 0`. For packets with `par->fragoff == 0`, `eui64_mt6()`\ncan still reach `eth_hdr(skb)` even when the MAC header is not valid.\n\nFix this by removing the `par->fragoff != 0` condition so that packets\nwith an invalid MAC header are rejected before accessing `eth_hdr(skb)`.",
-      "published": "2026-04-25T09:16:02.273",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31685"
-    },
-    {
-      "id": "CVE-2026-31684",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: sched: act_csum: validate nested VLAN headers\n\ntcf_csum_act() walks nested VLAN headers directly from skb->data when an\nskb still carries in-payload VLAN tags. The current code reads\nvlan->h_vlan_encapsulated_proto and then pulls VLAN_HLEN bytes without\nfirst ensuring that the full VLAN header is present in the linear area.\n\nIf only part of an inner VLAN header is linearized, accessing\nh_vlan_encapsulated_proto reads past the linear area, and the following\nskb_pull(VLAN_HLEN) may violate skb invariants.\n\nFix this by requiring pskb_may_pull(skb, VLAN_HLEN) before accessing and\npulling each nested VLAN header. If the header still is not fully\navailable, drop the packet through the existing error path.",
-      "published": "2026-04-25T09:16:02.163",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31684"
     }
   ]
 }
