@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-25T09:08:39+00:00",
+  "generated_at": "2026-04-25T10:04:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6951",
-      "summary": "Versions of the package simple-git before 3.36.0 are vulnerable to Remote Code Execution (RCE) due to an incomplete fix for [CVE-2022-25912](https://security.snyk.io/vuln/SNYK-JS-SIMPLEGIT-3112221) that blocks the -c option but not the equivalent --config form. If untrusted input can reach the options argument passed to simple-git, an attacker may still achieve remote code execution by enabling protocol.ext.allow=always and using an ext:: clone source.",
-      "published": "2026-04-25T06:16:16.453",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6951"
-    },
-    {
-      "id": "CVE-2026-42171",
-      "summary": "NSIS (Nullsoft Scriptable Install System) 3.06.1 before 3.12 sometimes uses the Low IL temp directory when executing as SYSTEM, allowing local attackers to gain privileges (if they can cause my_GetTempFileName to return 0, as shown in the references).",
-      "published": "2026-04-24T22:16:01.540",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42171"
-    },
-    {
-      "id": "CVE-2026-41488",
-      "summary": "LangChain is a framework for building agents and LLM-powered applications. Prior to 1.1.14, langchain-openai's _url_to_size() helper (used by get_num_tokens_from_messages for image token counting) validated URLs for SSRF protection and then fetched them in a separate network operation with independent DNS resolution. This left a TOCTOU / DNS rebinding window: an attacker-controlled hostname could resolve to a public IP during validation and then to a private/localhost IP during the actual fetch.",
-      "published": "2026-04-24T21:16:19.637",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41488"
-    },
-    {
-      "id": "CVE-2026-41481",
-      "summary": "LangChain is a framework for building agents and LLM-powered applications. Prior to langchain-text-splitters\n 1.1.2, HTMLHeaderTextSplitter.split_text_from_url() validated the initial URL using validate_safe_url() but then performed the fetch with requests.get() with redirects enabled (the default). Because redirect targets were not revalidated, a URL pointing to an attacker-controlled server could redirect to internal, localhost, or cloud metadata endpoints, bypassing SSRF protections. The response body is parsed and returned as Document objects to the calling application code. Whether this constitutes a data exfiltration path depends on the application: if it exposes Document contents (or derivatives) back to the requester who supplied the URL, sensitive data from internal endpoints could be leaked. Applications that store or process Documents internally without returning raw content to the requester are not directly exposed to data exfiltration through this issue. This vulnerability is fixed in 1.1.2.",
-      "published": "2026-04-24T21:16:19.490",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41481"
-    },
-    {
-      "id": "CVE-2026-41478",
-      "summary": "Saltcorn is an extensible, open source, no-code database application builder. Prior to 1.4.6, 1.5.6, and 1.6.0-beta.5, a SQL injection vulnerability in Saltcorn\u2019s mobile-sync routes allows any authenticated low-privilege user with read access to at least one table to inject arbitrary SQL through sync parameters. This can lead to full database exfiltration, including admin password hashes and configuration secrets, and may also enable database modification or destruction depending on the backend. This vulnerability is fixed in 1.4.6, 1.5.6, and 1.6.0-beta.5.",
-      "published": "2026-04-24T21:16:19.353",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41478"
-    },
-    {
-      "id": "CVE-2026-41473",
-      "summary": "CyberPanel versions prior to\u00a02.4.4 contain an authentication bypass vulnerability in the AI Scanner worker API endpoints that allows unauthenticated remote attackers to write arbitrary data to the database by sending requests to the /api/ai-scanner/status-webhook and /api/ai-scanner/callback endpoints. Attackers can exploit the lack of authentication checks to cause denial of service through storage exhaustion, corrupt scan history records, and pollute database fields with malicious data.",
-      "published": "2026-04-24T21:16:19.113",
+      "id": "CVE-2026-31685",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: ip6t_eui64: reject invalid MAC header for all packets\n\n`eui64_mt6()` derives a modified EUI-64 from the Ethernet source address\nand compares it with the low 64 bits of the IPv6 source address.\n\nThe existing guard only rejects an invalid MAC header when\n`par->fragoff != 0`. For packets with `par->fragoff == 0`, `eui64_mt6()`\ncan still reach `eth_hdr(skb)` even when the MAC header is not valid.\n\nFix this by removing the `par->fragoff != 0` condition so that packets\nwith an invalid MAC header are rejected before accessing `eth_hdr(skb)`.",
+      "published": "2026-04-25T09:16:02.273",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41473"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31685"
+    },
+    {
+      "id": "CVE-2026-31684",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: sched: act_csum: validate nested VLAN headers\n\ntcf_csum_act() walks nested VLAN headers directly from skb->data when an\nskb still carries in-payload VLAN tags. The current code reads\nvlan->h_vlan_encapsulated_proto and then pulls VLAN_HLEN bytes without\nfirst ensuring that the full VLAN header is present in the linear area.\n\nIf only part of an inner VLAN header is linearized, accessing\nh_vlan_encapsulated_proto reads past the linear area, and the following\nskb_pull(VLAN_HLEN) may violate skb invariants.\n\nFix this by requiring pskb_may_pull(skb, VLAN_HLEN) before accessing and\npulling each nested VLAN header. If the header still is not fully\navailable, drop the packet through the existing error path.",
+      "published": "2026-04-25T09:16:02.163",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31684"
+    },
+    {
+      "id": "CVE-2026-31683",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbatman-adv: avoid OGM aggregation when skb tailroom is insufficient\n\nWhen OGM aggregation state is toggled at runtime, an existing forwarded\npacket may have been allocated with only packet_len bytes, while a later\npacket can still be selected for aggregation. Appending in this case can\nhit skb_put overflow conditions.\n\nReject aggregation when the target skb tailroom cannot accommodate the new\npacket. The caller then falls back to creating a new forward packet\ninstead of appending.",
+      "published": "2026-04-25T09:16:02.037",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31683"
+    },
+    {
+      "id": "CVE-2026-31682",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbridge: br_nd_send: linearize skb before parsing ND options\n\nbr_nd_send() parses neighbour discovery options from ns->opt[] and\nassumes that these options are in the linear part of request.\n\nIts callers only guarantee that the ICMPv6 header and target address\nare available, so the option area can still be non-linear. Parsing\nns->opt[] in that case can access data past the linear buffer.\n\nLinearize request before option parsing and derive ns from the linear\nnetwork header.",
+      "published": "2026-04-25T09:16:01.913",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31682"
+    },
+    {
+      "id": "CVE-2026-31681",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: xt_multiport: validate range encoding in checkentry\n\nports_match_v1() treats any non-zero pflags entry as the start of a\nport range and unconditionally consumes the next ports[] element as\nthe range end.\n\nThe checkentry path currently validates protocol, flags and count, but\nit does not validate the range encoding itself. As a result, malformed\nrules can mark the last slot as a range start or place two range starts\nback to back, leaving ports_match_v1() to step past the last valid\nports[] element while interpreting the rule.\n\nReject malformed multiport v1 rules in checkentry by validating that\neach range start has a following element and that the following element\nis not itself marked as another range start.",
+      "published": "2026-04-25T09:16:01.800",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31681"
+    },
+    {
+      "id": "CVE-2026-31680",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ipv6: flowlabel: defer exclusive option free until RCU teardown\n\n`ip6fl_seq_show()` walks the global flowlabel hash under the seq-file\nRCU read-side lock and prints `fl->opt->opt_nflen` when an option block\nis present.\n\nExclusive flowlabels currently free `fl->opt` as soon as `fl->users`\ndrops to zero in `fl_release()`. However, the surrounding\n`struct ip6_flowlabel` remains visible in the global hash table until\nlater garbage collection removes it and `fl_free_rcu()` finally tears it\ndown.\n\nA concurrent `/proc/net/ip6_flowlabel` reader can therefore race that\nearly `kfree()` and dereference freed option state, triggering a crash\nin `ip6fl_seq_show()`.\n\nFix this by keeping `fl->opt` alive until `fl_free_rcu()`. That matches\nthe lifetime already required for the enclosing flowlabel while readers\ncan still reach it under RCU.",
+      "published": "2026-04-25T09:16:01.673",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31680"
     }
   ]
 }
