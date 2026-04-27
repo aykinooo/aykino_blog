@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-27T09:28:11+00:00",
+  "generated_at": "2026-04-27T11:59:04+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7108",
-      "summary": "A security vulnerability has been detected in code-projects Invoice System in Laravel 1.0. This affects an unknown function. Such manipulation leads to cross-site request forgery. The attack may be performed from remote. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-04-27T09:16:03.500",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7108"
-    },
-    {
-      "id": "CVE-2026-7107",
-      "summary": "A weakness has been identified in code-projects Invoice System in Laravel 1.0. The impacted element is an unknown function of the file /company. This manipulation of the argument logo causes unrestricted upload. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks.",
-      "published": "2026-04-27T09:16:03.320",
+      "id": "CVE-2026-7115",
+      "summary": "A vulnerability was identified in code-projects Employee Management System 1.0. This vulnerability affects unknown code of the file 370project/delete.php. Such manipulation of the argument ID leads to sql injection. The attack may be launched remotely. The exploit is publicly available and might be used.",
+      "published": "2026-04-27T11:16:02.507",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7107"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7115"
     },
     {
-      "id": "CVE-2026-7103",
-      "summary": "A vulnerability was determined in code-projects Chat System 1.0. Affected is an unknown function of the file update_user.php of the component MD5 Hash Handler. This manipulation of the argument Password causes use of weak hash. The attack is possible to be carried out remotely. The attack's complexity is rated as high. The exploitability is told to be difficult. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-04-27T09:16:03.127",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7103"
-    },
-    {
-      "id": "CVE-2026-7102",
-      "summary": "A vulnerability was found in Tenda F456 1.0.0.5. This impacts the function FromWriteFacMac of the file /goform/WriteFacMac of the component httpd. The manipulation of the argument mac results in command injection. The attack can be executed remotely. The exploit has been made public and could be used.",
-      "published": "2026-04-27T09:16:02.937",
+      "id": "CVE-2026-7114",
+      "summary": "A vulnerability was determined in code-projects Employee Management System 1.0. This affects an unknown part of the file 370project/edit.php. This manipulation of the argument ID causes sql injection. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-04-27T11:16:02.340",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7102"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7114"
     },
     {
-      "id": "CVE-2026-7101",
-      "summary": "A vulnerability has been found in Tenda F456 1.0.0.5. This affects the function fromWrlclientSet of the file /goform/WrlclientSet of the component httpd. The manipulation leads to buffer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-04-27T09:16:02.747",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7101"
+      "id": "CVE-2026-7113",
+      "summary": "A vulnerability was found in NousResearch hermes-agent 0.8.0. Affected by this issue is some unknown functionality of the file gateway/platforms/webhook.py of the component Webhooks Endpoint. The manipulation of the argument _INSECURE_NO_AUTH results in missing authentication. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitation is known to be difficult. The exploit has been made public and could be used. The project was informed of the problem early through a pull request but has not reacted yet.",
+      "published": "2026-04-27T11:16:02.173",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7113"
     },
     {
-      "id": "CVE-2026-7100",
-      "summary": "A flaw has been found in Tenda F456 1.0.0.5. The impacted element is the function fromNatlimitof of the file /goform/Natlimit of the component httpd. Executing a manipulation can lead to buffer overflow. The attack may be launched remotely. The exploit has been published and may be used.",
-      "published": "2026-04-27T09:16:02.570",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7100"
+      "id": "CVE-2026-33453",
+      "summary": "Improperly Controlled Modification of Dynamically-Determined Object Attributes vulnerability in Apache Camel Camel-Coap component.\n\nApache Camel's camel-coap component is vulnerable to Camel message header injection, leading to remote code execution when routes forward CoAP requests to header-sensitive producers (e.g. camel-exec)\n\nThe camel-coap component maps incoming CoAP request URI query parameters directly into Camel Exchange In message headers without applying any HeaderFilterStrategy.  \u00a0 \nSpecifically, CamelCoapResource.handleRequest() iterates over OptionSet.getUriQuery() and calls camelExchange.getIn().setHeader(...) for every query parameter. CoAPEndpoint extends DefaultEndpoint rather than DefaultHeaderFilterStrategyEndpoint, and CoAPComponent does not implement HeaderFilterStrategyComponent; the component contains no references to HeaderFilterStrategy at all.\n\nAs a result, an unauthenticated attacker who can send a single CoAP UDP packet to a Camel route consuming from coap:// can inject arbitrary Camel internal headers (those prefixed with Camel*) into the Exchange. When the route delivers the message to a header-sensitive producer such as camel-exec, camel-sql, camel-bean, camel-file, or template components (camel-freemarker, camel-velocity), the injected headers can alter the producer's behavior. In the case of camel-exec, the CamelExecCommandExecutable and CamelExecCommandArgs headers override the executable and arguments configured on the endpoint, resulting in arbitrary OS command execution under the privileges of the Camel process.\n\nThe producer's output is written back to the Exchange body and returned in the CoAP response payload by CamelCoapResource, giving the attacker an interactive RCE channel without any need for out-of-band exfiltration.\n\u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0 \u00a0  \nExploitation prerequisites are minimal: a single unauthenticated UDP datagram to the CoAP port (default 5683). CoAP (RFC 7252) has no built-in authentication, and DTLS is optional and disabled by default. Because the protocol is UDP-based, HTTP-layer WAF/IDS controls do not apply.\nThis issue affects Apache Camel: from 4.14.0 through 4.14.5, from 4.18.0 before 4.18.1, 4.19.0.\n\nUsers are recommended to upgrade to version 4.18.1 or 4.19.0, fixing the issue.",
+      "published": "2026-04-27T11:16:01.873",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33453"
+    },
+    {
+      "id": "CVE-2026-27172",
+      "summary": "The ConsulRegistry in the camel-consul component (class org.apache.camel.component.consul.ConsulRegistry and its inner ConsulRegistryUtils.deserialize method) read Java-serialized values from the Consul KV store and passed them to ObjectInputStream.readObject() without configuring an ObjectInputFilter. An attacker who can write to the Consul KV store backing a Camel ConsulRegistry instance could inject a malicious serialized Java object that is deserialized the next time Camel performs a lookup against that registry, leading to arbitrary code execution in the Camel process. The issue mirrors the class of vulnerability already addressed for other Camel components in CVE-2024-22369, CVE-2024-23114 and CVE-2026-25747, and was overlooked during the original remediation of those CVEs.\n\nThis issue affects Apache Camel: from 3.0.0 before 4.14.6, from 4.15.0 before 4.18.1.\n\nUsers are recommended to upgrade to version 4.19.0, which fixes the issue. If users are on the 4.14.x LTS releases stream, then they are suggested to upgrade to 4.14.6. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.1.",
+      "published": "2026-04-27T11:16:01.650",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27172"
+    },
+    {
+      "id": "CVE-2026-22337",
+      "summary": "Incorrect Privilege Assignment vulnerability in Directorist Directorist Social Login allows Privilege Escalation.This issue affects Directorist Social Login: from n/a before 2.1.4.",
+      "published": "2026-04-27T11:16:01.513",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22337"
     }
   ]
 }
