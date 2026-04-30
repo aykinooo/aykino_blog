@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-30T06:40:08+00:00",
+  "generated_at": "2026-04-30T09:23:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7379",
-      "summary": "Memory leak in sharkd 4.6.0 to 4.6.4 and 4.4.0 to 4.4.14 allows denial of service",
-      "published": "2026-04-30T06:16:17.333",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7379"
+      "id": "CVE-2026-42799",
+      "summary": "Out-of-bounds read vulnerability in ASR Kestrel (nr_fw modules) allows Overflow Buffers.\n\n This vulnerability is associated with program files Code/Nr/nr_fw/RA/src/NrPwrCtrl.C.\n\n\n\nThis issue affects Kestrel: before 2026/02/10.",
+      "published": "2026-04-30T09:16:03.473",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42799"
     },
     {
-      "id": "CVE-2026-7378",
-      "summary": "Crash in sharkd 4.6.0 to 4.6.4 and 4.4.0 to 4.4.14 allows denial of service",
-      "published": "2026-04-30T06:16:17.183",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7378"
+      "id": "CVE-2026-42512",
+      "summary": "As dhclient is building an environment to pass to dhclient-script, it may need to resize the array of string pointers.  The code which expands the array incorrectly calculates its new size when requesting memory, resulting in a heap buffer overrun.\n\nA specially crafted packet can cause dhclient to overrun its buffer of environment entries.  This can result in a crash, but it may be possible to leverage this bug to achieve remote code execution.",
+      "published": "2026-04-30T09:16:03.373",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42512"
     },
     {
-      "id": "CVE-2026-7376",
-      "summary": "Crash in sharkd 4.6.0 to 4.6.4 and 4.4.0 to 4.4.14 allows denial of service",
-      "published": "2026-04-30T06:16:17.053",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7376"
+      "id": "CVE-2026-39457",
+      "summary": "When exchanging data over a socket, libnv uses select(2) to wait for data to arrive.  However, it does not verify whether the provided socket descriptor fits in select(2)'s file descriptor set size limit of FD_SETSIZE (1024).\n\nAn attacker who is able to force a libnv application to allocate large file descriptors, e.g., by opening many descriptors and executing a program which is not careful to close them upon startup, can trigger stack corruption.  If the target application is setuid-root, then this could be used to elevate local privileges.",
+      "published": "2026-04-30T09:16:03.270",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39457"
     },
     {
-      "id": "CVE-2026-7375",
-      "summary": "UDS protocol dissector infinite loop in Wireshark 4.6.0 to 4.6.4 and 4.4.0 to 4.4.14 allows denial of service",
-      "published": "2026-04-30T06:16:16.927",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7375"
+      "id": "CVE-2026-35547",
+      "summary": "When processing the header of an incoming message, libnv failed to properly validate the message size.\n\nThe lack of validation allows a malicious program to write outside the bounds of a heap allocation.  This can trigger a crash or system panic, and it may be possible for an unprivileged user to exploit the bug to elevate their privileges.",
+      "published": "2026-04-30T09:16:03.167",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35547"
     },
     {
-      "id": "CVE-2026-6868",
-      "summary": "HTTP protocol dissector crash in Wireshark 4.6.0 to 4.6.4 and 4.4.0 to 4.4.14 allows denial of service",
-      "published": "2026-04-30T06:16:16.783",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6868"
-    },
-    {
-      "id": "CVE-2025-13030",
-      "summary": "All versions of the package django-mdeditor are vulnerable to Missing Authentication for Critical Function in the image upload endpoint. An attacker can upload malicious files and achieve arbitrary code execution since this endpoint lacks authentication protection and proper sanitisation of file names.",
-      "published": "2026-04-30T06:16:14.860",
+      "id": "CVE-2026-22070",
+      "summary": "ColorOS Assistant has an unauthenticated start-download channel, leading to file path traversal.",
+      "published": "2026-04-30T09:16:02.917",
       "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-13030"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22070"
+    },
+    {
+      "id": "CVE-2026-7164",
+      "summary": "Incorrect packet validation allowed unbounded recursion parsing SCTP chunk parameters.  This can eventually result in a stack overflow and panic.\n\nRemote attackers can craft packets which cause affected systems to panic.  This affects any system where pf is configured to process traffic, independent of the configured ruleset.",
+      "published": "2026-04-30T08:16:07.653",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7164"
     }
   ]
 }
