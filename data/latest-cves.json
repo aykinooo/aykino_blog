@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-30T09:23:44+00:00",
+  "generated_at": "2026-04-30T11:52:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-42799",
-      "summary": "Out-of-bounds read vulnerability in ASR Kestrel (nr_fw modules) allows Overflow Buffers.\n\n This vulnerability is associated with program files Code/Nr/nr_fw/RA/src/NrPwrCtrl.C.\n\n\n\nThis issue affects Kestrel: before 2026/02/10.",
-      "published": "2026-04-30T09:16:03.473",
+      "id": "CVE-2026-31787",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxen/privcmd: fix double free via VMA splitting\n\nprivcmd_vm_ops defines .close (privcmd_close), but neither .may_split\nnor .open. When userspace does a partial munmap() on a privcmd mapping,\nthe kernel splits the VMA via __split_vma(). Since may_split is NULL,\nthe split is allowed. vm_area_dup() copies vm_private_data (a pages\narray allocated in alloc_empty_pages()) into the new VMA without any\nfixup, because there is no .open callback.\n\nBoth VMAs now point to the same pages array. When the unmapped portion\nis closed, privcmd_close() calls:\n    - xen_unmap_domain_gfn_range()\n    - xen_free_unpopulated_pages()\n    - kvfree(pages)\n\nThe surviving VMA still holds the dangling pointer. When it is later\ndestroyed, the same sequence runs again, which leads to a double free.\n\nFix this issue by adding a .may_split callback denying the VMA split.\n\nThis is XSA-487 / CVE-2026-31787",
+      "published": "2026-04-30T11:16:21.087",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31787"
+    },
+    {
+      "id": "CVE-2026-31786",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nBuffer overflow in drivers/xen/sys-hypervisor.c\n\nThe build id returned by HYPERVISOR_xen_version(XENVER_build_id) is\nneither NUL terminated nor a string.\n\nThe first causes a buffer overflow as sprintf in buildid_show will\nread and copy till it finds a NUL.\n\n00000000  f4 91 51 f4 dd 38 9e 9d  65 47 52 eb 10 71 db 50  |..Q..8..eGR..q.P|\n00000010  b9 a8 01 42 6f 2e 32                              |...Bo.2|\n00000017\n\nSo use a memcpy instead of sprintf to have the correct value:\n\n00000000  f4 91 51 f4 dd 00 9e 9d  65 47 52 eb 10 71 db 50  |..Q.....eGR..q.P|\n00000010  b9 a8 01 42                                       |...B|\n00000014\n\n(the above have a hack to embed a zero inside and check it's\nreturned correctly).\n\nThis is XSA-485 / CVE-2026-31786",
+      "published": "2026-04-30T11:16:20.967",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31786"
+    },
+    {
+      "id": "CVE-2026-31692",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nrtnetlink: add missing netlink_ns_capable() check for peer netns\n\nrtnl_newlink() lacks a CAP_NET_ADMIN capability check on the peer\nnetwork namespace when creating paired devices (veth, vxcan,\nnetkit). This allows an unprivileged user with a user namespace\nto create interfaces in arbitrary network namespaces, including\ninit_net.\n\nAdd a netlink_ns_capable() check for CAP_NET_ADMIN in the peer\nnamespace before allowing device creation to proceed.",
+      "published": "2026-04-30T11:16:20.860",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31692"
+    },
+    {
+      "id": "CVE-2026-6498",
+      "summary": "The Five Star Restaurant Reservations plugin for WordPress is vulnerable to a payment bypass via PHP type juggling in versions up to, and including, 2.7.16 This is due to the valid_payment() function using a PHP loose comparison (==) between the attacker-controlled payment_id POST parameter and the booking's stripe_payment_intent_id property. When an unauthenticated attacker submits a request to the nopriv AJAX handler rtb_stripe_pmt_succeed before the Stripe payment intent has been created for a booking (i.e., before the JavaScript-triggered create_stripe_pmtIntnt() call has stored an intent ID in post meta), the stripe_payment_intent_id property on the booking object remains null. The comparison sanitize_text_field('') == null evaluates to TRUE in PHP loose comparison, causing the payment verification check to pass with zero actual payment. This makes it possible for unauthenticated attackers to mark any existing payment_pending booking as paid without completing a Stripe payment by submitting an empty payment_id parameter.",
+      "published": "2026-04-30T10:16:02.327",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6498"
+    },
+    {
+      "id": "CVE-2026-42800",
+      "summary": "NULL pointer dereference vulnerability in ASR1903 in ASR Lapwing_Linux on Linux (ims_client modules) allows Pointer Manipulation.\n\n This vulnerability is associated with program files sip/utils/src/sipuri.c.",
+      "published": "2026-04-30T10:16:02.203",
       "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42799"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42800"
     },
     {
-      "id": "CVE-2026-42512",
-      "summary": "As dhclient is building an environment to pass to dhclient-script, it may need to resize the array of string pointers.  The code which expands the array incorrectly calculates its new size when requesting memory, resulting in a heap buffer overrun.\n\nA specially crafted packet can cause dhclient to overrun its buffer of environment entries.  This can result in a crash, but it may be possible to leverage this bug to achieve remote code execution.",
-      "published": "2026-04-30T09:16:03.373",
+      "id": "CVE-2026-41016",
+      "summary": "Apache Airflow's SMTP provider `SmtpHook` called Python's `smtplib.SMTP.starttls()` without an SSL context, so no certificate validation was performed on the TLS upgrade. A man-in-the-middle between the Airflow worker and the SMTP server could present a self-signed certificate, complete the STARTTLS upgrade, and capture the SMTP credentials sent during the subsequent `login()` call. Users are advised to upgrade to the `apache-airflow-providers-smtp` version that contains the fix.",
+      "published": "2026-04-30T10:16:01.930",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42512"
-    },
-    {
-      "id": "CVE-2026-39457",
-      "summary": "When exchanging data over a socket, libnv uses select(2) to wait for data to arrive.  However, it does not verify whether the provided socket descriptor fits in select(2)'s file descriptor set size limit of FD_SETSIZE (1024).\n\nAn attacker who is able to force a libnv application to allocate large file descriptors, e.g., by opening many descriptors and executing a program which is not careful to close them upon startup, can trigger stack corruption.  If the target application is setuid-root, then this could be used to elevate local privileges.",
-      "published": "2026-04-30T09:16:03.270",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39457"
-    },
-    {
-      "id": "CVE-2026-35547",
-      "summary": "When processing the header of an incoming message, libnv failed to properly validate the message size.\n\nThe lack of validation allows a malicious program to write outside the bounds of a heap allocation.  This can trigger a crash or system panic, and it may be possible for an unprivileged user to exploit the bug to elevate their privileges.",
-      "published": "2026-04-30T09:16:03.167",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35547"
-    },
-    {
-      "id": "CVE-2026-22070",
-      "summary": "ColorOS Assistant has an unauthenticated start-download channel, leading to file path traversal.",
-      "published": "2026-04-30T09:16:02.917",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22070"
-    },
-    {
-      "id": "CVE-2026-7164",
-      "summary": "Incorrect packet validation allowed unbounded recursion parsing SCTP chunk parameters.  This can eventually result in a stack overflow and panic.\n\nRemote attackers can craft packets which cause affected systems to panic.  This affects any system where pf is configured to process traffic, independent of the configured ruleset.",
-      "published": "2026-04-30T08:16:07.653",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7164"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41016"
     }
   ]
 }
