@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-04-30T20:18:35+00:00",
+  "generated_at": "2026-04-30T22:08:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7429",
-      "summary": "SSCMS v7.4.0 contains a reflected cross-site scripting vulnerability in the STL processing endpoint that allows attackers to execute arbitrary JavaScript by crafting malicious STL template payloads that are decrypted and returned without proper sanitization. Attackers can exploit improper output encoding in the /api/stl/actions/dynamic endpoint to inject executable JavaScript into JSON responses, leading to session hijacking, phishing attacks, and unauthorized actions performed on behalf of users.",
-      "published": "2026-04-30T20:16:24.997",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7429"
+      "id": "CVE-2026-7501",
+      "summary": "A weakness has been identified in LinkStackOrg LinkStack up to 4.8.6. Impacted is the function editPage of the file app/Http/Controllers/UserController.php. Executing a manipulation of the argument pageDescription can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through a pull request but has not reacted yet.",
+      "published": "2026-04-30T21:16:34.360",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7501"
     },
     {
-      "id": "CVE-2026-33448",
-      "summary": "CVE-2026-33448 is a format string vulnerability in the logging subsystem\n of Secure Access client for MacOS prior to 14.50. Attackers with \ncontrol of a modified server can force the client to dump the contents \nof a small portion of memory to the log files potentially revealing \nsecrets.",
-      "published": "2026-04-30T20:16:24.093",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33448"
+      "id": "CVE-2026-7435",
+      "summary": "SSCMS v7.4.0 contains a SQL injection vulnerability in the stl:sqlContent tag where the queryString attribute is passed directly to database execution without parameterization or sanitization. Attackers can craft encrypted payloads submitted to the /api/stl/actions/dynamic endpoint to execute arbitrary SQL statements, leading to unauthorized database access, data disclosure, authentication bypass, data modification, or complete database compromise.",
+      "published": "2026-04-30T21:16:34.100",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7435"
     },
     {
-      "id": "CVE-2026-33447",
-      "summary": "CVE-2026-33447 is a buffer overflow in a message parsing function of the\n Secure Access client prior to 14.50. Attackers with control of a \nmodified server can send a special packet that can overwrite a small \nportion of memory conceivably leading to memory corruption or denial of \nservice.",
-      "published": "2026-04-30T20:16:23.957",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33447"
+      "id": "CVE-2026-6539",
+      "summary": "Notepad++ 8.9.3 contains a format string injection vulnerability in the Find Results panel handler that allows attackers to cause denial of service and information disclosure by crafting a malicious nativeLang.xml language pack file. Attackers can distribute a poisoned language pack through community channels that triggers format string interpretation when a user performs search operations, leading to access violations and potential leakage of stack or register contents.",
+      "published": "2026-04-30T21:16:33.820",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6539"
     },
     {
-      "id": "CVE-2026-33446",
-      "summary": "CVE-2026-33446 is a buffer overflow in the authentication sub-system of \nthe Secure Access client prior to 14.50. Attackers with control of a \nmodified server can send a special packet that can overwrite a small \nportion of memory conceivably leading to memory corruption or a denial \nof service.",
-      "published": "2026-04-30T20:16:23.813",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33446"
+      "id": "CVE-2026-4503",
+      "summary": "IBM Langflow Desktop 1.0.0 through 1.8.4 Langflow could allow an unauthenticated user to view other users' images due to an indirect object reference through a user-controlled key.",
+      "published": "2026-04-30T21:16:33.667",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4503"
     },
     {
-      "id": "CVE-2025-56568",
-      "summary": "Assertion failure vulnerability in the PCO (Protocol Configuration Options) parser in the SMF (Session Management Function) component of Open5GS before v2.7.5 allows remote attackers to cause denial of service via specially crafted NGAP messages containing malformed length fields in protocol configuration data.",
-      "published": "2026-04-30T20:16:23.220",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-56568"
+      "id": "CVE-2026-4502",
+      "summary": "IBM Langflow Desktop 1.2.0 through 1.8.4 Langflow could allow an authenticated attacker to traverse directories on the system. An attacker could send\u00a0a specially crafted URL request containing \"dot dot\" sequences (/../) to write arbitrary files on the system.",
+      "published": "2026-04-30T21:16:33.533",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4502"
     },
     {
-      "id": "CVE-2025-46115",
-      "summary": "An issue in open5gs v.2.7.3 allows a remote attacker to cause a denial of service via a crafted PDU Session Modification Request",
-      "published": "2026-04-30T20:16:23.083",
+      "id": "CVE-2026-41263",
+      "summary": "Traefik is an HTTP reverse proxy and load balancer. Prior to versions 2.11.43, 3.6.14, and 3.7.0-rc.2, there is a timing side-channel vulnerability in Traefik's BasicAuth middleware that allows an attacker to enumerate valid usernames through response-time differences. The variable intended to hold a constant-time fallback secret always resolves to an empty string, causing the constant-time comparison to short-circuit in microseconds rather than performing a full bcrypt evaluation. This restores the original timing oracle and makes it possible to distinguish existing users from non-existing ones by measuring authentication response times. This issue has been patched in versions 2.11.43, 3.6.14, and 3.7.0-rc.2.",
+      "published": "2026-04-30T21:16:33.390",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-46115"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41263"
     }
   ]
 }
