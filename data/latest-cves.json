@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-01T17:12:03+00:00",
+  "generated_at": "2026-05-01T18:10:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7586",
-      "summary": "A weakness has been identified in Open5GS up to 2.7.7. Affected is the function ogs_id_get_value of the file /src/amf/nudm-handler.c of the component AMF. This manipulation causes denial of service. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-05-01T16:16:33.677",
+      "id": "CVE-2026-7587",
+      "summary": "A vulnerability has been found in Open5GS up to 2.7.7. This vulnerability affects the function amf_nsmf_pdusession_handle_update_sm_context of the file /src/amf/nsmf-handler.c of the component AMF. The manipulation leads to denial of service. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-01T17:16:25.633",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7586"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7587"
     },
     {
-      "id": "CVE-2026-7585",
-      "summary": "A vulnerability was determined in Open5GS up to 2.7.7. The impacted element is the function amf_nudm_sdm_handle_provisioned of the file /src/amf/nudm-handler.c of the component AMF. Executing a manipulation can lead to denial of service. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-05-01T16:16:33.490",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7585"
-    },
-    {
-      "id": "CVE-2026-42481",
-      "summary": "Open CASCADE Technology (OCCT) V8_0_0_rc5 contains multiple vulnerabilities in its IGES and STEP file parsers that can be triggered by crafted IGES or STEP files. These issues include an out-of-bounds read in Geom2d_BSplineCurve::EvalD0 during IGES B-spline curve evaluation, an out-of-bounds read in MakeBSplineCurveCommon during STEP B-spline curve construction, and infinite recursion in StepShape_OrientedEdge::EdgeStart when processing a self-referential OrientedEdge entity. Successful exploitation may result in denial of service or unintended memory disclosure.",
-      "published": "2026-05-01T16:16:32.163",
+      "id": "CVE-2026-42485",
+      "summary": "AGL agl-service-can-low-level contains a stack buffer overflow in the uds-c library. The send_diagnostic_request function in uds.c allocates a 6-byte stack buffer (MAX_DIAGNOSTIC_PAYLOAD_SIZE=6) but copies up to 7 bytes (MAX_UDS_REQUEST_PAYLOAD_LENGTH=7) via memcpy at an offset of 1+pid_length (2-3 bytes), resulting in 1-4 bytes of controlled stack overflow. The payload_length field (uint8_t) has no bounds check against the destination buffer. On 32-bit ARM automotive ECUs without stack canaries, this can lead to return address overwrite and RCE.",
+      "published": "2026-05-01T17:16:25.377",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42481"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42485"
     },
     {
-      "id": "CVE-2026-42480",
-      "summary": "A stack-based out-of-bounds read vulnerability in VrmlData_Scene::ReadLine in the VRML parser in Open CASCADE Technology (OCCT) V8_0_0_rc5 allows attackers to cause a denial of service via a crafted VRML file. The issue occurs because the quoted-string escape handler uses ptr[++anOffset] without proper bounds checking, which can read past the end of a fixed-size stack buffer.",
-      "published": "2026-05-01T16:16:32.047",
+      "id": "CVE-2026-42469",
+      "summary": "Buffer overflow vulnerability in Open Vehicle Monitoring System 3 (OVMS3) 3.3.005. In canformat_canswitch.cpp the parser does not properly validate a CANswitch DLC value, allowing remote attackers to cause a denial of service or possibly execute arbitrary code via crafted CANswitch frames.",
+      "published": "2026-05-01T17:16:25.260",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42480"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42469"
     },
     {
-      "id": "CVE-2026-42475",
-      "summary": "SQL injection vulnerability in MixPHP Framework 2.x thru 2.2.17 via crafted `on` array to the joinOn function in BuildHelper.php.",
-      "published": "2026-05-01T16:16:31.930",
+      "id": "CVE-2026-42468",
+      "summary": "Buffer overflow vulnerability in Open Vehicle Monitoring System 3 (OVMS3) 3.3.005. In canformat_pcap.cpp , the parser's phdr.len field is not properly validated, allowing remote attackers to cause a denial of service or possibly execute arbitrary code via crafted PCAP input.",
+      "published": "2026-05-01T17:16:25.150",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42475"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42468"
     },
     {
-      "id": "CVE-2026-42474",
-      "summary": "SQL injection vulnerability in MixPHP Framework 2.x thru 2.2.17 via crafted `data` array to the data function in BuildHelper.php.",
-      "published": "2026-05-01T16:16:31.813",
+      "id": "CVE-2026-42467",
+      "summary": "An issue was discovered in Open-SAE-J1939 thru commit b6caf884df46435e539b1ecbf92b6c29b345bdfe (2025-11-30) in SAE_J1939_Read_Binary_Data_Transfer_DM16 causing a denial of service via crafted CAN frame on the J1939 bus.",
+      "published": "2026-05-01T17:16:25.027",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42474"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42467"
+    },
+    {
+      "id": "CVE-2026-37541",
+      "summary": "Buffer overflow vulnerability in Open Vehicle Monitoring System 3 (OVMS3) 3.3.005. In canformat_gvret.cpp, the length field in GVRET binary data is not properly validated, allowing remote attackers to cause a denial of service or possibly execute arbitrary code via crafted GVRET frames.",
+      "published": "2026-05-01T17:16:24.083",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-37541"
     }
   ]
 }
