@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-01T15:13:55+00:00",
+  "generated_at": "2026-05-01T16:09:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7582",
-      "summary": "A vulnerability was detected in AcademySoftwareFoundation OpenImageIO up to 3.2.0.1-dev. This vulnerability affects unknown code of the file src/dds.imageio/ddsinput.cpp of the component DDS Image Handler. The manipulation results in out-of-bounds write. The attack needs to be approached locally. The exploit is now public and may be used. The patch is identified as 94ec2deec3e3bf2f2e2ff84d008e27425d626fe2. Applying a patch is advised to resolve this issue.",
-      "published": "2026-05-01T14:16:23.403",
+      "id": "CVE-2026-7583",
+      "summary": "A flaw has been found in Open5GS up to 2.7.7. This issue affects the function bsf_sess_find_by_ipv6prefix of the file /src/bsf/context.c of the component BSF. This manipulation of the argument ipv6Prefix causes denial of service. It is possible to initiate the attack remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-01T15:16:54.180",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7583"
+    },
+    {
+      "id": "CVE-2026-43507",
+      "summary": "An issue was discovered in Prosody before 0.12.6 and 1.0.0 through 13.0.0 before 13.0.5. A Denial of Service can occur via memory exhaustion caused by XML parsing resource amplification from unauthenticated connections.",
+      "published": "2026-05-01T15:16:52.990",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7582"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43507"
     },
     {
-      "id": "CVE-2026-42484",
-      "summary": "A heap-based buffer overflow in hex_to_binary in the PKZIP hash parser in hashcat v7.1.2 allows an attacker to cause a denial of service or possibly execute arbitrary code via a crafted PKZIP hash file. The issue affects modules 17200, 17210, 17220, 17225, and 17230. When data_type_enum<=1, attacker-controlled hex data from a user-supplied hash string is decoded into a fixed-size buffer without proper input-length validation.",
-      "published": "2026-05-01T14:16:22.800",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42484"
-    },
-    {
-      "id": "CVE-2026-42483",
-      "summary": "A heap-based buffer overflow in the Kerberos hash parser in hashcat v7.1.2 allows an attacker to cause a denial of service or possibly execute arbitrary code via a crafted Kerberos hash file. The issue affects module_hash_decode in multiple Kerberos-related modules because account_info_len is calculated from untrusted delimiter positions without upper-bound validation before memcpy copies the data into a fixed-size account_info buffer.",
-      "published": "2026-05-01T14:16:22.687",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42483"
-    },
-    {
-      "id": "CVE-2026-42482",
-      "summary": "A stack-based buffer overflow in mangle_to_hex_lower() and mangle_to_hex_upper() in src/rp_cpu.c in hashcat v7.1.2 allows an attacker to cause a denial of service or possibly execute arbitrary code via a crafted rule file, or via the -j or -k rule options used with password candidates of 128 or more characters. The vulnerability is caused by a bounds check that fails to account for the 2x expansion that occurs when password bytes are converted to hexadecimal.",
-      "published": "2026-05-01T14:16:22.577",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42482"
-    },
-    {
-      "id": "CVE-2026-3143",
-      "summary": "The Total Upkeep \u2013 WordPress Backup Plugin plus Restore & Migrate by BoldGrid plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the 'wp_ajax_cli_cancel' function in all versions up to, and including, 1.17.1. This makes it possible for unauthenticated attackers to cancel a pending rollback, potentially preventing a WordPress installation from automatically reverting a failed update.",
-      "published": "2026-05-01T14:16:22.190",
+      "id": "CVE-2026-43506",
+      "summary": "An issue was discovered in Prosody before 0.12.6 and 1.0.0 through 13.0.0 before 13.0.5. A Denial of Service can occur via memory exhaustion caused by memory leaks from unauthenticated connections.",
+      "published": "2026-05-01T15:16:52.820",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3143"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43506"
     },
     {
-      "id": "CVE-2026-31719",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: krb5enc - fix async decrypt skipping hash verification\n\nkrb5enc_dispatch_decrypt() sets req->base.complete as the skcipher\ncallback, which is the caller's own completion handler. When the\nskcipher completes asynchronously, this signals \"done\" to the caller\nwithout executing krb5enc_dispatch_decrypt_hash(), completely bypassing\nthe integrity verification (hash check).\n\nCompare with the encrypt path which correctly uses\nkrb5enc_encrypt_done as an intermediate callback to chain into the\nhash computation on async completion.\n\nFix by adding krb5enc_decrypt_done as an intermediate callback that\nchains into krb5enc_dispatch_decrypt_hash() upon async skcipher\ncompletion, matching the encrypt path's callback pattern.\n\nAlso fix EBUSY/EINPROGRESS handling throughout: remove\nkrb5enc_request_complete() which incorrectly swallowed EINPROGRESS\nnotifications that must be passed up to callers waiting on backlogged\nrequests, and add missing EBUSY checks in krb5enc_encrypt_ahash_done\nfor the dispatch_encrypt return value.\n\n\nUnset MAY_BACKLOG on the async completion path so the user won't\nsee back-to-back EINPROGRESS notifications.",
-      "published": "2026-05-01T14:16:22.077",
+      "id": "CVE-2026-43505",
+      "summary": "An issue was discovered in Prosody before 0.12.6 and 1.0.0 through 13.0.0 before 13.0.5, when mod_proxy65 is enabled. Because mod_proxy65 mishandles access control in the activation scenario, relaying of unauthenticated traffic can occur.",
+      "published": "2026-05-01T15:16:52.653",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43505"
+    },
+    {
+      "id": "CVE-2026-43504",
+      "summary": "An issue was discovered in Prosody before 0.12.6 and 1.0.0 through 13.0.0 before 13.0.5, when mod_proxy65 is enabled. Because mod_proxy65 mishandles access control in a paused scenario, relaying of unauthenticated traffic can occur.",
+      "published": "2026-05-01T15:16:52.380",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43504"
+    },
+    {
+      "id": "CVE-2026-43057",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: correctly handle tunneled traffic on IPV6_CSUM GSO fallback\n\nNETIF_F_IPV6_CSUM only advertises support for checksum offload of\npackets without IPv6 extension headers. Packets with extension\nheaders must fall back onto software checksumming. Since TSO\ndepends on checksum offload, those must revert to GSO.\n\nThe below commit introduces that fallback. It always checks\nnetwork header length. For tunneled packets, the inner header length\nmust be checked instead. Extend the check accordingly.\n\nA special case is tunneled packets without inner IP protocol. Such as\nRFC 6951 SCTP in UDP. Those are not standard IPv6 followed by\ntransport header either, so also must revert to the software GSO path.",
+      "published": "2026-05-01T15:16:52.260",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31719"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43057"
     }
   ]
 }
