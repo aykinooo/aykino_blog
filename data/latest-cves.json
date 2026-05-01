@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-05-01T06:45:28+00:00",
+  "generated_at": "2026-05-01T09:06:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-7584",
+      "summary": "The LabOne Q serialization framework uses a class-loading mechanism (import_cls) to dynamically import and instantiate Python classes during deserialization. Prior to the fix, this mechanism accepted arbitrary fully-qualified class names from the serialized data without any validation of the target class or restriction on which modules could be imported. An attacker can craft a serialized experiment file that causes the deserialization engine to import and instantiate arbitrary Python classes with attacker-controlled constructor arguments, resulting in arbitrary code execution in the context of the user running the Python process. Exploitation requires the victim to load a malicious file using LabOne Q's deserialization functions, for example a compromised experiment file shared for collaboration or support purposes.",
+      "published": "2026-05-01T08:16:01.913",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7584"
+    },
+    {
+      "id": "CVE-2026-42996",
+      "summary": "JS8Call through 2.3.1 and JS8Call-improved before 3.0 have a stack-based buffer overflow via a radio transmission of @APRSIS GRID followed by a long Maidenhead locator. This occurs in grid2deg in APRSISClient.cpp.",
+      "published": "2026-05-01T07:15:59.787",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42996"
+    },
     {
       "id": "CVE-2026-7555",
       "summary": "A vulnerability was identified in itsourcecode Electronic Judging System 1.0. This affects an unknown part of the file /intrams/login.php. Such manipulation of the argument Username leads to sql injection. The attack can be launched remotely. The exploit is publicly available and might be used.",
@@ -29,20 +43,6 @@
       "published": "2026-05-01T06:16:30.050",
       "cvss": 6.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13362"
-    },
-    {
-      "id": "CVE-2026-7553",
-      "summary": "A vulnerability was found in code-projects Gym Management System 1.0. Affected by this vulnerability is an unknown functionality of the file /admin/edit_exercises.php. The manipulation of the argument edit_exercise results in sql injection. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
-      "published": "2026-05-01T05:16:04.020",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7553"
-    },
-    {
-      "id": "CVE-2026-7550",
-      "summary": "A vulnerability has been found in SourceCodester Pharmacy Sales and Inventory System 1.0. Affected is an unknown function of the file /ajax.php?action=save_customer. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-05-01T05:16:03.847",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7550"
     }
   ]
 }
