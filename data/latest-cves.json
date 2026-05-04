@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-04T15:19:21+00:00",
+  "generated_at": "2026-05-04T17:49:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6501",
-      "summary": "Improper restriction of XML external entity reference vulnerability in ILM Informatique jOpenDocument allows Data Serialization External Entities Blowup.\n\nThis issue affects jOpenDocument: 1.5.",
-      "published": "2026-05-04T15:16:05.177",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6501"
+      "id": "CVE-2026-42812",
+      "summary": "In Apache Iceberg, the table's metadata files are control files: they tell readers\nwhich data files belong to the table and which table version to read.\n\n\n\n`write.metadata.path` is an optional table property that tells Polaris\nwhere to\nwrite those metadata files. \nFor a table already registered in a\nPolaris-managed\ncatalog, changing only that property through an `ALTER TABLE`-style settings\nchange (not a row-level `INSERT`, `SELECT`, `UPDATE`, or `DELETE`) bypasses\nthe commit-time branch that is supposed to revalidate storage locations.\n\nThe full persisted / credential-vending variant requires the affected\ncatalog\nto have `polaris.config.allow.unstructured.table.location=true`, with\n`allowedLocations` broad enough to include the attacker-chosen target.\n\n\n`allowedLocations` is the admin-configured allowlist of storage paths that\nthe\ncatalog is allowed to use. Public project materials suggest that this flag\nis a\nreal supported compatibility / layout mode, not just a contrived lab-only\nprerequisite.\n\n\nIn that configuration, a user who can change table settings can cause Apache Polaris\nitself to write new table metadata to an attacker-chosen reachable storage\nlocation before the intended location-validation branch runs.\n\nIf the later concrete-path validation also accepts that location, Polaris\npersists the resulting metadata path into stored table state. Later\ntable-load\nand credential APIs can then return temporary cloud-storage credentials for\nthe\nsame location without revalidating it. In plain terms, Polaris can later\nhand\nout temporary storage access for the same attacker-chosen area.\n\nThat attacker-chosen area does not need to be limited to the poisoned\ntable's\nown files. If it is a broader storage prefix, another table's prefix, or,\ndepending on configuration or provider behavior, even a bucket/container\nroot,\nthe resulting disclosure or corruption scope can extend to any data and\nmetadata Polaris can reach there.\n\n\n\nThe practical consequences are therefore similar to the staged-create\ncredential-vending issue already discussed: data and metadata reachable in\nthat\nstorage scope can be exposed and, if write-capable credentials are later\nissued, modified, corrupted, or removed. Even before that later credential\nstep, Polaris itself performs the metadata write to the unchecked location.\n\nSo the core issue is not only later credential vending. \n\nThe primary defect\nis\nthat Polaris skips its intended location checks before performing a\nsecurity-\nsensitive metadata write when only `write.metadata.path` changes.\n\n\n\nWhen `polaris.config.allow.unstructured.table.location=false`, current code\nreview suggests the later `updateTableLike(...)` validation usually rejects\nout-of-tree metadata locations before the unsafe path is persisted. That may\nreduce the persisted / credential-vending variant, but it does not prevent\nthe\nunderlying defect: Polaris still skips the intended pre-write location check\nwhen only `write.metadata.path` changes.",
+      "published": "2026-05-04T17:16:26.887",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42812"
     },
     {
-      "id": "CVE-2026-6500",
-      "summary": "Plaintext storage of a password vulnerability in ILM Informatique OpenConcerto allows Retrieve Embedded Sensitive Data.\n\nThis issue affects OpenConcerto: 1.7.5.",
-      "published": "2026-05-04T15:16:05.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6500"
+      "id": "CVE-2026-42811",
+      "summary": "In plain terms, Apache Polaris is supposed to issue short-lived GCS credentials\nthat\nonly work for one table's files, but a crafted namespace or table name can\ncause those credentials to work across the configured bucket instead.\n\n\nApache Polaris builds Google Cloud Storage downscoped credentials by creating a\nCredential Access Boundary (CAB) with CEL conditions that are intended to\nrestrict access to the requested table's storage path.\n\n\n\nThe relevant CEL string is built from the bucket name and the table path.\nThat\ntable path is derived from namespace and table identifiers. In current code,\nthat path appears to be inserted into the CEL expression without escaping.\n\n\n\nAs a result, a namespace or table identifier containing a single quote and\nother URI-safe CEL fragments can break out of the intended quoted string and\nchange the meaning of the CEL condition.\n\n\n\nIn private testing against Polaris 1.4.0 on real Google Cloud Storage, it was confirmed that Polaris accepted a crafted identifier and returned delegated\nGCS\ncredentials whose CEL path restriction had effectively collapsed.\n\n\nThose delegated credentials could then:\n\n\n- list another table's object prefix;\n\n- read another table's metadata control file (Iceberg metadata JSON);\n\n- create and delete an object under another table's object prefix;\n\n- and also list, read, create, and delete objects under an unrelated\nexternal\nprefix in the same bucket that was not part of any table path.\n\n\n\nThat last point is important. The issue is not limited to \"another table\".\nIn\nthe confirmed setup, once Apache Polaris returned credentials for the crafted\ntable,\nthe path restriction inside the configured bucket was effectively gone.\n\nThe practical effect is that temporary credentials for one crafted table\ncan be\nbroader than the table Polaris was asked to authorize, and can become\neffectively bucket-wide within the configured bucket.\n\n\n\nThe current GCS testing used a Polaris principal with broad catalog\nprivileges for setup. A separate least-privilege Polaris RBAC variant\nhas not yet been tested on GCS. However, the storage-credential\nbroadening behavior itself has been confirmed on GCS.",
+      "published": "2026-05-04T17:16:26.677",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42811"
     },
     {
-      "id": "CVE-2026-33523",
-      "summary": "HTTP response splitting vulnerability in multiple Apache HTTP Server modules with untrusted or compromised backend servers.\n\nThis issue affects Apache HTTP Server: from through 2.4.66.\n\nUsers are recommended to upgrade to version 2.4.67, which fixes the issue.",
-      "published": "2026-05-04T15:16:04.227",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33523"
+      "id": "CVE-2026-42810",
+      "summary": "Apache Polaris accepts literal `*` characters in namespace and table names. When it\nlater builds temporary S3 access policies for delegated table access, those\nsame characters appear to be reused unescaped in S3 IAM resource patterns\nand\n`s3:prefix` conditions.\n\n\n\nIn S3 IAM policy matching, `*` is treated as a wildcard rather than as\nordinary text. That means temporary credentials issued for one crafted table\ncan match the storage path of a different table.\n\n\n\nIn private testing against Polaris 1.4.0 using Polaris' AWS S3 temporary-\ncredential path on both MinIO and real AWS S3, credentials returned for\ncrafted tables such as `f*.t1`, `f*.*`, `*.*`, and `foo.*` could reach other\ntables' S3 locations.\n\n\nThe confirmed behavior includes:\n\n\n- reading another table's metadata control file ([Iceberg metadata JSON]);\n\n- listing another table's exact S3 table prefix ([table prefix]);\n\n- and, when write delegation was returned for the crafted table, creating\nand\ndeleting an object under another table's exact S3 table prefix.\n\n\n\nA control case using ordinary different names did not allow the same\ncross-table access.\n\n\n\nA least-privilege AWS S3 variant was also confirmed in which the attacker\nprincipal had no Polaris permissions on the victim table and only the\nminimal permissions required to create and use a crafted wildcard table\n(namespace-scoped `TABLE_CREATE` and `TABLE_WRITE_DATA` on `*`). In that\nsetup, direct Polaris access to `foo.t1` remained forbidden, but the\nattacker\ncould still create and load `*.*`, receive delegated S3 credentials, and use\nthose credentials to list, read, create, and delete objects under `foo.t1`.\n\n\n\nIn Iceberg, the metadata JSON file is a control file: it tells readers which\ndata files belong to the table, which snapshots exist, and which table\nversion\nto read. So unauthorized access to it is already a meaningful\nconfidentiality\nproblem. The confirmed write-capable variant means the issue is not limited\nto\ndisclosure.",
+      "published": "2026-05-04T17:16:26.493",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42810"
     },
     {
-      "id": "CVE-2026-33007",
-      "summary": "A NULL pointer dereference in the mod_authn_socache in Apache HTTP Server 2.4.66 and earlier allows an unauthenticated remote user to crash a child process in a caching forward proxy configuration.\n\nUsers are recommended to upgrade to version 2.4.67, which fixes this issue.",
-      "published": "2026-05-04T15:16:04.107",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33007"
+      "id": "CVE-2026-42809",
+      "summary": "Apache Polaris can issue broad temporary (\"vended\") storage credentials during\nstaged\ntable creation before the effective table location has been validated or\ndurably reserved. \nThose temporary credentials are meant to limit the scope\nof\naccessible table data and metadata, but this scope limitation becomes\nattacker-\ndirected because the attacker can choose a reachable target location.\n\n\n\nIn the confirmed variant, if the caller supplies a custom `location` during\nstage create and requests credential vending, Apache Polaris uses that location to\nconstruct delegated storage credentials immediately. The stage-create path\nitself neither runs the normal location validation nor the overlap checks\nbefore those credentials are issued.\n\n\n\nClosely related to that, the staged-create flow also accepts\n`write.data.path` / `write.metadata.path` in the request properties and\nfeeds\nthose location overrides into the same effective table location set used for\ncredential vending. Those fields are secondary to the main custom-`location`\nexploit, but they are still attacker-influenced location inputs that should\nbe\nvalidated before any credentials are issued.",
+      "published": "2026-05-04T17:16:26.307",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42809"
     },
     {
-      "id": "CVE-2026-33006",
-      "summary": "A timing attack against mod_auth_digest in Apache HTTP Server 2.4.66 allows a bypass of Digest authentication by a remote attacker.\n\nUsers are recommended to upgrade to version 2.4.67, which fixes this issue.",
-      "published": "2026-05-04T15:16:03.977",
+      "id": "CVE-2026-42440",
+      "summary": "OOM Denial of Service via Unbounded Array Allocation in Apache OpenNLP AbstractModelReader\u00a0\n\nVersions Affected:\u00a0\n\nbefore 2.5.9\n\nbefore 3.0.0-M3\u00a0\n\nDescription:\n\n\nThe AbstractModelReader methods getOutcomes(), getOutcomePatterns(), and getPredicates() each read a 32-bit signed integer count field from a binary model stream and pass that value directly to an array allocation (new String[numOutcomes], new int[numOCTypes][], new String[NUM_PREDS]) without validating that the value is non-negative or within a reasonable bound. The count is therefore fully attacker-controlled when the model file originates from an untrusted source.\n\n\nA crafted .bin model file in which any of these count fields is set to Integer.MAX_VALUE (or any value large enough to exhaust the available heap) triggers an OutOfMemoryError at the array allocation itself, before the corresponding label or pattern data is consumed from the stream. The error occurs very early in deserialization: for a GIS model, getOutcomes() is reached after only the model-type string, the correction constant, and the correction parameter have been read; so the attacker pays no meaningful size cost to weaponize a payload, and a single small file can crash a JVM that loads it. Any code path that deserializes a .bin model is affected, including direct use of GenericModelReader and any higher-level component that delegates to it during model load.\n\n\nThe practical impact is denial of service against processes that load model files from untrusted or semi-trusted origins.\u00a0\u00a0\n\n\nMitigation:\n\n\n\n  *  2.x users should upgrade to 2.5.9.\n\n  *  3.x users should upgrade to 3.0.0-M3.\n\n\n\n\nNote: The fix introduces an upper bound on each of the three count fields, checked before array allocation; counts that are negative or exceed the bound cause an IllegalArgumentException to be thrown and the read to fail fast with no large allocation. The default bound is 10,000,000, which is well above the entry counts of legitimate OpenNLP models but far below any value that would threaten heap exhaustion. Deployments that legitimately need to load models with more entries than the default can raise the limit at JVM startup by setting the OPENNLP_MAX_ENTRIES system property to the desired positive integer (e.g. -DOPENNLP_MAX_ENTRIES=50000000); invalid or non-positive values fall back to the default.\n\n\nUsers who cannot upgrade immediately should treat all .bin model files as untrusted input unless their provenance is verified, and should avoid loading models supplied by end users or fetched from third-party repositories without integrity checks.",
+      "published": "2026-05-04T17:16:26.147",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33006"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42440"
     },
     {
-      "id": "CVE-2026-29169",
-      "summary": "A NULL pointer dereference in mod_dav_lock in Apache HTTP Server 2.4.66 and earlier may allow an attacker to crash the server with a malicious request.mod_dav_lock is not used internally by mod_dav or mod_dav_fs.\n\nThe only known use-case for mod_dav_lock was mod_dav_svn from Apache Subversion earlier than version 1.2.0.\n\nUsers are recommended to upgrade to version 2.4.66, which fixes this issue, or remove mod_dav_lock.",
-      "published": "2026-05-04T15:16:03.720",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29169"
+      "id": "CVE-2026-42376",
+      "summary": "D-Link DIR-456U Hardware Revision A1 (End-of-Life, EOL) contains a hardcoded telnet backdoor. The device starts a telnet daemon at boot via /etc/init0.d/S80telnetd.sh with the username \"Alphanetworks\" and the static password \"whdrv01_dlob_dir456U\" read from /etc/config/image_sign. The custom telnetd binary accepts a -u user:password flag, and the custom login binary uses strcmp() to validate credentials. Successful authentication grants an unauthenticated attacker on the local network a root shell with full administrative control. The device has reached End-of-Life (EOL) and will not receive patches.",
+      "published": "2026-05-04T17:16:26.000",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42376"
     }
   ]
 }
