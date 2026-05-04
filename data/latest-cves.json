@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-05-04T21:18:43+00:00",
+  "generated_at": "2026-05-04T23:08:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-7791",
+      "summary": "Improper privilege management in the log rotation mechanism of the Skylight Workspace Config Service in Amazon WorkSpaces for Windows before 2.6.2034.0 allows a local non-admin authenticated user to place arbitrary files into arbitrary locations bypassing file system permission protections, leading to local privilege escalation to SYSTEM.",
+      "published": "2026-05-04T22:16:20.697",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7791"
+    },
+    {
+      "id": "CVE-2026-7780",
+      "summary": "A weakness has been identified in Open5GS up to 2.7.7. Affected by this vulnerability is the function udm_state_operational of the file /src/udm/udm-sm.c of the component smf-registrations Endpoint. Executing a manipulation can lead to denial of service. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-04T22:16:20.493",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7780"
+    },
+    {
+      "id": "CVE-2026-7776",
+      "summary": "Boundary Community Edition and Boundary Enterprise (\u201cBoundary\u201d) workers are vulnerable to a denial-of-service condition during node enrollment TLS handshakes. An attacker with network access to the worker authentication listener may open a connection and delay or withhold the client certificate during the TLS handshake, causing worker connection handling to block. This may prevent legitimate worker connections from being accepted or routed. This vulnerability, CVE-2026-7776, is fixed in Boundary 0.21.3, 0.20.3, 0.19.5.",
+      "published": "2026-05-04T22:16:20.330",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7776"
+    },
     {
       "id": "CVE-2026-7779",
       "summary": "A security flaw has been discovered in Open5GS up to 2.7.7. Affected is the function udm_nudr_dr_handle_subscription_authentication of the file /src/udm/nudr-handler.c of the component authentication-subscription Endpoint. Performing a manipulation results in denial of service. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -22,27 +43,6 @@
       "published": "2026-05-04T21:16:32.320",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42223"
-    },
-    {
-      "id": "CVE-2026-42222",
-      "summary": "Nginx UI is a web user interface for the Nginx web server. In version 2.3.5, an unauthenticated bootstrap takeover exists in nginx-ui during the initial installation window exposed by POST /api/install. At time of publication no public patches are available.",
-      "published": "2026-05-04T21:16:32.173",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42222"
-    },
-    {
-      "id": "CVE-2026-42221",
-      "summary": "Nginx UI is a web user interface for the Nginx web server. From version 2.0.0 to before version 2.3.8, an unauthenticated network attacker can claim the initial administrator account on a fresh nginx-ui instance during the first-run setup window. The public /api/install endpoint is reachable without authentication, and the request-encryption flow only protects payload confidentiality in transit; it does not authenticate who is allowed to perform installation. A remote attacker who reaches the service before the legitimate operator can set the admin email, username, and password, causing permanent initial-instance takeover. This issue has been patched in version 2.3.8.",
-      "published": "2026-05-04T21:16:32.023",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42221"
-    },
-    {
-      "id": "CVE-2026-42220",
-      "summary": "Nginx UI is a web user interface for the Nginx web server. Prior to version 2.3.8, an authenticated user can call GET /api/settings and retrieve sensitive configuration values, including node.secret. The same node.secret is accepted by AuthRequired() through the X-Node-Secret header (or node_secret query parameter), causing the request to be treated as authenticated via the trusted-node path and associated with the init user. This issue has been patched in version 2.3.8.",
-      "published": "2026-05-04T21:16:31.870",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42220"
     }
   ]
 }
