@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-04T07:22:08+00:00",
+  "generated_at": "2026-05-04T10:23:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7740",
-      "summary": "A security vulnerability has been detected in justdan96 tsMuxer up to 2.7.0. This issue affects the function VvcVpsUnit::setFPS of the file tsMuxer/vvc.cpp. Such manipulation of the argument track_id leads to denial of service. An attack has to be approached locally. The exploit has been disclosed publicly and may be used. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-05-04T07:16:02.257",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7740"
+      "id": "CVE-2026-7750",
+      "summary": "A vulnerability was detected in Totolink N300RH 3.2.4-B20220812. This vulnerability affects the function setMacFilterRules of the file /cgi-bin/cstecgi.cgi of the component POST Request Handler. The manipulation of the argument mac_address results in buffer overflow. The attack may be launched remotely. The exploit is now public and may be used.",
+      "published": "2026-05-04T10:16:01.203",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7750"
     },
     {
-      "id": "CVE-2026-7739",
-      "summary": "A weakness has been identified in justdan96 tsMuxer up to 2.7.0. This vulnerability affects the function HevcVpsUnit::setFPS of the file /AFLplusplus/tsMuxer_prev/tsMuxer/hevc.cpp. This manipulation of the argument track_id causes denial of service. The attack requires local access. The exploit has been made available to the public and could be used for attacks. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-05-04T07:16:02.053",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7739"
+      "id": "CVE-2026-7749",
+      "summary": "A security vulnerability has been detected in Totolink N300RH 3.2.4-B20220812. This affects the function setWanConfig of the file /cgi-bin/cstecgi.cgi of the component POST Request Handler. The manipulation of the argument priDns leads to buffer overflow. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-05-04T10:16:01.040",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7749"
     },
     {
-      "id": "CVE-2026-7738",
-      "summary": "A security flaw has been discovered in puchunjie doc-tools-mcp 1.0.18. This affects the function create_document/open_document of the file src/mcp-server.ts of the component MCP Interface. The manipulation of the argument filePath results in path traversal. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-05-04T07:16:01.873",
+      "id": "CVE-2026-7748",
+      "summary": "A weakness has been identified in Totolink N300RH 3.2.4-B20220812. Affected by this issue is the function setUpgradeFW of the file /cgi-bin/cstecgi.cgi of the component POST Request Handler. Executing a manipulation of the argument FileName can lead to buffer overflow. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-05-04T10:16:00.850",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7748"
+    },
+    {
+      "id": "CVE-2026-33846",
+      "summary": "A heap buffer overflow vulnerability exists in the DTLS handshake fragment reassembly logic of GnuTLS. The issue arises in merge_handshake_packet() where incoming handshake fragments are matched and merged based solely on handshake type, without validating that the message_length field remains consistent across all fragments of the same logical message. An attacker can exploit this by sending crafted DTLS fragments with conflicting message_length values, causing the implementation to allocate a buffer based on a smaller initial fragment and subsequently write beyond its bounds using larger, inconsistent fragments. Because the merge operation does not enforce proper bounds checking against the allocated buffer size, this results in an out-of-bounds write on the heap. The vulnerability is remotely exploitable without authentication via the DTLS handshake path and can lead to application crashes or potential memory corruption.",
+      "published": "2026-05-04T10:15:59.690",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33846"
+    },
+    {
+      "id": "CVE-2026-7747",
+      "summary": "A security flaw has been discovered in Totolink N300RH 3.2.4-B20220812. Affected by this vulnerability is the function loginauth of the file /cgi-bin/cstecgi.cgi of the component Parameter Handler. Performing a manipulation of the argument Password results in buffer overflow. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
+      "published": "2026-05-04T09:16:01.117",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7747"
+    },
+    {
+      "id": "CVE-2026-7746",
+      "summary": "A vulnerability was identified in SourceCodester Web-based Pharmacy Product Management System 1.0. Affected is an unknown function of the file /product_expiry/edit-admin.php. Such manipulation of the argument ID leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
+      "published": "2026-05-04T09:16:00.953",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7738"
-    },
-    {
-      "id": "CVE-2026-7737",
-      "summary": "A vulnerability was identified in osrg GoBGP up to 4.3.0. Affected by this issue is the function BMPPeerUpNotification.ParseBody/BMPStatisticsReport.ParseBody of the file pkg/packet/bmp/bmp.go of the component BMP Parser. The manipulation leads to out-of-bounds read. The attack can be initiated remotely. Upgrading to version 4.4.0 can resolve this issue. The identifier of the patch is bc77597d42335c78464bc8e15a471d887bbdf260. Upgrading the affected component is recommended.",
-      "published": "2026-05-04T07:16:01.700",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7737"
-    },
-    {
-      "id": "CVE-2026-7736",
-      "summary": "A vulnerability was determined in osrg GoBGP up to 4.3.0. Affected by this vulnerability is the function parseRibEntry of the file pkg/packet/mrt/mrt.go. Executing a manipulation can lead to integer underflow. It is possible to launch the attack remotely. Upgrading to version 4.4.0 addresses this issue. This patch is called 76d911046344a3923cbe573364197aa081944592. It is suggested to upgrade the affected component.",
-      "published": "2026-05-04T07:16:01.517",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7736"
-    },
-    {
-      "id": "CVE-2026-5335",
-      "summary": "The Magic Export & Import WordPress plugin before 1.2.0 stores exported CSV files at a publicly accessible location, making it possible for any visitors to leak sensitive user information.",
-      "published": "2026-05-04T07:16:01.343",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5335"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7746"
     }
   ]
 }
