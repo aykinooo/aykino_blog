@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-05-04T23:08:59+00:00",
+  "generated_at": "2026-05-05T00:06:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-7782",
+      "summary": "A vulnerability was detected in CodeCanyon Perfex CRM up to 3.4.1. This affects the function Clients::project of the file application/controllers/Clients.php of the component Tenant Handler. The manipulation of the argument ID results in authorization bypass. The attack may be performed from remote. The exploit is now public and may be used.",
+      "published": "2026-05-04T23:16:01.327",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7782"
+    },
+    {
+      "id": "CVE-2026-7781",
+      "summary": "A security vulnerability has been detected in Open5GS up to 2.7.7. Affected by this issue is the function udm_nudm_uecm_handle_amf_registration_update of the file /src/udm/nudm-handler.c of the component amf-3gpp-access Endpoint. The manipulation leads to denial of service. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-04T23:16:01.113",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7781"
+    },
     {
       "id": "CVE-2026-7791",
       "summary": "Improper privilege management in the log rotation mechanism of the Skylight Workspace Config Service in Amazon WorkSpaces for Windows before 2.6.2034.0 allows a local non-admin authenticated user to place arbitrary files into arbitrary locations bypassing file system permission protections, leading to local privilege escalation to SYSTEM.",
@@ -29,20 +43,6 @@
       "published": "2026-05-04T21:16:33.080",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7779"
-    },
-    {
-      "id": "CVE-2026-42238",
-      "summary": "Nginx UI is a web user interface for the Nginx web server. Prior to version 2.3.8, nginx-ui exposes a backup restore endpoint (POST /api/restore) that is completely unauthenticated during the first 10 minutes after process startup on any fresh installation. An unauthenticated remote attacker can upload a crafted backup archive that overwrites the application's configuration file (app.ini) and SQLite database. Because the attacker controls the restored app.ini, they can inject an arbitrary OS command into the TestConfigCmd setting. After the application automatically restarts to apply the restored config, a single follow-up request triggers that command as the user running nginx-ui \u2014 typically root in Docker deployments. This issue has been patched in version 2.3.8.",
-      "published": "2026-05-04T21:16:32.707",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42238"
-    },
-    {
-      "id": "CVE-2026-42223",
-      "summary": "Nginx UI is a web user interface for the Nginx web server. Prior to version 2.3.8, the GetSettings API handler (api/settings/settings.go:24-65) serializes all settings structs to JSON and returns them to authenticated users. Many sensitive fields are tagged with protected:\"true\" - however, this tag is only enforced during writes (via ProtectedFill in SaveSettings) and is completely ignored during reads. This exposes 40+ protected fields including JwtSecret (enabling auth token forgery), NodeSecret (enabling cluster node impersonation), OIDC ClientSecret (enabling OAuth account takeover), and the IP whitelist configuration. This issue has been patched in version 2.3.8.",
-      "published": "2026-05-04T21:16:32.320",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42223"
     }
   ]
 }
