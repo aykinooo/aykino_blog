@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-06T14:44:20+00:00",
+  "generated_at": "2026-05-06T16:52:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-36358",
-      "summary": "Cross Site Scripting vulnerability in Juzaweb CMS v.5.0.0 allows a remote attacker via execute arbitrary code via a crafted script to the Add Banner Ads function",
-      "published": "2026-05-06T14:16:19.583",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36358"
+      "id": "CVE-2026-6863",
+      "summary": "Velociraptor versions prior to 0.76.4 contain a cross organization authorization bypass in the HTTP API. A user with only the reader role in the root organization (the lowest authenticated role, holding only READ_RESULTS permission ) can issue a single authenticated HTTP GET that can read any files from other orgs - even if they have no explicit permissions in the target org.\n\n\n\nHowever, the problem does not occur in reverse - a user with read access to a sub org is unable to read from other org or the root org.",
+      "published": "2026-05-06T16:16:12.030",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6863"
     },
     {
-      "id": "CVE-2026-8026",
-      "summary": "A security flaw has been discovered in FlowiseAI Flowise up to 3.0.12. Affected is the function Login of the file packages/server/src/enterprise/services/account.service.ts of the component API Response Handler. The manipulation results in information disclosure. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is told to be difficult. You should upgrade the affected component.",
-      "published": "2026-05-06T13:16:10.577",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8026"
+      "id": "CVE-2026-6788",
+      "summary": "Uncontrolled Search Path Element vulnerability\u00a0in WatchGuard Agent on Windows allows Using Malicious Files.This issue affects WatchGuard Agent\u00a0before 1.25.03.0000.",
+      "published": "2026-05-06T16:16:11.780",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6788"
     },
     {
-      "id": "CVE-2026-5081",
-      "summary": "Apache::Session::Generate::ModUniqueId versions from 1.54 through 1.94 for Perl session ids are insecure.\n\nApache::Session::Generate::ModUniqueId (added in version 1.54) uses the value of the UNIQUE_ID environment variable for the session id. The UNIQUE_ID variable is set by the Apache mod_unique_id plugin, which generates unique ids for the request. The id is based on the IPv4 address, the process id, the epoch time, a 16-bit counter and a thread index, with no obfuscation.\n\nThe server IP is often available to the public, and if not available, can be guessed from previous session ids being issued. The process ids may also be guessed from previous session ids. The timestamp is easily guessed (and leaked in the HTTP Date response header).\n\nThe purpose of mod_unique_id is to assign a unique id to requests so that events can be correlated in different logs. The id is not designed, nor is it suitable for security purposes.",
-      "published": "2026-05-06T13:16:09.833",
+      "id": "CVE-2026-6787",
+      "summary": "Use of Hard-coded Cryptographic Key vulnerability in WatchGuard Agent on Windows allows Inclusion of Code in Existing Process.This issue affects\u00a0WatchGuard Agent: before 1.25.03.0000.",
+      "published": "2026-05-06T16:16:11.643",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5081"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6787"
     },
     {
-      "id": "CVE-2026-40562",
-      "summary": "Gazelle versions through 0.49 for Perl allows HTTP Request Smuggling via Improper Header Precedence.\n\nGazelle incorrectly prioritizes \"Content-Length\" over \"Transfer-Encoding: chunked\" when both headers are present in an HTTP request. Per RFC 7230 3.3.3, Transfer-Encoding must take precedence.\n\nAn attacker could exploit this to smuggle malicious HTTP requests via a front-end reverse proxy.",
-      "published": "2026-05-06T13:16:09.110",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40562"
+      "id": "CVE-2026-6691",
+      "summary": "The MongoDB C Driver's Cyrus SASL integration performs unsafe string copying during username canonicalization, enabling a heap buffer overflow before any authentication or network traffic. This may be triggered by passing untrusted input in the username of a MongoDB URI with authMechanism=GSSAPI.",
+      "published": "2026-05-06T16:16:11.483",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6691"
     },
     {
-      "id": "CVE-2026-6210",
-      "summary": "A type confusion vulnerability in Qt SVG allows an attacker to cause an application crash via a crafted SVG image.\n\n\n\nWhen processing SVG marker references, the renderer retrieves a node by its id attribute and casts it to QSvgMarker* without verifying the node type. A non-marker element (such as a <line> element) that references itself as a marker triggers an out-of-bounds heap read due to the object size difference between QSvgLine and QSvgMarker,\n followed by an endless recursion that bypasses the marker recursion \nguard through incorrect virtual dispatch. The result is an application \ncrash (denial of service).\n\n\n\nThis issue affects Qt SVG:\u00a0\nfrom 6.7.0 before 6.8.8, from 6.9.0 before 6.11.1.",
-      "published": "2026-05-06T12:16:49.957",
+      "id": "CVE-2026-41288",
+      "summary": "Incorrect permission assignment for a resource in the patch management component of the WatchGuard Agent on Windows allows an authenticated local user to elevate their privileges to NT AUTHORITY\\\\SYSTEM.",
+      "published": "2026-05-06T16:16:10.147",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6210"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41288"
     },
     {
-      "id": "CVE-2026-43283",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ethernet: ec_bhf: Fix dma_free_coherent() dma handle\n\ndma_free_coherent() in error path takes priv->rx_buf.alloc_len as\nthe dma handle. This would lead to improper unmapping of the buffer.\n\nChange the dma handle to priv->rx_buf.alloc_phys.",
-      "published": "2026-05-06T12:16:49.817",
+      "id": "CVE-2026-41286",
+      "summary": "Stack-based Buffer Overflow vulnerability in the WatchGuard Agent discovery service on Windows allows Overflow Buffers. An unauthenticated attacker on the same local network could exploit this vulnerability to crash the agent service.",
+      "published": "2026-05-06T16:16:09.950",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43283"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41286"
     }
   ]
 }
