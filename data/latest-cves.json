@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-06T06:43:32+00:00",
+  "generated_at": "2026-05-06T09:35:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2306",
-      "summary": "The Ninja Tables \u2013 Easy Data Table Builder plugin for WordPress is vulnerable to unauthorized database table creation due to missing authorization checks on the `createFluentCartTable` function in all versions up to, and including, 5.2.6. This makes it possible for authenticated attackers, with Subscriber-level access and above, to create arbitrary Ninja Tables in the database which can lead to database pollution and resource exhaustion.",
-      "published": "2026-05-06T06:16:03.660",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2306"
+      "id": "CVE-2026-7841",
+      "summary": "A remote code execution vulnerability\nexists in Notification Settings on GeoVision GV-ASWeb 6.2.0. An authenticated\nuser with System Setting permissions can execute arbitrary commands on the\nserver by sending a crafted HTTP POST request to the ASWebCommon.srf backend\nendpoint to bypass the frontend restrictions.",
+      "published": "2026-05-06T08:16:04.490",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7841"
     },
     {
-      "id": "CVE-2026-5753",
-      "summary": "The All-in-One WP Migration Unlimited Extension plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 2.83. This is due to the 'Ai1wmve_Schedules_Controller::save' handler for 'admin_post_ai1wm_schedule_event_save' not verifying user capabilities before saving schedule data. This makes it possible for authenticated attackers, with subscriber-level access and above, to create scheduled export jobs and send backup notifications to attacker-controlled email addresses. Because such notifications include the random backup filename, full site backups can subsequently be downloaded from the target site, resulting in sensitive information exposure.",
-      "published": "2026-05-06T04:16:09.097",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5753"
+      "id": "CVE-2026-7457",
+      "summary": "The LatePoint plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to and including 5.5.0. This is due to insufficient input sanitization on the customer cabinet profile update endpoint \u2014 where raw POST parameters (first_name, last_name, phone, notes) bypass sanitization because OsCustomerModel does not override params_to_sanitize(), causing set_data() to store unsanitized values verbatim in the database \u2014 combined with insufficient output escaping in generate_preview(), which injects those stored values into notification template HTML via str_replace() without any esc_html() call before echoing the result. This makes it possible for authenticated attackers with customer-level access or above to inject arbitrary web scripts into the admin notification preview panel that execute in an administrator's or agent's browser whenever a notification template referencing customer variables such as {{customer_full_name}}, {{customer_first_name}}, {{customer_last_name}}, {{customer_phone}}, or {{customer_notes}} is previewed.",
+      "published": "2026-05-06T08:16:04.360",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7457"
     },
     {
-      "id": "CVE-2026-3208",
-      "summary": "The Mercado Pago payments for WooCommerce plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the 'mp_pix_image' WooCommerce API endpoint in all versions up to, and including, 8.7.11. This makes it possible for unauthenticated attackers to retrieve PIX payment QR code images for arbitrary orders. PIX QR codes contain sensitive merchant information including PIX keys (which may be CPF/CNPJ personal identifiers), transaction amounts, merchant name and city, and MercadoPago transaction references.",
-      "published": "2026-05-06T04:16:06.223",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3208"
+      "id": "CVE-2026-7448",
+      "summary": "The LatePoint \u2013 Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'first_name' parameter in all versions up to, and including, 5.5.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-06T08:16:04.230",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7448"
     },
     {
-      "id": "CVE-2026-7573",
-      "summary": "An authorization bypass (CWE-639) in the GetUserRoles gRPC API endpoint in Velocidex Velociraptor below version 0.76.5 allows any authenticated low-privilege user to retrieve the complete ACL policy (roles and permissions) for any user across all organizations by supplying targeted Name and Org parameters via a network request.",
-      "published": "2026-05-06T03:15:59.440",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7573"
+      "id": "CVE-2026-7332",
+      "summary": "The LatePoint \u2013 Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'booking_form_page_url' parameter in all versions up to, and including, 5.5.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The malicious activity log entry is written to the database even when Stripe is not configured, because the latepoint_order_intent_created action hook fires before the Stripe Connect account ID is validated, meaning a fully functional Stripe integration is not required for exploitation.",
+      "published": "2026-05-06T08:16:04.090",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7332"
     },
     {
-      "id": "CVE-2026-7572",
-      "summary": "An off-by-one error (CWE-193) in the ConsumeUnit16Array and ConsumeUnit64Array functions in Velocidex Velociraptor before version 0.76.5 on Windows and Linux allows a local attacker to cause a Denial of Service (DoS) via a process crash by providing a specially crafted .evtx file to the parse_evtx VQL plugin.",
-      "published": "2026-05-06T03:15:58.470",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7572"
+      "id": "CVE-2026-6672",
+      "summary": "The Affiliate Program Suite \u2014 SliceWP Affiliates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via shortcode attributes in all versions up to, and including, 1.2.7. This is due to insufficient input sanitization and output escaping on user-supplied attributes in the 'slicewp_affiliate_url' shortcode. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-06T08:16:03.957",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6672"
     },
     {
-      "id": "CVE-2025-71256",
-      "summary": "In nr modem, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
-      "published": "2026-05-06T02:16:05.213",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71256"
+      "id": "CVE-2026-6344",
+      "summary": "The Fluent Forms plugin for WordPress is vulnerable to Arbitrary File Read in versions up to and including 6.2.1. This is due to insufficient path validation in the getAttachments() method of EmailNotificationActions, which resolves attacker-supplied file-upload URLs into filesystem paths without verifying that the resolved path stays inside the WordPress uploads directory: a strpos() prefix check on the raw URL can be bypassed with traversal sequences, wp_normalize_path() does not resolve \".\\..\\\" segments, and file_exists() then resolves them at the kernel level. This makes it possible for authenticated attackers with administrator access to read arbitrary files readable by the web-server user \u2014 including wp-config.php with its database credentials and authentication salts \u2014 by submitting a form whose admin notification is configured to attach a file-upload field and supplying a crafted URL of the shape <upload_baseurl>/../../<target> as the file-field value. The resolved file is attached to the outbound admin-notification email via wp_mail(). While the email can be triggered by unauthenticated users, the email recipient is not user-controlled.",
+      "published": "2026-05-06T08:16:03.813",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6344"
     }
   ]
 }
