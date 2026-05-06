@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-06T00:01:12+00:00",
+  "generated_at": "2026-05-06T04:02:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40934",
-      "summary": "Jupyter Server is the backend for Jupyter web applications. In versions 2.17.0 and earlier, the secret used to sign authentication cookies is persisted to a static file at ~/.local/share/jupyter/runtime/jupyter_cookie_secret and is never rotated when a user changes their password. After a password reset and server restart, any previously issued authentication cookie remains cryptographically valid because the signing key has not changed. An attacker who has captured a session cookie through any means retains full authenticated access to the server regardless of subsequent password changes. This affects deployments using password-based authentication, particularly shared or public-facing servers where credential rotation is expected to revoke existing sessions. This issue has been fixed in version 2.18.0.",
-      "published": "2026-05-05T22:16:00.820",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40934"
+      "id": "CVE-2026-7573",
+      "summary": "An authorization bypass (CWE-639) in the GetUserRoles gRPC API endpoint in Velocidex Velociraptor below version 0.76.5 allows any authenticated low-privilege user to retrieve the complete ACL policy (roles and permissions) for any user across all organizations by supplying targeted Name and Org parameters via a network request.",
+      "published": "2026-05-06T03:15:59.440",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7573"
     },
     {
-      "id": "CVE-2026-40110",
-      "summary": "Jupyter Server is the backend for Jupyter web applications. In versions 2.17.0 and earlier, the Origin header validation uses Python's re.match() to check incoming origins against the allow_origin_pat configuration value. Because re.match() only anchors at the start of the string and does not require a full match, a pattern intended to match only a trusted domain (e.g., trusted.example.com) will also match any origin that begins with that domain followed by additional characters (e.g., trusted.example.com.evil.com). An attacker who controls such a domain can bypass the CORS origin restriction and make cross-origin requests to the Jupyter Server API from an untrusted site. This issue has been fixed in version 2.18.0.",
-      "published": "2026-05-05T22:16:00.663",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40110"
+      "id": "CVE-2026-7572",
+      "summary": "An off-by-one error (CWE-193) in the ConsumeUnit16Array and ConsumeUnit64Array functions in Velocidex Velociraptor before version 0.76.5 on Windows and Linux allows a local attacker to cause a Denial of Service (DoS) via a process crash by providing a specially crafted .evtx file to the parse_evtx VQL plugin.",
+      "published": "2026-05-06T03:15:58.470",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7572"
     },
     {
-      "id": "CVE-2026-40075",
-      "summary": "OpenMRS Core is an open source electronic medical record system platform. In versions 2.7.8 and earlier and versions 2.8.0 through 2.8.5, the `/openmrs/moduleResources/{moduleid}` endpoint is vulnerable to a path traversal attack. The ModuleResourcesServlet constructs a filesystem path from user-controlled input without performing path boundary validation \u2014 the getFile() method concatenates the user-supplied path into an absolute filesystem path without calling normalize() or checking that the result stays within the allowed module resources directory. Because this endpoint serves static resources required for rendering the login page, it is not protected by authentication filters, allowing unauthenticated exploitation.\n\nAn attacker can traverse directories and read arbitrary files from the server filesystem, including /etc/passwd and application configuration files containing database credentials. Successful exploitation requires the target deployment to run on Apache Tomcat versions prior to 8.5.31, where the ..; path parameter bypass is not mitigated by the container. Deployments on Tomcat 8.5.31 or later and Tomcat 9.0.10 or later are protected at the container level, though the underlying code defect remains. This issue has been fixed in versions after 2.7.8 (within the 2.7.x branch) and in version 2.8.6 and later.",
-      "published": "2026-05-05T22:16:00.520",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40075"
+      "id": "CVE-2025-71256",
+      "summary": "In nr modem, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
+      "published": "2026-05-06T02:16:05.213",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71256"
     },
     {
-      "id": "CVE-2026-28780",
-      "summary": "Heap-based Buffer Overflow vulnerability in mod_proxy_ajp of Apache HTTP Server.\nIf mod_proxy_ajp connects to a malicious AJP server this AJP server can send a malicious AJP message back to mod_proxy_ajp and cause it to write 4 attacker controlled bytes after the end of a heap based buffer.\n\nThis issue affects Apache HTTP Server: through 2.4.66.\n\nUsers are recommended to upgrade to version 2.4.67, which fixes the issue.",
-      "published": "2026-05-05T22:16:00.390",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28780"
+      "id": "CVE-2025-71255",
+      "summary": "In Modem IMS, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
+      "published": "2026-05-06T02:16:05.093",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71255"
     },
     {
-      "id": "CVE-2026-41950",
-      "summary": "Dify before version 1.14.0 contains an authorization bypass vulnerability that allows authenticated users to read the full contents of files uploaded by other users within the same tenant by supplying an arbitrary file UUID in the files array of a chat-messages request. Attackers can exploit insufficient permission verification in the chat-messages endpoints to access files without ownership validation, bypassing workspace separation and signed URL protections to retrieve sensitive file contents through workflow processing.",
-      "published": "2026-05-05T21:16:23.233",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41950"
+      "id": "CVE-2025-71254",
+      "summary": "In Modem IMS, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
+      "published": "2026-05-06T02:16:04.983",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71254"
     },
     {
-      "id": "CVE-2026-40068",
-      "summary": "In versions 2.1.63 through 2.1.83 of Claude Code, the folder trust determination logic used the git worktree commondir file without validating its contents. An attacker could craft a malicious repository with a commondir file pointing to a path the victim had previously trusted, causing Claude Code to bypass its trust confirmation dialog and immediately execute hooks defined in `.claude/settings.json`. Exploitation requires the victim to clone the malicious repository and run Claude Code within it, and the attacker must know or guess a path the victim had already trusted. This issue has been fixed in version 2.1.84.",
-      "published": "2026-05-05T21:16:23.093",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40068"
+      "id": "CVE-2025-71253",
+      "summary": "In Modem IMS, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
+      "published": "2026-05-06T02:16:04.857",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71253"
     }
   ]
 }
