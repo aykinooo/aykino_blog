@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-06T18:57:09+00:00",
+  "generated_at": "2026-05-06T20:44:50+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-33079",
-      "summary": "In versions 3.0.0a1 through 3.2.0 of Mistune, there is a ReDoS (Regular Expression Denial of Service) vulnerability in `LINK_TITLE_RE` that allows an attacker who can supply Markdown for parsing to cause denial of service. The regular expression used for parsing link titles contains overlapping alternatives that can trigger catastrophic backtracking. In both the double-quoted and single-quoted branches, a backslash followed by punctuation can be matched either as an escaped punctuation sequence or as two ordinary characters, creating an ambiguous pattern inside a repeated group. If an attacker supplies Markdown containing repeated ! sequences with no closing quote, the regex engine explores an exponential number of backtracking paths. This is reachable through normal Markdown parsing of inline links and block link reference definitions. A small crafted input can therefore cause significant CPU consumption and make applications using Mistune unresponsive.",
-      "published": "2026-05-06T18:16:03.097",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33079"
+      "id": "CVE-2026-8033",
+      "summary": "A vulnerability has been found in PicoTronica e-Clinic Healthcare System ECHS 5.7. This affects an unknown function of the file /cdemos/echs/api/v2/ of the component Response Header Handler. Such manipulation leads to information disclosure. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. Upgrading to version 5.7.1 mitigates this issue. It is suggested to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-05-06T20:16:36.360",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8033"
     },
     {
-      "id": "CVE-2026-29090",
-      "summary": "### Summary\n\nA SQL injection vulnerability exists in Rucio versions 1.30.0 and later before 35.8.5, 38.5.5, 39.4.2, and 40.1.1, in `FilterEngine.create_postgres_query()`. This allows any authenticated Rucio user to execute arbitrary SQL against the PostgreSQL metadata database through the DID search endpoint (`GET /dids/<scope>/dids/search`). When the `postgres_meta` metadata plugin is configured, attacker-controlled filter keys and values are interpolated directly into raw SQL strings via Python `.format()`, then passed to `psycopg3`'s `sql.SQL()` which treats the string as trusted SQL syntax. \n\nDepending on the database privileges assigned to the service account, exploitation can expose sensitive tables, modify or delete metadata, access server-side files, or achieve code execution through PostgreSQL features such as COPY ... FROM PROGRAM. This issue affects deployments that explicitly use the postgres_meta metadata plugin. This vulnerability has been fixed in versions 35.8.5, 38.5.5, 39.4.2, and 40.1.1.",
-      "published": "2026-05-06T18:16:02.953",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29090"
+      "id": "CVE-2026-8032",
+      "summary": "A flaw has been found in PicoTronica e-Clinic Healthcare System ECHS 5.7. The impacted element is an unknown function of the file /cdemos/echs/priv/echs.js. This manipulation of the argument ADMIN_KEY causes hard-coded credentials. The attack is possible to be carried out remotely. The exploit has been published and may be used. Upgrading to version 5.7.1 is sufficient to resolve this issue. The affected component should be upgraded. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-05-06T20:16:36.197",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8032"
     },
     {
-      "id": "CVE-2026-7875",
-      "summary": "NanoClaw contains a host/container filesystem boundary vulnerability in outbound attachment handling and outbox cleanup that allows a compromised or prompt-injected container to read files outside the intended outbox directory by supplying crafted messages_out.id and content.files values or creating symlinked outbox files. Attackers can exploit this vulnerability to trigger host-side reads of arbitrary files and in some cases achieve recursive deletion of paths outside the intended cleanup target.",
-      "published": "2026-05-06T17:16:24.250",
+      "id": "CVE-2026-44118",
+      "summary": "OpenClaw before 2026.4.22 derives loopback MCP owner context from spoofable server-issued bearer tokens in request headers. Non-owner loopback clients can present themselves as owner to bypass owner-gated operations by manipulating the sender-owner header metadata.",
+      "published": "2026-05-06T20:16:35.900",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44118"
+    },
+    {
+      "id": "CVE-2026-44117",
+      "summary": "OpenClaw before 2026.4.20 contains a server-side request forgery vulnerability in QQBot direct media upload that skips URL validation. Attackers can bypass SSRF protections by sending crafted image URLs to uploadC2CMedia and uploadGroupMedia endpoints to relay unintended requests.",
+      "published": "2026-05-06T20:16:35.770",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44117"
+    },
+    {
+      "id": "CVE-2026-44116",
+      "summary": "OpenClaw before 2026.4.22 contains a server-side request forgery vulnerability in the Zalo plugin's sendPhoto function that fails to validate outbound photo URLs through the SSRF guard. Attackers can bypass SSRF protection by providing malicious photo URLs to the Zalo Bot API, enabling unauthorized access to internal resources.",
+      "published": "2026-05-06T20:16:35.637",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44116"
+    },
+    {
+      "id": "CVE-2026-44115",
+      "summary": "OpenClaw before 2026.4.22 contains an exec allowlist analysis vulnerability allowing shell expansion hiding in unquoted heredoc bodies. Attackers can bypass allowlist validation by embedding shell expansion tokens in heredoc bodies to execute unapproved commands at runtime.",
+      "published": "2026-05-06T20:16:35.497",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7875"
-    },
-    {
-      "id": "CVE-2026-42503",
-      "summary": "gopls by default communicates via pipe. However, -port and -listen flags are supported as means of debugging.\nIf -listen is given a value without an explicit host (e.g. :8080), or -port is used, gopls will listen on 0.0.0.0.\u00a0\nAs a result, users might\u00a0inadvertently cause gopls to bind 0.0.0.0.\nThis can allow a\u00a0malicious party on the same network to execute code arbitrarily via gopls.",
-      "published": "2026-05-06T17:16:23.417",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42503"
-    },
-    {
-      "id": "CVE-2026-29080",
-      "summary": "A SQL injection vulnerability in `FilterEngine.create_sqla_query()` allows any authenticated Rucio user to execute arbitrary SQL against the backend database through the DID search endpoint (`GET /dids/<scope>/dids/search`). On Oracle deployments attacker-controlled filter keys and values are interpolated directly into `sqlalchemy.text()` via Python `.format()`, completely bypassing parameterization. This enables full database compromise including extraction of authentication tokens, password hashes, and all managed data identifiers. This affects versions 1.27.0 and later before 35.8.5, 38.5.5, 39.4.2, and 40.1.1.\n\nThe vulnerability exists in `lib/rucio/core/did_meta_plugins/filter_engine.py` within the `create_sqla_query()` method. When the database dialect is Oracle, filter expressions for JSON metadata columns are constructed using `text()` with Python string formatting. Both `key` and `value` are attacker-controlled strings derived from HTTP query parameters. The `text()` function creates a raw SQL fragment \u2014 it does **not** escape or parameterize its contents.\n\nAny authenticated Rucio user can exploit this through the DID search API to execute arbitrary SQL against the backend database. This can expose all managed data identifiers and sensitive tables such as identities, tokens, accounts, rse_settings, and rules, and may allow modification of database contents. The issue affects Oracle deployments using the default json_meta plugin and does not affect PostgreSQL or MySQL deployments using that plugin. \n\nThis vulnerability has been fixed in versions 35.8.5, 38.5.5, 39.4.2, and 40.1.1.",
-      "published": "2026-05-06T17:16:22.457",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29080"
-    },
-    {
-      "id": "CVE-2026-23870",
-      "summary": "A denial of service vulnerability could be triggered by sending specially crafted HTTP requests to server function endpoints, this could lead to server crashes, out-of-memory exceptions or excessive CPU usage; affecting the following packages: react-server-dom-webpack, react-server-dom-parcel, react-server-dom-turbopack (versions 19.0.0 through 19.0.5, 19.1.0 through 19.1.6, and 19.2.0 through 19.2.5).",
-      "published": "2026-05-06T17:16:22.043",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23870"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44115"
     }
   ]
 }
