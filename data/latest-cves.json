@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-06T16:52:57+00:00",
+  "generated_at": "2026-05-06T18:57:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6863",
-      "summary": "Velociraptor versions prior to 0.76.4 contain a cross organization authorization bypass in the HTTP API. A user with only the reader role in the root organization (the lowest authenticated role, holding only READ_RESULTS permission ) can issue a single authenticated HTTP GET that can read any files from other orgs - even if they have no explicit permissions in the target org.\n\n\n\nHowever, the problem does not occur in reverse - a user with read access to a sub org is unable to read from other org or the root org.",
-      "published": "2026-05-06T16:16:12.030",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6863"
-    },
-    {
-      "id": "CVE-2026-6788",
-      "summary": "Uncontrolled Search Path Element vulnerability\u00a0in WatchGuard Agent on Windows allows Using Malicious Files.This issue affects WatchGuard Agent\u00a0before 1.25.03.0000.",
-      "published": "2026-05-06T16:16:11.780",
+      "id": "CVE-2026-33079",
+      "summary": "In versions 3.0.0a1 through 3.2.0 of Mistune, there is a ReDoS (Regular Expression Denial of Service) vulnerability in `LINK_TITLE_RE` that allows an attacker who can supply Markdown for parsing to cause denial of service. The regular expression used for parsing link titles contains overlapping alternatives that can trigger catastrophic backtracking. In both the double-quoted and single-quoted branches, a backslash followed by punctuation can be matched either as an escaped punctuation sequence or as two ordinary characters, creating an ambiguous pattern inside a repeated group. If an attacker supplies Markdown containing repeated ! sequences with no closing quote, the regex engine explores an exponential number of backtracking paths. This is reachable through normal Markdown parsing of inline links and block link reference definitions. A small crafted input can therefore cause significant CPU consumption and make applications using Mistune unresponsive.",
+      "published": "2026-05-06T18:16:03.097",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6788"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33079"
     },
     {
-      "id": "CVE-2026-6787",
-      "summary": "Use of Hard-coded Cryptographic Key vulnerability in WatchGuard Agent on Windows allows Inclusion of Code in Existing Process.This issue affects\u00a0WatchGuard Agent: before 1.25.03.0000.",
-      "published": "2026-05-06T16:16:11.643",
+      "id": "CVE-2026-29090",
+      "summary": "### Summary\n\nA SQL injection vulnerability exists in Rucio versions 1.30.0 and later before 35.8.5, 38.5.5, 39.4.2, and 40.1.1, in `FilterEngine.create_postgres_query()`. This allows any authenticated Rucio user to execute arbitrary SQL against the PostgreSQL metadata database through the DID search endpoint (`GET /dids/<scope>/dids/search`). When the `postgres_meta` metadata plugin is configured, attacker-controlled filter keys and values are interpolated directly into raw SQL strings via Python `.format()`, then passed to `psycopg3`'s `sql.SQL()` which treats the string as trusted SQL syntax. \n\nDepending on the database privileges assigned to the service account, exploitation can expose sensitive tables, modify or delete metadata, access server-side files, or achieve code execution through PostgreSQL features such as COPY ... FROM PROGRAM. This issue affects deployments that explicitly use the postgres_meta metadata plugin. This vulnerability has been fixed in versions 35.8.5, 38.5.5, 39.4.2, and 40.1.1.",
+      "published": "2026-05-06T18:16:02.953",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6787"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29090"
     },
     {
-      "id": "CVE-2026-6691",
-      "summary": "The MongoDB C Driver's Cyrus SASL integration performs unsafe string copying during username canonicalization, enabling a heap buffer overflow before any authentication or network traffic. This may be triggered by passing untrusted input in the username of a MongoDB URI with authMechanism=GSSAPI.",
-      "published": "2026-05-06T16:16:11.483",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6691"
+      "id": "CVE-2026-7875",
+      "summary": "NanoClaw contains a host/container filesystem boundary vulnerability in outbound attachment handling and outbox cleanup that allows a compromised or prompt-injected container to read files outside the intended outbox directory by supplying crafted messages_out.id and content.files values or creating symlinked outbox files. Attackers can exploit this vulnerability to trigger host-side reads of arbitrary files and in some cases achieve recursive deletion of paths outside the intended cleanup target.",
+      "published": "2026-05-06T17:16:24.250",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7875"
     },
     {
-      "id": "CVE-2026-41288",
-      "summary": "Incorrect permission assignment for a resource in the patch management component of the WatchGuard Agent on Windows allows an authenticated local user to elevate their privileges to NT AUTHORITY\\\\SYSTEM.",
-      "published": "2026-05-06T16:16:10.147",
+      "id": "CVE-2026-42503",
+      "summary": "gopls by default communicates via pipe. However, -port and -listen flags are supported as means of debugging.\nIf -listen is given a value without an explicit host (e.g. :8080), or -port is used, gopls will listen on 0.0.0.0.\u00a0\nAs a result, users might\u00a0inadvertently cause gopls to bind 0.0.0.0.\nThis can allow a\u00a0malicious party on the same network to execute code arbitrarily via gopls.",
+      "published": "2026-05-06T17:16:23.417",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42503"
+    },
+    {
+      "id": "CVE-2026-29080",
+      "summary": "A SQL injection vulnerability in `FilterEngine.create_sqla_query()` allows any authenticated Rucio user to execute arbitrary SQL against the backend database through the DID search endpoint (`GET /dids/<scope>/dids/search`). On Oracle deployments attacker-controlled filter keys and values are interpolated directly into `sqlalchemy.text()` via Python `.format()`, completely bypassing parameterization. This enables full database compromise including extraction of authentication tokens, password hashes, and all managed data identifiers. This affects versions 1.27.0 and later before 35.8.5, 38.5.5, 39.4.2, and 40.1.1.\n\nThe vulnerability exists in `lib/rucio/core/did_meta_plugins/filter_engine.py` within the `create_sqla_query()` method. When the database dialect is Oracle, filter expressions for JSON metadata columns are constructed using `text()` with Python string formatting. Both `key` and `value` are attacker-controlled strings derived from HTTP query parameters. The `text()` function creates a raw SQL fragment \u2014 it does **not** escape or parameterize its contents.\n\nAny authenticated Rucio user can exploit this through the DID search API to execute arbitrary SQL against the backend database. This can expose all managed data identifiers and sensitive tables such as identities, tokens, accounts, rse_settings, and rules, and may allow modification of database contents. The issue affects Oracle deployments using the default json_meta plugin and does not affect PostgreSQL or MySQL deployments using that plugin. \n\nThis vulnerability has been fixed in versions 35.8.5, 38.5.5, 39.4.2, and 40.1.1.",
+      "published": "2026-05-06T17:16:22.457",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41288"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29080"
     },
     {
-      "id": "CVE-2026-41286",
-      "summary": "Stack-based Buffer Overflow vulnerability in the WatchGuard Agent discovery service on Windows allows Overflow Buffers. An unauthenticated attacker on the same local network could exploit this vulnerability to crash the agent service.",
-      "published": "2026-05-06T16:16:09.950",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41286"
+      "id": "CVE-2026-23870",
+      "summary": "A denial of service vulnerability could be triggered by sending specially crafted HTTP requests to server function endpoints, this could lead to server crashes, out-of-memory exceptions or excessive CPU usage; affecting the following packages: react-server-dom-webpack, react-server-dom-parcel, react-server-dom-turbopack (versions 19.0.0 through 19.0.5, 19.1.0 through 19.1.6, and 19.2.0 through 19.2.5).",
+      "published": "2026-05-06T17:16:22.043",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23870"
     }
   ]
 }
