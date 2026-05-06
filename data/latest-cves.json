@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-05-06T04:02:26+00:00",
+  "generated_at": "2026-05-06T06:43:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-2306",
+      "summary": "The Ninja Tables \u2013 Easy Data Table Builder plugin for WordPress is vulnerable to unauthorized database table creation due to missing authorization checks on the `createFluentCartTable` function in all versions up to, and including, 5.2.6. This makes it possible for authenticated attackers, with Subscriber-level access and above, to create arbitrary Ninja Tables in the database which can lead to database pollution and resource exhaustion.",
+      "published": "2026-05-06T06:16:03.660",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2306"
+    },
+    {
+      "id": "CVE-2026-5753",
+      "summary": "The All-in-One WP Migration Unlimited Extension plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 2.83. This is due to the 'Ai1wmve_Schedules_Controller::save' handler for 'admin_post_ai1wm_schedule_event_save' not verifying user capabilities before saving schedule data. This makes it possible for authenticated attackers, with subscriber-level access and above, to create scheduled export jobs and send backup notifications to attacker-controlled email addresses. Because such notifications include the random backup filename, full site backups can subsequently be downloaded from the target site, resulting in sensitive information exposure.",
+      "published": "2026-05-06T04:16:09.097",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5753"
+    },
+    {
+      "id": "CVE-2026-3208",
+      "summary": "The Mercado Pago payments for WooCommerce plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the 'mp_pix_image' WooCommerce API endpoint in all versions up to, and including, 8.7.11. This makes it possible for unauthenticated attackers to retrieve PIX payment QR code images for arbitrary orders. PIX QR codes contain sensitive merchant information including PIX keys (which may be CPF/CNPJ personal identifiers), transaction amounts, merchant name and city, and MercadoPago transaction references.",
+      "published": "2026-05-06T04:16:06.223",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3208"
+    },
     {
       "id": "CVE-2026-7573",
       "summary": "An authorization bypass (CWE-639) in the GetUserRoles gRPC API endpoint in Velocidex Velociraptor below version 0.76.5 allows any authenticated low-privilege user to retrieve the complete ACL policy (roles and permissions) for any user across all organizations by supplying targeted Name and Org parameters via a network request.",
@@ -22,27 +43,6 @@
       "published": "2026-05-06T02:16:05.213",
       "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71256"
-    },
-    {
-      "id": "CVE-2025-71255",
-      "summary": "In Modem IMS, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
-      "published": "2026-05-06T02:16:05.093",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71255"
-    },
-    {
-      "id": "CVE-2025-71254",
-      "summary": "In Modem IMS, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
-      "published": "2026-05-06T02:16:04.983",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71254"
-    },
-    {
-      "id": "CVE-2025-71253",
-      "summary": "In Modem IMS, there is a possible improper input validation. This could lead to remote denial of service with no additional execution privileges needed.",
-      "published": "2026-05-06T02:16:04.857",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71253"
     }
   ]
 }
