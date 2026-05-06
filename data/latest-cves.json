@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-06T09:35:39+00:00",
+  "generated_at": "2026-05-06T14:44:20+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7841",
-      "summary": "A remote code execution vulnerability\nexists in Notification Settings on GeoVision GV-ASWeb 6.2.0. An authenticated\nuser with System Setting permissions can execute arbitrary commands on the\nserver by sending a crafted HTTP POST request to the ASWebCommon.srf backend\nendpoint to bypass the frontend restrictions.",
-      "published": "2026-05-06T08:16:04.490",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7841"
+      "id": "CVE-2026-36358",
+      "summary": "Cross Site Scripting vulnerability in Juzaweb CMS v.5.0.0 allows a remote attacker via execute arbitrary code via a crafted script to the Add Banner Ads function",
+      "published": "2026-05-06T14:16:19.583",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36358"
     },
     {
-      "id": "CVE-2026-7457",
-      "summary": "The LatePoint plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to and including 5.5.0. This is due to insufficient input sanitization on the customer cabinet profile update endpoint \u2014 where raw POST parameters (first_name, last_name, phone, notes) bypass sanitization because OsCustomerModel does not override params_to_sanitize(), causing set_data() to store unsanitized values verbatim in the database \u2014 combined with insufficient output escaping in generate_preview(), which injects those stored values into notification template HTML via str_replace() without any esc_html() call before echoing the result. This makes it possible for authenticated attackers with customer-level access or above to inject arbitrary web scripts into the admin notification preview panel that execute in an administrator's or agent's browser whenever a notification template referencing customer variables such as {{customer_full_name}}, {{customer_first_name}}, {{customer_last_name}}, {{customer_phone}}, or {{customer_notes}} is previewed.",
-      "published": "2026-05-06T08:16:04.360",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7457"
+      "id": "CVE-2026-8026",
+      "summary": "A security flaw has been discovered in FlowiseAI Flowise up to 3.0.12. Affected is the function Login of the file packages/server/src/enterprise/services/account.service.ts of the component API Response Handler. The manipulation results in information disclosure. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is told to be difficult. You should upgrade the affected component.",
+      "published": "2026-05-06T13:16:10.577",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8026"
     },
     {
-      "id": "CVE-2026-7448",
-      "summary": "The LatePoint \u2013 Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'first_name' parameter in all versions up to, and including, 5.5.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-06T08:16:04.230",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7448"
+      "id": "CVE-2026-5081",
+      "summary": "Apache::Session::Generate::ModUniqueId versions from 1.54 through 1.94 for Perl session ids are insecure.\n\nApache::Session::Generate::ModUniqueId (added in version 1.54) uses the value of the UNIQUE_ID environment variable for the session id. The UNIQUE_ID variable is set by the Apache mod_unique_id plugin, which generates unique ids for the request. The id is based on the IPv4 address, the process id, the epoch time, a 16-bit counter and a thread index, with no obfuscation.\n\nThe server IP is often available to the public, and if not available, can be guessed from previous session ids being issued. The process ids may also be guessed from previous session ids. The timestamp is easily guessed (and leaked in the HTTP Date response header).\n\nThe purpose of mod_unique_id is to assign a unique id to requests so that events can be correlated in different logs. The id is not designed, nor is it suitable for security purposes.",
+      "published": "2026-05-06T13:16:09.833",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5081"
     },
     {
-      "id": "CVE-2026-7332",
-      "summary": "The LatePoint \u2013 Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'booking_form_page_url' parameter in all versions up to, and including, 5.5.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The malicious activity log entry is written to the database even when Stripe is not configured, because the latepoint_order_intent_created action hook fires before the Stripe Connect account ID is validated, meaning a fully functional Stripe integration is not required for exploitation.",
-      "published": "2026-05-06T08:16:04.090",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7332"
+      "id": "CVE-2026-40562",
+      "summary": "Gazelle versions through 0.49 for Perl allows HTTP Request Smuggling via Improper Header Precedence.\n\nGazelle incorrectly prioritizes \"Content-Length\" over \"Transfer-Encoding: chunked\" when both headers are present in an HTTP request. Per RFC 7230 3.3.3, Transfer-Encoding must take precedence.\n\nAn attacker could exploit this to smuggle malicious HTTP requests via a front-end reverse proxy.",
+      "published": "2026-05-06T13:16:09.110",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40562"
     },
     {
-      "id": "CVE-2026-6672",
-      "summary": "The Affiliate Program Suite \u2014 SliceWP Affiliates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via shortcode attributes in all versions up to, and including, 1.2.7. This is due to insufficient input sanitization and output escaping on user-supplied attributes in the 'slicewp_affiliate_url' shortcode. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-06T08:16:03.957",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6672"
+      "id": "CVE-2026-6210",
+      "summary": "A type confusion vulnerability in Qt SVG allows an attacker to cause an application crash via a crafted SVG image.\n\n\n\nWhen processing SVG marker references, the renderer retrieves a node by its id attribute and casts it to QSvgMarker* without verifying the node type. A non-marker element (such as a <line> element) that references itself as a marker triggers an out-of-bounds heap read due to the object size difference between QSvgLine and QSvgMarker,\n followed by an endless recursion that bypasses the marker recursion \nguard through incorrect virtual dispatch. The result is an application \ncrash (denial of service).\n\n\n\nThis issue affects Qt SVG:\u00a0\nfrom 6.7.0 before 6.8.8, from 6.9.0 before 6.11.1.",
+      "published": "2026-05-06T12:16:49.957",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6210"
     },
     {
-      "id": "CVE-2026-6344",
-      "summary": "The Fluent Forms plugin for WordPress is vulnerable to Arbitrary File Read in versions up to and including 6.2.1. This is due to insufficient path validation in the getAttachments() method of EmailNotificationActions, which resolves attacker-supplied file-upload URLs into filesystem paths without verifying that the resolved path stays inside the WordPress uploads directory: a strpos() prefix check on the raw URL can be bypassed with traversal sequences, wp_normalize_path() does not resolve \".\\..\\\" segments, and file_exists() then resolves them at the kernel level. This makes it possible for authenticated attackers with administrator access to read arbitrary files readable by the web-server user \u2014 including wp-config.php with its database credentials and authentication salts \u2014 by submitting a form whose admin notification is configured to attach a file-upload field and supplying a crafted URL of the shape <upload_baseurl>/../../<target> as the file-field value. The resolved file is attached to the outbound admin-notification email via wp_mail(). While the email can be triggered by unauthenticated users, the email recipient is not user-controlled.",
-      "published": "2026-05-06T08:16:03.813",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6344"
+      "id": "CVE-2026-43283",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ethernet: ec_bhf: Fix dma_free_coherent() dma handle\n\ndma_free_coherent() in error path takes priv->rx_buf.alloc_len as\nthe dma handle. This would lead to improper unmapping of the buffer.\n\nChange the dma handle to priv->rx_buf.alloc_phys.",
+      "published": "2026-05-06T12:16:49.817",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43283"
     }
   ]
 }
