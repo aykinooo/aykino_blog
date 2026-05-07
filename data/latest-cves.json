@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-07T00:02:36+00:00",
+  "generated_at": "2026-05-07T04:02:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-41484",
-      "summary": "OpenTelemetry.Exporter.OneCollector is a .NET exporter that sends telemetry to a OneCollector back-end over HTTP. In versions 1.15.0 and earlier, when a request to the configured back-end or collector results in an unsuccessful HTTP 4xx or 5xx response, the HttpJsonPostTransport class reads the entire response body into memory with no upper bound on the number of bytes consumed in order to include the error response in operator logs.\n\nAn attacker who controls the configured endpoint, or who can intercept traffic to it via a man-in-the-middle attack, can return an arbitrarily large response body. This causes unbounded heap allocation in the consuming process, leading to high transient memory pressure, garbage-collection stalls, or an OutOfMemoryException that terminates the process. As a workaround, use network-level controls such as firewall rules, mTLS, or a service mesh to prevent man-in-the-middle attacks on the configured back-end or collector endpoint. This issue is fixed in version 1.15.1, which limits the number of bytes read from the response body in an error condition to 4 MiB.",
-      "published": "2026-05-06T22:16:26.050",
+      "id": "CVE-2026-4807",
+      "summary": "The Appointment Booking Calendar plugin for WordPress is vulnerable to Missing Authorization in versions up to and including 1.6.10.6. This is due to a flawed authorization logic in the nonce_permissions_check() method combined with the public exposure of a site-wide reusable nonce. The plugin exposes a public_nonce value through the /wp-json/ssa/v1/embed-inner endpoint, which is accessible to unauthenticated users. The appointment deletion endpoint at /wp-json/ssa/v1/appointments/{id}/delete and /wp-json/ssa/v1/appointments/bulk use a permission check that accepts requests containing both an X-WP-Nonce header (with any arbitrary value) and an X-PUBLIC-Nonce header (with the valid public nonce). When the X-WP-Nonce validation fails, the function falls back to validating the X-PUBLIC-Nonce without properly rejecting the request. Since the public_nonce is exposed to all unauthenticated visitors and is site-wide (not user-specific or appointment-specific), attackers can obtain it and use it to view details of arbitrary appointments, including the public_edit_url, or delete arbitrary appointments by ID. This makes it possible for unauthenticated attackers to view, delete or modify any appointment in the system, disclosing sensitive appointment data, causing service disruption, and loss of booking records.",
+      "published": "2026-05-07T03:16:08.673",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4807"
+    },
+    {
+      "id": "CVE-2026-44600",
+      "summary": "Tor before 0.4.9.7 mishandles accounting of the conflux out-of-order queue during the clearing of a queue.",
+      "published": "2026-05-07T03:16:08.523",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44600"
+    },
+    {
+      "id": "CVE-2026-44599",
+      "summary": "Tor before 0.4.9.7 can attempt or accept BEGIN_DIR via conflux legs, aka TROVE-2026-008.",
+      "published": "2026-05-07T03:16:07.327",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44599"
+    },
+    {
+      "id": "CVE-2026-6222",
+      "summary": "The Forminator Forms plugin for WordPress is vulnerable to Missing Authorization in versions up to and including 1.51.1. This is due to the `processRequest()` method in `Forminator_Admin_Module_Edit_Page` (admin/abstracts/class-admin-module-edit-page.php) dispatching sensitive module-management actions \u2014 including export, delete, clone, delete-entries, publish/draft, and bulk variants \u2014 after only a nonce check, without ever verifying that the current user holds the `manage_forminator_modules` capability. The nonce used (`forminator_form_request`) is unconditionally embedded in the global `forminatorData` JavaScript object and localized on every Forminator admin page, including Templates and Reports pages accessible to users who explicitly lack module-management permissions. Because `processRequest()` is invoked during the `admin_menu` action hook \u2014 which fires before WordPress enforces page-level capability checks \u2014 a user whose Forminator role is restricted to Templates or Reports can craft a valid POST request targeting any published module and successfully trigger the vulnerable actions. This makes it possible for authenticated attackers with subscriber-level access (or any custom low-privilege Forminator role) to export the complete internal configuration of arbitrary forms/polls/quizzes (including notification routing, integration credentials, and conditional logic), delete modules, delete all submissions/votes, clone modules, or bulk-change publish/draft status.",
+      "published": "2026-05-07T02:16:37.920",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41484"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6222"
     },
     {
-      "id": "CVE-2026-41483",
-      "summary": "OpenTelemetry.Resources.Azure is the .NET resource detector for Azure environments. In versions 1.15.0-beta.1 and earlier, the AzureVmMetaDataRequestor class makes HTTP requests to the Azure VM instance metadata service and reads the response body into memory without any size limit. An attacker who controls the configured endpoint, or who can intercept traffic to it via a man-in-the-middle attack, can return an arbitrarily large response body. This causes unbounded heap allocation in the consuming process, leading to high transient memory pressure, garbage-collection stalls, or an OutOfMemoryException that terminates the process. As a workaround, disable the Azure VM resource detector or use network-level controls such as firewall rules, mTLS, or a service mesh to prevent man-in-the-middle attacks on the Azure VM instance metadata endpoint. This issue is fixed in version 1.15.1-beta.1, which streams responses rather than buffering them entirely in memory and ignores responses larger than 4 MiB.",
-      "published": "2026-05-06T22:16:25.920",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41483"
+      "id": "CVE-2026-40003",
+      "summary": "ZTE ZX297520V3 BootROM contains a vulnerability that allows arbitrary memory writes via USB. Attackers can exploit the lack of target address validation in the USB download mode to write data to any location in BootROM runtime memory, thereby overwriting the stack, hijacking the execution flow, bypassing the Secure Boot signature verification mechanism, and achieving unauthorized code execution.",
+      "published": "2026-05-07T02:16:03.453",
+      "cvss": 5.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40003"
     },
     {
-      "id": "CVE-2026-41417",
-      "summary": "Netty allows request-line validation to be bypassed when a `DefaultHttpRequest` or `DefaultFullHttpRequest` is created first and its URI is later changed via `setUri()`. The constructors reject CRLF and whitespace characters that would break the start-line, but `setUri()` does not apply the same validation. `HttpRequestEncoder` and `RtspEncoder` then write the URI into the request line verbatim. If attacker-controlled input reaches `setUri()`, this enables CRLF injection and insertion of additional HTTP or RTSP requests, leading to HTTP request smuggling or desynchronization on the HTTP side and request injection on the RTSP side. This issue is fixed in versions 4.2.13.Final and 4.1.133.Final.",
-      "published": "2026-05-06T22:16:25.780",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41417"
-    },
-    {
-      "id": "CVE-2026-41310",
-      "summary": "OpenTelemetry.Exporter.Zipkin is the .NET Zipkin exporter for OpenTelemetry. In versions 1.15.2 and earlier, the Zipkin exporter remote endpoint cache accepts unbounded key growth derived from span attributes. In high-cardinality scenarios, a process using Zipkin export for client or producer spans could experience avoidable memory growth under sustained unique remote endpoint values, increasing process memory usage over time and degrading availability. This issue is fixed in version 1.15.3, which introduces a bounded, thread-safe LRU cache for remote endpoints with a fixed maximum size.",
-      "published": "2026-05-06T22:16:25.643",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41310"
-    },
-    {
-      "id": "CVE-2026-40296",
-      "summary": "PhpSpreadsheet is a pure PHP library for reading and writing spreadsheet files. The HTML writer skips htmlspecialchars escaping when a cell's formatted value differs from the original value. When a cell has a custom number format containing the text placeholder @ along with any additional literal characters (for example \". @\", \"@ \", or \"x@\"), the formatter replaces @ with the cell value and adds the extra characters, causing the formatted value to differ from the original and bypassing HTML escaping entirely. An attacker who can control the cell value and number format of an uploaded spreadsheet that is later converted to HTML and displayed to other users can achieve stored cross-site scripting. This issue is fixed in versions 5.7.0, 3.10.5, 2.4.5, 2.1.16, and 1.30.4.",
-      "published": "2026-05-06T22:16:25.510",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40296"
-    },
-    {
-      "id": "CVE-2026-3291",
-      "summary": "Samsung Print Service Plugin for Android is potentially vulnerable to information disclosure when using an outdated version of the application via mobile devices. HP is releasing updates to mitigate these potential vulnerabilities.",
-      "published": "2026-05-06T22:16:25.367",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3291"
+      "id": "CVE-2026-44597",
+      "summary": "Tor before 0.4.9.7 has an out-of-bounds read when an END, a TRUNCATE, or a TRUNCATED cell lacks a reason in its payload, aka TROVE-2026-011.",
+      "published": "2026-05-07T01:16:01.163",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44597"
     }
   ]
 }
