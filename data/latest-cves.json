@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-07T06:51:14+00:00",
+  "generated_at": "2026-05-07T09:44:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8063",
-      "summary": "An authenticated user can crash mongod when running $rankFusion or $scoreFusion with an empty pipeline on a view.\n\nWhen resolving a view, the server inspects the aggregation pipeline to determine whether it begins with an Atlas Search stage. For $rankFusion and $scoreFusion, this inspection reads the first element on each stage\u2019s input pipeline array without first verifying that the array is non-empty. Supplying an empty pipeline causes a null pointer dereference and crashes the server.\n\nThis issue affects MongoDB Server 8.2 versions\u00a0prior to 8.2.7.",
-      "published": "2026-05-07T06:16:05.723",
+      "id": "CVE-2026-44407",
+      "summary": "A remote denial-of-service vulnerability exists in the ZTE Cloud PC client uSmartview, which may lead to memory corruption and remote denial of service.",
+      "published": "2026-05-07T09:16:27.617",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44407"
+    },
+    {
+      "id": "CVE-2026-27421",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WProyal Royal Elementor Addons allows Stored XSS.\n\nThis issue affects Royal Elementor Addons: from n/a before 1.7.1053.",
+      "published": "2026-05-07T09:16:27.480",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8063"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27421"
     },
     {
-      "id": "CVE-2026-7252",
-      "summary": "The WP-Optimize \u2013 Cache, Compress images, Minify & Clean database to boost page speed & performance plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the unscheduled_original_file_deletion function in all versions up to, and including, 4.5.2 This makes it possible for authenticated attackers, with author-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). This is possible because 'original-file' is a public (non-protected) meta key \u2014 it does not begin with an underscore \u2014 allowing Authors to freely create or modify it on their own attachment posts via the standard Edit Media form or the REST API.",
-      "published": "2026-05-07T06:16:05.567",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7252"
+      "id": "CVE-2026-27416",
+      "summary": "Missing Authorization vulnerability in bPlugins PDF Poster allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects PDF Poster: from n/a through 2.4.1.",
+      "published": "2026-05-07T09:16:27.347",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27416"
     },
     {
-      "id": "CVE-2026-6692",
-      "summary": "The Slider Revolution plugin for WordPress is vulnerable to Arbitrary File Upload in versions 7.0.0 to 7.0.10 via the '_get_media_url' and '_check_file_path' function. This is due to insufficient file type validation. This makes it possible for authenticated attackers, with subscriber-level access and above, to upload files that may be executable, which makes remote code execution possible. The vulnerability was partially patched in version 7.0.10 and fully patched in version 7.0.11.",
-      "published": "2026-05-07T06:16:05.410",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6692"
+      "id": "CVE-2026-27329",
+      "summary": "Authorization Bypass Through User-Controlled Key vulnerability in YITH YITH WooCommerce Wishlist allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects YITH WooCommerce Wishlist: from n/a through 4.12.0.",
+      "published": "2026-05-07T09:16:27.207",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27329"
     },
     {
-      "id": "CVE-2026-4348",
-      "summary": "The BetterDocs Pro plugin for WordPress is vulnerable to SQL Injection via the `get_current_letter_docs` and `docs_sort_by_letter` AJAX actions in all versions up to, and including, 3.7.0. This is due to the `limit` POST parameter being interpolated directly into a SQL query string before being passed to `$wpdb->prepare()`, which only parameterizes other variables. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The Encyclopedia feature must be enabled in BetterDocs Pro settings for the vulnerability to be exploitable.",
-      "published": "2026-05-07T06:16:05.240",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4348"
+      "id": "CVE-2026-25468",
+      "summary": "Exposure of Sensitive System Information to an Unauthorized Control Sphere vulnerability in weDevs Happy Addons for Elementor allows Retrieve Embedded Sensitive Data.\n\nThis issue affects Happy Addons for Elementor: from n/a through 3.20.8.",
+      "published": "2026-05-07T09:16:27.063",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25468"
     },
     {
-      "id": "CVE-2026-41641",
-      "summary": "NocoBase is an AI-powered no-code/low-code platform for building business applications and enterprise solutions. Prior to version 2.0.39, the checkSQL() validation function that blocks dangerous SQL keywords (e.g., pg_read_file, LOAD_FILE, dblink) is applied on the collections:create and sqlCollection:execute endpoints but is entirely missing on the sqlCollection:update endpoint. An attacker with collection management permissions can create a SQL collection with benign SQL, then update it with arbitrary SQL that bypasses all validation, and query the collection to execute the injected SQL and exfiltrate data. This issue has been patched in version 2.0.39.",
-      "published": "2026-05-07T06:16:05.073",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41641"
-    },
-    {
-      "id": "CVE-2026-41586",
-      "summary": "Hyperledger Fabric is an enterprise-grade permissioned distributed ledger framework for developing solutions and applications. From versions 1.0.0 to 2.2.26, Channel.java implements readObject() and exposes deSerializeChannel() which call ObjectInputStream.readObject() on untrusted byte arrays without configuring an ObjectInputFilter. This is a classic Java deserialization RCE pattern. At time of publication, there are no publicly available patches.",
-      "published": "2026-05-07T06:16:04.910",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41586"
+      "id": "CVE-2026-25436",
+      "summary": "Missing Authorization vulnerability in WProyal Royal Elementor Addons allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects Royal Elementor Addons: from n/a before 1.7.1053.",
+      "published": "2026-05-07T09:16:26.923",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25436"
     }
   ]
 }
