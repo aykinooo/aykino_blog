@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-07T20:37:38+00:00",
+  "generated_at": "2026-05-07T22:14:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8142",
-      "summary": "VINCE versions 3.0.38 and earlier do not properly verify the From address authenticity due to encoding confusion and use the from address for automated actions such as Ticket creation or Ticket updates.",
-      "published": "2026-05-07T20:16:45.670",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8142"
+      "id": "CVE-2026-8098",
+      "summary": "A security vulnerability has been detected in code-projects Feedback System 1.0. Impacted is an unknown function of the file /admin/checklogin.php. Such manipulation of the argument email leads to sql injection. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-05-07T21:16:30.900",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8098"
     },
     {
-      "id": "CVE-2026-8088",
-      "summary": "A weakness has been identified in OSGeo gdal up to 3.13.0dev-4. The affected element is the function GDfieldinfo of the file frmts/hdf4/hdf-eos/GDapi.c. Executing a manipulation can lead to out-of-bounds read. The attack needs to be launched locally. The exploit has been made available to the public and could be used for attacks. Upgrading to version 3.13.0RC1 is sufficient to fix this issue. This patch is called a791f70f8eaec540974ec989ca6fb00266b7646c. The affected component should be upgraded.",
-      "published": "2026-05-07T20:16:45.510",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8088"
+      "id": "CVE-2026-8097",
+      "summary": "A security flaw has been discovered in CodeAstro Online Classroom 1.0. This vulnerability affects unknown code of the file /askquery.php. The manipulation of the argument squeryx results in sql injection. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks.",
+      "published": "2026-05-07T21:16:30.727",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8097"
     },
     {
-      "id": "CVE-2026-8087",
-      "summary": "A security flaw has been discovered in OSGeo gdal up to 3.13.0dev-4. Impacted is the function GDnentries of the file frmts/hdf4/hdf-eos/GDapi.c. Performing a manipulation of the argument DataFieldName results in heap-based buffer overflow. The attack must be initiated from a local position. The exploit has been released to the public and may be used for attacks. Upgrading to version 3.13.0RC1 is recommended to address this issue. The patch is named 184f77dbcc74118c062c05e464c88161d3c37b9b. You should upgrade the affected component.",
-      "published": "2026-05-07T20:16:45.343",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8087"
+      "id": "CVE-2026-42449",
+      "summary": "n8n-MCP is an MCP server that provides AI assistants access to n8n node documentation, properties, and operations. In versions 2.47.4 through 2.47.13, the SDK embedder path (N8NDocumentationMCPServer constructor, getN8nApiClient(), and validateInstanceContext()), the synchronous URL validator in SSRFProtection.validateUrlSync() had no IPv6 checks. IPv4-mapped IPv6 addresses such as http://[::ffff:169.254.169.254] bypassed the cloud-metadata, localhost, and private-IP range checks. An attacker able to supply an n8nApiUrl value could cause the server to issue HTTP requests to cloud metadata endpoints, RFC1918 private networks, or localhost services. Response bodies are returned to the caller (non-blind SSRF), and the n8nApiKey is forwarded in the x-n8n-api-key header to the attacker-controlled target. Projects with deployments embedding n8n-mcp as an SDK using N8NDocumentationMCPServer or N8NMCPEngine with user-supplied InstanceContext are affected. The first-party HTTP server deployment was not primarily affected \u2014 it has a second async validator (validateWebhookUrl) that catches IPv6 addresses. This issue has been fixed in version 2.47.14. If users are unable to upgrade immediately as a workaround they can validate URLs before passing to the SDK, restrict egress at the network layer, and reject user-controlled n8nApiUrl values.",
+      "published": "2026-05-07T21:16:30.133",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42449"
     },
     {
-      "id": "CVE-2026-43510",
-      "summary": "manage.get.gov is the .gov TLD registrar maintained by CISA. manage.get.gov allows an organization administrator to assign domain manager privileges for domains not already in another organization. Fixed in 1.176.0 on or around 2026-04-30.",
-      "published": "2026-05-07T20:16:44.753",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43510"
+      "id": "CVE-2026-42047",
+      "summary": "Inngest is a platform for running event-driven and scheduled background functions with queueing, retries, and step orchestration. Versions 3.22.0 through 3.53.1 contain a vulnerability that allows unauthenticated remote attackers to exfiltrate environment variables from the host process via the serve() HTTP handler. The serve() handler implements GET, POST, and PUT methods. Requests using PATCH, OPTIONS, or DELETE fall through to a generic handler that returns diagnostic information. A change introduced in v3.22.0 caused this diagnostic response to include the contents of process.env, exposing any secrets, API keys, or credentials present in the environment. An application is vulnerable if its serve() endpoint is reachable via PATCH, OPTIONS, or DELETE requests, which is common in setups like Next.js Pages Router or Express's app.use(...). Not affected are Next.js App Router handlers that export only GET, POST, and PUT, and applications using the connect worker method. This issue has been fixed in version 3.54.0. To work around this issue if upgrading is not immediately possible, restrict the serve() endpoint at the framework or reverse-proxy layer to accept only GET, POST, and PUT. The Inngest serve() endpoint does not require any other HTTP methods.",
+      "published": "2026-05-07T21:16:29.980",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42047"
     },
     {
-      "id": "CVE-2026-42501",
-      "summary": "A malicious module proxy can exploit a flaw in the go command's validation of module checksums to bypass checksum database validation. This vulnerability affects any user using an untrusted module proxy (GOMODPROXY) or checksum database (GOSUMDB). A malicious module proxy can serve altered versions of the Go toolchain. When selecting a different version of the Go toolchain than the currently installed toolchain (due to the GOTOOLCHAIN environment variable, or a go.work or go.mod with a toolchain line), the go command will download and execute a toolchain provided by the module proxy. A malicious module proxy can bypass checksum database validation for this downloaded toolchain. Since this vulnerability affects the security of toolchain downloads, setting GOTOOLCHAIN to a fixed version is not sufficient. You must upgrade your base Go toolchain. The go tool always validates the hash of a toolchain before executing it, so fixed versions will refuse to execute any cached, altered versions of the toolchain. The go tool trusts go.sum files to contain accurate hashes of the current module's dependencies. A malicious proxy exploiting this vulnerability to serve an altered module will have caused an incorrect hash to be recorded in the go.sum. Users who have configured a non-trusted GOPROXY can determine if they have been affected by running \"rm go.sum ; go mod tidy ; go mod verify\", which will revalidate all dependencies of the current module. The specific flaw in more detail: The go command consults the checksum database to validate downloaded modules, when a module is not listed in the go.sum file. It verifies that the module hash reported by the checksum database matches the hash of the downloaded module. If, however, the checksum database returns a successful response that contains no entry for the module, the go command incorrectly permitted validation to succeed. A module proxy may mirror or proxy the checksum database, in which case the go command will not connect to the checksum database directly. Checksums reported by the checksum database are cryptographically signed, so a malicious proxy cannot alter the reported checksum for a module. However, a proxy which returns an empty checksum response, or a checksum response for an unrelated module, could cause the go command to proceed as if a downloaded module has been validated.",
-      "published": "2026-05-07T20:16:44.643",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42501"
+      "id": "CVE-2026-41692",
+      "summary": "i18nextify is a JavaScript library that adds website internationalization via a script tag, without source code changes. Versions prior to 4.0.8 substitute {{key}} interpolation tokens inside src and href attribute values with the raw string returned by i18next.t(). The substitution logic in src/localize.js (the replaceInside handler) only guards against a duplicated http:// origin prefix \u2014 it does not validate the URL scheme of the substituted value. A translated value such as javascript:alert(1) or data:text/html,<script>...</script> is applied unchanged to the live DOM attribute when an attacker can influence the content of a translation file or the translation-backend response \u2014 for example, via a compromised translation CDN, user-contributed locales, a MITM on a plain-HTTP backend, or write access to the translation JSON. This issue was patched in version 4.0.8.",
+      "published": "2026-05-07T21:16:29.717",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41692"
     },
     {
-      "id": "CVE-2026-42499",
-      "summary": "Pathological inputs could cause DoS through consumePhrase when parsing an email address according to RFC 5322.",
-      "published": "2026-05-07T20:16:44.540",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42499"
+      "id": "CVE-2026-41691",
+      "summary": "Copilot said: i18nextify is a JavaScript library that adds\ni18nextify is a JavaScript library that adds website internationalization via a script tag, without source code changes. Versions prior to 3.0.5 interpolate the lng and ns values directly into the configured loadPath / addPath URL template without any encoding, validation, or path sanitisation. When an application exposes the language-code selection to user-controlled input (the default \u2014 i18next-browser-languagedetector reads ?lng= query params, cookies, localStorage, and request headers), an attacker can inject characters that change the structure of the outgoing request URL. This is a single URL-injection vulnerability. The attacker-controlled value is neutralised before it is used as part of an output URL string; the attack shape covers both path traversal and broader URL-structure injection \u2014 both are closed by the one interpolateUrl sanitisation fix. This issue has been fixed in version 3.0.5. If users cannot upgrade immediately, they can work around the issue by sanitising lng / ns before they reach i18next (strip .., /, \\, ?, #, %, whitespace, and control characters; cap the length).",
+      "published": "2026-05-07T21:16:29.560",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41691"
     }
   ]
 }
