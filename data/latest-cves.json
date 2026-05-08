@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-05-07T23:11:53+00:00",
+  "generated_at": "2026-05-08T00:06:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-8115",
+      "summary": "A security flaw has been discovered in gyoridavid short-video-maker up to 1.3.4. This affects an unknown part of the file src/server/routers/rest.ts of the component REST API. The manipulation of the argument req.params.tmpFile results in path traversal. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-07T23:16:33.133",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8115"
+    },
+    {
+      "id": "CVE-2026-6411",
+      "summary": "This vulnerability, in the MAXHUB Pivot client application versions \nprior to v1.36.2, may allow an attacker to obtain encrypted tenant email\n addresses and related metadata from any tenant. Due to the presence of a\n hardcoded AES key within the application, the encrypted data can be \ndecrypted, enabling access to tenant email addresses and associated \ninformation in cleartext. Furthermore, an attacker may be able to cause a\n denial-of-service condition by enrolling multiple unauthorized devices \ninto a tenant via MQTT, potentially disrupting tenant operations.",
+      "published": "2026-05-07T23:16:32.987",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6411"
+    },
+    {
+      "id": "CVE-2026-42880",
+      "summary": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. From versions 3.2.0 to before 3.2.11 and 3.3.0 to before 3.3.9, there is a missing authorization and data-masking gap in Argo CD's ServerSideDiff endpoint that allows an attacker with read-only access to extract plaintext Kubernetes Secret data from etcd via the Kubernetes API server's Server-Side Apply dry-run mechanism. This issue has been patched in versions 3.2.11 and 3.3.9.",
+      "published": "2026-05-07T23:16:32.450",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42880"
+    },
     {
       "id": "CVE-2026-8114",
       "summary": "A vulnerability was identified in JeecgBoot up to 3.9.1. Affected by this issue is some unknown functionality of the file /sys/dict/loadTreeData of the component JSON Object Handler. The manipulation of the argument condition leads to sql injection. The attack can be initiated remotely. The exploit is publicly available and might be used. The vendor confirms (translated from Chinese): \"It should have been fixed; a batch of issues were recently resolved.\"",
@@ -22,27 +43,6 @@
       "published": "2026-05-07T22:16:37.507",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8112"
-    },
-    {
-      "id": "CVE-2026-8106",
-      "summary": "A reflected HTML injection vulnerability was identified in the GitHub Enterprise Server Management Console login page that could allow credential theft. The redirect_to query parameter on the /setup/unlock endpoint was reflected into an HTML attribute without proper sanitization, enabling an attacker to inject a form element that could capture administrator credentials. Exploitation required an administrator to click a crafted link and enter their credentials. This vulnerability affected GitHub Enterprise Server versions 3.19.1 through 3.19.5 and 3.20.0 through 3.20.1, and was fixed in versions 3.19.6 and 3.20.2. This vulnerability was reported via the GitHub Bug Bounty program.",
-      "published": "2026-05-07T22:16:37.377",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8106"
-    },
-    {
-      "id": "CVE-2026-8034",
-      "summary": "A server-side request forgery (SSRF) vulnerability was identified in the GitHub Enterprise Server notebook viewer that allowed an attacker to access internal services by exploiting URL parser confusion between the validation layer and the HTTP request library. The hostname validation used a different URL parser than the request library, enabling a crafted URL to pass validation while directing the request to an unintended host. Exploitation required network access to the GitHub Enterprise Server instance. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.21 and was fixed in versions 3.16.18, 3.17.15, 3.18.9, 3.19.6, and 3.20.2. This vulnerability was reported via the GitHub Bug Bounty program.",
-      "published": "2026-05-07T22:16:37.230",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8034"
-    },
-    {
-      "id": "CVE-2026-7891",
-      "summary": "The VerySecureApp made by DIVD using Mendix Studio Pro 11.8.0 Beta allows unintended data exposure due to authorization misconfiguration. The VerySecureApp allows anonymous users of the MyFirstModule with the anonymous user role to gain access to all stored records, even though no access rights are explicitly configured on that role. Anonymous users are required to make a Mendix Entity available publicly. All versions of Mendix Studio Pro up to 11.8.0 Beta silently make an Anonymous user role follow user inheritance rules, without mentioning this explicitly in the documentation.",
-      "published": "2026-05-07T22:16:37.070",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7891"
     }
   ]
 }
