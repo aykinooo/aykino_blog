@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-05-08T09:50:30+00:00",
+  "generated_at": "2026-05-08T11:44:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-7650",
+      "summary": "The E2Pdf \u2013 Export Pdf Tool for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'id' attribute of the `e2pdf-download` shortcode in all versions up to, and including, 1.32.17. This is due to insufficient input sanitization and output escaping on the shortcode attribute. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-08T10:16:29.577",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7650"
+    },
+    {
+      "id": "CVE-2026-7475",
+      "summary": "The Sky Addons plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `sky-custom-scripts` custom post type in all versions up to, and including, 3.3.2. This is due to the custom post type being registered with `capability_type => 'post'` and `show_in_rest => true`, combined with insufficient input sanitization on the `sky_script_content` meta field and lack of output escaping when rendering scripts on the frontend. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts via the REST API that execute on every frontend page for all site visitors.",
+      "published": "2026-05-08T10:16:29.440",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7475"
+    },
+    {
+      "id": "CVE-2026-6213",
+      "summary": "A vulnerability in Remote Spark\u00a0SparkView before\u00a0build 1122 allows an attacker to bypasses the local connection check and achieve arbitrary code execution as root\u00a0on the server side.\u00a0Depending on implementation the vulnerability can be exploited by an unauthenticated attacker.",
+      "published": "2026-05-08T10:16:29.270",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6213"
+    },
+    {
+      "id": "CVE-2026-5341",
+      "summary": "The NMR Strava activities plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's `strava_nmr_connect` shortcode in all versions up to, and including, 1.0.14 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-08T10:16:28.917",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5341"
+    },
     {
       "id": "CVE-2026-7330",
       "summary": "The Auto Affiliate Links plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 6.8.8 This is due to insufficient input sanitization on the 'url' POST parameter in the aal_url_stats_save_action() function and a complete absence of output escaping in aal_display_clicks(), where the stored value is echoed directly into an anchor element's href attribute and inner text without esc_url(), esc_attr(), or esc_html(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts into the admin statistics page that execute in an administrator's browser when the page is visited, leveraging a publicly exposed nonce and an unauthenticated AJAX endpoint registered via the wp_ajax_nopriv_ hook.",
@@ -15,34 +43,6 @@
       "published": "2026-05-08T09:16:08.803",
       "cvss": 8.8,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5127"
-    },
-    {
-      "id": "CVE-2026-44928",
-      "summary": "In uriparser before 1.0.2, the function family EqualsUri can misclassify two unequal URIs as equal.",
-      "published": "2026-05-08T08:16:44.153",
-      "cvss": 2.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44928"
-    },
-    {
-      "id": "CVE-2026-44927",
-      "summary": "In uriparser before 1.0.2, there is pointer difference truncation to int in various places.",
-      "published": "2026-05-08T08:16:43.973",
-      "cvss": 2.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44927"
-    },
-    {
-      "id": "CVE-2026-43284",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfrm: esp: avoid in-place decrypt on shared skb frags\n\nMSG_SPLICE_PAGES can attach pages from a pipe directly to an skb. TCP\nmarks such skbs with SKBFL_SHARED_FRAG after skb_splice_from_iter(),\nso later paths that may modify packet data can first make a private\ncopy. The IPv4/IPv6 datagram append paths did not set this flag when\nsplicing pages into UDP skbs.\n\nThat leaves an ESP-in-UDP packet made from shared pipe pages looking\nlike an ordinary uncloned nonlinear skb. ESP input then takes the no-COW\nfast path for uncloned skbs without a frag_list and decrypts in place\nover data that is not owned privately by the skb.\n\nMark IPv4/IPv6 datagram splice frags with SKBFL_SHARED_FRAG, matching\nTCP. Also make ESP input fall back to skb_cow_data() when the flag is\npresent, so ESP does not decrypt externally backed frags in place.\nPrivate nonlinear skb frags still use the existing fast path.\n\nThis intentionally does not change ESP output. In esp_output_head(),\nthe path that appends the ESP trailer to existing skb tailroom without\ncalling skb_cow_data() is not reachable for nonlinear skbs:\nskb_tailroom() returns zero when skb->data_len is nonzero, while ESP\ntailen is positive. Thus ESP output will either use the separate\ndestination-frag path or fall back to skb_cow_data().",
-      "published": "2026-05-08T08:16:43.827",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43284"
-    },
-    {
-      "id": "CVE-2013-10075",
-      "summary": "Apache::Session versions through 1.94 for Perl re-creates deleted sessions.\n\nThe session stores Apache::Session::Store::File and Apache::Session::Store::DB_File will create a session that does not exist.  This can lead to sessions being revived, potentially with data that was to be deleted.",
-      "published": "2026-05-08T08:16:43.463",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-10075"
     }
   ]
 }
