@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-08T07:56:17+00:00",
+  "generated_at": "2026-05-08T09:50:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8149",
-      "summary": "A vulnerability in Legion of the Bouncy Castle Inc. BC-FJA BC-FIPS on Linux, X86_64, AVX, AVX-512f.\n\n This vulnerability is associated with program files gcm128w, gcm512w.\n\n\n\nThis issue affects BC-FJA: from 2.1.0 through 2.1.2.",
-      "published": "2026-05-08T07:16:29.603",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8149"
+      "id": "CVE-2026-7330",
+      "summary": "The Auto Affiliate Links plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 6.8.8 This is due to insufficient input sanitization on the 'url' POST parameter in the aal_url_stats_save_action() function and a complete absence of output escaping in aal_display_clicks(), where the stored value is echoed directly into an anchor element's href attribute and inner text without esc_url(), esc_attr(), or esc_html(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts into the admin statistics page that execute in an administrator's browser when the page is visited, leveraging a publicly exposed nonce and an unauthenticated AJAX endpoint registered via the wp_ajax_nopriv_ hook.",
+      "published": "2026-05-08T09:16:10.100",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7330"
     },
     {
-      "id": "CVE-2026-8069",
-      "summary": "PredatorSense version 3.00.3136 to 3.00.3196 contain Local Privilege Escalation (LPE) vulnerability.The program exposes a Windows Named Pipe that uses a custom protocol to invoke internal functions. However, this Named Pipe is misconfigured, allowing any authenticated local user to execute arbitrary code with NT AUTHORITY\\SYSTEM privileges and to delete arbitrary files with SYSTEM privileges. By leveraging this, an attacker can execute arbitrary code on the target system with elevated privileges.",
-      "published": "2026-05-08T07:16:29.443",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8069"
+      "id": "CVE-2026-5127",
+      "summary": "The User Frontend: AI Powered Frontend Posting, User Directory, Profile, Membership & User Registration plugin for WordPress is vulnerable to Deserialization of Untrusted Data in versions up to, and including, 4.3.1 This is due to insufficient input validation and type checking on the wpuf_files parameter during form submission, combined with unconditional deserialization via maybe_unserialize() when displaying post content. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary PHP objects, which can be leveraged to execute arbitrary code, delete arbitrary files, or perform other malicious actions if a POP chain is present on the target system.",
+      "published": "2026-05-08T09:16:08.803",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5127"
     },
     {
-      "id": "CVE-2026-4935",
-      "summary": "The OttoKit: All-in-One Automation Platform WordPress plugin before 1.1.23 does not properly sanitize user input before using it in a SQL statement, which could allow unauthenticated attackers to perform SQL injection attacks.",
-      "published": "2026-05-08T07:16:29.327",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4935"
+      "id": "CVE-2026-44928",
+      "summary": "In uriparser before 1.0.2, the function family EqualsUri can misclassify two unequal URIs as equal.",
+      "published": "2026-05-08T08:16:44.153",
+      "cvss": 2.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44928"
     },
     {
-      "id": "CVE-2026-44916",
-      "summary": "In OpenStack Ironic through 35.x, instance_info['ks_template'] is rendered without sandboxing.",
-      "published": "2026-05-08T07:16:29.163",
-      "cvss": 3.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44916"
+      "id": "CVE-2026-44927",
+      "summary": "In uriparser before 1.0.2, there is pointer difference truncation to int in various places.",
+      "published": "2026-05-08T08:16:43.973",
+      "cvss": 2.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44927"
     },
     {
-      "id": "CVE-2025-69691",
-      "summary": "Netgate pfSense CE 2.8.0 allows code execution in the XMLRPC API via pfsense.exec_php. NOTE: the Supplier disputes this because the API call is only available to admins and they are intentionally allowed to execute PHP code.",
-      "published": "2026-05-08T07:16:28.880",
+      "id": "CVE-2026-43284",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfrm: esp: avoid in-place decrypt on shared skb frags\n\nMSG_SPLICE_PAGES can attach pages from a pipe directly to an skb. TCP\nmarks such skbs with SKBFL_SHARED_FRAG after skb_splice_from_iter(),\nso later paths that may modify packet data can first make a private\ncopy. The IPv4/IPv6 datagram append paths did not set this flag when\nsplicing pages into UDP skbs.\n\nThat leaves an ESP-in-UDP packet made from shared pipe pages looking\nlike an ordinary uncloned nonlinear skb. ESP input then takes the no-COW\nfast path for uncloned skbs without a frag_list and decrypts in place\nover data that is not owned privately by the skb.\n\nMark IPv4/IPv6 datagram splice frags with SKBFL_SHARED_FRAG, matching\nTCP. Also make ESP input fall back to skb_cow_data() when the flag is\npresent, so ESP does not decrypt externally backed frags in place.\nPrivate nonlinear skb frags still use the existing fast path.\n\nThis intentionally does not change ESP output. In esp_output_head(),\nthe path that appends the ESP trailer to existing skb tailroom without\ncalling skb_cow_data() is not reachable for nonlinear skbs:\nskb_tailroom() returns zero when skb->data_len is nonzero, while ESP\ntailen is positive. Thus ESP output will either use the separate\ndestination-frag path or fall back to skb_cow_data().",
+      "published": "2026-05-08T08:16:43.827",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69691"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43284"
     },
     {
-      "id": "CVE-2025-69690",
-      "summary": "Netgate pfSense CE 2.7.2 allows code execution by using the module installer with a backup file with a serialized PHP object containing the post_reboot_commands property. NOTE: the Supplier disputes this because this installer is only available to admins and they are intentionally allowed to execute PHP code.",
-      "published": "2026-05-08T07:16:28.750",
+      "id": "CVE-2013-10075",
+      "summary": "Apache::Session versions through 1.94 for Perl re-creates deleted sessions.\n\nThe session stores Apache::Session::Store::File and Apache::Session::Store::DB_File will create a session that does not exist.  This can lead to sessions being revived, potentially with data that was to be deleted.",
+      "published": "2026-05-08T08:16:43.463",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69690"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-10075"
     }
   ]
 }
