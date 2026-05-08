@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-08T11:44:26+00:00",
+  "generated_at": "2026-05-08T14:15:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7650",
-      "summary": "The E2Pdf \u2013 Export Pdf Tool for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'id' attribute of the `e2pdf-download` shortcode in all versions up to, and including, 1.32.17. This is due to insufficient input sanitization and output escaping on the shortcode attribute. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-08T10:16:29.577",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7650"
-    },
-    {
-      "id": "CVE-2026-7475",
-      "summary": "The Sky Addons plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `sky-custom-scripts` custom post type in all versions up to, and including, 3.3.2. This is due to the custom post type being registered with `capability_type => 'post'` and `show_in_rest => true`, combined with insufficient input sanitization on the `sky_script_content` meta field and lack of output escaping when rendering scripts on the frontend. This makes it possible for authenticated attackers, with Author-level access and above, to inject arbitrary web scripts via the REST API that execute on every frontend page for all site visitors.",
-      "published": "2026-05-08T10:16:29.440",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7475"
-    },
-    {
-      "id": "CVE-2026-6213",
-      "summary": "A vulnerability in Remote Spark\u00a0SparkView before\u00a0build 1122 allows an attacker to bypasses the local connection check and achieve arbitrary code execution as root\u00a0on the server side.\u00a0Depending on implementation the vulnerability can be exploited by an unauthenticated attacker.",
-      "published": "2026-05-08T10:16:29.270",
+      "id": "CVE-2026-8077",
+      "summary": "Lack of proper authorization implementation in the CashDro 3 web administration panel, version 24.01.00.26. The backend lacks authorization controls, leaving security entirely to the frontend. By modifying the binary string in the \u2018Permissions\u2019 field of the JSON response, an attacker could escalate privileges and gain full administrative access. This vulnerability allows all restrictions to be bypassed and completely compromises system management.",
+      "published": "2026-05-08T13:16:49.530",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6213"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8077"
     },
     {
-      "id": "CVE-2026-5341",
-      "summary": "The NMR Strava activities plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's `strava_nmr_connect` shortcode in all versions up to, and including, 1.0.14 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-08T10:16:28.917",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5341"
+      "id": "CVE-2026-25199",
+      "summary": "Instances deployed via the Proxmox extension allow unauthorized access to instances belonging to other tenants.\n\n\n\n\nThis issue affects Apache CloudStack: from 4.21.0.0 through 4.22.0.0.\n\n\n\n\nThe Proxmox extension for CloudStack improperly uses a user-editable instance setting, proxmox_vmid, to associate CloudStack instances with Proxmox virtual machines. Because this value is not restricted or validated against tenant ownership and Proxmox VM IDs are predictable, a non-privileged attacker can modify the setting to reference a VM belonging to another account. This allows unauthorized cross-tenant access and enables full control over the targeted VM, including starting, stopping, and destroying the virtual machine.\n\n\n\n\nUsers are recommended to upgrade to version 4.22.0.1, which fixes this issue.\n\n\n\n\nAs a workaround for the existing installations,\u00a0editing of the proxmox_vmid instance detail by users can be prevented by adding this detail name to the global configuration parameter - user.vm.denied.details.",
+      "published": "2026-05-08T13:16:36.273",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25199"
     },
     {
-      "id": "CVE-2026-7330",
-      "summary": "The Auto Affiliate Links plugin for WordPress is vulnerable to Stored Cross-Site Scripting in versions up to, and including, 6.8.8 This is due to insufficient input sanitization on the 'url' POST parameter in the aal_url_stats_save_action() function and a complete absence of output escaping in aal_display_clicks(), where the stored value is echoed directly into an anchor element's href attribute and inner text without esc_url(), esc_attr(), or esc_html(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts into the admin statistics page that execute in an administrator's browser when the page is visited, leveraging a publicly exposed nonce and an unauthenticated AJAX endpoint registered via the wp_ajax_nopriv_ hook.",
-      "published": "2026-05-08T09:16:10.100",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7330"
+      "id": "CVE-2026-25077",
+      "summary": "Account users are allowed by default to register templates to be downloaded directly to the primary storage for deploying instances using the KVM hypervisor. Due to missing file name sanitization, an attacker can register malicious templates to execute arbitrary code on the KVM hosts. This can result in the compromise of resource integrity and confidentiality, data loss, denial of service, and availability of the KVM-based infrastructure managed by CloudStack.\n\n\nUsers are recommended to upgrade to Apache CloudStack versions 4.20.3.0 or 4.22.0.1, or later, which fixes this issue.",
+      "published": "2026-05-08T13:16:36.133",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25077"
     },
     {
-      "id": "CVE-2026-5127",
-      "summary": "The User Frontend: AI Powered Frontend Posting, User Directory, Profile, Membership & User Registration plugin for WordPress is vulnerable to Deserialization of Untrusted Data in versions up to, and including, 4.3.1 This is due to insufficient input validation and type checking on the wpuf_files parameter during form submission, combined with unconditional deserialization via maybe_unserialize() when displaying post content. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary PHP objects, which can be leveraged to execute arbitrary code, delete arbitrary files, or perform other malicious actions if a POP chain is present on the target system.",
-      "published": "2026-05-08T09:16:08.803",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5127"
+      "id": "CVE-2025-69233",
+      "summary": "Due to multiple time-of-check time-of-use race conditions in the resource count check and increment logic, as well as missing validations, users of the platform are able to exceed the allocation limits configured for their accounts/domains. This can be used by an attacker to degrade the infrastructure's resources and lead to denial of service conditions.\n\nUsers are recommended to upgrade to Apache CloudStack versions 4.20.3.0 or 4.22.0.1, or later, which fixes this issue.",
+      "published": "2026-05-08T13:16:35.993",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69233"
+    },
+    {
+      "id": "CVE-2025-66467",
+      "summary": "Missing MinIO policy cleanup on bucket deletion via Apache CloudStack allows users to retain access to buckets which they previously owned. If another user creates a new bucket with the same name, the previous owners can gain unauthorized read and write access to it by using the previously generated access and secret keys.\n\nUsers are recommended to upgrade to Apache CloudStack versions 4.20.3.0 or 4.22.0.1, or later, which fixes this issue.",
+      "published": "2026-05-08T13:16:35.720",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66467"
+    },
+    {
+      "id": "CVE-2025-66172",
+      "summary": "The CloudStack Backup plugin has an improper access logic in versions 4.21.0.0 and 4.22.0.0. Anyone with authenticated user-account access in CloudStack 4.21.0.0+ environments, where this plugin is enabled and have access to specific APIs can restore a volume from any other user's backups and attach the volume to their own VMs.\n\nBackup plugin users using CloudStack 4.21.0.0+ are recommended to upgrade to CloudStack version 4.22.0.1, which fixes this issue.",
+      "published": "2026-05-08T13:16:35.607",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66172"
     }
   ]
 }
