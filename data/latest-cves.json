@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-05-09T08:50:09+00:00",
+  "generated_at": "2026-05-09T10:15:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-3828",
+      "summary": "Some Hikvision switch products (discontinued since December 2023) are vulnerable to authenticated remote command execution due to insufficient input validation. Attackers with valid credentials can exploit this flaw by sending crafted packets containing malicious commands to affected devices, leading to arbitrary command execution.",
+      "published": "2026-05-09T09:16:09.107",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3828"
+    },
+    {
+      "id": "CVE-2026-32683",
+      "summary": "Some EZVIZ products utilize older versions of cloud feature modules with legacy API interfaces, which pose a data transmission risk. Attackers can exploit this by eavesdropping on network requests to obtain data.Users are advised to upgrade the app to the latest version and enable the video encryption feature.",
+      "published": "2026-05-09T09:16:08.973",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32683"
+    },
+    {
+      "id": "CVE-2026-1749",
+      "summary": "There is an Access Control Vulnerability in some HikCentral Professional versions. This could allow an unauthenticated user to obtain the admin permission.",
+      "published": "2026-05-09T09:16:08.823",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1749"
+    },
     {
       "id": "CVE-2026-42560",
       "summary": "auth provides authentication via oauth2, direct and email. From versions 1.18.0 to before 1.25.2 and 2.0.0 to before 2.1.2, the Patreon OAuth provider maps every authenticated Patreon account to the same local user.ID, instead of deriving a unique ID from the Patreon account returned by Patreon. In practice, this means all Patreon-authenticated users of an application using this library are collapsed into a single local identity. Any application that trusts token.User.ID as the stable account key can end up mixing or fully merging unrelated Patreon users, which can lead to cross-account access, privilege confusion, and subscription-state leakage. This issue has been patched in versions 1.25.2 and 2.1.2.",
@@ -22,27 +43,6 @@
       "published": "2026-05-09T06:16:10.273",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42310"
-    },
-    {
-      "id": "CVE-2026-42309",
-      "summary": "Pillow is a Python imaging library. From version 11.2.1 to before version 12.2.0, passing nested lists as coordinates to APIs that accept coordinates such as ImagePath.Path, ImageDraw.ImageDraw.polygon and ImageDraw.ImageDraw.line could cause a heap buffer overflow, as nested lists were recursively unpacked beyond the allocated buffer. Coordinate lists are now validated to contain exactly two numeric coordinates. This issue has been patched in version 12.2.0.",
-      "published": "2026-05-09T06:16:10.073",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42309"
-    },
-    {
-      "id": "CVE-2026-42308",
-      "summary": "Pillow is a Python imaging library. Prior to version 12.2.0, if a font advances for each glyph by an exceeding large amount, when Pillow keeps track of the current position, it may lead to an integer overflow. This issue has been patched in version 12.2.0.",
-      "published": "2026-05-09T06:16:09.793",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42308"
-    },
-    {
-      "id": "CVE-2025-15634",
-      "summary": "A missing authorization vulnerability in HCL BigFix WebUI allows an authenticated user without proper permissions to view sensitive environmental information via direct URL access to the unauthorized page.",
-      "published": "2026-05-09T06:16:09.130",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15634"
     }
   ]
 }
