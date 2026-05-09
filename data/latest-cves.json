@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-09T03:53:47+00:00",
+  "generated_at": "2026-05-09T06:26:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8207",
-      "summary": "Gibbon versions before\u00a0v30.0.01 are affected by an authenticated SQL Injection vulnerability by abusing the  Tracking/graphing https://github.com/GibbonEdu/core/blob/c431e25fdc874adece5d2dc7e408e9aa2d1abadb/modules/Tracking/graphing.php#L145  feature. Successful exploitation requires Teacher or higher privileges. Exploitation could result in unintended read/write activities to the underlying database.",
-      "published": "2026-05-09T03:16:16.227",
+      "id": "CVE-2026-42560",
+      "summary": "auth provides authentication via oauth2, direct and email. From versions 1.18.0 to before 1.25.2 and 2.0.0 to before 2.1.2, the Patreon OAuth provider maps every authenticated Patreon account to the same local user.ID, instead of deriving a unique ID from the Patreon account returned by Patreon. In practice, this means all Patreon-authenticated users of an application using this library are collapsed into a single local identity. Any application that trusts token.User.ID as the stable account key can end up mixing or fully merging unrelated Patreon users, which can lead to cross-account access, privilege confusion, and subscription-state leakage. This issue has been patched in versions 1.25.2 and 2.1.2.",
+      "published": "2026-05-09T06:16:10.603",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42560"
+    },
+    {
+      "id": "CVE-2026-42311",
+      "summary": "Pillow is a Python imaging library. From version 10.3.0 to before version 12.2.0, processing a malicious PSD file could lead to memory corruption, potentially resulting in a crash or arbitrary code execution. This issue has been patched in version 12.2.0.",
+      "published": "2026-05-09T06:16:10.430",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8207"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42311"
     },
     {
-      "id": "CVE-2026-7652",
-      "summary": "The LatePoint plugin for WordPress is vulnerable to Account Takeover via Weak Password Recovery Mechanism in the unauthenticated guest booking flow in versions up to, and including, 5.5.0 This is due to the save_connected_wordpress_user() function propagating a LatePoint customer's email address to its linked WordPress user account via wp_update_user() without any ownership verification, combined with the guest booking flow's ability to overwrite an existing customer's email through phone-based merge without authentication. This makes it possible for unauthenticated attackers to overwrite the email address of a non-super-admin WordPress user account that is not yet linked to a LatePoint customer, enabling full account takeover by subsequently triggering the standard WordPress password-reset flow to the attacker-controlled address granted the plugin is configured with WordPress user integration enabled, phone-based contact merging, and customer authentication disabled. Administrator accounts on single-site installs are not affected.",
-      "published": "2026-05-09T03:16:15.117",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7652"
+      "id": "CVE-2026-42310",
+      "summary": "Pillow is a Python imaging library. From version 4.2.0 to before version 12.2.0, an attacker can supply a malicious PDF that causes the process to hang indefinitely, consuming 100% CPU and making the application unresponsive. This issue has been patched in version 12.2.0.",
+      "published": "2026-05-09T06:16:10.273",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42310"
     },
     {
-      "id": "CVE-2026-6667",
-      "summary": "PgBouncer before 1.25.2 did not perform an appropriate authorization check for the KILL_CLIENT admin command. All users with access to the administration console (which itself requires authorization) could run this command. It would have been correct to allow only users listed in the admin_users parameter.",
-      "published": "2026-05-09T01:16:09.287",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6667"
+      "id": "CVE-2026-42309",
+      "summary": "Pillow is a Python imaging library. From version 11.2.1 to before version 12.2.0, passing nested lists as coordinates to APIs that accept coordinates such as ImagePath.Path, ImageDraw.ImageDraw.polygon and ImageDraw.ImageDraw.line could cause a heap buffer overflow, as nested lists were recursively unpacked beyond the allocated buffer. Coordinate lists are now validated to contain exactly two numeric coordinates. This issue has been patched in version 12.2.0.",
+      "published": "2026-05-09T06:16:10.073",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42309"
     },
     {
-      "id": "CVE-2026-6666",
-      "summary": "A possible null pointer reference in PgBouncer before 1.25.2 could lead to a crash, if a server sends an error response without SQLSTATE field.",
-      "published": "2026-05-09T01:16:09.153",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6666"
+      "id": "CVE-2026-42308",
+      "summary": "Pillow is a Python imaging library. Prior to version 12.2.0, if a font advances for each glyph by an exceeding large amount, when Pillow keeps track of the current position, it may lead to an integer overflow. This issue has been patched in version 12.2.0.",
+      "published": "2026-05-09T06:16:09.793",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42308"
     },
     {
-      "id": "CVE-2026-6665",
-      "summary": "The SCRAM code in PgBouncer before 1.25.2 did not check the return value of strlcat() correctly when building the contents of the SCRAM client-final-message. A malicious backend that sends a SCRAM server-final-message with a long nonce can trigger a stack overflow.",
-      "published": "2026-05-09T01:16:09.013",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6665"
-    },
-    {
-      "id": "CVE-2026-6664",
-      "summary": "An integer overflow in network packet parsing code in PgBouncer before 1.25.2 bypasses a boundary check and can lead to a crash. An unauthenticated remote attacker can crash PgBouncer with a malformed SCRAM authentication packet.",
-      "published": "2026-05-09T01:16:08.863",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6664"
+      "id": "CVE-2025-15634",
+      "summary": "A missing authorization vulnerability in HCL BigFix WebUI allows an authenticated user without proper permissions to view sensitive environmental information via direct URL access to the unauthorized page.",
+      "published": "2026-05-09T06:16:09.130",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15634"
     }
   ]
 }
