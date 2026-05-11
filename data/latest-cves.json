@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-11T18:02:55+00:00",
+  "generated_at": "2026-05-11T20:02:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-44738",
-      "summary": "Grav is a file-based Web platform. Prior to 2.0.0-rc.2, the Twig sandbox allow-list permits any user with the admin.pages role to call config.toArray() from within a page body, dumping the entire merged site configuration \u2014 including all plugin secrets (SMTP passwords, AWS keys, OAuth client secrets, API tokens) \u2014 into the rendered HTML. No administrator privileges are required. This vulnerability is fixed in 2.0.0-rc.2.",
-      "published": "2026-05-11T17:16:34.747",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44738"
+      "id": "CVE-2026-8318",
+      "summary": "A security flaw has been discovered in VectifyAI PageIndex up to f50e52975313c6716c02b20a119577a1929decba. Affected by this vulnerability is the function toc_transformer of the file pageindex/page_index.py of the component PDF Table of Contents Handler. The manipulation results in infinite loop. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases.",
+      "published": "2026-05-11T19:16:29.963",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8318"
     },
     {
-      "id": "CVE-2026-44737",
-      "summary": "grav-plugin-admin is the admin plugin for Grav is an HTML user interface that provides a convenient way to configure Grav and easily create and modify pages. Prior to 1.10.49.5, the application fails to properly validate and sanitize user input in the data[header][title] parameter. As a result, attackers can craft a malicious URL with an XSS payload. When this URL is accessed, the injected script is reflected back in the HTTP response and executed within the context of the victim's browser session. This vulnerability is fixed in 1.10.49.5.",
-      "published": "2026-05-11T17:16:34.610",
+      "id": "CVE-2026-7790",
+      "summary": "Uncontrolled Resource Consumption vulnerability in ninenines cowlib (cow_http_te module) allows Excessive Allocation.\n\nThe chunked transfer-encoding parser in cow_http_te accepts an unbounded number of hex digits in the chunk-size field. Each digit causes a bignum multiplication (Len * 16 + digit), so parsing N hex digits requires O(N\u00b2) CPU work and O(N) memory. Additionally, when input is drip-fed, the parser discards the accumulated length on each partial read and restarts from zero on resumption, raising the cost to O(N\u00b3). An unauthenticated remote attacker can exploit this by sending an HTTP/1.1 request with Transfer-Encoding: chunked and a very long chunk-size hex string to cause denial of service through CPU exhaustion and memory amplification.\n\nThis vulnerability is associated with program file src/cow_http_te.erl and program routines cow_http_te:stream_chunked/2, cow_http_te:chunked_len/4.\n\nThis issue affects cowlib: from 0.6.0 before 2.16.1.",
+      "published": "2026-05-11T19:16:29.477",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44737"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7790"
     },
     {
-      "id": "CVE-2026-42845",
-      "summary": "The form plugin for Grav adds the ability to create and use forms. Prior to 9.1.0 , there is an unauthenticated page-content overwrite via file upload (GHSA-w4rc-p66m-x6qq). Public form uploads now strip path components from the POST-supplied filename and hard-block page-content extensions (`md`, `yaml`, `yml`, `json`, `twig`, `ini`) regardless of the configurable dangerous-extensions list. A permissive `accept` policy combined with the default `destination: self@` could otherwise let an attacker overwrite the page's own `.md` and pivot to super-admin via a `process: save` action. This vulnerability is fixed in 9.1.0.",
-      "published": "2026-05-11T17:16:34.157",
+      "id": "CVE-2026-45224",
+      "summary": "Crabbox before 0.9.0 contains a path traversal vulnerability in the Islo provider's workspace path resolution that allows attackers to supply absolute or relative paths that resolve outside the intended /workspace directory. Attackers can craft a malicious .crabbox.yaml or crabbox.yaml file with traversal sequences to cause arbitrary file deletion and overwrite when sync.delete is enabled, as the workspace preparation logic executes rm -rf and mkdir -p operations on the resolved path without proper validation.",
+      "published": "2026-05-11T19:16:28.297",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45224"
+    },
+    {
+      "id": "CVE-2026-45223",
+      "summary": "Crabbox before 0.9.0 contains an authentication bypass vulnerability in the coordinator user-token verification path where the verifyUserToken() function fails to reject payloads containing an admin claim, allowing attackers to escalate privileges. An attacker with access to the shared non-admin token can craft a user-token payload with admin: true, sign it using HMAC-SHA256, and present it to admin-only coordinator routes to gain full coordinator admin access including lease visibility, pool state management, and forced release operations.",
+      "published": "2026-05-11T19:16:28.103",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45223"
+    },
+    {
+      "id": "CVE-2026-45222",
+      "summary": "Summarize versions through 0.14.1, fixed in commit 0cfb0fb, creates the daemon configuration directory and file with default filesystem permissions that may be world-readable on Unix-like systems, allowing local attackers to read bearer tokens and API credentials stored in ~/.summarize/daemon.json. A local attacker can exploit these permissive permissions to read the daemon bearer token and persisted provider credentials, enabling unauthorized access to the daemon or recovery of sensitive API keys.",
+      "published": "2026-05-11T19:16:27.313",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45222"
+    },
+    {
+      "id": "CVE-2026-43969",
+      "summary": "Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability in ninenines cowlib allows HTTP request splitting and cookie smuggling via unvalidated cookie name and value fields.\n\ncow_cookie:cookie/1 in cowlib builds a client-side Cookie: request header from a list of name-value pairs without validating either field. An attacker who controls the cookie names or values passed to this function can inject ;, ,, CR, LF, or TAB characters into the serialized header. This enables two classes of attack: cookie smuggling within a single header (e.g. injecting \"; admin=1\" to introduce a phantom cookie that the receiving server treats as authentic) and HTTP request header splitting (injecting CRLF to append arbitrary headers or smuggle a complete second request against a shared upstream proxy). The decoder side (parse_cookie_name/1, parse_cookie_value/1) and setcookie/3 already validate and reject these characters; the encoder alone is missing the check.\n\nThis issue affects cowlib from 2.9.0.",
+      "published": "2026-05-11T19:16:25.330",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42845"
-    },
-    {
-      "id": "CVE-2026-42843",
-      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content, media, configuration, users, and system management. Prior to 1.0.0-beta.15, an insecure direct object reference and logic flaw in the Grav API plugin (UsersController::update) allows any authenticated user with basic API access (api.access) to modify their own permission configuration. An attacker can exploit this to escalate their privileges to Super Administrator (admin.super and api.super), leading to full system compromise and potential RCE. This vulnerability is fixed in 1.0.0-beta.15.",
-      "published": "2026-05-11T17:16:34.013",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42843"
-    },
-    {
-      "id": "CVE-2026-42842",
-      "summary": "The form plugin for Grav adds the ability to create and use forms. Prior to 9.1.0, a Stored Cross-Site Scripting (XSS) vulnerability exists in the Grav CMS Form plugin's select field template. Taxonomy tag and category values are rendered with the Twig |raw filter in the admin panel, bypassing the global autoescape protection. An editor-level user can inject arbitrary JavaScript that executes in any administrator's browser session when they view or edit any page in the admin panel. This vulnerability is fixed in 9.1.0.",
-      "published": "2026-05-11T17:16:33.873",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42842"
-    },
-    {
-      "id": "CVE-2026-42603",
-      "summary": "OWASP BLT is a QA testing and vulnerability disclosure platform that encompasses websites, apps, git repositories, and more. Prior to 2.1.2, .github/workflows/pre-commit-fix.yaml uses pull_request_target (privileged trigger) but checks out and executes code directly from the attacker's fork, enabling RCE with write permissions. This vulnerability is fixed in 2.1.2.",
-      "published": "2026-05-11T17:16:33.410",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42603"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43969"
     }
   ]
 }
