@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-05-10T23:07:07+00:00",
+  "generated_at": "2026-05-11T00:07:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-8251",
+      "summary": "A vulnerability was found in Open5GS up to 2.7.7. This impacts the function update_authorized_pcc_rule_and_qos of the file /src/smf/npcf-handler.c of the component SMF. Performing a manipulation results in denial of service. The attack is possible to be carried out remotely. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-10T23:16:27.563",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8251"
+    },
+    {
+      "id": "CVE-2026-8250",
+      "summary": "A vulnerability has been found in Open5GS up to 2.7.7. This affects the function smf_n4_build_qos_flow_to_modify_list of the file /src/smf/n4-build.c of the component SMF. Such manipulation leads to denial of service. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-10T23:16:27.403",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8250"
+    },
+    {
+      "id": "CVE-2026-8249",
+      "summary": "A flaw has been found in Open5GS up to 2.7.7. The impacted element is the function update_authorized_pcc_rule_and_qos of the file /src/smf/npcf-handler.c of the component SMF. This manipulation causes denial of service. Remote exploitation of the attack is possible. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-10T23:16:27.243",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8249"
+    },
+    {
+      "id": "CVE-2026-8248",
+      "summary": "A vulnerability was detected in Open5GS up to 2.7.7. The affected element is the function update_authorized_pcc_rule_and_qos of the file /src/smf/npcf-handler.c of the component SMF. The manipulation results in denial of service. The attack may be launched remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-10T23:16:27.057",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8248"
+    },
     {
       "id": "CVE-2026-8177",
       "summary": "XML::LibXML versions through 2.0210 for Perl read out-of-bounds heap memory when parsing XML node names containing truncated UTF-8 byte sequences.\n\nA node name ending in the middle of a multi byte UTF-8 sequence causes the parser to read past the end of the input string into adjacent heap memory.\n\nAny Perl process that passes attacker controlled strings to XML::LibXML's DOM node-name methods can reach this path on the default API. The likely consequence is a crash, causing denial of service.",
@@ -15,34 +43,6 @@
       "published": "2026-05-10T21:16:29.380",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45191"
-    },
-    {
-      "id": "CVE-2026-45190",
-      "summary": "Net::CIDR::Lite versions before 0.24 for Perl does not properly validate IP address and CIDR mask inputs, which may allow IP ACL bypass.\n\nInputs containing a trailing newline or non-ASCII digit characters pass the validators but are then re-encoded by the parser to a different address than the input string spelled. find() and bin_find() can match or miss addresses as a result.\n\nExample:\n\n  my $cidr = Net::CIDR::Lite->new();\n  $cidr->add(\"::1\\n/128\");\n  $cidr->find(\"::1a\");  # incorrectly returns true\n\nSee also CVE-2026-45191.",
-      "published": "2026-05-10T21:16:29.273",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45190"
-    },
-    {
-      "id": "CVE-2026-45180",
-      "summary": "Catalyst::Plugin::Statsd versions through 0.10.0 for Perl may leak session ids.\n\nIf the communication channel to the statsd daemon is not secured (for example, by sending UDP packets to a host on another network), then users' session ids may be leaked.  This may allow an attacker to use session ids as authentication tokens.",
-      "published": "2026-05-10T21:16:29.170",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45180"
-    },
-    {
-      "id": "CVE-2026-45179",
-      "summary": "Plack::Middleware::Statsd versions before 0.9.0 for Perl may leak user IP addresses.\n\nIf the communication channel to the statsd daemon is not secured (for example, by sending UDP packets to a host on another network), then users' IP addresses may be leaked.\n\nSince version 0.9.0, the IP address is no longer logged to statsd unless configured. When configured, an HMAC signature of the IP address is logged instead.",
-      "published": "2026-05-10T20:16:28.967",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45179"
-    },
-    {
-      "id": "CVE-2022-50970",
-      "summary": "WordPress Plugin AAWP 3.16 contains a reflected cross-site scripting vulnerability that allows authenticated attackers to inject malicious scripts by manipulating the tab parameter. Attackers can craft URLs with XSS payloads in the tab parameter of the aawp-settings admin page to execute arbitrary JavaScript in the context of authenticated users.",
-      "published": "2026-05-10T13:16:34.993",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-50970"
     }
   ]
 }
