@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-11T21:40:23+00:00",
+  "generated_at": "2026-05-11T23:09:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-43874",
-      "summary": "WWBN AVideo is an open source video platform. In versions up to and including 29.0, the server-side mitigation for the YPTSocket autoEvalCodeOnHTML eval sink (from CVE-2026-40911) only strips the payload when it sits under $json['msg'], but the relay function msgToResourceId() selects the outbound message from $msg['json'] before $msg['msg']. An unauthenticated attacker can obtain a WebSocket token from plugin/YPTSocket/getWebSocket.json.php, connect to the WebSocket server, and send a message with autoEvalCodeOnHTML nested under a top-level json field \u2014 the strip branch is skipped, the relay delivers the payload verbatim to any logged-in user identified by to_users_id, and the client script runs it through eval(). Commit 9f3006f9a89a34daa67a83c6ad35f450cb91fcce contains an updated fix.",
-      "published": "2026-05-11T21:19:02.120",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43874"
+      "id": "CVE-2026-8344",
+      "summary": "A weakness has been identified in D-Link DIR-816 1.10CNB05_R1B011D88210. Affected by this vulnerability is the function sub_445E7C of the file /goform/formDMZ.cgi. This manipulation causes command injection. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-05-11T22:22:14.977",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8344"
     },
     {
-      "id": "CVE-2026-43668",
-      "summary": "A use after free issue was addressed with improved memory management. This issue is fixed in iOS 18.7.9 and iPadOS 18.7.9, iOS 26.5 and iPadOS 26.5, macOS Sequoia 15.7.7, macOS Sonoma 14.8.7, macOS Tahoe 26.5, tvOS 26.5, visionOS 26.5, watchOS 26.5. A remote attacker may be able to cause unexpected system termination or corrupt kernel memory.",
-      "published": "2026-05-11T21:19:02.023",
+      "id": "CVE-2026-7010",
+      "summary": "HTTP::Tiny versions before 0.093 for Perl do not validate CRLF in HTTP request lines or control field header values.\n\nThe unvalidated inputs are the method and URI in the request line, the URL host that becomes the `Host:` header, and HTTP/1.1 control data field values.\n\nAn attacker who controls one of these inputs, for example a user supplied URL passed to a webhook or URL fetch endpoint, can inject additional headers and smuggle requests to the upstream server.",
+      "published": "2026-05-11T22:22:14.750",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43668"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7010"
     },
     {
-      "id": "CVE-2026-43666",
-      "summary": "An out-of-bounds write issue was addressed with improved bounds checking. This issue is fixed in iOS 18.7.9 and iPadOS 18.7.9, iOS 26.5 and iPadOS 26.5, macOS Sequoia 15.7.7, macOS Sonoma 14.8.7, macOS Tahoe 26.5, tvOS 26.5, visionOS 26.5, watchOS 26.5. An attacker on the local network may be able to cause a denial-of-service.",
-      "published": "2026-05-11T21:19:01.920",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43666"
+      "id": "CVE-2026-44695",
+      "summary": "Outline is a service that allows for collaborative documentation. Prior to 1.7.1, the Slack integration callback for GET /auth/slack.post accepts an unsigned, session-independent OAuth state value. A third party who can obtain a Slack OAuth code for the same Outline Slack client can make a logged-in Outline user complete the callback and link that user's Outline account to the attacker's Slack team_id and user_id. The linked Slack identity can then use the Slack /outline search command as the victim Outline user. This vulnerability is fixed in 1.7.1.",
+      "published": "2026-05-11T22:22:14.347",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44695"
     },
     {
-      "id": "CVE-2026-43661",
-      "summary": "A buffer overflow issue was addressed with improved memory handling. This issue is fixed in iOS 26.5 and iPadOS 26.5, macOS Tahoe 26.5, tvOS 26.5, watchOS 26.5. Processing a maliciously crafted image may corrupt process memory.",
-      "published": "2026-05-11T21:19:01.823",
+      "id": "CVE-2026-43897",
+      "summary": "Link Preview JS extracts web links information. Prior to 4.0.1, the library did not check for IPv6 loopback attacks. There was also a DNS attack, where an address could be resolved into an internal IP. This could cause internal data leaks. This vulnerability is fixed in 4.0.1.",
+      "published": "2026-05-11T22:22:14.207",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43661"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43897"
     },
     {
-      "id": "CVE-2026-43660",
-      "summary": "A validation issue was addressed with improved logic. This issue is fixed in iOS 18.7.9 and iPadOS 18.7.9, iOS 26.5 and iPadOS 26.5, macOS Tahoe 26.5, tvOS 26.5, visionOS 26.5, watchOS 26.5. Processing maliciously crafted web content may prevent Content Security Policy from being enforced.",
-      "published": "2026-05-11T21:19:01.720",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43660"
+      "id": "CVE-2026-43893",
+      "summary": "exiftool-vendored provides cross-platform Node.js access to ExifTool. Prior to 35.19.0, exiftool-vendored starts ExifTool in -stay_open True -@ - mode, where arguments are read from stdin one per line. In affected versions, several caller-supplied strings were interpolated into ExifTool arguments without rejecting line delimiters. A newline or carriage return inside one of those strings could split a single intended argument into multiple ExifTool arguments, allowing argument injection. The fix also rejects NUL bytes as unsafe control characters. Applications that pass attacker-controlled strings to affected APIs may allow an attacker to make ExifTool read files accessible to the ExifTool process, or write output to attacker-chosen file system paths accessible to that process. No remote code execution has been demonstrated. This vulnerability is fixed in 35.19.0.",
+      "published": "2026-05-11T22:22:14.033",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43893"
     },
     {
-      "id": "CVE-2026-43659",
-      "summary": "A race condition was addressed with additional validation. This issue is fixed in iOS 18.7.9 and iPadOS 18.7.9, iOS 26.5 and iPadOS 26.5, macOS Sequoia 15.7.7, macOS Sonoma 14.8.7, macOS Tahoe 26.5, visionOS 26.5. An app may be able to access sensitive user data.",
-      "published": "2026-05-11T21:19:01.590",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43659"
+      "id": "CVE-2026-43890",
+      "summary": "Outline is a service that allows for collaborative documentation. From 0.84.0 to 1.7.0, the subscriptions.create API endpoint in server/routes/api/subscriptions/subscriptions.ts exhibits a broken authorization pattern. When both collectionId and documentId are supplied in the request, the route handler authorizes ONLY the collection branch (line 125 if (collectionId)), while the downstream subscriptionCreator command at server/commands/subscriptionCreator.ts writes the subscription against the documentId (which was never validated). The result is a subscription record pinning the attacker's user to a victim document the attacker has no read access to, on any team in the instance. The schema (server/routes/api/subscriptions/schema.ts) only enforces \"at least one of collectionId/documentId\" via .refine() \u2014 it does NOT enforce mutual exclusivity, so passing both is a valid, schema-conforming request. This vulnerability is fixed in 1.7.1.",
+      "published": "2026-05-11T22:22:13.900",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43890"
     }
   ]
 }
