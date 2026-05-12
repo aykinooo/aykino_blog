@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-12T00:09:04+00:00",
+  "generated_at": "2026-05-12T04:03:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8345",
-      "summary": "A security vulnerability has been detected in D-Link DIR-816 1.10CNB05_R1B011D88210. Affected by this issue is the function sub_445E7C of the file /goform/singlePortForward. Such manipulation of the argument ip_address leads to command injection. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-05-11T23:20:22.813",
+      "id": "CVE-2026-40137",
+      "summary": "SAP TAF_APPLAUNCHER within Business Server Pages allows an unauthenticated attacker to craft malicious links that, when clicked by a victim, redirects them to attacker?controlled sites, potentially exposing or altering sensitive information in the victim\ufffds browser. This results in a low impact on confidentiality and integrity, with no impact on the availability of the application.",
+      "published": "2026-05-12T03:16:12.693",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40137"
+    },
+    {
+      "id": "CVE-2026-40136",
+      "summary": "SAP Financial Consolidation allows an authenticated attacker to disconnect other users by terminating their sessions temporarily preventing access. However, the application itself cannot be compromised resulting in a low impact on availability. There is no impact on confidentiality and integrity of the data",
+      "published": "2026-05-12T03:16:12.560",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40136"
+    },
+    {
+      "id": "CVE-2026-40135",
+      "summary": "An OS Command Injection vulnerability exists in the SAP NetWeaver Application Server for ABAP and ABAP Platform that allows an authenticated attacker with administrative access to execute specially crafted shell commands on the server, bypassing the logging mechanism. This allows the execution of unintended OS commands without detection, potentially impacting the integrity and availability of the application, with no impact on confidentiality.",
+      "published": "2026-05-12T03:16:12.430",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40135"
+    },
+    {
+      "id": "CVE-2026-40134",
+      "summary": "Due to insufficient authorization checks in the SAP Incentive and Commission Management application, authenticated users could invoke a remote-enabled function module to perform table update operations. This vulnerability has a low impact on integrity with no impact on confidentiality and availability of the application.",
+      "published": "2026-05-12T03:16:12.307",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40134"
+    },
+    {
+      "id": "CVE-2026-40133",
+      "summary": "Due to missing authorization check in SAP S/4HANA Condition Maintenance, an authenticated attacker could gain unauthorized access to view and modify condition table records, resulting in low impact on the confidentiality and integrity of the data. Additionally, this vulnerability may prevent the legitimate user from accessing the records, causing low impact on application availability.",
+      "published": "2026-05-12T03:16:12.177",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8345"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40133"
     },
     {
-      "id": "CVE-2026-43914",
-      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.4, there is a security vulnerability in Vaultwarden that allows bypassing the login brute-force protection if email 2fa is enabled. If email 2fa is enabled, the unprotected 2fa-function send_email_login (email.rs, api endpoint /api/two-factor/send-email-login) also acts as an oracle determining whether a username-password combination is correct. An attacker can abuse that endpoint to brute-force passwords without rate-limiting. This works even for users who don't have email 2fa configured. This vulnerability is fixed in 1.35.4.",
-      "published": "2026-05-11T23:20:22.253",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43914"
-    },
-    {
-      "id": "CVE-2026-43913",
-      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.5, Vaultwarden allows an unconfirmed organization owner to purge the entire organization vault. The organization invite flow uses a two-step process: accepting an invite transitions membership from Invited to Accepted, and a separate confirmation by an existing owner upgrades it to Confirmed. The POST /api/ciphers/purge endpoint uses plain Headers and only checks that the membership type is Owner without verifying that the membership status is Confirmed. An authenticated user who has been invited as an organization owner and has accepted the invite and has not yet been confirmed can call this endpoint to hard-delete all ciphers and attachments in the organization,\ncausing immediate organization-wide data loss. This vulnerability is fixed in 1.35.5.",
-      "published": "2026-05-11T23:20:22.120",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43913"
-    },
-    {
-      "id": "CVE-2026-43912",
-      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.5, Vaultwarden does not enforce that a groups_users.users_organizations_uuid entry belongs to the same organization as groups.groups_uuid, or a collections_groups.collections_uuid entry belongs to the same organization as collections_groups.groups_uuid. Multiple organization group-management endpoints accept arbitrary MembershipId and CollectionId values and persist them directly without verifying org consistency. This lets an attacker who is Admin in Organization A, and only a low-privileged member in Organization B bind their Org B membership UUID into an Org A group, then use that foreign group relationship to gain unauthorized access to Org B vault data. With an accessAll=true Org A group, the attacker can make /api/sync and /api/ciphers enumerate Org B ciphers. Once those unauthorized sync results reveal Org B collection IDs, the attacker can also bind those foreign collection IDs to the Org A group and turn the same flaw into write access over Org B items. This vulnerability is fixed in 1.35.5.",
-      "published": "2026-05-11T23:20:21.980",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43912"
-    },
-    {
-      "id": "CVE-2026-43911",
-      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.5, refresh tokens are not invalidated when the user's security_stamp is rotated by some security-sensitive operations (password change, KDF change, key rotation, email change, org admin password reset, emergency access takeover). This allows an attacker holding a previously obtained refresh token to maintain session access even after the user has taken action to secure their account. This vulnerability is fixed in 1.35.5.",
-      "published": "2026-05-11T23:20:21.837",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43911"
-    },
-    {
-      "id": "CVE-2026-43901",
-      "summary": "Wireshark MCP is an MCP Server that turns tshark into a structured analysis interface, then layers in optional Wireshark suite utilities. In 1.1.5 and earlier, wireshark-mcp exposes a wireshark_export_objects MCP tool that accepts an attacker-controlled dest_dir parameter and passes it to tshark's --export-objects flag with no mandatory path restriction. The path sandbox (_allowed_dirs) is None by default and only activates when the environment variable WIRESHARK_MCP_ALLOWED_DIRS is explicitly set. In a default installation, any directory on the filesystem can be used as the export destination.",
-      "published": "2026-05-11T23:20:21.697",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43901"
+      "id": "CVE-2026-40132",
+      "summary": "Due to missing authorization check in SAP Strategic Enterprise Management (Scorecard Wizard in Business Server Pages), an authenticated attacker could access information that they are otherwise unauthorized to view. This vulnerability also enables the attacker to change the default settings and modify value fields, which will mislead risk evaluations and falsely lower assessed risk levels. This results in a low impact on the confidentiality and integrity of the data. There is no impact on the application\ufffds availability.",
+      "published": "2026-05-12T03:16:12.043",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40132"
     }
   ]
 }
