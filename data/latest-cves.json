@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-12T15:09:04+00:00",
+  "generated_at": "2026-05-12T17:21:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8391",
-      "summary": "Other issue in the JavaScript Engine component. This vulnerability was fixed in Firefox 150.0.3.",
-      "published": "2026-05-12T14:17:12.173",
+      "id": "CVE-2026-8407",
+      "summary": "Missing authorization in the PAM module in Devolutions Server allows an authenticated user with a PAM license but no additional permissions to obtain OTP secret keys and recovery codes via crafted requests to PAM API endpoints.\n\n\n\nThis issue affects the following versions :\n\n  *  \n\nDevolutions Server 2026.1.6.0 through 2026.1.11.0\n\n\n  *  \n\nDevolutions Server 2025.3.16.0 and earlier",
+      "published": "2026-05-12T17:16:22.043",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8391"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8407"
     },
     {
-      "id": "CVE-2026-8390",
-      "summary": "Use-after-free in the JavaScript: WebAssembly component. This vulnerability was fixed in Firefox 150.0.3.",
-      "published": "2026-05-12T14:17:12.050",
+      "id": "CVE-2026-5089",
+      "summary": "YAML::Syck versions before 1.38 for Perl  has an out-of-bounds read.\n\nThe base60 (sexagesimal) parsing code in perl_syck.h has a buffer underflow bug in both int#base60 and float#base60 handlers. When processing the leftmost segment of a colon-separated value (e.g., the 1 in 1:30:45), the inner while loop can decrement a pointer past the start of the string buffer:\n\n    while ( colon >= ptr && *colon != ':' )\n    {\n        colon--;\n    }\n    if ( *colon == ':' ) *colon = '\\0';  // colon may be ptr-1 here\n\nWhen no colon is found (final/leftmost segment), colon becomes ptr-1, and the subsequent *colon dereference reads one byte before the allocated buffer.",
+      "published": "2026-05-12T17:16:21.720",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8390"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5089"
     },
     {
-      "id": "CVE-2026-8389",
-      "summary": "JIT miscompilation in the JavaScript Engine: JIT component. This vulnerability was fixed in Firefox 150.0.3.",
-      "published": "2026-05-12T14:17:11.930",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8389"
+      "id": "CVE-2026-43993",
+      "summary": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, the WAVS bridge's computeDataVerify called fetch() on agent-supplied URLs without validating scheme, port, or resolved IP, resulting in an SSRF vulnerability. This vulnerability is fixed in 0.x.y-security-1.",
+      "published": "2026-05-12T17:16:21.380",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43993"
     },
     {
-      "id": "CVE-2026-8388",
-      "summary": "Incorrect boundary conditions in the JavaScript Engine: JIT component. This vulnerability was fixed in Firefox 150.0.3.",
-      "published": "2026-05-12T14:17:11.813",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8388"
+      "id": "CVE-2026-43992",
+      "summary": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, every MCP write tool (send_tokens, execute_contract, instantiate_contract, upload_wasm, ibc_transfer, etc.) accepted 'mnemonic: string' as an explicit tool-call parameter. The BIP-39 seed was consequently embedded in the LLM tool-call JSON, exposing it to any transport, log, or telemetry surface in the path between the LLM provider and the MCP process. This vulnerability is fixed in 0.x.y-security-1.",
+      "published": "2026-05-12T17:16:21.240",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43992"
     },
     {
-      "id": "CVE-2026-6865",
-      "summary": "CWE-22: Improper Limitation of a Pathname to a Restricted Directory (\u201cPath Traversal\u201d) vulnerability that could cause unauthorized access to sensitive files when user-supplied input is improperly handled during server-side file path processing.",
-      "published": "2026-05-12T14:17:10.567",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6865"
+      "id": "CVE-2026-43991",
+      "summary": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, substring-based blocklist in plugin-shell's command-safety check could be bypassed by adversarial argument constructions, allowing unauthorized command execution on the host when combined with the companion advisory. Pre-patch, the check was applied to the raw command string rather than the parsed first token. This vulnerability is fixed in 0.x.y-security-1.",
+      "published": "2026-05-12T17:16:21.090",
+      "cvss": 8.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43991"
     },
     {
-      "id": "CVE-2026-45091",
-      "summary": "sealed-env is a cross-stack, zero-trust secret management library for Node.js and Java/Spring Boot. In sealed-env enterprise mode, versions 0.1.0-alpha.1 through 0.1.0-alpha.3 embedded the operator's literal TOTP secret in the JWS payload of every minted unseal token. JWS payload is base64-encoded JSON, NOT encrypted. Any party who could observe a minted token (CI build logs, container env dumps, kubectl describe pod, Sentry/Rollbar stack traces, log aggregators) could decode the payload and extract the TOTP secret in plaintext. This vulnerability is fixed in 0.1.0-alpha.4.",
-      "published": "2026-05-12T14:17:08.820",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45091"
+      "id": "CVE-2026-43990",
+      "summary": "JunoClaw is an agentic AI platform built on Juno Network. Prior to 0.x.y-security-1, plugin-shell's run_command wrapped every agent-supplied command in 'sh -c' / 'cmd /C' and passed the full argument string to the shell's parser, allowing shell metacharacters in agent-supplied arguments to be interpreted as command syntax. This vulnerability is fixed in 0.x.y-security-1.",
+      "published": "2026-05-12T17:16:20.953",
+      "cvss": 8.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43990"
     }
   ]
 }
