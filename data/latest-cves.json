@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-11T23:09:42+00:00",
+  "generated_at": "2026-05-12T00:09:04+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8344",
-      "summary": "A weakness has been identified in D-Link DIR-816 1.10CNB05_R1B011D88210. Affected by this vulnerability is the function sub_445E7C of the file /goform/formDMZ.cgi. This manipulation causes command injection. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks.",
-      "published": "2026-05-11T22:22:14.977",
+      "id": "CVE-2026-8345",
+      "summary": "A security vulnerability has been detected in D-Link DIR-816 1.10CNB05_R1B011D88210. Affected by this issue is the function sub_445E7C of the file /goform/singlePortForward. Such manipulation of the argument ip_address leads to command injection. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-05-11T23:20:22.813",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8344"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8345"
     },
     {
-      "id": "CVE-2026-7010",
-      "summary": "HTTP::Tiny versions before 0.093 for Perl do not validate CRLF in HTTP request lines or control field header values.\n\nThe unvalidated inputs are the method and URI in the request line, the URL host that becomes the `Host:` header, and HTTP/1.1 control data field values.\n\nAn attacker who controls one of these inputs, for example a user supplied URL passed to a webhook or URL fetch endpoint, can inject additional headers and smuggle requests to the upstream server.",
-      "published": "2026-05-11T22:22:14.750",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7010"
+      "id": "CVE-2026-43914",
+      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.4, there is a security vulnerability in Vaultwarden that allows bypassing the login brute-force protection if email 2fa is enabled. If email 2fa is enabled, the unprotected 2fa-function send_email_login (email.rs, api endpoint /api/two-factor/send-email-login) also acts as an oracle determining whether a username-password combination is correct. An attacker can abuse that endpoint to brute-force passwords without rate-limiting. This works even for users who don't have email 2fa configured. This vulnerability is fixed in 1.35.4.",
+      "published": "2026-05-11T23:20:22.253",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43914"
     },
     {
-      "id": "CVE-2026-44695",
-      "summary": "Outline is a service that allows for collaborative documentation. Prior to 1.7.1, the Slack integration callback for GET /auth/slack.post accepts an unsigned, session-independent OAuth state value. A third party who can obtain a Slack OAuth code for the same Outline Slack client can make a logged-in Outline user complete the callback and link that user's Outline account to the attacker's Slack team_id and user_id. The linked Slack identity can then use the Slack /outline search command as the victim Outline user. This vulnerability is fixed in 1.7.1.",
-      "published": "2026-05-11T22:22:14.347",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44695"
+      "id": "CVE-2026-43913",
+      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.5, Vaultwarden allows an unconfirmed organization owner to purge the entire organization vault. The organization invite flow uses a two-step process: accepting an invite transitions membership from Invited to Accepted, and a separate confirmation by an existing owner upgrades it to Confirmed. The POST /api/ciphers/purge endpoint uses plain Headers and only checks that the membership type is Owner without verifying that the membership status is Confirmed. An authenticated user who has been invited as an organization owner and has accepted the invite and has not yet been confirmed can call this endpoint to hard-delete all ciphers and attachments in the organization,\ncausing immediate organization-wide data loss. This vulnerability is fixed in 1.35.5.",
+      "published": "2026-05-11T23:20:22.120",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43913"
     },
     {
-      "id": "CVE-2026-43897",
-      "summary": "Link Preview JS extracts web links information. Prior to 4.0.1, the library did not check for IPv6 loopback attacks. There was also a DNS attack, where an address could be resolved into an internal IP. This could cause internal data leaks. This vulnerability is fixed in 4.0.1.",
-      "published": "2026-05-11T22:22:14.207",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43897"
+      "id": "CVE-2026-43912",
+      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.5, Vaultwarden does not enforce that a groups_users.users_organizations_uuid entry belongs to the same organization as groups.groups_uuid, or a collections_groups.collections_uuid entry belongs to the same organization as collections_groups.groups_uuid. Multiple organization group-management endpoints accept arbitrary MembershipId and CollectionId values and persist them directly without verifying org consistency. This lets an attacker who is Admin in Organization A, and only a low-privileged member in Organization B bind their Org B membership UUID into an Org A group, then use that foreign group relationship to gain unauthorized access to Org B vault data. With an accessAll=true Org A group, the attacker can make /api/sync and /api/ciphers enumerate Org B ciphers. Once those unauthorized sync results reveal Org B collection IDs, the attacker can also bind those foreign collection IDs to the Org A group and turn the same flaw into write access over Org B items. This vulnerability is fixed in 1.35.5.",
+      "published": "2026-05-11T23:20:21.980",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43912"
     },
     {
-      "id": "CVE-2026-43893",
-      "summary": "exiftool-vendored provides cross-platform Node.js access to ExifTool. Prior to 35.19.0, exiftool-vendored starts ExifTool in -stay_open True -@ - mode, where arguments are read from stdin one per line. In affected versions, several caller-supplied strings were interpolated into ExifTool arguments without rejecting line delimiters. A newline or carriage return inside one of those strings could split a single intended argument into multiple ExifTool arguments, allowing argument injection. The fix also rejects NUL bytes as unsafe control characters. Applications that pass attacker-controlled strings to affected APIs may allow an attacker to make ExifTool read files accessible to the ExifTool process, or write output to attacker-chosen file system paths accessible to that process. No remote code execution has been demonstrated. This vulnerability is fixed in 35.19.0.",
-      "published": "2026-05-11T22:22:14.033",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43893"
+      "id": "CVE-2026-43911",
+      "summary": "Vaultwarden is a Bitwarden-compatible server written in Rust. Prior to 1.35.5, refresh tokens are not invalidated when the user's security_stamp is rotated by some security-sensitive operations (password change, KDF change, key rotation, email change, org admin password reset, emergency access takeover). This allows an attacker holding a previously obtained refresh token to maintain session access even after the user has taken action to secure their account. This vulnerability is fixed in 1.35.5.",
+      "published": "2026-05-11T23:20:21.837",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43911"
     },
     {
-      "id": "CVE-2026-43890",
-      "summary": "Outline is a service that allows for collaborative documentation. From 0.84.0 to 1.7.0, the subscriptions.create API endpoint in server/routes/api/subscriptions/subscriptions.ts exhibits a broken authorization pattern. When both collectionId and documentId are supplied in the request, the route handler authorizes ONLY the collection branch (line 125 if (collectionId)), while the downstream subscriptionCreator command at server/commands/subscriptionCreator.ts writes the subscription against the documentId (which was never validated). The result is a subscription record pinning the attacker's user to a victim document the attacker has no read access to, on any team in the instance. The schema (server/routes/api/subscriptions/schema.ts) only enforces \"at least one of collectionId/documentId\" via .refine() \u2014 it does NOT enforce mutual exclusivity, so passing both is a valid, schema-conforming request. This vulnerability is fixed in 1.7.1.",
-      "published": "2026-05-11T22:22:13.900",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43890"
+      "id": "CVE-2026-43901",
+      "summary": "Wireshark MCP is an MCP Server that turns tshark into a structured analysis interface, then layers in optional Wireshark suite utilities. In 1.1.5 and earlier, wireshark-mcp exposes a wireshark_export_objects MCP tool that accepts an attacker-controlled dest_dir parameter and passes it to tshark's --export-objects flag with no mandatory path restriction. The path sandbox (_allowed_dirs) is None by default and only activates when the environment variable WIRESHARK_MCP_ALLOWED_DIRS is explicitly set. In a default installation, any directory on the filesystem can be used as the export destination.",
+      "published": "2026-05-11T23:20:21.697",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43901"
     }
   ]
 }
