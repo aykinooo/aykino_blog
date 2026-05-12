@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-12T21:37:47+00:00",
+  "generated_at": "2026-05-12T23:17:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-44403",
-      "summary": "Wing FTP Server 8.1.2 contains an authenticated remote code execution vulnerability in the session serialization mechanism that allows authenticated administrators to inject arbitrary Lua code through the domain admin mydirectory field. Attackers can exploit unsafe serialization of session values into Lua source code without proper escaping of closing delimiters, causing the injected code to be executed when the poisoned session is loaded via loadfile().",
-      "published": "2026-05-12T21:16:16.667",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44403"
+      "id": "CVE-2026-8108",
+      "summary": "The installation of Fuji Tellus adds a driver to the kernel which grants all users read and write permissions.",
+      "published": "2026-05-12T23:16:19.023",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8108"
     },
     {
-      "id": "CVE-2026-44246",
-      "summary": "nnU-Net is a semantic segmentation framework that automatically adapts its pipeline to a dataset. Prior to 2.4.1, the nnU-Net Issue Triage workflow in .github/workflows/issue-triage.yml is vulnerable to Agentic Workflow Injection. The workflow sets allowed_non_write_users: ${{ github.event.issue.user.login }}, which means any logged-in GitHub user who opens an issue can reach this agentic workflow with attacker-controlled content. Untrusted issue title and body content are embedded directly into the prompt of anthropics/claude-code-action, and the workflow then runs a command-capable Claude agent with permission to comment on and relabel the current issue via gh. Because this workflow is triggered automatically on issues.opened, an external attacker can submit a crafted issue that steers the agent beyond its intended issue-triage purpose and influences authenticated issue actions. This vulnerability is fixed in 2.4.1.",
-      "published": "2026-05-12T21:16:16.543",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44246"
+      "id": "CVE-2026-5371",
+      "summary": "The MonsterInsights \u2013 Google Analytics Dashboard for WordPress (Website Stats Made Easy) plugin for WordPress is vulnerable to unauthorized access and modification of data due to a missing capability checks on the get_ads_access_token() and reset_experience() functions in all versions up to, and including, 10.1.2. This makes it possible for authenticated attackers, with Subscriber-level access and above, to retrieve live Google OAuth access tokens and reset Plugins's Google Ads integration.",
+      "published": "2026-05-12T23:16:18.880",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5371"
     },
     {
-      "id": "CVE-2026-44240",
-      "summary": "basic-ftp is an FTP client for Node.js. Prior to 5.3.1, basic-ftp is vulnerable to client-side denial of service when parsing FTP control-channel multiline responses. A malicious or compromised FTP server can send an unterminated multiline response during the initial FTP banner phase, before authentication. The client keeps appending attacker-controlled data into FtpContext._partialResponse and repeatedly reparses the accumulated buffer without enforcing a maximum control response size. As a result, an application using basic-ftp can remain stuck in connect() while memory and CPU usage grow under attacker-controlled input. This can lead to process-level denial of service, container OOM kills, worker restarts, queue backlog, or service degradation in applications that automatically connect to FTP endpoints. This vulnerability is fixed in 5.3.1.",
-      "published": "2026-05-12T21:16:16.410",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44240"
+      "id": "CVE-2026-44548",
+      "summary": "ChurchCRM is an open-source church management system. Prior to 7.3.2, top-level cross-site GET navigation from an attacker-controlled page to FundRaiserDelete.php, PropertyTypeDelete.php, or NoteDelete.php causes a logged-in ChurchCRM user with the relevant role to silently delete records, including cascaded property and record-to-property assignments. This vulnerability is fixed in 7.3.2.",
+      "published": "2026-05-12T23:16:18.750",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44548"
     },
     {
-      "id": "CVE-2026-44232",
-      "summary": "DSSRF is a Node.js library that provides a wide range of utilities and advanced SSRF defense checks. Prior to 1.3.0, every IPv6 category bypasses is_url_safe. This vulnerability is fixed in 1.3.0.",
-      "published": "2026-05-12T21:16:16.270",
+      "id": "CVE-2026-44547",
+      "summary": "ChurchCRM is an open-source church management system. From 7.2.0 to 7.2.2, The fix for CVE-2026-4058 is incomplete. The hardening commit was merged and then silently stripped from src/api/routes/public/public-user.php by an unrelated PR before any 7.2.x tag was cut. Every shipped 7.2.x release therefore remains exploitable by the PoC published with the original advisory. This vulnerability is fixed in 7.3.1.",
+      "published": "2026-05-12T23:16:18.610",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44547"
+    },
+    {
+      "id": "CVE-2026-44352",
+      "summary": "Flowsint is an open-source OSINT graph exploration tool designed for cybersecurity investigation, transparency, and verification. Prior to 1.2.3, Broken Access Control allows reading of sketch logs from any user. This vulnerability is fixed in 1.2.3.",
+      "published": "2026-05-12T23:16:18.480",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44232"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44352"
     },
     {
-      "id": "CVE-2026-44224",
-      "summary": "Wiki.js is an open source wiki app built on Node.js. Prior to 2.5.313, the users.update GraphQL mutation accepts an arbitrary groups array and applies it directly to the database with no validation of the group IDs supplied. The resolver passes the caller's arguments straight to the model without any ownership check or restriction on which groups can be assigned. A user with manage:users \u2014 a permission typically delegated to wiki moderators for account management \u2014 can set groups:[1] on their own account to self-assign to the Administrators group. After re-authentication, the fresh JWT carries manage:system, granting full site administrator access in a single mutation call. This vulnerability is fixed in 2.5.313.",
-      "published": "2026-05-12T21:16:16.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44224"
-    },
-    {
-      "id": "CVE-2026-44012",
-      "summary": "Craft CMS is a content management system (CMS). From 5.0.0-RC1 to before 5.9.18, AssetsController::actionShowInFolder() fetches an asset by ID and returns its filename and complete folder hierarchy (including volume handle, volume UID, folder names, folder UIDs, and folder URI paths) without checking whether the requesting user has viewAssets or viewPeerAssets permission on the asset\u2019s volume. Any authenticated CP user \u2014 even one with zero volume permissions \u2014 can enumerate asset filenames and the full folder structure of any volume by supplying arbitrary asset IDs. This vulnerability is fixed in 5.9.18.",
-      "published": "2026-05-12T21:16:16.003",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44012"
+      "id": "CVE-2026-44347",
+      "summary": "Warpgate is an open source SSH, HTTPS and MySQL bastion host for Linux. Prior to 0.23.3, the SSO flow does not validate the state parameter, which makes it possible for an attacker to trick a user into logging into the attacker's account, possibly convincing them to perform sensitive actions on the attacker's account (such as writing sensitive data to the attacker's SSH target, or logging into an HTTP target that the attacker set up). This vulnerability is fixed in 0.23.3.",
+      "published": "2026-05-12T23:16:18.340",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44347"
     }
   ]
 }
