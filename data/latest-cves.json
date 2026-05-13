@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-13T20:54:06+00:00",
+  "generated_at": "2026-05-13T22:37:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-44364",
-      "summary": "MISP modules are autonomous modules that can be used to extend MISP for new services. In 3.0.7 and earlier, a Cross-Site Request Forgery vulnerability in the MISP Modules website allowed an attacker to cause an authenticated user to submit unintended requests to the home endpoint. The vulnerability was due to the home blueprint being exempted from CSRF protection. This could allow modification of session query data in the context of the authenticated user. The issue was fixed by enabling CSRF protection for the affected blueprint and hardening query parsing.",
-      "published": "2026-05-13T20:16:23.157",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44364"
-    },
-    {
-      "id": "CVE-2026-44363",
-      "summary": "MISP modules are autonomous modules that can be used to extend MISP for new services. Prior to 3.0.7, an unsafe remote resource fetching vulnerability existed in MISP Modules expansion modules. The html_to_markdown module accepted arbitrary HTTP(S) URLs without sufficient validation, which could allow Server-Side Request Forgery against loopback, private, or link-local network resources. Additionally, the qrcode module disabled TLS certificate verification when retrieving remote images, exposing requests to potential man-in-the-middle interception or response tampering. The issue was fixed by validating URL schemes, blocking local and private address ranges, resolving hostnames before fetching, enforcing request timeouts, and re-enabling TLS certificate verification. This vulnerability is fixed in 3.0.7.",
-      "published": "2026-05-13T20:16:23.007",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44363"
-    },
-    {
-      "id": "CVE-2026-44351",
-      "summary": "fast-jwt provides fast JSON Web Token (JWT) implementation. Prior to 6.2.4, a critical authentication-bypass vulnerability in fast-jwt's async key-resolver flow allows any unauthenticated attacker to forge arbitrary JWTs that are accepted as authentic. When the application's key resolver returns an empty string (''), for example via the common keys[decoded.header.kid] || '' JWKS-style fallback, fast-jwt converts it to a zero-length Buffer, hands it to crypto.createSecretKey, derives allowedAlgorithms = ['HS256','HS384','HS512'] from it, and then verifies the token's signature against an empty-key HMAC. The attacker simply computes HMAC-SHA256(key='', input='${header}.${payload}'), which Node accepts without complaint \u2014 and the verifier returns the attacker-chosen payload (sub, admin, scopes, etc.) as authentic. This vulnerability is fixed in 6.2.4.",
-      "published": "2026-05-13T20:16:22.860",
+      "id": "CVE-2026-45158",
+      "summary": "OPNsense is a FreeBSD based firewall and routing platform. Prior to 26.1.8, unsanitized user input is passed to the DHCP configuration of the configured interface, which is processed by a shell script, allowing remote code execution as root on the underlying operating system. This vulnerability is fixed in 26.1.8.",
+      "published": "2026-05-13T22:16:46.363",
       "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44351"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45158"
     },
     {
-      "id": "CVE-2026-42552",
-      "summary": "Flight is an extensible micro-framework for PHP. Prior to 3.18.1, the default error handler Engine::_error() writes the full exception message, exception code, and stack trace (including absolute filesystem paths) directly into the HTTP 500 response, with no debug gating. Production deployments leak internal paths, any secret interpolated into an exception message, and full module structure \u2014 giving attackers primitives for chaining other weaknesses (LFI, path traversal). This vulnerability is fixed in 3.18.1.",
-      "published": "2026-05-13T20:16:22.323",
+      "id": "CVE-2026-44478",
+      "summary": "hoppscotch is an open source API development ecosystem. The fix for CVE-2026-28215 in version 2026.2.0 addresses the unauthenticated POST /v1/onboarding/config endpoint by checking onboardingCompleted and canReRunOnboarding before allowing config overwrites. However, GET /v1/onboarding/config still leaks all infrastructure secrets in plaintext to unauthenticated users when the ONBOARDING_RECOVERY_TOKEN stored in the database is an empty string. This vulnerability is fixed in 2026.4.0.",
+      "published": "2026-05-13T22:16:46.207",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42552"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44478"
     },
     {
-      "id": "CVE-2026-42551",
-      "summary": "Flight is an extensible micro-framework for PHP. Prior to 3.18.1, Request::getMethod() unconditionally honors the X-HTTP-Method-Override header and the $_REQUEST['_method'] parameter on any HTTP verb (including safe verbs such as GET), with no opt-in and no whitelist of permitted target methods. A GET request can silently become a DELETE or PUT, enabling CSRF escalation against destructive endpoints, bypass of middleware gated on unsafe verbs, and cache poisoning between CDN and origin. This vulnerability is fixed in 3.18.1.",
-      "published": "2026-05-13T20:16:22.190",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42551"
+      "id": "CVE-2026-44471",
+      "summary": "gitoxide is an implementation of git written in Rust. Prior to 0.21.1, a malicious tree can be constructed that will, when checked out with gitoxide, permit writing an attacker-controlled symlink into any existing directory the user has write access to. During checkout, all symlink index entries are deferred and created after regular files using a single shared gix_worktree::Stack. Internally, this uses a gix_fs::Stack. gix_fs::Stack::make_relative_path_current() caches validated path prefixes: when the previously-processed leaf component exactly matches the leading component(s) of the next path, the leaf-to-directory transition at gix-fs/src/stack.rs invokes only delegate.push_directory(), never delegate.push(). In gix_worktree::stack::delegate::StackDelegate, when the state member is State::CreateDirectoryAndAttributesStack, Attributes::push_directory() only loads attributes (from the ODB, in the clone case), and does not perform any other checks. The on-disk symlink_metadata() check and unlink-on-collision live in StackDelegate::push()'s invocation of create_leading_directory(), which is therefore bypassed for the cached prefix. The final symlink is created with plain std::os::unix::fs::symlink, which follows symlinks in parent directories. Therefore, it's possible to provide a tree with duplicate symlink and directory entries that exploits this. This vulnerability is fixed in 0.21.1.",
+      "published": "2026-05-13T22:16:46.057",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44471"
     },
     {
-      "id": "CVE-2026-42550",
-      "summary": "Flight is an extensible micro-framework for PHP. Prior to 3.18.1, SimplePdo::insert(), SimplePdo::update(), and SimplePdo::delete() build SQL statements by concatenating the $table argument and the keys of the $data array directly into the query, with no identifier quoting and no validation. When an application forwards user-controlled data shapes to these helpers \u2014 a common and documented pattern, e.g. $db->insert('users', $request->data->getData()) \u2014 an attacker can inject arbitrary SQL by crafting malicious array keys. This vulnerability is fixed in 3.18.1.",
-      "published": "2026-05-13T20:16:22.060",
+      "id": "CVE-2026-44448",
+      "summary": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.102.0 and 16.11.0, certain endpoints failed to enforce proper authorization checks, allowing users to modify data beyond their permitted role. This vulnerability is fixed in 15.102.0 and 16.11.0.",
+      "published": "2026-05-13T22:16:45.913",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44448"
+    },
+    {
+      "id": "CVE-2026-44447",
+      "summary": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 16.9.0, some endpoints were vulnerable to SQL injection through specially crafted requests, which would allow a malicious actor to extract sensitive information. This vulnerability is fixed in 16.9.0.",
+      "published": "2026-05-13T22:16:45.780",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42550"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44447"
+    },
+    {
+      "id": "CVE-2026-44446",
+      "summary": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.104.3 and 16.14.0, some endpoints were vulnerable to SQL injection through specially crafted requests, which would allow a malicious actor to extract sensitive information. This vulnerability is fixed in 15.104.3 and 16.14.0.",
+      "published": "2026-05-13T22:16:45.637",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44446"
     }
   ]
 }
