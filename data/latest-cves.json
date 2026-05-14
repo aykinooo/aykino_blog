@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-14T20:00:54+00:00",
+  "generated_at": "2026-05-14T21:21:50+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8621",
-      "summary": "Crabbox prior to v0.12.0 contains an authentication bypass vulnerability that allows non-admin shared-token callers to impersonate other owners or organizations by spoofing identity headers. Attackers can inject malicious X-Crabbox-Owner and X-Crabbox-Org headers in requests authenticated with a shared token to bypass authorization checks and access owner/org-scoped lease operations belonging to victim accounts.",
-      "published": "2026-05-14T19:16:39.517",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8621"
+      "id": "CVE-2026-45781",
+      "summary": "The MCP Registry provides MCP clients with a list of MCP servers, like an app store for MCP servers. Prior to 1.7.9, OCI ownership validation skips label-match check when upstream OCI registry returns HTTP 429, letting any authenticated publisher bind their io.github.<user>/* namespace to OCI images they do not control. internal/validators/registries/oci.go:104-119 fails open on http.StatusTooManyRequests: when the registry's anonymous fetch to the upstream OCI registry is rate-limited, ValidateOCI returns nil and the publish is accepted without ever running the io.modelcontextprotocol.server.name label-match check at lines 122-141. That label check is the only cross-system ownership proof the registry applies to OCI packages \u2014 every other registry type (NPM, PyPI, NuGet, MCPB) treats a non-200 upstream response as a hard error. This vulnerability is fixed in 1.7.9.",
+      "published": "2026-05-14T21:16:48.480",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45781"
     },
     {
-      "id": "CVE-2026-45375",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.0, SiYuan's Bazaar (community marketplace) renders the name and version fields of a package's plugin.json (and the equivalent theme.json / template.json / widget.json / icon.json) into the Settings \u2192 Marketplace UI without HTML escaping. The kernel-side helper sanitizePackageDisplayStrings in kernel/bazaar/package.go HTML-escapes only Author, DisplayName, and Description \u2014 Name and Version flow through to the renderer raw. The frontend at app/src/config/bazaar.ts substitutes them into HTML template strings via ${item.preferredName} / ${data.name} / v${data.version} and assigns the result to innerHTML. As a consequence, malicious HTML in either field is parsed and executed when a user opens the marketplace tab. This vulnerability is fixed in 3.7.0.",
-      "published": "2026-05-14T19:16:39.030",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45375"
+      "id": "CVE-2026-45370",
+      "summary": "python-utcp is the python implementation of UTCP. Prior to 1.1.3, _prepare_environment() in cli_communication_protocol.py passes a full copy of os.environ to every CLI subprocess. When combined with CVE-2026-45369, an attacker can exfiltrate all process-level secrets in a single tool call. This vulnerability is fixed in 1.1.3.",
+      "published": "2026-05-14T21:16:48.350",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45370"
     },
     {
-      "id": "CVE-2026-45371",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.0, SiYuan publish-mode Reader can mutate Conf and SQL index via 8 ungated APIs. POST /api/graph/getGraph, POST /api/graph/getLocalGraph, POST /api/sync/setSyncInterval, POST /api/storage/updateRecentDocViewTime, POST /api/storage/updateRecentDocCloseTime, POST /api/storage/updateRecentDocOpenTime, POST /api/storage/batchUpdateRecentDocCloseTime, and POST /api/search/updateEmbedBlock are registered with model.CheckAuth only, omitting both model.CheckAdminRole and model.CheckReadonly. Each of them writes server-side state, including atomic rewrites of <workspace>/conf/conf.json via model.Conf.Save(). Any caller whose JWT passes CheckAuth, including a publish-service RoleReader (the role assigned to anonymous publish visitors) and a RoleEditor against a workspace where Editor.ReadOnly = true, can hit them This vulnerability is fixed in 3.7.0.",
-      "published": "2026-05-14T19:16:38.897",
+      "id": "CVE-2026-45369",
+      "summary": "python-utcp is the python implementation of UTCP. Prior to 1.1.3, the _substitute_utcp_args method in cli_communication_protocol.py inserts user-controlled tool_args values directly into shell command strings without any sanitization or escaping. These commands are then executed via /bin/bash -c (Unix) or powershell.exe -Command (Windows), allowing an attacker to inject arbitrary shell commands. This vulnerability is fixed in 1.1.3.",
+      "published": "2026-05-14T21:16:48.220",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45369"
+    },
+    {
+      "id": "CVE-2026-44700",
+      "summary": "Elixir WebRTC is an Elixir implementation of the W3C WebRTC API. Prior to 0.15.1 and 0.16.1, missing DTLS peer certificate fingerprint validation in the DTLS client (active) role removes one side of WebRTC's mutual authentication. The bug is not independently exploitable for media interception in standard deployments, but enables a full man-in-the-middle attack when chained with insecure signalling or a peer with similar validation gaps. This vulnerability is fixed in 0.15.1 and 0.16.1.",
+      "published": "2026-05-14T21:16:47.907",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45371"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44700"
     },
     {
-      "id": "CVE-2026-45148",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.0, broken access control in the searchAsset, searchTag, searchWidget, and searchTemplate publish-mode Readers can enumerate metadata from documents that are invisible to the publish service. This vulnerability is fixed in 3.7.0.",
-      "published": "2026-05-14T19:16:38.760",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45148"
-    },
-    {
-      "id": "CVE-2026-45147",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.0, POST /api/tag/getTag is registered with model.CheckAuth only, omitting both model.CheckAdminRole and model.CheckReadonly, despite the handler performing a configuration write that is normally guarded by both. Any authenticated user \u2014 including publish-service RoleReader accounts and RoleEditor accounts on a read-only workspace \u2014 can call this endpoint with a sort argument to mutate model.Conf.Tag.Sort and trigger model.Conf.Save(), which atomically rewrites the entire workspace conf.json. This vulnerability is fixed in 3.7.0.",
-      "published": "2026-05-14T19:16:38.630",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45147"
-    },
-    {
-      "id": "CVE-2026-44670",
-      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.0, the kernel stores Attribute View (AV / database) names without any HTML escape, then a render template uses raw strings.ReplaceAll(tpl, \"${avName}\", nodeAvName) to embed the name in HTML before pushing to all clients via WebSocket. Three independent client paths (render.ts:120 \u2192 outerHTML, Title.ts:401 \u2192 innerHTML, transaction.ts:559 \u2192 innerHTML) consume the value without escaping. Because the main BrowserWindow runs nodeIntegration:true, contextIsolation:false, webSecurity:false (app/electron/main.js:407-411), HTML injection in the renderer becomes Node.js code execution. This vulnerability is fixed in 3.7.0.",
-      "published": "2026-05-14T19:16:38.437",
+      "id": "CVE-2026-44679",
+      "summary": "Tuist is a virtual platform team for Swift app devs. Prior to 1.180.10, the forgot password flow allows an unauthenticated attacker to repeatedly trigger password reset emails for a known account without server-side throttling. In self-hosted deployments, this can be abused to send large volumes of unwanted email and consume downstream email delivery resources. This vulnerability is fixed in 1.180.10.",
+      "published": "2026-05-14T21:16:47.780",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44670"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44679"
+    },
+    {
+      "id": "CVE-2026-44678",
+      "summary": "Tuist is a virtual platform team for Swift app devs. In 1.180.8 and earlier, the DELETE /api/projects/{account_handle}/{project_handle}/previews/{preview_id} endpoint loads the preview by its UUID without verifying that the preview belongs to the project resolved from the URL path. The route's project-level authorization plug (AuthorizationPlug, :preview) authorizes the caller against the project encoded in account_handle/project_handle \u2014 which the attacker controls \u2014 and then the action deletes whichever preview's UUID is supplied. The check therefore guards the wrong project.",
+      "published": "2026-05-14T21:16:47.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44678"
     }
   ]
 }
