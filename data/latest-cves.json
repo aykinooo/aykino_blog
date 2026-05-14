@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-14T10:31:24+00:00",
+  "generated_at": "2026-05-14T13:03:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-45205",
+      "summary": "Uncontrolled Recursion vulnerability in Apache Commons.\n\nWhen processing an untrusted configuration file, Commons Configuration will throw a StackOverflowError for YAML input with cycles.\nThis issue affects Apache Commons: from 2.2 before 2.15.0.\n\nUsers are recommended to upgrade to version 2.15.0, which fixes the issue.",
+      "published": "2026-05-14T12:16:35.687",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45205"
+    },
+    {
+      "id": "CVE-2026-8468",
+      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in plug_project plug allows denial of service via unbounded buffer accumulation in multipart header parsing.\n\n'Elixir.Plug.Conn':read_part_headers/2 in lib/plug/conn.ex does not obey its :length parameter. There is no upper bound on the size of the accumulated buffer. By contrast, the sibling function read_part_body has an explicit byte_size(acc) > length guard that stops accumulation once a limit is reached. No such guard exists in read_part_headers. An unauthenticated remote attacker can exhaust server memory by sending a crafted multipart/form-data request, causing a denial of service.\n\nThis issue affects plug from 1.4.0 before 1.15.4, 1.16.3, 1.17.1, 1.18.2, and 1.19.2.",
+      "published": "2026-05-14T11:16:18.900",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8468"
+    },
+    {
+      "id": "CVE-2026-8295",
+      "summary": "An integer overflow vulnerability in the simdjson document-builder API allows incorrect buffer size calculations in \"string_builder::escape_and_append()\" when processing very large input strings on platforms with limited \"size_t\" width (e.g., 32-bit builds). The overflow can cause insufficient buffer allocation, leading to out-of-bounds memory reads in SIMD routines and potentially resulting in information disclosure, memory corruption, or malformed JSON output.\nThis vulnerability has been fixed in\u00a04.6.4 release",
+      "published": "2026-05-14T11:16:18.770",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8295"
+    },
+    {
+      "id": "CVE-2025-68421",
+      "summary": "Comarch ERP Optima client makes use of a hard-coded password for a database user. These credentials cannot be changed. It is possible for a remote attacker to gain an access to the database with elevated privileges including executing system commands on a server.\nThis issue has been fixed in version 2026.4",
+      "published": "2026-05-14T11:16:17.240",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-68421"
+    },
+    {
+      "id": "CVE-2025-68420",
+      "summary": "Comarch\u00a0ERP Optima client connects to a database using a high privileged account regardless of an application account to which a user logs in. It is possible for a local attacker who controls the client process to dump it's memory, extract credentials and use them to gain a privileged access to the database. In order to exploit this vulnerability, the client application has to be already configured, but a user does not have to be logged in.\u00a0\nThis issue has been fixed in version 2026.4",
+      "published": "2026-05-14T11:16:16.177",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-68420"
+    },
     {
       "id": "CVE-2026-2347",
       "summary": "Authorization bypass through User-Controlled key vulnerability in Akilli Commerce Software Technologies Ltd. Co. E-Commerce Website allows Session Hijacking.\n\nThis issue affects E-Commerce Website: before 4.5.001.",
       "published": "2026-05-14T10:16:19.203",
       "cvss": 9.8,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2347"
-    },
-    {
-      "id": "CVE-2025-11024",
-      "summary": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Akilli Commerce Software Technologies Ltd. Co. E-Commerce Website allows Blind SQL Injection.\n\nThis issue affects E-Commerce Website: before 4.5.001.",
-      "published": "2026-05-14T10:16:17.760",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11024"
-    },
-    {
-      "id": "CVE-2026-6514",
-      "summary": "The InfusedWoo Pro plugin for WordPress is vulnerable to Arbitrary File Read in all versions up to, and including, 5.1.2 via the popup_submit. This makes it possible for unauthenticated attackers to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services.",
-      "published": "2026-05-14T09:16:28.023",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6514"
-    },
-    {
-      "id": "CVE-2026-6512",
-      "summary": "The InfusedWoo Pro plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 5.1.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to permanently delete arbitrary posts, pages, products, or orders, mass-delete all comments on any post, and change any post's status.",
-      "published": "2026-05-14T09:16:27.883",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6512"
-    },
-    {
-      "id": "CVE-2026-6504",
-      "summary": "The Royal Elementor Addons and Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'title_tag' parameter in all versions up to, and including, 1.7.1058 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-14T09:16:27.680",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6504"
-    },
-    {
-      "id": "CVE-2026-6206",
-      "summary": "The MW WP Form plugin for WordPress is vulnerable to Information Exposure in all versions up to, and including, 5.1.2 via the _get_post_property_from_querystring() function due to insufficient restrictions on which posts can be included. This makes it possible for unauthenticated attackers to extract data from password protected, private, or draft posts that they should not have access to.",
-      "published": "2026-05-14T09:16:27.497",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6206"
     }
   ]
 }
