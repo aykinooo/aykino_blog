@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-15T20:33:48+00:00",
+  "generated_at": "2026-05-15T22:09:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-45675",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, he LDAP and OAuth authentication flows use a TOCTOU (Time-of-Check-Time-of-Use) pattern for first-user admin role assignment. The regular signup handler (signup_handler in auths.py, line 663) was explicitly patched to prevent this race with the comment \"Insert with default role first to avoid TOCTOU race\", but the LDAP and OAuth code paths were never updated with the same fix. This vulnerability is fixed in 0.9.0.",
-      "published": "2026-05-15T20:16:49.220",
+      "id": "CVE-2026-8696",
+      "summary": "radare2 6.1.5 contains a use-after-free vulnerability in the gdbr_pids_list() function within the GDB client core that allows remote attackers to cause a denial of service or potentially execute arbitrary code by sending malformed thread information responses. Attackers can trigger the vulnerability by causing qsThreadInfo to fail after qfThreadInfo successfully allocates RDebugPid structures, resulting in double-free memory corruption when the error path attempts to clean up the list.",
+      "published": "2026-05-15T21:16:39.360",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8696"
+    },
+    {
+      "id": "CVE-2026-45672",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.8.12, the /api/v1/utils/code/execute endpoint executes arbitrary Python code via Jupyter for any verified user, even when the admin has set ENABLE_CODE_EXECUTION=false. The feature gate is not enforced on the API endpoint \u2014 the configuration says \"disabled\" but code still executes. This vulnerability is fixed in 0.8.12.",
+      "published": "2026-05-15T21:16:38.510",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45672"
+    },
+    {
+      "id": "CVE-2026-45402",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.5, multiple endpoints accept a user-supplied file_id and attach the referenced file to a resource the caller controls (folder knowledge, knowledge-base contents) without verifying that the caller owns or has been granted access to the file. The file's content then becomes reachable through the downstream RAG / file-content paths, allowing any authenticated user to exfiltrate any other user's private file \u2014 and on the knowledge-base path, also to overwrite it \u2014 given knowledge of the file's UUID. This affects backend/open_webui/routers/folders.py (POST /api/v1/folders/{id}/update), backend/open_webui/routers/knowledge.py (add_file_to_knowledge_by_id), and backend/open_webui/routers/knowledge.py (add_files_to_knowledge_by_id_batch). This vulnerability is fixed in 0.9.5.",
+      "published": "2026-05-15T21:16:38.273",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45675"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45402"
     },
     {
-      "id": "CVE-2026-45671",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, any authenticated user can permanently delete files owned by other users via DELETE /api/v1/files/{id} when the target file is referenced in any shared chat. The has_access_to_file() authorization gate unconditionally grants access through its shared-chat branch. It checks neither the requesting user's identity nor the type of operation being performed. File UUIDs (which would otherwise be impractical to guess) are disclosed to any user with read access to a knowledge base via GET /api/v1/knowledge/{id}/files. This vulnerability is fixed in 0.9.0.",
-      "published": "2026-05-15T20:16:49.090",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45671"
-    },
-    {
-      "id": "CVE-2026-45399",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, any authenticated user with low privileges can enumerate active background tasks across the system and stop tasks belonging to other users via the GET /api/tasks and POST /api/tasks/stop/{task_id} methods. This allows a casual user to disrupt system-wide chat usage by continuously canceling other users' active tasks. This is a real authorization vulnerability affecting integrity and usability in multi-user deployments. This vulnerability is fixed in 0.9.0.",
-      "published": "2026-05-15T20:16:48.950",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45399"
-    },
-    {
-      "id": "CVE-2026-45349",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, a user just needs to use the API endpoint: /api/chat/completions with their own API key (generated in OWUI) and the Chat ID of another user to continue the conversation of the other user. This vulnerability is fixed in 0.9.0.",
-      "published": "2026-05-15T20:16:48.823",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45349"
-    },
-    {
-      "id": "CVE-2026-45339",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, Open WebUI allows admins to restrict which API endpoints an API key can access. When an API key is restricted from /api/v1/messages, requests using the Authorization: Bearer sk-... header are correctly blocked with 403. However, the same key sent via the x-api-key header bypasses the restriction entirely \u2014 the request is authenticated, the model is invoked, and a full response is returned. This vulnerability is fixed in 0.9.0.",
-      "published": "2026-05-15T20:16:48.693",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45339"
-    },
-    {
-      "id": "CVE-2026-45331",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, validate_url() in backend/open_webui/retrieval/web/utils.py calls validators.ipv6(ip, private=True), but the validators library does NOT implement the private keyword for IPv6 \u2014 the call raises a ValidationError (which is falsy in a boolean context), so every IPv6 address passes the filter. In addition, IPv4-mapped IPv6 (::ffff:10.0.0.1) bypasses the IPv4 check entirely, and several reserved IPv4 ranges (0.0.0.0/8, 100.64.0.0/10, 192.0.0.0/24, etc.) are not blocked. This vulnerability is fixed in 0.9.0.",
-      "published": "2026-05-15T20:16:48.563",
+      "id": "CVE-2026-45401",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.5, the validate_url() function in backend/open_webui/retrieval/web/utils.py only validates the initial URL submitted by the caller. The HTTP clients used downstream (sync requests, async aiohttp, langchain's WebBaseLoader) follow HTTP 3xx redirects by default and do not re-validate the redirect target against the private-IP / metadata-IP block list. Any authenticated user can therefore submit a public URL that 302-redirects to an internal address (e.g. 127.0.0.1, 169.254.169.254, RFC1918) and read the internal response body via the /api/v1/retrieval/process/web endpoint, the /api/v1/images/... endpoints, the /api/chat/completions endpoint with an image_url content part, and any other route that calls these helpers. This vulnerability is fixed in 0.9.5.",
+      "published": "2026-05-15T21:16:38.140",
       "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45331"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45401"
+    },
+    {
+      "id": "CVE-2026-45400",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.5, a parsing difference between the urlparse and requests libraries led to an SSRF bypass vulnerability. This vulnerability is fixed in 0.9.5.",
+      "published": "2026-05-15T21:16:38.003",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45400"
+    },
+    {
+      "id": "CVE-2026-45398",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.5, _validate_collection_access() checks the user-memory-* and file-* collection name prefixes but does not check knowledge base collections, which use raw UUIDs as collection names. Any authenticated user who knows a private knowledge base UUID can read its content through the retrieval query endpoints, even though the knowledge API correctly denies that user access. The same gap affects the retrieval write endpoints (/process/text, /process/file, /process/files/batch, /process/web, /process/youtube), allowing an attacker to inject content into or overwrite another user's knowledge base. This vulnerability is fixed in 0.9.5.",
+      "published": "2026-05-15T21:16:37.863",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45398"
     }
   ]
 }
