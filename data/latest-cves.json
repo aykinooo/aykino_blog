@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-15T00:08:32+00:00",
+  "generated_at": "2026-05-15T04:15:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6811",
-      "summary": "Stack exhaustion vulnerability in the MongoDB PHP driver can cause application crashes when processing deeply nested BSON documents in unusual circumstances when the source of these BSON documents is not MongoDB Server.",
-      "published": "2026-05-14T22:16:45.137",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6811"
-    },
-    {
-      "id": "CVE-2026-45248",
-      "summary": "Hedera Guardian through 3.5.1 contains an authentication bypass vulnerability in the GET /api/v1/demo/registered-users endpoint that allows unauthenticated attackers to retrieve sensitive user information. Attackers can access the endpoint without providing authentication credentials to obtain usernames, Hedera DIDs, parent registry DIDs, system roles, and policy role assignments for all registered users in the system.",
-      "published": "2026-05-14T22:16:45.000",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45248"
-    },
-    {
-      "id": "CVE-2026-44671",
-      "summary": "ZITADEL is an open source identity management platform. From 2.71.11 to before 3.4.10 and 4.15.0, a vulnerability was discovered in Zitadel's LDAP identity provider implementation, which fails to properly escape user-provided usernames before incorporating them into LDAP search filters. This allows unauthenticated attackers to perform LDAP Filter Injection during the login process. While this vulnerability does not allow for a full authentication bypass, an attacker can use LDAP metacharacters (such as *, (, )) to perform blind LDAP injection. By observing the different failure (or success) responses, an attacker can systematically enumerate valid usernames and extract sensitive attribute data from the connected LDAP directory. This vulnerability is fixed in 3.4.10 and 4.15.0.",
-      "published": "2026-05-14T22:16:44.850",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44671"
-    },
-    {
-      "id": "CVE-2026-44428",
-      "summary": "The MCP Registry provides MCP clients with a list of MCP servers, like an app store for MCP servers. Prior to 1.7.6, the client-side and server-side GitHub OIDC flow is bound only to a global audience string, not to the specific registry instance being targeted. On the client side, the publisher always appends audience=mcp-registry when requesting the GitHub Actions ID token, regardless of the selected --registry URL. On the server side, the exchange endpoint validates only that same fixed audience and then derives publish permissions directly from repository_owner. As a result, a token legitimately obtained while interacting with one registry deployment remains acceptable to any other deployment that shares the same code and audience string. This vulnerability is fixed in 1.7.6.",
-      "published": "2026-05-14T22:16:44.593",
+      "id": "CVE-2026-7373",
+      "summary": "Rapid7 Metasploit Pro is vulnerable to a local privilege escalation attack that allows users to gain SYSTEM level control of a Windows host. Upon startup the metasploitPostgreSQL service the subsequent  postgres.exe service attempts to load an OpenSSL configuration file from a non-existent directory that is writable by standard users. By planting a crafted openssl.cnf file an attacker can trick the high-privilege service into executing arbitrary commands. This effectively permits an unprivileged user to bypass security controls and achieve a full host compromise under the agent's SYSTEM level access.",
+      "published": "2026-05-15T03:16:23.270",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44428"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7373"
     },
     {
-      "id": "CVE-2026-44427",
-      "summary": "The MCP Registry provides MCP clients with a list of MCP servers, like an app store for MCP servers. From 1.1.0 to 1.7.4, the TrailingSlashMiddleware in internal/api/server.go is vulnerable to an open redirect attack. An attacker can craft a URL with a protocol-relative path (e.g., //evil.com/) that, after trailing slash removal, results in a Location header of //evil.com \u2014 which browsers interpret as an absolute URL to an external domain. This vulnerability is fixed in 1.7.5.",
-      "published": "2026-05-14T22:16:44.450",
+      "id": "CVE-2026-2652",
+      "summary": "A vulnerability in mlflow/mlflow versions 3.9.0 and earlier allows unauthenticated access to certain FastAPI routes when the server is started with authentication enabled (`--app-name basic-auth`) and served via uvicorn (ASGI). The FastAPI permission middleware only enforces authentication on `/gateway/` routes, leaving other routes such as the Job API (`/ajax-api/3.0/jobs/*`) and the OpenTelemetry trace ingestion API (`/v1/traces`) unprotected. This allows unauthenticated remote attackers to submit jobs, read job results, cancel running jobs, and inject arbitrary trace data into experiments. The issue arises from an architectural mismatch between Flask and FastAPI authentication mechanisms, where the `_find_fastapi_validator()` function fails to handle non-`/gateway/` paths, resulting in a complete authentication bypass. This vulnerability is fixed in version 3.10.0.",
+      "published": "2026-05-15T03:16:23.127",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2652"
+    },
+    {
+      "id": "CVE-2026-0428",
+      "summary": "Insufficient parameter sanitization in TEE SOC Driver could allow an attacker to issue a malformed DRV_SOC_CMD_ID_SRIOV_COPY_VF_CHIPLET_REGS to write invalid data to a remote Die, potentially resulting in unexpected behavior.",
+      "published": "2026-05-15T03:16:23.003",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44427"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0428"
     },
     {
-      "id": "CVE-2026-45781",
-      "summary": "The MCP Registry provides MCP clients with a list of MCP servers, like an app store for MCP servers. Prior to 1.7.9, OCI ownership validation skips label-match check when upstream OCI registry returns HTTP 429, letting any authenticated publisher bind their io.github.<user>/* namespace to OCI images they do not control. internal/validators/registries/oci.go:104-119 fails open on http.StatusTooManyRequests: when the registry's anonymous fetch to the upstream OCI registry is rate-limited, ValidateOCI returns nil and the publish is accepted without ever running the io.modelcontextprotocol.server.name label-match check at lines 122-141. That label check is the only cross-system ownership proof the registry applies to OCI packages \u2014 every other registry type (NPM, PyPI, NuGet, MCPB) treats a non-200 upstream response as a hard error. This vulnerability is fixed in 1.7.9.",
-      "published": "2026-05-14T21:16:48.480",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45781"
+      "id": "CVE-2026-0427",
+      "summary": "Improper cleanup of shared register resources in GPU firmware could allow an admin-privileged attacker from a Guest Virtual machine (VM) to access these shared resources from another Guest VM, potentially resulting in the loss of confidentiality, integrity, or availability.",
+      "published": "2026-05-15T03:16:22.873",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0427"
+    },
+    {
+      "id": "CVE-2025-66664",
+      "summary": "Insufficient parameter sanitization in AMD Secure Processor (ASP) TEE SOC Driver could allow an attacker to issue a malformed DRV_SOC_CMD_ID_LOAD_GFX_IP_FW SR-IOV command to cause out-of-bounds read, potentially resulting in SOC Driver memory contents exposure or an exception",
+      "published": "2026-05-15T03:16:22.747",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66664"
+    },
+    {
+      "id": "CVE-2025-66660",
+      "summary": "Insufficient parameter sanitization in TEE SOC Driver could allow an attacker to issue a malformed DRV_SOC_CMD_ID_SRIOV_CHECK_TA_COMPAT to cause incorrect shared memory mapping, potentially resulting in unexpected behavior.",
+      "published": "2026-05-15T03:16:22.617",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66660"
     }
   ]
 }
