@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-15T17:00:02+00:00",
+  "generated_at": "2026-05-15T18:51:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-46508",
-      "summary": "Turborepo is a high-performance build system for JavaScript and TypeScript codebases. Prior to 2.9.14000, the Turborepo LSP VS Code extension could execute shell commands derived from workspace-controlled values. The extension used string-based command execution for Turborepo daemon commands and task runs. A malicious workspace could provide crafted values through workspace settings or task names in the repository's source code that were interpolated into shell commands. When the extension activated or when a user ran a task through the extension, those values could be interpreted by the user's shell, allowing arbitrary command execution with the privileges of the local VS Code process. This vulnerability is fixed in 2.9.14000.",
-      "published": "2026-05-15T16:16:15.420",
+      "id": "CVE-2026-46474",
+      "summary": "Trog::TOTP versions before 1.006 for Perl generate secrets using rand.\n\nSecrets were generated using Perl's built-in rand function, which is predictable and unsuitable for security usage.",
+      "published": "2026-05-15T18:16:26.053",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46508"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46474"
     },
     {
-      "id": "CVE-2026-45803",
-      "summary": "`gh` is GitHub\u2019s official command line tool. From 1.6.0 to before 2.92.0, a security vulnerability has been identified in GitHub CLI that could allow terminal escape sequence injection when users view GitHub Actions workflow logs using gh run view --log or gh run view --log-failed. The vulnerability stems from the way GitHub CLI handles raw Actions log output. The gh run view --log and gh run view --log-failed commands stream workflow log lines to stdout or the configured pager without sanitizing terminal control sequences. An attacker who can influence GitHub Actions log content, for example via a PR triggered workflow, can embed escape sequences that are replayed in the user's terminal when they inspect the run. Depending on the victim's terminal emulator, injected sequences could change the window title, manipulate on screen content, or in some terminal emulators (such as screen) potentially execute arbitrary commands. This vulnerability is fixed in 2.92.0.",
-      "published": "2026-05-15T16:16:15.280",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45803"
+      "id": "CVE-2026-8695",
+      "summary": "radare2 6.1.5 contains a use-after-free vulnerability in the gdbr_threads_list() function that allows remote attackers to trigger memory corruption by sending a valid qfThreadInfo response followed by a malformed qsThreadInfo response. Attackers can exploit this vulnerability through GDB remote debugging to cause a denial of service or potentially achieve code execution by manipulating thread list processing.",
+      "published": "2026-05-15T17:16:49.447",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8695"
     },
     {
-      "id": "CVE-2026-45773",
-      "summary": "Turborepo is a high-performance build system for JavaScript and TypeScript codebases. Prior to 2.9.14, Turborepo's self-hosted login and SSO browser flows did not validate a CSRF state value on the localhost callback. While the CLI was waiting for authentication, a malicious web page could send a request to the local callback server with an attacker-controlled token. If accepted before the legitimate callback, the CLI could complete login with the wrong credentials. This affects users authenticating the turbo CLI against self-hosted remote cache/auth endpoints. Vercel-hosted login flows using device authorization are not affected. This vulnerability is fixed in 2.9.14.",
-      "published": "2026-05-15T16:16:15.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45773"
+      "id": "CVE-2026-46383",
+      "summary": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. Prior to 0.13.0, Microsoft APM contains a Windows-specific archive extraction boundary failure in the legacy-bundle probe used by apm install <bundle> on supported Python 3.10 and 3.11 runtimes. When apm install is given a local .tar.gz that is not recognized as a plugin-format bundle, APM probes whether it is a legacy --format apm bundle. On Python versions earlier than 3.12, that probe extracts untrusted tar members with raw tar.extractall() without rejecting Windows absolute member names such as D:/.... This vulnerability is fixed in 0.13.0.",
+      "published": "2026-05-15T17:16:49.090",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46383"
     },
     {
-      "id": "CVE-2026-45772",
-      "summary": "Turborepo is a high-performance build system for JavaScript and TypeScript codebases. From 1.1.0 to before 2.9.14, Turborepo can be vulnerable to arbitrary code execution when run in untrusted repositories that contain malicious Yarn configuration. In affected versions, package manager detection executed yarn --version from the project directory, which could cause Yarn to load and execute a project-controlled yarnPath from .yarnrc.yml. An attacker who controls repository contents could cause code execution when a user or CI system runs affected turbo, @turbo/codemod, or @turbo/workspace conversion commands. This vulnerability is fixed in 2.9.14.",
-      "published": "2026-05-15T16:16:14.987",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45772"
+      "id": "CVE-2026-45539",
+      "summary": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. From 0.5.4 to 0.12.4, two primitive integrators in apm-cli enumerate package files with bare Path.glob() / Path.rglob() calls and read each match with Path.read_text(), transparently following symbolic links. A symlink committed inside a remote APM dependency under .apm/prompts/<x>.prompt.md or .apm/agents/<x>.agent.md is preserved verbatim into apm_modules/ on clone and then dereferenced during integration, with the resolved content written as a regular file into the project's deploy directories. The package content_hash, the pre-deploy SecurityGate scan, and apm audit do not flag this. The deploy roots are not added to the auto-generated .gitignore, so the resulting files are staged by git add by default. This vulnerability is fixed in 0.13.0.",
+      "published": "2026-05-15T17:16:48.887",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45539"
     },
     {
-      "id": "CVE-2026-35194",
-      "summary": "Code injection in SQL code generation in Apache Flink 1.15.0 through 1.20.x and 2.0.0 through 2.x allows authenticated users with query submission privileges to execute arbitrary code on TaskManagers via maliciously crafted SQL queries. The vulnerability affects JSON functions (1.15.0+) and LIKE expressions with ESCAPE clauses (1.17.0+). User-controlled strings are interpolated into generated Java code without proper escaping, allowing attackers to break out of string literals and inject arbitrary expressions.\n\nUsers are recommended to upgrade to either version 1.20.4, 2.0.2, 2.1.2 or 2.2.1, which fixes this issue.",
-      "published": "2026-05-15T16:16:14.340",
+      "id": "CVE-2026-45038",
+      "summary": "Tabby (formerly Terminus) is a highly configurable terminal emulator. Prior to 1.0.233, since Tabby does not escape control characters from file paths when dragging and dropping a file into it, code execution can be achieved. This vulnerability is fixed in 1.0.233.",
+      "published": "2026-05-15T17:16:48.760",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35194"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45038"
     },
     {
-      "id": "CVE-2026-2031",
-      "summary": "An Improper Access Control\u00a0vulnerability in\u00a0several internal API endpoints for Google Cloud Application Integration prior to 2026-01-23 allows\u00a0a remote, unauthenticated attacker\u00a0to\u00a0disclose sensitive internal information and execute arbitrary code\u00a0using\u00a0specially crafted HTTP requests to inadvertently exposed internal API endpoints.",
-      "published": "2026-05-15T16:16:14.027",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2031"
+      "id": "CVE-2026-45037",
+      "summary": "Tabby (formerly Terminus) is a highly configurable terminal emulator. Prior to 1.0.232, Tabby's terminal linkifier passes any detected URI directly to the operating system's protocol handler without validating the protocol scheme. This allows a malicious SSH or Telnet server to send crafted terminal output containing dangerous protocol URIs which Tabby renders as clickable links, triggering arbitrary OS protocol handlers on the victim's machine. This vulnerability is fixed in 1.0.232.",
+      "published": "2026-05-15T17:16:48.623",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45037"
     }
   ]
 }
