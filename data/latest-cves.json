@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-15T04:15:25+00:00",
+  "generated_at": "2026-05-15T08:15:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7373",
-      "summary": "Rapid7 Metasploit Pro is vulnerable to a local privilege escalation attack that allows users to gain SYSTEM level control of a Windows host. Upon startup the metasploitPostgreSQL service the subsequent  postgres.exe service attempts to load an OpenSSL configuration file from a non-existent directory that is writable by standard users. By planting a crafted openssl.cnf file an attacker can trick the high-privilege service into executing arbitrary commands. This effectively permits an unprivileged user to bypass security controls and achieve a full host compromise under the agent's SYSTEM level access.",
-      "published": "2026-05-15T03:16:23.270",
+      "id": "CVE-2026-8654",
+      "summary": "Improper input validation in Delphix Continuous Data connectors allows an authenticated user to execute arbitrary operating system commands on the staging or target host.",
+      "published": "2026-05-15T07:16:20.397",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7373"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8654"
     },
     {
-      "id": "CVE-2026-2652",
-      "summary": "A vulnerability in mlflow/mlflow versions 3.9.0 and earlier allows unauthenticated access to certain FastAPI routes when the server is started with authentication enabled (`--app-name basic-auth`) and served via uvicorn (ASGI). The FastAPI permission middleware only enforces authentication on `/gateway/` routes, leaving other routes such as the Job API (`/ajax-api/3.0/jobs/*`) and the OpenTelemetry trace ingestion API (`/v1/traces`) unprotected. This allows unauthenticated remote attackers to submit jobs, read job results, cancel running jobs, and inject arbitrary trace data into experiments. The issue arises from an architectural mismatch between Flask and FastAPI authentication mechanisms, where the `_find_fastapi_validator()` function fails to handle non-`/gateway/` paths, resulting in a complete authentication bypass. This vulnerability is fixed in version 3.10.0.",
-      "published": "2026-05-15T03:16:23.127",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2652"
+      "id": "CVE-2026-6646",
+      "summary": "The The7 theme for WordPress is vulnerable to Stored Cross-Site Scripting via the 'dt_default_button' shortcode in all versions up to, and including, 14.3.2. This is due to insufficient input sanitization and output escaping on the 'title' component of the 'link' shortcode parameter. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-15T07:16:20.250",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6646"
     },
     {
-      "id": "CVE-2026-0428",
-      "summary": "Insufficient parameter sanitization in TEE SOC Driver could allow an attacker to issue a malformed DRV_SOC_CMD_ID_SRIOV_COPY_VF_CHIPLET_REGS to write invalid data to a remote Die, potentially resulting in unexpected behavior.",
-      "published": "2026-05-15T03:16:23.003",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0428"
+      "id": "CVE-2026-4094",
+      "summary": "The FOX \u2013 Currency Switcher Professional for WooCommerce plugin for WordPress is vulnerable to unauthorized data loss due to a missing capability check on the 'admin_head' function in all versions up to, and including, 1.4.5. This makes it possible for authenticated attackers, with Contributor-level access and above, to delete the entire multi-currency configuration by visiting any wp-admin page with the `woocs_reset` parameter appended. Additionally, because no nonce is verified, this is also exploitable via Cross-Site Request Forgery against any administrator. The vulnerability may also be exploited by Subscriber-level users if the site is configured to allow Subscriber access to 'wp-admin' pages.",
+      "published": "2026-05-15T07:16:20.090",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4094"
     },
     {
-      "id": "CVE-2026-0427",
-      "summary": "Improper cleanup of shared register resources in GPU firmware could allow an admin-privileged attacker from a Guest Virtual machine (VM) to access these shared resources from another Guest VM, potentially resulting in the loss of confidentiality, integrity, or availability.",
-      "published": "2026-05-15T03:16:22.873",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0427"
+      "id": "CVE-2026-41702",
+      "summary": "VMware Fusion contains a TOCTOU (Time-of-check Time-of-use) vulnerability\u00a0that occurs during an operation performed by a SETUID binary.\u00a0A malicious actor with local non-administrative user privileges may exploit this vulnerability to escalate privileges to root on the system where Fusion is installed.",
+      "published": "2026-05-15T07:16:18.923",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41702"
     },
     {
-      "id": "CVE-2025-66664",
-      "summary": "Insufficient parameter sanitization in AMD Secure Processor (ASP) TEE SOC Driver could allow an attacker to issue a malformed DRV_SOC_CMD_ID_LOAD_GFX_IP_FW SR-IOV command to cause out-of-bounds read, potentially resulting in SOC Driver memory contents exposure or an exception",
-      "published": "2026-05-15T03:16:22.747",
+      "id": "CVE-2026-43490",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: validate inherited ACE SID length\n\nsmb_inherit_dacl() walks the parent directory DACL loaded from the\nsecurity descriptor xattr. It verifies that each ACE contains the fixed\nSID header before using it, but does not verify that the variable-length\nSID described by sid.num_subauth is fully contained in the ACE.\n\nA malformed inheritable ACE can advertise more subauthorities than are\npresent in the ACE. compare_sids() may then read past the ACE.\nsmb_set_ace() also clamps the copied destination SID, but used the\nunchecked source SID count to compute the inherited ACE size. That could\nadvance the temporary inherited ACE buffer pointer and nt_size accounting\npast the allocated buffer.\n\nFix this by validating the parent ACE SID count and SID length before\nusing the SID during inheritance. Compute the inherited ACE size from the\ncopied SID so the size matches the bounded destination SID. Reject the\ninherited DACL if size accumulation would overflow smb_acl.size or the\nsecurity descriptor allocation size.",
+      "published": "2026-05-15T06:16:20.363",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66664"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43490"
     },
     {
-      "id": "CVE-2025-66660",
-      "summary": "Insufficient parameter sanitization in TEE SOC Driver could allow an attacker to issue a malformed DRV_SOC_CMD_ID_SRIOV_CHECK_TA_COMPAT to cause incorrect shared memory mapping, potentially resulting in unexpected behavior.",
-      "published": "2026-05-15T03:16:22.617",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66660"
+      "id": "CVE-2026-28761",
+      "summary": "Cross-site request forgery vulnerability exists in Musetheque V4 Information Disclosure for IPKNOWLEDGE V4L1 rev2203.0 and earlier. If a user views a malicious page while logged-in to the affected product, unexpected operations may be done.",
+      "published": "2026-05-15T06:16:20.213",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28761"
     }
   ]
 }
