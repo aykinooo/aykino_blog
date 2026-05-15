@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-15T18:51:48+00:00",
+  "generated_at": "2026-05-15T20:33:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-46474",
-      "summary": "Trog::TOTP versions before 1.006 for Perl generate secrets using rand.\n\nSecrets were generated using Perl's built-in rand function, which is predictable and unsuitable for security usage.",
-      "published": "2026-05-15T18:16:26.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46474"
+      "id": "CVE-2026-45675",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, he LDAP and OAuth authentication flows use a TOCTOU (Time-of-Check-Time-of-Use) pattern for first-user admin role assignment. The regular signup handler (signup_handler in auths.py, line 663) was explicitly patched to prevent this race with the comment \"Insert with default role first to avoid TOCTOU race\", but the LDAP and OAuth code paths were never updated with the same fix. This vulnerability is fixed in 0.9.0.",
+      "published": "2026-05-15T20:16:49.220",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45675"
     },
     {
-      "id": "CVE-2026-8695",
-      "summary": "radare2 6.1.5 contains a use-after-free vulnerability in the gdbr_threads_list() function that allows remote attackers to trigger memory corruption by sending a valid qfThreadInfo response followed by a malformed qsThreadInfo response. Attackers can exploit this vulnerability through GDB remote debugging to cause a denial of service or potentially achieve code execution by manipulating thread list processing.",
-      "published": "2026-05-15T17:16:49.447",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8695"
+      "id": "CVE-2026-45671",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, any authenticated user can permanently delete files owned by other users via DELETE /api/v1/files/{id} when the target file is referenced in any shared chat. The has_access_to_file() authorization gate unconditionally grants access through its shared-chat branch. It checks neither the requesting user's identity nor the type of operation being performed. File UUIDs (which would otherwise be impractical to guess) are disclosed to any user with read access to a knowledge base via GET /api/v1/knowledge/{id}/files. This vulnerability is fixed in 0.9.0.",
+      "published": "2026-05-15T20:16:49.090",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45671"
     },
     {
-      "id": "CVE-2026-46383",
-      "summary": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. Prior to 0.13.0, Microsoft APM contains a Windows-specific archive extraction boundary failure in the legacy-bundle probe used by apm install <bundle> on supported Python 3.10 and 3.11 runtimes. When apm install is given a local .tar.gz that is not recognized as a plugin-format bundle, APM probes whether it is a legacy --format apm bundle. On Python versions earlier than 3.12, that probe extracts untrusted tar members with raw tar.extractall() without rejecting Windows absolute member names such as D:/.... This vulnerability is fixed in 0.13.0.",
-      "published": "2026-05-15T17:16:49.090",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46383"
-    },
-    {
-      "id": "CVE-2026-45539",
-      "summary": "Microsoft APM is an open-source, community-driven dependency manager for AI agents. From 0.5.4 to 0.12.4, two primitive integrators in apm-cli enumerate package files with bare Path.glob() / Path.rglob() calls and read each match with Path.read_text(), transparently following symbolic links. A symlink committed inside a remote APM dependency under .apm/prompts/<x>.prompt.md or .apm/agents/<x>.agent.md is preserved verbatim into apm_modules/ on clone and then dereferenced during integration, with the resolved content written as a regular file into the project's deploy directories. The package content_hash, the pre-deploy SecurityGate scan, and apm audit do not flag this. The deploy roots are not added to the auto-generated .gitignore, so the resulting files are staged by git add by default. This vulnerability is fixed in 0.13.0.",
-      "published": "2026-05-15T17:16:48.887",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45539"
-    },
-    {
-      "id": "CVE-2026-45038",
-      "summary": "Tabby (formerly Terminus) is a highly configurable terminal emulator. Prior to 1.0.233, since Tabby does not escape control characters from file paths when dragging and dropping a file into it, code execution can be achieved. This vulnerability is fixed in 1.0.233.",
-      "published": "2026-05-15T17:16:48.760",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45038"
-    },
-    {
-      "id": "CVE-2026-45037",
-      "summary": "Tabby (formerly Terminus) is a highly configurable terminal emulator. Prior to 1.0.232, Tabby's terminal linkifier passes any detected URI directly to the operating system's protocol handler without validating the protocol scheme. This allows a malicious SSH or Telnet server to send crafted terminal output containing dangerous protocol URIs which Tabby renders as clickable links, triggering arbitrary OS protocol handlers on the victim's machine. This vulnerability is fixed in 1.0.232.",
-      "published": "2026-05-15T17:16:48.623",
+      "id": "CVE-2026-45399",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, any authenticated user with low privileges can enumerate active background tasks across the system and stop tasks belonging to other users via the GET /api/tasks and POST /api/tasks/stop/{task_id} methods. This allows a casual user to disrupt system-wide chat usage by continuously canceling other users' active tasks. This is a real authorization vulnerability affecting integrity and usability in multi-user deployments. This vulnerability is fixed in 0.9.0.",
+      "published": "2026-05-15T20:16:48.950",
       "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45037"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45399"
+    },
+    {
+      "id": "CVE-2026-45349",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, a user just needs to use the API endpoint: /api/chat/completions with their own API key (generated in OWUI) and the Chat ID of another user to continue the conversation of the other user. This vulnerability is fixed in 0.9.0.",
+      "published": "2026-05-15T20:16:48.823",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45349"
+    },
+    {
+      "id": "CVE-2026-45339",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, Open WebUI allows admins to restrict which API endpoints an API key can access. When an API key is restricted from /api/v1/messages, requests using the Authorization: Bearer sk-... header are correctly blocked with 403. However, the same key sent via the x-api-key header bypasses the restriction entirely \u2014 the request is authenticated, the model is invoked, and a full response is returned. This vulnerability is fixed in 0.9.0.",
+      "published": "2026-05-15T20:16:48.693",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45339"
+    },
+    {
+      "id": "CVE-2026-45331",
+      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.9.0, validate_url() in backend/open_webui/retrieval/web/utils.py calls validators.ipv6(ip, private=True), but the validators library does NOT implement the private keyword for IPv6 \u2014 the call raises a ValidationError (which is falsy in a boolean context), so every IPv6 address passes the filter. In addition, IPv4-mapped IPv6 (::ffff:10.0.0.1) bypasses the IPv4 check entirely, and several reserved IPv4 ranges (0.0.0.0/8, 100.64.0.0/10, 192.0.0.0/24, etc.) are not blocked. This vulnerability is fixed in 0.9.0.",
+      "published": "2026-05-15T20:16:48.563",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45331"
     }
   ]
 }
