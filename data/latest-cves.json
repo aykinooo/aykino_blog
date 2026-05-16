@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-05-16T03:59:14+00:00",
+  "generated_at": "2026-05-16T06:32:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-8657",
+      "summary": "Versions of the package jsondiffpatch before 0.7.6 are vulnerable to Prototype Pollution via the jsondiffpatch.patch() and jsondiffpatch/formatters/jsonpatch.patch() APIs. An attacker can perform prototype pollution by supplying crafted delta or JSON Patch documents, as attacker-controlled property names and path segments are used to traverse and modify objects without restricting access to special properties like __proto__ or constructor.prototype, allowing modification of Object.prototype.",
+      "published": "2026-05-16T06:16:18.727",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8657"
+    },
+    {
+      "id": "CVE-2026-8656",
+      "summary": "Versions of the package jsondiffpatch before 0.7.6 are vulnerable to Cross-site Scripting (XSS) via the annotated formatter due to improper sanitization of JSON values and property names. If an application compares untrusted JSON/object data and renders annotated formatter output in the DOM, attacker-controlled HTML can be interpreted by the browser, resulting in XSS.",
+      "published": "2026-05-16T06:16:18.347",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8656"
+    },
     {
       "id": "CVE-2026-8681",
       "summary": "The Essential Chat Support plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.0.1. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to reset all plugin configuration settings \u2014 including general settings, display rules, custom CSS, and WooCommerce tab settings \u2014 to their defaults by sending a POST request with ecs_reset_settings=1.",
@@ -29,20 +43,6 @@
       "published": "2026-05-15T22:16:56.193",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45667"
-    },
-    {
-      "id": "CVE-2026-45666",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.8.11, the API /api/v1/notes/{note_id} endpoint lacks proper authorization checks, allowing authenticated users to retrieve notes belonging to other users by guessing or enumerating UUIDs. This results in unauthorized disclosure of potentially sensitive or private user data. This vulnerability is fixed in 0.8.11.",
-      "published": "2026-05-15T22:16:56.057",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45666"
-    },
-    {
-      "id": "CVE-2026-45665",
-      "summary": "Open WebUI is a self-hosted artificial intelligence platform designed to operate entirely offline. Prior to 0.8.0, a Stored Cross-Site Scripting (XSS) vulnerability exists in the Banner component due to an improper sanitization order (specifically, DOMPurify is executed before the marked library). This vulnerability allows a compromised or malicious administrator to plant a malicious payload in the global banner. Crucially, this vector enables Privilege Escalation, as the malicious banner is rendered for all users, including the Super Admin (Primary Admin). Consequently, the payload successfully bypasses the existing security mechanism. An attacker can leverage this to steal the Super Admin's session token This vulnerability is fixed in 0.8.0.",
-      "published": "2026-05-15T22:16:55.920",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45665"
     }
   ]
 }
