@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-05-17T18:08:59+00:00",
+  "generated_at": "2026-05-17T19:34:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-8721",
+      "summary": "Crypt::OpenSSL::PKCS12 versions through 1.94 for Perl truncates passwords with embedded NULLs.\n\nPassword parameters in PKCS12.xs are declared char *, which routes through Perl's default typemap to SvPV_nolen.  The Perl length is discarded.\n\nThe C code (or OpenSSL internally) calls strlen() on the buffer.  Any password byte at or after the first NULL is silently dropped. Binary / KDF-derived / HMAC-derived passwords lose entropy without any warnings.",
+      "published": "2026-05-17T19:16:25.310",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8721"
+    },
+    {
+      "id": "CVE-2026-8507",
+      "summary": "Crypt::OpenSSL::PKCS12 versions through 1.94 for Perl have out of bound (OOB) write flaws.\n\nWhen parsing a PKCS12 file, with a >= 1 GiB OCTET STRING (or BIT STRING) attribute on a SAFEBAG, via info() or info_as_hash(), a heap-OOB-WRITE would be triggered which could have Remote Code Execution (RCE) potential.",
+      "published": "2026-05-17T19:16:24.590",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8507"
+    },
+    {
+      "id": "CVE-2026-46720",
+      "summary": "Net::Statsd::Tiny versions before 0.3.8 for Perl allowed metric injections.\n\nThe metric names and set values were not checked for newlines, colons or pipes. Metrics generated from untrusted sources could inject additional statsd metrics.",
+      "published": "2026-05-17T18:16:27.397",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46720"
+    },
     {
       "id": "CVE-2026-8759",
       "summary": "A vulnerability was identified in xiandafu beetl up to 3.20.2. Affected is an unknown function of the file beetl-classic-integration/beetl-spring-classic/src/main/java/org/beetl/ext/spring/SpELFunction.java of the component SpELFunction. The manipulation leads to improper neutralization of special elements used in an expression language statement. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -22,27 +43,6 @@
       "published": "2026-05-17T14:16:21.380",
       "cvss": 7.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8757"
-    },
-    {
-      "id": "CVE-2026-8756",
-      "summary": "A vulnerability has been found in fishaudio Bert-VITS2 up to 8f7fbd8c4770965225d258db548da27dc8dd934c. The impacted element is the function generate_config of the file webui_preprocess.py of the component Gradio Interface. Such manipulation of the argument data_dir leads to path traversal. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-05-17T13:16:46.410",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8756"
-    },
-    {
-      "id": "CVE-2026-8755",
-      "summary": "A flaw has been found in fishaudio Bert-VITS2 up to 8f7fbd8c4770965225d258db548da27dc8dd934c. The affected element is the function _get_all_models of the file hiyoriUI.py of the component Model Handler. This manipulation causes path traversal. The attack can be initiated remotely. The exploit has been published and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-05-17T13:16:46.260",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8755"
-    },
-    {
-      "id": "CVE-2026-8754",
-      "summary": "A vulnerability was detected in AstrBotDevs AstrBot up to 4.23.5. Impacted is the function post_file of the file astrbot/dashboard/routes/chat.py of the component File Upload Handler. The manipulation of the argument filename results in path traversal. It is possible to launch the attack remotely. The exploit is now public and may be used. Upgrading to version 4.23.6 is recommended to address this issue. The patch is identified as aaec41e5054569ceaa1113593a34da7568e2d211. You should upgrade the affected component.",
-      "published": "2026-05-17T13:16:46.107",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8754"
     }
   ]
 }
