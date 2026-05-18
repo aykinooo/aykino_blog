@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-18T12:46:36+00:00",
+  "generated_at": "2026-05-18T16:32:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8803",
-      "summary": "A flaw has been found in opensourcepos Open Source Point of Sale up to 3.4.2. Impacted is the function Login of the file app/Models/Employee.php of the component Employee Login. This manipulation causes use of weak hash. Remote exploitation of the attack is possible. The attack is considered to have high complexity. The exploitability is considered difficult. The actual existence of this vulnerability is currently in question. The vendor explains: \"[T]he code is still there to allow the upgrade path to work. The default password is initially seeded with the old hash function, but then migrated to a newer one after login. [T]he hash version check might be cleaned up in the future. Currently it's not actively in use as any password change will use a newer hash function.\"",
-      "published": "2026-05-18T12:16:17.093",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8803"
+      "id": "CVE-2026-36438",
+      "summary": "An issue in Intelbras VIP-1230-D-G4 Version V2.800.00IB00C.0.T allows a remote attacker to obtain sensitive information via password reset functionality under /OutsideCmd",
+      "published": "2026-05-18T16:16:29.873",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36438"
     },
     {
-      "id": "CVE-2026-7304",
-      "summary": "SGLangs multimodal generation runtime is vulnerable to unauthenticated remote code execution when the --enable-custom-logit-processor option is enabled, as Python objects loaded via dill.loads() will be deserialized without validation.",
-      "published": "2026-05-18T12:16:16.713",
+      "id": "CVE-2026-20685",
+      "summary": "An attacker in a privileged network position may be able to leak sensitive information. A path handling issue was addressed with improved validation. This issue is fixed in PCC Release 5E290.3.",
+      "published": "2026-05-18T16:16:29.570",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7304"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20685"
     },
     {
-      "id": "CVE-2026-7302",
-      "summary": "SGLangs multimodal generation runtime is vulnerable to an unauthenticated path traversal vulnerability, allowing an attacker to write arbitrary files anywhere the server process has write access, by including ../ sequences in the upload filename when sent to specific endpoints.",
-      "published": "2026-05-18T12:16:16.600",
+      "id": "CVE-2025-57282",
+      "summary": "ngrok v4.3.3 and 5.0.0-beta.2 is vulnerable to Command Injection.",
+      "published": "2026-05-18T16:16:29.253",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7302"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-57282"
     },
     {
-      "id": "CVE-2026-7301",
-      "summary": "SGLangs multimodal generation runtime scheduler's ROUTER socket binds to 0.0.0.0 by default and contains a sink that calls pickle.loads() on incoming messages, enabling RCE when exposed to the internet.",
-      "published": "2026-05-18T12:16:16.480",
+      "id": "CVE-2025-56352",
+      "summary": "In tinyMQTT commit 6226ade15bd4f97be2d196352e64dd10937c1962 (2024-02-18), the broker mishandles protocol violations during CONNECT packet parsing. When receiving a CONNECT packet with a zero-length Client ID while CleanSession is set to 0, the broker correctly replies with a CONNACK return code 0x02 (Identifier Rejected) but fails to explicitly close the TCP connection. Since the surrounding connection teardown logic is not guaranteed to execute, each such invalid CONNECT attempt leaves the underlying socket open. Repeated attempts cause server-side resource exhaustion due to accumulating file descriptors and memory usage, potentially resulting in denial of service.",
+      "published": "2026-05-18T16:16:29.130",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7301"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-56352"
     },
     {
-      "id": "CVE-2026-0983",
-      "summary": "Denial-of-service condition in M-Files Server versions before 26.5.16015.0, before 26.2 LTS, and before 25.8 LTS SR3 allows an authenticated user to cause the MFserver process to crash",
-      "published": "2026-05-18T12:16:16.230",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0983"
+      "id": "CVE-2026-41949",
+      "summary": "Dify version 1.14.1 and prior contain an authorization bypass vulnerability in the file preview endpoint that allows any authenticated user to read up to 3,000 characters of any uploaded document across all tenants and workspaces using only the file's UUID. Attackers can access the /console/api/files/{file_id}/preview endpoint with an intercepted file UUID to extract sensitive content from documents without ownership or workspace permission verification. NOTE: Dify Cloud allows unauthenticated free self-registration, making account creation trivially accessible to any attacker.",
+      "published": "2026-05-18T15:16:26.137",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41949"
     },
     {
-      "id": "CVE-2026-8802",
-      "summary": "A vulnerability was detected in opensourcepos Open Source Point of Sale up to 3.4.2. This issue affects the function getPicThumb of the file app/Controllers/Items.php. The manipulation of the argument pic_filename results in path traversal. The attack may be launched remotely. The patch is identified as def0c27a0e252668df8d942fc31e16d1edfd7323. A patch should be applied to remediate this issue. The vendor was contacted early about this disclosure.",
-      "published": "2026-05-18T11:16:18.623",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8802"
+      "id": "CVE-2026-41948",
+      "summary": "Dify version 1.14.1 and prior contain a path traversal vulnerability that allows authenticated users to manipulate requests forwarded to the Plugin Daemon's internal REST API by exploiting insufficient URL path sanitization. Attackers can traverse out of their authorized tenant path using unencoded dot sequences in task identifiers or manipulated filename parameters to access internal endpoints such as debug interfaces, requiring only knowledge of the victim tenant's UUID. NOTE: Dify Cloud allows unauthenticated free self-registration, making account creation trivially accessible to any attacker.",
+      "published": "2026-05-18T15:16:25.977",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41948"
     }
   ]
 }
