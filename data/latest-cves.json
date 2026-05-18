@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-18T20:43:28+00:00",
+  "generated_at": "2026-05-18T22:12:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-47092",
-      "summary": "Claude HUD through 0.0.12, patched in commit 234d9aa, contains a command injection vulnerability that allows local attackers to execute arbitrary commands by manipulating the COMSPEC environment variable. Attackers can set COMSPEC to an arbitrary binary path before claude-hud performs its version check, causing execFile() to execute the attacker-supplied executable with cmd.exe arguments, resulting in arbitrary code execution on Windows systems.",
-      "published": "2026-05-18T20:16:40.040",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47092"
+      "id": "CVE-2026-8851",
+      "summary": "SOGo 5.12.7 contains a SQL injection vulnerability in the Access Control List management functionality that allows authenticated users to extract arbitrary data from the database by injecting SQL subqueries through the uid parameter of the addUserInAcls endpoint. Attackers can inject malicious SQL code to write extracted data into the sogo_acl table and retrieve it through the /acls API, establishing an out-of-band data exfiltration channel.",
+      "published": "2026-05-18T21:16:41.777",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8851"
     },
     {
-      "id": "CVE-2026-47091",
-      "summary": "Claude HUD through 0.0.12, patched in commit 234d9aa, contains a path traversal vulnerability that allows attackers to read arbitrary files by supplying an unvalidated transcript_path value via stdin JSON. Attackers can access any file readable by the process and the file metadata is written to a persistent cache file with insufficient permissions, creating a forensic record of accessed paths that survives process exit.",
-      "published": "2026-05-18T20:16:39.863",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47091"
+      "id": "CVE-2026-8838",
+      "summary": "Unsafe use of Python's eval() on server-received data in the vector_in() function in amazon-redshift-python-driver before 2.1.14 allows a rogue server or man-in-the-middle actor to execute arbitrary code on the client. \n\n\n\nTo remediate this issue, users should upgrade to version 2.1.14.",
+      "published": "2026-05-18T21:16:41.623",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8838"
     },
     {
-      "id": "CVE-2026-47090",
-      "summary": "Claude HUD through 0.0.12, patched in commit 234d9aa, constructs OSC 8 terminal hyperlink escape sequences using raw cwd and branchUrl values without stripping control characters or encoding embedded values, allowing attackers to inject arbitrary ANSI codes into terminal sessions. Attackers can embed ESC+backslash sequences in the current working directory or branch URL to execute malicious ANSI codes including text color changes, forged prompts, and OSC 52 clipboard writes, or trigger outbound HTTP requests to attacker-controlled remotes when hyperlinks are clicked.",
-      "published": "2026-05-18T20:16:39.673",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47090"
+      "id": "CVE-2026-4137",
+      "summary": "In mlflow/mlflow versions prior to 3.11.0, the `get_or_create_nfs_tmp_dir()` function in `mlflow/utils/file_utils.py` creates temporary directories with world-writable permissions (0o777), and the `_create_model_downloading_tmp_dir()` function in `mlflow/pyfunc/__init__.py` creates directories with group-writable permissions (0o770). These insecure permissions allow local attackers to tamper with model artifacts, such as cloudpickle-serialized Python objects, and achieve arbitrary code execution when the tampered artifacts are deserialized via `cloudpickle.load()`. This vulnerability is particularly critical in environments with shared NFS mounts, such as Databricks, where NFS is enabled by default. The issue is a continuation of the vulnerability class addressed in CVE-2025-10279, which was only partially fixed.",
+      "published": "2026-05-18T21:16:40.710",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4137"
     },
     {
-      "id": "CVE-2026-45246",
-      "summary": "Summarize prior to 0.15.1 contains an insecure file permission vulnerability in the refresh-free configuration rewrite path that allows local users to read sensitive credentials by exploiting default filesystem permissions. When the refresh-free path rewrites the configuration file, it creates the replacement with default process umask permissions instead of preserving the original file permissions, exposing the config file containing API keys and provider credentials to other local users on shared Unix-like systems.",
-      "published": "2026-05-18T20:16:38.823",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45246"
+      "id": "CVE-2026-27130",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Versions 0.26.6 and below have OS command injection through the appName parameter. 3 chained issues cause this problem: inadequate input sanitization, lack of schema validation and direct shell interpolation. User-controlled application names are passed through inadequate sanitization (cleanAppName function only replaces spaces and converts to lowercase) before being interpolated directly into shell commands executed via execAsync() and execAsyncRemote(). An authenticated attacker can inject shell metacharacters (e.g., ;, $(), backticks, |, &) in the appName field during application creation, which are then executed with server-level privileges when service operations (start, stop, remove, scale) are triggered. This issue has been resolved in version 0.26.7.",
+      "published": "2026-05-18T21:16:39.890",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27130"
     },
     {
-      "id": "CVE-2026-45245",
-      "summary": "Summarize prior to 0.15.1 contains a vulnerability in the hover summary feature that allows malicious pages to dispatch synthetic mouseover events over attacker-controlled links, causing the extension to make authenticated daemon requests using stored tokens without verifying event trustworthiness. Attackers can place local or private-network URLs behind hoverable links to route authenticated requests through the daemon, potentially accessing sensitive internal endpoints when users interact with attacker-controlled content.",
-      "published": "2026-05-18T20:16:38.593",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45245"
+      "id": "CVE-2026-26978",
+      "summary": "FreePBX is an open source IP PBX. In versions below 16.0.71 and 17.0.6, the backup module does not properly sanitize data during restore operations, potentially leading to compromise if the backup contains carefully crafted hostile data. During backup restore operations, FreePBX extracts selected files from a user-supplied tar archive. If a malicious file exists in the archive, it is read and passed directly to unserialize() without validation, class restrictions, or integrity checks. This issue allows Remote Code Execution during restoration of the backup as the web server user (typically asterisk or www-data). The attack does not require shell access, CLI access, or filesystem write permissions beyond the normal restore workflow. Authentication with a known username that has sufficient access permissions and/or write access to backup files is required. This issue has been fixed in versions 16.0.71 and 17.0.6.",
+      "published": "2026-05-18T21:16:39.723",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26978"
     },
     {
-      "id": "CVE-2026-45244",
-      "summary": "Summarize prior to 0.15.1 contains a missing authorization vulnerability that allows attackers to execute browser automation actions without per-call user approval when the extension automation feature is enabled. Attackers can influence the agent through malicious page or summary content to invoke enabled extension automation tools such as navigation or debugger-backed actions, bypassing the final user approval step when a user interacts with attacker-controlled content.",
-      "published": "2026-05-18T20:16:38.390",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45244"
+      "id": "CVE-2026-25244",
+      "summary": "WebdriverIO is a test automation framework for unit, e2e and component testing using WebDriver, WebDriver BiDi and Appium. Versions below 9.24.0 contain a command injection vulnerability leading to remote code execution (RCE) in test orchestration. Git permits branch names containing shell metacharacters, and getGitMetadataForAISelection() interpolates these names directly into execSync() calls without sanitization. An attacker can exploit this by supplying a malicious repository (via testOrchestrationOptions.runSmartSelection.source, or the current directory if unset) whose branch name carries a payload, causing the shell to execute arbitrary code. This enables remote code execution on CI/CD servers and developer machines, leading to credential and secret disclosure, source code and SSH key exfiltration, system compromise, and supply chain attacks via tampered build artifacts. The issue has been fixed in version 9.24.0.",
+      "published": "2026-05-18T21:16:39.547",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25244"
     }
   ]
 }
