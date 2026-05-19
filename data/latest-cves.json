@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-19T12:19:01+00:00",
+  "generated_at": "2026-05-19T16:30:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7860",
-      "summary": "A possible information disclosure vulnerability exists in the Vaadin Maven plugin and Vaadin Gradle plugin that exposes the full set of environment variables in build logs whenever the frontend build process exits with a non-zero status. Because the build environment may contain credentials supplied as secrets, any failed frontend build can expose those secrets in clear text in CI logs and archived build artifacts.\n\n\nUsers of affected versions should apply the following mitigation or upgrade. Releases that have fixed this issue include:\n\nProduct version\nVaadin 23.0.0 - 23.6.9\nVaadin 24.0.0 - 24.10.3\nVaadin 25.0.0 - 25.1.4\n\nMitigation\nUpgrade to 23.6.10\nUpgrade to 24.10.4 or newer\nUpgrade to 25.1.5 or newer\n\nPlease note that Vaadin versions 10-13 and 15-22 are no longer supported and you should update either to the latest 23, 24, or 25 version.\n\nArtifactsMaven coordinatesVulnerable versionsFixed versioncom.vaadin:flow-plugin-base23.0.0 - 23.6.10\u226523.6.11com.vaadin:flow-plugin-base24.0.0 - 24.10.3\u226524.10.4com.vaadin:flow-plugin-base25.0.0 - 25.1.4\u226525.1.5com.vaadin:flow-maven-plugin23.0.0 - 23.6.10\u226523.6.11com.vaadin:flow-maven-plugin24.0.0 - 24.10.3\u226524.10.4com.vaadin:flow-maven-plugin25.0.0 - 25.1.4\u226525.1.5com.vaadin:flow-gradle-plugin24.0.0 - 24.10.3\u226524.10.4com.vaadin:flow-gradle-plugin25.0.0 - 25.1.4\u226525.1.5",
-      "published": "2026-05-19T12:16:19.960",
+      "id": "CVE-2026-8706",
+      "summary": "Firefox for iOS hosted Reader mode on an unauthenticated local web server, allowing another application on the same device to request arbitrary URLs and receive the response rendered with the signed-in user's cookies. This vulnerability was fixed in Firefox for iOS 151.0.",
+      "published": "2026-05-19T16:16:22.580",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7860"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8706"
     },
     {
-      "id": "CVE-2026-7571",
-      "summary": "A flaw was found in Keycloak. A low-privilege user, with knowledge of user credentials and client ID, can bypass a security control intended to disable the implicit flow in OpenID Connect (OIDC) clients. By manipulating client data during a session restart, an attacker can obtain an access token that should not be available. This vulnerability can also lead to the exposure of these access tokens in server logs, proxy logs, and HTTP Referrer headers, resulting in sensitive information disclosure.",
-      "published": "2026-05-19T12:16:19.820",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7571"
+      "id": "CVE-2026-5804",
+      "summary": "An improper authentication vulnerability was discovered in the Motorola Factory Test\u00a0component\u00a0(com.motorola.motocit). The application\u00a0contained\u00a0a reference to a writable file descriptor in external storage which could be used by third party apps running on the device to open a TCP server, exposing sensitive permissions and data. This could allow a local attacker to bypass permission checks and access protected device settings.",
+      "published": "2026-05-19T16:16:22.413",
+      "cvss": 8.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5804"
     },
     {
-      "id": "CVE-2026-7507",
-      "summary": "A session fixation vulnerability was found in Keycloak's login-actions endpoints. An unauthenticated attacker could exploit this flaw by pre-creating an authentication session and tricking a victim into visiting a maliciously crafted link. By leveraging the /login-actions/restart endpoint\u2014which processes session handles without adequate CSRF protection or cookie ownership validation\u2014an attacker can reset the authentication flow state. This causes Single Sign-On (SSO) to authenticate the victim transparently upon clicking the link, allowing the attacker to hijack the required-action form without needing the victim's credentials. A successful exploit could lead to complete account takeover, including highly privileged administrative accounts.",
-      "published": "2026-05-19T12:16:19.687",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7507"
+      "id": "CVE-2026-37281",
+      "summary": "An OS command injection vulnerability in the /stream-to-vlc Express route in hitarth-gg Zenshin before 2.7.0 allows remote attackers to execute arbitrary commands via the url parameter.",
+      "published": "2026-05-19T16:16:21.420",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-37281"
     },
     {
-      "id": "CVE-2026-7504",
-      "summary": "A flaw was found in Keycloak's URL validation logic during redirect operations. By crafting a malicious request, an attacker could bypass validation to redirect users to unauthorized URLs, potentially leading to the exposure of sensitive information within the domain or facilitating further attacks. This vulnerability specifically affects Keycloak clients configured with a wildcard (*) in the \"Valid Redirect URIs\" field and requires user interaction to be successfully exploited.\n\nThe issue stems from a discrepancy in how Keycloak and the underlying Java URI implementation handle the user-info component of a URL. If a malicious redirect URL is constructed using multiple @ characters in the user-info section, Java's URI parser fails to extract the user-info, leaving only the raw authority field. Consequently, Keycloak's validation check fails to detect the malformed user-info, falls back to a wildcard comparison, and incorrectly permits the malicious redirect.",
-      "published": "2026-05-19T12:16:19.553",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7504"
+      "id": "CVE-2026-31072",
+      "summary": "The JSONSerializer and CBORSerializer in APScheduler (all versions including 3.10.x and 4.0.0a5) are vulnerable to Remote Code Execution (RCE) via Insecure Deserialization. The unmarshal_object function allows for arbitrary class instantiation and state injection by dynamically importing modules and calling __setstate__ on any class available in the Python environment. An attacker can exploit this by submitting a specially crafted JSON or CBOR payload to an application using these serializers",
+      "published": "2026-05-19T16:16:20.610",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31072"
     },
     {
-      "id": "CVE-2026-7307",
-      "summary": "A flaw was found in Keycloak. A remote, unauthenticated attacker can send a specially crafted XML input to the Security Assertion Markup Language (SAML) endpoint. This malicious input can cause high CPU usage and worker thread starvation, leading to a Denial of Service (DoS) where the server becomes unavailable.",
-      "published": "2026-05-19T12:16:19.423",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7307"
+      "id": "CVE-2026-31071",
+      "summary": "API endpoints in LalanaChami Pharmacy Management System (commit 5c3d028) lack authentication middleware. Unauthenticated remote attackers can exploit this to dump all user records (including bcrypt password hashes) via /api/user/getUserData, modify drug inventory, and access private medical prescription data via /api/doctorOder.",
+      "published": "2026-05-19T16:16:20.490",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31071"
     },
     {
-      "id": "CVE-2026-4630",
-      "summary": "A flaw was found in Keycloak. An authenticated client could exploit an Insecure Direct Object Reference (IDOR) vulnerability in the Authorization Services Protection API endpoint. By knowing or obtaining a resource's unique identifier (UUID) belonging to another Resource Server within the same realm, the client could bypass authorization checks. This allows the client to perform unauthorized GET, PUT, and DELETE operations on resources, leading to information disclosure and potential unauthorized modification or deletion of data.",
-      "published": "2026-05-19T12:16:19.290",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4630"
+      "id": "CVE-2026-31070",
+      "summary": "The LalanaChami Pharmacy Management System (commit 5c3d028) allows unauthenticated remote attackers to escalate privileges by self-assigning an administrative role during registration. The /api/user/signup endpoint fails to validate the role parameter in the request body",
+      "published": "2026-05-19T16:16:20.363",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-31070"
     }
   ]
 }
