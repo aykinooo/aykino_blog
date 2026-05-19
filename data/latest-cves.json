@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-19T21:43:24+00:00",
+  "generated_at": "2026-05-19T23:20:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-39250",
-      "summary": "An authorization vulnerability exists in Innoshop 0.6.0. After logging into the frontend, an attacker can directly access backend application interfaces, leading to further dangerous operations.",
-      "published": "2026-05-19T21:16:42.863",
+      "id": "CVE-2026-8495",
+      "summary": "Missing Authorization vulnerability in Drupal Date iCal allows Forceful Browsing.\n\nThis issue affects Date iCal: from 0.0.0 before 4.0.15.",
+      "published": "2026-05-19T23:16:59.117",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39250"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8495"
     },
     {
-      "id": "CVE-2026-34233",
-      "summary": "CtrlPanel is open-source billing software for hosting providers. In versions 1.1.1 and prior, multiple admin controllers expose DataTable endpoints without authorization checks, allowing any authenticated user to access sensitive administrative data that should be restricted to administrators only. The affected admin controllers define datatable() methods that are reachable via GET requests but lack any permission or role verification. Because the routes fall under the /admin/ prefix, operators may assume they are protected - however, the middleware applied to this route group does not enforce admin-level authorization on these specific endpoints. As a result, any authenticated user (regardless of role) can query these endpoints and receive paginated JSON responses containing sensitive records. Exploitation can result in enumeration of user PII, payment and transaction records, active voucher and coupon codes, role and permission structure, server ownership mappings and support ticket contents. This issue has been fixed in version 1.2.0.",
-      "published": "2026-05-19T21:16:42.720",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34233"
+      "id": "CVE-2026-8493",
+      "summary": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Colorbox Inline allows Cross-Site Scripting (XSS).\n\nThis issue affects Colorbox Inline: from 0.0.0 before 2.1.1.",
+      "published": "2026-05-19T23:16:58.987",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8493"
     },
     {
-      "id": "CVE-2026-34216",
-      "summary": "CtrlPanel is open-source billing software for hosting providers. In versions 1.1.1 and prior, the admin settings update endpoint accepted a fully qualified class name directly from user-supplied request input and used it for dynamic static method calls and object instantiation without any allowlist validation, allowing for authenticated Remote Code Execution. An authenticated admin-level user could supply an arbitrary class name available in the Composer autoloader, potentially triggering unintended constructor or magic method execution. The update() method reads settings_class directly from the HTTP request and passed it to new $settings_class() and $settings_class::getValidations() without verifying that the provided value corresponds to a legitimate settings class: Because PHP resolves class names against the Composer autoloader at runtime, any autoloadable class in the application or its dependencies could be instantiated. Depending on the classes available in the dependency tree, this can trigger unintended side effects through constructors or magic methods (__construct, __toString, __wakeup), following a PHP object injection / gadget chain pattern. This issue has been fixed in version 1.2.0.",
-      "published": "2026-05-19T21:16:42.570",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34216"
+      "id": "CVE-2026-8492",
+      "summary": "Modification of Assumed-Immutable Data (MAID) vulnerability in Drupal Translate Drupal with GTranslate allows Resource Location Spoofing.\n\nThis issue affects Translate Drupal with GTranslate: from 0.0.0 before 3.0.5.",
+      "published": "2026-05-19T23:16:58.860",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8492"
     },
     {
-      "id": "CVE-2026-32882",
-      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. Versions 1.21.2 and prior contain a heap buffer over-read in HeifPixelImage::overlay() in libheif/pixelimage.cc. When compositing an overlay image (iovl) whose child image has a different bit depth for the alpha channel than for the color channels, the function indexes into the alpha plane using the color channel stride (in_stride) instead of the previously retrieved alpha_stride, causing reads past the end of the alpha buffer (up to 3,123 bytes for a 100\u00d750 image with 10-bit color and 8-bit alpha). A crafted HEIF file can exploit this to cause a denial of service (crash) or potentially disclose adjacent heap memory through leaked bytes embedded in the decoded output pixels. This issue has been fixed in versionThis issue has been fixed in version 1.22.0.",
-      "published": "2026-05-19T21:16:42.363",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32882"
+      "id": "CVE-2026-8491",
+      "summary": "Improper Check for Unusual or Exceptional Conditions vulnerability in Drupal Node View Permissions allows Forceful Browsing.\n\nThis issue affects Node View Permissions: from 0.0.0 before 1.7.0, from 2.0.0 before 2.0.1.",
+      "published": "2026-05-19T23:16:58.740",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8491"
     },
     {
-      "id": "CVE-2026-32814",
-      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. In versions 1.21.2 and prior, when decoding a HEIF grid image with strict_decoding=false (the default), a corrupted tile silently fails to decode and the library returns heif_error_Ok with no indication of failure, leading to an uninitialized heap memory information leak. The canvas is allocated via create_clone_image_at_new_size() \u2192 plane.alloc() \u2192 new (std::nothrow) uint8_t[allocation_size] which does not zero the memory; only the alpha plane is explicitly initialized via fill_plane(), so the Y, Cb, and Cr planes contain whatever was previously at that heap address. The failed tile's region of the canvas is never written. It retains uninitialized heap data that is delivered to the caller as decoded pixel values (4,096 bytes per Y/Cb/Cr plane = 12,288+ bytes total). Any application using libheif to decode grid-based HEIF/AVIF files with default settings is vulnerable: a crafted .heic or .avif file causes 4,096+ bytes of heap memory to appear as pixel values in the decoded image, and the calling application receives heif_error_Ok, so it has no indication the output contains heap garbage. In server-side image processing, an uploaded crafted HEIF decoded and re-encoded (e.g., as PNG/JPEG for thumbnails, CDN, social media) can leak cross-user data such as auth tokens, database results, and other users' image data. This issue has been fixed in version 1.22.0.",
-      "published": "2026-05-19T21:16:42.223",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32814"
+      "id": "CVE-2026-6871",
+      "summary": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Obfuscate allows Cross-Site Scripting (XSS).\n\nThis issue affects Obfuscate: from 0.0.0 before 2.0.2.",
+      "published": "2026-05-19T23:16:58.467",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6871"
     },
     {
-      "id": "CVE-2026-32741",
-      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. Versions 1.21.2 and below contain a heap buffer overflow in MaskImageCodec::decode_mask_image(). When decoding a HEIF file containing a mask image (mski), the function copies the full iloc extent data into a pixel buffer using memcpy(dst, data.data(), data.size()). The copy length data.size() is determined by the iloc extent in the file (attacker-controlled), while the destination buffer is sized based on the declared image dimensions. Because no upper-bound check exists on the data length, a crafted file whose iloc extent exceeds the pixel buffer allocation overflows the heap. The vulnerable single-memcpy branch is reached when the mskC property specifies bits_per_pixel = 8 and the ispe property declares an even width \u2265 64 (so that stride == width), with no changes to default security limits or external codec plugins required. This issue has been fixed in version 1.22.0.",
-      "published": "2026-05-19T21:16:42.073",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-32741"
+      "id": "CVE-2026-6367",
+      "summary": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Drupal core allows Cross-Site Scripting (XSS).\n\nThis issue affects Drupal core: from 11.3.0 before 11.3.7.",
+      "published": "2026-05-19T23:16:58.353",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6367"
     }
   ]
 }
