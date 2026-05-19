@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-19T08:37:27+00:00",
+  "generated_at": "2026-05-19T12:19:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8922",
-      "summary": "A flaw was found in Keycloak. When both realm-level and client-level `notBefore` revocation policies are configured, Keycloak's OpenID Connect (OIDC) Introspection feature fails to properly honor the realm-level policy. This allows tokens that should have been revoked to remain active, potentially leading to unauthorized access or continued session validity. This could impact the security of systems utilizing Keycloak for identity and access management.",
-      "published": "2026-05-19T08:16:18.343",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8922"
+      "id": "CVE-2026-7860",
+      "summary": "A possible information disclosure vulnerability exists in the Vaadin Maven plugin and Vaadin Gradle plugin that exposes the full set of environment variables in build logs whenever the frontend build process exits with a non-zero status. Because the build environment may contain credentials supplied as secrets, any failed frontend build can expose those secrets in clear text in CI logs and archived build artifacts.\n\n\nUsers of affected versions should apply the following mitigation or upgrade. Releases that have fixed this issue include:\n\nProduct version\nVaadin 23.0.0 - 23.6.9\nVaadin 24.0.0 - 24.10.3\nVaadin 25.0.0 - 25.1.4\n\nMitigation\nUpgrade to 23.6.10\nUpgrade to 24.10.4 or newer\nUpgrade to 25.1.5 or newer\n\nPlease note that Vaadin versions 10-13 and 15-22 are no longer supported and you should update either to the latest 23, 24, or 25 version.\n\nArtifactsMaven coordinatesVulnerable versionsFixed versioncom.vaadin:flow-plugin-base23.0.0 - 23.6.10\u226523.6.11com.vaadin:flow-plugin-base24.0.0 - 24.10.3\u226524.10.4com.vaadin:flow-plugin-base25.0.0 - 25.1.4\u226525.1.5com.vaadin:flow-maven-plugin23.0.0 - 23.6.10\u226523.6.11com.vaadin:flow-maven-plugin24.0.0 - 24.10.3\u226524.10.4com.vaadin:flow-maven-plugin25.0.0 - 25.1.4\u226525.1.5com.vaadin:flow-gradle-plugin24.0.0 - 24.10.3\u226524.10.4com.vaadin:flow-gradle-plugin25.0.0 - 25.1.4\u226525.1.5",
+      "published": "2026-05-19T12:16:19.960",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7860"
     },
     {
-      "id": "CVE-2026-4885",
-      "summary": "The Piotnet Addons for Elementor Pro plugin for WordPress is vulnerable to arbitrary file upload due to missing file type validation in the 'pafe_ajax_form_builder' function in all versions up to, and including, 7.1.70. The plugin uses an incomplete extension blacklist that only blocks php, phpt, php5, php7, and exe extensions, while allowing dangerous extensions such as .phar or .phtml to be uploaded. This makes it possible for unauthenticated attackers to upload arbitrary files on the affected site's server which may make remote code execution possible. Note: The exploit can only be exploited if a file field is added to the form.",
-      "published": "2026-05-19T08:16:16.223",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4885"
+      "id": "CVE-2026-7571",
+      "summary": "A flaw was found in Keycloak. A low-privilege user, with knowledge of user credentials and client ID, can bypass a security control intended to disable the implicit flow in OpenID Connect (OIDC) clients. By manipulating client data during a session restart, an attacker can obtain an access token that should not be available. This vulnerability can also lead to the exposure of these access tokens in server logs, proxy logs, and HTTP Referrer headers, resulting in sensitive information disclosure.",
+      "published": "2026-05-19T12:16:19.820",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7571"
     },
     {
-      "id": "CVE-2026-47317",
-      "summary": "Uncontrolled Recursion vulnerability in Samsung Open Source Escargot allows Excessive Allocation.\n\nThis issue affects Escargot: 590345cc6258317c5da850d846ce6baaf2afc2d3.",
-      "published": "2026-05-19T08:16:16.093",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47317"
+      "id": "CVE-2026-7507",
+      "summary": "A session fixation vulnerability was found in Keycloak's login-actions endpoints. An unauthenticated attacker could exploit this flaw by pre-creating an authentication session and tricking a victim into visiting a maliciously crafted link. By leveraging the /login-actions/restart endpoint\u2014which processes session handles without adequate CSRF protection or cookie ownership validation\u2014an attacker can reset the authentication flow state. This causes Single Sign-On (SSO) to authenticate the victim transparently upon clicking the link, allowing the attacker to hijack the required-action form without needing the victim's credentials. A successful exploit could lead to complete account takeover, including highly privileged administrative accounts.",
+      "published": "2026-05-19T12:16:19.687",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7507"
     },
     {
-      "id": "CVE-2026-47316",
-      "summary": "Improper Check or Handling of Exceptional Conditions vulnerability in Samsung Open Source Escargot allows Input Data Manipulation.\n\nThis issue affects Escargot: 590345cc6258317c5da850d846ce6baaf2afc2d3.",
-      "published": "2026-05-19T08:16:15.977",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47316"
+      "id": "CVE-2026-7504",
+      "summary": "A flaw was found in Keycloak's URL validation logic during redirect operations. By crafting a malicious request, an attacker could bypass validation to redirect users to unauthorized URLs, potentially leading to the exposure of sensitive information within the domain or facilitating further attacks. This vulnerability specifically affects Keycloak clients configured with a wildcard (*) in the \"Valid Redirect URIs\" field and requires user interaction to be successfully exploited.\n\nThe issue stems from a discrepancy in how Keycloak and the underlying Java URI implementation handle the user-info component of a URL. If a malicious redirect URL is constructed using multiple @ characters in the user-info section, Java's URI parser fails to extract the user-info, leaving only the raw authority field. Consequently, Keycloak's validation check fails to detect the malformed user-info, falls back to a wildcard comparison, and incorrectly permits the malicious redirect.",
+      "published": "2026-05-19T12:16:19.553",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7504"
     },
     {
-      "id": "CVE-2026-47315",
-      "summary": "Improper Check for Unusual or Exceptional Conditions vulnerability in Samsung Open Source Escargot allows Input Data Manipulation.\n\nThis issue affects Escargot: 590345cc6258317c5da850d846ce6baaf2afc2d3.",
-      "published": "2026-05-19T08:16:15.853",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47315"
+      "id": "CVE-2026-7307",
+      "summary": "A flaw was found in Keycloak. A remote, unauthenticated attacker can send a specially crafted XML input to the Security Assertion Markup Language (SAML) endpoint. This malicious input can cause high CPU usage and worker thread starvation, leading to a Denial of Service (DoS) where the server becomes unavailable.",
+      "published": "2026-05-19T12:16:19.423",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7307"
     },
     {
-      "id": "CVE-2026-47314",
-      "summary": "Out-of-bounds write vulnerability in Samsung Open Source Escargot allows Overflow Buffers.\n\nThis issue affects Escargot: 590345cc6258317c5da850d846ce6baaf2afc2d3.",
-      "published": "2026-05-19T08:16:15.730",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47314"
+      "id": "CVE-2026-4630",
+      "summary": "A flaw was found in Keycloak. An authenticated client could exploit an Insecure Direct Object Reference (IDOR) vulnerability in the Authorization Services Protection API endpoint. By knowing or obtaining a resource's unique identifier (UUID) belonging to another Resource Server within the same realm, the client could bypass authorization checks. This allows the client to perform unauthorized GET, PUT, and DELETE operations on resources, leading to information disclosure and potential unauthorized modification or deletion of data.",
+      "published": "2026-05-19T12:16:19.290",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4630"
     }
   ]
 }
