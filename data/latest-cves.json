@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-20T12:02:32+00:00",
+  "generated_at": "2026-05-20T15:53:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-25602",
-      "summary": "Insufficient Verification of Data Authenticity vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component makes it possible to send messages to any email address.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
-      "published": "2026-05-20T11:16:26.313",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25602"
+      "id": "CVE-2026-8485",
+      "summary": "Uncontrolled Memory Allocation vulnerability in Progress Software MOVEit Automation allows Excessive Allocation.\n\nThis issue affects MOVEit Automation: before 2025.0.11, from 2025.1.0 before 2025.1.7.",
+      "published": "2026-05-20T14:17:04.603",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8485"
     },
     {
-      "id": "CVE-2026-22315",
-      "summary": "Incorrect Privilege Assignment vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component enables the export\u00a0 of user data, including cleartext passwords, via the SQL editor.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
-      "published": "2026-05-20T11:16:26.187",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22315"
+      "id": "CVE-2026-8469",
+      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in phenixdigital phoenix_storybook allows unauthenticated denial-of-service via BEAM atom table exhaustion.\n\nMultiple LiveView event handlers convert user-supplied event parameter strings to atoms using String.to_atom/1 without validation: 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':handle_set_variation_assign/3 interns every key of the psb-assign params map; 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':handle_toggle_variation_assign/3 interns the \"attr\" value from psb-toggle events; 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':to_variation_id/2 interns elements of \"variation_id\"; and 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':to_value/4 interns raw string values for attributes declared as :atom or :boolean. BEAM atoms are never garbage-collected, so each unique attacker-controlled string is a permanent allocation. Once the atom table ceiling (~1,048,576 atoms) is reached, the entire BEAM node aborts, taking down all applications running on it.\n\nThis issue affects phoenix_storybook from 0.2.0 before 1.1.0.",
+      "published": "2026-05-20T14:17:04.447",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8469"
     },
     {
-      "id": "CVE-2026-22314",
-      "summary": "Improper Control of Generation of Code ('Code Injection') vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component enables code execution on other users' systems.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
-      "published": "2026-05-20T11:16:26.057",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22314"
+      "id": "CVE-2026-8467",
+      "summary": "Code Injection vulnerability in phenixdigital phoenix_storybook allows unauthenticated remote code execution via unsanitized attribute value interpolation in HEEx template generation.\n\nThe psb-assign WebSocket event handler in 'Elixir.PhoenixStorybook.Story.PlaygroundPreviewLive':handle_event/3 accepts arbitrary attribute names and values from unauthenticated clients. These values are passed to 'Elixir.PhoenixStorybook.Helpers.ExtraAssignsHelpers':handle_set_variation_assign/3, which stores them verbatim. When rendering, 'Elixir.PhoenixStorybook.Rendering.ComponentRenderer':attributes_markup/1 interpolates binary attribute values directly into a HEEx template string as name=\"<val>\" without escaping double quotes or HEEx expression delimiters. An attacker can supply a value containing a closing quote followed by a HEEx expression block (e.g. foo\" injected={EXPR} bar=\"), which causes EXPR to be treated as an inline Elixir expression. The resulting template is compiled via EEx.compile_string/2 and executed via Code.eval_quoted_with_env/3 with full Kernel imports and no sandbox, giving the attacker arbitrary code execution on the server.\n\nThis issue affects phoenix_storybook from 0.5.0 before 1.1.0.",
+      "published": "2026-05-20T14:17:04.283",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8467"
     },
     {
-      "id": "CVE-2026-0857",
-      "summary": "Cleartext Storage of Sensitive Information in Memory vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component.\n\nThis issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
-      "published": "2026-05-20T11:16:25.923",
-      "cvss": 6.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0857"
+      "id": "CVE-2026-47068",
+      "summary": "Authorization Bypass Through User-Controlled Key vulnerability in phenixdigital phoenix_storybook allows cross-session PubSub topic injection via a URL query parameter.\n\n'Elixir.PhoenixStorybook.Story.ComponentIframeLive':handle_params/3 in lib/phoenix_storybook/live/story/component_iframe_live.ex reads a PubSub topic directly from params[\"topic\"] and broadcasts {:component_iframe_pid, self()} on it with no check that the topic belongs to the requesting session. The shared PhoenixStorybook.PubSub is used to coordinate playground LiveViews with their iframes: a playground subscribes to a session-specific topic and uses the received iframe pid to direct subsequent control messages (variation state, theme switches, extra-assign payloads) via send/2. Because the iframe trusts the query parameter, an attacker who loads /storybook/iframe/<story>?topic=<victim_topic> causes their iframe process pid to be announced on the victim's topic. The victim's playground then addresses its private messages to the attacker's iframe process.\n\nThis issue affects phoenix_storybook from 0.4.0 before 1.1.0.",
+      "published": "2026-05-20T14:17:01.557",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47068"
     },
     {
-      "id": "CVE-2026-0856",
-      "summary": "Improper Access Control vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component enables a normal user gaining access to the admin panel.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
-      "published": "2026-05-20T11:16:25.780",
+      "id": "CVE-2026-24425",
+      "summary": "Twig versions 2.16.x and 3.9.0 through 3.25.x contain a sandbox bypass vulnerability when using a SourcePolicyInterface that allows attackers with template rendering capabilities to pass arbitrary PHP callables to sort, filter, map, and reduce filters. Attackers can exploit the runtime check that fails to use the current template source to bypass sandbox restrictions and execute arbitrary code when the sandbox is enabled through a source policy rather than globally.",
+      "published": "2026-05-20T14:16:38.917",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24425"
+    },
+    {
+      "id": "CVE-2026-22554",
+      "summary": "MediaArea MediaInfoLib Channel Splitting heap-based buffer overflow vulnerability",
+      "published": "2026-05-20T14:16:38.763",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0856"
-    },
-    {
-      "id": "CVE-2026-9064",
-      "summary": "A flaw was found in 389-ds-base. The get_ldapmessage_controls_ext() function in the LDAP server does not enforce an upper bound on the number of controls per LDAP message. A remote, unauthenticated attacker can send a specially crafted LDAP request containing hundreds of thousands of minimal controls within the default maximum BER message size (2 MB), causing excessive CPU consumption and heap allocation on the server. Under concurrent exploitation, this leads to significant latency degradation, worker thread starvation, or out-of-memory termination, resulting in a denial of service.",
-      "published": "2026-05-20T10:16:28.940",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9064"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22554"
     }
   ]
 }
