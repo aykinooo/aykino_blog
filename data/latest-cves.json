@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-20T04:34:28+00:00",
+  "generated_at": "2026-05-20T08:34:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9010",
-      "summary": "The Boost plugin for WordPress is vulnerable to time-based SQL Injection via the 'current_url' and 'user_name' parameters in versions up to, and including, 2.0.3 due to insufficient escaping on the user supplied parameters and lack of sufficient preparation on the existing SQL queries. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-05-20T04:16:59.703",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9010"
+      "id": "CVE-2026-6405",
+      "summary": "The Anomify AI \u2013 Anomaly Detection and Alerting plugin for WordPress is vulnerable to Cross-Site Request Forgery (CSRF) leading to Stored Cross-Site Scripting (XSS) in versions up to and including 0.3.6. This is due to missing nonce verification on the settings page handler and insufficient output escaping in the admin_options.php template. The settings form includes no wp_nonce_field() and the handler performs no check_admin_referer() check, meaning any cross-origin POST can modify plugin settings. The API key field is sanitized only with sanitize_text_field(), which strips HTML tags but does not encode double-quote characters; the value is then rendered into an HTML attribute via bare echo without esc_attr(), allowing a double-quote attribute-escape payload to survive both sanitization and storage. This makes it possible for unauthenticated attackers to inject arbitrary web scripts by tricking a logged-in administrator into visiting a malicious page that submits a forged request, storing the payload in the database and causing it to execute in the administrator's browser whenever the plugin settings page is visited.",
+      "published": "2026-05-20T08:16:23.027",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6405"
     },
     {
-      "id": "CVE-2026-9003",
-      "summary": "E-LAN Hybrid Recording System developed by TONNET has a SQL Injection vulnerability, allowing unauthenticated remote attackers to inject arbitrary SQL commands to read database contents.",
-      "published": "2026-05-20T04:16:59.217",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9003"
+      "id": "CVE-2026-5200",
+      "summary": "The AcyMailing \u2013 An Ultimate Newsletter Plugin and Marketing Automation Solution for WordPress plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 10.8.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to modify privileged AcyMailing configuration, export subscriber secret keys, and chain these actions into administrator account takeover when a target administrator email address is known.",
+      "published": "2026-05-20T08:16:22.860",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5200"
     },
     {
-      "id": "CVE-2026-7637",
-      "summary": "The Boost plugin for WordPress is vulnerable to PHP Object Injection in versions up to, and including, 2.0.3 via deserialization of untrusted input in the STYXKEY-BOOST_USER_LOCATION cookie. This makes it possible for unauthenticated attackers to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
-      "published": "2026-05-20T04:16:56.747",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7637"
-    },
-    {
-      "id": "CVE-2026-7460",
-      "summary": "mailcow-dockerized contains a stored cross-site scripting vulnerability in the administrator Queue Manager. The Queue Manager fetches mail queue entries from /api/v1/get/mailq/all, copies server-controlled Postfix queue fields into DataTables rows, and renders several of those fields as HTML without adequate output encoding.\n\n\n\nThis issue affects mailcow-dockerized: 2026-03b.",
-      "published": "2026-05-20T04:16:56.270",
+      "id": "CVE-2026-7385",
+      "summary": "The Decent Comments WordPress plugin before 3.0.2 does not restrict access to comment author email addresses and post author email addresses via its REST API endpoint, allowing unauthenticated attackers to enumerate registered user email addresses.",
+      "published": "2026-05-20T07:16:16.353",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7460"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7385"
     },
     {
-      "id": "CVE-2026-24215",
-      "summary": "NVIDIA Triton Inference Server contains a vulnerability in the DALI backend, where an attacker could cause uncontrolled resource consumption. A successful exploit of this vulnerability might lead to denial of service.",
-      "published": "2026-05-20T04:16:47.373",
-      "cvss": 5.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24215"
+      "id": "CVE-2026-6566",
+      "summary": "The Photo Gallery, Sliders, Proofing and Themes \u2013 NextGEN Gallery plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to and including 4.2.0. This is due to insufficient object-level authorization in the image deletion REST flow where the permission callback for DELETE /imagely/v1/images/{id} only checks 'NextGEN Manage gallery' permissions and does not enforce gallery ownership or 'NextGEN Manage others gallery' permissions. This makes it possible for authenticated attackers, with Subscriber-level privileges and 'NextGEN Manage gallery' capability, to delete gallery images belonging to other users as well as their associated image files from disk when deleteImg is enabled (default).",
+      "published": "2026-05-20T07:16:16.030",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6566"
     },
     {
-      "id": "CVE-2026-24214",
-      "summary": "NVIDIA Triton Inference Server contains a vulnerability in the DALI backend where an attacker could cause an integer overflow. A successful exploit of this vulnerability might lead to code execution, data tampering, or denial of service.",
-      "published": "2026-05-20T04:16:47.173",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24214"
+      "id": "CVE-2026-5776",
+      "summary": "The Email Encoder  WordPress plugin before 2.4.7 does not escape email addresses retrieved via user input, allowing unauthenticated attackers to perform Stored XSS attacks",
+      "published": "2026-05-20T07:16:15.903",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5776"
+    },
+    {
+      "id": "CVE-2026-47784",
+      "summary": "In memcached before 1.6.42, password data for SASL password database authentication has a timing side channel because memcmp is used by sasl_server_userdb_checkpass.",
+      "published": "2026-05-20T07:16:15.733",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47784"
     }
   ]
 }
