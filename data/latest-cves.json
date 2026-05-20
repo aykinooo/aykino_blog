@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-20T08:34:38+00:00",
+  "generated_at": "2026-05-20T12:02:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6405",
-      "summary": "The Anomify AI \u2013 Anomaly Detection and Alerting plugin for WordPress is vulnerable to Cross-Site Request Forgery (CSRF) leading to Stored Cross-Site Scripting (XSS) in versions up to and including 0.3.6. This is due to missing nonce verification on the settings page handler and insufficient output escaping in the admin_options.php template. The settings form includes no wp_nonce_field() and the handler performs no check_admin_referer() check, meaning any cross-origin POST can modify plugin settings. The API key field is sanitized only with sanitize_text_field(), which strips HTML tags but does not encode double-quote characters; the value is then rendered into an HTML attribute via bare echo without esc_attr(), allowing a double-quote attribute-escape payload to survive both sanitization and storage. This makes it possible for unauthenticated attackers to inject arbitrary web scripts by tricking a logged-in administrator into visiting a malicious page that submits a forged request, storing the payload in the database and causing it to execute in the administrator's browser whenever the plugin settings page is visited.",
-      "published": "2026-05-20T08:16:23.027",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6405"
+      "id": "CVE-2026-25602",
+      "summary": "Insufficient Verification of Data Authenticity vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component makes it possible to send messages to any email address.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
+      "published": "2026-05-20T11:16:26.313",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-25602"
     },
     {
-      "id": "CVE-2026-5200",
-      "summary": "The AcyMailing \u2013 An Ultimate Newsletter Plugin and Marketing Automation Solution for WordPress plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 10.8.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to modify privileged AcyMailing configuration, export subscriber secret keys, and chain these actions into administrator account takeover when a target administrator email address is known.",
-      "published": "2026-05-20T08:16:22.860",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5200"
+      "id": "CVE-2026-22315",
+      "summary": "Incorrect Privilege Assignment vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component enables the export\u00a0 of user data, including cleartext passwords, via the SQL editor.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
+      "published": "2026-05-20T11:16:26.187",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22315"
     },
     {
-      "id": "CVE-2026-7385",
-      "summary": "The Decent Comments WordPress plugin before 3.0.2 does not restrict access to comment author email addresses and post author email addresses via its REST API endpoint, allowing unauthenticated attackers to enumerate registered user email addresses.",
-      "published": "2026-05-20T07:16:16.353",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7385"
+      "id": "CVE-2026-22314",
+      "summary": "Improper Control of Generation of Code ('Code Injection') vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component enables code execution on other users' systems.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
+      "published": "2026-05-20T11:16:26.057",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22314"
     },
     {
-      "id": "CVE-2026-6566",
-      "summary": "The Photo Gallery, Sliders, Proofing and Themes \u2013 NextGEN Gallery plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to and including 4.2.0. This is due to insufficient object-level authorization in the image deletion REST flow where the permission callback for DELETE /imagely/v1/images/{id} only checks 'NextGEN Manage gallery' permissions and does not enforce gallery ownership or 'NextGEN Manage others gallery' permissions. This makes it possible for authenticated attackers, with Subscriber-level privileges and 'NextGEN Manage gallery' capability, to delete gallery images belonging to other users as well as their associated image files from disk when deleteImg is enabled (default).",
-      "published": "2026-05-20T07:16:16.030",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6566"
+      "id": "CVE-2026-0857",
+      "summary": "Cleartext Storage of Sensitive Information in Memory vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component.\n\nThis issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
+      "published": "2026-05-20T11:16:25.923",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0857"
     },
     {
-      "id": "CVE-2026-5776",
-      "summary": "The Email Encoder  WordPress plugin before 2.4.7 does not escape email addresses retrieved via user input, allowing unauthenticated attackers to perform Stored XSS attacks",
-      "published": "2026-05-20T07:16:15.903",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5776"
+      "id": "CVE-2026-0856",
+      "summary": "Improper Access Control vulnerability in Mesalvo Meona Client Launcher Component, Mesalvo Meona Server Component enables a normal user gaining access to the admin panel.\u00a0This issue affects Meona Client Launcher Component: through 19.06.2020 15:11:49; Meona Server Component: through 2025.04 5+323020.",
+      "published": "2026-05-20T11:16:25.780",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0856"
     },
     {
-      "id": "CVE-2026-47784",
-      "summary": "In memcached before 1.6.42, password data for SASL password database authentication has a timing side channel because memcmp is used by sasl_server_userdb_checkpass.",
-      "published": "2026-05-20T07:16:15.733",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47784"
+      "id": "CVE-2026-9064",
+      "summary": "A flaw was found in 389-ds-base. The get_ldapmessage_controls_ext() function in the LDAP server does not enforce an upper bound on the number of controls per LDAP message. A remote, unauthenticated attacker can send a specially crafted LDAP request containing hundreds of thousands of minimal controls within the default maximum BER message size (2 MB), causing excessive CPU consumption and heap allocation on the server. Under concurrent exploitation, this leads to significant latency degradation, worker thread starvation, or out-of-memory termination, resulting in a denial of service.",
+      "published": "2026-05-20T10:16:28.940",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9064"
     }
   ]
 }
