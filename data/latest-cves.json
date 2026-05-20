@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-20T15:53:46+00:00",
+  "generated_at": "2026-05-20T18:30:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8485",
-      "summary": "Uncontrolled Memory Allocation vulnerability in Progress Software MOVEit Automation allows Excessive Allocation.\n\nThis issue affects MOVEit Automation: before 2025.0.11, from 2025.1.0 before 2025.1.7.",
-      "published": "2026-05-20T14:17:04.603",
+      "id": "CVE-2026-30691",
+      "summary": "Cross-Site Scripting (XSS) vulnerability in @cyntler/react-doc-viewer v1.17.1 allows remote attackers to execute arbitrary JavaScript via a crafted .txt file. The TXTRenderer component fails to sanitize file content and explicitly casts raw data as a ReactNode",
+      "published": "2026-05-20T18:16:26.760",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30691"
+    },
+    {
+      "id": "CVE-2026-20240",
+      "summary": "In Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.11, and 9.3.12, and Splunk Cloud Platform versions below 10.4.2603.1, 10.3.2512.9, 10.2.2510.11, 10.1.2507.21, 10.0.2503.13, and 9.3.2411.129, a low-privileged user that does not hold the \u2018admin\u2019 or \u2018power\u2019 Splunk roles could cause a Denial of Service by exploiting the `coldToFrozen.sh` script in the `splunk_archiver` app to rename critical Splunk directories, making the instance non-functional.<br><br>The Denial of Service is possible because of missing input validation in the `coldToFrozen.sh` script, which accepts arbitrary file paths and renames them without restricting operations to safe directories.",
+      "published": "2026-05-20T18:16:26.637",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20240"
+    },
+    {
+      "id": "CVE-2026-20239",
+      "summary": "In Splunk Enterprise versions below 10.2.2 and 10.0.5, and Splunk Cloud Platform versions below 10.3.2512.8, 10.2.2510.11, 10.1.2507.21, and 10.0.2503.13, a user with a role that has access to the `_internal` index could view session cookies and response bodies that contain sensitive data.",
+      "published": "2026-05-20T18:16:26.520",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20239"
+    },
+    {
+      "id": "CVE-2026-20238",
+      "summary": "In Splunk AI Toolkit versions below 5.7.3, a low-privileged user that does not hold the 'admin' or 'power' roles could access confidential data that was restricted through `srchFilter` configurations on custom roles.<br><br>The app contains an `authorize.conf` configuration file with a `srchFilter` entry that modifies the built-in \u2018user\u2019 role. Because the Splunk platform combines inherited search filters with the `OR` SPL operator, the injected filter overrides more restrictive filters on child roles.",
+      "published": "2026-05-20T18:16:26.393",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20238"
+    },
+    {
+      "id": "CVE-2026-9101",
+      "summary": "Prototype pollution in csv parsing logic during import can lead to untrusted file paths (but not arguments) entering shell.openExternal after specific user behavior leading to \"1-click\" command execution.",
+      "published": "2026-05-20T17:16:32.517",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9101"
+    },
+    {
+      "id": "CVE-2026-9100",
+      "summary": "The MongoDB C Driver's legacy GridFS API accepts malformed file metadata from the database without adequate validation. Crafted documents in a GridFS collection may cause any application that reads those files via the legacy API to either crash (via a division-by-zero) or silently leak process memory contents (via an out-of-bounds read).",
+      "published": "2026-05-20T17:16:32.360",
       "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8485"
-    },
-    {
-      "id": "CVE-2026-8469",
-      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in phenixdigital phoenix_storybook allows unauthenticated denial-of-service via BEAM atom table exhaustion.\n\nMultiple LiveView event handlers convert user-supplied event parameter strings to atoms using String.to_atom/1 without validation: 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':handle_set_variation_assign/3 interns every key of the psb-assign params map; 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':handle_toggle_variation_assign/3 interns the \"attr\" value from psb-toggle events; 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':to_variation_id/2 interns elements of \"variation_id\"; and 'Elixir.PhoenixStorybook.ExtraAssignsHelpers':to_value/4 interns raw string values for attributes declared as :atom or :boolean. BEAM atoms are never garbage-collected, so each unique attacker-controlled string is a permanent allocation. Once the atom table ceiling (~1,048,576 atoms) is reached, the entire BEAM node aborts, taking down all applications running on it.\n\nThis issue affects phoenix_storybook from 0.2.0 before 1.1.0.",
-      "published": "2026-05-20T14:17:04.447",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8469"
-    },
-    {
-      "id": "CVE-2026-8467",
-      "summary": "Code Injection vulnerability in phenixdigital phoenix_storybook allows unauthenticated remote code execution via unsanitized attribute value interpolation in HEEx template generation.\n\nThe psb-assign WebSocket event handler in 'Elixir.PhoenixStorybook.Story.PlaygroundPreviewLive':handle_event/3 accepts arbitrary attribute names and values from unauthenticated clients. These values are passed to 'Elixir.PhoenixStorybook.Helpers.ExtraAssignsHelpers':handle_set_variation_assign/3, which stores them verbatim. When rendering, 'Elixir.PhoenixStorybook.Rendering.ComponentRenderer':attributes_markup/1 interpolates binary attribute values directly into a HEEx template string as name=\"<val>\" without escaping double quotes or HEEx expression delimiters. An attacker can supply a value containing a closing quote followed by a HEEx expression block (e.g. foo\" injected={EXPR} bar=\"), which causes EXPR to be treated as an inline Elixir expression. The resulting template is compiled via EEx.compile_string/2 and executed via Code.eval_quoted_with_env/3 with full Kernel imports and no sandbox, giving the attacker arbitrary code execution on the server.\n\nThis issue affects phoenix_storybook from 0.5.0 before 1.1.0.",
-      "published": "2026-05-20T14:17:04.283",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8467"
-    },
-    {
-      "id": "CVE-2026-47068",
-      "summary": "Authorization Bypass Through User-Controlled Key vulnerability in phenixdigital phoenix_storybook allows cross-session PubSub topic injection via a URL query parameter.\n\n'Elixir.PhoenixStorybook.Story.ComponentIframeLive':handle_params/3 in lib/phoenix_storybook/live/story/component_iframe_live.ex reads a PubSub topic directly from params[\"topic\"] and broadcasts {:component_iframe_pid, self()} on it with no check that the topic belongs to the requesting session. The shared PhoenixStorybook.PubSub is used to coordinate playground LiveViews with their iframes: a playground subscribes to a session-specific topic and uses the received iframe pid to direct subsequent control messages (variation state, theme switches, extra-assign payloads) via send/2. Because the iframe trusts the query parameter, an attacker who loads /storybook/iframe/<story>?topic=<victim_topic> causes their iframe process pid to be announced on the victim's topic. The victim's playground then addresses its private messages to the attacker's iframe process.\n\nThis issue affects phoenix_storybook from 0.4.0 before 1.1.0.",
-      "published": "2026-05-20T14:17:01.557",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47068"
-    },
-    {
-      "id": "CVE-2026-24425",
-      "summary": "Twig versions 2.16.x and 3.9.0 through 3.25.x contain a sandbox bypass vulnerability when using a SourcePolicyInterface that allows attackers with template rendering capabilities to pass arbitrary PHP callables to sort, filter, map, and reduce filters. Attackers can exploit the runtime check that fails to use the current template source to bypass sandbox restrictions and execute arbitrary code when the sandbox is enabled through a source policy rather than globally.",
-      "published": "2026-05-20T14:16:38.917",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24425"
-    },
-    {
-      "id": "CVE-2026-22554",
-      "summary": "MediaArea MediaInfoLib Channel Splitting heap-based buffer overflow vulnerability",
-      "published": "2026-05-20T14:16:38.763",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22554"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9100"
     }
   ]
 }
