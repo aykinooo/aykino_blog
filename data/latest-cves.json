@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-20T18:30:29+00:00",
+  "generated_at": "2026-05-20T21:09:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-30691",
-      "summary": "Cross-Site Scripting (XSS) vulnerability in @cyntler/react-doc-viewer v1.17.1 allows remote attackers to execute arbitrary JavaScript via a crafted .txt file. The TXTRenderer component fails to sanitize file content and explicitly casts raw data as a ReactNode",
-      "published": "2026-05-20T18:16:26.760",
+      "id": "CVE-2026-9144",
+      "summary": "Taiko AG1000-01A SMS Alert Gateway Rev 7.3 and Rev 8 contains a stored cross-site scripting vulnerability in the embedded web configuration interface that allows authenticated attackers to execute persistent JavaScript by fragmenting malicious payloads across multiple administrative form fields. Attackers can bypass front-end length restrictions using JavaScript comments and template literals to concatenate executable script fragments that are rendered in administrative dashboard views such as index.zhtml, resulting in persistent script execution within administrative sessions.",
+      "published": "2026-05-20T20:16:46.640",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9144"
+    },
+    {
+      "id": "CVE-2026-9141",
+      "summary": "Taiko AG1000-01A SMS Alert Gateway Rev 7.3 and Rev 8 contains an authentication bypass vulnerability in the embedded web configuration interface that allows unauthenticated attackers to access internal application pages without any session management or server-side authentication checks. Attackers with network access can directly request internal resources such as index.zhtml, point.zhtml, and log.shtml to gain full administrative read and write access, enabling unauthorized modification of alarm routing, device configuration, and disruption of monitoring and control functions.",
+      "published": "2026-05-20T20:16:46.480",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9141"
+    },
+    {
+      "id": "CVE-2026-9139",
+      "summary": "Taiko AG1000-01A SMS Alert Gateway Rev 7.3 and Rev 8 contains a hard-coded credential vulnerability in the embedded web configuration interface where authentication is implemented entirely in client-side JavaScript in login.zhtml, exposing static plaintext credentials in the page source. Unauthenticated attackers with network access can recover administrative credentials directly from the client-side validate() function to obtain full administrative access to the device.",
+      "published": "2026-05-20T20:16:46.323",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9139"
+    },
+    {
+      "id": "CVE-2026-9137",
+      "summary": "The CSP report endpoint intended to limit logged CSP reports to 1 KB but incorrectly allowed reports up to 1 MB before truncation. On deployments where the endpoint is reachable by untrusted clients, this could allow attackers to generate excessive log volume and contribute to resource exhaustion or log flooding.",
+      "published": "2026-05-20T20:16:46.177",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-30691"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9137"
     },
     {
-      "id": "CVE-2026-20240",
-      "summary": "In Splunk Enterprise versions below 10.2.2, 10.0.5, 9.4.11, and 9.3.12, and Splunk Cloud Platform versions below 10.4.2603.1, 10.3.2512.9, 10.2.2510.11, 10.1.2507.21, 10.0.2503.13, and 9.3.2411.129, a low-privileged user that does not hold the \u2018admin\u2019 or \u2018power\u2019 Splunk roles could cause a Denial of Service by exploiting the `coldToFrozen.sh` script in the `splunk_archiver` app to rename critical Splunk directories, making the instance non-functional.<br><br>The Denial of Service is possible because of missing input validation in the `coldToFrozen.sh` script, which accepts arbitrary file paths and renames them without restricting operations to safe directories.",
-      "published": "2026-05-20T18:16:26.637",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20240"
+      "id": "CVE-2026-9136",
+      "summary": "A vulnerability was identified in the ShadowAttribute proposal creation workflow. The add action accepted user-controlled ShadowAttribute request data without removing the id field before saving the record. Because the underlying framework treats a supplied primary key as an instruction to update an existing record, an authenticated user able to submit shadow attribute proposals could provide the identifier of an existing ShadowAttribute and cause that record to be updated instead of creating a new proposal.\n\n\n\n\nThis can result in unauthorized modification of existing shadow attributes, potentially affecting proposals associated with events the user should not be able to alter. Depending on deployment configuration and accessible API responses, the issue may also expose or move proposal data across event contexts.\n\n\n\n\nThe vulnerability is caused by trusting a client-supplied primary key during object creation. The fix removes the id field from incoming ShadowAttribute data before processing, ensuring that the endpoint always creates a new proposal rather than updating an existing one. This has been fixed in MISP 2.5.38.",
+      "published": "2026-05-20T20:16:46.013",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9136"
     },
     {
-      "id": "CVE-2026-20239",
-      "summary": "In Splunk Enterprise versions below 10.2.2 and 10.0.5, and Splunk Cloud Platform versions below 10.3.2512.8, 10.2.2510.11, 10.1.2507.21, and 10.0.2503.13, a user with a role that has access to the `_internal` index could view session cookies and response bodies that contain sensitive data.",
-      "published": "2026-05-20T18:16:26.520",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20239"
-    },
-    {
-      "id": "CVE-2026-20238",
-      "summary": "In Splunk AI Toolkit versions below 5.7.3, a low-privileged user that does not hold the 'admin' or 'power' roles could access confidential data that was restricted through `srchFilter` configurations on custom roles.<br><br>The app contains an `authorize.conf` configuration file with a `srchFilter` entry that modifies the built-in \u2018user\u2019 role. Because the Splunk platform combines inherited search filters with the `OR` SPL operator, the injected filter overrides more restrictive filters on child roles.",
-      "published": "2026-05-20T18:16:26.393",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20238"
-    },
-    {
-      "id": "CVE-2026-9101",
-      "summary": "Prototype pollution in csv parsing logic during import can lead to untrusted file paths (but not arguments) entering shell.openExternal after specific user behavior leading to \"1-click\" command execution.",
-      "published": "2026-05-20T17:16:32.517",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9101"
-    },
-    {
-      "id": "CVE-2026-9100",
-      "summary": "The MongoDB C Driver's legacy GridFS API accepts malformed file metadata from the database without adequate validation. Crafted documents in a GridFS collection may cause any application that reads those files via the legacy API to either crash (via a division-by-zero) or silently leak process memory contents (via an out-of-bounds read).",
-      "published": "2026-05-20T17:16:32.360",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9100"
+      "id": "CVE-2026-9133",
+      "summary": "Active debug code exists in the ARN resolver of amazon-mq rabbitmq-aws before version 0.2.1. A debug ARN scheme (arn:aws-debug:file) accepted by the PUT /api/aws/arn/validate validation endpoint might allow remote authenticated users to perform arbitrary file reads on any file accessible to the RabbitMQ process. \n\n\n\nTo remediate this issue, customers should upgrade to version 0.2.1 of rabbitmq-aws. If RabbitMQ is configured to use TLS for connections, we also recommend rotating any associated private certificate keys.",
+      "published": "2026-05-20T20:16:45.860",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9133"
     }
   ]
 }
