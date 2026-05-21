@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-21T00:16:59+00:00",
+  "generated_at": "2026-05-21T05:18:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9149",
-      "summary": "A flaw was found in libsolv. This heap buffer overflow vulnerability occurs when a victim processes a specially crafted `.solv` file containing negative size values in the `repo_add_solv` function. This leads to an undersized memory allocation and a subsequent out-of-bounds write. An attacker could exploit this to cause a denial of service (DoS).",
-      "published": "2026-05-21T00:16:35.630",
+      "id": "CVE-2026-6279",
+      "summary": "The Avada Builder (fusion-builder) plugin for WordPress is vulnerable to Unauthenticated Remote Code Execution via PHP Function Injection in versions up to and including 3.15.2. This is due to the `wp_conditional_tags` case in `Fusion_Builder_Conditional_Render_Helper::get_value()` passing attacker-controlled values from a base64-decoded JSON blob directly to `call_user_func()` without any allowlist validation. This is exploitable by unauthenticated attackers through the `fusion_get_widget_markup` AJAX endpoint, which is registered for non-privileged (unauthenticated) users via `wp_ajax_nopriv_fusion_get_widget_markup`. The endpoint is protected only by a nonce (`fusion_load_nonce`), but this nonce is generated for user ID 0 and is deterministically exposed in the JavaScript output of any public-facing page containing a Post Cards (`[fusion_post_cards]`) or Table of Contents (`[fusion_table_of_contents]`) element. This makes it possible for unauthenticated attackers to execute arbitrary code on affected sites.",
+      "published": "2026-05-21T05:16:23.770",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6279"
+    },
+    {
+      "id": "CVE-2026-2734",
+      "summary": "In mlflow/mlflow versions up to 3.9.0, the `SearchModelVersions` REST API endpoint and the `mlflowSearchModelVersions` GraphQL query lack proper per-model authorization checks when basic authentication is enabled. This allows any authenticated user to enumerate all model versions across all registered models, regardless of their permission level. The issue arises due to the absence of `SearchModelVersions` in the `BEFORE_REQUEST_VALIDATORS` and `AFTER_REQUEST_HANDLERS` for the REST API, and its omission from `GraphQLAuthorizationMiddleware.PROTECTED_FIELDS` for GraphQL. This vulnerability can expose sensitive information such as model names, version descriptions, source URIs, tags, and other metadata, potentially revealing proprietary or confidential details in multi-tenant environments. The issue is resolved in version 3.10.0.",
+      "published": "2026-05-21T05:16:22.723",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9149"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2734"
     },
     {
-      "id": "CVE-2026-40165",
-      "summary": "authentik is an open-source identity provider. Versions 2025.12.4 and prior, and versions 2026.2.0-rc1 through 2026.2.2 were vulnerable to Authentication Bypass through SAML NameID XML Comment Injection. Due to how authentik extracted the NameID value from a SAML assertion, it was possible for an attacker to trick authentik into only seeing a part of the NameID value, potentially allowing an attacker to gain access to other accounts. This issue could be exploited on an authentik instance with a SAML Source, where the attacker had an account on the SAML Source and the ability to modify their NameID value (commonly username or E-mail), and XML Signing was enabled. The attacker could modify the SAML assertion given to authentik by injecting a comment within the NameID value, which effectively truncated the NameID value to the snippet before the comment, and gave the attacker access to any user account. This issue has been fixed in versions 2025.12.5 and 2026.2.3.",
-      "published": "2026-05-21T00:16:28.290",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40165"
+      "id": "CVE-2026-1543",
+      "summary": "The Avada (Fusion) Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via multiple shortcodes in all versions up to, and including, 3.15.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user (typically an administrator) accesses a page displaying dynamic user data (such as via the Dynamic Data feature pulling user biographical information).",
+      "published": "2026-05-21T05:16:22.257",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1543"
     },
     {
-      "id": "CVE-2026-9150",
-      "summary": "A flaw was found in libsolv. This stack-based buffer overflow vulnerability occurs in libsolv's Debian metadata parser when processing specially crafted Debian repository metadata. An attacker could exploit this by providing malicious SHA384 or SHA512 checksum tags, leading to memory corruption and a denial of service (DoS) in the affected system.",
-      "published": "2026-05-20T23:16:36.010",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9150"
+      "id": "CVE-2026-4811",
+      "summary": "The WPB Floating Menu & Categories for WordPress \u2013 Sticky Side Menu with Icons plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'Icon CSS Class' category field in all versions up to, and including, 1.0.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Editor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-21T04:16:31.133",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4811"
     },
     {
-      "id": "CVE-2026-47782",
-      "summary": "Android App \"RoboForm Password Manager\" provided by Siber Systems, Inc. handles Android intents without sufficient URL validation, user confirmation nor notification. If a URL to some malicious web page is given through an intent, RoboForm may silently download files without user confirmation nor notification.",
-      "published": "2026-05-20T23:16:35.773",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47782"
-    },
-    {
-      "id": "CVE-2026-47372",
-      "summary": "Crypt::SaltedHash versions through 0.09 for Perl generate insecure random values for salts.\n\nThese versions use the built-in rand function, which is predictable and unsuitable for cryptography.",
-      "published": "2026-05-20T22:16:37.270",
+      "id": "CVE-2026-9152",
+      "summary": "A missing authentication vulnerability exists in the Altium 365 SearchService. A legacy SOAP endpoint exposes search index operations without requiring authentication, session tokens, or any form of identity verification. An unauthenticated network attacker who can reference a target workspace's identifier can interact with that workspace's search index, crossing tenant boundaries.\n\n\n\n\nSuccessful exploitation allows reading a workspace's indexed contents (such as component data, project and folder names, and user metadata) and injecting, modifying, or deleting search index entries. These operations affect the search index only, not the underlying vault data, but they can disclose sensitive workspace information and compromise the integrity and availability of search results. Altium 365 cloud deployments are affected; on-premise Altium Enterprise Server is not affected.",
+      "published": "2026-05-21T02:16:33.943",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47372"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9152"
     },
     {
-      "id": "CVE-2026-40102",
-      "summary": "Plane is an open-source project management tool. In versions 1.3.0 and below, SavedAnalyticEndpoint passes the user-controlled segment query parameter directly to a Django F() expression without validation (unlike the regular AnalyticsEndpoint, which checks against an allowlist), causing ORM Field Reference Injection. An authenticated workspace MEMBER can send GET /api/workspaces/<slug>/saved-analytic-view/<analytic_id>/ with a crafted segment value that is forwarded into build_graph_plot() and traverses foreign-key relationships (e.g. workspace__owner__password) before being projected via .values(\"dimension\", \"segment\"), returning the referenced field values directly in the JSON response. This exposes sensitive data such as bcrypt password hashes, API tokens, and related users' email addresses, making it a stronger primitive than the related order_by injection where values are only leaked through ordering. This issue has been fixed in version 1.3.1.",
-      "published": "2026-05-20T22:16:37.130",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40102"
+      "id": "CVE-2026-48172",
+      "summary": "LiteSpeed User-End cPanel Plugin before 2.4.5 allows privilege escalation (possibly to root), as exploited in the wild in May 2026. LiteSpeed WHM Plugin (the parent plugin) is unaffected. Detection is best done via a command line of grep -rE \"cpanel_jsonapi_func=redisAble\" /var/cpanel/logs /usr/local/cpanel/logs/ 2>/dev/null in Bash. If you get no output, you have not been hit with exploitation of the vulnerability. If there is output, we recommend you examine the IP addresses in the list, determine if they are valid IP addresses, and if not, block them. To determine damage done, examine the system logs for use by the detected IP addresses. The issue is related to mishandling of Redis enable/disable features.",
+      "published": "2026-05-21T02:16:33.760",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48172"
     }
   ]
 }
