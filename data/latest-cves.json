@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-21T21:46:27+00:00",
+  "generated_at": "2026-05-21T23:15:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8428",
-      "summary": "Concrete CMS 9.5.0 and below emits a CSRF token in the local_available_update.php view ($token->output('do_update')) but the corresponding do_update() method in concrete/controllers/single_page/dashboard/system/update/update.php never calls $this->token->validate('do_update'). The form is rendered as a POST form, meaning the token reaches the browser, but because the controller discards it without verification, an attacker can craft a cross-site POST that triggers a core CMS update to an attacker-specified version string.\u00a0\u00a0In order to be vulnerable, theictim must be passing canUpgrade()anda valid update version must be present under DIR_CORE_UPDATES.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of\u00a07.5 with vector\u00a0CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks\u00a0https://github.com/maru1009\u00a0for reporting.",
-      "published": "2026-05-21T21:16:34.387",
+      "id": "CVE-2026-8435",
+      "summary": "Concrete CMS 9 before 9.5.0 is vulnerable to Cross Site Request Forgery (CSRF) at concrete/controllers/backend/file approveVersion().\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 2.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks\u00a0Yonatan Drori (Tenzai) for reporting.",
+      "published": "2026-05-21T22:16:52.053",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8428"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8435"
     },
     {
-      "id": "CVE-2026-8426",
-      "summary": "Concrete CMS 9.5.0 and below does not validate a CSRF token before processing requests to /dashboard/extend/update/prepare_remote_upgrade/<remoteMPID>. An attacker who controls the remote package returned for a known marketplace item ID can overwrite the package PHP on disk and force its upgrade() method to execute in a single browser navigation. This results in remote code execution as the web server user.\u00a0\u00a0\u00a0In order to be vulnerable, the victim must be passing canInstallPackages,\u00a0victim site must be connected to the Concrete marketplace; and the attacker controls the package returned for a marketplace item ID already installed on the victim site.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of\u00a07.5 with vector\u00a0CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks\u00a0https://github.com/maru1009\u00a0for reporting.",
-      "published": "2026-05-21T21:16:34.243",
+      "id": "CVE-2026-8434",
+      "summary": "Concrete CMS 9 before 9.5.0 is vulnerable to Cross Site Request Forgery (CSRF) at concrete/controllers/backend/file rescanMultiple(). The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 2.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks\u00a0Yonatan Drori (Tenzai) for reporting.",
+      "published": "2026-05-21T22:16:51.933",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8426"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8434"
     },
     {
-      "id": "CVE-2026-8421",
-      "summary": "Concrete CMS 9.5.0 and below contains a CSRF vulnerability in the install_package() method of concrete/controllers/single_page/dashboard/extend/install.php. \u00a0An attacker who can cause an authenticated administrator to visit a crafted page,\u00a0 and who has placed or caused a package to be present under DIR_PACKAGES/<handle>/, can force the installation of that package without any CSRF protection. Package installation executes the package controller's install() method as the web server user, enabling remote code execution.\u00a0\u00a0In order to be vulnerable, the victim must be passing canInstallPackages.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of\u00a07.5 with vector\u00a0CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks\u00a0 https://github.com/maru1009 \u00a0for reporting.",
-      "published": "2026-05-21T21:16:34.107",
+      "id": "CVE-2026-8433",
+      "summary": "Concrete CMS 9 before 9.5.0 is vulnerable to Cross Site Request Forgery (CSRF) at concrete/controllers/backend/file rescan(). The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 2.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks\u00a0Yonatan Drori (Tenzai) for reporting.",
+      "published": "2026-05-21T22:16:51.813",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8421"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8433"
     },
     {
-      "id": "CVE-2026-8417",
-      "summary": "Concrete CMS 9.5.0 and below does not validate a CSRF token before processing requests to /dashboard/extend/update/do_update/<pkgHandle>. The do_update() method in concrete/controllers/single_page/dashboard/extend/update.php checks only canInstallPackages() before executing upgradeCoreData() and upgrade() on the named package's controller. Because the endpoint is a state-changing GET route with no token enforcement, an attacker can force an authenticated administrator to trigger a package upgrade via a single cross-site navigation.In order to be vulnerable, the victim must be passing canInstallPackages() and and a target package must already be already installed.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of\u00a07.5 with vector\u00a0CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:A/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks\u00a0 https://github.com/maru1009 \u00a0for reporting.",
-      "published": "2026-05-21T21:16:33.980",
+      "id": "CVE-2026-8432",
+      "summary": "Concrete CMS 9 before 9.5.0 is vulnerable to Cross Site Request Forgery (CSRF) at concrete/controllers/backend/file star(). The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 2.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks\u00a0Yonatan Drori (Tenzai) for reporting.",
+      "published": "2026-05-21T22:16:51.700",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8417"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8432"
     },
     {
-      "id": "CVE-2026-8350",
-      "summary": "Concrete CMS 9.5.0 and below is vulnerable to missing authorization in the bulk_user_assignment.php which can lead to privilege escalation\u00a0to Administrative Group.\u00a0Any authenticated user with access to the bulk user assignment dashboard page can add any user email to any group and can remove legitimate admins.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 7.5 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks\u00a0Vincent55 for reporting.",
-      "published": "2026-05-21T21:16:33.773",
+      "id": "CVE-2026-8427",
+      "summary": "Concrete CMS 9 before 9.5.0 is vulnerable to Cross Site Request Forgery (CSRF) at concrete/controllers/backend/file removeFavoriteFolder($id). The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 2.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks\u00a0Yonatan Drori (Tenzai) for reporting.",
+      "published": "2026-05-21T22:16:51.580",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8350"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8427"
     },
     {
-      "id": "CVE-2026-8205",
-      "summary": "Concrete CMS 9.5.0 and below is vulnerable to authorization bypass in the Calendar Block since action_get_events does not check canView on the calendar\u00a0which results in restricted event details being disclosed.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of\u00a06.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N. Thanks lalalala5678 for reporting.",
-      "published": "2026-05-21T21:16:33.650",
+      "id": "CVE-2026-8416",
+      "summary": "Concrete CMS 9 before 9.5.0 is vulnerable to Cross Site Request Forgery (CSRF) at concrete/controllers/backend/file addFavoriteFolder($id). The Concrete CMS security team gave this vulnerability a CVSS v.4.0 score of 2.3 with vector\u00a0CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks\u00a0Yonatan Drori (Tenzai) for reporting.",
+      "published": "2026-05-21T22:16:51.467",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8205"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8416"
     }
   ]
 }
