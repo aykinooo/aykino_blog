@@ -1,41 +1,5 @@
 {
-  "generated_at": "2026-05-22T08:30:38+00:00",
+  "generated_at": "2026-05-22T11:59:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
-  "items": [
-    {
-      "id": "CVE-2026-9104",
-      "summary": "The Draft List plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Draft Post Title in all versions up to, and including, 2.6.3 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The unescaped injection path is triggered specifically when the viewing user lacks edit capabilities, meaning payloads embedded in draft post titles via attribute-breakout techniques execute for unauthenticated users and subscribers.",
-      "published": "2026-05-22T05:16:28.290",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9104"
-    },
-    {
-      "id": "CVE-2026-9018",
-      "summary": "The Easy Elements for Elementor \u2013 Addons & Website Templates plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.4.5 via the `easyel_handle_register()` function. This is due to the `wp_ajax_nopriv_eel_register` AJAX handler iterating the attacker-controlled `custom_meta` POST array and writing every supplied key-value pair to the newly created user's meta via `update_user_meta()` without any key whitelist or blocklist, allowing the `wp_capabilities` user meta key to be overwritten after `wp_insert_user()` has already assigned a safe role. This makes it possible for unauthenticated attackers to register a new account with full administrator-level privileges by supplying `custom_meta[wp_capabilities][administrator]=1`. Exploitation requires that user registration is enabled on the site and that at least one page exposes the Login/Register widget, which publishes the required `easy_elements_nonce` into the page DOM where it can be retrieved by any unauthenticated visitor via a simple GET request.",
-      "published": "2026-05-22T05:16:28.067",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9018"
-    },
-    {
-      "id": "CVE-2026-7509",
-      "summary": "The KIA Subtitle plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's `the-subtitle` shortcode `before` and `after` attributes in all versions up to, and including, 4.0.1. This is due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-22T05:16:27.747",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7509"
-    },
-    {
-      "id": "CVE-2026-7249",
-      "summary": "The Location Weather plugin for WordPress is vulnerable to unauthorized modification of data due to missing capability checks on the `splw_update_block_options()` and `lwp_clean_weather_transients()` functions in all versions up to, and including, 3.0.2. This makes it possible for authenticated attackers, with Contributor-level access and above, to disable all weather blocks and purge all weather cache transients. The nonce required for these actions is exposed to all authenticated users via `wp_localize_script()` on the `init` hook.",
-      "published": "2026-05-22T05:16:27.623",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7249"
-    },
-    {
-      "id": "CVE-2026-6864",
-      "summary": "The CBX 5 Star Rating & Review plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'page' parameter in all versions up to, and including, 1.0.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick an administrator into performing an action such as clicking on a link.",
-      "published": "2026-05-22T05:16:27.500",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6864"
-    }
-  ]
+  "items": []
 }
