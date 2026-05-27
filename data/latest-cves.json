@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-27T12:30:20+00:00",
+  "generated_at": "2026-05-27T16:45:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9689",
-      "summary": "A flaw was found in Keycloak, an open-source identity and access management solution. When a client application is configured to accept broad redirect Uniform Resource Identifiers (URIs), a remote attacker can manipulate the authentication process by crafting a special web address. If a user clicks this link, the client application might incorrectly prioritize attacker-controlled information over legitimate data. This vulnerability, known as HTTP parameter pollution, could allow an attacker to bypass security measures or gain unauthorized access to resources.",
-      "published": "2026-05-27T12:17:15.513",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9689"
+      "id": "CVE-2026-9712",
+      "summary": "When creating an export through the pretix API, API clients are \nreturned an UUID value for their export job (a long, random string like \n35742818-c375-4d15-839f-d49aecce94d6). Using this UUID, the API client \ncan then request the actual file for download. The same kind of UUID is \nused in other places in pretix when temporary files are generated for \ninternal use or download.\n\n\n\n\nOne remaining API endpoint, however, wrongfully did not verify if the\n UUID used for download actually belongs to a file that is supposed to \nbe downloadable and belongs to the correct user. In reality, this is \nhard to exploit because an attacker would need to have access to a valid\n UUID for the file they desire which is unlikely to happen without a \nseparate security problem giving them access to logs etc.",
+      "published": "2026-05-27T15:16:36.250",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9712"
     },
     {
-      "id": "CVE-2026-48906",
-      "summary": "The vulnerability in the Tassos Framework Plugin allows users to delete arbitrary files on the affected sites.",
-      "published": "2026-05-27T11:16:24.713",
+      "id": "CVE-2026-9674",
+      "summary": "A cross-site request forgery (CSRF) vulnerability in Jenkins Multijob Plugin 662.vd2e0001f6b_b_d and earlier allows attackers to resume failed Multijob builds.",
+      "published": "2026-05-27T15:16:36.080",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48906"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9674"
     },
     {
-      "id": "CVE-2026-45846",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbareudp: fix NULL pointer dereference in bareudp_fill_metadata_dst()\n\nbareudp_fill_metadata_dst() passes bareudp->sock to\nudp_tunnel6_dst_lookup() in the IPv6 path without a NULL check.\nThe socket is only created in bareudp_open() and NULLed in\nbareudp_stop(), so calling this function while the device is down\ntriggers a NULL dereference via sock->sk.\n\n BUG: kernel NULL pointer dereference, address: 0000000000000018\n RIP: 0010:udp_tunnel6_dst_lookup (net/ipv6/ip6_udp_tunnel.c:160)\n Call Trace:\n  <TASK>\n  bareudp_fill_metadata_dst (drivers/net/bareudp.c:532)\n  do_execute_actions (net/openvswitch/actions.c:901)\n  ovs_execute_actions (net/openvswitch/actions.c:1589)\n  ovs_packet_cmd_execute (net/openvswitch/datapath.c:700)\n  genl_family_rcv_msg_doit (net/netlink/genetlink.c:1114)\n  genl_rcv_msg (net/netlink/genetlink.c:1209)\n  netlink_rcv_skb (net/netlink/af_netlink.c:2550)\n  </TASK>\n\nAdd a NULL check returning -ESHUTDOWN, consistent with the xmit paths\nin the same driver.",
-      "published": "2026-05-27T11:16:24.083",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45846"
+      "id": "CVE-2026-6957",
+      "summary": "Mattermost Plugins versions <=1.1.5 fail to sanitize filenames received from federated peers before using them to construct export destination paths, which allows an administrator of a remote federated Mattermost server to write files to arbitrary locations within the target server's filestore via a malicious filename delivered through the shared-channel attachment sync protocol. Mattermost Advisory ID: MMSA-2026-00659",
+      "published": "2026-05-27T15:16:34.903",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6957"
     },
     {
-      "id": "CVE-2026-45845",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: taprio: fix NULL pointer dereference in class dump\n\nWhen a TAPRIO child qdisc is deleted via RTM_DELQDISC, taprio_graft()\nis called with new == NULL and stores NULL into q->qdiscs[cl - 1].\nSubsequent RTM_GETTCLASS dump operations walk all classes via\ntaprio_walk() and call taprio_dump_class(), which calls taprio_leaf()\nreturning the NULL pointer, then dereferences it to read child->handle,\ncausing a kernel NULL pointer dereference.\n\nThe bug is reachable with namespace-scoped CAP_NET_ADMIN on any kernel\nwith CONFIG_NET_SCH_TAPRIO enabled. On systems with unprivileged user\nnamespaces enabled, an unprivileged local user can trigger a kernel\npanic by creating a taprio qdisc inside a new network namespace,\ngrafting an explicit child qdisc, deleting it, and requesting a class\ndump. The RTM_GETTCLASS dump itself requires no capability.\n\n Oops: general protection fault, probably for non-canonical address 0xdffffc0000000007: 0000 [#1] SMP KASAN NOPTI\n KASAN: null-ptr-deref in range [0x0000000000000038-0x000000000000003f]\n RIP: 0010:taprio_dump_class (net/sched/sch_taprio.c:2478)\n Call Trace:\n  <TASK>\n  tc_fill_tclass (net/sched/sch_api.c:1966)\n  qdisc_class_dump (net/sched/sch_api.c:2326)\n  taprio_walk (net/sched/sch_taprio.c:2514)\n  tc_dump_tclass_qdisc (net/sched/sch_api.c:2352)\n  tc_dump_tclass_root (net/sched/sch_api.c:2370)\n  tc_dump_tclass (net/sched/sch_api.c:2431)\n  rtnl_dumpit (net/core/rtnetlink.c:6864)\n  netlink_dump (net/netlink/af_netlink.c:2325)\n  rtnetlink_rcv_msg (net/core/rtnetlink.c:6959)\n  netlink_rcv_skb (net/netlink/af_netlink.c:2550)\n  </TASK>\n\nFix this by substituting &noop_qdisc when new is NULL in\ntaprio_graft(), a common pattern used by other qdiscs (e.g.,\nmultiq_graft()) to ensure the q->qdiscs[] slots are never NULL.\nThis makes control-plane dump paths safe without requiring individual\nNULL checks.\n\nSince the data-plane paths (taprio_enqueue and taprio_dequeue_from_txq)\npreviously had explicit NULL guards that would drop/skip the packet\ncleanly, update those checks to test for &noop_qdisc instead. Without\nthis, packets would reach taprio_enqueue_one() which increments the root\nqdisc's qlen and backlog before calling the child's enqueue; noop_qdisc\ndrops the packet but those counters are never rolled back, permanently\ninflating the root qdisc's statistics.\n\nAfter this change *old can be a valid qdisc, NULL, or &noop_qdisc.\nOnly call qdisc_put(*old) in the first case to avoid decreasing\nnoop_qdisc's refcount, which was never increased.",
-      "published": "2026-05-27T11:16:23.960",
+      "id": "CVE-2026-49103",
+      "summary": "Webmin before 2.640 does not safely construct a filename for saving of an attachment within the mailboxes component. This occurs in mailboxes/detachall.cgi.",
+      "published": "2026-05-27T15:16:34.170",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45845"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49103"
     },
     {
-      "id": "CVE-2026-45844",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: arp_tables: fix IEEE1394 ARP payload parsing\n\nWeiming Shi says:\n\n\"arp_packet_match() unconditionally parses the ARP payload assuming two\nhardware addresses are present (source and target). However,\nIPv4-over-IEEE1394 ARP (RFC 2734) omits the target hardware address\nfield, and arp_hdr_len() already accounts for this by returning a\nshorter length for ARPHRD_IEEE1394 devices.\n\nAs a result, on IEEE1394 interfaces arp_packet_match() advances past a\nnonexistent target hardware address and reads the wrong bytes for both\nthe target device address comparison and the target IP address. This\ncauses arptables rules to match against garbage data, leading to\nincorrect filtering decisions: packets that should be accepted may be\ndropped and vice versa.\n\nThe ARP stack in net/ipv4/arp.c (arp_create and arp_process) already\nhandles this correctly by skipping the target hardware address for\nARPHRD_IEEE1394. Apply the same pattern to arp_packet_match().\"\n\nMangle the original patch to always return 0 (no match) in case user\nmatches on the target hardware address which is never present in\nIEEE1394.\n\nNote that this returns 0 (no match) for either normal and inverse match\nbecause matching in the target hardware address in ARPHRD_IEEE1394 has\nnever been supported by arptables. This is intentional, matching on the\ntarget hardware address should never evaluate true for ARPHRD_IEEE1394.\n\nMoreover, adjust arpt_mangle to drop the packet too as AI suggests:\n\nIn arpt_mangle, the logic assumes a standard ARP layout. Because\nIEEE1394 (FireWire) omits the target hardware address, the linear\npointer arithmetic miscalculates the offset for the target IP address.\nThis causes mangling operations to write to the wrong location, leading\nto packet corruption. To ensure safety, this patch drops packets\n(NF_DROP) when mangling is requested for these fields on IEEE1394\ndevices, as the current implementation cannot correctly map the FireWire\nARP payload.\n\nThis omits both mangling target hardware and IP address. Even if IP\naddress mangling should be possible in IEEE1394, this would require\nto adjust arpt_mangle offset calculation, which has never been\nsupported.\n\nBased on patch from Weiming Shi <bestswngs@gmail.com>.",
-      "published": "2026-05-27T11:16:23.847",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45844"
+      "id": "CVE-2026-49102",
+      "summary": "Webmin before 2.640 allows mailboxes/detach.cgi XSS via an SVG document attachment that is viewed in the mailboxes component, because image/svg+xml is used instead of a safe type (e.g., text/plain).",
+      "published": "2026-05-27T15:16:34.003",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49102"
     },
     {
-      "id": "CVE-2026-45843",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nslip: bound decode() reads against the compressed packet length\n\nslhc_uncompress() parses a VJ-compressed TCP header by advancing a\npointer through the packet via decode() and pull16(). Neither helper\nbounds-checks against isize, and decode() masks its return with\n& 0xffff so it can never return the -1 that callers test for -- those\nerror paths are dead code.\n\nA short compressed frame whose change byte requests optional fields\nlets decode() read past the end of the packet. The over-read bytes\nare folded into the cached cstate and reflected into subsequent\nreconstructed packets.\n\nMake decode() and pull16() take the packet end pointer and return -1\nwhen exhausted. Add a bounds check before the TCP-checksum read.\nThe existing == -1 tests now do what they were always meant to.",
-      "published": "2026-05-27T11:16:23.743",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45843"
+      "id": "CVE-2026-49059",
+      "summary": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Facebook Facebook for WooCommerce allows Phishing.\n\nThis issue affects Facebook for WooCommerce: from n/a through 3.7.0.",
+      "published": "2026-05-27T15:16:33.847",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49059"
     }
   ]
 }
