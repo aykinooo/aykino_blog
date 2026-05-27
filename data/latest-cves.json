@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-26T23:31:56+00:00",
+  "generated_at": "2026-05-27T04:46:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9604",
-      "summary": "A vulnerability was detected in JeecgBoot up to 3.9.1. This vulnerability affects unknown code of the component AiragModelController. The manipulation of the argument list/queryById results in improper access controls. The attack can be executed remotely. The exploit is now public and may be used. Upgrading to version 3.9.2 is able to resolve this issue. The affected component should be upgraded.",
-      "published": "2026-05-26T23:16:21.433",
+      "id": "CVE-2026-9022",
+      "summary": "The Splide Carousel Block plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'url' Block Attribute in all versions up to, and including, 1.7.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The injected payload must be published before it executes for site visitors, which requires an editor or administrator to approve and publish the contributor's post.",
+      "published": "2026-05-27T04:16:31.730",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9022"
+    },
+    {
+      "id": "CVE-2026-48999",
+      "summary": "Attackers carefully craft malicious scripts, such as JavaScript, and inject them into target systems; when other users access pages containing such malicious content, the scripts are automatically loaded and executed in the victim's browser.Attackers can thereby steal user cookies, hijack session privileges, and tamper with page content.Since the malicious code is stored within the system, the attack scope is broad and the concealment is strong, making it frequently employed for data theft attacks.",
+      "published": "2026-05-27T04:16:31.463",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48999"
+    },
+    {
+      "id": "CVE-2026-48962",
+      "summary": "IO::Compress versions before 2.220 for Perl can execute arbitrary code in File::GlobMapper via an attacker-controlled output glob.\n\n_parseOutputGlob() wraps the caller-supplied output glob string in double quotes and stores it in the parser state; _getFiles() then runs the stored expression through eval STRING. A literal double quote in the output glob closes the dquote wrapper, and the characters that follow are evaluated as Perl.\n\nArbitrary Perl in the output glob executes at the calling process's privilege.",
+      "published": "2026-05-27T04:16:31.333",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48962"
+    },
+    {
+      "id": "CVE-2026-48961",
+      "summary": "IO::Compress versions from 2.207 before 2.220 for Perl ship a zipdetails CLI tool that crashes with undefined subroutine on Info-ZIP Unix Extra Field with 8-byte UID or GID.\n\nWhen decode_ux() in bin/zipdetails handles an Info-ZIP Unix Extra Field (tag 0x7875) with UID Size or GID Size set to 8, causing zipdetails to decode an 8-byte UID or GID value, it dispatches through decodeLitteEndian(), which calls a misnamed helper unpackValueQ. The actual function defined in the same file is unpackValue_Q (with underscore); the call raises 'Undefined subroutine &main::unpackValueQ' and the script exits with status 255.\n\nLibrary callers of IO::Compress and IO::Uncompress are not affected; the defect is in the bundled CLI tool.",
+      "published": "2026-05-27T04:16:31.210",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48961"
+    },
+    {
+      "id": "CVE-2026-48959",
+      "summary": "IO::Uncompress::Unzip versions before 2.220 for Perl allow CPU exhaustion via per-byte read loop in fastForward.\n\nfastForward() compares length $offset (the digit count of the offset, 1 to 19) against the chunk size $c instead of $offset itself, so $c shrinks from 16 KiB to 1-19 bytes per iteration.\n\nExtracting a named entry from an attacker supplied zip via IO::Uncompress::Unzip->new($zip, Name => $target) drives a per-byte read loop scaling with the entry's compressed size, up to the non-Zip64 4 GiB cap.",
+      "published": "2026-05-27T04:16:31.093",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48959"
+    },
+    {
+      "id": "CVE-2026-2255",
+      "summary": "Hitachi Vantara Pentaho Data Integration & Analytics versions before 10.2.0.6 and 11.0.0.0, including\u00a09.3.x and 8.3.x, expose Hadoop cluster credentials in plain text through the Cluster Test API. Although\u00a0the user should not see those explicitly, the defect is mitigated by the fact the user can already\u00a0leverage those credentials to submit jobs under the same account through the backend API.",
+      "published": "2026-05-27T04:16:26.833",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9604"
-    },
-    {
-      "id": "CVE-2026-8647",
-      "summary": "Crypt::ScryptKDF versions through 0.010 for Perl uses insecure random number source when no CSPRNG module is available.\n\nThe random_bytes function fell back to using the built-in rand() function when none of the Perl modules Crypt::PRNG, Crypt::OpenSSL::Random, Net::SSLeay, Crypt::Random, or Bytes::Random::Secure were available.",
-      "published": "2026-05-26T23:16:21.247",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8647"
-    },
-    {
-      "id": "CVE-2026-46740",
-      "summary": "Mojolicious::Plugin::Statsd versions through 0.04 for Perl allowed metric injections.\n\nThe metric names and set values were not checked for newlines, colons or pipes. Metrics generated from untrusted sources could inject additional statsd metrics.\n\nVersion 0.06 changes the module from being a statsd client to using a separate statsd client. It defaults to using a version of Net::Statsd::Tiny that fixes a similar issue (CVE-2026-46720).",
-      "published": "2026-05-26T23:16:20.923",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46740"
-    },
-    {
-      "id": "CVE-2026-9603",
-      "summary": "A security vulnerability has been detected in SourceCodester eDoc Doctor Appointment System 1.0. This affects an unknown part of the file /admin/delete-session.php. The manipulation of the argument ID leads to missing authorization. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-05-26T22:16:44.467",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9603"
-    },
-    {
-      "id": "CVE-2026-9584",
-      "summary": "A security vulnerability has been detected in code-projects Project Management System 1.0. Affected is an unknown function of the file chk.php of the component Login. The manipulation leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-05-26T22:16:44.300",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9584"
-    },
-    {
-      "id": "CVE-2026-5260",
-      "summary": "A flaw was found in libgnutls. A remote attacker, by sending an extremely short premaster secret during an RSA key exchange to a server using an RSA key backed by a PKCS#11 token, could trigger a short heap overread. This memory corruption vulnerability could lead to information disclosure.",
-      "published": "2026-05-26T22:16:44.170",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5260"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2255"
     }
   ]
 }
