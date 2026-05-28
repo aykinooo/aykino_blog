@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-05-27T23:37:15+00:00",
+  "generated_at": "2026-05-28T04:37:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-9789",
+      "summary": "A Local Privilege Escalation (LPE) vulnerability affects Acer NitroSense software versions prior to 3.01.3052. The vulnerability stems from the the PSAdminAgent service, which creates a Named Pipe with a weak Access Control List (ACL). This allows any authenticated local user to connect and send commands. Because the service does not check the caller's privileges before running file deletion commands, a low-privileged local user can exploit this to delete arbitrary files with system authority.",
+      "published": "2026-05-28T03:16:44.200",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9789"
+    },
+    {
+      "id": "CVE-2026-8915",
+      "summary": "Out-of-bounds write vulnerability in Samsung Open Source Escargot allows Overflow Buffers.\n\nThis issue affects Escargot: 36f5fb58366a67b713c02f6fd985e924fcc09e31.",
+      "published": "2026-05-28T00:16:43.950",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8915"
+    },
+    {
+      "id": "CVE-2026-4888",
+      "summary": "The Everest Forms \u2013 Contact Form, Payment Form, Quiz, Survey & Custom Form Builder plugin for WordPress is vulnerable to unauthorized email sending due to a missing capability check on the send_test_email() function in all versions up to, and including, 3.4.7. This makes it possible for authenticated attackers, with Subscriber-level access and above, to send test emails to arbitrary addresses from the server.",
+      "published": "2026-05-28T00:16:43.797",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4888"
+    },
     {
       "id": "CVE-2026-9739",
       "summary": "Vulnerable to DNS rebinding attacks when using SSE (http://b/499408790). During the beta phase, we implemented `allowed-origins` and `allowed-hosts` flags to align with MCP security guidelines. However, the hardcoded `Access-Control-Allow-Origin: *` header in the SSE initialization handler was inadvertently retained. This vulnerability specifically impacts users connecting via Toolbox using SSE under specification v2024-11-05.",
@@ -22,27 +43,6 @@
       "published": "2026-05-27T23:16:48.107",
       "cvss": 5.9,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46538"
-    },
-    {
-      "id": "CVE-2026-46416",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. In 3.0.1-4-ge2626659, Microsoft UFO creates one shared UFOWebSocketHandler instance and reuses it for multiple authenticated WebSocket connections. The handler stores per-connection protocol objects in mutable instance fields. Each new WebSocket connection overwrites those fields. Later, message handlers send responses through the shared fields instead of through protocol objects bound to the originating connection. As a result, the most recently connected authenticated client can receive protocol responses that belong to another authenticated client.",
-      "published": "2026-05-27T23:16:47.973",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46416"
-    },
-    {
-      "id": "CVE-2026-46414",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. In 3.0.1-4-ge2626659, Microsoft UFO's WebSocket control plane trusts client-supplied identity and role fields in task messages. A client connection can register as a normal device, but later send a TASK message claiming client_type=\"constellation\" and target_id=<victim-device-id>. The server trusts the role and target values from the wire message rather than enforcing the role registered for that WebSocket connection. As a result, any authenticated WebSocket client with the shared server token can spoof the higher-privilege constellation role and dispatch attacker-controlled tasks to another connected device. The same client registry also allows duplicate client_id registration, overwriting an existing live client's stored websocket, role, and task protocol. This is an authenticated WebSocket role/identity spoofing issue leading to peer task hijacking.",
-      "published": "2026-05-27T23:16:47.833",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46414"
-    },
-    {
-      "id": "CVE-2026-46402",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. In 3.0.1-4-ge2626659, Microsoft UFO uses the user-controlled task_name value directly when constructing session log paths. An authenticated client can supply path traversal sequences in task_name and cause UFO to create log directories and log files outside the intended logs/ directory.",
-      "published": "2026-05-27T23:16:47.700",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46402"
     }
   ]
 }
