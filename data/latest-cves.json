@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-28T04:37:08+00:00",
+  "generated_at": "2026-05-28T08:52:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9789",
-      "summary": "A Local Privilege Escalation (LPE) vulnerability affects Acer NitroSense software versions prior to 3.01.3052. The vulnerability stems from the the PSAdminAgent service, which creates a Named Pipe with a weak Access Control List (ACL). This allows any authenticated local user to connect and send commands. Because the service does not check the caller's privileges before running file deletion commands, a low-privileged local user can exploit this to delete arbitrary files with system authority.",
-      "published": "2026-05-28T03:16:44.200",
+      "id": "CVE-2026-9806",
+      "summary": "A stored cross-site scripting (XSS) vulnerability exists in the notification panel of CTI Transmute in versions prior to the patched release. Notification messages containing user-controlled convert names were rendered in the notification bell dropdown using innerHTML without adequate sanitization. An attacker able to create or influence a convert name that is included in a notification could inject arbitrary JavaScript, which would execute in the browser of an authenticated user when they opened the notification panel. Successful exploitation could allow the attacker to perform actions in the victim's session or access information available to the application in the browser context. The issue was remediated by constructing notification elements through DOM methods and assigning notification message content via textContent instead of innerHTML. This vulnerability was only present on a development branch.",
+      "published": "2026-05-28T08:16:38.000",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9789"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9806"
     },
     {
-      "id": "CVE-2026-8915",
-      "summary": "Out-of-bounds write vulnerability in Samsung Open Source Escargot allows Overflow Buffers.\n\nThis issue affects Escargot: 36f5fb58366a67b713c02f6fd985e924fcc09e31.",
-      "published": "2026-05-28T00:16:43.950",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8915"
-    },
-    {
-      "id": "CVE-2026-4888",
-      "summary": "The Everest Forms \u2013 Contact Form, Payment Form, Quiz, Survey & Custom Form Builder plugin for WordPress is vulnerable to unauthorized email sending due to a missing capability check on the send_test_email() function in all versions up to, and including, 3.4.7. This makes it possible for authenticated attackers, with Subscriber-level access and above, to send test emails to arbitrary addresses from the server.",
-      "published": "2026-05-28T00:16:43.797",
+      "id": "CVE-2026-9618",
+      "summary": "The PeachPay \u2014 Payments & Express Checkout for WooCommerce (supports Stripe, PayPal, Square, Authorize.net, NMI) plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.120.46. This is due to missing or incorrect nonce validation on the peachpay_stripe_handle_admin_actions function. This makes it possible for unauthenticated attackers to permanently delete all stored Stripe credentials \u2014 including publishable keys, secret keys, webhook secrets, and Apple Pay configuration \u2014 from the WordPress database, disabling Stripe payment processing for the store via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-05-28T08:16:37.870",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4888"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9618"
     },
     {
-      "id": "CVE-2026-9739",
-      "summary": "Vulnerable to DNS rebinding attacks when using SSE (http://b/499408790). During the beta phase, we implemented `allowed-origins` and `allowed-hosts` flags to align with MCP security guidelines. However, the hardcoded `Access-Control-Allow-Origin: *` header in the SSE initialization handler was inadvertently retained. This vulnerability specifically impacts users connecting via Toolbox using SSE under specification v2024-11-05.",
-      "published": "2026-05-27T23:16:48.573",
+      "id": "CVE-2026-9227",
+      "summary": "The GutenBee \u2013 Gutenberg Blocks plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.20.1 via the gutenbee_file_and_ext_json function. This is due to a flawed strpos() substring check that only verifies whether the filename contains the string '.json' rather than confirming the filename ends with a .json extension, allowing double-extension filenames like shell.json.php to bypass validation. This makes it possible for authenticated attackers, with author-level access and above, to upload files that may be executable, which makes remote code execution possible.",
+      "published": "2026-05-28T08:16:37.713",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9227"
+    },
+    {
+      "id": "CVE-2026-8682",
+      "summary": "The 3D Viewer \u2013 3D Model Viewer \u2013 Augmented Reality \u2013 Virtual Try On plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.0.1. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to modify all plugin settings by writing arbitrary data to the ar_try_on_settings option in the database via the /wp-json/ar_try_on/v1/settings REST endpoint.",
+      "published": "2026-05-28T08:16:37.590",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8682"
+    },
+    {
+      "id": "CVE-2026-7862",
+      "summary": "The Eupago Gateway For Woocommerce WordPress plugin before 4.7.2 does not properly restrict access to its refund request handler, allowing unauthenticated attackers to initiate refunds against any WooCommerce order using the merchant's payment gateway credentials, and for applicable payment methods, to redirect refunded funds to an attacker-controlled bank account.",
+      "published": "2026-05-28T08:16:37.487",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9739"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7862"
     },
     {
-      "id": "CVE-2026-46544",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. In 3.0.1-4-ge2626659, Microsoft UFO accepts client-supplied session_id values in WebSocket task messages and reuses an existing in-memory session object if that session_id already exists. If a prior session has completed and remains in memory with populated results, a different authenticated client can send a new TASK message using the same session_id. The server re-enters the existing session object and sends the stale stored result to the new requester through the normal send_task_end() callback path. This is an authenticated cross-client stale result replay issue. The issue requires that the attacker knows or can predict a live or recently completed session_id.",
-      "published": "2026-05-27T23:16:48.247",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46544"
-    },
-    {
-      "id": "CVE-2026-46538",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. In 3.0.1-4-ge2626659, Microsoft UFO's constellation client tracks pending task responses by session_id only and does not verify that a TASK_END message came from the device that originally received the task. When the constellation sends a task to a target device, it records a pending Future under a session key. The pending task record stores the expected device ID, but the completion path ignores that binding. If another authenticated peer device sends a forged TASK_END with the same session_id, the constellation accepts the response and completes the victim device's pending Future with attacker-controlled result data. This is an authenticated cross-device task-result injection issue.",
-      "published": "2026-05-27T23:16:48.107",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46538"
+      "id": "CVE-2026-7797",
+      "summary": "The Appointment Booking Calendar \u2014 Simply Schedule Appointments Booking Plugin plugin for WordPress is vulnerable to time-based blind SQL Injection via the 'append_where_sql' parameter in all versions up to, and including, 1.6.11.8 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The /appointments/bulk REST endpoint is reachable by unauthenticated attackers because its permission check accepts a public nonce that is embedded in the booking widget's frontend JavaScript (ssa.api.public_nonce) and visible to all site visitors; exploitation requires issuing the request as a PUT with an application/x-www-form-urlencoded body so that PHP's superglobals are not populated and the blocklist check silently passes.",
+      "published": "2026-05-28T08:16:37.360",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7797"
     }
   ]
 }
