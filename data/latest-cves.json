@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-28T19:43:58+00:00",
+  "generated_at": "2026-05-28T22:08:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4944",
-      "summary": "vllm-project/vllm version 0.14.1 contains a vulnerability where the `trust_remote_code=True` parameter is hardcoded in two model implementation files (`vllm/model_executor/models/nemotron_vl.py` and `vllm/model_executor/models/kimi_k25.py`). This bypasses the user's explicit `--trust-remote-code=False` setting, enabling remote code execution via malicious HuggingFace model repositories. This issue is an incomplete fix for CVE-2025-66448 and CVE-2026-22807, as it affects separate code paths in model implementation files. Deployments loading NemotronVL or KimiK25 models are particularly impacted.",
-      "published": "2026-05-28T19:16:42.677",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4944"
+      "id": "CVE-2026-9646",
+      "summary": "A reflected cross-site scripting issue exists in URL handling.",
+      "published": "2026-05-28T21:16:35.087",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9646"
     },
     {
-      "id": "CVE-2026-47337",
-      "summary": "Ubuntu Linux 6.8, 6.17 and 7.0 contain SAUCE patches with a possible NULL pointer dereference in the handling of AF_INET/AF_INET6 socket mediation. The bug can be triggered by an unprivileged local user. This can lead to a kernel oops.",
-      "published": "2026-05-28T19:16:42.560",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47337"
+      "id": "CVE-2026-9645",
+      "summary": "Exposed methods allow authenticated users to create and execute arbitrary JavaScript code on the server. The scripts execute with full access, enabling complete system compromise as commands are executed as root.",
+      "published": "2026-05-28T21:16:34.950",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9645"
     },
     {
-      "id": "CVE-2026-47336",
-      "summary": "Ubuntu Linux 6.8 contains SAUCE patches with a possible use of an uninitialized variable in AppArmor AF_INET/AF_INET6 socket mediation code. The bug can be triggered by an unprivileged local user and could result in incorrect fine-grained mediation of network sockets.",
-      "published": "2026-05-28T19:16:42.443",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47336"
+      "id": "CVE-2026-49095",
+      "summary": "Improper Input Validation (CWE-20) in the Kibana Fleet agent policy management feature can lead to privilege escalation. An authenticated user with Fleet management privileges can manipulate agent policy configuration by injecting values into a configuration override mechanism that is not adequately validated. An attacker can cause Elastic Agents to be issued API keys with elevated Elasticsearch privileges, potentially granting unauthorized read and write access to sensitive Elasticsearch security indices beyond what is intended for the Fleet management role.",
+      "published": "2026-05-28T21:16:34.660",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49095"
     },
     {
-      "id": "CVE-2026-47335",
-      "summary": "Ubuntu Linux 6.8 contains SAUCE patches with a possible NULL pointer dereference in the handling of AppArmor notifications. The bug can be triggered by an unprivileged local user. This can lead to a kernel panic.",
-      "published": "2026-05-28T19:16:42.327",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47335"
+      "id": "CVE-2026-49094",
+      "summary": "Uncontrolled Resource Consumption (CWE-400) in Kibana can lead to denial of service via Excessive Allocation (CAPEC-130). An authenticated user with viewer-level access can submit a request containing an oversized input value to an analytics collections management endpoint. Kibana will consume excessive CPU and memory resources while processing the request. This results in Kibana becoming unavailable to all users until the service is manually recovered.",
+      "published": "2026-05-28T21:16:34.503",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49094"
     },
     {
-      "id": "CVE-2026-47334",
-      "summary": "Ubuntu Linux 6.8, 6.17 and 7.0 contain AppArmor SAUCE patches which incorrectly sleep while holding a spinlock in notification handling code. The bug can be triggered by an unprivileged local user and can result in kernel panic or deadlock.",
-      "published": "2026-05-28T19:16:42.203",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47334"
+      "id": "CVE-2026-49093",
+      "summary": "Server-Side Request Forgery (CWE-918) in Kibana can allow an authenticated user with connector management privileges to bypass the operator-configured connector allowlist, causing the Kibana server to issue outbound requests to destinations the egress controls were intended to block.",
+      "published": "2026-05-28T21:16:34.350",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49093"
     },
     {
-      "id": "CVE-2026-47333",
-      "summary": "Ubuntu Linux 6.8, 6.17 and 7.0 contain AppArmor SAUCE patches which can potentially incorrectly compute the size of an internal buffer, leading to a heap memory out-of-bounds read in notification handling code. The bug can be triggered by an unprivileged local user and can result in invalid data being processed by the AppArmor DFA policy engine.",
-      "published": "2026-05-28T19:16:42.073",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47333"
+      "id": "CVE-2026-46843",
+      "summary": "Vulnerability in Oracle REST Data Services (component: Core).  Supported versions that are affected are 24.2.0-26.1.0. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTPS to compromise Oracle REST Data Services.  Successful attacks of this vulnerability can result in unauthorized ability to cause a partial denial of service (partial DOS) of Oracle REST Data Services. CVSS 3.1 Base Score 5.3 (Availability impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L).",
+      "published": "2026-05-28T21:16:34.223",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46843"
     }
   ]
 }
