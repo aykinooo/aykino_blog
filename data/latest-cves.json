@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-29T08:50:46+00:00",
+  "generated_at": "2026-05-29T12:26:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9243",
-      "summary": "The Plus Addons for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'carousel_direction' parameter of the Carousel Anything widget in versions up to, and including, 6.4.15 This is due to insufficient output escaping in the render() function, where the carousel_direction value is placed into an unquoted HTML attribute (dir=) allowing attribute injection despite the use of esc_attr(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-29T08:16:19.627",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9243"
+      "id": "CVE-2026-9811",
+      "summary": "A stored Cross-Site Scripting (XSS) vulnerability exists in the project selector component of Mautic 7. When rendering selection menus for associating projects with system entities, the application fails to sanitize project names returned via AJAX before injecting them into the DOM as option fields. An authenticated user with permissions to create projects can exploit this to store a malicious script payload in the project's name. When another administrative user subsequently opens an entity editor containing the project selector, the injected script executes within the context of their active browser session. This could allow an attacker to hijack the session, perform unauthorized state coordination, or access organizational data within the dashboard.",
+      "published": "2026-05-29T12:16:27.030",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9811"
     },
     {
-      "id": "CVE-2026-4776",
-      "summary": "An SQL injection vulnerability exists in Mautic's API contact filtering mechanism. Due to insufficient recursive sanitization of nested query parameters, an authenticated API user can bypass input filtering and inject arbitrary SQL commands.",
-      "published": "2026-05-29T08:16:19.260",
+      "id": "CVE-2026-9809",
+      "summary": "A stored Cross-Site Scripting (XSS) vulnerability exists in the Projects component of Mautic 7. When displaying project tags and popovers on administrative detail views (such as campaigns, emails, or forms), user-supplied project names are rendered without proper sanitization. An authenticated user with permissions to create or edit projects can exploit this to inject malicious script payloads. When an administrative user views an entity associated with a compromised project and hovers over its tag, the injected script executes within the context of their active browser session. This could allow an attacker to perform administrative actions on behalf of the victim, alter system configurations, or exfiltrate sensitive data.",
+      "published": "2026-05-29T12:16:26.917",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9809"
+    },
+    {
+      "id": "CVE-2026-9808",
+      "summary": "An authorization bypass vulnerability exists in the Mautic 7 API v2 endpoints (utilizing API Platform). Under certain conditions, roles configured with owner-scope restrictions (such as `viewown` or `editown`) are not properly enforced. This allows low-privilege authenticated API users to bypass ownership-logic controls and access or modify resources belonging to other users.",
+      "published": "2026-05-29T12:16:26.800",
       "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4776"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9808"
     },
     {
-      "id": "CVE-2026-49322",
-      "summary": "Weak authentication in the Wireless Control Module (WCM) of the Indian Motorcycle Scout Bobber + Tech 2025 model year allows an adjacent-network attacker with read access to the in-vehicle network to recover the user-set unlock PIN by passively observing a single PIN authentication exchange. The Infotainment Digital Round display computes its response using a non-cryptographic operation rather than a cryptographic challenge-response, so the PIN is mathematically derivable from one captured exchange, defeating the motorcycle's primary user-authentication control. Specific protocol details have been withheld pending vendor remediation.",
-      "published": "2026-05-29T08:16:19.060",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49322"
+      "id": "CVE-2026-9559",
+      "summary": "A path traversal vulnerability exists in the campaign import feature of Mautic 7. When extracting uploaded ZIP files during campaign imports, a flaw in the validation logic allows file paths to escape the intended temporary directories. An authenticated user with campaign import privileges (campaign:imports:create) can write arbitrary PHP files to sensitive system directories. An attacker can exploit this to overwrite critical internal configuration or cache components, resulting in Remote Code Execution (RCE) under the context of the web server user.",
+      "published": "2026-05-29T12:16:26.680",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9559"
     },
     {
-      "id": "CVE-2026-3655",
-      "summary": "The OTP Login With Phone Number, OTP Verification plugin for WordPress is vulnerable to authentication bypass in versions 1.8.50 through 1.8.60. This is due to the Firebase verification flow in the `lwp_ajax_register` AJAX handler not binding the Firebase session to the phone number supplied in the request. The `idehweb_lwp_activate_through_firebase()` function validates that a Firebase OTP session is legitimate, but the `phoneNumber` returned by Firebase is never compared against the victim's stored phone number. This makes it possible for unauthenticated attackers to authenticate as any user who has a phone number stored in user meta, including administrators, by verifying their own Firebase session and supplying the victim's phone number in the same request.",
-      "published": "2026-05-29T08:16:18.920",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3655"
+      "id": "CVE-2025-41281",
+      "summary": "Nozomi Networks Labs identified a CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') in Waterfall WF-500 RX Host in version 7.9.1.0 R2502171040 that allows attackers with access to the TX Host to execute code on the RX Host when a MySQL connector is configured.",
+      "published": "2026-05-29T12:16:24.670",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41281"
     },
     {
-      "id": "CVE-2025-11262",
-      "summary": "The Link Whisper Free plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the user_id parameter in all versions up to, and including, 0.9.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-29T08:16:17.497",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11262"
-    },
-    {
-      "id": "CVE-2026-9714",
-      "summary": "The Simple Divi Shortcode plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'id' parameter of the [showmodule] shortcode in versions up to, and including, 1.2 This is due to insufficient input sanitization and output escaping in the showmodule_shortcode() function, which concatenates the 'id' shortcode attribute directly into a dynamically constructed shortcode string without applying esc_attr() or any escaping, allowing an attacker to break out of the attribute context and inject arbitrary HTML. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-05-29T07:16:14.780",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9714"
+      "id": "CVE-2025-41280",
+      "summary": "Nozomi Networks Labs identified a CWE-23: Relative Path Traversal (Zip Slip) in Waterfall WF-500 RX Host in version 7.9.1.0 R2502171040 that allows attackers with access to the TX Host to execute code on the RX Host when a MySQL connector is configured and file compression is enabled.",
+      "published": "2026-05-29T12:16:24.547",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41280"
     }
   ]
 }
