@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-29T19:39:43+00:00",
+  "generated_at": "2026-05-29T22:04:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9051",
-      "summary": "There is an authentication bypass vulnerability in the NI SystemLink Enterprise Dashboard application that may allow an unauthenticated remote attacker to bypass authentication controls leading to privilege escalation or information disclosure.\u00a0 Successful exploitation requires an attacker to send a specially crafted HTTP request.\u00a0 This vulnerability affects NI SystemLink Enterprise 2026-04 and prior versions.",
-      "published": "2026-05-29T19:16:28.800",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9051"
+      "id": "CVE-2026-4387",
+      "summary": "StrongDM Desktop Application before 23.74.0 (Desktop Client before 53.77.0) on Microsoft Windows stores authentication state, including a JSON Web Token and asymmetric key material, in cleartext in a per-user state file located at C:\\Users\\<username>\\.sdm\\state.kv. The file is protected only by default user-level NTFS permissions.\n\n\n\nExploitation requires local read access to the affected user's profile directory and additional deployment and execution conditions on the target host.\n\n\n\nThe condition was reported through coordinated disclosure by Hope Walker (SpecterOps).",
+      "published": "2026-05-29T20:16:30.650",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4387"
     },
     {
-      "id": "CVE-2026-49386",
-      "summary": "In JetBrains YouTrack before 2026.1.13570 improper access control allowed enumeration of restricted issues and articles on Planning Canvas",
-      "published": "2026-05-29T19:16:28.683",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49386"
+      "id": "CVE-2026-48811",
+      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. Prior to 1.8.221, FreeScout allows a non-admin user to permanently delete an internal note (private thread) from any conversation, even after that user's access to the mailbox containing the conversation has been revoked. The ThreadPolicy::delete authorization policy does not verify mailbox membership, so a former team member retains destructive write access to notes they created. This vulnerability is fixed in 1.8.221.",
+      "published": "2026-05-29T20:16:29.233",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48811"
     },
     {
-      "id": "CVE-2026-49385",
-      "summary": "In JetBrains YouTrack before 2026.1.13570 improper access control allowed low-privileged users to modify service accounts",
-      "published": "2026-05-29T19:16:28.567",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49385"
+      "id": "CVE-2026-48810",
+      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. Prior to 1.8.221, while investigating the ThreadPolicy::delete issue reported previously, the same missing mailbox membership check was found in the sibling ThreadPolicy::edit method. A user with the PERM_EDIT_CONVERSATIONS permission who created a message or internal note in Mailbox A can rewrite that thread's body after an administrator removes them from Mailbox A, because the policy checks only authorship and a global permission flag \u2014 not current mailbox membership. This vulnerability is fixed in 1.8.221.",
+      "published": "2026-05-29T20:16:29.083",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48810"
     },
     {
-      "id": "CVE-2026-49384",
-      "summary": "In JetBrains PyCharm before 2025.3.4 stored XSS in Jupyter notebook Markdown cells was possible",
-      "published": "2026-05-29T19:16:28.453",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49384"
+      "id": "CVE-2026-48557",
+      "summary": "Spatie Laravel Media Library before version 11.23.0 contains a file upload restriction bypass in FileAdder::defaultSanitizer(). The sanitizer checks only the final filename suffix, allowing double-extension filenames such as shell.php.jpg to bypass the blocklist, with pathinfo() preserving inner .php stems in saved filenames. The blocklist also omits executable extensions including .php6, .shtml, and .htaccess. The double-extension bypass requires a legacy Apache AddHandler configuration to achieve PHP execution; the incomplete blocklist bypass does not.",
+      "published": "2026-05-29T20:16:28.957",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48557"
     },
     {
-      "id": "CVE-2026-49383",
-      "summary": "In JetBrains IntelliJ IDEA before 2026.1 xXE in the UI Designer form parser was possible",
-      "published": "2026-05-29T19:16:28.340",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49383"
+      "id": "CVE-2026-48555",
+      "summary": "Spatie Laravel Media Library before version 11.23.0 contains a server-side request forgery vulnerability that allows remote attackers to cause the server to issue arbitrary outbound HTTP requests by passing user-controlled URLs to the addMediaFromUrl() method in InteractsWithMedia.php.",
+      "published": "2026-05-29T20:16:28.817",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48555"
     },
     {
-      "id": "CVE-2026-49382",
-      "summary": "In JetBrains IntelliJ IDEA before 2026.1 code execution was possible via template injection in the Copyright plugin",
-      "published": "2026-05-29T19:16:28.223",
-      "cvss": 4.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49382"
+      "id": "CVE-2026-47266",
+      "summary": "Formie is a Craft CMS plugin for creating forms. Prior to 2.2.21 and 3.1.26, unauthenticated users could modify existing submissions by posting a known or guessed submission ID to formie/submissions/save-submission. This vulnerability is fixed in 2.2.21 and 3.1.26.",
+      "published": "2026-05-29T20:16:28.520",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47266"
     }
   ]
 }
