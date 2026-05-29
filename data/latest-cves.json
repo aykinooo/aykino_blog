@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-29T12:26:11+00:00",
+  "generated_at": "2026-05-29T16:52:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9811",
-      "summary": "A stored Cross-Site Scripting (XSS) vulnerability exists in the project selector component of Mautic 7. When rendering selection menus for associating projects with system entities, the application fails to sanitize project names returned via AJAX before injecting them into the DOM as option fields. An authenticated user with permissions to create projects can exploit this to store a malicious script payload in the project's name. When another administrative user subsequently opens an entity editor containing the project selector, the injected script executes within the context of their active browser session. This could allow an attacker to hijack the session, perform unauthorized state coordination, or access organizational data within the dashboard.",
-      "published": "2026-05-29T12:16:27.030",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9811"
+      "id": "CVE-2026-48501",
+      "summary": "GitHub CLI (gh) is GitHub\u2019s official command line tool. Prior to 2.93.0, GitHub CLI incorrectly includes authorization header in API requests to TUF repository mirrors via gh attestation, gh release verify, and gh release verify-asset commands. The CLI uses a shared HTTP client with an authentication layer that automatically attaches tokens to outgoing requests. This layer lacks accurate host detection and can incorrectly attribute the target host, providing it with a token it should never receive. Specifically, the host normalization logic collapses any *.github.com subdomain to github.com, so a request to tuf-repo.github.com (a GitHub Pages site, not a GitHub API endpoint) is treated as a request to github.com and receives the user's github.com token. For hosts that don't match github.com or a known GHES instance at all, the resolver falls back to GH_ENTERPRISE_TOKEN if set. The gh attestation, gh release verify and gh release verify-asset commands fetch data from several external hosts as part of their normal operation (TUF metadata from tuf-repo.github.com and tuf-repo-cdn.sigstore.dev, artifact bundles from Azure Blob Storage). Because these requests go through the same authenticated HTTP client, the token is sent to all of them. This vulnerability is fixed in 2.93.0.",
+      "published": "2026-05-29T16:16:31.497",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48501"
     },
     {
-      "id": "CVE-2026-9809",
-      "summary": "A stored Cross-Site Scripting (XSS) vulnerability exists in the Projects component of Mautic 7. When displaying project tags and popovers on administrative detail views (such as campaigns, emails, or forms), user-supplied project names are rendered without proper sanitization. An authenticated user with permissions to create or edit projects can exploit this to inject malicious script payloads. When an administrative user views an entity associated with a compromised project and hovers over its tag, the injected script executes within the context of their active browser session. This could allow an attacker to perform administrative actions on behalf of the victim, alter system configurations, or exfiltrate sensitive data.",
-      "published": "2026-05-29T12:16:26.917",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9809"
-    },
-    {
-      "id": "CVE-2026-9808",
-      "summary": "An authorization bypass vulnerability exists in the Mautic 7 API v2 endpoints (utilizing API Platform). Under certain conditions, roles configured with owner-scope restrictions (such as `viewown` or `editown`) are not properly enforced. This allows low-privilege authenticated API users to bypass ownership-logic controls and access or modify resources belonging to other users.",
-      "published": "2026-05-29T12:16:26.800",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9808"
-    },
-    {
-      "id": "CVE-2026-9559",
-      "summary": "A path traversal vulnerability exists in the campaign import feature of Mautic 7. When extracting uploaded ZIP files during campaign imports, a flaw in the validation logic allows file paths to escape the intended temporary directories. An authenticated user with campaign import privileges (campaign:imports:create) can write arbitrary PHP files to sensitive system directories. An attacker can exploit this to overwrite critical internal configuration or cache components, resulting in Remote Code Execution (RCE) under the context of the web server user.",
-      "published": "2026-05-29T12:16:26.680",
+      "id": "CVE-2026-45663",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). In 0.29.1 and earlier, a command injection vulnerability exists in the Docker file upload functionality. When an authenticated user uploads a file to a container, the destinationPath parameter is not properly sanitized and is directly interpolated into a shell command string. By including shell metacharacters such as ; or \", an attacker can escape the intended docker cp command and execute arbitrary OS commands on the Dokploy host.",
+      "published": "2026-05-29T16:16:28.347",
       "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9559"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45663"
     },
     {
-      "id": "CVE-2025-41281",
-      "summary": "Nozomi Networks Labs identified a CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') in Waterfall WF-500 RX Host in version 7.9.1.0 R2502171040 that allows attackers with access to the TX Host to execute code on the RX Host when a MySQL connector is configured.",
-      "published": "2026-05-29T12:16:24.670",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41281"
+      "id": "CVE-2026-45662",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). In 0.29.0 and earlier, the deleteRegistry function in Dokploy (packages/server/src/services/registry.ts) executes docker logout ${response.registryUrl} without shell escaping. In the same file, the docker login command correctly uses shEscape() to prevent command injection. This inconsistency creates a command injection vulnerability when deleting a registry with a crafted registryUrl.",
+      "published": "2026-05-29T16:16:28.213",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45662"
     },
     {
-      "id": "CVE-2025-41280",
-      "summary": "Nozomi Networks Labs identified a CWE-23: Relative Path Traversal (Zip Slip) in Waterfall WF-500 RX Host in version 7.9.1.0 R2502171040 that allows attackers with access to the TX Host to execute code on the RX Host when a MySQL connector is configured and file compression is enabled.",
-      "published": "2026-05-29T12:16:24.547",
+      "id": "CVE-2026-44962",
+      "summary": "Plesk contains an XPath injection vulnerability in the APS Application Catalog search functionality, where user-supplied input is interpolated into XPath queries without proper sanitization. This allows an authenticated, low-privileged user to execute arbitrary operating system commands on the server, resulting in local privilege escalation.",
+      "published": "2026-05-29T16:16:27.567",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44962"
+    },
+    {
+      "id": "CVE-2026-39276",
+      "summary": "The template upload feature in Emlog Pro v2.6.9 has a path traversal vulnerability, allowing authenticated administrators to execute arbitrary PHP code. By uploading a malicious ZIP archive containing directory traversal sequences in filenames, an attacker can overwrite default template files or directly include malicious code files in the current template.",
+      "published": "2026-05-29T16:16:26.833",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41280"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39276"
+    },
+    {
+      "id": "CVE-2026-39229",
+      "summary": "Bolt CMS through 3.7.0 allows SQL Injection in the 'order' parameter of the content listing pages. An authenticated attacker with low-level privileges can exploit this through the OrderDirective component. This allows for the extraction of sensitive information",
+      "published": "2026-05-29T16:16:26.723",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39229"
     }
   ]
 }
