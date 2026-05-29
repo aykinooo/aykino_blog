@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-05-29T04:40:27+00:00",
+  "generated_at": "2026-05-29T08:50:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8995",
-      "summary": "The Poll Maker \u2013 Versus Polls, Anonymous Polls, Image Polls plugin for WordPress is vulnerable to Sensitive Information Exposure in versions up to and including 6.3.7. This is due to insufficient access controls on the 'ays_poll_get_user_information' AJAX action, which serializes and returns the complete WP_User object \u2014 including the user_pass (bcrypt password hash), user_email, user_login, user_registered, roles, and all capabilities \u2014 without any nonce verification or capability check beyond is_user_logged_in(). This makes it possible for authenticated attackers, with subscriber-level access and above, to retrieve sensitive account data including their own password hash, which WordPress does not expose through any of its standard interfaces and which can be leveraged for offline password-cracking attacks.",
-      "published": "2026-05-29T04:17:11.040",
+      "id": "CVE-2026-9243",
+      "summary": "The Plus Addons for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'carousel_direction' parameter of the Carousel Anything widget in versions up to, and including, 6.4.15 This is due to insufficient output escaping in the render() function, where the carousel_direction value is placed into an unquoted HTML attribute (dir=) allowing attribute injection despite the use of esc_attr(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-29T08:16:19.627",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9243"
+    },
+    {
+      "id": "CVE-2026-4776",
+      "summary": "An SQL injection vulnerability exists in Mautic's API contact filtering mechanism. Due to insufficient recursive sanitization of nested query parameters, an authenticated API user can bypass input filtering and inject arbitrary SQL commands.",
+      "published": "2026-05-29T08:16:19.260",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4776"
+    },
+    {
+      "id": "CVE-2026-49322",
+      "summary": "Weak authentication in the Wireless Control Module (WCM) of the Indian Motorcycle Scout Bobber + Tech 2025 model year allows an adjacent-network attacker with read access to the in-vehicle network to recover the user-set unlock PIN by passively observing a single PIN authentication exchange. The Infotainment Digital Round display computes its response using a non-cryptographic operation rather than a cryptographic challenge-response, so the PIN is mathematically derivable from one captured exchange, defeating the motorcycle's primary user-authentication control. Specific protocol details have been withheld pending vendor remediation.",
+      "published": "2026-05-29T08:16:19.060",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8995"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49322"
     },
     {
-      "id": "CVE-2026-7430",
-      "summary": "The Post Snippets plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 4.0.19. This is due to insufficient output escaping of imported snippet content when rendering JavaScript variables in the post editor. Specifically, the `jqueryUiDialog()` method in `WPEditor.php` embeds snippet content directly into JavaScript string literals without escaping double quotes (the quote-escaping code on line 214 is commented out). When snippets are imported via the Import/Export feature, the content bypasses WordPress's `wp_magic_quotes()` (which would otherwise add protective backslashes), allowing double quotes in snippet content to break out of the JavaScript string context. This makes it possible for authenticated attackers, with Administrator-level access and above, to inject arbitrary web scripts via a malicious import file that execute whenever any administrator accesses a post editor page. Please note that this does not affect single-site installations as administrators already have the `unfiltered_html` capability.",
-      "published": "2026-05-29T04:17:10.563",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7430"
+      "id": "CVE-2026-3655",
+      "summary": "The OTP Login With Phone Number, OTP Verification plugin for WordPress is vulnerable to authentication bypass in versions 1.8.50 through 1.8.60. This is due to the Firebase verification flow in the `lwp_ajax_register` AJAX handler not binding the Firebase session to the phone number supplied in the request. The `idehweb_lwp_activate_through_firebase()` function validates that a Firebase OTP session is legitimate, but the `phoneNumber` returned by Firebase is never compared against the victim's stored phone number. This makes it possible for unauthenticated attackers to authenticate as any user who has a phone number stored in user meta, including administrators, by verifying their own Firebase session and supplying the victim's phone number in the same request.",
+      "published": "2026-05-29T08:16:18.920",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3655"
     },
     {
-      "id": "CVE-2026-8070",
-      "summary": "Incorrect permission assignment for a critical resource in Armoury Crate allows a local user to bypass the driver\u2019s validation mechanism, resulting in unauthorized read and write access to physical memory.Refer to the '\u00a0\nSecurity Update for Armoury Crate App\u00a0\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
-      "published": "2026-05-29T02:16:17.380",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8070"
+      "id": "CVE-2025-11262",
+      "summary": "The Link Whisper Free plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the user_id parameter in all versions up to, and including, 0.9.0 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-29T08:16:17.497",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11262"
     },
     {
-      "id": "CVE-2026-7480",
-      "summary": "An Incorrect Permission Assignment for Critical Resource vulnerability in ASUS System Control Interface allows a local user to elevate privileges to SYSTEM and execute arbitrary code via a crafted RPC call that bypass the validation mechanism.\nRefer to the 'Security Update for ASUS System Control Interface' section on the ASUS Security Advisory for more information.",
-      "published": "2026-05-29T02:16:17.223",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7480"
-    },
-    {
-      "id": "CVE-2026-6892",
-      "summary": "Improper handling of symbolic links in the installer of CUPS Printer Driver for macOS(*) may allow a local attacker with login privileges to exploit a specially crafted symbolic link during installation to modify permissions of directories for which they would not normally have authorization.\u00a0\n\n*:Canon PIXUS iX6800 Series CUPS Printer Driver for macOS Version 16.91.0.0 or earlier (Japan)\n\nCanon PIXMA MG2500 Series and iX6800 Series CUPS Printer Driver for macOS Version 16.91.0.0 or earlier (US and Europe)",
-      "published": "2026-05-29T00:16:16.847",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6892"
-    },
-    {
-      "id": "CVE-2026-6891",
-      "summary": "Improper handling of symbolic links in the installer of My Image Garden for macOS Version 3.6.8 or earlier may allow a local attacker with login privileges to exploit a specially crafted symbolic link during installation to modify permissions of files for which they would not normally have authorization.",
-      "published": "2026-05-29T00:16:15.987",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6891"
+      "id": "CVE-2026-9714",
+      "summary": "The Simple Divi Shortcode plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'id' parameter of the [showmodule] shortcode in versions up to, and including, 1.2 This is due to insufficient input sanitization and output escaping in the showmodule_shortcode() function, which concatenates the 'id' shortcode attribute directly into a dynamically constructed shortcode string without applying esc_attr() or any escaping, allowing an attacker to break out of the attribute context and inject arbitrary HTML. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-05-29T07:16:14.780",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9714"
     }
   ]
 }
