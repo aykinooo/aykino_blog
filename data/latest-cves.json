@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-05-30T07:49:52+00:00",
+  "generated_at": "2026-05-30T10:15:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-10113",
+      "summary": "A vulnerability was found in Open5GS up to 2.7.7. Affected by this vulnerability is an unknown functionality in the library lib/sbi/nnrf-handler.c of the component Shared NF-profile Parser. The manipulation results in denial of service. It is possible to launch the attack remotely. The exploit has been made public and could be used. A patch should be applied to remediate this issue.",
+      "published": "2026-05-30T09:16:17.460",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10113"
+    },
+    {
+      "id": "CVE-2026-5071",
+      "summary": "The SocketCAN implementation validates the length of a user-provided buffer containing a socketcan_frame object using only a NET_ASSERT statement in zcan_sendto_ctx() before dereferencing it in socketcan_to_can_frame(). In production builds where assertions are disabled, a userspace application that controls the length passed to a sendto syscall can supply an incomplete or truncated frame, causing socketcan_to_can_frame() to dereference fields beyond the end of the buffer. This results in an out-of-bounds read that can cause denial-of-service crashes or, because the parsed frame contents are transmitted on the network, leak adjacent memory.",
+      "published": "2026-05-30T08:16:16.370",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5071"
+    },
+    {
+      "id": "CVE-2026-10112",
+      "summary": "A vulnerability has been found in sambitraj STUDENT-MANAGEMENT-SYSTEM 1.0. Affected is an unknown function of the component Dashboard Page. The manipulation of the argument Name leads to cross site scripting. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-30T08:16:16.180",
+      "cvss": 2.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10112"
+    },
+    {
+      "id": "CVE-2026-10111",
+      "summary": "A flaw has been found in sambitraj STUDENT-MANAGEMENT-SYSTEM 1.0. This impacts an unknown function of the component Login Page. Executing a manipulation of the argument email can lead to sql injection. The attack may be performed from remote. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-05-30T08:16:16.013",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10111"
+    },
     {
       "id": "CVE-2026-10110",
       "summary": "A vulnerability was detected in code-projects Student Details Management System 1.0. This affects an unknown function of the file /index.php. Performing a manipulation of the argument roll results in sql injection. The attack is possible to be carried out remotely. The exploit is now public and may be used.",
@@ -15,34 +43,6 @@
       "published": "2026-05-30T02:16:19.790",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48840"
-    },
-    {
-      "id": "CVE-2026-9831",
-      "summary": "A race condition in the shared Extreme Platform\nONE IAM Gateway API-key authentication path could, under specific\nhigh-concurrency traffic conditions, intermittently allow requests\nauthenticated with an Extreme Platform ONE /IAM-issued API key to receive\nresponse data for another tenant. The issue was observed through ExtremeCloud\nIQ/XIQ API endpoints and validated against both XIQ/XAPI and Extreme Platform ONE\n/Common Services API paths. XIQ-native tokens and standard OAuth/Bearer JWT\nauthentication were not affected.",
-      "published": "2026-05-29T22:16:23.980",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9831"
-    },
-    {
-      "id": "CVE-2026-4387",
-      "summary": "StrongDM Desktop Application before 23.74.0 (Desktop Client before 53.77.0) on Microsoft Windows stores authentication state, including a JSON Web Token and asymmetric key material, in cleartext in a per-user state file located at C:\\Users\\<username>\\.sdm\\state.kv. The file is protected only by default user-level NTFS permissions.\n\n\n\nExploitation requires local read access to the affected user's profile directory and additional deployment and execution conditions on the target host.\n\n\n\nThe condition was reported through coordinated disclosure by Hope Walker (SpecterOps).",
-      "published": "2026-05-29T20:16:30.650",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4387"
-    },
-    {
-      "id": "CVE-2026-48811",
-      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. Prior to 1.8.221, FreeScout allows a non-admin user to permanently delete an internal note (private thread) from any conversation, even after that user's access to the mailbox containing the conversation has been revoked. The ThreadPolicy::delete authorization policy does not verify mailbox membership, so a former team member retains destructive write access to notes they created. This vulnerability is fixed in 1.8.221.",
-      "published": "2026-05-29T20:16:29.233",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48811"
-    },
-    {
-      "id": "CVE-2026-48810",
-      "summary": "FreeScout is a free help desk and shared inbox built with PHP's Laravel framework. Prior to 1.8.221, while investigating the ThreadPolicy::delete issue reported previously, the same missing mailbox membership check was found in the sibling ThreadPolicy::edit method. A user with the PERM_EDIT_CONVERSATIONS permission who created a message or internal note in Mailbox A can rewrite that thread's body after an administrator removes them from Mailbox A, because the policy checks only authorship and a global permission flag \u2014 not current mailbox membership. This vulnerability is fixed in 1.8.221.",
-      "published": "2026-05-29T20:16:29.083",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48810"
     }
   ]
 }
