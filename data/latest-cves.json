@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-02T06:55:38+00:00",
+  "generated_at": "2026-06-02T11:41:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8206",
-      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to privilege escalation via account takeover in all versions 6.0.0 to 6.0.6. This is due to the plugin accepting an arbitrary email address when a username is used in the password reset request. This makes it possible for unauthenticated attackers to send a password reset link for any user registered on the site to their own email address.",
-      "published": "2026-06-02T04:17:03.550",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8206"
+      "id": "CVE-2026-5422",
+      "summary": "A path traversal vulnerability exists in jupyter-server version 2.17.0 due to an incorrect root directory boundary check in the _get_os_path() function within jupyter_server/services/contents/fileio.py. The check uses startswith(root) without appending a trailing path separator, allowing sibling directories with names starting with the same prefix as root_dir to bypass the check. Additionally, the to_os_path() function in utils.py does not strip \"..\" from path parts, enabling traversal sequences to bypass the vulnerable check. This vulnerability can lead to unauthorized read/write access to files in sibling directories, potentially exposing sensitive data in shared hosting environments.",
+      "published": "2026-06-02T10:16:25.800",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5422"
     },
     {
-      "id": "CVE-2026-3198",
-      "summary": "MLflow 3.9.0 with basic-auth (`--app-name basic-auth`) fails to enforce authorization checks for multiple Gateway API 'list' endpoints. Specifically, the `BEFORE_REQUEST_HANDLERS` dictionary in `mlflow/server/auth/__init__.py` does not include entries for `ListGatewaySecretInfos`, `ListGatewayEndpoints`, and `ListGatewayModelDefinitions`. This allows any authenticated user, regardless of their assigned permissions, to enumerate all gateway secrets, endpoints, and model definitions. This vulnerability exposes sensitive information, such as API keys, endpoint configurations, and proprietary model definitions, to unauthorized users.",
-      "published": "2026-06-02T04:17:03.397",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3198"
+      "id": "CVE-2026-5191",
+      "summary": "The Tiled Gallery Carousel Without JetPack plugin for WordPress is vulnerable to stored cross-site scripting via the 'data-image-title' parameter in all versions up to, and including, 3.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-06-02T10:16:25.600",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5191"
     },
     {
-      "id": "CVE-2026-10583",
-      "summary": "A security vulnerability has been detected in nextlevelbuilder GoClaw up to 3.11.3. Affected by this issue is the function Import of the file internal/http/tts_config.go of the component TTS Configuration Endpoint. The manipulation leads to server-side request forgery. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used. The project tagged the reported issue as bug.",
-      "published": "2026-06-02T04:17:03.220",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10583"
+      "id": "CVE-2026-46718",
+      "summary": "Use of Externally-Controlled Input to Select Classes or Code ('Unsafe Reflection') vulnerability in Apache Calcite.\n\nThis issue affects Apache Calcite: from 1.5.0 before 1.42.\n\nUsers are recommended to upgrade to version 1.42, which fixes the issue.",
+      "published": "2026-06-02T10:16:25.377",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46718"
     },
     {
-      "id": "CVE-2026-10581",
-      "summary": "A flaw has been found in DedeCMS 5.7.88. Affected by this vulnerability is the function base64_decode of the file /plus/download.php?open=1. This manipulation of the argument Link causes server-side request forgery. Remote exploitation of the attack is possible. The exploit has been published and may be used.",
-      "published": "2026-06-02T04:17:02.997",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10581"
+      "id": "CVE-2026-41115",
+      "summary": "An improper authorization vulnerability has been identified in Apache Kafka.\n\nThe implementation of the CONSUMER_GROUP_DESCRIBE (69) API validates the DESCRIBE operation on the GROUP resource instead of the READ operation that documented in the official kafka documentation and the KIP-848. This discrepancy can result in misconfigured Access Control Lists (ACLs) and unintended security postures, like granting READ permission to users who should not be able to join/sync groups, or allowing users without READ permission (but with DESCRIBE permission) to access sensitive group metadata.\n\nThe correct permission for CONSUMER_GROUP_DESCRIBE API is DESCRIBE GROUP so the current implementation is correct. However, the kafka documentation as well as the KIP-848 will be updated to reflect the correct permission. We advise the Kafka users to review existing group ACLs to ensure the principle of least privilege.",
+      "published": "2026-06-02T10:16:25.107",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41115"
     },
     {
-      "id": "CVE-2026-3871",
-      "summary": "A buffer overflow vulnerability in the UPnP DeletePortMapping() command in Zyxel VMG4005-B50B firmware versions through 5.13(ABRL.5.4)C0 could allow an adjacent attacker to trigger a temporary denial-of-service (DoS) condition affecting the UPnP function of the affected device.",
-      "published": "2026-06-02T03:16:17.023",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3871"
+      "id": "CVE-2026-34907",
+      "summary": "Wirtualna Uczelnia is vulnerable to Reflected Cross\u2011Site Scripting (XSS) due to insecure handling of the locale parameter across multiple endpoints. An attacker can craft a malicious URL with JavaScript embedded in the locale parameter and send it to a victim. When the victim opens the link, the injected script will be executed in their browser.\n\n\nThis issue affects Wirtualna Uczelnia versions up to wu#2016.437.295#0#20260327_105545",
+      "published": "2026-06-02T10:16:24.673",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34907"
     },
     {
-      "id": "CVE-2026-3870",
-      "summary": "A buffer overflow vulnerability in the UPnP AddPortMapping() command in Zyxel VMG4005-B50B firmware versions through 5.13(ABRL.5.4)C0 could allow an adjacent attacker to trigger a temporary denial-of-service (DoS) condition affecting the UPnP function of the affected device.",
-      "published": "2026-06-02T03:16:16.890",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3870"
+      "id": "CVE-2026-34906",
+      "summary": "Server-Side Template Injection (SSTI) in Wirtualna Uczelnia allows an unauthenticated attacker to perform Remote Code Execution (RCE). In the endpoint redirectToUrl and parameter redirectUrlParameter, insufficient input validation permits injection of arbitrary template expressions that are executed on the server. Successful exploitation can allow an attacker to run remote commands, including establishing a reverse shell.\n\nThis issue affects Wirtualna Uczelnia versions up to\u00a0wu#2016.437.295#0#20260327_105545",
+      "published": "2026-06-02T10:16:22.733",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34906"
     }
   ]
 }
