@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-02T20:17:19+00:00",
+  "generated_at": "2026-06-02T23:07:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8036",
-      "summary": "Improper input validation in NI-PAL may allow a local authenticated user to access arbitrary system memory, potentially leading to privilege escalation. This vulnerability affects NI-PAL 26.3.0 and prior versions on Windows and Linux.",
-      "published": "2026-06-02T20:16:41.370",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8036"
-    },
-    {
-      "id": "CVE-2026-8035",
-      "summary": "Improper input validation in the NI-PAL kernel driver may allow a local authenticated user to cause a denial of service by triggering a crash due to a NULL pointer dereference. This vulnerability affects NI-PAL 26.3.0 and prior versions on Windows and Linux.",
-      "published": "2026-06-02T20:16:41.213",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8035"
-    },
-    {
-      "id": "CVE-2026-5385",
-      "summary": "An unauthenticated user with write access to the knowledge base can store an XSS payload in a knowledge base item.\n\n\nThis issue affects glpi: before 11.0.7.",
-      "published": "2026-06-02T20:16:40.840",
+      "id": "CVE-2026-8936",
+      "summary": "Fixed a VM panic caused by unbounded recursion in the grpcfuse kernel module when a container created deeply nested directories on a bind-mounted host folder and triggered a dentry invalidation event. This issue has been fixed in Docker Desktop 4.76.0.",
+      "published": "2026-06-02T22:16:17.120",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5385"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8936"
     },
     {
-      "id": "CVE-2026-5076",
-      "summary": "The ARMember Premium plugin for WordPress is vulnerable to an insecure password reset mechanism in all versions up to, and including, 7.3.1. The plugin stores a plaintext copy of the password reset key in the `arm_reset_password_key` user meta field when a user requests a password reset. This is in addition to the hashed key that WordPress core stores securely in `wp_users.user_activation_key`. The plaintext key stored in `wp_usermeta` can be used with the plugin's custom `armrp` reset action to set a new password for any user. Combined with another vulnerability such as SQL Injection (CVE-2026-5073, CVE-2026-5074), this makes it possible for unauthenticated attackers to extract the plaintext reset key and take over any user account, including administrators.",
-      "published": "2026-06-02T20:16:40.720",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5076"
+      "id": "CVE-2026-35212",
+      "summary": "OpenCTI is an open source platform for managing cyber threat intelligence knowledge and observables. Versions prior to 7.260227.0 are vulnerable to XSS in the rendering of email-message observable body data. The content of the body field isn't appropriately sanitized when being rendered. Does require user interaction but could be exploited by someone sharing stix or any of the ingester. This could lead to CSRF and then large scale session theft. Version 7.260227.0 contains a fix.",
+      "published": "2026-06-02T22:16:16.727",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35212"
     },
     {
-      "id": "CVE-2026-5074",
-      "summary": "The ARMember Premium plugin for WordPress is vulnerable to SQL Injection via the 'sSortDir_0' parameter of the `get_private_content_data` AJAX action in all versions up to, and including, 7.3.1. This is due to insufficient sanitization of the user-supplied parameter which is concatenated directly into the ORDER BY clause of an SQL query without a whitelist check. This makes it possible for authenticated attackers, with Subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Note: The vulnerability can only be exploited if the \"User Private Content\" addon is enabled, which is disabled by default..",
-      "published": "2026-06-02T20:16:40.600",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5074"
+      "id": "CVE-2026-10661",
+      "summary": "A vulnerability has been found in ahujasid blender-mcp up to 7636d13bded82eca58eb93c3f4cd8708dfdfbe8b. Impacted is the function Open of the file src/blender_mcp/server.py. The manipulation of the argument input_image_url leads to injection. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The identifier of the patch is 5b37be25242e73dc4cf1328974d30458b9e5d67e. To fix this issue, it is recommended to deploy a patch.",
+      "published": "2026-06-02T22:16:16.477",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10661"
     },
     {
-      "id": "CVE-2026-5073",
-      "summary": "The ARMember Premium plugin for WordPress is vulnerable to SQL Injection via the 'order' parameter of the 'arm_directory_paging_action' AJAX action in all versions up to, and including, 7.3.1. This is due to insufficient escaping on the user-supplied 'order' and 'orderby' parameters and the lack of sufficient preparation on the existing SQL query in the `arm_get_directory_members()` function. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-06-02T20:16:40.467",
+      "id": "CVE-2026-10650",
+      "summary": "A flaw has been found in warmcat libwebsockets up to 4.5.8. This issue affects the function lws_ssh_parse_plaintext of the file plugins/protocol_lws_ssh_base/sshd.c of the component SSH Protocol Handler. Executing a manipulation of the argument msg_len can lead to resource consumption. The attack may be launched remotely. The exploit has been published and may be used. This patch is called 3f9f0c6ecaf0e6f3f219d30632c5d1f2479d7498. A patch should be applied to remediate this issue.",
+      "published": "2026-06-02T22:16:16.293",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10650"
+    },
+    {
+      "id": "CVE-2025-15653",
+      "summary": "Dr\u00e4ger Zeus Infinity Empowered (Zeus IE) and Zeus RS C500 anesthesia workstations contain a local security vulnerability that allows unauthorized individuals with physical access to compromise software integrity via USB interface manipulation. Attackers can exploit the unprotected USB interfaces to impair therapy functions, manipulate device-processed data, or leverage the device as a pivot point for broader network-based attacks when connected to a network or Dr\u00e4ger Service Connect.",
+      "published": "2026-06-02T22:16:15.973",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15653"
+    },
+    {
+      "id": "CVE-2024-14036",
+      "summary": "Dr\u00e4ger Core 1.0.5 and Dr\u00e4ger M540 Converter Service 1.0.9 contain a denial of service vulnerability that allows network-adjacent attackers to trigger high CPU load by sending specially crafted, unencrypted SDC messages during the discovery process. Attackers with access to the hospital network can send malformed SDC packets to exhaust CPU resources in the affected process, causing further SDC messages to no longer be processed.",
+      "published": "2026-06-02T22:16:15.820",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5073"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-14036"
     }
   ]
 }
