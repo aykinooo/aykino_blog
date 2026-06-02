@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-02T16:53:26+00:00",
+  "generated_at": "2026-06-02T20:17:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9590",
-      "summary": "Improper access control in the permission validation component in Devolutions Server 2026.1.19 and earlier allows an authenticated user with entry edit privileges to modify asset information without the required permission.",
-      "published": "2026-06-02T16:16:45.980",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9590"
+      "id": "CVE-2026-8036",
+      "summary": "Improper input validation in NI-PAL may allow a local authenticated user to access arbitrary system memory, potentially leading to privilege escalation. This vulnerability affects NI-PAL 26.3.0 and prior versions on Windows and Linux.",
+      "published": "2026-06-02T20:16:41.370",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8036"
     },
     {
-      "id": "CVE-2026-9522",
-      "summary": "Improper access control in the PAM account discovery feature in Devolutions Server 2026.1.19 and earlier allows an authenticated user without administrative privileges to delete network discovery scan configurations.",
-      "published": "2026-06-02T16:16:45.873",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9522"
+      "id": "CVE-2026-8035",
+      "summary": "Improper input validation in the NI-PAL kernel driver may allow a local authenticated user to cause a denial of service by triggering a crash due to a NULL pointer dereference. This vulnerability affects NI-PAL 26.3.0 and prior versions on Windows and Linux.",
+      "published": "2026-06-02T20:16:41.213",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8035"
     },
     {
-      "id": "CVE-2026-7299",
-      "summary": "Appsmith\u2019s SQL query editor\u2019s autocomplete functionality fails to sanitize database object names before rendering them in innerHTML, allowing an authenticated Developer to inject persistent XSS by a malicious table or column names triggering arbitrary code execution in the sessions of other workspace members when they interact with the same datasource.",
-      "published": "2026-06-02T16:16:45.557",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7299"
+      "id": "CVE-2026-5385",
+      "summary": "An unauthenticated user with write access to the knowledge base can store an XSS payload in a knowledge base item.\n\n\nThis issue affects glpi: before 11.0.7.",
+      "published": "2026-06-02T20:16:40.840",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5385"
     },
     {
-      "id": "CVE-2026-49754",
-      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in elixir-mint Mint allows attacker-controlled HTTP/2 servers to exhaust memory in a Mint client (HTTP/2 CONTINUATION flood).\n\nWhen Mint's HTTP/2 receive path observes a HEADERS frame without the END_HEADERS flag, the unparsed header-block fragment is parked in conn.headers_being_processed, and every subsequent CONTINUATION frame on that stream is appended to the accumulator. Nothing in the receive path caps the accumulator: there is no per-stream size limit, no CONTINUATION frame-count limit, and max_header_list_size is only enforced on outgoing requests, never on inbound header blocks (its default is :infinity).\n\nA malicious or compromised HTTP/2 server can stream an endless sequence of CONTINUATION frames (each up to the peer-advertised SETTINGS_MAX_FRAME_SIZE) and drive the client's iolist to arbitrary size, causing memory exhaustion and BEAM process death. A single connection to an attacker-controlled HTTP/2 endpoint is sufficient.\n\nThis issue affects mint: from 0.1.0 before 1.9.0.",
-      "published": "2026-06-02T16:16:44.930",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49754"
+      "id": "CVE-2026-5076",
+      "summary": "The ARMember Premium plugin for WordPress is vulnerable to an insecure password reset mechanism in all versions up to, and including, 7.3.1. The plugin stores a plaintext copy of the password reset key in the `arm_reset_password_key` user meta field when a user requests a password reset. This is in addition to the hashed key that WordPress core stores securely in `wp_users.user_activation_key`. The plaintext key stored in `wp_usermeta` can be used with the plugin's custom `armrp` reset action to set a new password for any user. Combined with another vulnerability such as SQL Injection (CVE-2026-5073, CVE-2026-5074), this makes it possible for unauthenticated attackers to extract the plaintext reset key and take over any user account, including administrators.",
+      "published": "2026-06-02T20:16:40.720",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5076"
     },
     {
-      "id": "CVE-2026-49753",
-      "summary": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in elixir-mint Mint allows attacker-controlled HTTP/1 servers to desynchronise response framing on shared connections.\n\nMint's HTTP/1 Content-Length parser, Mint.HTTP1.Parse.content_length_header/1 in lib/mint/http1/parse.ex, parses the header value with Integer.parse/1, which accepts an optional + or - sign prefix. The length >= 0 guard rejects negatives, but inputs such as +0 or +123 are returned as valid lengths. RFC 7230 specifies Content-Length = 1*DIGIT, with no sign character permitted.\n\nA fronting proxy or load balancer that strictly enforces the grammar will reject or reframe a header like Content-Length: +0, while Mint silently treats it as zero. When Mint reuses the socket (keep-alive, pipelining, or any pooled connection shared across requesters), the parser disagreement is a response-smuggling primitive: the proxy delimits the body one way, Mint another, and bytes from one response get attributed to the next. Where the same Mint connection is shared across trust boundaries, an attacker-controlled upstream can leak bytes into a different consumer's response stream.\n\nThis issue affects mint: from 0.1.0 before 1.9.0.",
-      "published": "2026-06-02T16:16:44.777",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49753"
+      "id": "CVE-2026-5074",
+      "summary": "The ARMember Premium plugin for WordPress is vulnerable to SQL Injection via the 'sSortDir_0' parameter of the `get_private_content_data` AJAX action in all versions up to, and including, 7.3.1. This is due to insufficient sanitization of the user-supplied parameter which is concatenated directly into the ORDER BY clause of an SQL query without a whitelist check. This makes it possible for authenticated attackers, with Subscriber-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Note: The vulnerability can only be exploited if the \"User Private Content\" addon is enabled, which is disabled by default..",
+      "published": "2026-06-02T20:16:40.600",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5074"
     },
     {
-      "id": "CVE-2026-48862",
-      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in elixir-mint Mint allows attacker-controlled HTTP/2 servers to exhaust memory in a Mint client via PUSH_PROMISE flooding.\n\nIn lib/mint/http2.ex, Mint.HTTP2.decode_push_promise_headers_and_add_response/5 inserts a :reserved_remote entry into conn.streams for every promised stream ID. The neighbouring Mint.HTTP2.assert_valid_promised_stream_id/2 only verifies that the promised ID is even and not already present; client_settings.max_concurrent_streams is not consulted at promise time. The concurrency cap is only checked when the response HEADERS for the promised stream arrive, so a server that emits PUSH_PROMISE frames and withholds the matching HEADERS never trips that check.\n\nHTTP/2 server push is accepted by default (client_settings.enable_push defaults to true). A single long-lived HTTP/2 connection to a hostile server lets that server pin one conn.streams entry per PUSH_PROMISE frame it sends, with no upper bound, until the client process runs out of memory.\n\nThis issue affects mint: from 0.2.0 before 1.9.0.",
-      "published": "2026-06-02T16:16:44.627",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48862"
+      "id": "CVE-2026-5073",
+      "summary": "The ARMember Premium plugin for WordPress is vulnerable to SQL Injection via the 'order' parameter of the 'arm_directory_paging_action' AJAX action in all versions up to, and including, 7.3.1. This is due to insufficient escaping on the user-supplied 'order' and 'orderby' parameters and the lack of sufficient preparation on the existing SQL query in the `arm_get_directory_members()` function. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-06-02T20:16:40.467",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5073"
     }
   ]
 }
