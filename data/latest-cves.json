@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-03T07:06:22+00:00",
+  "generated_at": "2026-06-03T12:08:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-50052",
-      "summary": "In Vinyl Cache before 9.0.1 and Varnish Cache before 9.0.3, a deficiency in HTTP/2 request parsing can be exploited to launch a backend request desync\nattack (request smuggling), which in turn can be used for cache poisoning,\nauthentication bypass, or possibly even information disclosure and manipulation. The attack vector only exists if HTTP/2 support is enabled by setting the\nfeature parameter to contain +http2. HTTP/2 support is disabled by\ndefault.",
-      "published": "2026-06-03T06:16:35.390",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50052"
+      "id": "CVE-2026-47065",
+      "summary": "ZDRES-232: resolveProxyClass Not Overridden - acceptMatchers Filter Bypass via java.lang.reflect.Proxy\n\n\nAssessment: Fully addressed.\n\n\nWhen the serialised stream contains a TC_PROXYCLASSDESC (the marker \nfor a java.lang.reflect.Proxy ), JDK\u2019s ObjectInputStream.readProxyDesc()\n is\ndispatched. JDK then calls the default \nObjectInputStream.resolveProxyClass(interfaces) implementation, which \nperforms Class.forName(intf, false, latestUserDefinedLoader()) for EACH \ninterface name and constructs the proxy class \u00e2\u20ac\u201d bypassing the accepted\n classes list .\n\n\nZDRES-233: Class.forName(name, initialize=true, classLoader) in \nreadClassDescriptor Triggers Static Initialiser of Allow-Listed Classes\n\n\nAssessment: Fully addressed.\n\n\nFor ANY class on the allow-list, deserialising a stream that names it triggers the class\u2019s \n (static initialiser) BEFORE any instance is constructed. This means an \nattacker who supplies a class name on the allow-list (e.g., the \ndeveloper wrote accept(\u201ccom.myapp.*\") , attacker supplies \ncom.myapp.SomeClass ) causes <clinit> of SomeClass \u00e2\u20ac\u201d and many \nreal-world classes have side-effecting static initialisers\n\n\nBoth issues have been fixed.",
+      "published": "2026-06-03T11:16:19.800",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47065"
     },
     {
-      "id": "CVE-2026-50031",
-      "summary": "ipmi-oem in FreeIPMI before 1.6.18 has exploitable buffer overflows on response messages. The Intelligent Platform Management Interface (IPMI) specification defines a set of interfaces for platform management. It is implemented by a large number of hardware manufacturers to support system management. It is most commonly used for sensor reading (e.g., CPU temperatures through the ipmi-sensors command within FreeIPMI) and remote power control (the ipmipower command). The ipmi-oem client command implements a set of a IPMI OEM commands for specific hardware vendors. If a user has supported hardware, they may wish to use the ipmi-oem command to send a request to a server to retrieve specific information. Two subcommands \"ipmi-oem dell get-active-directory-config\" and \"ipmi-oem fujitsu get-sel-entry-long-text\" were found to have exploitable buffer overflows on response messages.",
-      "published": "2026-06-03T04:17:07.330",
+      "id": "CVE-2026-41032",
+      "summary": "It is possible for an unauthenticated adjacent attacker to download log files of the controller, which may disclose some restricted information.",
+      "published": "2026-06-03T11:16:19.540",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50031"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41032"
     },
     {
-      "id": "CVE-2026-10705",
-      "summary": "A flaw has been found in dask up to 3.0. Affected by this issue is the function nunique_approx of the file dask/dataframe/hyperloglog.py of the component HLL Handler. This manipulation causes resource consumption. The attack is possible to be carried out remotely. A high degree of complexity is needed for the attack. The exploitation is known to be difficult. The pull request to fix this issue awaits acceptance.",
-      "published": "2026-06-03T02:16:17.397",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10705"
+      "id": "CVE-2025-15656",
+      "summary": "Incorrect Privilege Assignment vulnerability in Mojoomla School Management allows Privilege Escalation.\n\nThis issue affects School Management: from n/a through 93.2.0.",
+      "published": "2026-06-03T11:16:19.390",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15656"
     },
     {
-      "id": "CVE-2026-10704",
-      "summary": "A vulnerability was detected in SourceCodester Pizzafy E-Commerce System 1.0. Affected by this vulnerability is the function Login of the file /admin/admin_class_novo.php of the component Administrative Control Panel. The manipulation of the argument Username results in sql injection. The attack can be executed remotely. The exploit is now public and may be used.",
-      "published": "2026-06-03T02:16:17.200",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10704"
+      "id": "CVE-2025-15655",
+      "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Mojoomla School Management allows SQL Injection.\n\nThis issue affects School Management: from n/a through 93.2.0.",
+      "published": "2026-06-03T11:16:19.250",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15655"
     },
     {
-      "id": "CVE-2026-10703",
-      "summary": "A security vulnerability has been detected in EIPStackGroup OpENer up to 2.3.0. Affected is the function CreateMessageRouterRequestStructure of the file cipmessagerouter.c of the component SendRRData Handler. The manipulation leads to use after free. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-06-03T02:16:15.660",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10703"
+      "id": "CVE-2025-14774",
+      "summary": "Incorrect Authorization vulnerability in ABB T-MAC Plus.\n\nThis issue affects T-MAC Plus: 4.0-24.",
+      "published": "2026-06-03T11:16:19.090",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14774"
     },
     {
-      "id": "CVE-2026-9516",
-      "summary": "Cpanel::JSON::XS versions before 4.41 for Perl allow denial of service via UTF-8 BOM prefixed input when a decode filter callback throws.\n\nTo skip a leading 3-byte UTF-8 BOM, decode_json() advances the input scalar's string pointer past the mark with SvPV_set() and restores it only on the normal return path. When decoding aborts through a Perl exception, for example a filter_json_object callback that croaks, the restore is skipped and the scalar is left with its string pointer offset into its own buffer and a shortened length.\n\nWhen that scalar is later freed, the allocator receives an invalid pointer and the interpreter aborts. A single BOM prefixed document decoded with a throwing filter callback crashes any caller.",
-      "published": "2026-06-03T01:16:23.430",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9516"
+      "id": "CVE-2025-14773",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in ABB T-MAC Plus.\n\nThis issue affects T-MAC Plus: 4.0-24.",
+      "published": "2026-06-03T11:16:18.940",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14773"
     }
   ]
 }
