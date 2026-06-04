@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-04T17:21:11+00:00",
+  "generated_at": "2026-06-04T20:22:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-50266",
-      "summary": "In OpenStack Neutron before 28.0.1, a project manager can create or update a port on a shared network owned by another project and set device_owner to a value that has \"network:\" at the beginning (\"network:dhcp\" for example). The default port RBAC policies incorrectly included PROJECT_MANAGER without requiring network ownership, allowing any project manager to obtain trusted network-service port behavior on shared networks. Depending on backend and deployment, this can bypass anti-spoofing and security group protections, enabling DHCP, MAC, or IP spoofing against other tenants on the shared network. This is a regression of CVE-2015-5240 (OSSA-2015-018).",
-      "published": "2026-06-04T17:16:33.517",
-      "cvss": 2.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50266"
+      "id": "CVE-2026-5589",
+      "summary": "An integer underflow in bt_mesh_sol_recv() in the Bluetooth Mesh solicitation handling (subsys/bluetooth/mesh/solicitation.c) leads to an out-of-bounds write. When CONFIG_BT_MESH_OD_PRIV_PROXY_SRV is enabled, the function parses solicitation PDUs from raw BLE advertising payloads. The AD parsing loop reads an attacker-controlled length byte (reported_len) and computes reported_len - 3 without checking that reported_len >= 3. When reported_len is less than 3, the subtraction is performed in signed int arithmetic and yields a negative value that bypasses the length guard and is then implicitly converted to a very large size_t when passed to net_buf_simple_pull_mem(). In builds without assertions, this wraps the buffer length and advances the data pointer far out of bounds, so subsequent reads dereference invalid memory. A nearby BLE device can trigger this with a non-connectable advertisement carrying a UUID16 AD structure and a crafted length byte, with no pairing or prior association required, potentially leading to denial of service or arbitrary code execution.",
+      "published": "2026-06-04T20:16:58.540",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5589"
     },
     {
-      "id": "CVE-2026-50076",
-      "summary": "Deserialization of Untrusted Data in the Java replace-resolve path in Apache Fory fory-core Java SDK before 1.1.0 on Java/JVM platforms allows a remote attacker to bypass class registration, TypeChecker, and DisallowedList checks and invoke classpath-present readResolve/readExternal hooks via crafted Fory serialized data.\n\nUsers are recommended to upgrade to version 1.1.0 or later, which fixes this issue.",
-      "published": "2026-06-04T17:16:33.390",
+      "id": "CVE-2026-41522",
+      "summary": "Iris is a web collaborative platform that helps incident responders share technical details during investigations. Prior to version 2.4.28, DFIR-IRIS exposes an optional GraphQL endpoint at `/graphql` that does not enforce the same authorization checks as the REST API. Any authenticated user can abuse it in three ways: unauthorized IOC read across cases (IDOR), bulk IOC disclosure via `case.iocs`. The `case(caseId: \u2026).iocs` resolver returns IOCs linked to an arbitrary case without verifying the caller has access to that case, and unauthorized case creation. All three are reachable by any authenticated user, regardless of role or case ACL. This is fixed in v2.4.28. The GraphQL blueprint, resolvers, and dependencies (`graphene`, `graphene-sqlalchemy`, `graphql-server[flask]`) were removed entirely, since the feature was not in use. As a workaround, block `/graphql` at the reverse proxy (recommended) or comment out the `graphql_blueprint` import and `register_blueprint` call in `source/app/views.py` and restart.",
+      "published": "2026-06-04T20:16:58.140",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50076"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41522"
     },
     {
-      "id": "CVE-2026-49942",
-      "summary": "Net::CIDR::Set versions through 0.20 for Perl did not validate network masks.\n\nThe mask portion of a network mask could contain Unicode digits such as the Arabic-Indic One (U+0661), or non-digits, which were ignored.   This could allow network masks to accept larger networks.\n\nLeading zeros were also accepted, but treated as decimal instead of octal.  This could lead to confusion about what networks are acceptable.",
-      "published": "2026-06-04T17:16:33.283",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49942"
+      "id": "CVE-2026-41518",
+      "summary": "Chartbrew is an open-source web application that can connect directly to databases and APIs and use the data to create charts. In versions 4.9.0 through 5.0.0, an authenticated user with project-editor permissions can store arbitrary HTML/JavaScript in the `ChartDatasetConfig.legend` field. The payload is persisted verbatim in the database, propagated through the Chart.js rendering pipeline, and injected into the tooltip DOM element via an unguarded `innerHTML` assignment in `ChartTooltip.js`. Every unauthenticated viewer of the public dashboard triggers JavaScript execution on page load \u2014 no hover interaction is required. Browser-based Playwright verification confirmed `alert('localhost')` fires immediately and `<img src=\"x\" onerror=\"alert(document.domain)\">` is present in the `#chartjs-tooltip` DOM element. Version 5.0.1 contains a fix.",
+      "published": "2026-06-04T20:16:57.960",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41518"
     },
     {
-      "id": "CVE-2026-49941",
-      "summary": "Net::CIDR::Set versions through 0.20 for Perl did not validate IP addresses.\n\nThe add method called the _encode method to parse addresses. If the addresses did not look like netmasks or network ranges, then they were assumed to single IP addresses and passed back to itself as a 32-bit or 128-bit netmask.\n\nIf the argument was not a well-formed IP address, then this would lead to indefinite recursion.\n\nAn attacker could use this to cause a denial of service.",
-      "published": "2026-06-04T17:16:33.173",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49941"
+      "id": "CVE-2026-41249",
+      "summary": "CoreShop is a Pimcore enhanced eCommerce solution. In versions 5.0.1 through 5.1.0-beta.1,, the GitHub Actions workflow (`.github/workflows/static.yml`) uses the `pull_request_target` trigger but dangerously checks out the unverified code from the pull request head (`ref: ${{ github.event.pull_request.head.ref }}`). Subsequently, it executes a script (`bin/console`) from this untrusted checkout. This allows any external attacker to achieve Remote Code Execution (RCE) on the GitHub Actions runner simply by submitting a malicious Pull Request. Also known as a \"Pwn Request\" vulnerability. As of time of publication, `pull_request_target` is still in the file.",
+      "published": "2026-06-04T20:16:57.797",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41249"
     },
     {
-      "id": "CVE-2026-49940",
-      "summary": "Net::CIDR::Set versions through 0.20 for Perl accept non-ASCII IP addresses and netmasks.\n\nUnicode digits such as the Arabic-Indic One (U+0661) were accepted but not properly parsed as numbers.  This could allow network masks to accept larger networks.",
-      "published": "2026-06-04T17:16:33.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49940"
+      "id": "CVE-2026-21404",
+      "summary": "NAVTOR NavBox through version 4.16.1.20 contains hard-coded credentials within its Windows Communication Foundation (SOAP) implementation. If the SOAP functionality is enabled, a local attacker can extract credentials to bypass the intended transfer workflow. Successful authentication against the SOAP interface grants access to privileged WCF methods, enabling an attacker to write or overwrite files within application-defined paths.",
+      "published": "2026-06-04T20:16:57.083",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21404"
     },
     {
-      "id": "CVE-2026-46741",
-      "summary": "Etsy::StatsD versions through 1.002002 for Perl allow metric injections.\n\nThe metric names and values are not checked for newlines, colons or pipes. Metrics generated from untrusted sources could inject additional statsd metrics.\n\nNote that the git repository contains an unreleased version with the gauge and set methods that also do not check for potential metric injections.",
-      "published": "2026-06-04T17:16:32.790",
+      "id": "CVE-2026-48480",
+      "summary": "The netty incubator codec.bhttp is a java language binary http parser. Prior to version 0.0.22.FInal, the codec-ohttp implementation of draft-ietf-ohai-chunked-ohttp does not verify that a cryptographically-signed final chunk was received before the outer HTTP body terminates. An on-path adversary (the OHTTP relay itself, or any MITM on the relay\u2194gateway or relay\u2194client transport) can forward a prefix of a legitimate chunked-OHTTP message\u2014cut at a non-final chunk boundary\u2014and close the outer body cleanly, producing no decryption error and no exception in the receiving application. Version 0.0.22.Final fixes the issue.",
+      "published": "2026-06-04T19:16:30.253",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46741"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48480"
     }
   ]
 }
