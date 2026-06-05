@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-05T16:37:54+00:00",
+  "generated_at": "2026-06-05T19:06:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9270",
-      "summary": "DataDog::DogStatsd versions through 0.07 for Perl allow metric injections.\n\nDataDog::DogStatsd does not properly sanitise input, allowing metric injections of data from untrusted sources.\n\nThe send_stats method does not remove newlines from metric names ($stat variable), allowing attackers to change the metric name prefix.\n\nThe send_stats method does not validate the content of the value ($delta variable), allowing attackers to inject metrics, especially from methods that do not restrict the data type for the value, such as set, gauge, count and histogram.\n\nThe send_stats method does not validate the content of the tags, which may contain newlines, pipes and colons that allow metric injections.\n\nNote that the SYNOPSIS shows an example of passing a website form \"loginName\" parameter as a tag, which is unsafe.",
-      "published": "2026-06-05T16:16:41.780",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9270"
+      "id": "CVE-2026-50733",
+      "summary": "Markdown Preview Enhanced before 0.8.28 parses WaveDrom diagrams by evaluating untrusted markdown content with eval(), allowing arbitrary JavaScript execution. The flaw affects every render path - the live preview (window.eval) and presentation mode plus HTML export (the bundled WaveDrom.ProcessAll()/eva() helpers) - and can also be triggered through a <script type=\"WaveDrom\"> element injected via raw HTML in markdown. When a victim previews or exports a crafted markdown document, an attacker can execute arbitrary code, leading to arbitrary file write. Fixed in 0.8.28 by parsing with JSON5.parse() and sanitizing WaveDrom data scripts to inert strict JSON.",
+      "published": "2026-06-05T18:17:34.050",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50733"
     },
     {
-      "id": "CVE-2026-48102",
-      "summary": "7-Zip is a file archiver with a high compression ratio. Versions 9.11 through 26.00 contain a heap out-of-bounds read of up to 3 bytes in the UDF disc image handler's File Identifier Descriptor parser. In CFileId::Parse (CPP/7zip/Archive/Udf/UdfIn.cpp), after validating size < 38 + idLen + impLen and advancing processed to 38 + impLen + idLen, the alignment-padding loop reads p[processed] while incrementing up to 3 times to reach a 4-byte boundary, and the processed <= size bounds check only runs after the loop. When (38 + impLen + idLen) % 4 != 0 and 38 + impLen + idLen == size, the loop reads 1 to 3 bytes past the end of the exact-size heap buffer allocated via buf.Alloc((size_t)item.Size). The UDF handler is registered for .iso and .udf files and auto-detected by signature, and the OOB read triggers during Open() when listing or extracting a crafted UDF image. Impact is limited to information disclosure (a 1-bit oracle per OOB byte via open/fail behavior) and denial of service (crash under hardened allocators); there is no write primitive. Version 26.01 fixes the issue.",
-      "published": "2026-06-05T16:16:41.593",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48102"
+      "id": "CVE-2026-49493",
+      "summary": "Markdown Preview Enhanced before 0.8.28 parses Bitfield fenced code blocks with interpretJS(), which evaluates the block content as code via vm.runInNewContext(), allowing arbitrary code execution. A crafted markdown document containing a malicious bitfield code block executes attacker-controlled code on the server side when the document is rendered or exported. Fixed in 0.8.28 by parsing bitfield register definitions with JSON5.parse(), since they are purely data.",
+      "published": "2026-06-05T18:17:33.723",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49493"
     },
     {
-      "id": "CVE-2026-48101",
-      "summary": "7-Zip is a file archiver with a high compression ratio. Versions 9.21 through 26.00 contain an An uninitialized memory disclosure vulnerability in the UEFI capsule (.scap) parser in 7-Zip. The OpenCapsule function allocates a heap buffer of attacker-declared CapsuleImageSize (up to 1 GiB) without zero-initialization, then reads the file contents into it with ReadStream_FALSE whose return value is silently discarded. If the file is truncated, the unread tail of the buffer retains uninitialized heap memory, which is then exposed as extracted file content via GetStream. Version 26.0.1 fixes the issue.",
-      "published": "2026-06-05T16:16:41.423",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48101"
+      "id": "CVE-2026-49492",
+      "summary": "Markdown Preview Enhanced before 0.8.28 opens external files and links from the preview through a shell and does not validate untrusted inputs taken from the markdown document - the diagram filename attribute, imported file paths, and the latex_engine code-chunk attribute. On Windows, a crafted markdown document can inject operating system commands that execute when the document is previewed. Fixed in 0.8.28 by passing these inputs as literal arguments instead of through a shell and validating them before use.",
+      "published": "2026-06-05T18:17:33.377",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49492"
     },
     {
-      "id": "CVE-2026-11362",
-      "summary": "DataDog::DogStatsd versions through 0.07 for Perl allow metric injections from event tags.\n\nDataDog::DogStatsd does not properly sanitise input, allowing metric injections of data from untrusted sources.\n\nThe format_event method (used by the event method) does not validate the content of the tags, which may contain commas (allowing tags to be injected) or newlines, pipes and colons that allow metric injections.  (There is an ineffective s/|//g to remove pipes, but because the pipe is not escaped, it is interpreted as a regular expression metacharacter and has no effect.)",
-      "published": "2026-06-05T16:16:41.277",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11362"
+      "id": "CVE-2026-45750",
+      "summary": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to version 2.3.2, the GET /ssh/file_manager/ssh/resolvePath endpoint in the Termix File Manager component unsafely processes the path parameter and embeds it into a shell command executed over the active SSH session. Because the user-controlled value is placed inside double quotes and only double quotes are escaped, shell command substitution syntax such as $(...) is still interpreted by the remote shell. Version 2.3.2 fixes the issue.",
+      "published": "2026-06-05T18:17:32.463",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45750"
     },
     {
-      "id": "CVE-2026-11336",
-      "summary": "A vulnerability has been found in tittuvarghese CollegeManagementSystem 3e476335cfbfb9a049e09f474c7ec885f69a9df3/a38852979f7e27ae67b610dce5979500ef8ebe01. Affected is an unknown function of the file dashboard_page/admin_page.php of the component Admin Interface. The manipulation of the argument UserAuthData leads to improper authorization. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-06-05T16:16:41.077",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11336"
+      "id": "CVE-2026-45749",
+      "summary": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. The `POST /users/totp/disable` and `POST /users/totp/backup-codes` endpoints in Termix prior to version 2.3.2 accept the account password as a sole authentication factor for MFA-critical operations. An attacker who obtains a user's password (phishing, credential stuffing, the passwordHash leak in GHSA-xxxx) can disable TOTP entirely or regenerate backup codes, without ever possessing the TOTP device or knowing a valid TOTP code. This renders two-factor authentication ineffective. Version 2.3.2 patches the issue.",
+      "published": "2026-06-05T18:17:31.720",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45749"
     },
     {
-      "id": "CVE-2026-6209",
-      "summary": "Improper Access Control, Missing Authorization vulnerability in HAVELSAN Inc. Geographic Tracking System allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Geographic Tracking System: before v0.0.2.",
-      "published": "2026-06-05T15:16:53.977",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6209"
+      "id": "CVE-2026-45748",
+      "summary": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. The `POST /ssh/tunnel/connect` endpoint in Termix prior to version 2.3.2 builds an SSH tunnel command by interpolating user-controlled host record fields (`endpointIP`, `endpointUsername`, `password`) directly into a shell command without escaping, allowing persistent OS command injection on the source SSH host. Version 2.3.2 patches the issue.",
+      "published": "2026-06-05T18:17:31.000",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45748"
     }
   ]
 }
