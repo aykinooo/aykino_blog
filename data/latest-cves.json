@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-05T19:06:01+00:00",
+  "generated_at": "2026-06-05T20:54:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-50733",
-      "summary": "Markdown Preview Enhanced before 0.8.28 parses WaveDrom diagrams by evaluating untrusted markdown content with eval(), allowing arbitrary JavaScript execution. The flaw affects every render path - the live preview (window.eval) and presentation mode plus HTML export (the bundled WaveDrom.ProcessAll()/eva() helpers) - and can also be triggered through a <script type=\"WaveDrom\"> element injected via raw HTML in markdown. When a victim previews or exports a crafted markdown document, an attacker can execute arbitrary code, leading to arbitrary file write. Fixed in 0.8.28 by parsing with JSON5.parse() and sanitizing WaveDrom data scripts to inert strict JSON.",
-      "published": "2026-06-05T18:17:34.050",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50733"
+      "id": "CVE-2026-46493",
+      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Versions prior to 26.0.1 use `uniqid` for generating salts, which is unsuitable. Version 26.0.1 fixes the issue.",
+      "published": "2026-06-05T20:17:34.490",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46493"
     },
     {
-      "id": "CVE-2026-49493",
-      "summary": "Markdown Preview Enhanced before 0.8.28 parses Bitfield fenced code blocks with interpretJS(), which evaluates the block content as code via vm.runInNewContext(), allowing arbitrary code execution. A crafted markdown document containing a malicious bitfield code block executes attacker-controlled code on the server side when the document is rendered or exported. Fixed in 0.8.28 by parsing bitfield register definitions with JSON5.parse(), since they are purely data.",
-      "published": "2026-06-05T18:17:33.723",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49493"
+      "id": "CVE-2026-46401",
+      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Versions prior to 26.0.0 suffer from an improper session termination vulnerability where authentication tokens remain valid after user logout. This allows attackers who obtain valid tokens to maintain persistent access to authenticated CMS functionality, bypassing the intended session termination mechanism and enabling unauthorized access to CMS metadata and administrative functions. Version 26.0.0 fixes the issue.",
+      "published": "2026-06-05T20:17:34.247",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46401"
     },
     {
-      "id": "CVE-2026-49492",
-      "summary": "Markdown Preview Enhanced before 0.8.28 opens external files and links from the preview through a shell and does not validate untrusted inputs taken from the markdown document - the diagram filename attribute, imported file paths, and the latex_engine code-chunk attribute. On Windows, a crafted markdown document can inject operating system commands that execute when the document is previewed. Fixed in 0.8.28 by passing these inputs as literal arguments instead of through a shell and validating them before use.",
-      "published": "2026-06-05T18:17:33.377",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49492"
+      "id": "CVE-2026-46400",
+      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Starting in version 11.0.6 and prior to version 25.0.0, the file upload functionality in HAXCMS PHP only validates file extensions using a regex pattern without checking the actual file content or MIME type. This allows attackers to upload malicious files (e.g., PHP webshells) disguised as legitimate image files, potentially leading to remote code execution. Version 25.0.0 contains a fix for the issue.",
+      "published": "2026-06-05T20:17:34.073",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46400"
     },
     {
-      "id": "CVE-2026-45750",
-      "summary": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. Prior to version 2.3.2, the GET /ssh/file_manager/ssh/resolvePath endpoint in the Termix File Manager component unsafely processes the path parameter and embeds it into a shell command executed over the active SSH session. Because the user-controlled value is placed inside double quotes and only double quotes are escaped, shell command substitution syntax such as $(...) is still interpreted by the remote shell. Version 2.3.2 fixes the issue.",
-      "published": "2026-06-05T18:17:32.463",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45750"
+      "id": "CVE-2026-46398",
+      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Starting in version 25.0.0 and prior to version 26.0.0, the haxcms_refresh_token cookie is set without the Secure flag. This allows it to be transmitted over unencrypted HTTP, making it vulnerable to theft via packet sniffing on the network. Version 26.0.0 fixes the issue.",
+      "published": "2026-06-05T20:17:33.910",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46398"
     },
     {
-      "id": "CVE-2026-45749",
-      "summary": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. The `POST /users/totp/disable` and `POST /users/totp/backup-codes` endpoints in Termix prior to version 2.3.2 accept the account password as a sole authentication factor for MFA-critical operations. An attacker who obtains a user's password (phishing, credential stuffing, the passwordHash leak in GHSA-xxxx) can disable TOTP entirely or regenerate backup codes, without ever possessing the TOTP device or knowing a valid TOTP code. This renders two-factor authentication ineffective. Version 2.3.2 patches the issue.",
-      "published": "2026-06-05T18:17:31.720",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45749"
+      "id": "CVE-2026-46397",
+      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Prior to version 26.0.0, an Authenticated Local File Inclusion (LFI) vulnerability in the HAXCMS saveOutline endpoint allows a low-privileged user to read arbitrary files on the server by manipulating the location field written into site.json. This enables attackers to exfiltrate sensitive system files such as /etc/passwd, application secrets, or configuration files accessible to the web server (www-data). Version 26.0.0 patches the issue.",
+      "published": "2026-06-05T20:17:33.747",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46397"
     },
     {
-      "id": "CVE-2026-45748",
-      "summary": "Termix is a web-based server management platform with SSH terminal, tunneling, and file editing capabilities. The `POST /ssh/tunnel/connect` endpoint in Termix prior to version 2.3.2 builds an SSH tunnel command by interpolating user-controlled host record fields (`endpointIP`, `endpointUsername`, `password`) directly into a shell command without escaping, allowing persistent OS command injection on the source SSH host. Version 2.3.2 patches the issue.",
-      "published": "2026-06-05T18:17:31.000",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45748"
+      "id": "CVE-2026-46357",
+      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Prior to version 26.0.0, the HAX CMS NodeJS application crashes when an authenticated attacker sends a specially crafted site creation request to the createSite endpoint. A single request is sufficient to take the entire application offline, requiring a manual server restart to restore service. Version 26.0.0 fixes the issue.",
+      "published": "2026-06-05T20:17:33.190",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46357"
     }
   ]
 }
