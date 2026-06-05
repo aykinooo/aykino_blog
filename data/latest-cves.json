@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-05T20:54:31+00:00",
+  "generated_at": "2026-06-05T22:34:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-46493",
-      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Versions prior to 26.0.1 use `uniqid` for generating salts, which is unsuitable. Version 26.0.1 fixes the issue.",
-      "published": "2026-06-05T20:17:34.490",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46493"
-    },
-    {
-      "id": "CVE-2026-46401",
-      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Versions prior to 26.0.0 suffer from an improper session termination vulnerability where authentication tokens remain valid after user logout. This allows attackers who obtain valid tokens to maintain persistent access to authenticated CMS functionality, bypassing the intended session termination mechanism and enabling unauthorized access to CMS metadata and administrative functions. Version 26.0.0 fixes the issue.",
-      "published": "2026-06-05T20:17:34.247",
+      "id": "CVE-2026-11431",
+      "summary": "A path traversal vulnerability exists in the Projects Service download endpoint shared by Altium Enterprise Server and Altium 365. An authenticated user can supply a crafted path parameter that bypasses validation, allowing arbitrary files (including entire directories returned as archives) to be read from the server filesystem.\n\n\n\n\nBecause the readable files include service configuration and credential material, exploitation can be used to gather information enabling further compromise. The issue can be combined with CVE-2026-11424 to reach the cloud-side endpoint. On multi-tenant Altium 365 deployments, the readable configuration could have exposed credentials shared across services. Altium Enterprise Server is fixed in 8.1.1; the issue has been remediated in Altium 365 at the service level.",
+      "published": "2026-06-05T22:16:47.650",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46401"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11431"
     },
     {
-      "id": "CVE-2026-46400",
-      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Starting in version 11.0.6 and prior to version 25.0.0, the file upload functionality in HAXCMS PHP only validates file extensions using a regex pattern without checking the actual file content or MIME type. This allows attackers to upload malicious files (e.g., PHP webshells) disguised as legitimate image files, potentially leading to remote code execution. Version 25.0.0 contains a fix for the issue.",
-      "published": "2026-06-05T20:17:34.073",
+      "id": "CVE-2026-11429",
+      "summary": "A path traversal vulnerability exists in the Git Service component shared by Altium Enterprise Server and Altium 365. The service accepts a sequence of post-clone file-manipulation operations that use user-supplied paths without validation, allowing an authenticated user with basic git access to move arbitrary files outside the intended repository area.\n\n\n\n\nThis file-move primitive can be used to place attacker-controlled script content into directories where it is later executed by the service, resulting in remote code execution under the Git Service account. On multi-tenant Altium 365 deployments, this could have allowed access to data belonging to other tenants on the same infrastructure node. Altium Enterprise Server is fixed in 8.1.1; the issue has been remediated in Altium 365 at the service level.",
+      "published": "2026-06-05T22:16:47.503",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46400"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11429"
     },
     {
-      "id": "CVE-2026-46398",
-      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Starting in version 25.0.0 and prior to version 26.0.0, the haxcms_refresh_token cookie is set without the Secure flag. This allows it to be transmitted over unencrypted HTTP, making it vulnerable to theft via packet sniffing on the network. Version 26.0.0 fixes the issue.",
-      "published": "2026-06-05T20:17:33.910",
+      "id": "CVE-2026-11424",
+      "summary": "A server-side request forgery (SSRF) vulnerability exists in a GraphQL service component shared by Altium Enterprise Server and Altium 365. An authenticated user can submit a request whose input is treated as a URL by the server and used to issue an outbound HTTP GET request without URL validation or destination filtering. The response body is then returned to the user.\n\n\n\n\nThis allows an authenticated attacker to reach internal services and metadata endpoints that would not otherwise be accessible from the public network, and to retrieve their contents. The impact is information disclosure and internal infrastructure reconnaissance; the request primitive is limited to HTTP GET with no custom headers. Altium Enterprise Server is fixed in 8.1.1; the issue has been remediated in Altium 365 at the service level.",
+      "published": "2026-06-05T22:16:47.330",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46398"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11424"
     },
     {
-      "id": "CVE-2026-46397",
-      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Prior to version 26.0.0, an Authenticated Local File Inclusion (LFI) vulnerability in the HAXCMS saveOutline endpoint allows a low-privileged user to read arbitrary files on the server by manipulating the location field written into site.json. This enables attackers to exfiltrate sensitive system files such as /etc/passwd, application secrets, or configuration files accessible to the web server (www-data). Version 26.0.0 patches the issue.",
-      "published": "2026-06-05T20:17:33.747",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46397"
+      "id": "CVE-2026-11416",
+      "summary": "MoviePilot contains a path traversal vulnerability in the AliPan, U115, and Rclone cloud storage download handlers where the local destination path is constructed by concatenating the configured download directory with a filename taken directly from remote cloud API metadata without basename normalization or path validation. An attacker who controls a filename returned by a remote cloud storage API can include traversal sequences ../ in the filename to cause downloaded content to be written outside the configured download directory, potentially overwriting arbitrary files including configuration or plugin files reachable by the application process.",
+      "published": "2026-06-05T22:16:47.127",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11416"
     },
     {
-      "id": "CVE-2026-46357",
-      "summary": "HAX CMS helps manage microsite universe with PHP or NodeJs backends. Prior to version 26.0.0, the HAX CMS NodeJS application crashes when an authenticated attacker sends a specially crafted site creation request to the createSite endpoint. A single request is sufficient to take the entire application offline, requiring a manual server restart to restore service. Version 26.0.0 fixes the issue.",
-      "published": "2026-06-05T20:17:33.190",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46357"
+      "id": "CVE-2026-36785",
+      "summary": "Shenzhen Tenda Technology Co., Ltd Tenda FH451 V1.0.0.9 was discovered to contain a stack overflow in the page parameter of the fromDhcpListClient function. This vulnerability allows attackers to cause a Denial of Service (DoS) via a crafted HTTP request.",
+      "published": "2026-06-05T21:16:30.223",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36785"
+    },
+    {
+      "id": "CVE-2026-11423",
+      "summary": "A path traversal vulnerability exists in the Altium Enterprise Server Collaboration Service due to improper handling of user-supplied filenames in the MCAD and Simulation file download flows. A regular authenticated user can submit a collaboration message containing a crafted filename, which is later used to construct the download path on the server without validation, allowing arbitrary files to be read from the server filesystem.\n\n\n\n\nBecause the readable files include the server's master configuration, which stores credentials for privileged accounts, exploitation can lead to authenticating as a system administrator and gaining full control of the server. Altium 365 cloud deployments are not affected.",
+      "published": "2026-06-05T21:16:29.353",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11423"
     }
   ]
 }
