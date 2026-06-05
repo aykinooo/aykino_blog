@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-05T13:25:26+00:00",
+  "generated_at": "2026-06-05T16:37:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-11329",
-      "summary": "A vulnerability has been found in onnx onnx-mlir up to 0.5.0.0. Affected by this issue is the function generate_hash_key of the file src/Runtime/python/torch_onnxmlir/src/torch_onnxmlir/backend.py of the component Placeholder Node Cache Handler. Such manipulation leads to use of weak hash. An attack has to be approached locally. A high complexity level is associated with this attack. The exploitation is known to be difficult. The name of the patch is 72c5187ff6d13c2c2b3d3789b8f5faf99f08a5b4. Applying a patch is advised to resolve this issue.",
-      "published": "2026-06-05T13:16:38.343",
-      "cvss": 3.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11329"
+      "id": "CVE-2026-9270",
+      "summary": "DataDog::DogStatsd versions through 0.07 for Perl allow metric injections.\n\nDataDog::DogStatsd does not properly sanitise input, allowing metric injections of data from untrusted sources.\n\nThe send_stats method does not remove newlines from metric names ($stat variable), allowing attackers to change the metric name prefix.\n\nThe send_stats method does not validate the content of the value ($delta variable), allowing attackers to inject metrics, especially from methods that do not restrict the data type for the value, such as set, gauge, count and histogram.\n\nThe send_stats method does not validate the content of the tags, which may contain newlines, pipes and colons that allow metric injections.\n\nNote that the SYNOPSIS shows an example of passing a website form \"loginName\" parameter as a tag, which is unsafe.",
+      "published": "2026-06-05T16:16:41.780",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9270"
     },
     {
-      "id": "CVE-2026-50264",
-      "summary": "An out-of-bounds write flaw was found in the X.Org X server and Xwayland in DRIGetBuffers/DRIGetBuffersWithFormat. A client that requests multiple DRI2BufferBackLeft attachments and one DRI2BufferFrontLeft can trigger an out-of-bounds heap write. This may be used to crash the server, or for privilege escalation if the X server runs as root.",
-      "published": "2026-06-05T12:16:40.080",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50264"
+      "id": "CVE-2026-48102",
+      "summary": "7-Zip is a file archiver with a high compression ratio. Versions 9.11 through 26.00 contain a heap out-of-bounds read of up to 3 bytes in the UDF disc image handler's File Identifier Descriptor parser. In CFileId::Parse (CPP/7zip/Archive/Udf/UdfIn.cpp), after validating size < 38 + idLen + impLen and advancing processed to 38 + impLen + idLen, the alignment-padding loop reads p[processed] while incrementing up to 3 times to reach a 4-byte boundary, and the processed <= size bounds check only runs after the loop. When (38 + impLen + idLen) % 4 != 0 and 38 + impLen + idLen == size, the loop reads 1 to 3 bytes past the end of the exact-size heap buffer allocated via buf.Alloc((size_t)item.Size). The UDF handler is registered for .iso and .udf files and auto-detected by signature, and the OOB read triggers during Open() when listing or extracting a crafted UDF image. Impact is limited to information disclosure (a 1-bit oracle per OOB byte via open/fail behavior) and denial of service (crash under hardened allocators); there is no write primitive. Version 26.01 fixes the issue.",
+      "published": "2026-06-05T16:16:41.593",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48102"
     },
     {
-      "id": "CVE-2026-50263",
-      "summary": "A use-after-free flaw was found in the X.Org X server and Xwayland in CreateSaverWindow(). A client can trigger a use-after-free read after changing window attributes and forcing the screen saver, leading to information disclosure.",
-      "published": "2026-06-05T12:16:39.927",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50263"
+      "id": "CVE-2026-48101",
+      "summary": "7-Zip is a file archiver with a high compression ratio. Versions 9.21 through 26.00 contain an An uninitialized memory disclosure vulnerability in the UEFI capsule (.scap) parser in 7-Zip. The OpenCapsule function allocates a heap buffer of attacker-declared CapsuleImageSize (up to 1 GiB) without zero-initialization, then reads the file contents into it with ReadStream_FALSE whose return value is silently discarded. If the file is truncated, the unread tail of the buffer retains uninitialized heap memory, which is then exposed as extracted file content via GetStream. Version 26.0.1 fixes the issue.",
+      "published": "2026-06-05T16:16:41.423",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48101"
     },
     {
-      "id": "CVE-2026-50262",
-      "summary": "An out-of-bounds read flaw was found in the X.Org X server and Xwayland in __glXDisp_ChangeDrawableAttributes(). A wrong size validation check can read a client-controlled number of bytes, exceeding the request buffer, leading to information disclosure. A write path also exists but requires byte-swapped clients which is disabled by default.",
-      "published": "2026-06-05T12:16:39.770",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50262"
+      "id": "CVE-2026-11362",
+      "summary": "DataDog::DogStatsd versions through 0.07 for Perl allow metric injections from event tags.\n\nDataDog::DogStatsd does not properly sanitise input, allowing metric injections of data from untrusted sources.\n\nThe format_event method (used by the event method) does not validate the content of the tags, which may contain commas (allowing tags to be injected) or newlines, pipes and colons that allow metric injections.  (There is an ineffective s/|//g to remove pipes, but because the pipe is not escaped, it is interpreted as a regular expression metacharacter and has no effect.)",
+      "published": "2026-06-05T16:16:41.277",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11362"
     },
     {
-      "id": "CVE-2026-50261",
-      "summary": "A use-after-free flaw was found in the X.Org X server and Xwayland in SyncChangeCounter(). A client that sets up multiple SyncCounters can trigger a use-after-free when destroying those counters via a second client connection while changing those counters. This may be used to crash the server, or for privilege escalation if the X server runs as root.",
-      "published": "2026-06-05T12:16:39.617",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50261"
+      "id": "CVE-2026-11336",
+      "summary": "A vulnerability has been found in tittuvarghese CollegeManagementSystem 3e476335cfbfb9a049e09f474c7ec885f69a9df3/a38852979f7e27ae67b610dce5979500ef8ebe01. Affected is an unknown function of the file dashboard_page/admin_page.php of the component Admin Interface. The manipulation of the argument UserAuthData leads to improper authorization. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-06-05T16:16:41.077",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11336"
     },
     {
-      "id": "CVE-2026-50260",
-      "summary": "A use-after-free flaw was found in the X.Org X server and Xwayland in FreeCounter(). A client that sets up multiple SyncCounters and awaits on those triggers can trigger a use-after-free when destroying those counters via a second client connection. This may be used to crash the server, or for privilege escalation if the X server runs as root.",
-      "published": "2026-06-05T12:16:39.430",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50260"
+      "id": "CVE-2026-6209",
+      "summary": "Improper Access Control, Missing Authorization vulnerability in HAVELSAN Inc. Geographic Tracking System allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Geographic Tracking System: before v0.0.2.",
+      "published": "2026-06-05T15:16:53.977",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6209"
     }
   ]
 }
