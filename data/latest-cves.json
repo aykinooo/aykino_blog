@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-06-06T10:19:58+00:00",
+  "generated_at": "2026-06-06T12:16:13+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-11412",
+      "summary": "A weakness has been identified in Jinher OA C6. The affected element is an unknown function of the file /C6/JHSoft.Web.ModuleCount/GetFormSn.aspx. Executing a manipulation of the argument queryID can lead to sql injection. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-06-06T11:16:49.273",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11412"
+    },
+    {
+      "id": "CVE-2026-11411",
+      "summary": "A security flaw has been discovered in iAI Lab PDF AI App 4.21.0 on Android. Impacted is the function getExternalCacheDir of the component chatpdf.pro. Performing a manipulation of the argument _display_name results in path traversal. The attack requires a local approach. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-06-06T11:16:49.110",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11411"
+    },
+    {
+      "id": "CVE-2026-11408",
+      "summary": "A vulnerability was identified in vertex-app vertex up to 2026.02.12. This issue affects some unknown processing of the file app/model/LogMod.js of the component Log Viewer Endpoint. Such manipulation of the argument req.query leads to os command injection. The attack can be executed remotely. The exploit is publicly available and might be used. The name of the patch is 805d82e7100d49b79b3beb1b9420e8e458987198. It is best practice to apply a patch to resolve this issue.",
+      "published": "2026-06-06T11:16:48.347",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11408"
+    },
     {
       "id": "CVE-2026-11406",
       "summary": "A vulnerability was determined in GL.iNet MT3000 up to 4.4.5. This vulnerability affects unknown code of the file ovpnclient.sh of the component OpenVPN Client Import Workflow. This manipulation causes command injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. Upgrading to version 4.9.0_beta3-1012-0513-1778656146 is able to resolve this issue. You should upgrade the affected component. The vendor confirms: \"This issue has been addressed by implementing malicious checks on OpenVPN configuration files to prevent command injection attacks carried through malicious configuration files.\"",
@@ -22,27 +43,6 @@
       "published": "2026-06-06T05:16:30.047",
       "cvss": 7.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9851"
-    },
-    {
-      "id": "CVE-2026-9829",
-      "summary": "The Photo Gallery by 10Web \u2013 Mobile-Friendly Image Gallery plugin for WordPress is vulnerable to time-based SQL Injection via 'compact_album_order_by' Shortcode Parameter in all versions up to, and including, 1.8.41 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with contributor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The malicious payload is stored via the 'shortcode_bwg' AJAX handler \u2014 accessible to Contributor-level users and exploitable without a valid nonce by omitting the 'page' parameter \u2014 and is subsequently triggered by the unauthenticated 'bwg_frontend_data' AJAX handler, meaning successful exploitation requires only that an attacker has Contributor-level access to save the shortcode.",
-      "published": "2026-06-06T05:16:29.917",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9829"
-    },
-    {
-      "id": "CVE-2026-9594",
-      "summary": "The WP Maps \u2013 Google Maps,OpenStreetMap,Mapbox,Store Locator,Listing,Directory & Filters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'location_messages' parameter in all versions up to, and including, 4.9.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with administrator-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacker to hold the custom wpgmp_manage_location capability, which is granted to administrators by default but can be assigned to lower-privileged roles via the plugin's Permissions screen.",
-      "published": "2026-06-06T05:16:29.787",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9594"
-    },
-    {
-      "id": "CVE-2026-9016",
-      "summary": "The Debug Log Manager \u2013 Conveniently Monitor and Inspect Errors plugin for WordPress is vulnerable to Improper Output Neutralization for Logs in all versions up to, and including, 2.5.0. This is due to the `log_js_errors()` AJAX handler being registered for unauthenticated users via `wp_ajax_nopriv_log_js_errors` and gated only by a nonce that is publicly disclosed in every front-end page's HTML through `wp_localize_script()` whenever JavaScript error logging is enabled, providing no real authorization barrier. This makes it possible for unauthenticated attackers to inject arbitrary forged entries into the site's WordPress debug log by supplying attacker-controlled values for the `message`, `script`, `lineNo`, `columnNo`, and `pageUrl` fields \u2014 enabling spoofing of error and incident records, obscuring malicious activity within fabricated log noise, and misleading administrators who rely on the log for triage. This vulnerability is only exploitable when the plugin's JavaScript error logging feature is enabled, as the requisite nonce is only published into the page HTML under that condition.",
-      "published": "2026-06-06T05:16:29.657",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9016"
     }
   ]
 }
