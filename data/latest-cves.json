@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-06-06T08:01:28+00:00",
+  "generated_at": "2026-06-06T10:19:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-11406",
+      "summary": "A vulnerability was determined in GL.iNet MT3000 up to 4.4.5. This vulnerability affects unknown code of the file ovpnclient.sh of the component OpenVPN Client Import Workflow. This manipulation causes command injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. Upgrading to version 4.9.0_beta3-1012-0513-1778656146 is able to resolve this issue. You should upgrade the affected component. The vendor confirms: \"This issue has been addressed by implementing malicious checks on OpenVPN configuration files to prevent command injection attacks carried through malicious configuration files.\"",
+      "published": "2026-06-06T10:16:27.017",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11406"
+    },
+    {
+      "id": "CVE-2026-10725",
+      "summary": "Protocol::HTTP2 versions through 1.12 for Perl is vulnerable to a HTTP/2 Bomb.\n\nProtocol::HTTP2's inbound HPACK path has no header-list size limit, so a small HTTP/2 request can expand into large server memory (the \"HTTP/2 bomb\").\n\nThe headers_decode method materialises a full key+value copy per indexed reference with no running size check, and the stream_header_block_add method appends (since version 1.12) every CONTINUATION frame to the per-stream buffer unbounded.\n\nMAX_HEADER_LIST_SIZE (default 65536) is advertised in SETTINGS but never consulted on decode.  It is absent from the decoder and from the :limits export tag.",
+      "published": "2026-06-06T10:16:25.790",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10725"
+    },
     {
       "id": "CVE-2026-9851",
       "summary": "The Booking Package plugin for WordPress is vulnerable to Privilege Escalation via Account Takeover in versions up to, and including, 1.7.16. This is due to a missing capability check on the 'updateUser' branch of the package_app_action AJAX endpoint, where the handler only validates a nonce and the dispatcher invokes Schedule::updateUser() with the $administrator argument hard-coded to 1, bypassing the only owner-restriction check inside that function and allowing the target user to be determined solely by attacker-supplied input passed directly to wp_update_user(). This makes it possible for authenticated attackers, with Editor-level access and above, to change the email address and password of any account, including Administrator accounts, resulting in a full site takeover.",
@@ -29,20 +43,6 @@
       "published": "2026-06-06T05:16:29.657",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9016"
-    },
-    {
-      "id": "CVE-2026-8839",
-      "summary": "The MapPress Maps for WordPress plugin for WordPress is vulnerable to Authorization Bypass Through User-Controlled Key in all versions up to, and including, 2.96.6. This is due to missing ownership verification in the REST API routes registered via `Mappress_Api::rest_api_init()`, where the GET `/wp-json/mapp/v1/maps/{mapid}` endpoint uses `'permission_callback' => '__return_true'` and the write endpoints (POST update, DELETE, PATCH mutate, POST clone, POST empty_trash) only check the generic `edit_posts` capability without confirming that the requester owns the targeted map \u2014 a gap that is not compensated at the model layer, as `Mappress_Map::get()`, `save()`, `delete()`, `mutate()`, and `empty_trash()` all operate on any caller-supplied map ID without an ownership check. This makes it possible for unauthenticated attackers to read sensitive map data \u2014 including POI titles, addresses, coordinates, and body content \u2014 for any map on the site by enumerating map IDs, and for authenticated attackers with Contributor-level access and above to modify, delete, trash/restore, or clone any map regardless of its author.",
-      "published": "2026-06-06T05:16:29.510",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8839"
-    },
-    {
-      "id": "CVE-2026-8611",
-      "summary": "The Klamra Paycal for Aspaclaria plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 1.1.4 via the 'invoice_id' parameter due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with subscriber-level access and above, to download arbitrary customer invoices by enumerating sequential post IDs, exposing sensitive billing PII including full name, email address, phone number, order total, line items, and customer notes belonging to other customers.",
-      "published": "2026-06-06T05:16:29.383",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8611"
     }
   ]
 }
