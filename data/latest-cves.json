@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-06-07T11:15:24+00:00",
+  "generated_at": "2026-06-07T14:18:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-49494",
+      "summary": "Comodo Internet Security's firewall driver Inspect.sys contains an integer underflow in its IPv6 packet parser. The parser decrements an unsigned 64-bit payload-length value (taken from the IPv6 fixed header's payload length field) by the size of each IPv6 extension header without validating it, so a packet whose declared payload length is smaller than the sum of its extension-header lengths underflows the value to a near-maximal 64-bit integer. Because IPv6 parsing occurs before firewall rule enforcement, a remote, unauthenticated attacker can send a single crafted IPv6 packet - even to a host with all ports blocked - to trigger an out-of-bounds read (and, on a separate code path, an oversized memcpy) in the Windows kernel at DISPATCH_LEVEL, crashing the system (BSOD).",
+      "published": "2026-06-07T13:16:20.927",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49494"
+    },
     {
       "id": "CVE-2026-11459",
       "summary": "A security vulnerability has been detected in SecureAge CatchPulse up to 10.9.1. Impacted is an unknown function in the library saappctl.sys of the component IOCTL Handler. The manipulation leads to information disclosure. Local access is required to approach this attack. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -36,13 +43,6 @@
       "published": "2026-06-07T09:16:20.403",
       "cvss": 5.0,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11455"
-    },
-    {
-      "id": "CVE-2026-11453",
-      "summary": "A vulnerability was found in Tiobon Employee Self-Service System up to 7.2. Affected by this vulnerability is an unknown functionality of the file /Blog/BlogSearch.aspx of the component Login Endpoint. The manipulation of the argument Keyword results in sql injection. The attack can be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-06-07T04:16:30.147",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11453"
     }
   ]
 }
