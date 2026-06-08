@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-06-08T22:00:10+00:00",
+  "generated_at": "2026-06-08T23:34:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-9669",
+      "summary": "bz2.BZ2Decompressor objects could be reused after a decompression error. If an application caught the resulting OSError and retried with the same decompressor, crafted input could cause the decompressor to resume from an invalid internal state and perform out-of-bounds writes to a stack buffer. This could crash the process when processing untrusted data.",
+      "published": "2026-06-08T23:17:25.170",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9669"
+    },
     {
       "id": "CVE-2026-44541",
       "summary": "Fides is an open-source privacy engineering platform. From version 2.33.0 to before version 2.84.5, there is a DOM-based XSS vulnerability in fides.js via the fides_description override. This issue has been patched in version 2.84.5.",
@@ -36,13 +43,6 @@
       "published": "2026-06-08T20:17:01.743",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47345"
-    },
-    {
-      "id": "CVE-2026-47344",
-      "summary": "When ALLOW_INSECURE_RAW_TEXT is enabled, whitespace-variant closing tags (e.g., </style\\t>) are not recognized by the sanitizer but accepted by browsers as valid end tags, allowing subsequent content to escape sanitization. This allows bypassing the cross-site scripting prevention mechanism of typo3/html-sanitizer before version 2.3.2.",
-      "published": "2026-06-08T20:17:01.587",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47344"
     }
   ]
 }
