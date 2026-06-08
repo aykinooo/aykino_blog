@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-08T11:19:06+00:00",
+  "generated_at": "2026-06-08T16:17:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9506",
-      "summary": "This vulnerability exists in Bagisto due to improper validation of user-supplied input in the ImageCacheController component. An unauthenticated remote attacker could exploit this vulnerability by sending crafted path traversal sequences through the filename parameter to access arbitrary files outside the intended directory on the targeted system.\n\n\n\nSuccessful exploitation of this vulnerability could allow an attacker to read arbitrary sensitive files on the targeted system.",
-      "published": "2026-06-08T10:16:33.203",
+      "id": "CVE-2026-49975",
+      "summary": "Memory Allocation with Excessive Size Value vulnerability in Apache HTTP Server's mod_http leads to denial of service via malicious HTTP requests.\n\nThis issue affects Apache HTTP Server: from 2.4.17 through 2.4.67.",
+      "published": "2026-06-08T16:16:44.223",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9506"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49975"
     },
     {
-      "id": "CVE-2026-11503",
-      "summary": "A security vulnerability has been detected in Tenda CX12L 16.03.53.12. The affected element is the function form_fast_setting_wifi_set of the file /goform/fast_setting_wifi_set of the component Wi-Fi Configuration Endpoint. Such manipulation of the argument ssid leads to stack-based buffer overflow. The attack can be launched remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-06-08T10:16:32.927",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11503"
+      "id": "CVE-2026-49756",
+      "summary": "Improper Neutralization of CRLF Sequences ('CRLF Injection') vulnerability in wojtekmach Req allows multipart parameter smuggling via attacker-influenced part metadata.\n\nReq.Utils.encode_form_part/2 in lib/req/utils.ex builds the per-part headers by interpolating the caller-supplied name, filename, and content_type values directly into the content-disposition and content-type lines with no escaping or CRLF stripping. A value containing \", \\r, or \\n closes the surrounding quoted value and starts a new header line; an additional \\r\\n--<boundary> terminates the current part and prepends a smuggled part of the attacker's choosing.\n\nThis is reachable through every supported way of supplying a part. It is particularly easy when value is a %File.Stream{}, because filename then defaults to Path.basename(stream.path) and POSIX filenames may legitimately contain \\r and \\n. Any application that forwards user-controlled filenames (or field names / MIME types) through Req.post/2 with form_multipart: lets an attacker inject arbitrary headers into the outgoing multipart body or smuggle additional fields and parts into the request the victim service sends downstream.\n\nThis issue affects req: from 0.5.3 before 0.6.0.",
+      "published": "2026-06-08T16:16:44.040",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49756"
     },
     {
-      "id": "CVE-2026-11502",
-      "summary": "A weakness has been identified in JeecgBoot up to 3.9.2. Impacted is the function HttpServletResponse.sendRedirect of the file jeecg-module-system/jeecg-system-biz/src/main/java/org/jeecg/modules/system/controller/ThirdLoginController.java of the component Third-Party Login. This manipulation of the argument state causes open redirect. The attack can be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is considered difficult. The exploit has been made available to the public and could be used for attacks. The project replied: \"After evaluation, this vulnerability has low exploitability in real-world scenarios: 1) Exploiting this vulnerability requires attackers to use social engineering techniques to induce victims to actively click on an OAuth login link constructed by the attacker; it cannot be triggered passively. 2) Third-party login (DingTalk/WeChat, etc.) is an optional feature and may not be enabled in most projects.\"",
-      "published": "2026-06-08T10:16:32.770",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11502"
+      "id": "CVE-2026-49755",
+      "summary": "Improper Handling of Highly Compressed Data (Data Amplification) vulnerability in wojtekmach Req allows attacker-controlled HTTP servers to exhaust memory in a Req client via decompression-bomb response bodies.\n\nReq's default response pipeline includes Req.Steps.decode_body/1 and Req.Steps.decompress_body/1 in lib/req/steps.ex. decode_body/1 dispatches on the server-supplied content-type (or URL extension) and calls :zip.extract(body, [:memory]) for application/zip, :erl_tar.extract({:binary, body}, [:memory]) for application/x-tar, and :erl_tar.extract({:binary, body}, [:memory, :compressed]) for application/gzip / .tgz. Each returns the full decompressed archive contents as a [{name, bytes}] list in memory, with no per-entry or total size cap. decompress_body/1 walks the content-encoding header and chains :zlib/:brotli/:ezstd decoders, so a response advertising content-encoding: gzip, gzip, gzip inflates through multiple layers without bound.\n\nBoth steps are enabled by default, no caller opt-in is required, and the attacker controls the content-type and content-encoding headers on their own server (or on any host reached via Req's automatic redirect following). A sub-megabyte response can expand to multiple gigabytes on the victim, crashing the BEAM process.\n\nThis issue affects req: from 0.1.0 before 0.6.1.",
+      "published": "2026-06-08T16:16:43.860",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49755"
     },
     {
-      "id": "CVE-2026-11501",
-      "summary": "A security flaw has been discovered in SourceCodester Hospitals Patient Records Management System 1.0. This issue affects some unknown processing of the file /classes/Master.php?f=save_patient. The manipulation of the argument ID results in sql injection. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-06-08T10:16:32.613",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11501"
+      "id": "CVE-2026-48913",
+      "summary": "Use After Free vulnerability in Apache HTTP Server module mod_http2 when file handles are already exhausted.\n\nThis issue affects Apache HTTP Server: from 2.4.55 through 2.4.67.",
+      "published": "2026-06-08T16:16:43.390",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48913"
     },
     {
-      "id": "CVE-2026-11500",
-      "summary": "A vulnerability was identified in Weaviate up to 1.37.7. This vulnerability affects the function validateConfig of the file usecases/auth/authentication/apikey/client.go of the component Static API Key Handler. The manipulation of the argument StaticApiKey leads to authorization bypass. It is possible to initiate the attack remotely. The complexity of an attack is rather high. It is stated that the exploitability is difficult. The exploit is publicly available and might be used. Upgrading to version 1.38.0-rc.0 is able to resolve this issue. The identifier of the patch is 40f2cc32279f0f8a51016c3c6870a2c0c808e6c0. You should upgrade the affected component.",
-      "published": "2026-06-08T10:16:32.320",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11500"
+      "id": "CVE-2026-48488",
+      "summary": "phpMyFAQ is an open source FAQ web application. Prior to version 4.1.4, attachment passwords are hashed using SHA-1, a cryptographically broken algorithm. SHA-1 has been vulnerable to collision attacks since 2017 (SHAttered). Version 4.1.4 fixes the issue.",
+      "published": "2026-06-08T16:16:43.227",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48488"
     },
     {
-      "id": "CVE-2026-41724",
-      "summary": "VMware Cloud Foundation Operations contains multiple stored cross-site scripting vulnerabilities.A malicious actor with privileges to create policies, views or text-widgets may be able to inject scripts to perform administrative actions in VMware Cloud Foundation Operations.",
-      "published": "2026-06-08T09:16:30.693",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41724"
+      "id": "CVE-2026-46657",
+      "summary": "Bludit is a content management system. Versions prior to 3.22.0 have a vulnerability in the user management logic that allows deactivated accounts to maintain access via persistent authentication tokens. When an administrator disables a user account, the application fails to invalidate or clear the associated tokenAuth and tokenRemember fields in the JSON database. Consequently, any user with a pre-existing \"Remember Me\" cookie can bypass the account disablement and maintain a valid authenticated state. Version 3.22.0 patches the issue.",
+      "published": "2026-06-08T16:16:43.033",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46657"
     }
   ]
 }
