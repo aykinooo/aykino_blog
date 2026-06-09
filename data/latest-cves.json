@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-09T18:19:48+00:00",
+  "generated_at": "2026-06-09T21:07:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-50636",
-      "summary": "The RemoteControl API methods invite_participants and remind_participants pass a caller-supplied token-ID array into TokenDynamic::findUninvited(), which concatenates the values directly into a tid IN ('...') SQL clause without parameterization or input validation. A remote, authenticated attacker holding the tokens/update permission on a survey can inject a crafted array element to perform SQL injection. Because LimeSurvey configures its PDO connection with emulated prepared statements (emulatePrepare = true) and does not disable MySQL multi-statements, the injection supports stacked queries: the attacker can append arbitrary additional statements (INSERT/UPDATE/DELETE/DROP/CREATE) after the original SELECT. This permits both arbitrary read of any data in the database, such as administrator bcrypt password hashes (lime_users), survey response PII, session records, and global settings, all recoverable via a SLEEP() time-based blind oracle, and arbitrary write/destruction of that data, including directly overwriting the administrator password hash for immediate account takeover or dropping/truncating tables. Reads and writes extend to any schema the application's database user can access. The RemoteControl interface (RPCInterface = json/xml) must be enabled, which is not the default.",
-      "published": "2026-06-09T18:17:10.620",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50636"
+      "id": "CVE-2026-6445",
+      "summary": "A flaw exists in FlashArray Purity where insufficient filtering of certain data paths could expose sensitive information to an authenticated user with low privileges.",
+      "published": "2026-06-09T20:17:02.800",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6445"
     },
     {
-      "id": "CVE-2026-50635",
-      "summary": "LimeSurvey constructs account password-reset links from the client-supplied HTTP Host header without validating it. The optional allowedHosts allowlist that would constrain this is undefined in the default (and documented) configuration, so LSHttpRequest::checkIsAllowedHost() results in no operation. A remote, unauthenticated attacker who submits a forgotten-password request for a known account (requiring only the target's username and email) with a spoofed Host header causes LimeSurvey to email that account a reset link whose hostname is attacker-controlled while embedding the genuine validation_key. When the recipient or an automated inbound mail-security link scanner dereferences the link, the valid reset token is disclosed to the attacker, who replays it against the legitimate host's newPassword endpoint to set a new password and take over the account.",
-      "published": "2026-06-09T18:17:10.273",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50635"
+      "id": "CVE-2026-6444",
+      "summary": "A flaw exists in the FlashArray Purity management interface where an authenticated low-privileged user may, under specific conditions, access functionality beyond their assigned privileges.",
+      "published": "2026-06-09T20:17:02.643",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6444"
     },
     {
-      "id": "CVE-2026-50512",
-      "summary": "Missing authentication for critical function in Microsoft PC Manager allows an authorized attacker to elevate privileges locally.",
-      "published": "2026-06-09T18:17:09.747",
+      "id": "CVE-2026-48306",
+      "summary": "Substance3D - Sampler versions 6.0.0 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "published": "2026-06-09T20:17:02.233",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50512"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48306"
     },
     {
-      "id": "CVE-2026-50511",
-      "summary": "Improper link resolution before file access ('link following') in Microsoft PC Manager allows an authorized attacker to elevate privileges locally.",
-      "published": "2026-06-09T18:17:06.520",
+      "id": "CVE-2026-48305",
+      "summary": "Substance3D - Sampler versions 6.0.0 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "published": "2026-06-09T20:17:01.597",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50511"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48305"
     },
     {
-      "id": "CVE-2026-48293",
-      "summary": "InDesign Desktop versions 21.3, 20.5.3 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-06-09T18:17:03.467",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48293"
-    },
-    {
-      "id": "CVE-2026-44275",
-      "summary": "Dell/Alienware Purchased Apps, versions prior to 1.1.32.0, contain an Improper Link Resolution Before File Access ('Link Following') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Arbitrary File Write",
-      "published": "2026-06-09T18:16:49.293",
+      "id": "CVE-2026-47910",
+      "summary": "Dreamweaver Desktop versions 21.7 and earlier are affected by an Incorrect Authorization vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploitation of this issue requires user interaction in that a victim must open a malicious file. Scope is changed.",
+      "published": "2026-06-09T20:17:00.177",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44275"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47910"
+    },
+    {
+      "id": "CVE-2026-47909",
+      "summary": "Dreamweaver Desktop versions 21.7 and earlier are affected by an Improper Input Validation vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploitation of this issue requires user interaction in that a victim must open a malicious file. Scope is changed.",
+      "published": "2026-06-09T20:17:00.050",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47909"
     }
   ]
 }
