@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-09T15:27:15+00:00",
+  "generated_at": "2026-06-09T18:19:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9279",
-      "summary": "Logseq exposes an IPC handler that allows the renderer process to execute shell commands. While an allowlist restricts the command name (e.g. `git`, `pandoc`, `grep`), the argument string is concatenated with the command and passed to `child_process.spawn` with the `shell: true` option, allowing shell metacharacters in the arguments to bypass the allowlist. An attacker with JavaScript execution in the renderer (e.g. via XSS or a malicious plugin) can execute arbitrary shell commands with the privileges of the Logseq process, leading to remote code execution on the host.\nWhile only version v0.10.15 was tested and confirmed as vulnerable, status of other versions is unknown since this issue was not addressed by a patch.",
-      "published": "2026-06-09T14:16:45.773",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9279"
+      "id": "CVE-2026-50636",
+      "summary": "The RemoteControl API methods invite_participants and remind_participants pass a caller-supplied token-ID array into TokenDynamic::findUninvited(), which concatenates the values directly into a tid IN ('...') SQL clause without parameterization or input validation. A remote, authenticated attacker holding the tokens/update permission on a survey can inject a crafted array element to perform SQL injection. Because LimeSurvey configures its PDO connection with emulated prepared statements (emulatePrepare = true) and does not disable MySQL multi-statements, the injection supports stacked queries: the attacker can append arbitrary additional statements (INSERT/UPDATE/DELETE/DROP/CREATE) after the original SELECT. This permits both arbitrary read of any data in the database, such as administrator bcrypt password hashes (lime_users), survey response PII, session records, and global settings, all recoverable via a SLEEP() time-based blind oracle, and arbitrary write/destruction of that data, including directly overwriting the administrator password hash for immediate account takeover or dropping/truncating tables. Reads and writes extend to any schema the application's database user can access. The RemoteControl interface (RPCInterface = json/xml) must be enabled, which is not the default.",
+      "published": "2026-06-09T18:17:10.620",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50636"
     },
     {
-      "id": "CVE-2026-7486",
-      "summary": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Netcad Software Inc. E-\u0130mar allows SQL Injection.\n\nThis issue affects E-\u0130mar: from 2.10.1.0 before 3.0.2.",
-      "published": "2026-06-09T14:16:45.407",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7486"
+      "id": "CVE-2026-50635",
+      "summary": "LimeSurvey constructs account password-reset links from the client-supplied HTTP Host header without validating it. The optional allowedHosts allowlist that would constrain this is undefined in the default (and documented) configuration, so LSHttpRequest::checkIsAllowedHost() results in no operation. A remote, unauthenticated attacker who submits a forgotten-password request for a known account (requiring only the target's username and email) with a spoofed Host header causes LimeSurvey to email that account a reset link whose hostname is attacker-controlled while embedding the genuine validation_key. When the recipient or an automated inbound mail-security link scanner dereferences the link, the valid reset token is disclosed to the attacker, who replays it against the legitimate host's newPassword endpoint to set a new password and take over the account.",
+      "published": "2026-06-09T18:17:10.273",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50635"
     },
     {
-      "id": "CVE-2026-52907",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: rockchip: rkcif: fix off by one bugs\n\nChange these comparisons from > vs >= to avoid accessing one element\nbeyond the end of the arrays.\nWhile at it, use ARRAY_SIZE instead of the _MAX enum values.\n\n[fix cosmetic issues]",
-      "published": "2026-06-09T14:16:45.147",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52907"
+      "id": "CVE-2026-50512",
+      "summary": "Missing authentication for critical function in Microsoft PC Manager allows an authorized attacker to elevate privileges locally.",
+      "published": "2026-06-09T18:17:09.747",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50512"
     },
     {
-      "id": "CVE-2026-52906",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\n9p: fix access mode flags being ORed instead of replaced\n\nSince commit 1f3e4142c0eb (\"9p: convert to the new mount API\"),\nv9fs_apply_options() applies parsed mount flags with |= onto flags\nalready set by v9fs_session_init(). For 9P2000.L, session_init sets\nV9FS_ACCESS_CLIENT as the default, so when the user mounts with\n\"access=user\", both bits end up set. Access mode checks compare\nagainst exact values, so having both bits set matches neither mode.\n\nThis causes v9fs_fid_lookup() to fall through to the default switch\ncase, using INVALID_UID (nobody/65534) instead of current_fsuid()\nfor all fid lookups. Root is then unable to chown or perform other\nprivileged operations.\n\nFix by clearing the access mask before applying the user's choice.",
-      "published": "2026-06-09T14:16:45.047",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52906"
+      "id": "CVE-2026-50511",
+      "summary": "Improper link resolution before file access ('link following') in Microsoft PC Manager allows an authorized attacker to elevate privileges locally.",
+      "published": "2026-06-09T18:17:06.520",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50511"
     },
     {
-      "id": "CVE-2026-52905",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/damon/core: disallow non-power of two min_region_sz on damon_start()\n\nCommit d8f867fa0825 (\"mm/damon: add damon_ctx->min_sz_region\") introduced\na bug that allows unaligned DAMON region address ranges.  Commit\nc80f46ac228b (\"mm/damon/core: disallow non-power of two min_region_sz\")\nfixed it, but only for damon_commit_ctx() use case.  Still, DAMON sysfs\ninterface can emit non-power of two min_region_sz via damon_start().  Fix\nthe path by adding the is_power_of_2() check on damon_start().\n\nThe issue was discovered by sashiko [1].",
-      "published": "2026-06-09T14:16:44.950",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52905"
+      "id": "CVE-2026-48293",
+      "summary": "InDesign Desktop versions 21.3, 20.5.3 and earlier are affected by an out-of-bounds write vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "published": "2026-06-09T18:17:03.467",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48293"
     },
     {
-      "id": "CVE-2026-52904",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/nouveau: fix nvkm_device leak on aperture removal failure\n\nWhen aperture_remove_conflicting_pci_devices() fails during probe, the\nerror path returns directly without unwinding the nvkm_device that was\njust allocated by nvkm_device_pci_new(). This leaks both the device\nwrapper and the pci_enable_device() reference taken inside it.\n\nJump to the existing fail_nvkm label so nvkm_device_del() runs and\nbalances both. The leak was introduced when the intermediate\nnvkm_device_del() between detection and aperture removal was dropped\nin favor of creating the pci device once.",
-      "published": "2026-06-09T14:16:44.830",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52904"
+      "id": "CVE-2026-44275",
+      "summary": "Dell/Alienware Purchased Apps, versions prior to 1.1.32.0, contain an Improper Link Resolution Before File Access ('Link Following') vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Arbitrary File Write",
+      "published": "2026-06-09T18:16:49.293",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44275"
     }
   ]
 }
