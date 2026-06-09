@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-09T12:14:04+00:00",
+  "generated_at": "2026-06-09T15:27:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-49742",
-      "summary": "Backend users with file download permissions were able to download files from the fallback storage of the file abstraction layer (FAL) via the Media Module. Since the fallback storage resolves paths relative to the server's document root, this could expose sensitive files such as log files. This issue affects TYPO3 CMS versions 11.0.0-11.5.50, 12.0.0-12.4.45, 13.0.0-13.4.30 and 14.0.0-14.3.2.",
-      "published": "2026-06-09T11:16:53.650",
+      "id": "CVE-2026-9279",
+      "summary": "Logseq exposes an IPC handler that allows the renderer process to execute shell commands. While an allowlist restricts the command name (e.g. `git`, `pandoc`, `grep`), the argument string is concatenated with the command and passed to `child_process.spawn` with the `shell: true` option, allowing shell metacharacters in the arguments to bypass the allowlist. An attacker with JavaScript execution in the renderer (e.g. via XSS or a malicious plugin) can execute arbitrary shell commands with the privileges of the Logseq process, leading to remote code execution on the host.\nWhile only version v0.10.15 was tested and confirmed as vulnerable, status of other versions is unknown since this issue was not addressed by a patch.",
+      "published": "2026-06-09T14:16:45.773",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49742"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9279"
     },
     {
-      "id": "CVE-2026-49741",
-      "summary": "Backend users with write access to the form_definition database table were able to directly create, update, or delete form definition records via DataHandler, bypassing the Form Framework's persistence validation and permission checks. This allowed injecting arbitrary form configurations, re-enabling attack vectors originally addressed in TYPO3-CORE-SA-2018-003, including SQL injection and privilege escalation. This issue affects TYPO3 CMS versions 14.0.0-14.3.3.",
-      "published": "2026-06-09T11:16:53.520",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49741"
+      "id": "CVE-2026-7486",
+      "summary": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Netcad Software Inc. E-\u0130mar allows SQL Injection.\n\nThis issue affects E-\u0130mar: from 2.10.1.0 before 3.0.2.",
+      "published": "2026-06-09T14:16:45.407",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7486"
     },
     {
-      "id": "CVE-2026-49740",
-      "summary": "TYPO3's cache frontend (VariableFrontend) and persistent key-value store (Registry) deserialized PHP payloads without integrity validation or class restrictions. An attacker with write access to the underlying storage backend (cache store or sys_registry database table) could inject a crafted serialized payload to trigger PHP Object Injection, potentially exploiting a gadget chain to achieve Remote Code Execution or other high-impact effects. Exploiting this vulnerability requires direct local write access to the storage, such as the SQL database or file system. This issue affects TYPO3 CMS versions before 10.4.57, 11.0.0-11.5.51, 12.0.0-12.4.46, 13.0.0-13.4.31 and 14.0.0-14.3.3.",
-      "published": "2026-06-09T11:16:53.380",
+      "id": "CVE-2026-52907",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: rockchip: rkcif: fix off by one bugs\n\nChange these comparisons from > vs >= to avoid accessing one element\nbeyond the end of the arrays.\nWhile at it, use ARRAY_SIZE instead of the _MAX enum values.\n\n[fix cosmetic issues]",
+      "published": "2026-06-09T14:16:45.147",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49740"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52907"
     },
     {
-      "id": "CVE-2026-49738",
-      "summary": "The path allowance check in GeneralUtility::isAllowedAbsPath() performed a plain string prefix comparison without requiring a directory separator boundary, causing a path like /var/www/html-other/secret.yaml to be incorrectly accepted as valid when the project root was /var/www/html. Administrator users with access to the File Abstraction Layer were able to create new file storage definitions pointing to directories outside the project root, bypassing this path check. This issue affects TYPO3 CMS versions before 10.4.57, 11.0.0-11.5.51, 12.0.0-12.4.46, 13.0.0-13.4.31 and 14.0.0-14.3.3.",
-      "published": "2026-06-09T11:16:53.247",
+      "id": "CVE-2026-52906",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\n9p: fix access mode flags being ORed instead of replaced\n\nSince commit 1f3e4142c0eb (\"9p: convert to the new mount API\"),\nv9fs_apply_options() applies parsed mount flags with |= onto flags\nalready set by v9fs_session_init(). For 9P2000.L, session_init sets\nV9FS_ACCESS_CLIENT as the default, so when the user mounts with\n\"access=user\", both bits end up set. Access mode checks compare\nagainst exact values, so having both bits set matches neither mode.\n\nThis causes v9fs_fid_lookup() to fall through to the default switch\ncase, using INVALID_UID (nobody/65534) instead of current_fsuid()\nfor all fid lookups. Root is then unable to chown or perform other\nprivileged operations.\n\nFix by clearing the access mask before applying the user's choice.",
+      "published": "2026-06-09T14:16:45.047",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49738"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52906"
     },
     {
-      "id": "CVE-2026-47352",
-      "summary": "Authenticated backend users were able to retrieve file metadata via several Backend API routes without proper permission checks, allowing access to files outside their permitted file mounts or storages. This issue affects TYPO3 CMS versions before 10.4.57, 11.0.0-11.5.51, 12.0.0-12.4.46, 13.0.0-13.4.31 and 14.0.0-14.3.3.",
-      "published": "2026-06-09T11:16:53.120",
+      "id": "CVE-2026-52905",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/damon/core: disallow non-power of two min_region_sz on damon_start()\n\nCommit d8f867fa0825 (\"mm/damon: add damon_ctx->min_sz_region\") introduced\na bug that allows unaligned DAMON region address ranges.  Commit\nc80f46ac228b (\"mm/damon/core: disallow non-power of two min_region_sz\")\nfixed it, but only for damon_commit_ctx() use case.  Still, DAMON sysfs\ninterface can emit non-power of two min_region_sz via damon_start().  Fix\nthe path by adding the is_power_of_2() check on damon_start().\n\nThe issue was discovered by sashiko [1].",
+      "published": "2026-06-09T14:16:44.950",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47352"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52905"
     },
     {
-      "id": "CVE-2026-47351",
-      "summary": "Backend users were able to insert arbitrary records and files into the TYPO3 clipboard without proper read permission checks, which allowed users to gather information about records and files they were not authorized to view. This issue affects TYPO3 CMS versions 10.4.0-13.4.30 and 14.0.0-14.3.2.",
-      "published": "2026-06-09T11:16:52.993",
+      "id": "CVE-2026-52904",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/nouveau: fix nvkm_device leak on aperture removal failure\n\nWhen aperture_remove_conflicting_pci_devices() fails during probe, the\nerror path returns directly without unwinding the nvkm_device that was\njust allocated by nvkm_device_pci_new(). This leaks both the device\nwrapper and the pci_enable_device() reference taken inside it.\n\nJump to the existing fail_nvkm label so nvkm_device_del() runs and\nbalances both. The leak was introduced when the intermediate\nnvkm_device_del() between detection and aperture removal was dropped\nin favor of creating the pci device once.",
+      "published": "2026-06-09T14:16:44.830",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47351"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52904"
     }
   ]
 }
