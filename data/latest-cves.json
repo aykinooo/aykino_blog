@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-10T18:08:12+00:00",
+  "generated_at": "2026-06-10T20:43:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-46616",
-      "summary": "Umbraco is an ASP.NET CMS. Prior to versions 13.14.0 and 17.4.0, some of the Surface Controllers in the CMS provide to support member related operations fail to validate redirect URLs, making Razor templates that derive 'RedirectUrl' from user-controlled query parameters vulnerable to malicious redirect attacks. This issue has been patched in versions 13.14.0 and 17.4.0.",
-      "published": "2026-06-10T17:16:37.387",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46616"
+      "id": "CVE-2026-6893",
+      "summary": "A flaw was found in dracut. A remote attacker on the adjacent network can exploit this vulnerability by providing specially crafted DHCP (Dynamic Host Configuration Protocol) options, such as a malicious hostname, to a system using dracut's legacy DHCP path. These options are improperly handled and written into temporary shell scripts without proper escaping, leading to command injection. This allows the attacker to achieve root code execution within the initramfs, potentially compromising the system's boot and network behavior.",
+      "published": "2026-06-10T20:17:29.807",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6893"
     },
     {
-      "id": "CVE-2026-46609",
-      "summary": "Umbraco is an ASP.NET CMS. From version 14.0.0 to before version 17.4.0, authenticated users are able to inject HTML into an input field, which is rendered in the confirmation dialog without proper output encoding. This issue has been patched in version 17.4.0.",
-      "published": "2026-06-10T17:16:37.123",
+      "id": "CVE-2026-50127",
+      "summary": "Weblate is a web based localization tool. From version 5.15 to before version 2026.6, Weblate's VCS_RESTRICT_PRIVATE did not properly account for some transitional IPv6 ranges, multicast addresses, or some semi-private IPv4 ranges, which allowed some addresses to bypass private range restrictions. This issue has been patched in version 2026.6.",
+      "published": "2026-06-10T20:17:29.427",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50127"
+    },
+    {
+      "id": "CVE-2026-46683",
+      "summary": "Snappy is a PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Prior to version 1.7.0, there is a SSRF and local file read vulnerability via the xsl-style-sheet option. This issue has been patched in version 1.7.0.",
+      "published": "2026-06-10T20:17:29.017",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46683"
+    },
+    {
+      "id": "CVE-2026-46643",
+      "summary": "Snappy is a PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Prior to version 1.7.1, on POSIX, escapeshellarg(\u2018/usr/bin/wkhtmltopdf\u2019) returns the literal string \u2018/usr/bin/wkhtmltopdf\u2019 with the single-quote characters included. is_executable() then looks for a file whose actual name contains those quote characters, which essentially never exists. The safe branch is dead code and $command always falls through to the raw, unescaped value. The rest of the arguments (options, input, output) are escaped correctly, so injection has to land in the binary string itself. That happens whenever the binary path is sourced from configuration that is user-influenced, derived from environment variables that ultimately come from request data, or concatenated with any user-controlled fragment. This issue has been patched in version 1.7.1.",
+      "published": "2026-06-10T20:17:28.880",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46643"
+    },
+    {
+      "id": "CVE-2026-46529",
+      "summary": "Atril Document Viewer is the default document reader of the MATE desktop environment for Linux. A single-click remote code execution vulnerability in versions prior to 1.26.3 and 1.28.4 allows an attacker to achieve arbitrary code execution as the user by tricking them into clicking a link inside a malicious PDF document. The PDF can be packaged as a polyglot file that is simultaneously a valid PDF and a valid ELF shared library, making the attack a single-file, single-click, configuration-independent RCE on stock atril installations. The root cause is `shell/ev-application.c:ev_spawn`, which builds a command line from attacker-controlled PDF link-destination fields without applying `g_shell_quote`. The cmdline is then handed to `g_app_info_create_from_commandline`, which shell-parses it back into argv \u2014 splitting any embedded `--gtk-module=PATH` into a separate argv element. GTK then `dlopen()`s the path during init, running any `__attribute__((constructor))` it finds. Versions 1.26.3 and 1.28.4 contain a patch for the issue. This is the same defect class as CVE-2023-51698 (CBT `--checkpoint-action` injection in `comics-document.c`, fixed in 1.6.2) but in a different code path (`shell/ev-application.c`) that the original patch did not touch.",
+      "published": "2026-06-10T20:17:28.570",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46529"
+    },
+    {
+      "id": "CVE-2026-45106",
+      "summary": "Weblate is a web based localization tool. Prior to version 2026.5, Weblate's live search preview renders unit source and context as HTML without escaping. Any contributor whose content reaches those fields stores HTML and CSS that runs inside the authenticated editor of every user who runs a matching search. This issue has been patched in version 2026.5.",
+      "published": "2026-06-10T20:17:27.220",
       "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46609"
-    },
-    {
-      "id": "CVE-2026-53698",
-      "summary": "Silverpeas through 6.4.6 mishandles the \"Personal space\" feature that is selected when no componentId is set.",
-      "published": "2026-06-10T16:17:17.240",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53698"
-    },
-    {
-      "id": "CVE-2026-53694",
-      "summary": "Improper Neutralization of Argument Delimiters in a Command ('Argument Injection') vulnerability in Nomachine allows Argument Injection.This issue affects Nomachine: before 9.5.7, before 8.23.2.",
-      "published": "2026-06-10T16:17:17.093",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53694"
-    },
-    {
-      "id": "CVE-2026-53693",
-      "summary": "A stored cross-site scripting vulnerability existed in MISP\u00a0BSimVis tag rendering code. Several client-side rendering paths interpolated tag names, collection names, entity identifiers, cluster names, and tag metadata directly into HTML, HTML attributes, inline JavaScript event handlers, and CSS style values without context-appropriate escaping. The patch adds shared escaping helpers for HTML, attributes, JavaScript strings, and CSS color validation, then applies them across tag badges, tooltips, context menus, cluster cards, autocomplete suggestions, and dynamically inserted tag cards.\n\nAn attacker able to create or influence stored tag or metadata values could inject a crafted payload that is later rendered in another user\u2019s browser. Successful exploitation could execute arbitrary JavaScript in the victim\u2019s session when they view affected BSimVis pages, potentially allowing the attacker to perform actions as the victim, read data available to the victim, or alter displayed application content.\n\n\n\nThis issue affects MISP bsimvis: through v0.2.0.",
-      "published": "2026-06-10T16:17:16.917",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53693"
-    },
-    {
-      "id": "CVE-2026-49760",
-      "summary": "Stack-based Buffer Overflow vulnerability in Erlang OTP (erl_interface) allows Stack-based Buffer Overflow.\n\nThis vulnerability is associated with program file lib/erl_interface/src/misc/ei_printterm.c and program routine ei_s_print_term.\n\nThe C function ei_s_print_term uses an internal 2000-character stack buffer to format terms. When called with an encoded Erlang term containing a very large integer (encoded representation exceeding 2000 characters), the buffer overflows. The overflow bytes are restricted to the ASCII values of 0-9 and A-F, which limits exploitation to Denial of Service.\n\nThe companion function ei_print_term, which prints directly to a FILE instead of a memory buffer, does not contain this bug.\n\nThis issue affects OTP from OTP 17.0 before 27.3.4.13, 28.5.0.2 and 29.0.2, corresponding to erl_interface from 3.7.16 before 5.5.2.1, 5.7.0.1 and 5.8.1.",
-      "published": "2026-06-10T16:17:12.947",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49760"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45106"
     }
   ]
 }
