@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-10T20:43:30+00:00",
+  "generated_at": "2026-06-10T22:55:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6893",
-      "summary": "A flaw was found in dracut. A remote attacker on the adjacent network can exploit this vulnerability by providing specially crafted DHCP (Dynamic Host Configuration Protocol) options, such as a malicious hostname, to a system using dracut's legacy DHCP path. These options are improperly handled and written into temporary shell scripts without proper escaping, leading to command injection. This allows the attacker to achieve root code execution within the initramfs, potentially compromising the system's boot and network behavior.",
-      "published": "2026-06-10T20:17:29.807",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6893"
+      "id": "CVE-2026-53742",
+      "summary": "Simple Link Directory through 9.0.4 echoes embed shortcode attributes into HTML data attributes without escaping in the embedder template. Attackers with contributor access can craft a shortcode attribute that injects an event handler executing in a viewer's browser.",
+      "published": "2026-06-10T22:17:02.640",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53742"
     },
     {
-      "id": "CVE-2026-50127",
-      "summary": "Weblate is a web based localization tool. From version 5.15 to before version 2026.6, Weblate's VCS_RESTRICT_PRIVATE did not properly account for some transitional IPv6 ranges, multicast addresses, or some semi-private IPv4 ranges, which allowed some addresses to bypass private range restrictions. This issue has been patched in version 2026.6.",
-      "published": "2026-06-10T20:17:29.427",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50127"
+      "id": "CVE-2026-53741",
+      "summary": "Simple Link Directory through 9.0.4 interpolates the sld_no_results_found option into a JavaScript string literal without encoding. Because sanitize_text_field leaves quotes intact, a stored payload breaks out of the string and runs script for every page visitor.",
+      "published": "2026-06-10T22:17:02.503",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53741"
     },
     {
-      "id": "CVE-2026-46683",
-      "summary": "Snappy is a PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Prior to version 1.7.0, there is a SSRF and local file read vulnerability via the xsl-style-sheet option. This issue has been patched in version 1.7.0.",
-      "published": "2026-06-10T20:17:29.017",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46683"
+      "id": "CVE-2026-53740",
+      "summary": "Yoast Duplicate Post through 4.6 inserts an unescaped post title and permalink into the Classic Editor scheduled republish notice. Attackers can schedule a republish copy with a crafted title to execute script when an administrator views the resulting notice.",
+      "published": "2026-06-10T22:17:02.367",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53740"
     },
     {
-      "id": "CVE-2026-46643",
-      "summary": "Snappy is a PHP library allowing thumbnail, snapshot or PDF generation from a url or a html page. Prior to version 1.7.1, on POSIX, escapeshellarg(\u2018/usr/bin/wkhtmltopdf\u2019) returns the literal string \u2018/usr/bin/wkhtmltopdf\u2019 with the single-quote characters included. is_executable() then looks for a file whose actual name contains those quote characters, which essentially never exists. The safe branch is dead code and $command always falls through to the raw, unescaped value. The rest of the arguments (options, input, output) are escaped correctly, so injection has to land in the binary string itself. That happens whenever the binary path is sourced from configuration that is user-influenced, derived from environment variables that ultimately come from request data, or concatenated with any user-controlled fragment. This issue has been patched in version 1.7.1.",
-      "published": "2026-06-10T20:17:28.880",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46643"
+      "id": "CVE-2026-53739",
+      "summary": "Yoast Duplicate Post through 4.6 contains a cross-site request forgery vulnerability in the duplicate_post_dismiss_notice handler, which verifies no nonce or capability. Attackers can trick any authenticated user into sending a request that sets the duplicate_post_show_notice site option, suppressing admin notices network-wide.",
+      "published": "2026-06-10T22:17:02.230",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53739"
     },
     {
-      "id": "CVE-2026-46529",
-      "summary": "Atril Document Viewer is the default document reader of the MATE desktop environment for Linux. A single-click remote code execution vulnerability in versions prior to 1.26.3 and 1.28.4 allows an attacker to achieve arbitrary code execution as the user by tricking them into clicking a link inside a malicious PDF document. The PDF can be packaged as a polyglot file that is simultaneously a valid PDF and a valid ELF shared library, making the attack a single-file, single-click, configuration-independent RCE on stock atril installations. The root cause is `shell/ev-application.c:ev_spawn`, which builds a command line from attacker-controlled PDF link-destination fields without applying `g_shell_quote`. The cmdline is then handed to `g_app_info_create_from_commandline`, which shell-parses it back into argv \u2014 splitting any embedded `--gtk-module=PATH` into a separate argv element. GTK then `dlopen()`s the path during init, running any `__attribute__((constructor))` it finds. Versions 1.26.3 and 1.28.4 contain a patch for the issue. This is the same defect class as CVE-2023-51698 (CBT `--checkpoint-action` injection in `comics-document.c`, fixed in 1.6.2) but in a different code path (`shell/ev-application.c`) that the original patch did not touch.",
-      "published": "2026-06-10T20:17:28.570",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46529"
+      "id": "CVE-2026-53738",
+      "summary": "Copy & Delete Posts through 1.5.4 lets any plugin-enabled non-admin role invoke every operation in the cdp_action_handling AJAX handler. Attackers with an enabled role can delete posts or overwrite plugin settings via the f parameter, bypassing per-function capability checks.",
+      "published": "2026-06-10T22:17:02.093",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53738"
     },
     {
-      "id": "CVE-2026-45106",
-      "summary": "Weblate is a web based localization tool. Prior to version 2026.5, Weblate's live search preview renders unit source and context as HTML without escaping. Any contributor whose content reaches those fields stores HTML and CSS that runs inside the authenticated editor of every user who runs a matching search. This issue has been patched in version 2026.5.",
-      "published": "2026-06-10T20:17:27.220",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45106"
+      "id": "CVE-2026-53737",
+      "summary": "Juicer through 1.12.18 fails to escape remote feed API response fields before rendering them on the admin settings page. Attackers controlling the connected feed data can inject script that executes in an administrator's browser when the settings page loads.",
+      "published": "2026-06-10T22:17:01.957",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53737"
     }
   ]
 }
