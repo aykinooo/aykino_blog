@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-11T16:19:11+00:00",
+  "generated_at": "2026-06-11T19:43:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9648",
-      "summary": "The crypton-x509-validation Haskell library fails to enforce X.509 NameConstraints, allowing TLS clients to accept certificates whose Subject Alternative Names fall outside the issuing CA\u2019s permitted subtrees. This oversight enables an attacker who compromises a name-constrained sub-CA to impersonate domains beyond its intended scope.",
-      "published": "2026-06-11T16:16:25.503",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9648"
-    },
-    {
-      "id": "CVE-2026-7870",
-      "summary": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a user to gain elevated privileges due to an unqualified library call. A malicious actor could cause user-controlled code to run with administrator privilege.",
-      "published": "2026-06-11T16:16:25.220",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7870"
-    },
-    {
-      "id": "CVE-2026-7787",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.9.1 could allow an authenticated user to read or modify sensitive information by bypassing authentication using insecure direct object references.",
-      "published": "2026-06-11T16:16:25.090",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7787"
-    },
-    {
-      "id": "CVE-2026-53777",
-      "summary": "Perry before 0.5.1159 contains a path traversal vulnerability that allows a malicious build server to write arbitrary content to any location writable by the running process by supplying unsanitized path components in the artifact_name field of ArtifactReady WebSocket messages. Attackers controlling the server URL can deliver traversal payloads through the artifact_name or download_path fields, causing the client to overwrite sensitive files or expose arbitrary local files to an attacker-accessible location.",
-      "published": "2026-06-11T16:16:24.873",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53777"
-    },
-    {
-      "id": "CVE-2026-4096",
-      "summary": "IBM DevOps Plan 3.0.0 through 3.0.6 is vulnerable to HTTP header injection, caused by improper validation of input by the HOST headers. This could allow an attacker to conduct various attacks against the vulnerable system, including cross-site scripting, cache poisoning or session hijacking",
-      "published": "2026-06-11T16:16:24.140",
+      "id": "CVE-2026-53702",
+      "summary": "A stack buffer overflow flaw was found in the GStreamer H.265 codec parser library (gst-plugins-bad). When parsing a buffering period SEI message, the parser uses an incorrect loop bound derived from cpb_cnt_minus1[i] (the loop index) instead of the sub-layer 0 CPB count cpb_cnt_minus1[0] from the referenced Sequence Parameter Set. A crafted H.265 video file or stream can cause the parser to write beyond the bounds of stack-allocated CPB delay arrays, resulting in a crash or potential stack memory corruption.",
+      "published": "2026-06-11T19:16:48.047",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4096"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53702"
     },
     {
-      "id": "CVE-2026-3341",
-      "summary": "IBM Langflow Desktop 1.0.0 through 1.9.2 IBM Langflow is vulnerable to server-side request forgery (SSRF). This may allow an authenticated attacker to send unauthorized requests from the system, potentially leading to network enumeration or facilitating other attacks.",
-      "published": "2026-06-11T16:16:22.770",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3341"
+      "id": "CVE-2026-53701",
+      "summary": "An out-of-bounds write vulnerability was found in GStreamer's H.266/VVC PPS picture partition parser in gst-plugins-bad. In the multi-slice-in-tile processing of gst_h266_parser_parse_picture_partition() (gsth266parser.c), the loop iterates without checking that the slice index stays within bounds, writing past three fixed-size arrays (slice_height_in_ctus, slice_top_left_ctu_x, slice_top_left_ctu_y) in the GstH266PPS structure. While the initial proof-of-concept demonstrated a 4-byte out-of-bounds write, the code permits larger writes across multiple iterations. A crafted H.266/VVC media file can trigger this vulnerability.",
+      "published": "2026-06-11T19:16:47.913",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53701"
+    },
+    {
+      "id": "CVE-2026-52860",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0597, Vim's Python omni-completion executes reconstructed function and class definitions from the current buffer with exec() as part of populating the completion dictionary. Python evaluates function default values, parameter annotations, and class base expressions at definition time, so a hostile buffer can execute attacker-controlled Python expressions during omni-completion. The existing g:pythoncomplete_allow_import mitigation (GHSA-52mc-rq6p-rc7c) does not cover this path, because the attacker-controlled code is not a harvested import/from statement. This issue has been patched in version 9.2.0597.",
+      "published": "2026-06-11T19:16:47.773",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52860"
+    },
+    {
+      "id": "CVE-2026-52859",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0565, the update_snapshot() function in src/terminal.c copies the visible terminal screen into the scrollback buffer when a snapshot is taken. For each screen cell it walks the cell's chars[] array with no upper bound, stopping only when it encounters a NUL terminator. When a cell legitimately fills all VTERM_MAX_CHARS_PER_CELL (6) slots \u2014 a base character plus five combining marks \u2014 the bundled libvterm returns the array without a terminating NUL, so the loop reads past the fixed six-element array and appends the out-of-bounds values to a buffer reserved for only six characters. A program whose output is rendered inside a :terminal window can trigger this with a short byte sequence and no Vim scripting, leading to a crash. This issue has been patched in version 9.2.0565.",
+      "published": "2026-06-11T19:16:47.627",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52859"
+    },
+    {
+      "id": "CVE-2026-52858",
+      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0561, the Python omni-completion script in python3complete.vim for Vim with the +python3 interpreter enabled (and the legacy pythoncomplete.vim for builds with the +python interpreter) executes the import and from statements found in the current buffer through Python's import machinery. Because the buffer's working directory is on sys.path, opening a hostile .py file with a sibling Python package and invoking omni-completion runs that package's top-level code as the editing user. This issue has been patched in version 9.2.0561.",
+      "published": "2026-06-11T19:16:47.487",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52858"
+    },
+    {
+      "id": "CVE-2026-48547",
+      "summary": "KanaDojo contains a command injection vulnerability that allows an attacker with pull request access to execute arbitrary shell commands by inserting shell metacharacters into the version or changes fields of patchNotesData.json, which are interpolated unsanitized into a child_process.execSync() call in the release.yml workflow. Attackers can have a malicious pull request merged to trigger the GitHub Actions runner with contents write permissions and access to GITHUB_TOKEN.",
+      "published": "2026-06-11T19:16:46.983",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48547"
     }
   ]
 }
