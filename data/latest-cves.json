@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-11T19:43:51+00:00",
+  "generated_at": "2026-06-11T22:14:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53702",
-      "summary": "A stack buffer overflow flaw was found in the GStreamer H.265 codec parser library (gst-plugins-bad). When parsing a buffering period SEI message, the parser uses an incorrect loop bound derived from cpb_cnt_minus1[i] (the loop index) instead of the sub-layer 0 CPB count cpb_cnt_minus1[0] from the referenced Sequence Parameter Set. A crafted H.265 video file or stream can cause the parser to write beyond the bounds of stack-allocated CPB delay arrays, resulting in a crash or potential stack memory corruption.",
-      "published": "2026-06-11T19:16:48.047",
+      "id": "CVE-2026-53819",
+      "summary": "OpenClaw before 2026.5.27 contains an arbitrary code execution vulnerability in skill install flows where workspace .env files can override the Homebrew executable selection. Attackers with access to trusted operator workspaces can execute unintended Homebrew-compatible executables during skill setup to compromise the system.",
+      "published": "2026-06-11T21:16:24.227",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53819"
+    },
+    {
+      "id": "CVE-2026-53818",
+      "summary": "OpenClaw before 2026.4.24 contains an authorization bypass vulnerability in the MCP loopback feature that allows non-owner callers to skip owner-only tool policies and before-tool-call hooks. Attackers can invoke owner-only behavior through the affected loopback path to execute restricted tools when the feature is enabled and reachable.",
+      "published": "2026-06-11T21:16:24.090",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53818"
+    },
+    {
+      "id": "CVE-2026-53817",
+      "summary": "OpenClaw before 2026.5.22 contains a locality validation vulnerability in Control UI pairing that allows attackers with network access to spoof locality information and obtain durable admin-capable device tokens. Attackers can exploit insufficient locality-derived trust validation to convert temporary shared access into persistent administrative credentials that survive token rotation.",
+      "published": "2026-06-11T21:16:23.960",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53817"
+    },
+    {
+      "id": "CVE-2026-53816",
+      "summary": "OpenClaw before 2026.5.18 contains an insufficient provenance validation vulnerability in node event handling that allows paired nodes to forge exec lifecycle events without system.run authorization. A malicious or compromised paired node can send crafted node.event messages to the gateway, steering target sessions into exec-event paths that expose capabilities the reduced node surface should not provide.",
+      "published": "2026-06-11T21:16:23.830",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53816"
+    },
+    {
+      "id": "CVE-2026-53815",
+      "summary": "OpenClaw before 2026.5.19 contains an authorization bypass vulnerability in message read actions that skips channel allowlist checks. Lower-trust callers can request messages from channels not intended for them by exploiting insufficient validation in the affected feature, potentially exposing sensitive channel messages.",
+      "published": "2026-06-11T21:16:23.697",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53702"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53815"
     },
     {
-      "id": "CVE-2026-53701",
-      "summary": "An out-of-bounds write vulnerability was found in GStreamer's H.266/VVC PPS picture partition parser in gst-plugins-bad. In the multi-slice-in-tile processing of gst_h266_parser_parse_picture_partition() (gsth266parser.c), the loop iterates without checking that the slice index stays within bounds, writing past three fixed-size arrays (slice_height_in_ctus, slice_top_left_ctu_x, slice_top_left_ctu_y) in the GstH266PPS structure. While the initial proof-of-concept demonstrated a 4-byte out-of-bounds write, the code permits larger writes across multiple iterations. A crafted H.266/VVC media file can trigger this vulnerability.",
-      "published": "2026-06-11T19:16:47.913",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53701"
-    },
-    {
-      "id": "CVE-2026-52860",
-      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0597, Vim's Python omni-completion executes reconstructed function and class definitions from the current buffer with exec() as part of populating the completion dictionary. Python evaluates function default values, parameter annotations, and class base expressions at definition time, so a hostile buffer can execute attacker-controlled Python expressions during omni-completion. The existing g:pythoncomplete_allow_import mitigation (GHSA-52mc-rq6p-rc7c) does not cover this path, because the attacker-controlled code is not a harvested import/from statement. This issue has been patched in version 9.2.0597.",
-      "published": "2026-06-11T19:16:47.773",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52860"
-    },
-    {
-      "id": "CVE-2026-52859",
-      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0565, the update_snapshot() function in src/terminal.c copies the visible terminal screen into the scrollback buffer when a snapshot is taken. For each screen cell it walks the cell's chars[] array with no upper bound, stopping only when it encounters a NUL terminator. When a cell legitimately fills all VTERM_MAX_CHARS_PER_CELL (6) slots \u2014 a base character plus five combining marks \u2014 the bundled libvterm returns the array without a terminating NUL, so the loop reads past the fixed six-element array and appends the out-of-bounds values to a buffer reserved for only six characters. A program whose output is rendered inside a :terminal window can trigger this with a short byte sequence and no Vim scripting, leading to a crash. This issue has been patched in version 9.2.0565.",
-      "published": "2026-06-11T19:16:47.627",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52859"
-    },
-    {
-      "id": "CVE-2026-52858",
-      "summary": "Vim is an open source, command line text editor. Prior to version 9.2.0561, the Python omni-completion script in python3complete.vim for Vim with the +python3 interpreter enabled (and the legacy pythoncomplete.vim for builds with the +python interpreter) executes the import and from statements found in the current buffer through Python's import machinery. Because the buffer's working directory is on sys.path, opening a hostile .py file with a sibling Python package and invoking omni-completion runs that package's top-level code as the editing user. This issue has been patched in version 9.2.0561.",
-      "published": "2026-06-11T19:16:47.487",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52858"
-    },
-    {
-      "id": "CVE-2026-48547",
-      "summary": "KanaDojo contains a command injection vulnerability that allows an attacker with pull request access to execute arbitrary shell commands by inserting shell metacharacters into the version or changes fields of patchNotesData.json, which are interpolated unsanitized into a child_process.execSync() call in the release.yml workflow. Attackers can have a malicious pull request merged to trigger the GitHub Actions runner with contents write permissions and access to GITHUB_TOKEN.",
-      "published": "2026-06-11T19:16:46.983",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48547"
+      "id": "CVE-2026-53814",
+      "summary": "OpenClaw before 2026.5.20 contains a privilege escalation vulnerability where hook-triggered agent runs incorrectly receive owner-scoped MCP loopback authority instead of hook-appropriate scope. Attackers with a valid hook token can exploit the /hooks/agent endpoint to cause spawned CLI runtimes to access or invoke owner-only MCP tools, potentially executing privileged actions like persistent cron state modifications.",
+      "published": "2026-06-11T21:16:23.570",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53814"
     }
   ]
 }
