@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-11T07:03:14+00:00",
+  "generated_at": "2026-06-11T11:46:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40985",
-      "summary": "Applications that configure the WebFlowELExpressionParser are vulnerable to the use of malicious Unified EL expressions.\n\nAffected versions:\nSpring Web Flow 4.0.0; 3.0.0 through 3.0.1; 2.5.0 through 2.5.1.",
-      "published": "2026-06-11T05:16:33.757",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40985"
+      "id": "CVE-2026-5497",
+      "summary": "vLLM versions 0.8.0 and later are vulnerable to an Out-of-Memory (OOM) Denial of Service (DoS) attack due to unbounded frame count processing in the `VideoMediaIO.load_base64()` method. When processing `video/jpeg` data URLs, the method splits the base64 data string on commas to extract individual JPEG frames without enforcing a frame count limit. An attacker can exploit this by crafting a single API request containing thousands of comma-separated base64-encoded JPEG frames in a data URL, causing the server to decode all frames into memory and crash due to excessive memory consumption. This vulnerability is reachable via the OpenAI-compatible chat completions API and does not require authentication.",
+      "published": "2026-06-11T10:16:21.903",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5497"
     },
     {
-      "id": "CVE-2026-35273",
-      "summary": "Vulnerability in the PeopleSoft Enterprise PeopleTools product of Oracle PeopleSoft (component: Updates Environment Management). Supported versions that are affected are 8.61 and 8.62. Easily exploitable vulnerability allows unauthenticated attacker with network access via HTTP to compromise PeopleSoft Enterprise PeopleTools. Successful attacks of this vulnerability can result in takeover of PeopleSoft Enterprise PeopleTools. CVSS 3.1 Base Score 9.8 (Confidentiality, Integrity and Availability impacts). CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H).",
-      "published": "2026-06-11T04:16:53.680",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35273"
+      "id": "CVE-2026-53911",
+      "summary": "Cerebrate before version 1.37 allowed the id primary key field to be supplied through request input during CRUD edit operations and certain custom entity patching flows. In affected entities that did not explicitly mark id as inaccessible, an authenticated attacker could submit a crafted edit request containing the id of another record, causing the save operation to update that unrelated record instead of the record identified by the route parameter. The issue affected several entity types inheriting permissive mass-assignment defaults, including User, Role, UserSetting, LocalTool, PermissionLimitation, and EnumerationCollection. Since UserSettings edit functionality was reachable by any authenticated user, exploitation could allow unauthorized modification of records within the same entity type, with impact depending on the affected endpoint and writable fields. Cerebrate 1.37 fixes this by stripping id from request input after marshalling callbacks and by globally marking id as inaccessible in the base AppModel entity.\n\nThe discovery of those potential vulnerabilities are inherited from initial finding from Jeroen Pinoy additional support from AI-Assisted Optus 4.8 (the commit wrongly assign Claude Fable 5 as the model switched) and coordinated by Andras Iklody.",
+      "published": "2026-06-11T10:16:21.757",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53911"
     },
     {
-      "id": "CVE-2026-2827",
-      "summary": "The Open User Map PRO plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'oum_location_notification' parameter in versions up to, and including, 1.4.31 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-06-11T02:16:42.967",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2827"
+      "id": "CVE-2026-11850",
+      "summary": "An integer underflow vulnerability was found in MIT krb5 in the berval2tl_data() function in plugins/kdb/ldap/libkdb_ldap/ldap_principal2.c. The function performs an unsigned subtraction (bv_len - 2) without a prior bounds check. When bv_len is 0 or 1, the subtraction wraps to a large value which is then truncated to uint16_t, yielding 0xFFFE (65534) or 0xFFFF (65535). The subsequent malloc succeeds and memcpy reads up to 65534 bytes from a 0-1 byte buffer, resulting in a heap out-of-bounds read.\nThe attack vector involves a malicious or compromised LDAP KDB backend returning a krbExtraData attribute with bv_len < 2, triggering the underflow when the KDC or kadmind reads principal data.",
+      "published": "2026-06-11T10:16:21.217",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11850"
     },
     {
-      "id": "CVE-2026-53465",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to version 7.1.2-25, a crafted multi-frame can result in a heap buffer over-write when encoding it with the SF3 encoder. This issue has been patched in version 7.1.2-25.",
-      "published": "2026-06-10T23:16:50.997",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53465"
+      "id": "CVE-2025-7064",
+      "summary": "Authentication bypass by primary weakness vulnerability in ABB Freelance.\n\nThis issue affects Freelance: through 2013, 2013 SP1, 2016, 2016 SP1, 2019, 2019 SP1, 2019 SP1 FP1, 2024.",
+      "published": "2026-06-11T10:16:21.053",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7064"
     },
     {
-      "id": "CVE-2026-53464",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to version 7.1.2-25, when providing invalid options to the wand option parser a small memory leak will occur. This issue has been patched in version 7.1.2-25.",
-      "published": "2026-06-10T23:16:50.857",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53464"
+      "id": "CVE-2022-44630",
+      "summary": "Cross-Site request forgery (CSRF) vulnerability in YITH YITH WooCommerce Product Slider Carousel allows Cross Site Request Forgery.\n\nThis issue affects YITH WooCommerce Product Slider Carousel: from n/a through 1.16.0.",
+      "published": "2026-06-11T10:16:20.870",
+      "cvss": 4.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-44630"
     },
     {
-      "id": "CVE-2026-53463",
-      "summary": "ImageMagick is free and open-source software used for editing and manipulating digital images. Prior to versions 6.9.13-50 and 7.1.2-25, when passing incorrect arguments in the distort operation a null pointer deference will occur. This issue has been patched in versions 6.9.13-50 and 7.1.2-25.",
-      "published": "2026-06-10T23:16:50.720",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53463"
+      "id": "CVE-2022-42479",
+      "summary": "Missing Authorization vulnerability in TemplateHouse Soledad allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Soledad: from n/a through 8.2.5.",
+      "published": "2026-06-11T10:16:19.840",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-42479"
     }
   ]
 }
