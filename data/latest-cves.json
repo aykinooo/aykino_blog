@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-11T22:14:11+00:00",
+  "generated_at": "2026-06-11T23:54:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53819",
-      "summary": "OpenClaw before 2026.5.27 contains an arbitrary code execution vulnerability in skill install flows where workspace .env files can override the Homebrew executable selection. Attackers with access to trusted operator workspaces can execute unintended Homebrew-compatible executables during skill setup to compromise the system.",
-      "published": "2026-06-11T21:16:24.227",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53819"
-    },
-    {
-      "id": "CVE-2026-53818",
-      "summary": "OpenClaw before 2026.4.24 contains an authorization bypass vulnerability in the MCP loopback feature that allows non-owner callers to skip owner-only tool policies and before-tool-call hooks. Attackers can invoke owner-only behavior through the affected loopback path to execute restricted tools when the feature is enabled and reachable.",
-      "published": "2026-06-11T21:16:24.090",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53818"
-    },
-    {
-      "id": "CVE-2026-53817",
-      "summary": "OpenClaw before 2026.5.22 contains a locality validation vulnerability in Control UI pairing that allows attackers with network access to spoof locality information and obtain durable admin-capable device tokens. Attackers can exploit insufficient locality-derived trust validation to convert temporary shared access into persistent administrative credentials that survive token rotation.",
-      "published": "2026-06-11T21:16:23.960",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53817"
-    },
-    {
-      "id": "CVE-2026-53816",
-      "summary": "OpenClaw before 2026.5.18 contains an insufficient provenance validation vulnerability in node event handling that allows paired nodes to forge exec lifecycle events without system.run authorization. A malicious or compromised paired node can send crafted node.event messages to the gateway, steering target sessions into exec-event paths that expose capabilities the reduced node surface should not provide.",
-      "published": "2026-06-11T21:16:23.830",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53816"
-    },
-    {
-      "id": "CVE-2026-53815",
-      "summary": "OpenClaw before 2026.5.19 contains an authorization bypass vulnerability in message read actions that skips channel allowlist checks. Lower-trust callers can request messages from channels not intended for them by exploiting insufficient validation in the affected feature, potentially exposing sensitive channel messages.",
-      "published": "2026-06-11T21:16:23.697",
+      "id": "CVE-2026-47238",
+      "summary": "ClipBucket v5 is an open source video sharing platform. Prior to version 5.5.3 - #133, a normal authenticated user can edit another user's video subtitles because of a lack of authorization. They can upload subtitles, edit their name or delete them. This issue has been patched in version 5.5.3 - #133.",
+      "published": "2026-06-11T23:16:24.073",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53815"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47238"
     },
     {
-      "id": "CVE-2026-53814",
-      "summary": "OpenClaw before 2026.5.20 contains a privilege escalation vulnerability where hook-triggered agent runs incorrectly receive owner-scoped MCP loopback authority instead of hook-appropriate scope. Attackers with a valid hook token can exploit the /hooks/agent endpoint to cause spawned CLI runtimes to access or invoke owner-only MCP tools, potentially executing privileged actions like persistent cron state modifications.",
-      "published": "2026-06-11T21:16:23.570",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53814"
+      "id": "CVE-2026-45418",
+      "summary": "ClipBucket v5 is an open source video sharing platform. Prior to version 5.5.3 - #132, any authenticated user who can upload videos can add multiple subtitles from different files and change their title (English, Spanish...). The POST /actions/subtitle_edit.php request used to change their title includes a number parameter which is vulnerable to SQL Injection. A boolean-based blind SQL injection can be used to exfiltrate sensitive data. This issue has been patched in version 5.5.3 - #132.",
+      "published": "2026-06-11T23:16:23.937",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45418"
+    },
+    {
+      "id": "CVE-2026-45060",
+      "summary": "ClipBucket v5 is an open source video sharing platform. Prior to version 5.5.3 - #129, the actions/progress_video.php endpoint is vulnerable to blind SQL injection. Any unauthenticated user can exploit the ids parameter to execute SQL queries and exfiltrate sensitive data. This issue has been patched in version 5.5.3 - #129.",
+      "published": "2026-06-11T23:16:23.797",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45060"
+    },
+    {
+      "id": "CVE-2026-42846",
+      "summary": "ClipBucket v5 is an open source video sharing platform. Prior to version 5.5.3 - #140, ClipBucket's Remote Play feature allows any authenticated user to add a video by importing an external URL as the source. Some shell commands are run with the URL as a parameter. The URL is concatenated directly into shell commands without escaping then executed, so any shell metacharacter in the URL is interpreted. This results in arbitrary command execution. This issue has been patched in version 5.5.3 - #140.",
+      "published": "2026-06-11T23:16:23.203",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42846"
+    },
+    {
+      "id": "CVE-2026-6250",
+      "summary": "An\nauthenticated format string vulnerability exists in the ONVIF service of Tapo\nC110 v2 due to improper handling of user-controlled input.\u00a0 Externally controlled data is interpreted as\na format string, which can be used to manipulate stack memory, including\ncontrol flow data such as return addresses.\n\n\n\n\n\nA remote\nauthenticated attacker may redirect execution flow to existing internal\nfunctions, triggering an unauthorized factory reset, leading to loss of\nconfiguration, deletion of stored credentials and service disruption.",
+      "published": "2026-06-11T22:16:57.870",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6250"
+    },
+    {
+      "id": "CVE-2026-49060",
+      "summary": "Incorrect Privilege Assignment vulnerability in Hippoo Mobile App for WooCommerce allows Privilege Escalation.\n\nThis issue affects Hippoo Mobile App for WooCommerce: from n/a through 1.9.4.",
+      "published": "2026-06-11T22:16:57.737",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49060"
     }
   ]
 }
