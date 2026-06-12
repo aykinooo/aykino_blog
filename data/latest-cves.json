@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-12T12:28:58+00:00",
+  "generated_at": "2026-06-12T16:26:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9266",
-      "summary": "A Missing Required Cryptographic Step vulnerability has been identified in Moxa's embedded Linux firmware for industrial computers and controllers. This vulnerability represents an incomplete remediation of CVE-2026-0714. The firmware introduced TPM2 parameter encryption as a countermeasure against CVE-2026-0714. However, an omission in the authorization session configuration causes the parameter encryption to provide no effective protection.\u00a0An attacker with invasive physical access to the device can still capture TPM communications on the SPI bus and derive the LUKS disk encryption key in plaintext. While successful exploitation results in full compromise of the encrypted disk volume, the attack requires invasive physical access, including opening the device and attaching external equipment to the SPI bus. Remote exploitation is not possible, and the attack does not affect any downstream systems.",
-      "published": "2026-06-12T11:16:23.297",
+      "id": "CVE-2026-9641",
+      "summary": "Crypt::PBKDF2 versions before 0.261630 for Perl have a weak default algorithm and number of iterations.\n\nThe default algorithm is HMAC-SHA1, which should only be used for legacy systems.\n\nThese versions default to using 1000 iterations.\n\nDepending on the chosen algorithm, 220,000 to 1,400,000 iterations should be used.",
+      "published": "2026-06-12T16:16:35.047",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9266"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9641"
     },
     {
-      "id": "CVE-2026-11849",
-      "summary": "The\u00a0\niRM-IEI Remote Management developed by IEI Integration Corp has a Hardcoded Credentials vulnerability, allowing unauthenticated remote attackers to exploit hard-coded credentials to gain administrative privileges on the database.",
-      "published": "2026-06-12T11:16:22.527",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11849"
-    },
-    {
-      "id": "CVE-2026-11848",
-      "summary": "The\u00a0iRM-IEI Remote Management developed by IEI Integration Corp has a Missing Authentication vulnerability, allowing unauthenticated remote attackers to exploit a specific functionality to obtain partial system configuration information.",
-      "published": "2026-06-12T11:16:22.393",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11848"
-    },
-    {
-      "id": "CVE-2026-50645",
-      "summary": "There is no restriction on the amount of attachment headers that a message can contain when being deserialized by Apache CXF, which can lead to uncontrolled resource consumption or a denial of service attack.\u00a0Users are recommended to upgrade to versions 4.2.2 or 4.1.7, which fix this issue by imposing a maximum default of 500 attachments per message.",
-      "published": "2026-06-12T10:16:23.533",
+      "id": "CVE-2026-9638",
+      "summary": "Crypt::PBKDF2 versions before 0.261630 for Perl generate insecure random values for salts.\n\nThese versions use the built-in rand function, which is predictable and unsuitable for cryptography.",
+      "published": "2026-06-12T16:16:34.937",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50645"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9638"
     },
     {
-      "id": "CVE-2026-50634",
-      "summary": "A vulnerability in Apache CXF's\u00a0JwsJsonContainerRequestFilter can be exploited to cause\u00a0CXF to process metadata that was not authenticated by the accepted signature.\u00a0This can bypass the application's assumption\n\nthat accepted `Content-Type` or protected HTTP-header metadata came from a verified signature entry, and may steer downstream JAX-RS entity parsing or signed-header consistency checks. Users are recommended to upgrade to versions 4.2.2 or 4.1.7, which fix this issue.",
-      "published": "2026-06-12T10:16:23.413",
+      "id": "CVE-2026-8828",
+      "summary": "A lack of authorization validation in version 1.0.0 or later of the ChromaDB Rust project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant's collection regardless of which tenant they belong to.",
+      "published": "2026-06-12T16:16:34.687",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50634"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8828"
     },
     {
-      "id": "CVE-2026-50633",
-      "summary": "A JNDI Injection vulnerability has been discovered in Apache CXF's JCA integration module, which can allow for code execution, if an attacker is able to manipulate the JCA deployment descriptor (ra.xml) or runtime activation parameters.\u00a0Users are recommended to upgrade to versions 4.2.2 or 4.1.7, which fixes this issue.",
-      "published": "2026-06-12T10:16:23.297",
+      "id": "CVE-2026-5792",
+      "summary": "Authentication bypass by spoofing vulnerability in Hedef Media Promotion Interactive Media Marketing Inc. Related Marketing Cloud (RMC) allows Brute Force.\n\nThis issue affects Related Marketing Cloud (RMC): through 12052026.",
+      "published": "2026-06-12T16:16:34.240",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5792"
+    },
+    {
+      "id": "CVE-2026-53568",
+      "summary": "Frappe is a full-stack web application framework. Prior to versions 15.107.2 and 16.17.4, there is a stored XSS vulnerablity in Frappe Report/List View. This issue has been patched in versions 15.107.2 and 16.17.4.",
+      "published": "2026-06-12T16:16:33.810",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50633"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53568"
+    },
+    {
+      "id": "CVE-2026-50560",
+      "summary": "Netty is a network application framework for development of protocol servers and clients. Prior to versions 4.1.135.Final and 4.2.15.Final, Netty HTTP/2 max header size handling produces an attack similar to HTTP/2 Rapid Reset. There is a setting in the http2 specification called `SETTINGS_MAX_HEADER_LIST_SIZE`. When a client sends that setting to Netty, it appears that Netty will behave as follows: read the request; proxy the request to the origin; attempt to produce a response; and create an exception while writing the headers for the response. Functionally, this should be similar to the http2 reset attack, but with a different on-the-wire signature. Versions 4.1.135.Final and 4.2.15.Final patch the issue.",
+      "published": "2026-06-12T16:16:32.847",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50560"
     }
   ]
 }
