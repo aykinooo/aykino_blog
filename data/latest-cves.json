@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-12T21:59:26+00:00",
+  "generated_at": "2026-06-12T23:47:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-54397",
-      "summary": "A vulnerability in MISP\u2019s non-REST event editing path allowed an authenticated user with event edit permissions to manipulate the submitted form data and set an event\u2019s sharing_group_id to a sharing group they were not authorized to use. When distribution was set to sharing group distribution, the non-REST save path accepted the submitted sharing_group_id without performing the same sharing group authorization check enforced by the REST edit path.\n\nAn attacker could exploit this by tampering with the event edit request and assigning an event to an undisclosed or unauthorized sharing group. This could result in unauthorized use of restricted sharing groups, disclosure of the sharing group name in event listings, and unintended modification of the event\u2019s distribution metadata.\n\nThe issue is fixed by validating that the selected sharing group can be used by the current user when the sharing group is changed, and by clearing sharing_group_id when the event distribution is not set to sharing group distribution.",
-      "published": "2026-06-12T21:16:25.557",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54397"
+      "id": "CVE-2026-6676",
+      "summary": "Heap buffer out-of-bounds write vulnerability in Avira Antivirus engine when scanning a malformed POSIX tar archive may allow Local Execution of Code or Denial-of-Service of the antivirus engine process.\n\nThis issue affects Avira Antivirus on Windows, macOS, and Linux for engine builds before 8.3.27.12.",
+      "published": "2026-06-12T23:16:45.007",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6676"
     },
     {
-      "id": "CVE-2026-54396",
-      "summary": "An information disclosure vulnerability exists in the MISP AuthKey edit functionality. When a validation error occurs during an AuthKey edit request, the user dropdown was populated using the attacker-controlled AuthKey.user_id value from the submitted request data. An authenticated user with permission to edit an AuthKey could submit arbitrary user IDs and observe the returned dropdown data, allowing enumeration of user email addresses. The issue is fixed by deriving the dropdown user from the persisted AuthKey owner instead of the request body.",
-      "published": "2026-06-12T21:16:25.423",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54396"
+      "id": "CVE-2026-12068",
+      "summary": "Information disclosure vulnerability in Avira Password Manager when used with Mozilla Firefox may allow a remote attacker operating a cross-origin iframe to obtain credentials autofilled for the parent web page via incorrect autofill field selection.\n\nThis issue affects Avira Password Manager when used with Mozilla Firefox on Windows, macOS, and Linux.",
+      "published": "2026-06-12T23:16:33.553",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12068"
     },
     {
-      "id": "CVE-2026-54395",
-      "summary": "MISP contains a reflected cross-site scripting vulnerability in the UiBeta event index view. The urlparams value is inserted into an inline JavaScript handler using HTML escaping inside a single-quoted JavaScript string. Because browsers HTML-decode attribute values before JavaScript parsing, a crafted searcheventinfo value can restore encoded quote characters and break out of the JavaScript string. An attacker could craft a malicious URL that, when opened by a victim using the UiBeta event index, executes arbitrary JavaScript in the victim\u2019s browser in the context of the MISP instance. The issue is fixed by encoding the value as a JavaScript string literal with json_encode() before applying HTML escaping at the attribute layer.",
-      "published": "2026-06-12T21:16:25.293",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54395"
+      "id": "CVE-2025-9033",
+      "summary": "Heap buffer out-of-bounds read vulnerability in Avira Antivirus engine when scanning a malformed PDF file may allow Local Execution of Code or Denial-of-Service of the antivirus engine process.\n\nThis issue affects Avira Antivirus on Windows, macOS, and Linux for engine builds before 8.3.70.76.",
+      "published": "2026-06-12T23:16:31.193",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-9033"
     },
     {
-      "id": "CVE-2026-54394",
-      "summary": "MISP contains a path traversal vulnerability in OrganisationsController::getOrgLogo. The vulnerable code builds organisation logo file paths using organisation-controlled fields such as id, name, and uuid without ensuring that the resolved file remains inside the intended APP/files/img/orgs/ directory. An attacker able to influence an organisation field, for example the organisation name, could use path traversal sequences to cause MISP to return arbitrary readable .png or .svg files from outside the organisation logo directory. The issue is fixed by resolving candidate paths with realpath() and verifying that they remain under the expected base directory before serving the file.",
-      "published": "2026-06-12T21:16:25.157",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54394"
+      "id": "CVE-2025-9032",
+      "summary": "Heap buffer out-of-bounds read vulnerability in Avira Antivirus engine when scanning a malformed Windows PE file may allow Local Execution of Code or Denial-of-Service of the antivirus engine process.\n\nThis issue affects Avira Antivirus on Windows, macOS, and Linux for engine builds before 8.3.70.98.",
+      "published": "2026-06-12T23:16:30.977",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-9032"
     },
     {
-      "id": "CVE-2026-54393",
-      "summary": "A stored cross-site scripting vulnerability exists in MISP when the Overmind theme is used. The setHomePage endpoint previously saved the user-controlled path value through setSettingInternal(), bypassing the normal setSetting() validation logic, including validate_homepage, which requires homepage paths to start with /. As a result, an authenticated user could store an arbitrary homepage value, including an XSS payload.\n\nThe stored value was later rendered in app/View/News/index.ctp as the href attribute of the \u201cContinue to homepage\u201d link without HTML escaping. This could allow execution of attacker-controlled JavaScript in the browser context of the affected MISP instance when the crafted homepage link is rendered and interacted with.\n\nThe issue is fixed by always persisting the homepage setting through setSetting(), ensuring validation and access checks are applied, and by HTML-escaping the homepage value before rendering it in the news view.",
-      "published": "2026-06-12T21:16:25.000",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54393"
+      "id": "CVE-2025-14098",
+      "summary": "Heap buffer out-of-bounds write vulnerability due to integer overflow in Avira Antivirus engine when scanning a malformed MS-DOS executable file may allow Local Execution of Code or Denial-of-Service of the antivirus engine process.\n\nThis issue affects Avira Antivirus on Windows, macOS, and Linux for engine builds before 8.3.70.104.",
+      "published": "2026-06-12T23:16:27.350",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-14098"
     },
     {
-      "id": "CVE-2026-54362",
-      "summary": "An incorrect visibility condition in the MISP event template builder allowed authenticated non-site-admin users to view galaxies that should not have been visible to their organisation. The custom access-control condition intended to restrict galaxies to those owned by the user\u2019s organisation or distributed beyond it used a PHP comparison expression instead of a query condition. As a result, enabled galaxies, including organisation-only custom galaxies belonging to other organisations, could be exposed in the template builder galaxy list. This could disclose metadata about private galaxy definitions to unauthorised users.",
-      "published": "2026-06-12T21:16:24.843",
+      "id": "CVE-2026-54398",
+      "summary": "An authorization flaw in MISP\u2019s object add/edit handling allowed an authenticated user with object editing permissions to assign a MISP object, or attributes contained within an object, to a sharing group that the user was not authorized to use or view. When editing objects, the sharing group validation was performed against the wrong request data structure after object fields had been merged to the top level, causing the check to be bypassed. In addition, attributes embedded in objects were not individually validated for authorized sharing group use.\n\nAn attacker could craft a request with distribution set to 4 and an arbitrary sharing_group_id, potentially disclosing the existence or name of otherwise non-visible sharing groups and improperly modifying the distribution metadata of objects or contained attributes.",
+      "published": "2026-06-12T22:16:56.370",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54362"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54398"
     }
   ]
 }
