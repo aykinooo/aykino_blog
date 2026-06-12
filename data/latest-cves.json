@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-12T19:20:34+00:00",
+  "generated_at": "2026-06-12T21:59:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53726",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.80 and 9.9.1-alpha.6, a relation query using the $relatedTo operator could read the membership of a Relation field even when that field was hidden from the requesting client by protectedFields, and even when the object owning the relation was not readable by the client under its ACL or class-level permissions. The request requires only the public API credentials that Parse clients normally carry \u2014 no user session, master key, or Cloud Code is needed. As a result, an unauthenticated client who knows or obtains the owning object's objectId could enumerate the objects linked through a protected relation, or combine the operator with an objectId constraint to use it as a membership oracle \u2014 confirming whether a specific object is linked to a private parent. This affects applications that rely on protectedFields or object ACLs to keep Relation membership confidential, such as private group memberships, block lists, or account-to-resource associations. This issue has been patched in versions 8.6.80 and 9.9.1-alpha.6.",
-      "published": "2026-06-12T19:16:30.510",
+      "id": "CVE-2026-54397",
+      "summary": "A vulnerability in MISP\u2019s non-REST event editing path allowed an authenticated user with event edit permissions to manipulate the submitted form data and set an event\u2019s sharing_group_id to a sharing group they were not authorized to use. When distribution was set to sharing group distribution, the non-REST save path accepted the submitted sharing_group_id without performing the same sharing group authorization check enforced by the REST edit path.\n\nAn attacker could exploit this by tampering with the event edit request and assigning an event to an undisclosed or unauthorized sharing group. This could result in unauthorized use of restricted sharing groups, disclosure of the sharing group name in event listings, and unintended modification of the event\u2019s distribution metadata.\n\nThe issue is fixed by validating that the selected sharing group can be used by the current user when the sharing group is changed, and by clearing sharing_group_id when the event distribution is not set to sharing group distribution.",
+      "published": "2026-06-12T21:16:25.557",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53726"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54397"
     },
     {
-      "id": "CVE-2026-53725",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. From version 9.8.0 to before version 9.9.1-alpha.5, apps that enable MFA and deny get on the _User class via Class-Level Permissions could expose sensitive user data through the /login and /verifyPassword endpoints. These endpoints re-fetch the user through the access-controlled query pipeline (CLP, protectedFields, auth-adapter sanitizers) before responding. When that re-fetch was denied by the _User get permission, the server fell back to the raw database row, exposing raw authData (including MFA TOTP secrets and recovery codes) and fields hidden by protectedFields (when protectedFieldsOwnerExempt is false). /verifyPassword is the most severe: with only a username and password (no session or MFA token), an attacker who knows a victim's password could retrieve their MFA secret and recovery codes, defeating the second factor. This issue has been patched in version 9.9.1-alpha.5.",
-      "published": "2026-06-12T19:16:30.370",
+      "id": "CVE-2026-54396",
+      "summary": "An information disclosure vulnerability exists in the MISP AuthKey edit functionality. When a validation error occurs during an AuthKey edit request, the user dropdown was populated using the attacker-controlled AuthKey.user_id value from the submitted request data. An authenticated user with permission to edit an AuthKey could submit arbitrary user IDs and observe the returned dropdown data, allowing enumeration of user email addresses. The issue is fixed by deriving the dropdown user from the persisted AuthKey owner instead of the request body.",
+      "published": "2026-06-12T21:16:25.423",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53725"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54396"
     },
     {
-      "id": "CVE-2026-53724",
-      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.79 and 9.9.1-alpha.4, the default file upload extension blocklist can be bypassed by appending a trailing dot to a filename whose extension would otherwise be blocked (e.g. poc.svg.). The trailing dot causes the extension parser to extract an empty string, which short-circuits the blocklist check, and the attacker-controlled Content-Type is forwarded to the storage adapter unchanged. Storage adapters that persist and serve the provided Content-Type (such as S3 or GCS) then serve the file with an active type such as image/svg+xml, enabling stored XSS when a victim opens the file URL. The default GridFS adapter is not affected because it sets X-Content-Type-Options: nosniff on responses. This issue has been patched in versions 8.6.79 and 9.9.1-alpha.4.",
-      "published": "2026-06-12T19:16:30.220",
+      "id": "CVE-2026-54395",
+      "summary": "MISP contains a reflected cross-site scripting vulnerability in the UiBeta event index view. The urlparams value is inserted into an inline JavaScript handler using HTML escaping inside a single-quoted JavaScript string. Because browsers HTML-decode attribute values before JavaScript parsing, a crafted searcheventinfo value can restore encoded quote characters and break out of the JavaScript string. An attacker could craft a malicious URL that, when opened by a victim using the UiBeta event index, executes arbitrary JavaScript in the victim\u2019s browser in the context of the MISP instance. The issue is fixed by encoding the value as a JavaScript string literal with json_encode() before applying HTML escaping at the attribute layer.",
+      "published": "2026-06-12T21:16:25.293",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53724"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54395"
     },
     {
-      "id": "CVE-2026-53408",
-      "summary": "Improper Authorization in Handler for Custom URL Scheme in Zoom Workplace before version 7.0.4 for Android and before 7.0.3 for iOS may allow an unauthenticated user to conduct an escalation of privilege via network access.",
-      "published": "2026-06-12T19:16:30.093",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53408"
+      "id": "CVE-2026-54394",
+      "summary": "MISP contains a path traversal vulnerability in OrganisationsController::getOrgLogo. The vulnerable code builds organisation logo file paths using organisation-controlled fields such as id, name, and uuid without ensuring that the resolved file remains inside the intended APP/files/img/orgs/ directory. An attacker able to influence an organisation field, for example the organisation name, could use path traversal sequences to cause MISP to return arbitrary readable .png or .svg files from outside the organisation logo directory. The issue is fixed by resolving candidate paths with realpath() and verifying that they remain under the expected base directory before serving the file.",
+      "published": "2026-06-12T21:16:25.157",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54394"
     },
     {
-      "id": "CVE-2026-53407",
-      "summary": "Improper Authorization in Handler for Custom URL Scheme in Zoom Workplace before version 7.0.4 for Android and before 7.0.3 for iOS may allow an unauthenticated user to conduct an escalation of privilege via network access.",
-      "published": "2026-06-12T19:16:29.973",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53407"
+      "id": "CVE-2026-54393",
+      "summary": "A stored cross-site scripting vulnerability exists in MISP when the Overmind theme is used. The setHomePage endpoint previously saved the user-controlled path value through setSettingInternal(), bypassing the normal setSetting() validation logic, including validate_homepage, which requires homepage paths to start with /. As a result, an authenticated user could store an arbitrary homepage value, including an XSS payload.\n\nThe stored value was later rendered in app/View/News/index.ctp as the href attribute of the \u201cContinue to homepage\u201d link without HTML escaping. This could allow execution of attacker-controlled JavaScript in the browser context of the affected MISP instance when the crafted homepage link is rendered and interacted with.\n\nThe issue is fixed by always persisting the homepage setting through setSetting(), ensuring validation and access checks are applied, and by HTML-escaping the homepage value before rendering it in the news view.",
+      "published": "2026-06-12T21:16:25.000",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54393"
     },
     {
-      "id": "CVE-2026-50244",
-      "summary": "The Naxclow platform exposes a registration endpoint that accepts signed requests containing a batch prefix and an arbitrary caller-supplied account identifier, without validating any ownership relationship. Each call mints a new sequential device identifier and returns the current high-water counter value for the batch, allowing callers to measure and enumerate the active device space. The endpoint\u2019s behavior enables precise fleet enumeration.",
-      "published": "2026-06-12T19:16:29.773",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50244"
+      "id": "CVE-2026-54362",
+      "summary": "An incorrect visibility condition in the MISP event template builder allowed authenticated non-site-admin users to view galaxies that should not have been visible to their organisation. The custom access-control condition intended to restrict galaxies to those owned by the user\u2019s organisation or distributed beyond it used a PHP comparison expression instead of a query condition. As a result, enabled galaxies, including organisation-only custom galaxies belonging to other organisations, could be exposed in the template builder galaxy list. This could disclose metadata about private galaxy definitions to unauthorised users.",
+      "published": "2026-06-12T21:16:24.843",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54362"
     }
   ]
 }
