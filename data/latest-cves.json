@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-12T16:26:52+00:00",
+  "generated_at": "2026-06-12T19:20:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9641",
-      "summary": "Crypt::PBKDF2 versions before 0.261630 for Perl have a weak default algorithm and number of iterations.\n\nThe default algorithm is HMAC-SHA1, which should only be used for legacy systems.\n\nThese versions default to using 1000 iterations.\n\nDepending on the chosen algorithm, 220,000 to 1,400,000 iterations should be used.",
-      "published": "2026-06-12T16:16:35.047",
+      "id": "CVE-2026-53726",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.80 and 9.9.1-alpha.6, a relation query using the $relatedTo operator could read the membership of a Relation field even when that field was hidden from the requesting client by protectedFields, and even when the object owning the relation was not readable by the client under its ACL or class-level permissions. The request requires only the public API credentials that Parse clients normally carry \u2014 no user session, master key, or Cloud Code is needed. As a result, an unauthenticated client who knows or obtains the owning object's objectId could enumerate the objects linked through a protected relation, or combine the operator with an objectId constraint to use it as a membership oracle \u2014 confirming whether a specific object is linked to a private parent. This affects applications that rely on protectedFields or object ACLs to keep Relation membership confidential, such as private group memberships, block lists, or account-to-resource associations. This issue has been patched in versions 8.6.80 and 9.9.1-alpha.6.",
+      "published": "2026-06-12T19:16:30.510",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9641"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53726"
     },
     {
-      "id": "CVE-2026-9638",
-      "summary": "Crypt::PBKDF2 versions before 0.261630 for Perl generate insecure random values for salts.\n\nThese versions use the built-in rand function, which is predictable and unsuitable for cryptography.",
-      "published": "2026-06-12T16:16:34.937",
+      "id": "CVE-2026-53725",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. From version 9.8.0 to before version 9.9.1-alpha.5, apps that enable MFA and deny get on the _User class via Class-Level Permissions could expose sensitive user data through the /login and /verifyPassword endpoints. These endpoints re-fetch the user through the access-controlled query pipeline (CLP, protectedFields, auth-adapter sanitizers) before responding. When that re-fetch was denied by the _User get permission, the server fell back to the raw database row, exposing raw authData (including MFA TOTP secrets and recovery codes) and fields hidden by protectedFields (when protectedFieldsOwnerExempt is false). /verifyPassword is the most severe: with only a username and password (no session or MFA token), an attacker who knows a victim's password could retrieve their MFA secret and recovery codes, defeating the second factor. This issue has been patched in version 9.9.1-alpha.5.",
+      "published": "2026-06-12T19:16:30.370",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9638"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53725"
     },
     {
-      "id": "CVE-2026-8828",
-      "summary": "A lack of authorization validation in version 1.0.0 or later of the ChromaDB Rust project allows any authenticated users to arbitrarily read, write, update, or delete data in any tenant's collection regardless of which tenant they belong to.",
-      "published": "2026-06-12T16:16:34.687",
+      "id": "CVE-2026-53724",
+      "summary": "Parse Server is an open source backend that can be deployed to any infrastructure that can run Node.js. Prior to versions 8.6.79 and 9.9.1-alpha.4, the default file upload extension blocklist can be bypassed by appending a trailing dot to a filename whose extension would otherwise be blocked (e.g. poc.svg.). The trailing dot causes the extension parser to extract an empty string, which short-circuits the blocklist check, and the attacker-controlled Content-Type is forwarded to the storage adapter unchanged. Storage adapters that persist and serve the provided Content-Type (such as S3 or GCS) then serve the file with an active type such as image/svg+xml, enabling stored XSS when a victim opens the file URL. The default GridFS adapter is not affected because it sets X-Content-Type-Options: nosniff on responses. This issue has been patched in versions 8.6.79 and 9.9.1-alpha.4.",
+      "published": "2026-06-12T19:16:30.220",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8828"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53724"
     },
     {
-      "id": "CVE-2026-5792",
-      "summary": "Authentication bypass by spoofing vulnerability in Hedef Media Promotion Interactive Media Marketing Inc. Related Marketing Cloud (RMC) allows Brute Force.\n\nThis issue affects Related Marketing Cloud (RMC): through 12052026.",
-      "published": "2026-06-12T16:16:34.240",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5792"
+      "id": "CVE-2026-53408",
+      "summary": "Improper Authorization in Handler for Custom URL Scheme in Zoom Workplace before version 7.0.4 for Android and before 7.0.3 for iOS may allow an unauthenticated user to conduct an escalation of privilege via network access.",
+      "published": "2026-06-12T19:16:30.093",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53408"
     },
     {
-      "id": "CVE-2026-53568",
-      "summary": "Frappe is a full-stack web application framework. Prior to versions 15.107.2 and 16.17.4, there is a stored XSS vulnerablity in Frappe Report/List View. This issue has been patched in versions 15.107.2 and 16.17.4.",
-      "published": "2026-06-12T16:16:33.810",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53568"
+      "id": "CVE-2026-53407",
+      "summary": "Improper Authorization in Handler for Custom URL Scheme in Zoom Workplace before version 7.0.4 for Android and before 7.0.3 for iOS may allow an unauthenticated user to conduct an escalation of privilege via network access.",
+      "published": "2026-06-12T19:16:29.973",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53407"
     },
     {
-      "id": "CVE-2026-50560",
-      "summary": "Netty is a network application framework for development of protocol servers and clients. Prior to versions 4.1.135.Final and 4.2.15.Final, Netty HTTP/2 max header size handling produces an attack similar to HTTP/2 Rapid Reset. There is a setting in the http2 specification called `SETTINGS_MAX_HEADER_LIST_SIZE`. When a client sends that setting to Netty, it appears that Netty will behave as follows: read the request; proxy the request to the origin; attempt to produce a response; and create an exception while writing the headers for the response. Functionally, this should be similar to the http2 reset attack, but with a different on-the-wire signature. Versions 4.1.135.Final and 4.2.15.Final patch the issue.",
-      "published": "2026-06-12T16:16:32.847",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50560"
+      "id": "CVE-2026-50244",
+      "summary": "The Naxclow platform exposes a registration endpoint that accepts signed requests containing a batch prefix and an arbitrary caller-supplied account identifier, without validating any ownership relationship. Each call mints a new sequential device identifier and returns the current high-water counter value for the batch, allowing callers to measure and enumerate the active device space. The endpoint\u2019s behavior enables precise fleet enumeration.",
+      "published": "2026-06-12T19:16:29.773",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50244"
     }
   ]
 }
