@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-13T04:48:28+00:00",
+  "generated_at": "2026-06-13T08:30:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9848",
-      "summary": "The WP Ticket plugin for WordPress is vulnerable to SQL Injection via the WordPress search query parameter (`s`) in versions up to, and including, 6.0.4 The plugin hooks WordPress's `posts_request` filter with `wp_ticket_com_posts_request()`, which calls `emd_author_search_results()` when the current request is an unauthenticated front-end search. That function reads `$query->query_vars['s']` \u2014 already wp_unslash()'d by `WP_Query::parse_query()`, so wp_magic_quotes protection has been stripped \u2014 and concatenates the raw value into a SQL `LIKE` clause inside a UNION sub-SELECT appended to the main query, with no `$wpdb->prepare()` or escaping. This makes it possible for unauthenticated attackers to append additional SQL queries into already-existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-06-13T03:16:22.017",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9848"
+      "id": "CVE-2026-9629",
+      "summary": "The Canvas plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'tag' parameter in all versions up to, and including, 2.5.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-06-13T08:16:12.330",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9629"
     },
     {
-      "id": "CVE-2026-54231",
-      "summary": "A content injection vulnerability was found in the ABRT post-create event handler scripts in libreport. The event script queries the systemd journal for log entries matching the crashed process and writes the results to files in the dump directory without sanitizing embedded control characters. A local user can inject arbitrary content into the journal output by embedding newline characters in syslog messages, controlling the content that root writes to dump directory files.",
-      "published": "2026-06-13T03:16:21.877",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54231"
+      "id": "CVE-2026-3297",
+      "summary": "The Page Builder: Pagelayer \u2013 Drag and Drop website builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Anchor block in versions up to, and including, 2.0.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-06-13T08:16:12.200",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3297"
     },
     {
-      "id": "CVE-2026-54230",
-      "summary": "A symlink following vulnerability was found in the ABRT post-create event handler scripts in libreport. Event scripts write output files using shell redirections without the O_NOFOLLOW flag. If the target file is replaced with a symlink, the shell process running as root follows the symlink and writes content to the symlink target, allowing arbitrary file overwrites on the system.",
-      "published": "2026-06-13T03:16:21.733",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54230"
+      "id": "CVE-2026-2470",
+      "summary": "The Page Builder: Pagelayer \u2013 Drag and Drop website builder plugin for WordPress is vulnerable to Incorrect Authorization in all versions up to, and including, 2.0.9. This is due to the pagelayer_save_content AJAX handler allowing users with basic post-edit capability to persist pagelayer_contact_templates metadata on posts they can edit (including pending posts), while the unauthenticated pagelayer_contact_submit endpoint later consumes that metadata by user-controlled post/form identifiers without enforcing a privileged or published-context boundary. This makes it possible for authenticated attackers, with Contributor-level access and above, to configure arbitrary contact-form mail templates that are usable through unauthenticated form submission via the contacts parameter. In typical deployments this template feature is configured via Pagelayer Pro UI; however, the vulnerable backend trust path is still present. This issue may be chained with CVE-2026-2442 to increase exploitability and attacker control over outbound email behavior.",
+      "published": "2026-06-13T08:16:12.030",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2470"
     },
     {
-      "id": "CVE-2026-54229",
-      "summary": "A race condition was found in the abrt-dbus D-Bus service's ChownProblemDir method. ChownProblemDir opens the dump directory with DD_OPEN_READONLY and calls dd_chown to change ownership of all files to the caller's uid, succeeding even while post-create event handlers hold a write lock. This allows an attacker to gain filesystem-level control of the dump directory while privileged event scripts are still running.",
-      "published": "2026-06-13T03:16:21.587",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54229"
+      "id": "CVE-2026-9134",
+      "summary": "The FooGallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom_attribute_key' shortcode parameter in versions up to, and including, 3.1.31 This is due to an incomplete JavaScript event handler blacklist in the foogallery_sanitize_javascript() function, which blocks only a subset of HTML event attributes (onmouseover, onmouseout, onpointerenter, onclick, onload, onchange, onerror) while permitting others such as 'onmouseenter', combined with the failure to escape the attribute key when building the gallery container HTML in foogallery_build_container_attributes_safe(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-06-13T07:16:15.107",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9134"
     },
     {
-      "id": "CVE-2026-54228",
-      "summary": "A time-of-check time-of-use (TOCTOU) race condition was found in the abrt-dbus D-Bus service's SetElement method. Between dump directory creation and post-create event execution, any local user can call SetElement to write arbitrary text files into the root-owned dump directory, bypassing package validation and allowing crashes of unpackaged binaries to survive post-create processing.",
-      "published": "2026-06-13T03:16:21.440",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54228"
+      "id": "CVE-2026-9109",
+      "summary": "The GPTranslate \u2013 Multilingual AI Translation for WordPress: Automatically Translate Websites plugin for WordPress is vulnerable to Stored Cross-Site Scripting via REST API Translation Storage in all versions up to, and including, 2.31 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The deterministically derived API key (sha256 of the site URL) is printed in the HTML source of every page via the JavaScript variable gptApiKey, meaning any unauthenticated visitor can retrieve the key and submit malicious translation payloads to the /wp-json/gptranslate/v1/request endpoint without any additional precondition.",
+      "published": "2026-06-13T07:16:14.853",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9109"
     },
     {
-      "id": "CVE-2026-12089",
-      "summary": "The LWS Optimize \u2013 All-in-One Speed Booster & Cache Tools plugin for WordPress is vulnerable to Arbitrary File Read in versions up to, and including, 3.3.19. This is due to the combine_current_css() function  trusting <link rel=\"stylesheet\" href=\"...\"> values harvested from page HTML and converting same-site URLs to absolute filesystem paths before reading them with file_get_contents()/Minify\\CSS::add(), without enforcing that the resolved path stay within ABSPATH or have a .css extension. This makes it possible for authenticated attackers, with Editor-level access and above, to read arbitrary files.",
-      "published": "2026-06-13T03:16:19.573",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12089"
+      "id": "CVE-2026-9062",
+      "summary": "The Store Locator WordPress plugin before 1.6.9 does not validate a parameter before using it in a file path, allowing high-privileged users such as administrators to read arbitrary `.php` files from the server, including configuration files that contain database credentials and authentication keys.",
+      "published": "2026-06-13T07:16:14.757",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9062"
     }
   ]
 }
