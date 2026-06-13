@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-06-13T11:23:20+00:00",
+  "generated_at": "2026-06-13T14:23:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-5513",
+      "summary": "The Online Scheduling and Appointment Booking System \u2013 Bookly plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'bookly-customer-full-name' cookie in versions up to, and including, 27.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires 'Remember personal information in cookies' setting to be enabled (disabled by default).",
+      "published": "2026-06-13T12:16:15.947",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5513"
+    },
     {
       "id": "CVE-2026-1291",
       "summary": "The Meow Gallery plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the REST API endpoint /wp-json/meow-gallery/v1/save_shortcode in all versions up to, and including, 5.4.4 This makes it possible for authenticated attackers, with Author-level access and above, to arbitrarily create or overwrite existing gallery shortcode records by supplying a user-controlled id value. The endpoint performs database update operations without verifying that the requesting user is authorized to modify the referenced gallery record or create their own.",
@@ -36,13 +43,6 @@
       "published": "2026-06-13T08:16:12.030",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2470"
-    },
-    {
-      "id": "CVE-2026-9134",
-      "summary": "The FooGallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom_attribute_key' shortcode parameter in versions up to, and including, 3.1.31 This is due to an incomplete JavaScript event handler blacklist in the foogallery_sanitize_javascript() function, which blocks only a subset of HTML event attributes (onmouseover, onmouseout, onpointerenter, onclick, onload, onchange, onerror) while permitting others such as 'onmouseenter', combined with the failure to escape the attribute key when building the gallery container HTML in foogallery_build_container_attributes_safe(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-06-13T07:16:15.107",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9134"
     }
   ]
 }
