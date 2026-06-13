@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-06-13T16:43:37+00:00",
+  "generated_at": "2026-06-13T18:42:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-12183",
+      "summary": "Nefteprodukttekhnika BUK TS-G Gas Station Automation System 2.9.1 through 2.10.2 on Linux contains an Improper Authentication vulnerability (CWE-287) in the system configuration module. The /php/ajax-login.php endpoint returns userid=1 (administrator) in response to any HTTP POST request that supplies arbitrary credentials (e.g., action=dologin&login=<any_value>&pwd=<any_value>), and subsequent privileged endpoints under /php/ajax-main.php and /modules/* do not validate a server-side session. A remote unauthenticated attacker can invoke any administrative action exposed by the configuration module, including reading and modifying user rules, fuel tank gauges, fuel dispensers, relays, cash registers, bank terminals, fuel cards, price and customer displays, cash collection, and pricing rules.",
+      "published": "2026-06-13T18:16:22.310",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12183"
+    },
+    {
+      "id": "CVE-2026-6428",
+      "summary": "SQL Injection in reports/catalogue_out.pl in Koha Community Koha through 22.11.37, 23.x, 24.x before 24.11.16, 25.05.x before 25.05.11, 25.11.x before 25.11.05, 26.05.x before 26.05.01, and 26.11.x before 26.11.00 allows an authenticated staff user with the Reports module flag to read arbitrary data from the Koha application database via the Filter URL parameter when the Criteria parameter matches /branchcode/.\n\n\n\nThe vulnerable sink in sub calculate concatenates the unmodified Filter request parameter directly into a LIKE clause of the auxiliary $strsth2 statement and executes it via DBI without bound parameters:\n\n\n\nmy $f = @$filters[0];\n$f =~ s/\\*/%/g;\n$strsth2 .= \" AND $column LIKE '$f' \";\n\n\n\nThis enables error-based SQL injection (e.g., via EXTRACTVALUE) and full read access to sensitive tables including borrowers (password hashes, 2FA secrets, PII), borrower_password_recovery, api_keys, and sessions.\n\n\n\nProof of concept (error-based, single request):\n\n\n\nGET /cgi-bin/koha/reports/catalogue_out.pl?do_it=1&output=screen&Limit=10&Criteria=branchcode&Filter=x'+AND+EXTRACTVALUE(1,CONCAT(0x7e,VERSION(),0x7c,USER(),0x7c,DATABASE(),0x7e))--+-\nCookie: CGISESSID=<LIBRARIAN_SESSION>\n\n\n\nThe response body contains the DBI exception leaking the MariaDB version, database user, client IP, and database name, after which arbitrary data can be paged out using LIMIT n,1 / SUBSTRING(...).\n\n\n\nThe vulnerable sink was introduced in commit 6bb77ae3e4 (2008-07-09); CVE-2015-4633 patched the same class in sibling files but did not generalise the fix to reports/catalogue_out.pl. Fixed in Koha 22.11.38, 24.11.16, 25.05.11, 25.11.05, 26.05.01, and 26.11.00 by replacing the raw concatenation with a parameterised placeholder.",
+      "published": "2026-06-13T17:16:17.190",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6428"
+    },
     {
       "id": "CVE-2026-5513",
       "summary": "The Online Scheduling and Appointment Booking System \u2013 Bookly plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'bookly-customer-full-name' cookie in versions up to, and including, 27.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires 'Remember personal information in cookies' setting to be enabled (disabled by default).",
@@ -29,20 +43,6 @@
       "published": "2026-06-13T08:16:12.330",
       "cvss": 6.4,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9629"
-    },
-    {
-      "id": "CVE-2026-3297",
-      "summary": "The Page Builder: Pagelayer \u2013 Drag and Drop website builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Anchor block in versions up to, and including, 2.0.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-06-13T08:16:12.200",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3297"
-    },
-    {
-      "id": "CVE-2026-2470",
-      "summary": "The Page Builder: Pagelayer \u2013 Drag and Drop website builder plugin for WordPress is vulnerable to Incorrect Authorization in all versions up to, and including, 2.0.9. This is due to the pagelayer_save_content AJAX handler allowing users with basic post-edit capability to persist pagelayer_contact_templates metadata on posts they can edit (including pending posts), while the unauthenticated pagelayer_contact_submit endpoint later consumes that metadata by user-controlled post/form identifiers without enforcing a privileged or published-context boundary. This makes it possible for authenticated attackers, with Contributor-level access and above, to configure arbitrary contact-form mail templates that are usable through unauthenticated form submission via the contacts parameter. In typical deployments this template feature is configured via Pagelayer Pro UI; however, the vulnerable backend trust path is still present. This issue may be chained with CVE-2026-2442 to increase exploitability and attacker control over outbound email behavior.",
-      "published": "2026-06-13T08:16:12.030",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2470"
     }
   ]
 }
