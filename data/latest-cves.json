@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-06-14T06:03:47+00:00",
+  "generated_at": "2026-06-14T09:54:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2025-15546",
+      "summary": "The Iptanus File Upload WordPress plugin before 5.1.7 does not implement proper file handling when the duplicatepolicy setting is configured to \"maintain both.\" Due to a Time-of-Check to Time-of-Use (TOCTOU) race condition between the file existence check and the actual file write operation, an authenticated attacker can overwrite files uploaded by other users.",
+      "published": "2026-06-14T08:16:17.040",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15546"
+    },
     {
       "id": "CVE-2026-54421",
       "summary": "In OpenStack Ironic through 35.0.1, when applying a PATCH to update fields in volume properties the user is authorized for, Ironic can return unredacted sensitive information (such as iSCSI credentials). The PATCH outcome is a security issue; the POST outcome is not a security issue.",
@@ -36,13 +43,6 @@
       "published": "2026-06-13T21:16:18.830",
       "cvss": 8.8,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12174"
-    },
-    {
-      "id": "CVE-2026-12183",
-      "summary": "Nefteprodukttekhnika BUK TS-G Gas Station Automation System 2.9.1 through 2.10.2 on Linux contains an Improper Authentication vulnerability (CWE-287) in the system configuration module. The /php/ajax-login.php endpoint returns userid=1 (administrator) in response to any HTTP POST request that supplies arbitrary credentials (e.g., action=dologin&login=<any_value>&pwd=<any_value>), and subsequent privileged endpoints under /php/ajax-main.php and /modules/* do not validate a server-side session. A remote unauthenticated attacker can invoke any administrative action exposed by the configuration module, including reading and modifying user rules, fuel tank gauges, fuel dispensers, relays, cash registers, bank terminals, fuel cards, price and customer displays, cash collection, and pricing rules.",
-      "published": "2026-06-13T18:16:22.310",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12183"
     }
   ]
 }
