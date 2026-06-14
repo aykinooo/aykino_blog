@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-06-14T20:39:52+00:00",
+  "generated_at": "2026-06-14T22:20:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-12186",
+      "summary": "A weakness has been identified in GL.iNet GL-MT3000 up to 4.4.5. Affected is the function replace_country in the library /usr/lib/oui-httpd/rpc/tor of the component Tor Proxy Service Configuration Handler. This manipulation causes command injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 4.7 is able to address this issue. It is recommended to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-06-14T21:16:18.483",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12186"
+    },
     {
       "id": "CVE-2026-54413",
       "summary": "driftregion iso14229 through 0.9.0 contains an integer underflow and downstream out-of-bounds read in the Handle_0x27_SecurityAccess() function in iso14229.c that allows a remote unauthenticated attacker to crash a UDS server and potentially read memory past the receive buffer by sending a single-byte 0x27 SecurityAccess request that follows any earlier well-formed 0x27 message. The handler reads the SecurityAccess subFunction from recv_buf[1] without first checking that recv_len is at least 2, then computes the key-data length as the unsigned subtraction (uint16_t)(recv_len - UDS_0X27_REQ_BASE_LEN); when recv_len equals 1 the result underflows to 65535 and is passed as args.len to the application's SecAccessValidateKey or SecAccessRequestSeed callback, which typically iterates or copies that many bytes from the 4-KB receive buffer. Every other UDS sub-function handler in the library (0x10, 0x11, 0x14, 0x19, 0x22, 0x23, 0x28, and others) performs an explicit recv_len lower-bound check before indexing; Handle_0x27_SecurityAccess is the sole outlier. The vulnerable handler reaches over CAN bus, OBD-II, ISO-TP, and DoIP transports and is exposed in the default diagnostic session without prior authentication; deployments on automotive ECUs, industrial controllers, and IoT devices that ship iso14229 as their UDS server are affected.",
@@ -36,13 +43,6 @@
       "published": "2026-06-14T12:16:23.357",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11527"
-    },
-    {
-      "id": "CVE-2026-11526",
-      "summary": "GD versions before 2.86 for Perl allow OS command injection and file overwrite via a 2-arg open() of filename arguments in _make_filehandle.\n\nGD::Image::_make_filehandle opens a filename argument with Perl's 2-arg open(), so a filename that begins or ends with a pipe (\"| cmd\", \"cmd |\") or begins with a redirect (\"> path\", \">> path\") is run as a command or redirect rather than opened as a file. _make_filehandle is the single open path behind every filename-accepting constructor (new, newFromPng, newFromJpeg, and the rest); the in-memory *Data variants do not open a path and are unaffected.\n\nAny caller that forwards untrusted input to one of these constructors as a pathname can run an arbitrary command or truncate a file under the process UID.",
-      "published": "2026-06-14T12:16:22.403",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11526"
     }
   ]
 }
