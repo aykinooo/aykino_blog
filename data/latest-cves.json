@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-15T19:07:47+00:00",
+  "generated_at": "2026-06-15T21:47:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8358",
-      "summary": "LibreOffice Calc can import tracked changes from a spreadsheet document. A heap buffer overflow existed when a document reused the same change identifier for two different kinds of change. The importer then treated one change object as a different, larger type and wrote past the end of its allocation. In fixed versions records with a duplicate identifier are rejected.",
-      "published": "2026-06-15T18:16:37.630",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8358"
+      "id": "CVE-2026-9691",
+      "summary": "Unauthenticated PHP Object Injection in Integration for ActiveCampaign and Contact Form 7, WPForms, Elementor, Ninja Forms <= 1.1.1 versions.",
+      "published": "2026-06-15T21:17:25.997",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9691"
     },
     {
-      "id": "CVE-2026-8357",
-      "summary": "LibreOffice Calc compiles cell formulas when opening a spreadsheet. A heap buffer overflow existed when compiling a very long formula made up of many opening tokens. The array that tracks nesting depth was allocated one element too small for that worst case, so such a formula wrote one element past its end. In fixed versions the array is sized to hold the largest possible nesting.",
-      "published": "2026-06-15T18:16:37.513",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8357"
+      "id": "CVE-2026-52703",
+      "summary": "Unauthenticated Path Traversal in FastDup <= 2.7.2 versions.",
+      "published": "2026-06-15T21:17:24.850",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52703"
     },
     {
-      "id": "CVE-2026-8356",
-      "summary": "LibreOffice can import presentations in the legacy binary PPT format. A stack buffer overflow existed when importing a colour-replacement record. Two fixed-size colour tables were filled from the file, but the write position was not reset between the two passes over the record, so a file whose combined colour counts exceeded the table size wrote past the end of the tables on the stack. In fixed versions the unused second pass is no longer read into those tables.",
-      "published": "2026-06-15T18:16:37.390",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8356"
+      "id": "CVE-2026-52702",
+      "summary": "Unauthenticated Cross Site Scripting (XSS) in SEO Redirection <= 9.17 versions.",
+      "published": "2026-06-15T21:17:24.733",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52702"
     },
     {
-      "id": "CVE-2026-6047",
-      "summary": "LibreOffice can import documents in the OOXML format (DOCX). A heap buffer overflow existed when replaying deferred parser events for a text box element. A handler object was assumed to be of one type and written to at that type's field layout, but it could be a smaller object, so the write landed past the end of the allocation. In fixed versions the type is checked before the write.",
-      "published": "2026-06-15T18:16:37.127",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6047"
+      "id": "CVE-2026-52700",
+      "summary": "Subscriber SQL Injection in WCMultiShipping <= 3.0.2 versions.",
+      "published": "2026-06-15T21:17:24.620",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52700"
     },
     {
-      "id": "CVE-2026-6045",
-      "summary": "LibreOffice can import EMF+ graphics, which may be embedded in documents. A heap buffer overflow existed when importing an EMF+ gradient brush. The number of gradient blend points was read from the file and used to compute an allocation size, but that multiplication could overflow, so a small buffer was allocated and then filled as if it were large, writing past its end. In fixed versions the blend-point count is checked against the data actually available before allocating.",
-      "published": "2026-06-15T18:16:37.007",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6045"
+      "id": "CVE-2026-52699",
+      "summary": "Unauthenticated Insecure Direct Object References (IDOR) in VikRentCar <= 1.4.5 versions.",
+      "published": "2026-06-15T21:17:24.503",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52699"
     },
     {
-      "id": "CVE-2026-6040",
-      "summary": "A heap use-after-free existed when importing the blank-width characters of an ODF number format. A position value read from the document was not checked against the length of the format-code string, so a malformed number format could be processed against memory outside that string. In fixed versions the position is bounds-checked before use.",
-      "published": "2026-06-15T18:16:36.880",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6040"
+      "id": "CVE-2026-52697",
+      "summary": "Subscriber SQL Injection in Taskbuilder <= 5.0.7 versions.",
+      "published": "2026-06-15T21:17:24.377",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52697"
     }
   ]
 }
