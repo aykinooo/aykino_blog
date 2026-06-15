@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-15T14:32:53+00:00",
+  "generated_at": "2026-06-15T19:07:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6517",
-      "summary": "Mattermost Desktop App versions <=6.1 5.5.13.0 fail to restrict the allow list of domains to which NTLM credentials were forwarded to in the Mattermost Desktop App which allows any user on a server without the image proxy enabled to intercept other users credentials via embedding an image that routes to an external web server. Mattermost Advisory ID: MMSA-2026-00651",
-      "published": "2026-06-15T14:16:37.910",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6517"
+      "id": "CVE-2026-8358",
+      "summary": "LibreOffice Calc can import tracked changes from a spreadsheet document. A heap buffer overflow existed when a document reused the same change identifier for two different kinds of change. The importer then treated one change object as a different, larger type and wrote past the end of its allocation. In fixed versions records with a duplicate identifier are rejected.",
+      "published": "2026-06-15T18:16:37.630",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8358"
     },
     {
-      "id": "CVE-2026-5242",
-      "summary": "Improper neutralization of formula elements in a CSV file vulnerability in MIA Technology Inc. Pizzy Library allows Code Injection.\n\nThis issue affects Pizzy Library: from 1.0.0.26250 before 1.3.9.26250.",
-      "published": "2026-06-15T14:16:37.697",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5242"
+      "id": "CVE-2026-8357",
+      "summary": "LibreOffice Calc compiles cell formulas when opening a spreadsheet. A heap buffer overflow existed when compiling a very long formula made up of many opening tokens. The array that tracks nesting depth was allocated one element too small for that worst case, so such a formula wrote one element past its end. In fixed versions the array is sized to hold the largest possible nesting.",
+      "published": "2026-06-15T18:16:37.513",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8357"
     },
     {
-      "id": "CVE-2026-5233",
-      "summary": "Improper Control of Interaction Frequency vulnerability in MIA Technology Inc. Pizzy Library allows Flooding.\n\nThis issue affects Pizzy Library: from 1.0.0.26250 before 1.3.9.26250.",
-      "published": "2026-06-15T14:16:37.570",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5233"
+      "id": "CVE-2026-8356",
+      "summary": "LibreOffice can import presentations in the legacy binary PPT format. A stack buffer overflow existed when importing a colour-replacement record. Two fixed-size colour tables were filled from the file, but the write position was not reset between the two passes over the record, so a file whose combined colour counts exceeded the table size wrote past the end of the tables on the stack. In fixed versions the unused second pass is no longer read into those tables.",
+      "published": "2026-06-15T18:16:37.390",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8356"
     },
     {
-      "id": "CVE-2026-5230",
-      "summary": "Improper Access Control, Missing Authorization vulnerability in MIA Technology Inc. Pizzy Library allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects Pizzy Library: from 1.0.0.26250 before 1.3.9.26250.",
-      "published": "2026-06-15T14:16:37.427",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5230"
+      "id": "CVE-2026-6047",
+      "summary": "LibreOffice can import documents in the OOXML format (DOCX). A heap buffer overflow existed when replaying deferred parser events for a text box element. A handler object was assumed to be of one type and written to at that type's field layout, but it could be a smaller object, so the write landed past the end of the allocation. In fixed versions the type is checked before the write.",
+      "published": "2026-06-15T18:16:37.127",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6047"
     },
     {
-      "id": "CVE-2026-5079",
-      "summary": "Impact: multer versions 1.0.0 through 2.1.1 and 3.0.0-alpha.1 are vulnerable to a Denial of Service via deeply nested field names in multipart form data. The append-field dependency parses bracket notation in field names with no limit on nesting depth, allowing an attacker to force allocation of deeply nested object structures that consume CPU and memory. A single HTTP request with a crafted multipart body is sufficient to exploit this.\n\nPatches: Users should upgrade to multer 2.2.0 (2.x line) or 3.0.0-alpha.2 (3.x prerelease) and configure the new limits.fieldNestingDepth option to the minimum depth their application requires.\n\nWorkarounds: Set limits.fields to a reasonable value to reduce the number of fields an attacker can send per request. This does not fully mitigate the issue but limits the impact.",
-      "published": "2026-06-15T14:16:37.293",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5079"
+      "id": "CVE-2026-6045",
+      "summary": "LibreOffice can import EMF+ graphics, which may be embedded in documents. A heap buffer overflow existed when importing an EMF+ gradient brush. The number of gradient blend points was read from the file and used to compute an allocation size, but that multiplication could overflow, so a small buffer was allocated and then filled as if it were large, writing past its end. In fixed versions the blend-point count is checked against the data actually available before allocating.",
+      "published": "2026-06-15T18:16:37.007",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6045"
     },
     {
-      "id": "CVE-2026-52704",
-      "summary": "Improper Control of Generation of Code ('Code Injection') vulnerability in Edgar Rojas WooCommerce PDF Invoice Builder allows Remote Code Inclusion.\n\nThis issue affects WooCommerce PDF Invoice Builder: from n/a through 2.0.8.",
-      "published": "2026-06-15T14:16:36.380",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52704"
+      "id": "CVE-2026-6040",
+      "summary": "A heap use-after-free existed when importing the blank-width characters of an ODF number format. A position value read from the document was not checked against the length of the format-code string, so a malformed number format could be processed against memory outside that string. In fixed versions the position is bounds-checked before use.",
+      "published": "2026-06-15T18:16:36.880",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6040"
     }
   ]
 }
