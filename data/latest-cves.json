@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-16T17:19:30+00:00",
+  "generated_at": "2026-06-16T21:17:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53776",
-      "summary": "Perry before 0.5.1166 contains a JWT validation vulnerability that allows remote attackers to bypass token expiration by exploiting the unconditional setting of validate_exp = false in the verify_decode helper within the stdlib JWT verification path. Attackers in possession of a previously issued bearer token can present expired tokens to any jwt.verify() call and retain authenticated access indefinitely, bypassing force-expired sessions such as user logout or administrative revocation.",
-      "published": "2026-06-16T17:16:42.620",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53776"
-    },
-    {
-      "id": "CVE-2026-44932",
-      "summary": "Passing of unsanitized strings from DHCP replies into the wicked dhcp client before wicked 0.6.79 could be used by attackers operating a malicious DHCP server to execute code on the local machine.",
-      "published": "2026-06-16T17:16:40.953",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44932"
-    },
-    {
-      "id": "CVE-2026-42089",
-      "summary": "Yeoman Environment provides an API to discover, create, and run generators, and to configure where and how a generator is resolved. Versions 2.9.0 through 6.0.0 install missing local generator packages from caller-supplied package names without user confirmation. In downstream consumers that pass attacker-controlled project configuration into this path, this can result in arbitrary package installation and code execution during CLI bootstrap. The vulnerable method is installLocalGenerators(), which calls repository.install() directly without prompting the user. This issue has been fixed in version 6.0.0.",
-      "published": "2026-06-16T17:16:40.740",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42089"
-    },
-    {
-      "id": "CVE-2026-24228",
-      "summary": "NVIDIA NeMo Framework for Linux contains a vulnerability where an attacker may cause deserialization of untrusted data. A successful exploit of this vulnerability may lead to code execution, escalation of privileges, data tampering, and information disclosure.",
-      "published": "2026-06-16T17:16:39.590",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24228"
-    },
-    {
-      "id": "CVE-2026-24155",
-      "summary": "NVIDIA NeMo Framework for all platforms contains a code injection vulnerability. A successful exploit of this vulnerability might lead to code execution, escalation of privileges, information disclosure, and data tampering.",
-      "published": "2026-06-16T17:16:39.440",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24155"
-    },
-    {
-      "id": "CVE-2026-12003",
-      "summary": "To allow builds of Python to be run from an in-tree layout (rather than\nan installed file layout), the VPATH variable is defined at build time\nand used to locate certain landmarks - specifically,\nModules/setup.local. When this landmark is found relative to VPATH\nrelative to the executable, Python assumes it is running in a source\ntree and generates a different default sys.path. This code remains in\nrelease builds, so that release-ready builds can be built in-tree.\n\nOn Windows, since builds are written to 'PCbuild/', the value of\nVPATH is set to '..\\..', which results in a landmark of\n'..\\..\\Modules\\setup.local'. This path is outside the install directory\nof Python, and may have different permissions, potentially allowing a\nlow-privilege user to create the landmark and an alternative `Lib`\nfolder that will be discovered by an otherwise restricted install.\n\nSuch a setup occurs with the legacy default install location for all\nusers (in the now superseded EXE installer), due to how Windows allows\nall users to create folders in the root directory of their OS drive.\n\nOur recommended mitigation on Windows is to migrate away from the\nlegacy installer and use the new [Python install\nmanager](https://www.python.org/downloads/latest/pymanager/) to install\nfor the current user. Installs where the directory two levels above the\nPython installation directory have equivalent permissions are unaffected\n(in general, a per-user install cannot be modified at all by other\nusers, removing any escalation of privilege risk, and could be directly\nmodified by a privileged user, making the potential tampering\nirrelevant). Alternative mitigations might include preemptively creating\nand restricting access to a `Modules` directory. Be aware that only 3.13\nand 3.14 will receive updated legacy installers - earlier fixes are only\nprovided as sources.\n\nPlatforms other than Windows allow VPATH to be overridden, but as they\ndon't usually use a separated directory in the build for binaries, are\nunlikely to have a landmark reference outside of the install directory.\n\nThe landmark detection involving VPATH is a fallback for when a more\nspecific landmark - .\\pybuilddir.txt - is absent, and was included for\ncompatibility. Future releases of Python will no longer include the\nfallback, and so builds will need to generate or preserve the\npybuilddir.txt file in order to work in-tree. This landmark file has\nbeen generated on Windows since 3.11, and on other platforms for longer.",
-      "published": "2026-06-16T17:16:31.667",
+      "id": "CVE-2026-48777",
+      "summary": "FileBrowser Quantum is a free, self-hosted, web-based file manager. Versions prior to 1.3.2-stable, 1.4.0-beta and 1.4.1-beta are vulnerable to Path Traversal through the publicPatchHandler in backend/http/public.go which joins user-controlled fromPath and toPath body fields with the trusted d.share.Path BEFORE the downstream sanitizer runs. Because filepath.Join collapses .. segments during the join, the sanitizer in resourcePatchHandler never sees the traversal and the move/copy/rename operates on a path outside the shared directory. The same root-cause pattern was patched for the bulk DELETE endpoint as CVE-2026-44542 (GHSA-fwj3-42wh-8673), but the PATCH handler with the identical pattern was not updated. A public share link with AllowModify=true is sufficient to exploit this. Anyone holding such a link can move, copy, or rename arbitrary files within the share owner's source root. This issue has been fixed in versions 1.3.3-stable and 1.4.2-beta.",
+      "published": "2026-06-16T20:16:46.583",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12003"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48777"
+    },
+    {
+      "id": "CVE-2026-47750",
+      "summary": "stable-diffusion.cpp is a pure C/C++ library for running diffusion model (Stable Diffusion, Flux, Wan, Qwen Image, Z-Image, and more) inference. In versions prior to master-584-0a7ae07,  the pickle .ckpt parser in src/model.cpp contained a heap buffer overflow vulnerability in the GLOBAL opcode handler. The issue was caused by missing validation when searching for newline-delimited fields. A crafted .ckpt file without the expected newline could cause the parser to use -1 as a copy length, resulting in immediate heap corruption. The attack requires the victim or application to load a .ckpt file from an untrusted source, such as a downloaded model from a model sharing site. The issue has been resolved in version master-584-0a7ae07. If developers are unable to immediately update their applications they can work around this issue by following these instructions: do not load .ckpt checkpoint files from untrusted sources, and prefer trusted model sources and safer formats such as .safetensors where possible.",
+      "published": "2026-06-16T20:16:44.413",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47750"
+    },
+    {
+      "id": "CVE-2026-47747",
+      "summary": "stable-diffusion.cpp is a pure C/C++ library for running diffusion model (Stable Diffusion, Flux, Wan, Qwen Image, Z-Image, and more) inference. In versions prior to master-584-0a7ae07, the pickle .ckpt parser in src/model.cpp contained a heap buffer overflow vulnerability in the BINUNICODE opcode handler. The issue was caused by sign confusion on the opcode length field. A crafted .ckpt file could trigger memcpy with a very large length derived from a negative signed value, causing immediate heap corruption.\nThe issue has been resolved in version master-584-0a7ae07. If developers are unable to immediately update their applications they can work around this issue by only loading .ckpt checkpoint files from trusted sources and preferring trusted model sources and safer formats such as .safetensors where possible.",
+      "published": "2026-06-16T20:16:44.163",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47747"
+    },
+    {
+      "id": "CVE-2026-46448",
+      "summary": "In OpenStack Nova before 33.0.2, the server create API does not strip certain hint data. The resulting instance has no Placement allocation.",
+      "published": "2026-06-16T20:16:41.697",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46448"
+    },
+    {
+      "id": "CVE-2026-22313",
+      "summary": "The device has a webserver that exposes a REST API authenticated with a token on the management network. By exploiting an OS command injection vulnerability an authenticated attacker can send\narbitrary commands to the device that are executed with administrative permissions by the underlying operating system.",
+      "published": "2026-06-16T20:16:28.710",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22313"
+    },
+    {
+      "id": "CVE-2026-22312",
+      "summary": "The device has a webserver that exposes a REST API authenticated with a constant token. The unauthenticated API can be used by an attacker to get access to system settings, modify the configuration\nand execute some commands (e.g. system reboot).",
+      "published": "2026-06-16T20:16:28.590",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22312"
     }
   ]
 }
