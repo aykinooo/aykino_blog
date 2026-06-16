@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-16T05:30:06+00:00",
+  "generated_at": "2026-06-16T11:32:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6964",
-      "summary": "The Video Conferencing with Zoom plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.6.7. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to obtain the site's Zoom SDK API key and a freshly-signed JWT that can be used with the Zoom Web SDK to join any Zoom meeting associated with those credentials without a legitimate invitation.",
-      "published": "2026-06-16T04:17:26.917",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6964"
+      "id": "CVE-2026-8442",
+      "summary": "The WP Review Slider Pro plugin for WordPress is vulnerable to Arbitrary File Deletion in versions up to and including 12.6.8. This is due to missing authorization checks on the wpfb_hide_review and wprp_save_review_admin AJAX handlers combined with insufficient path validation in the wpfb_hidereview_ajax() function, which uses strpos() to check that a stored media URL starts with the expected prefix but fails to sanitize path traversal sequences in the remaining relative path before passing it to unlink(). This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files on the affected site's server which may make remote code execution possible.",
+      "published": "2026-06-16T10:16:29.330",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8442"
     },
     {
-      "id": "CVE-2026-7273",
-      "summary": "A stack-based buffer overflow vulnerability in the CGI program of Zyxel GS1900-48HPv2 firmware versions through\u00a02.90(ABTQ.1)C0 could allow a LAN-based, unauthenticated attacker to exploit the flaw and potentially execute OS commands via a crafted HTTP request.",
-      "published": "2026-06-16T03:16:13.557",
+      "id": "CVE-2026-8176",
+      "summary": "The LatePoint \u2013 Calendar Booking Plugin for Appointments and Events plugin for WordPress is vulnerable to Privilege Escalation to Administrator in versions up to, and including, 5.5.1. The plugin chains three independent flaws that together allow an authenticated Agent (Agent+) to overwrite a WordPress Administrator's password without ever invoking an Administrator-only API. This makes it possible for authenticated attackers, with Agent access and above, to elevate their privileges to Administrator.",
+      "published": "2026-06-16T10:16:28.993",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8176"
+    },
+    {
+      "id": "CVE-2026-5416",
+      "summary": "Due to the improper neutralization of special elements used in a name parameter a low privileged remote attacker can exploit a command injection vulnerability in the Managed Ethernet Switch, resulting in full system compromise.",
+      "published": "2026-06-16T10:16:28.857",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7273"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5416"
     },
     {
-      "id": "CVE-2026-42014",
-      "summary": "A flaw was found in GnuTLS. The `gnutls_pkcs11_token_set_pin` function, used for changing the Security Officer PIN, can lead to a use-after-free vulnerability. This occurs when an attacker attempts to change the PIN with a NULL old PIN for a token that lacks a protected authentication path.",
-      "published": "2026-06-16T02:16:19.140",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42014"
+      "id": "CVE-2026-54198",
+      "summary": "Unauthenticated Cross Site Scripting (XSS) in Media LIbrary Assistant <= 3.35 versions.",
+      "published": "2026-06-16T10:16:28.730",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54198"
     },
     {
-      "id": "CVE-2026-1767",
-      "summary": "A flaw was found in the GNOME localsearch (previously known as tracker-miners) MP3 Extractor `tracker-extract-mp3` component. A remote attacker could exploit this heap buffer overflow vulnerability by providing a specially crafted MP3 file containing malformed ID3 tags. This incorrect length calculation during the parsing of performer tags can lead to a read beyond the allocated buffer, potentially causing a Denial of Service (DoS) due to a crash or enabling information disclosure.",
-      "published": "2026-06-16T02:16:18.447",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1767"
+      "id": "CVE-2026-54197",
+      "summary": "Unauthenticated Sensitive Data Exposure in GetGenie <= 4.4.1 versions.",
+      "published": "2026-06-16T10:16:28.607",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54197"
     },
     {
-      "id": "CVE-2026-1766",
-      "summary": "A flaw was found in GNOME localsearch (previously known as tracker-miners) MP3 Extractor, specifically within the tracker-extract-mp3 component. This heap buffer overflow vulnerability occurs when processing specially crafted MP3 files containing malformed ID3v2.3 COMM (Comment) tags. An attacker could exploit this by providing a malicious MP3 file, leading to a denial of service (DoS), which causes an application crash, and potentially disclosing sensitive information from the heap memory.",
-      "published": "2026-06-16T02:16:18.313",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1766"
-    },
-    {
-      "id": "CVE-2026-1765",
-      "summary": "A flaw was found in the `tracker-extract-mp3` component of GNOME localsearch (previously known as tracker-miners). This vulnerability, a heap buffer overflow, occurs when processing specially crafted MP3 files. A remote attacker could exploit this by providing a malicious MP3 file, leading to a Denial of Service (DoS) where the application crashes. It may also potentially expose sensitive information from the system's memory.",
-      "published": "2026-06-16T02:16:18.170",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1765"
+      "id": "CVE-2026-54191",
+      "summary": "Unauthenticated Cross Site Scripting (XSS) in Pods <= 3.3.8 versions.",
+      "published": "2026-06-16T10:16:28.483",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54191"
     }
   ]
 }
