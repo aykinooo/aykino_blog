@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-17T13:58:31+00:00",
+  "generated_at": "2026-06-17T22:52:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-48777",
-      "summary": "FileBrowser Quantum is a free, self-hosted, web-based file manager. Versions prior to 1.3.2-stable, 1.4.0-beta and 1.4.1-beta are vulnerable to Path Traversal through the publicPatchHandler in backend/http/public.go which joins user-controlled fromPath and toPath body fields with the trusted d.share.Path BEFORE the downstream sanitizer runs. Because filepath.Join collapses .. segments during the join, the sanitizer in resourcePatchHandler never sees the traversal and the move/copy/rename operates on a path outside the shared directory. The same root-cause pattern was patched for the bulk DELETE endpoint as CVE-2026-44542 (GHSA-fwj3-42wh-8673), but the PATCH handler with the identical pattern was not updated. A public share link with AllowModify=true is sufficient to exploit this. Anyone holding such a link can move, copy, or rename arbitrary files within the share owner's source root. This issue has been fixed in versions 1.3.3-stable and 1.4.2-beta.",
-      "published": "2026-06-16T20:16:46.583",
+      "id": "CVE-2026-8050",
+      "summary": "In SignalRGB versions prior to 1.3.7.0, seven of the thirteen IOCTL handlers dereference the SystemBuffer pointer without first verifying that it is non-NULL. Sending an IOCTL with an empty input buffer causes a NULL pointer dereference, resulting in a kernel crash.",
+      "published": "2026-06-17T22:16:25.330",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48777"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8050"
     },
     {
-      "id": "CVE-2026-47750",
-      "summary": "stable-diffusion.cpp is a pure C/C++ library for running diffusion model (Stable Diffusion, Flux, Wan, Qwen Image, Z-Image, and more) inference. In versions prior to master-584-0a7ae07,  the pickle .ckpt parser in src/model.cpp contained a heap buffer overflow vulnerability in the GLOBAL opcode handler. The issue was caused by missing validation when searching for newline-delimited fields. A crafted .ckpt file without the expected newline could cause the parser to use -1 as a copy length, resulting in immediate heap corruption. The attack requires the victim or application to load a .ckpt file from an untrusted source, such as a downloaded model from a model sharing site. The issue has been resolved in version master-584-0a7ae07. If developers are unable to immediately update their applications they can work around this issue by following these instructions: do not load .ckpt checkpoint files from untrusted sources, and prefer trusted model sources and safer formats such as .safetensors where possible.",
-      "published": "2026-06-16T20:16:44.413",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47750"
+      "id": "CVE-2026-8049",
+      "summary": "In SignalRGB versions prior to 1.3.7.0, the \\\\.\\SignalIo device object is created without an explicit SDDL security descriptor and without FILE_DEVICE_SECURE_OPEN. This results in overly permissive default access control, allowing any authenticated local user to obtain a handle to the device and issue privileged IOCTLs.",
+      "published": "2026-06-17T22:16:25.070",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8049"
     },
     {
-      "id": "CVE-2026-47747",
-      "summary": "stable-diffusion.cpp is a pure C/C++ library for running diffusion model (Stable Diffusion, Flux, Wan, Qwen Image, Z-Image, and more) inference. In versions prior to master-584-0a7ae07, the pickle .ckpt parser in src/model.cpp contained a heap buffer overflow vulnerability in the BINUNICODE opcode handler. The issue was caused by sign confusion on the opcode length field. A crafted .ckpt file could trigger memcpy with a very large length derived from a negative signed value, causing immediate heap corruption.\nThe issue has been resolved in version master-584-0a7ae07. If developers are unable to immediately update their applications they can work around this issue by only loading .ckpt checkpoint files from trusted sources and preferring trusted model sources and safer formats such as .safetensors where possible.",
-      "published": "2026-06-16T20:16:44.163",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47747"
+      "id": "CVE-2026-54386",
+      "summary": "marimo before 0.23.9 contains a reflected cross-site scripting vulnerability in the notebook page that allows unauthenticated attackers to inject arbitrary JavaScript by exploiting improper escaping of single quotes in the file query parameter reflected into an inline JavaScript string literal. Attackers can craft a malicious link with a payload beginning with __new__ to bypass the 404 check and inject JavaScript into the page, which executes without Content-Security-Policy restrictions in the origin of a victim's marimo server.",
+      "published": "2026-06-17T22:16:24.690",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54386"
     },
     {
-      "id": "CVE-2026-46448",
-      "summary": "In OpenStack Nova before 33.0.2, the server create API does not strip certain hint data. The resulting instance has no Placement allocation.",
-      "published": "2026-06-16T20:16:41.697",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46448"
+      "id": "CVE-2026-50200",
+      "summary": "Steeltoe is an open source project that provides a collection of libraries that helps users build cloud-native applications. In Steeltoe.Management.Endpoint prior to version 4.2.0 and Steeltoe.Management.EndpointCore prior to version 3.4.0, the `Sanitizer` component in the Environment actuator redacts configuration values by matching the configuration key name against a suffix list. The default list (`password`, `secret`, `key`, `token`, `.*credentials.*`, `vcap_services`) does not cover the standard .NET pattern `ConnectionStrings:<name>` or Steeltoe Connectors' `Steeltoe:Client:<type>:Default:ConnectionString`. There is no value-based scrubbing, so full connection string values including embedded `Password=` and `user:pass@host` segments are returned verbatim in `/actuator/env` responses. Steeltoe.Management.Endpoint 4.2.0 and Steeltoe.Management.EndpointCore 3.4.0 patch the issue. If an immediate upgrade is not possible: On the standard path, remove `env` from the actuator exposure list; add `.*connectionstring.*` to `KeysToSanitize` as a defense-in-depth measure for both paths; and/or require authorization on actuator endpoints.",
+      "published": "2026-06-17T22:16:24.453",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50200"
     },
     {
-      "id": "CVE-2026-22313",
-      "summary": "The device has a webserver that exposes a REST API authenticated with a token on the management network. By exploiting an OS command injection vulnerability an authenticated attacker can send\narbitrary commands to the device that are executed with administrative permissions by the underlying operating system.",
-      "published": "2026-06-16T20:16:28.710",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22313"
+      "id": "CVE-2026-50196",
+      "summary": "Steeltoe is an open source project that provides a collection of libraries that helps users build cloud-native applications. In Steeltoe.Discovery.Eureka prior to versions 4.2.0 and 3.4.0, `DataCenterInfo.FromJson` throws `ArgumentException` for any `name` value other than `\"MyOwn\"` or `\"Amazon\"`, despite the Java Eureka specification defining a third valid value: `\"Netflix\"`. The exception propagates through the entire registry deserialization chain and is swallowed by the periodic cache refresh task, leaving the local service registry permanently empty or stale. Versions 4.2.0 and 3.4.0 patch the issue. If an immediate upgrade is not possible, remove any registrations using unsupported `DataCenterInfo.name` values from the registry. In mixed Java/Spring and Steeltoe environments, audit for the `Netflix` data center type before deploying Steeltoe Eureka clients.",
+      "published": "2026-06-17T22:16:24.210",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50196"
     },
     {
-      "id": "CVE-2026-22312",
-      "summary": "The device has a webserver that exposes a REST API authenticated with a constant token. The unauthenticated API can be used by an attacker to get access to system settings, modify the configuration\nand execute some commands (e.g. system reboot).",
-      "published": "2026-06-16T20:16:28.590",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22312"
+      "id": "CVE-2026-50194",
+      "summary": "Steeltoe is an open source project that provides a collection of libraries that helps users build cloud-native applications. When Steeltoe management endpoints versions 3.2.2 through 3.3.0 and 4.1.0 are configured to listen on an alternate port (`Management:Endpoints:Port` is configured), the middleware responsible for restricting access to the endpoints uses the `Host` HTTP header rather than the actual network socket port. Versions 3.4.0 and 4.2.0 patch the issue. If an immediate upgrade to a patched version is not possible, add explicit ASP.NET Core authorization (`RequireAuthorization`) to all sensitive actuator endpoints as a defense-in-depth measure independent of port isolation and/or configure the reverse proxy or load balancer to enforce the `Host` header value and prevent clients from setting an arbitrary port.",
+      "published": "2026-06-17T22:16:23.983",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50194"
     }
   ]
 }
