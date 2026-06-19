@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-17T22:52:23+00:00",
+  "generated_at": "2026-06-19T20:01:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8050",
-      "summary": "In SignalRGB versions prior to 1.3.7.0, seven of the thirteen IOCTL handlers dereference the SystemBuffer pointer without first verifying that it is non-NULL. Sending an IOCTL with an empty input buffer causes a NULL pointer dereference, resulting in a kernel crash.",
-      "published": "2026-06-17T22:16:25.330",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8050"
-    },
-    {
-      "id": "CVE-2026-8049",
-      "summary": "In SignalRGB versions prior to 1.3.7.0, the \\\\.\\SignalIo device object is created without an explicit SDDL security descriptor and without FILE_DEVICE_SECURE_OPEN. This results in overly permissive default access control, allowing any authenticated local user to obtain a handle to the device and issue privileged IOCTLs.",
-      "published": "2026-06-17T22:16:25.070",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8049"
-    },
-    {
-      "id": "CVE-2026-54386",
-      "summary": "marimo before 0.23.9 contains a reflected cross-site scripting vulnerability in the notebook page that allows unauthenticated attackers to inject arbitrary JavaScript by exploiting improper escaping of single quotes in the file query parameter reflected into an inline JavaScript string literal. Attackers can craft a malicious link with a payload beginning with __new__ to bypass the 404 check and inject JavaScript into the page, which executes without Content-Security-Policy restrictions in the origin of a victim's marimo server.",
-      "published": "2026-06-17T22:16:24.690",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54386"
-    },
-    {
-      "id": "CVE-2026-50200",
-      "summary": "Steeltoe is an open source project that provides a collection of libraries that helps users build cloud-native applications. In Steeltoe.Management.Endpoint prior to version 4.2.0 and Steeltoe.Management.EndpointCore prior to version 3.4.0, the `Sanitizer` component in the Environment actuator redacts configuration values by matching the configuration key name against a suffix list. The default list (`password`, `secret`, `key`, `token`, `.*credentials.*`, `vcap_services`) does not cover the standard .NET pattern `ConnectionStrings:<name>` or Steeltoe Connectors' `Steeltoe:Client:<type>:Default:ConnectionString`. There is no value-based scrubbing, so full connection string values including embedded `Password=` and `user:pass@host` segments are returned verbatim in `/actuator/env` responses. Steeltoe.Management.Endpoint 4.2.0 and Steeltoe.Management.EndpointCore 3.4.0 patch the issue. If an immediate upgrade is not possible: On the standard path, remove `env` from the actuator exposure list; add `.*connectionstring.*` to `KeysToSanitize` as a defense-in-depth measure for both paths; and/or require authorization on actuator endpoints.",
-      "published": "2026-06-17T22:16:24.453",
+      "id": "CVE-2026-9375",
+      "summary": "urllib3 version 2.6.3 is vulnerable to a decompression bomb bypass in its streaming API (`preload_content=False`) when using Brotli support. The issue arises due to three independent code paths in `response.py` that bypass the `max_length` protection introduced in version 2.6.0 to mitigate CVE-2025-66471. Specifically, negative `max_length` values can be produced due to buffer arithmetic in `read()`, `flush_decoder` unconditionally overrides `max_length` to `-1`, and `_flush_decoder()` passes no limit at all, defaulting to unlimited decompression. This allows a malicious HTTP server to trigger an out-of-memory (OOM) condition by decompressing large payloads into memory, leading to a denial of service (DoS). The vulnerability affects urllib3 2.6.3 and Brotli 1.2.0 and impacts applications and libraries using `requests` or `urllib3` to stream content from untrusted sources.",
+      "published": "2026-06-19T19:16:36.947",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50200"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9375"
     },
     {
-      "id": "CVE-2026-50196",
-      "summary": "Steeltoe is an open source project that provides a collection of libraries that helps users build cloud-native applications. In Steeltoe.Discovery.Eureka prior to versions 4.2.0 and 3.4.0, `DataCenterInfo.FromJson` throws `ArgumentException` for any `name` value other than `\"MyOwn\"` or `\"Amazon\"`, despite the Java Eureka specification defining a third valid value: `\"Netflix\"`. The exception propagates through the entire registry deserialization chain and is swallowed by the periodic cache refresh task, leaving the local service registry permanently empty or stale. Versions 4.2.0 and 3.4.0 patch the issue. If an immediate upgrade is not possible, remove any registrations using unsupported `DataCenterInfo.name` values from the registry. In mixed Java/Spring and Steeltoe environments, audit for the `Netflix` data center type before deploying Steeltoe Eureka clients.",
-      "published": "2026-06-17T22:16:24.210",
+      "id": "CVE-2026-49340",
+      "summary": "gonic is a music streaming server / free-software subsonic server API implementation. Prior to version 0.21.0, a logic error in `ServeCreateOrUpdatePlaylist` allows any authenticated Subsonic user (including non-admin) to write playlist M3U content to an attacker-controlled absolute filesystem path on the gonic host, and to create intermediate directories with `0o777` permissions. The bug is independent of CVE-2026-49338 and CVE-2026-49339. It is an unreachable guard clause combined with no path containment in `Store.Write`. Version 0.21.0 patches the issue.",
+      "published": "2026-06-19T19:16:36.817",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49340"
+    },
+    {
+      "id": "CVE-2026-49339",
+      "summary": "gonic is a music streaming server / free-software subsonic server API implementation. The maintainer's fix in  commit `6dd71e6a3c966867ef8c900d359a7df75789f410` added an ownership check based on `playlist.UserID`. However, `playlist.UserID` is derived from the first path segment of the attacker-controlled playlist ID, with no path containment on the resolved file path. Any authenticated Subsonic user can therefore bypass the ownership check and read any other user's playlist, delete any other user's playlist, and probe arbitrary file paths on the host for existence/readability. This is a bypass of the boundary the `6dd71e6` fix is trying to enforce; it is closely related to the original GONIC-1 IDOR but uses a different primitive (path traversal in the `id` parameter rather than direct cross-user access). Commit 0824bed88f6bbc490ba28bf09d28e5dfeb07b445 in version 0.21.0 fixes the issue.",
+      "published": "2026-06-19T19:16:36.687",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49339"
+    },
+    {
+      "id": "CVE-2026-49338",
+      "summary": "gonic is a music streaming server / free-software subsonic server API implementation. Prior to version 0.21.0, the Subsonic API endpoints `/rest/deletePlaylist.view` and `/rest/getPlaylist.view` perform no per-resource authorization. Once authenticated as any user (admin or not), an attacker can delete any playlist owned by any other user (including admin) by passing its `id` and read the full contents (name, comment, song list) of any other user's **private** (non-public) playlist by passing its `id`. The Subsonic playlist `id` is `base64url(\"<userID>/<filename>.m3u\")`. Because filenames are user-supplied or time-derived and the `userID` is a small integer, IDs are guessable and frequently exposed (e.g. a previously-public playlist that was later made private still has the same ID). This breaks the multi-user trust boundary of gonic: a low-privileged user can wipe an administrator's curated playlists, and a user can exfiltrate any private playlist they obtain an ID for. The issue was fixed in commit `6dd71e6a3c966867ef8c900d359a7df75789f410`, which is part of version 0.21.0.",
+      "published": "2026-06-19T19:16:36.557",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49338"
+    },
+    {
+      "id": "CVE-2026-49336",
+      "summary": "@microsoft/kiota-http-fetchlibrary provides TypeScript libraries for Kiota-generated API clients. In versions 1.0.0-preview.97 through 1.0.0-preview.101, `@microsoft/kiota-http-fetchlibrary`'s `RedirectHandler` is documented as stripping `Authorization` and `Cookie` from cross-origin redirect targets, but the default `scrubSensitiveHeaders` callback in `RedirectHandlerOptions` uses case-sensitive property deletion (`delete headers.Authorization`, `delete headers.Cookie`) on a headers object that `FetchRequestAdapter.getRequestFromRequestInformation` has already lower-cased. The delete therefore targets keys that do not exist, the scrub is a no-op, and any Bearer token or Cookie attached by a kiota-generated SDK is forwarded to an attacker-controlled host across a 30x redirect. This is reachable in the default middleware chain (`MiddlewareFactory.getDefaultMiddlewares`) with no custom configuration, and applies to every kiota-generated TypeScript SDK that uses `BaseBearerTokenAuthenticationProvider` or any other authentication provider that sets the `Authorization` request header. Version 1.0.0-preview.102 patches the issue.",
+      "published": "2026-06-19T19:16:36.430",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49336"
+    },
+    {
+      "id": "CVE-2026-49293",
+      "summary": "js-toml is a TOML parser for JavaScript, fully compliant with the TOML 1.0.0 Spec. Versions up to and including 1.1.0 parse hexadecimal / octal / binary integer literals via a hand-written `parseBigInt` loop that multiplies a `BigInt` accumulator by the radix once per input digit. Each iteration performs a `BigInt * BigInt` operation on an accumulator that grows linearly with the number of digits already consumed, so the whole loop is O(n\u00b2) in the literal length. The lexer regex places no upper bound on the literal length, so a single TOML document containing one ~500 kB hex literal pins one CPU core for ~40 seconds on a modern laptop (Apple M-series, Node v22). Memory amplification is bounded but CPU amplification is severe and grows quadratically: doubling the literal length quadruples the work. A caller that invokes `load()` on attacker-controlled TOML (configuration upload endpoints, CI/CD systems ingesting third-party `*.toml`, IDE plugins, build tools) is exposed to a single-request CPU exhaustion DoS. Version 1.1.1 fixes the issue.",
+      "published": "2026-06-19T19:16:36.297",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50196"
-    },
-    {
-      "id": "CVE-2026-50194",
-      "summary": "Steeltoe is an open source project that provides a collection of libraries that helps users build cloud-native applications. When Steeltoe management endpoints versions 3.2.2 through 3.3.0 and 4.1.0 are configured to listen on an alternate port (`Management:Endpoints:Port` is configured), the middleware responsible for restricting access to the endpoints uses the `Host` HTTP header rather than the actual network socket port. Versions 3.4.0 and 4.2.0 patch the issue. If an immediate upgrade to a patched version is not possible, add explicit ASP.NET Core authorization (`RequireAuthorization`) to all sensitive actuator endpoints as a defense-in-depth measure independent of port isolation and/or configure the reverse proxy or load balancer to enforce the `Host` header value and prevent clients from setting an arbitrary port.",
-      "published": "2026-06-17T22:16:23.983",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50194"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49293"
     }
   ]
 }
