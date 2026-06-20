@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-20T09:36:49+00:00",
+  "generated_at": "2026-06-20T18:44:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-12119",
-      "summary": "The Simple File List plugin for WordPress is vulnerable to unauthorized file operations due to a missing authorization check on the 'frontmanage' shortcode attribute in all versions up to, and including, 6.3.7. This makes it possible for authenticated attackers, with contributor-level access and above, to perform arbitrary file operations including deletion, move, folder creation, and download. An attacker can create a draft post containing the 'eeSFL' shortcode, render it via the post preview endpoint to harvest the nonce needed to authorize the operations, and then submit file operation requests that bypass the intended authorization checks in includes/ee-list-ops-bar-process.php.",
-      "published": "2026-06-20T09:16:15.593",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12119"
+      "id": "CVE-2026-5366",
+      "summary": "Prefect version 3.6.23 is vulnerable to remote code execution due to improper handling of user-controlled input in the `GitRepository` storage class. The `commit_sha` parameter, which is passed to git commands, lacks validation and does not include a `--` separator to distinguish user input from git flags. This allows attackers to inject arbitrary git flags, such as `--upload-pack`, enabling execution of external programs. Additionally, the `directories` parameter can be exploited to inject git flags during sparse-checkout operations. These vulnerabilities allow any user with deployment creation permissions to execute arbitrary commands on worker machines, compromising shared work pools in multi-tenant environments.",
+      "published": "2026-06-20T17:16:26.560",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5366"
     },
     {
-      "id": "CVE-2026-11912",
-      "summary": "The Simple File List plugin for WordPress is vulnerable to arbitrary file modification due to insufficient authorization checks in all versions up to, and including, 6.3.7. This makes it possible for unauthenticated attackers to delete and modify files on the serve. This vulnerability is exploitable even when the administrator has not enabled the AllowFrontManage setting, because the is_admin() check unconditionally short-circuits the guard before that setting is evaluated.",
-      "published": "2026-06-20T09:16:15.460",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11912"
+      "id": "CVE-2026-56332",
+      "summary": "Capgo before 12.128.2 contains an open redirect vulnerability in the confirm-signup endpoint that allows attackers to redirect users to arbitrary external websites. The confirmation_url parameter is not validated, enabling attackers to craft malicious links for phishing and credential harvesting attacks.",
+      "published": "2026-06-20T16:17:06.257",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56332"
     },
     {
-      "id": "CVE-2026-11911",
-      "summary": "The Simple File List plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the eeSFL_DeleteFile function in all versions up to, and including, 6.3.7. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The simplefilelist_edit_job AJAX action is registered via wp_ajax_nopriv_, making it accessible without authentication, and the is_admin() guard that would otherwise restrict access is bypassed because is_admin() always returns true for requests to the admin-ajax.php endpoint.",
-      "published": "2026-06-20T09:16:13.910",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11911"
+      "id": "CVE-2026-56330",
+      "summary": "Capgo before 12.128.2 contains an open redirect vulnerability in stripe_portal and stripe_checkout endpoints that accept unvalidated callbackUrl, successUrl, and cancelUrl parameters. Authenticated attackers can craft malicious billing URLs to redirect users to attacker-controlled domains for phishing and credential harvesting.",
+      "published": "2026-06-20T16:17:06.130",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56330"
     },
     {
-      "id": "CVE-2026-9843",
-      "summary": "The Database for Contact Form 7, WPforms, Elementor forms plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the view_page function in all versions up to, and including, 1.5.1. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Successful exploitation requires an administrator to view or edit the poisoned form entry, at which point PHP's bracket parser reshapes the attacker-crafted JSON key to bypass the stored-path isset check and trigger deletion of the traversal-specified file.",
-      "published": "2026-06-20T02:16:26.910",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9843"
+      "id": "CVE-2026-56325",
+      "summary": "Capgo before 12.128.2 uses ILIKE pattern matching instead of exact matching for app_id lookup in the preview subdomain resolver, allowing underscore characters in app_id to act as SQL wildcards. Attackers can create apps with app_ids differing by one character at underscore positions to cause unintended pattern matches, breaking preview functionality for legitimate apps or causing app-id confusion.",
+      "published": "2026-06-20T16:17:05.997",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56325"
     },
     {
-      "id": "CVE-2026-9265",
-      "summary": "Crypt::OpenSSL::PKCS12 versions before 1.96 for Perl permits a heap OOB read in print_attribute UTF8STRING path.\n\nprint_attribute() copies a UTF8STRING ASN.1 attribute value into a heap buffer sized exactly to its declared length via strncpy, leaving no NUL terminator. Downstream callers run strlen() on the result and pass the inflated length to newSVpvn(), copying attacker-influenced adjacent heap bytes into a Perl scalar.",
-      "published": "2026-06-20T02:16:26.020",
+      "id": "CVE-2026-56319",
+      "summary": "Capgo before 12.128.2 contains an information disclosure vulnerability in the GET /statistics/app/:app_id endpoint that allows app-limited API keys to distinguish existing sibling app IDs through differential error responses. Attackers can enumerate real app IDs outside their allowed scope by observing 500 PGRST116 errors for inaccessible apps versus 401 errors for nonexistent apps, breaking tenant isolation.",
+      "published": "2026-06-20T16:17:05.863",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56319"
+    },
+    {
+      "id": "CVE-2026-56317",
+      "summary": "Nuxt before 4.4.7 (and the 3.x branch before 3.21.7) contains a cross-site scripting vulnerability in the NoScript component that writes slot content to innerHTML without escaping. Attackers can inject malicious scripts through untrusted data in NoScript slots, such as route.query parameters, which execute in the document context when the noscript tag is implicitly closed by script tags.",
+      "published": "2026-06-20T16:17:05.733",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9265"
-    },
-    {
-      "id": "CVE-2026-56216",
-      "summary": "Capgo before 12.128.2 contains a scope escalation vulnerability in the POST /functions/v1/apikey endpoint that allows app-limited API keys to mint unrestricted keys by setting empty limits. Attackers with a compromised app-limited key can create an unrestricted key with org-wide access to resources like app listings and other protected endpoints.",
-      "published": "2026-06-20T01:16:16.970",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56216"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56317"
     }
   ]
 }
