@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-06-20T05:43:00+00:00",
+  "generated_at": "2026-06-20T09:36:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-12119",
+      "summary": "The Simple File List plugin for WordPress is vulnerable to unauthorized file operations due to a missing authorization check on the 'frontmanage' shortcode attribute in all versions up to, and including, 6.3.7. This makes it possible for authenticated attackers, with contributor-level access and above, to perform arbitrary file operations including deletion, move, folder creation, and download. An attacker can create a draft post containing the 'eeSFL' shortcode, render it via the post preview endpoint to harvest the nonce needed to authorize the operations, and then submit file operation requests that bypass the intended authorization checks in includes/ee-list-ops-bar-process.php.",
+      "published": "2026-06-20T09:16:15.593",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12119"
+    },
+    {
+      "id": "CVE-2026-11912",
+      "summary": "The Simple File List plugin for WordPress is vulnerable to arbitrary file modification due to insufficient authorization checks in all versions up to, and including, 6.3.7. This makes it possible for unauthenticated attackers to delete and modify files on the serve. This vulnerability is exploitable even when the administrator has not enabled the AllowFrontManage setting, because the is_admin() check unconditionally short-circuits the guard before that setting is evaluated.",
+      "published": "2026-06-20T09:16:15.460",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11912"
+    },
+    {
+      "id": "CVE-2026-11911",
+      "summary": "The Simple File List plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the eeSFL_DeleteFile function in all versions up to, and including, 6.3.7. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The simplefilelist_edit_job AJAX action is registered via wp_ajax_nopriv_, making it accessible without authentication, and the is_admin() guard that would otherwise restrict access is bypassed because is_admin() always returns true for requests to the admin-ajax.php endpoint.",
+      "published": "2026-06-20T09:16:13.910",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11911"
+    },
     {
       "id": "CVE-2026-9843",
       "summary": "The Database for Contact Form 7, WPforms, Elementor forms plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the view_page function in all versions up to, and including, 1.5.1. This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Successful exploitation requires an administrator to view or edit the poisoned form entry, at which point PHP's bracket parser reshapes the attacker-crafted JSON key to bypass the stored-path isset check and trigger deletion of the traversal-specified file.",
@@ -22,27 +43,6 @@
       "published": "2026-06-20T01:16:16.970",
       "cvss": 8.8,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56216"
-    },
-    {
-      "id": "CVE-2026-56215",
-      "summary": "Capgo before 12.128.12 allows authenticated users to modify their mutable public.users.email to arbitrary addresses, which the SSO provisioning endpoint trusts as an account-merge key. Attackers can pre-position their account with a victim's corporate SSO email, causing the provision-user endpoint to merge the victim's SSO identity into the attacker-controlled account.",
-      "published": "2026-06-20T01:16:16.840",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56215"
-    },
-    {
-      "id": "CVE-2026-56214",
-      "summary": "Capgo before 12.128.2 contains an information disclosure vulnerability in Supabase PostgREST RPC endpoints is_trial_org and is_paying_org that allows unauthenticated attackers to enumerate organizations and disclose billing status using the public sb_publishable key. Attackers can invoke these endpoints to determine organization existence via distinguishable return values and identify paying customers for targeted profiling.",
-      "published": "2026-06-20T01:16:16.710",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56214"
-    },
-    {
-      "id": "CVE-2026-56213",
-      "summary": "Capgo before 12.128.2 contains an authorization bypass vulnerability in the public.upsert_version_meta SECURITY DEFINER function exposed via PostgREST RPC, allowing unauthenticated attackers to insert arbitrary rows into version_meta for any app_id. Attackers can exploit this by calling the RPC endpoint with a public anon key to poison storage metrics, causing persistent false data in dashboards and triggering incorrect alerts across victim applications.",
-      "published": "2026-06-20T01:16:16.583",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56213"
     }
   ]
 }
