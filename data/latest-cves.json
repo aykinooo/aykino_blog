@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-22T22:54:47+00:00",
+  "generated_at": "2026-06-23T00:20:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-56698",
-      "summary": "Nuxt versions 4.0.0 before 4.4.7 and 3.x before 3.21.7 fail to validate script-capable URLs in the navigateTo open option, allowing client-side script execution. Attackers can supply javascript: URLs through the open parameter to execute arbitrary scripts in the application's origin when user-controlled input is passed to navigateTo.",
-      "published": "2026-06-22T22:16:52.790",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56698"
+      "id": "CVE-2026-54236",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.23.1rc0, the fix for CVE-2026-22778, which introduced a sanitize_message helper that strips object-repr memory addresses from error messages before they reach the client, is incomplete: several response paths echo str(exc) directly to clients without calling sanitize_message. The unsanitized sites include the Anthropic API router in vllm/entrypoints/anthropic/api_router.py (the POST /v1/messages and POST /v1/messages/count_tokens handlers), the Server-Sent Events streaming converter in vllm/entrypoints/anthropic/serving.py, and the realtime speech-to-text WebSocket in vllm/entrypoints/speech_to_text/realtime/connection.py. These paths catch the exception inside the route coroutine and construct the JSONResponse themselves, bypassing the sanitizing global FastAPI exception handler, and WebSocket frames do not traverse that handler chain at all. Using the same primitive as the parent issue, an unauthenticated attacker can send malformed image bytes through the Anthropic Messages API image content parts so that PIL.Image.open raises an UnidentifiedImageError whose message contains the BytesIO object repr, leaking the heap memory address verbatim in the error.message field of the response body. This vulnerability is fixed in 0.23.1rc0.",
+      "published": "2026-06-22T23:16:31.290",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54236"
     },
     {
-      "id": "CVE-2026-56697",
-      "summary": "Nuxt versions 4.0.0 before 4.4.7 and 3.x before 3.21.7 accept protocol-relative paths such as //evil.com in the reloadNuxtApp function; these pass the script-protocol check but resolve to a cross-origin URL against the current page protocol. Attackers can inject paths like //evil.com to redirect users to attacker-controlled hosts, enabling phishing and OAuth authorization-code theft.",
-      "published": "2026-06-22T22:16:52.650",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56697"
+      "id": "CVE-2026-54235",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.23.1rc0, ll temperature validation gates use comparison operators (<, >), which silently evaluate to False for NaN and for positive Infinity in Python's IEEE 754 float semantics. Both values pass every guard and propagate to GPU sampling kernels, where they produce undefined behavior or CUDA errors that can crash the inference worker. This vulnerability is fixed in 0.23.1rc0.",
+      "published": "2026-06-22T23:16:31.143",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54235"
     },
     {
-      "id": "CVE-2026-56357",
-      "summary": "n8n before 1.123.15 and 2.5.0 contains a webhook forgery vulnerability in the GitHub Webhook Trigger node that fails to implement HMAC-SHA256 signature verification. Attackers who know the webhook URL can send unsigned POST requests to trigger workflows with arbitrary data, spoofing GitHub webhook events.",
-      "published": "2026-06-22T22:16:52.510",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56357"
+      "id": "CVE-2026-54233",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.23.1rc0, vLLM's /v1/audio/transcriptions endpoint limits compressed upload size but not decoded PCM output. A 25MB OPUS file expands to ~14.9GB of float32 PCM at decode time. This vulnerability is fixed in 0.23.1rc0.",
+      "published": "2026-06-22T23:16:31.007",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54233"
     },
     {
-      "id": "CVE-2026-56348",
-      "summary": "n8n before 2.20.0 contains a credential exfiltration vulnerability in the POST /rest/dynamic-node-parameters/options endpoint that allows authenticated users to bypass Allowed HTTP Request Domains restrictions. Attackers with credential access can cause the n8n server to issue HTTP requests with credentials to unauthorized hosts, exfiltrating sensitive authentication data.",
-      "published": "2026-06-22T22:16:52.353",
+      "id": "CVE-2026-54232",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). Prior to 0.22.1, the vLLM Dockerfile is vulnerable to a dependency confusion attack through the flashinfer-jit-cache package. The package is installed from a custom index (flashinfer.ai/whl/) using --extra-index-url, but the package name was not registered on PyPI, and UV_INDEX_STRATEGY=\"unsafe-best-match\" is set globally. An attacker who registers flashinfer-jit-cache on PyPI with version 0.6.11.post2 can execute arbitrary code as root during the Docker build and backdoor every resulting container image, enabling exfiltration of all user prompts, API credentials, and model data from production vLLM deployments This vulnerability is fixed in 0.22.1.",
+      "published": "2026-06-22T23:16:30.873",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54232"
+    },
+    {
+      "id": "CVE-2026-53923",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). From 0.5.5 until 0.23.1rc0, integer truncation of tensor dimensions in vLLM's GGUF dequantize kernels (csrc/quantization/gguf/gguf_kernel.cu) causes partial tensor processing. The output tensor is allocated at full size via torch::empty (uninitialized memory), but the dequantize CUDA kernel processes only a truncated number of elements. The unfilled portion of the output tensor retains whatever was previously in GPU memory. In multi-tenant inference deployments, this residual GPU memory may contain tensor data from other users' inference requests, constituting information disclosure. This vulnerability is fixed in 0.23.1rc0.",
+      "published": "2026-06-22T23:16:30.737",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53923"
+    },
+    {
+      "id": "CVE-2026-48746",
+      "summary": "vLLM is an inference and serving engine for large language models (LLMs). From 0.3.0 until 0.22.0, a vulnerability in ASGI web servers and starlette's trust on those web servers enables an authentication bypass of the OpenAI API AuthenticationMiddleware. It allows to use the API without providing the configured VLLM_API_KEY or --api-key. This vulnerability is fixed in 0.22.0.",
+      "published": "2026-06-22T23:16:30.490",
       "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56348"
-    },
-    {
-      "id": "CVE-2026-56326",
-      "summary": "Nuxt versions 4.0.0 before 4.4.7 and 3.x before 3.21.7 contain a server-side open redirect vulnerability in navigateTo that fails to properly validate path-normalized payloads like /..//evil.com and /.//evil.com. Attackers can bypass external-host checks using path-normalization techniques to redirect users to attacker-controlled sites via the Location header or meta-refresh, enabling phishing and OAuth authorization-code theft.",
-      "published": "2026-06-22T22:16:52.207",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56326"
-    },
-    {
-      "id": "CVE-2026-56324",
-      "summary": "Capgo before 12.128.2 contains a rate limit bypass vulnerability in the channel_self endpoint that allows attackers to circumvent rate limiting by rotating the user-controlled device_id parameter. Attackers can send multiple requests per second by changing device_id values to flood the channel_devices table and cause database exhaustion.",
-      "published": "2026-06-22T22:16:52.063",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56324"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48746"
     }
   ]
 }
