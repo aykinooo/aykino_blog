@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMB Enterprise Network Infrastructure — aykino</title>
   <meta name="description" content="Design and deployment of a complete enterprise network for 15 users: Active Directory, Apache servers, VLAN segmentation, pfSense firewall, and security hardening.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2322e08a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>">
   <link rel="stylesheet" href="../css/style.css">
   <style>
+    .reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2)); z-index: 1100;
+      box-shadow: var(--neon-glow); transition: width 0.1s linear; }
+    .server-icon, .rule-icon { color: var(--accent); }
     /* ── Project-specific extras ── */
     .tag-network   { background: rgba(90,200,250,0.1); color: #5ac8fa; }
     .tag-infra     { background: rgba(175,82,222,0.1); color: #af52de; }
@@ -168,13 +172,14 @@
   </style>
 </head>
 <body>
+  <div class="reading-progress"></div>
 
   <!-- ==================== NAVIGATION ==================== -->
   <nav class="nav">
     <div class="nav-inner">
       <a href="../index.html" class="nav-logo">
-        <span class="logo-icon">A</span>
-        aykino's cybersecurity blog
+        <span class="logo-icon"><i data-icon="shield"></i></span>
+        aykino<span style="color:var(--accent)">::</span>sec
       </a>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
@@ -183,7 +188,7 @@
         <li><a href="../about.html">About</a></li>
       </ul>
       <div style="display:flex;align-items:center;gap:0.75rem;">
-        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+        <button class="theme-toggle" aria-label="Toggle theme"></button>
         <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -383,7 +388,7 @@
 
       <div class="server-card">
         <div class="server-card-top">
-          <div class="server-icon">🏛️</div>
+          <div class="server-icon"><i data-icon="server"></i></div>
           <div>
             <h4>DC-01</h4>
             <span class="server-ip">192.168.20.10</span>
@@ -401,7 +406,7 @@
 
       <div class="server-card">
         <div class="server-card-top">
-          <div class="server-icon">🌐</div>
+          <div class="server-icon"><i data-icon="network"></i></div>
           <div>
             <h4>APACHE-INT-01</h4>
             <span class="server-ip">192.168.20.20</span>
@@ -419,7 +424,7 @@
 
       <div class="server-card">
         <div class="server-card-top">
-          <div class="server-icon">🌍</div>
+          <div class="server-icon"><i data-icon="globe"></i></div>
           <div>
             <h4>APACHE-DMZ-01</h4>
             <span class="server-ip">192.168.40.10</span>
@@ -437,7 +442,7 @@
 
       <div class="server-card">
         <div class="server-card-top">
-          <div class="server-icon">📁</div>
+          <div class="server-icon"><i data-icon="folder"></i></div>
           <div>
             <h4>FILE-01</h4>
             <span class="server-ip">192.168.20.30</span>
@@ -455,7 +460,7 @@
 
       <div class="server-card">
         <div class="server-card-top">
-          <div class="server-icon">💾</div>
+          <div class="server-icon"><i data-icon="database"></i></div>
           <div>
             <h4>BACKUP-01</h4>
             <span class="server-ip">192.168.20.40</span>
@@ -686,42 +691,42 @@
   <div class="wide-section">
     <div class="skills-grid stagger">
       <div class="skill-card">
-        <div class="skill-icon">🔐</div>
+        <div class="skill-icon"><i data-icon="lock"></i></div>
         <h4>Password Policy</h4>
         <p>Minimum 12 characters · Complexity required · Max age 90 days · History 10 passwords</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🔒</div>
+        <div class="skill-icon"><i data-icon="key"></i></div>
         <h4>Account Lockout</h4>
         <p>Lock after 5 failed attempts · 15 min observation window · Admin reset required</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">💿</div>
+        <div class="skill-icon"><i data-icon="hard-drive"></i></div>
         <h4>USB Restriction</h4>
         <p>Removable storage disabled for all OUs except GRP_IT_Admins</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🖥️</div>
+        <div class="skill-icon"><i data-icon="monitor"></i></div>
         <h4>Screen Lock</h4>
         <p>Screensaver with password after 10 min · No user override allowed</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">📂</div>
+        <div class="skill-icon"><i data-icon="folder"></i></div>
         <h4>Drive Mapping</h4>
         <p>Department shares auto-mapped at login via GPO preferences (item-level targeting)</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🔄</div>
+        <div class="skill-icon"><i data-icon="refresh"></i></div>
         <h4>Windows Update</h4>
         <p>WSUS managed · Patches deployed Tuesday nights · Servers patched in maintenance window</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🛡️</div>
+        <div class="skill-icon"><i data-icon="shield-check"></i></div>
         <h4>Windows Defender</h4>
         <p>Forced on · Cloud protection enabled · Tamper protection locked by GPO</p>
       </div>
       <div class="skill-card">
-        <div class="skill-icon">🚫</div>
+        <div class="skill-icon"><i data-icon="ban"></i></div>
         <h4>AppLocker</h4>
         <p>Block unsigned executables in %TEMP% · Whitelist-based for finance &amp; HR OUs</p>
       </div>
@@ -736,13 +741,13 @@
 
     <h3>pfSense firewall rules (key rules)</h3>
     <ul class="rule-list">
-      <li><span class="rule-icon">✅</span><div><strong>VLAN 10 → any:</strong> Management VLAN has full access to all VLANs for administrative purposes.</div></li>
-      <li><span class="rule-icon">✅</span><div><strong>VLAN 30 → VLAN 20 (TCP 443, 445, 636):</strong> Users can reach HTTPS intranet, file shares (SMB), and LDAPS for authentication only.</div></li>
-      <li><span class="rule-icon">❌</span><div><strong>VLAN 30 → VLAN 20 (all other ports):</strong> Blocked — users cannot directly access server administration interfaces.</div></li>
-      <li><span class="rule-icon">✅</span><div><strong>WAN → VLAN 40 (TCP 80, 443):</strong> Internet traffic is NAT-forwarded to APACHE-DMZ-01 only.</div></li>
-      <li><span class="rule-icon">❌</span><div><strong>VLAN 40 → VLAN 20/30:</strong> DMZ is fully blocked from reaching internal LAN — a compromise of the public server does not grant LAN access.</div></li>
-      <li><span class="rule-icon">❌</span><div><strong>VLAN 50 → any internal:</strong> Guest WiFi is completely isolated — Internet egress only through NAT.</div></li>
-      <li><span class="rule-icon">✅</span><div><strong>Suricata IDS/IPS:</strong> Enabled on WAN interface with Emerging Threats ruleset. Alerts forwarded to syslog on BACKUP-01.</div></li>
+      <li><span class="rule-icon" style="color:var(--accent)"><i data-icon="check"></i></span><div><strong>VLAN 10 → any:</strong> Management VLAN has full access to all VLANs for administrative purposes.</div></li>
+      <li><span class="rule-icon" style="color:var(--accent)"><i data-icon="check"></i></span><div><strong>VLAN 30 → VLAN 20 (TCP 443, 445, 636):</strong> Users can reach HTTPS intranet, file shares (SMB), and LDAPS for authentication only.</div></li>
+      <li><span class="rule-icon" style="color:var(--tag-red)"><i data-icon="x"></i></span><div><strong>VLAN 30 → VLAN 20 (all other ports):</strong> Blocked — users cannot directly access server administration interfaces.</div></li>
+      <li><span class="rule-icon" style="color:var(--accent)"><i data-icon="check"></i></span><div><strong>WAN → VLAN 40 (TCP 80, 443):</strong> Internet traffic is NAT-forwarded to APACHE-DMZ-01 only.</div></li>
+      <li><span class="rule-icon" style="color:var(--tag-red)"><i data-icon="x"></i></span><div><strong>VLAN 40 → VLAN 20/30:</strong> DMZ is fully blocked from reaching internal LAN — a compromise of the public server does not grant LAN access.</div></li>
+      <li><span class="rule-icon" style="color:var(--tag-red)"><i data-icon="x"></i></span><div><strong>VLAN 50 → any internal:</strong> Guest WiFi is completely isolated — Internet egress only through NAT.</div></li>
+      <li><span class="rule-icon" style="color:var(--accent)"><i data-icon="check"></i></span><div><strong>Suricata IDS/IPS:</strong> Enabled on WAN interface with Emerging Threats ruleset. Alerts forwarded to syslog on BACKUP-01.</div></li>
     </ul>
 
     <h3>TLS / PKI</h3>
@@ -773,7 +778,7 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-text">© 2026 aykino's cybersecurity blog. Built with passion and coffee ☕</span>
+      <span class="footer-text">© 2026 aykino // built with <i data-icon="coffee"></i> &amp; caffeine</span>
       <div class="footer-links">
         <a href="https://github.com/aykinooo" target="_blank" rel="noopener">GitHub</a>
       </div>
