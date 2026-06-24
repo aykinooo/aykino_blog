@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-24T00:09:53+00:00",
+  "generated_at": "2026-06-24T04:33:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-56785",
-      "summary": "FlatPress versions prior to commit 10be83c, contains a stored cross-site scripting vulnerability in comment and contact forms where name, URL, and email fields are rendered without proper output encoding in Smarty templates. Attackers can inject arbitrary HTML and JavaScript through these fields to execute malicious scripts in browsers of viewers including administrators, or bypass URL scheme validation to inject javascript: or data: URIs.",
-      "published": "2026-06-23T23:16:50.020",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56785"
+      "id": "CVE-2026-3652",
+      "summary": "The ARForms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `value` parameter of the `arf_save_incomplete_form_data` AJAX action in all versions up to, and including, 7.1.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that will execute whenever an administrator views the \"Partial Filled Form Entries\" page in the ARForms dashboard.",
+      "published": "2026-06-24T04:17:06.923",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3652"
     },
     {
-      "id": "CVE-2026-54588",
-      "summary": "Poweradmin is a web-based DNS administration tool for PowerDNS server. Versions prior to 4.2.4 and 4.3.3 use the attacker-controlled `HTTP_HOST` request header as the authoritative source for building callback URLs in its OIDC, SAML, and logout authentication flows without any validation. An unauthenticated attacker can poison the `redirect_uri` sent to the Identity Provider, causing the IdP to redirect the victim's authorization code to an attacker-controlled server - resulting in full account takeover with no credentials required. Versions 4.2.4 and 4.3.3 patch the issue.",
-      "published": "2026-06-23T23:16:49.863",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54588"
+      "id": "CVE-2026-11614",
+      "summary": "The Xpro Addons \u2014 140+ Widgets for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom_attributes' parameter in all versions up to, and including, 1.7.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-06-24T04:17:05.340",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11614"
     },
     {
-      "id": "CVE-2026-48493",
-      "summary": "Snipe-IT is an IT asset/license management system. In versions prior to 8.6.0, a user with only users.edit can send a PATCH to /api/v1/users/{their_own_id} and grant themselves any permission except admin and superuser \u2014 for example `assets.view`, `assets.create`, `reports.view`, import, etc. The issue is patched in version 8.6.0.",
-      "published": "2026-06-23T23:16:49.720",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48493"
+      "id": "CVE-2026-12681",
+      "summary": "Improper Validation of Specified Index, Position, or Offset in Input vulnerability in Google go-attestation. parseEfiSignatureList() does not advance the buffer past vendor bytes before reading entries. For hashSHA256SigGUID lists, this allows attacker-controlled vendor header bytes to be appended to the trusted SHA256 hash list. A crafted TPM event log could inject arbitrary SHA256 hashes into the verifier's trusted measurement database, enabling a remote attestation verifier to accept a compromised boot state. This issue affects go-attestation: through 0.6.0.",
+      "published": "2026-06-24T02:16:28.060",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12681"
     },
     {
-      "id": "CVE-2026-47693",
-      "summary": "Poweradmin is a web-based DNS administration tool for PowerDNS server. Versions prior to 4.2.4 and 4.3.3 are vulnerable to CSV Injection (Formula Injection) in its log export functionality. User-controlled data \u2014 specifically the username field \u2014 is written to exported CSV files without sanitizing formula trigger characters (=, +, -, @). When an administrator exports activity logs and opens the resulting CSV in a spreadsheet application (Microsoft Excel, LibreOffice Calc, Google Sheets), any formula stored in a username is executed by the application. This can be used for phishing attacks against administrators or data exfiltration. Versions 4.2.4 and 4.3.3 patch the issue.",
-      "published": "2026-06-23T23:16:49.437",
-      "cvss": 6.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47693"
+      "id": "CVE-2026-54639",
+      "summary": "Style Dictionary, a build system for creating cross-platform styles, has a prototype pollution vulnerability starting in version 4.3.0 and prior to version 5.4.4. Impact users have: direct usage of `convertTokenData(tokens, { output: 'object' });`; indirect usage, via using Expand API; and/or indirect usage via SD's transform lifecycle. Impact is high for this when style-dictionary is used as an integration in a NodeJS server application. Impact is moderate for when style-dictionary is used as an integration in a Web application. Impact is low for most common cases where the user of style-dictionary also maintains the tokens, and access is limited via read/write access to the repository/workflows where it is used. A patch has been published in version `5.4.4`. The only known workaround is to sanitize token data first. Whether using DTCG format or old Style Dictionary format, check the token data object recursively for any object keys that include `__proto__`.",
+      "published": "2026-06-24T01:16:25.363",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54639"
     },
     {
-      "id": "CVE-2026-12164",
-      "summary": "Fortra File Integrity Monitoring (FIM), formerly Tripwire Enterprise, versions prior to 9.4.0 may assign incorrect or elevated effective permissions to users created by the\u00a0tetool import\u00a0command while FIM is running, particularly when the import also creates or changes roles or role-permission relationships.",
-      "published": "2026-06-23T23:16:49.297",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12164"
+      "id": "CVE-2026-7574",
+      "summary": "Anthropic Claude Desktop Cowork VM image handling (confirmed across v1.1348.0 through v1.2278.0, including v1.1348.0, v1.1617.0, and v1.2278.0) validates only file presence and a version marker string before booting rootfs.img, but does not verify image content integrity at time-of-use. A local attacker with unprivileged code execution as the victim macOS user can modify the VM root filesystem image and have it trusted on subsequent Cowork VM boots, enabling persistent arbitrary code execution in the VM and access to host-mounted directories. The estimated CWE mapping is CWE-353 (Missing Support for Integrity Check).",
+      "published": "2026-06-24T00:16:34.173",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7574"
     },
     {
-      "id": "CVE-2026-12163",
-      "summary": "Fortra File Integrity Monitoring (FIM), formerly Tripwire Enterprise, versions prior to 9.4.0.1 contain a stored cross-site scripting (XSS) vulnerability in the Asset View UI component. An authenticated user with sufficient privileges to create or modify affected node or database configuration fields could store script content that may be rendered as HTML instead of safely escaped text when the affected Asset View UI content is displayed.",
-      "published": "2026-06-23T23:16:49.170",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12163"
+      "id": "CVE-2026-6458",
+      "summary": "Missing cryptographic step in Caliptra Core Firmware (aes_256_gcm_update module) results in an incorrect GCM authentication tag. When the streaming AES-256-GCM API is used with empty AAD, the hardware GHASH accumulator state is not saved after the first update call, causing the final tag to exclude the first batch of processed ciphertext. Ciphertext produced by that call may be modified without the tag reflecting the change.\n\nThis issue affects Core Runtime Firmware: from 2.0.0 through 2.0.1, 2.1.0.",
+      "published": "2026-06-24T00:16:34.037",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6458"
     }
   ]
 }
