@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-24T04:33:52+00:00",
+  "generated_at": "2026-06-24T11:59:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3652",
-      "summary": "The ARForms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `value` parameter of the `arf_save_incomplete_form_data` AJAX action in all versions up to, and including, 7.1.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that will execute whenever an administrator views the \"Partial Filled Form Entries\" page in the ARForms dashboard.",
-      "published": "2026-06-24T04:17:06.923",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3652"
-    },
-    {
-      "id": "CVE-2026-11614",
-      "summary": "The Xpro Addons \u2014 140+ Widgets for Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'custom_attributes' parameter in all versions up to, and including, 1.7.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-06-24T04:17:05.340",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11614"
-    },
-    {
-      "id": "CVE-2026-12681",
-      "summary": "Improper Validation of Specified Index, Position, or Offset in Input vulnerability in Google go-attestation. parseEfiSignatureList() does not advance the buffer past vendor bytes before reading entries. For hashSHA256SigGUID lists, this allows attacker-controlled vendor header bytes to be appended to the trusted SHA256 hash list. A crafted TPM event log could inject arbitrary SHA256 hashes into the verifier's trusted measurement database, enabling a remote attestation verifier to accept a compromised boot state. This issue affects go-attestation: through 0.6.0.",
-      "published": "2026-06-24T02:16:28.060",
+      "id": "CVE-2026-13150",
+      "summary": "Server-Side Request Forgery (SSRF) (CWE-918) in the PDF generation endpoint GET /api/reports/{id}/pdf (backend/main.py) in ccyl13 Pentestify 1.0.0 and lower allows remote attackers to make the server issue requests to arbitrary internal or external URLs, including cloud metadata services, and return the rendered content in the resulting PDF via a crafted Host header, because the target URL is built from request.base_url without validation.",
+      "published": "2026-06-24T11:16:33.557",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12681"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13150"
     },
     {
-      "id": "CVE-2026-54639",
-      "summary": "Style Dictionary, a build system for creating cross-platform styles, has a prototype pollution vulnerability starting in version 4.3.0 and prior to version 5.4.4. Impact users have: direct usage of `convertTokenData(tokens, { output: 'object' });`; indirect usage, via using Expand API; and/or indirect usage via SD's transform lifecycle. Impact is high for this when style-dictionary is used as an integration in a NodeJS server application. Impact is moderate for when style-dictionary is used as an integration in a Web application. Impact is low for most common cases where the user of style-dictionary also maintains the tokens, and access is limited via read/write access to the repository/workflows where it is used. A patch has been published in version `5.4.4`. The only known workaround is to sanitize token data first. Whether using DTCG format or old Style Dictionary format, check the token data object recursively for any object keys that include `__proto__`.",
-      "published": "2026-06-24T01:16:25.363",
+      "id": "CVE-2026-52944",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: fix FSCTL permission bypass by adding a permission check for FSCTL_SET_SPARSE\n\nFSCTL_SET_SPARSE in fsctl_set_sparse() modifies the file's sparse\nattribute and saves it through xattr without any permission checks.\n\nThis exposes two issues:\n\n1) A client on a read-only share can change the sparse attribute\n   on files it opened, even though the share is read-only.\n   Other FSCTL write operations already check\n   test_tree_conn_flag(work->tcon, KSMBD_TREE_CONN_FLAG_WRITABLE),\n   but FSCTL_SET_SPARSE does not.\n\n2) Even on writable shares, clients without FILE_WRITE_DATA or\n   FILE_WRITE_ATTRIBUTES access should not modify the sparse\n   attribute. Similar handle-level checks exist in other functions\n   but are missing here.\n\nAdd both share-level writable check and per-handle access check.\nUse goto out on error to avoid leaking file references.",
+      "published": "2026-06-24T10:17:19.447",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52944"
+    },
+    {
+      "id": "CVE-2026-52943",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: skbuff: fix missing zerocopy reference in pskb_carve helpers\n\npskb_carve_inside_header() and pskb_carve_inside_nonlinear() both copy\nthe old skb_shared_info header into a new buffer via memcpy(), which\nincludes the destructor_arg pointer (uarg) for MSG_ZEROCOPY skbs.\nNeither function calls net_zcopy_get() for the new shinfo, creating an\nunaccounted holder: every skb_shared_info with destructor_arg set will\ncall skb_zcopy_clear() once when freed, but the corresponding\nnet_zcopy_get() was never called for the new copy. Repeated calls\ndrive uarg->refcnt to zero prematurely, freeing ubuf_info_msgzc while\nTX skbs still hold live destructor_arg pointers.\n\nKASAN reports use-after-free on a freed ubuf_info_msgzc:\n\n  BUG: KASAN: slab-use-after-free in skb_release_data+0x77b/0x810\n  Read of size 8 at addr ffff88801574d3e8 by task poc/220\n\n  Call Trace:\n   skb_release_data+0x77b/0x810\n   kfree_skb_list_reason+0x13e/0x610\n   skb_release_data+0x4cd/0x810\n   sk_skb_reason_drop+0xf3/0x340\n   skb_queue_purge_reason+0x282/0x440\n   rds_tcp_inc_free+0x1e/0x30\n   rds_recvmsg+0x354/0x1780\n   __sys_recvmsg+0xdf/0x180\n\n  Allocated by task 219:\n   msg_zerocopy_realloc+0x157/0x7b0\n   tcp_sendmsg_locked+0x2892/0x3ba0\n\n  Freed by task 219:\n   ip_recv_error+0x74a/0xb10\n   tcp_recvmsg+0x475/0x530\n\nThe skb consuming the late access still referenced the same uarg via\nshinfo->destructor_arg copied by pskb_carve_inside_nonlinear() without\na refcount bump. This has been verified to be reliably exploitable: a\nworking proof-of-concept achieves full root privilege escalation from\nan unprivileged local user on a default kernel configuration.\n\nThe fix follows the pattern of pskb_expand_head() which has the same\nmemcpy/cloned structure. For pskb_carve_inside_header(), net_zcopy_get()\nis placed after skb_orphan_frags() succeeds, so the orphan error path\nneeds no cleanup. For pskb_carve_inside_nonlinear(), net_zcopy_get() is\nplaced after all failure points and just before skb_release_data(), so\nno error path needs cleanup at all -- matching pskb_expand_head() more\nclosely and avoiding the need for a balancing net_zcopy_put().",
+      "published": "2026-06-24T10:17:19.293",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52943"
+    },
+    {
+      "id": "CVE-2026-11968",
+      "summary": "Argument Injection in TortoiseGitBlame via Malicious Git History Filenames Leads to Arbitrary File Write in TortoiseGit",
+      "published": "2026-06-24T10:17:19.063",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11968"
+    },
+    {
+      "id": "CVE-2026-10745",
+      "summary": "Improper output neutralization for logs vulnerability in upKeeper Solutions upKeeper Instant Privilege Access on Windows allows Log Injection-Tampering-Forging.\n\nThis issue affects upKeeper Instant Privilege Access: through 1.6.1.",
+      "published": "2026-06-24T09:16:30.147",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10745"
+    },
+    {
+      "id": "CVE-2026-7761",
+      "summary": "The Ultimate Member plugin for WordPress is vulnerable to Account Takeover via Password Reset Link Disclosure in all versions up to and including 2.11.4. This is due to a chain of three logic bugs: (1) an MD5 hash fallback in get_directory_by_hash() that allows any post to be used as a member directory by computing SUBSTRING(MD5(post_id), 11, 5), (2) a strstr() parsing logic flaw in post_data() that allows bypassing WordPress's protected meta key restrictions by placing '_um_' anywhere in the meta key name rather than at the start, and (3) missing field name validation in build_user_card_data() that allows arbitrary field names including 'password_reset_link' to be passed to um_filtered_value(). This makes it possible for authenticated attackers with Contributor-level access and above to create a malicious post via XMLRPC with crafted meta fields, use the MD5 fallback to point the member directory AJAX handler to their post, inject 'password_reset_link' into the tagline_fields configuration, and leak live password reset URLs for all users in the member directory response, including administrators.",
+      "published": "2026-06-24T08:16:24.830",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54639"
-    },
-    {
-      "id": "CVE-2026-7574",
-      "summary": "Anthropic Claude Desktop Cowork VM image handling (confirmed across v1.1348.0 through v1.2278.0, including v1.1348.0, v1.1617.0, and v1.2278.0) validates only file presence and a version marker string before booting rootfs.img, but does not verify image content integrity at time-of-use. A local attacker with unprivileged code execution as the victim macOS user can modify the VM root filesystem image and have it trusted on subsequent Cowork VM boots, enabling persistent arbitrary code execution in the VM and access to host-mounted directories. The estimated CWE mapping is CWE-353 (Missing Support for Integrity Check).",
-      "published": "2026-06-24T00:16:34.173",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7574"
-    },
-    {
-      "id": "CVE-2026-6458",
-      "summary": "Missing cryptographic step in Caliptra Core Firmware (aes_256_gcm_update module) results in an incorrect GCM authentication tag. When the streaming AES-256-GCM API is used with empty AAD, the hardware GHASH accumulator state is not saved after the first update call, causing the final tag to exclude the first batch of processed ciphertext. Ciphertext produced by that call may be modified without the tag reflecting the change.\n\nThis issue affects Core Runtime Firmware: from 2.0.0 through 2.0.1, 2.1.0.",
-      "published": "2026-06-24T00:16:34.037",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6458"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7761"
     }
   ]
 }
