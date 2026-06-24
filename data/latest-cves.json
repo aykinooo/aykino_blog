@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-24T11:59:53+00:00",
+  "generated_at": "2026-06-24T15:05:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-13150",
-      "summary": "Server-Side Request Forgery (SSRF) (CWE-918) in the PDF generation endpoint GET /api/reports/{id}/pdf (backend/main.py) in ccyl13 Pentestify 1.0.0 and lower allows remote attackers to make the server issue requests to arbitrary internal or external URLs, including cloud metadata services, and return the rendered content in the resulting PDF via a crafted Host header, because the target URL is built from request.base_url without validation.",
-      "published": "2026-06-24T11:16:33.557",
+      "id": "CVE-2026-57307",
+      "summary": "A missing permission check in Jenkins Zowe zDevOps Plugin 1.1.3.50.ve350c9b_450b_1 and earlier allows attackers with Overall/Read permission to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.",
+      "published": "2026-06-24T14:17:36.770",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13150"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57307"
     },
     {
-      "id": "CVE-2026-52944",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: fix FSCTL permission bypass by adding a permission check for FSCTL_SET_SPARSE\n\nFSCTL_SET_SPARSE in fsctl_set_sparse() modifies the file's sparse\nattribute and saves it through xattr without any permission checks.\n\nThis exposes two issues:\n\n1) A client on a read-only share can change the sparse attribute\n   on files it opened, even though the share is read-only.\n   Other FSCTL write operations already check\n   test_tree_conn_flag(work->tcon, KSMBD_TREE_CONN_FLAG_WRITABLE),\n   but FSCTL_SET_SPARSE does not.\n\n2) Even on writable shares, clients without FILE_WRITE_DATA or\n   FILE_WRITE_ATTRIBUTES access should not modify the sparse\n   attribute. Similar handle-level checks exist in other functions\n   but are missing here.\n\nAdd both share-level writable check and per-handle access check.\nUse goto out on error to avoid leaking file references.",
-      "published": "2026-06-24T10:17:19.447",
+      "id": "CVE-2026-57306",
+      "summary": "A cross-site request forgery (CSRF) vulnerability in Jenkins Zowe zDevOps Plugin 1.1.3.50.ve350c9b_450b_1 and earlier allows attackers to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.",
+      "published": "2026-06-24T14:17:36.680",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52944"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57306"
     },
     {
-      "id": "CVE-2026-52943",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: skbuff: fix missing zerocopy reference in pskb_carve helpers\n\npskb_carve_inside_header() and pskb_carve_inside_nonlinear() both copy\nthe old skb_shared_info header into a new buffer via memcpy(), which\nincludes the destructor_arg pointer (uarg) for MSG_ZEROCOPY skbs.\nNeither function calls net_zcopy_get() for the new shinfo, creating an\nunaccounted holder: every skb_shared_info with destructor_arg set will\ncall skb_zcopy_clear() once when freed, but the corresponding\nnet_zcopy_get() was never called for the new copy. Repeated calls\ndrive uarg->refcnt to zero prematurely, freeing ubuf_info_msgzc while\nTX skbs still hold live destructor_arg pointers.\n\nKASAN reports use-after-free on a freed ubuf_info_msgzc:\n\n  BUG: KASAN: slab-use-after-free in skb_release_data+0x77b/0x810\n  Read of size 8 at addr ffff88801574d3e8 by task poc/220\n\n  Call Trace:\n   skb_release_data+0x77b/0x810\n   kfree_skb_list_reason+0x13e/0x610\n   skb_release_data+0x4cd/0x810\n   sk_skb_reason_drop+0xf3/0x340\n   skb_queue_purge_reason+0x282/0x440\n   rds_tcp_inc_free+0x1e/0x30\n   rds_recvmsg+0x354/0x1780\n   __sys_recvmsg+0xdf/0x180\n\n  Allocated by task 219:\n   msg_zerocopy_realloc+0x157/0x7b0\n   tcp_sendmsg_locked+0x2892/0x3ba0\n\n  Freed by task 219:\n   ip_recv_error+0x74a/0xb10\n   tcp_recvmsg+0x475/0x530\n\nThe skb consuming the late access still referenced the same uarg via\nshinfo->destructor_arg copied by pskb_carve_inside_nonlinear() without\na refcount bump. This has been verified to be reliably exploitable: a\nworking proof-of-concept achieves full root privilege escalation from\nan unprivileged local user on a default kernel configuration.\n\nThe fix follows the pattern of pskb_expand_head() which has the same\nmemcpy/cloned structure. For pskb_carve_inside_header(), net_zcopy_get()\nis placed after skb_orphan_frags() succeeds, so the orphan error path\nneeds no cleanup. For pskb_carve_inside_nonlinear(), net_zcopy_get() is\nplaced after all failure points and just before skb_release_data(), so\nno error path needs cleanup at all -- matching pskb_expand_head() more\nclosely and avoiding the need for a balancing net_zcopy_put().",
-      "published": "2026-06-24T10:17:19.293",
+      "id": "CVE-2026-57305",
+      "summary": "A cross-site request forgery (CSRF) vulnerability in Jenkins Assembla Plugin 1.4 and earlier allows attackers to connect to an attacker-specified URL using an attacker-specified username and password.",
+      "published": "2026-06-24T14:17:36.593",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52943"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57305"
     },
     {
-      "id": "CVE-2026-11968",
-      "summary": "Argument Injection in TortoiseGitBlame via Malicious Git History Filenames Leads to Arbitrary File Write in TortoiseGit",
-      "published": "2026-06-24T10:17:19.063",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11968"
-    },
-    {
-      "id": "CVE-2026-10745",
-      "summary": "Improper output neutralization for logs vulnerability in upKeeper Solutions upKeeper Instant Privilege Access on Windows allows Log Injection-Tampering-Forging.\n\nThis issue affects upKeeper Instant Privilege Access: through 1.6.1.",
-      "published": "2026-06-24T09:16:30.147",
+      "id": "CVE-2026-57304",
+      "summary": "A missing permission check in Jenkins Assembla Plugin 1.4 and earlier allows attackers with Overall/Read permission to connect to an attacker-specified URL using an attacker-specified username and password.",
+      "published": "2026-06-24T14:17:36.497",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10745"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57304"
     },
     {
-      "id": "CVE-2026-7761",
-      "summary": "The Ultimate Member plugin for WordPress is vulnerable to Account Takeover via Password Reset Link Disclosure in all versions up to and including 2.11.4. This is due to a chain of three logic bugs: (1) an MD5 hash fallback in get_directory_by_hash() that allows any post to be used as a member directory by computing SUBSTRING(MD5(post_id), 11, 5), (2) a strstr() parsing logic flaw in post_data() that allows bypassing WordPress's protected meta key restrictions by placing '_um_' anywhere in the meta key name rather than at the start, and (3) missing field name validation in build_user_card_data() that allows arbitrary field names including 'password_reset_link' to be passed to um_filtered_value(). This makes it possible for authenticated attackers with Contributor-level access and above to create a malicious post via XMLRPC with crafted meta fields, use the MD5 fallback to point the member directory AJAX handler to their post, inject 'password_reset_link' into the tagline_fields configuration, and leak live password reset URLs for all users in the member directory response, including administrators.",
-      "published": "2026-06-24T08:16:24.830",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7761"
+      "id": "CVE-2026-57303",
+      "summary": "Jenkins Assembla Plugin 1.4 and earlier does not configure its XML parser to prevent XML external entity (XXE) attacks, allowing attackers able to control the responses of the configured Assembla server to extract secrets from the Jenkins controller or perform server-side request forgery.",
+      "published": "2026-06-24T14:17:36.407",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57303"
+    },
+    {
+      "id": "CVE-2026-57302",
+      "summary": "Jenkins FitNesse Plugin 1.36 and earlier stores passwords unencrypted in job config.xml files on the Jenkins controller, where they can be viewed by users with Extended Read permission or access to the Jenkins controller file system.",
+      "published": "2026-06-24T14:17:36.320",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57302"
     }
   ]
 }
