@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-25T20:20:48+00:00",
+  "generated_at": "2026-06-25T22:43:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7531",
-      "summary": "Use-after-free in PQC hybrid key-share handling. This is an incomplete-fix follow-up to CVE-2026-5460 (released in 5.9.1): a malicious TLS 1.3 server sending a truncated PQC hybrid KeyShare can still trigger the error cleanup path to operate on freed memory.",
-      "published": "2026-06-25T20:17:17.763",
+      "id": "CVE-2026-8720",
+      "summary": "wc_Blake2bHmacFinal and wc_Blake2sHmacFinal discard the message when the key length exceeds the block size, producing a MAC that is independent of the input. When the supplied key is longer than the BLAKE2 block size the key-hashing branch reinitialized the running hash state, discarding the accumulated message data, so the resulting MAC depended only on the key and not on the message being authenticated. This bug is specific to the HMAC-BLAKE2 APIs that were added in wolfSSL version 5.9.0.",
+      "published": "2026-06-25T22:17:03.390",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7531"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8720"
     },
     {
-      "id": "CVE-2026-57522",
-      "summary": "Bitwarden Server before 2026.5.0 contains a JSON injection vulnerability in IntegrationTemplateProcessor.ReplaceTokens(), which substitutes user-controlled values into event-integration templates without JSON encoding. When an organization has configured an event integration whose template references a user-controlled token (such as #ActingUserName# or #UserName#, populated from a member's display name), an authenticated member can set their display name to JSON metacharacters and inject arbitrary key-value pairs into the rendered payloads delivered to webhook, SIEM, Slack, Teams, or Datadog endpoints, making injected fields indistinguishable from legitimate template output.",
-      "published": "2026-06-25T20:17:17.377",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57522"
-    },
-    {
-      "id": "CVE-2026-57521",
-      "summary": "Bitwarden Server before 2026.5.0 contains a broken access control vulnerability that allows any authenticated user to access arbitrary organization billing data by supplying an arbitrary organizationId to the PreviewInvoiceController endpoints without membership or authorization checks. Attackers can exploit the missing ManageOrganizationBillingRequirement on the preview invoice endpoints to retrieve Stripe-computed tax totals, subscription status, and billing details derived from any target organization's real customer and subscription data.",
-      "published": "2026-06-25T20:17:17.220",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57521"
-    },
-    {
-      "id": "CVE-2026-57520",
-      "summary": "Bitwarden Server before 2026.5.0 contains a privilege escalation vulnerability that allows authenticated Custom users with ManageUsers permission to remove Admin accounts from an organization by exploiting a missing role hierarchy check in the bulk user-remove endpoint. Attackers can supply Admin organization-user IDs in a bulk DELETE request to bypass the guard enforced on the single-user removal path, effectively removing one or more Admin accounts from an organization.",
-      "published": "2026-06-25T20:17:17.020",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57520"
-    },
-    {
-      "id": "CVE-2026-55964",
-      "summary": "Chain intermediate CA:TRUE without keyCertSign accepted as a signing CA. Intermediate CA certificates are required to have the keyCertSign key usage when a Key Usage extension is present, but chain-supplied temporary CAs (WOLFSSL_TEMP_CA) added while building a certificate path were previously exempted from this check, so an intermediate asserting CA:TRUE but lacking keyCertSign was accepted as a signing CA. The check now applies to chain-supplied temporary CAs as well; only operator-loaded root certificates (WOLFSSL_USER_CA) and self-signed roots remain exempt. Per RFC 5280 an absent Key Usage extension implies all usages, so the requirement is enforced only when the extension is actually present (extKeyUsageSet). Affects the OpenSSL-compatibility certificate-path-building path (X509_verify_cert / X509_STORE, OPENSSL_EXTRA/OPENSSL_ALL), where untrusted chain intermediates are added as temporary CAs; native (non-OpenSSL-compat) certificate verification does not create temporary CAs and is unaffected. Within those builds, the check applies unless ALLOW_INVALID_CERTSIGN is defined.",
-      "published": "2026-06-25T20:17:16.817",
+      "id": "CVE-2026-7532",
+      "summary": "iPAddress name constraints bypass when WOLFSSL_IP_ALT_NAME is not defined. IP address name constraints are not enforced in that configuration, allowing a certificate to bypass an issuing CA's IP address constraints.",
+      "published": "2026-06-25T22:17:03.263",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55964"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7532"
     },
     {
-      "id": "CVE-2026-55960",
-      "summary": "Un-negotiated Raw Public Key (RFC 7250) accepted in place of an X.509 certificate, bypassing chain validation. A raw public key has no chain, so ParseCertRelative() accepts it without performing any trust verification; it must therefore only be accepted when RPK was actually negotiated for that peer. The check now defaults the expected type to X.509 (per RFC 7250/8446) when no type was negotiated, comparing against the received server certificate type on the client and the selected client certificate type on the server, and rejects any mismatch, including an un-negotiated raw public key, with UNSUPPORTED_CERTIFICATE. Only affects builds with Raw Public Key support (HAVE_RPK) enabled - disabled by default in a standalone build, but included in --enable-all.",
-      "published": "2026-06-25T20:17:16.617",
+      "id": "CVE-2026-7511",
+      "summary": "PKCS7_verify signer confusion allows forged signatures, where the signer associated with a signature is not correctly bound, permitting a forged signature to be accepted.",
+      "published": "2026-06-25T22:17:03.133",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55960"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7511"
+    },
+    {
+      "id": "CVE-2026-6331",
+      "summary": "HMAC zero-length tag forgery in EVP_DigestVerifyFinal, where a zero-length tag could be accepted as valid during HMAC verification. In the OpenSSL-compatibility HMAC verify path the supplied signature length was only checked as not exceeding the MAC length, so a zero-length or otherwise truncated tag could pass verification. The fix requires the supplied tag length to exactly equal the MAC length and rejects a zero-length MAC, so a forged short or empty tag is no longer accepted.",
+      "published": "2026-06-25T22:17:03.010",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6331"
+    },
+    {
+      "id": "CVE-2026-6330",
+      "summary": "The ML-KEM ARM64 NEON ciphertext comparison only compares half of the input, breaking the Fujisaki-Okamoto transform's implicit rejection and weakening IND-CCA2 security on that code path. The constant-time comparison effectively ignored part of the re-encrypted ciphertext, so a decapsulating party could fail to detect a manipulated ciphertext and proceed without the standard's required implicit rejection.",
+      "published": "2026-06-25T22:17:02.887",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6330"
+    },
+    {
+      "id": "CVE-2026-6329",
+      "summary": "PKCS#12 MAC verification uses an attacker-controlled comparison length, weakening the integrity check on the MAC and allowing a mismatched MAC to be accepted. The PKCS#12 verify path compared the locally computed HMAC against the MAC parsed from the PKCS#12 structure using a length taken directly from the attacker-supplied input, without first verifying that it equals the length of the digest actually produced by the configured algorithm. A truncated or zero-length stored MAC could therefore be accepted, defeating the integrity protection of the MAC.",
+      "published": "2026-06-25T22:17:02.757",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6329"
     }
   ]
 }
