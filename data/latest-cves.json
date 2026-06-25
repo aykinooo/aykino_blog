@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-25T08:30:38+00:00",
+  "generated_at": "2026-06-25T11:48:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-56129",
-      "summary": "Generic IO & Memory Access driver for PCs provided by TOSHIBA CORPORATION and Dynabook Inc. exposes its IOCTL with insufficient access control. A logged-in user with no administrative privilege may access physical memory.",
-      "published": "2026-06-25T08:16:29.960",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56129"
-    },
-    {
-      "id": "CVE-2026-12937",
-      "summary": "The Tourfic \u2013 AI Powered Travel Booking, Hotel Booking & Car Rental WordPress Plugin plugin for WordPress is vulnerable to generic SQL Injection via the 'post_id' parameter in all versions up to, and including, 2.22.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The AJAX handler is registered for unauthenticated users via wp_ajax_nopriv_tf_room_availability, and the required nonce is emitted on the public single-hotel page template, allowing unauthenticated attackers to freely obtain a valid nonce and reach the vulnerable code path.",
-      "published": "2026-06-25T08:16:29.787",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12937"
-    },
-    {
-      "id": "CVE-2026-9702",
-      "summary": "The InPost PL WordPress plugin before 1.9.1 does not verify that the request originates from the legitimate buyer before allowing the WooCommerce order parcel-locker destination to be updated, allowing unauthenticated attackers to silently redirect the shipping destination of any pending or processing order on the site.",
-      "published": "2026-06-25T07:16:45.830",
+      "id": "CVE-2026-56130",
+      "summary": "\"Remember me\" cookie age is not verified on the server. This potentially allows an attacker to intercept a valid cookie and reuse it indefinitely, even after the configured expiration time has passed.\nThis issue affects all Apache Shiro versions from 1.2.4 through 2.x, and 3.0.0-alpha-1, only when RememberMe functionality is enabled.\n\n\nUpgrade to version 3.0.0 or later, which fixes the issue.",
+      "published": "2026-06-25T09:16:46.230",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9702"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56130"
     },
     {
-      "id": "CVE-2026-5305",
-      "summary": "The Email Address Encoder WordPress plugin before 1.0.25, email-encoder-premium WordPress plugin before 0.3.12 does not properly handle email replacement, which could allow unauthenticated users to perform Stored XSS attacks",
-      "published": "2026-06-25T07:16:45.737",
+      "id": "CVE-2026-56091",
+      "summary": "When using Apache Shiro with the shiro-guice module in a web servlet context, a specially crafted HTTP request may cause an authentication bypass.\nThis vulnerability is similar to  https://www.cve.org/CVERecord?id=CVE-2020-1957 https://www.cve.org/CVERecord , except that it affects the `shiro-guice` module instead of the `shiro-spring` module.\n\nThis issue affects all Apache Shiro versions through 2.x, and 3.0.0-alpha-1 only when using `shiro-guice` module in a web servlet context.\n\nUpgrade to version 3.0.0 or later, which fixes the issue.",
+      "published": "2026-06-25T09:16:46.103",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5305"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56091"
     },
     {
-      "id": "CVE-2026-12490",
-      "summary": "When a provide-xfr is given with a tls-auth-name, a secondary requesting a transfer should provide a client certificate with that name. However, no client certificate is needed when the request comes in over TLS over the regular tls-port (and not the tls-auth-port) or over over TCP over the regular port, when the other conditions of the provide-xfr rule match.",
-      "published": "2026-06-25T07:16:45.330",
+      "id": "CVE-2026-54226",
+      "summary": "A vulnerability in Apache Kvrocks.\n\nThis issue affects Apache Kvrocks: from 2.6.0 through 2.15.0.\n\nUsers are recommended to upgrade to version 2.16.0, which fixes the issue.",
+      "published": "2026-06-25T09:16:45.987",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12490"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54226"
     },
     {
-      "id": "CVE-2026-12246",
-      "summary": "NSD version 4.14.0 introduced a bug where a specially crafted APL RR, with an adflength larger than permitted for the address family will overwrite the stack when the zone is written to disk, with a maximum of 111 attacker controlled bytes.",
-      "published": "2026-06-25T07:16:45.197",
+      "id": "CVE-2026-53277",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: arm64: Take the SRCU lock for page table walks in fault injection and AT emulation\n\nwalk_s1() and kvm_walk_nested_s2() expect to be called while holding\nkvm->srcu to guard against memslot changes. While this is generally\nthe case, __kvm_at_s12() and __kvm_find_s1_desc_level() call into the\nrespective walkers without taking kvm->srcu.\n\nFix by acquiring kvm->srcu prior to the table walk in both instances.",
+      "published": "2026-06-25T09:16:45.897",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12246"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53277"
+    },
+    {
+      "id": "CVE-2026-53276",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: ISO: Fix a use-after-free of the hci_conn pointer\n\nIn iso_sock_rebind_bc(), the bis pointer is cached, then the socket lock is\ndropped:\n\tbis = iso_pi(sk)->conn->hcon;\n\t/* Release the socket before lookups since that requires hci_dev_lock\n\t * which shall not be acquired while holding sock_lock for proper\n\t * ordering.\n\t */\n\trelease_sock(sk);\n\thci_dev_lock(bis->hdev);\n\nDuring the unlocked window, could a concurrent close() destroy the connection\nand free the bis structure, causing hci_dev_lock(bis->hdev) to access memory\nafter it is freed, fix this by using the hdev reference which was safely\nacquired via iso_conn_get_hdev().",
+      "published": "2026-06-25T09:16:45.807",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53276"
+    },
+    {
+      "id": "CVE-2026-53275",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv6: mcast: Fix use-after-free when processing MLD queries\n\nWhen processing an MLD query, a pointer to the multicast group address\nis retrieved when initially parsing the packet. This pointer is later\ndereferenced without being reloaded despite the fact that the skb header\nmight have been reallocated following the pskb_may_pull() calls, leading\nto a use-after-free [1].\n\nFix by copying the multicast group address when the packet is initially\nparsed.\n\n[1]\nBUG: KASAN: slab-use-after-free in __mld_query_work (net/ipv6/mcast.c:1512)\nRead of size 8 at addr ffff8881154b8e90 by task kworker/4:1/118\n\nWorkqueue: mld mld_query_work\nCall Trace:\n<TASK>\ndump_stack_lvl (lib/dump_stack.c:94 lib/dump_stack.c:120)\nprint_address_description.constprop.0 (mm/kasan/report.c:378)\nprint_report (mm/kasan/report.c:482)\nkasan_report (mm/kasan/report.c:595)\n__mld_query_work (net/ipv6/mcast.c:1512)\nmld_query_work (net/ipv6/mcast.c:1563)\nprocess_one_work (kernel/workqueue.c:3314)\nworker_thread (kernel/workqueue.c:3397 kernel/workqueue.c:3478)\nkthread (kernel/kthread.c:436)\nret_from_fork (arch/x86/kernel/process.c:158)\nret_from_fork_asm (arch/x86/entry/entry_64.S:245)\n</TASK>\n\n[...]\n\nFreed by task 118:\nkasan_save_stack (mm/kasan/common.c:57)\nkasan_save_track (mm/kasan/common.c:78)\nkasan_save_free_info (mm/kasan/generic.c:584)\n__kasan_slab_free (mm/kasan/common.c:253 mm/kasan/common.c:285)\nkfree (./include/linux/kasan.h:235 mm/slub.c:2689 mm/slub.c:6251 mm/slub.c:6566)\npskb_expand_head (net/core/skbuff.c:2335)\n__pskb_pull_tail (net/core/skbuff.c:2878 (discriminator 4))\n__mld_query_work (net/ipv6/mcast.c:1495 (discriminator 1))\nmld_query_work (net/ipv6/mcast.c:1563)\nprocess_one_work (kernel/workqueue.c:3314)\nworker_thread (kernel/workqueue.c:3397 kernel/workqueue.c:3478)\nkthread (kernel/kthread.c:436)\nret_from_fork (arch/x86/kernel/process.c:158)\nret_from_fork_asm (arch/x86/entry/entry_64.S:245)",
+      "published": "2026-06-25T09:16:45.687",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53275"
     }
   ]
 }
