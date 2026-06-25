@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-24T23:20:48+00:00",
+  "generated_at": "2026-06-25T08:30:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-39955",
-      "summary": "Cacti is an open source performance and fault management framework. Versions 1.2.30 and prior have pre-authentication SQL Injection via unanchored FILTER_VALIDATE_REGEXP in graph_view.php. This issue has been fixed in version 1.2.31.",
-      "published": "2026-06-24T23:16:40.980",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39955"
+      "id": "CVE-2026-56129",
+      "summary": "Generic IO & Memory Access driver for PCs provided by TOSHIBA CORPORATION and Dynabook Inc. exposes its IOCTL with insufficient access control. A logged-in user with no administrative privilege may access physical memory.",
+      "published": "2026-06-25T08:16:29.960",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56129"
     },
     {
-      "id": "CVE-2026-39948",
-      "summary": "Cacti is an open source performance and fault management framework. In versions 1.2.30 and prior, the rfilter request parameter is retrieved via the raw accessor grv() (rather than gfrv() with FILTER_VALIDATE_IS_REGEX validation) and concatenated directly into RLIKE SQL clauses in lib/html_graph.php and lib/html_tree.php, which are reachable pre-authentication through graph_view.php on installations with guest graph viewing enabled. Because the unbalanced-quote payload bypasses the regex validation that would otherwise reject it, an unauthenticated attacker can inject arbitrary SQL to compromise the confidentiality, integrity, and availability of the database. This advisory is similar to GHSA-69gg-mjfm-jjpc. This issue has been fixed in version 1.2.31.",
-      "published": "2026-06-24T23:16:40.830",
+      "id": "CVE-2026-12937",
+      "summary": "The Tourfic \u2013 AI Powered Travel Booking, Hotel Booking & Car Rental WordPress Plugin plugin for WordPress is vulnerable to generic SQL Injection via the 'post_id' parameter in all versions up to, and including, 2.22.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The AJAX handler is registered for unauthenticated users via wp_ajax_nopriv_tf_room_availability, and the required nonce is emitted on the public single-hotel page template, allowing unauthenticated attackers to freely obtain a valid nonce and reach the vulnerable code path.",
+      "published": "2026-06-25T08:16:29.787",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12937"
+    },
+    {
+      "id": "CVE-2026-9702",
+      "summary": "The InPost PL WordPress plugin before 1.9.1 does not verify that the request originates from the legitimate buyer before allowing the WooCommerce order parcel-locker destination to be updated, allowing unauthenticated attackers to silently redirect the shipping destination of any pending or processing order on the site.",
+      "published": "2026-06-25T07:16:45.830",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39948"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9702"
     },
     {
-      "id": "CVE-2026-39938",
-      "summary": "Cacti is an open source performance and fault management framework. Versions 1.2.30 and prior have unauthenticated LFI through graph_theme and rrdtool IPC serialization hardening. This issue has been resolved in version 1.2.31.",
-      "published": "2026-06-24T23:16:40.677",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39938"
-    },
-    {
-      "id": "CVE-2026-39900",
-      "summary": "Cacti is an open source performance and fault management framework. Versions 1.2.30 and prior are vulnerable to Reflected XSS via tab parameter in the auth_profile.php JavaScript context. This issue has been fixed in version 1.2.31.",
-      "published": "2026-06-24T23:16:40.530",
+      "id": "CVE-2026-5305",
+      "summary": "The Email Address Encoder WordPress plugin before 1.0.25, email-encoder-premium WordPress plugin before 0.3.12 does not properly handle email replacement, which could allow unauthenticated users to perform Stored XSS attacks",
+      "published": "2026-06-25T07:16:45.737",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39900"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5305"
     },
     {
-      "id": "CVE-2026-39899",
-      "summary": "Cacti is an open source performance and fault management framework. Versions 1.2.30 and prior are vulnerable to Path Traversal via filename parameter in package_import.php. This issue has been fixed in version 1.2.31.",
-      "published": "2026-06-24T23:16:40.367",
+      "id": "CVE-2026-12490",
+      "summary": "When a provide-xfr is given with a tls-auth-name, a secondary requesting a transfer should provide a client certificate with that name. However, no client certificate is needed when the request comes in over TLS over the regular tls-port (and not the tls-auth-port) or over over TCP over the regular port, when the other conditions of the provide-xfr rule match.",
+      "published": "2026-06-25T07:16:45.330",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39899"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12490"
     },
     {
-      "id": "CVE-2025-60474",
-      "summary": "A buffer overflow in the gf_media_import function (/media_tools/av_parsers.c) of GPAC Project/MP4Box before 26.02.0 allows attackers to cause a Denial of Service (DoS) via supplying a crafted input.",
-      "published": "2026-06-24T23:16:40.137",
+      "id": "CVE-2026-12246",
+      "summary": "NSD version 4.14.0 introduced a bug where a specially crafted APL RR, with an adflength larger than permitted for the address family will overwrite the stack when the zone is written to disk, with a maximum of 111 attacker controlled bytes.",
+      "published": "2026-06-25T07:16:45.197",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-60474"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12246"
     }
   ]
 }
