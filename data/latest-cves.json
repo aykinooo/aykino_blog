@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-26T20:53:57+00:00",
+  "generated_at": "2026-06-26T22:34:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-55838",
-      "summary": "RustFS is a distributed object storage system built in Rust. In 1.0.0-beta.7 and earlier, the real-time metrics endpoint at /rustfs/admin/v3/metrics is accessible to any valid IAM user regardless of their assigned policy. Every other admin handler in the codebase calls validate_admin_request to enforce admin-action IAM checks; the MetricsHandler skips this call entirely. A restricted IAM user whose policy grants only access to their own bucket can read server-wide operational metrics including disk I/O statistics, network throughput, scanner cycle timing, and cluster RPC state.",
-      "published": "2026-06-26T20:17:26.847",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55838"
+      "id": "CVE-2026-55069",
+      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 1.3.24, this vulnerability exists in the BasicAuth authentication component of the Kestra OSS workflow orchestration platform. An attacker who gains read access to the PostgreSQL database can exploit SHA-512's high computation speed to recover the administrator password offline. In Kubernetes deployments, a successful crack further enables reading of the cluster ServiceAccount Token and all K8s Secrets, achieving vertical privilege escalation. This vulnerability is fixed in 1.3.24.",
+      "published": "2026-06-26T22:16:33.093",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55069"
     },
     {
-      "id": "CVE-2026-55189",
-      "summary": "RustFS is a distributed object storage system built in Rust. From 1.0.0-alpha.1 until 1.0.0-beta.9, when the FTP frontend is enabled, the FTP read and probe handlers dispatch directly to the storage backend without ever calling the IAM authorization function that the FTP write/list handlers (and the entire HTTP S3 path) use. As a result, any user who can authenticate to the FTP listener \u2014 including a user whose IAM policy contains an explicit Deny on s3:GetObject \u2014 can read (RETR) and stat (SIZE/MDTM) any object in any bucket, and probe any bucket (CWD), completely regardless of their IAM policy. This vulnerability is fixed in 1.0.0-beta.9.",
-      "published": "2026-06-26T20:17:26.717",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55189"
+      "id": "CVE-2026-53577",
+      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 1.0.45 and 1.3.21, the previewFileFromExecution endpoint (GET /api/v1/{tenant}/executions/{executionId}/file/preview) contains an access control bypass that allows any authenticated user to read output files from any other execution within the same tenant, bypassing execution-level and namespace-level isolation. This vulnerability is fixed in 1.0.45 and 1.3.21.",
+      "published": "2026-06-26T22:16:32.967",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53577"
     },
     {
-      "id": "CVE-2026-55188",
-      "summary": "RustFS is a distributed object storage system built in Rust. From 1.0.0-alpha.1 until 1.0.0-beta.9, RustFS contains an authorization bypass in the bucket replication admin API. The ListRemoteTargetHandler handler for listing remote replication targets only checks whether request credentials exist, but does not verify that the caller has replication or administrator permissions. As a result, an authenticated user with no effective bucket or admin permissions can list remote replication target configuration for a bucket. Because the returned BucketTarget objects include remote target credentials, this can disclose replication access keys and secret keys. This vulnerability is fixed in 1.0.0-beta.9.",
-      "published": "2026-06-26T20:17:26.587",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55188"
+      "id": "CVE-2026-53576",
+      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 1.0.45 and 1.3.21, the authentication filter for the REST API (@Filter(\"/api/v1/**\")) treats any request whose path ends in /configs as the public instance-config endpoint and forwards it without a credential check. kestra addresses its resources by URL path segments that the caller chooses (/api/v1/{tenant}/flows/{namespace}, /api/v1/{tenant}/executions/{namespace}/{id}, /api/v1/{tenant}/namespaces/{namespace}/kv/{key}). An anonymous caller picks the literal configs as the final segment, and the request bypasses Basic-Auth entirely. Because the bypass reaches the flow-create and execution-trigger routes, an unauthenticated caller creates a flow containing a Shell or Process task and runs it. The task executes as root inside the kestra container. The official docker-compose.yml mounts /var/run/docker.sock, so root in the container reaches the host Docker daemon. This vulnerability is fixed in 1.0.45 and 1.3.21.",
+      "published": "2026-06-26T22:16:32.840",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53576"
     },
     {
-      "id": "CVE-2026-53324",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: mana: Use pci_name() for debugfs directory naming\n\nUse pci_name(pdev) for the per-device debugfs directory instead of\nhardcoded \"0\" for PFs and pci_slot_name(pdev->slot) for VFs. The\nprevious approach had two issues:\n\n1. pci_slot_name() dereferences pdev->slot, which can be NULL for VFs\n   in environments like generic VFIO passthrough or nested KVM,\n   causing a NULL pointer dereference.\n\n2. Multiple PFs would all use \"0\", and VFs across different PCI\n   domains or buses could share the same slot name, leading to\n   -EEXIST errors from debugfs_create_dir().\n\npci_name(pdev) returns the unique BDF address, is always valid, and is\nunique across the system.",
-      "published": "2026-06-26T20:17:25.750",
+      "id": "CVE-2026-50767",
+      "summary": "A stored cross-site scripting (XSS) vulnerability in the item type administration page of Koha Library Management System through 25.11 allows an authenticated remote attacker with administrator privileges to inject arbitrary web scripts via the item type check-in message field (checkinmsg)",
+      "published": "2026-06-26T22:16:32.727",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53324"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50767"
     },
     {
-      "id": "CVE-2026-53323",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: dsa: remove redundant netdev_lock_ops() from conduit ethtool ops\n\nDSA replaces the conduit (master) device's ethtool_ops with its own\nwrappers that aggregate stats from both the conduit and DSA switch\nports. Taking the lock again inside the DSA wrappers causes a deadlock.\n\nStumbled upon this when booting qemu with fbnic and CONFIG_NET_DSA_LOOP=y\n(which looks like some kind of testing device that auto-populates the ports\nof eth0). `ethtool -i` is enough to deadlock. This means we have basically zero\ncoverage for DSA stuff with real ops locked devs.\n\nRemove the redundant netdev_lock_ops()/netdev_unlock_ops() calls from\nthe DSA conduit ethtool wrappers.",
-      "published": "2026-06-26T20:17:25.653",
+      "id": "CVE-2026-50766",
+      "summary": "A stored cross-site scripting (XSS) vulnerability in the OPAC item detail page of Koha Library Management System through 25.11 allows an authenticated remote attacker with edit_items permission to inject arbitrary web scripts via the item public notes field (items.itemnotes).",
+      "published": "2026-06-26T22:16:32.617",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53323"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50766"
     },
     {
-      "id": "CVE-2026-53322",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nvfio/pci: Clean up DMABUFs before disabling function\n\nOn device shutdown, make vfio_pci_core_close_device() call\nvfio_pci_dma_buf_cleanup() before the function is disabled via\nvfio_pci_core_disable().  This ensures that all access via DMABUFs is\nrevoked before the function's BARs become inaccessible.\n\nThis fixes an issue where, if the function is disabled first, a tiny\nwindow exists in which the function's MSE is cleared and yet BARs\ncould still be accessed via the DMABUF.  The resources would also be\nfreed and up for grabs by a different driver.",
-      "published": "2026-06-26T20:17:25.560",
+      "id": "CVE-2026-50765",
+      "summary": "Cross-Site Scripting (XSS) vulnerability in the patron restriction type administration page of Koha Library Management System through 25.11 allows an authenticated remote attacker with administrator privileges to inject arbitrary web scripts via the restriction type label (display_text field)",
+      "published": "2026-06-26T22:16:32.500",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53322"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50765"
     }
   ]
 }
