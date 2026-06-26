@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-26T06:19:24+00:00",
+  "generated_at": "2026-06-26T10:27:20+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8797",
-      "summary": "An access control deficiency vulnerability exists in ExpressUpdate Agent for Windows. If a malicious user gains access to the product, arbitrary code could be executed with SYSTEM privileges.",
-      "published": "2026-06-26T05:16:31.930",
+      "id": "CVE-2026-6658",
+      "summary": "A vulnerability in jupyter/nbconvert versions <= 7.17.0 allows for Cross-site Scripting (XSS) via unsanitized `text/vnd.mermaid` output in HTML exports. The `data_mermaid` block in `share/templates/lab/base.html.j2` renders `text/vnd.mermaid` cell output directly into HTML without escaping, enabling attackers to inject arbitrary HTML/JavaScript by breaking out of the `<pre>` tag. This vulnerability impacts any server using nbconvert to render notebooks as HTML, allowing attackers to execute arbitrary JavaScript in the context of users viewing the HTML export.",
+      "published": "2026-06-26T10:16:22.810",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6658"
+    },
+    {
+      "id": "CVE-2026-1869",
+      "summary": "The User Registration & Membership \u2013 Free & Paid Memberships, Subscriptions, Content Restriction, User Profile, Custom User Registration & Login Builder plugin for WordPress is vulnerable to unauthorized modification of data due to missing validation checks in the confirm_payment() function in all versions up to, and including, 5.2.0. This makes it possible for unauthenticated attackers to bypass payment processing and activate paid memberships.",
+      "published": "2026-06-26T09:16:34.010",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1869"
+    },
+    {
+      "id": "CVE-2026-11702",
+      "summary": "Bytes::Random::Secure::Tiny versions through 1.011 for Perl share internal state across forked processes.\n\nWhen an object is initialised before forking, then the internal state for the PRNG is shared across processes and identical random streams will be produced.\n\nSecrets generated in multiprocess applications are predictable across processes.",
+      "published": "2026-06-26T09:16:33.903",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8797"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11702"
     },
     {
-      "id": "CVE-2026-8661",
-      "summary": "Server-Side Cross-Site Scripting and Server-Side Request Forgery vulnerability in the markdown_to_pdf action of Rapid7 InsightConnect Markdown Plugin version 3.1.4 and earlier on Linux allows remote attackers to execute JavaScript server-side and make arbitrary outbound HTTP requests via crafted content embedded in Markdown input. The PDF rendering engine does not restrict script execution or outbound network access.",
-      "published": "2026-06-26T02:16:54.640",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8661"
+      "id": "CVE-2026-11625",
+      "summary": "Bytes::Random::Secure versions through 0.29 for Perl share internal state across forked processes.\n\nWhen an object is initialised before forking, or when the functional interface is used, then the internal state for the PRNG is shared across processes and identical random streams will be produced.\n\nSecrets generated in multiprocess applications are predictable across processes.",
+      "published": "2026-06-26T09:16:33.490",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11625"
     },
     {
-      "id": "CVE-2026-50745",
-      "summary": "A missing sanitisation vulnerability exists with user input in the stats-video.php script. The way URLs to this script were constructed did not follow best practices, and the output of the Smarty custom helper function url was neither properly encoded nor sanitised, allowing user\u2011supplied input to be reflected without escaping.",
-      "published": "2026-06-26T02:16:53.953",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50745"
+      "id": "CVE-2026-57881",
+      "summary": "An unauthenticated\nstack-based buffer overflow vulnerability exists in vlsvr in GeoVision\nGV-LPC2011 and GV-LPC2211 V1.12 and earlier. The vulnerability is caused by\ninsufficient length validation when processing remote login data. A remote\nattacker may exploit this vulnerability by sending crafted login data with\noverly long input, resulting in memory corruption, denial of service, or potentially\narbitrary code execution.",
+      "published": "2026-06-26T08:16:25.087",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57881"
     },
     {
-      "id": "CVE-2026-50744",
-      "summary": "A bypass to the admin\u2011only restriction of the XML\u2011RPC API in Revive Adserver 6.0.7. The API response for the ox.login method returned a session ID cookie in the HTTP headers, and although the method correctly returned an error, the associated session was not invalidated. As a result, the leaked session ID could be used to perform subsequent API calls without restrictions.",
-      "published": "2026-06-26T02:16:53.847",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50744"
-    },
-    {
-      "id": "CVE-2026-50742",
-      "summary": "A stored XSS vulnerabilities exists in the `maintenance-acl-check.php` and `maintenance-banners-check.php` tools of Revive Adserver 6.0.7. The issue was caused by entity names being displayed without proper escaping when inconsistencies were detected. Whether the XSS payload is executed when an administrator uses the affected maintenance tools is not entirely under the attacker's control.",
-      "published": "2026-06-26T02:16:53.740",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50742"
-    },
-    {
-      "id": "CVE-2026-50741",
-      "summary": "Bypass to the fix for CVE-2026-34916. Variants of such vectors have been also reported by phucrio and offsetmd. The fix can be bypassed either by sending a disallowed but otherwise valid plugin identifier as `type`, or using the `ox.setChannelTargeting` XML-RPC API method.",
-      "published": "2026-06-26T02:16:53.627",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50741"
+      "id": "CVE-2026-57880",
+      "summary": "An unauthenticated\nstack-based buffer overflow vulnerability exists in ssvr in GeoVision\nGV-LPC2011 and GV-LPC2211 V1.12 and earlier. The vulnerability is caused by\ninsufficient bounds checking when parsing RTSP Digest authentication fields. A\nremote attacker may exploit this vulnerability by sending a crafted RTSP\nrequest containing overly long authentication data, resulting in memory\ncorruption, denial of service, or potentially arbitrary code execution.",
+      "published": "2026-06-26T08:16:24.983",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57880"
     }
   ]
 }
