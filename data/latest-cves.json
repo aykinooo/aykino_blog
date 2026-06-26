@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-25T22:43:59+00:00",
+  "generated_at": "2026-06-26T01:28:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8720",
-      "summary": "wc_Blake2bHmacFinal and wc_Blake2sHmacFinal discard the message when the key length exceeds the block size, producing a MAC that is independent of the input. When the supplied key is longer than the BLAKE2 block size the key-hashing branch reinitialized the running hash state, discarding the accumulated message data, so the resulting MAC depended only on the key and not on the message being authenticated. This bug is specific to the HMAC-BLAKE2 APIs that were added in wolfSSL version 5.9.0.",
-      "published": "2026-06-25T22:17:03.390",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8720"
+      "id": "CVE-2026-9222",
+      "summary": "Setracker2 Android Companion App com.tgelec.setracker versions 3.1.5 and prior only require the password hash when authenticating with backend services from the client. This could allow an attacker, who knows the hash, to authenticate and gain full access.",
+      "published": "2026-06-26T00:16:55.647",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9222"
     },
     {
-      "id": "CVE-2026-7532",
-      "summary": "iPAddress name constraints bypass when WOLFSSL_IP_ALT_NAME is not defined. IP address name constraints are not enforced in that configuration, allowing a certificate to bypass an issuing CA's IP address constraints.",
-      "published": "2026-06-25T22:17:03.263",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7532"
+      "id": "CVE-2026-9221",
+      "summary": "The Setracker2 Android Companion App (com.tgelec.setracker) versions 3.1.5 and earlier uses MD5 to generate a request signature for authenticating communications between the mobile client and the backend REST API. Attackers could potentially reverse the signature to recover the session ID. With the session ID exposed, an attacker could impersonate the legitimate user and issue authenticated API requests.",
+      "published": "2026-06-26T00:16:55.500",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9221"
     },
     {
-      "id": "CVE-2026-7511",
-      "summary": "PKCS7_verify signer confusion allows forged signatures, where the signer associated with a signature is not correctly bound, permitting a forged signature to be accepted.",
-      "published": "2026-06-25T22:17:03.133",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7511"
+      "id": "CVE-2026-9220",
+      "summary": "Setracker2 Android Companion App com.tgelec.setracker versions 3.1.5 and prior encrypts requests between the watch and its backend with static hardcoded AES keys and initialization vectors. This allows an attacker to decrypt Setracker2 watch traffic.",
+      "published": "2026-06-26T00:16:55.367",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9220"
     },
     {
-      "id": "CVE-2026-6331",
-      "summary": "HMAC zero-length tag forgery in EVP_DigestVerifyFinal, where a zero-length tag could be accepted as valid during HMAC verification. In the OpenSSL-compatibility HMAC verify path the supplied signature length was only checked as not exceeding the MAC length, so a zero-length or otherwise truncated tag could pass verification. The fix requires the supplied tag length to exactly equal the MAC length and rejects a zero-length MAC, so a forged short or empty tag is no longer accepted.",
-      "published": "2026-06-25T22:17:03.010",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6331"
+      "id": "CVE-2026-9219",
+      "summary": "Setracker2 Android Companion App com.tgelec.setracker versions 3.1.5 and prior have a predictable registration ID derived from IMEI. The enrollment system lacks additional authentication before assignment. If an attacker is able to obtain the registration ID, they would be able to arbitrarily enroll watches belonging to other users.",
+      "published": "2026-06-26T00:16:55.213",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9219"
     },
     {
-      "id": "CVE-2026-6330",
-      "summary": "The ML-KEM ARM64 NEON ciphertext comparison only compares half of the input, breaking the Fujisaki-Okamoto transform's implicit rejection and weakening IND-CCA2 security on that code path. The constant-time comparison effectively ignored part of the re-encrypted ciphertext, so a decapsulating party could fail to detect a manipulated ciphertext and proceed without the standard's required implicit rejection.",
-      "published": "2026-06-25T22:17:02.887",
+      "id": "CVE-2026-43920",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. In versions 0.5.4 through 0.7.2, the /run-patcher maintenance endpoint in FOSSBilling was accessible without authentication, which allowed unauthenticated remote users to trigger update patch routines that modify configuration files, execute database schema changes, perform filesystem mutations, and clear caches. The /run-patcher endpoint executes privileged maintenance operations - configuration migrations, database patch execution (including ALTER TABLE, DROP TABLE, UPDATE statements), filesystem deletions and renames, and cache clearing - without requiring administrator authentication, CSRF validation, or CLI context. An unauthenticated remote attacker can trigger these operations by sending a simple HTTP GET request to /run-patcher, which can be abused for denial-of-service attacks. Certain patches (e.g., batch token regeneration for all admin and client accounts in patch 53, and session invalidation) are disruptive even when re-executed against an already-patched instance. Repeated or concurrent requests may also cause inconsistent database state. This issue has been fixed in version 0.8.0.",
+      "published": "2026-06-26T00:16:52.817",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6330"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43920"
     },
     {
-      "id": "CVE-2026-6329",
-      "summary": "PKCS#12 MAC verification uses an attacker-controlled comparison length, weakening the integrity check on the MAC and allowing a mismatched MAC to be accepted. The PKCS#12 verify path compared the locally computed HMAC against the MAC parsed from the PKCS#12 structure using a length taken directly from the attacker-supplied input, without first verifying that it equals the length of the digest actually produced by the configured algorithm. A truncated or zero-length stored MAC could therefore be accepted, defeating the integrity protection of the MAC.",
-      "published": "2026-06-25T22:17:02.757",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6329"
+      "id": "CVE-2026-13322",
+      "summary": "A flaw was found in KubeVirt's downward metrics virtio-serial server. The server reads guest requests using textproto.Reader.ReadLine(), which buffers input indefinitely until a newline character is received, with no length limit or read deadline. A user with access to a VM guest that has the downward metrics virtio-serial device configured can write a continuous byte stream to the device, causing unbounded memory allocation in the virt-handler process until it is OOM-killed.",
+      "published": "2026-06-26T00:16:51.397",
+      "cvss": 3.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13322"
     }
   ]
 }
