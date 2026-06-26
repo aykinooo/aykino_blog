@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-26T19:01:58+00:00",
+  "generated_at": "2026-06-26T20:53:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-56876",
-      "summary": "extract-zip does not validate symlink targets when extracting zip archives. When processing a malicious zip file containing a symlink with a relative path like '../../../../etc/passwd', extract-zip will extract the symlink without validation, allowing it to point outside the extraction directory. Depending on how extract-zip is used, an attacker could read or write to arbitrary files.",
-      "published": "2026-06-26T18:17:03.447",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56876"
+      "id": "CVE-2026-55838",
+      "summary": "RustFS is a distributed object storage system built in Rust. In 1.0.0-beta.7 and earlier, the real-time metrics endpoint at /rustfs/admin/v3/metrics is accessible to any valid IAM user regardless of their assigned policy. Every other admin handler in the codebase calls validate_admin_request to enforce admin-action IAM checks; the MetricsHandler skips this call entirely. A restricted IAM user whose policy grants only access to their own bucket can read server-wide operational metrics including disk I/O statistics, network throughput, scanner cycle timing, and cluster RPC state.",
+      "published": "2026-06-26T20:17:26.847",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55838"
     },
     {
-      "id": "CVE-2026-55448",
-      "summary": "mise manages dev tools like node, python, cmake, and terraform. From 2026.3.15 until 2026.6.4, mise loads github.credential_command from local project config before any trust decision, then executes that value with sh -c when resolving a GitHub token. An attacker who can place a .mise.toml in a repository can execute arbitrary shell commands when the victim runs a GitHub-related mise command and no higher-priority GitHub token environment variable is set. This vulnerability is fixed in 2026.6.4.",
-      "published": "2026-06-26T18:17:01.323",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55448"
+      "id": "CVE-2026-55189",
+      "summary": "RustFS is a distributed object storage system built in Rust. From 1.0.0-alpha.1 until 1.0.0-beta.9, when the FTP frontend is enabled, the FTP read and probe handlers dispatch directly to the storage backend without ever calling the IAM authorization function that the FTP write/list handlers (and the entire HTTP S3 path) use. As a result, any user who can authenticate to the FTP listener \u2014 including a user whose IAM policy contains an explicit Deny on s3:GetObject \u2014 can read (RETR) and stat (SIZE/MDTM) any object in any bucket, and probe any bucket (CWD), completely regardless of their IAM policy. This vulnerability is fixed in 1.0.0-beta.9.",
+      "published": "2026-06-26T20:17:26.717",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55189"
     },
     {
-      "id": "CVE-2026-55441",
-      "summary": "mise manages dev tools like node, python, cmake, and terraform. Prior to 2026.6.4, mise's trust feature gates config files (mise.toml, .tool-versions) through trust_check, but task-include files are loaded on a path that never reaches it. When a directory has a task-include dir (mise-tasks/, .mise/tasks/, \u2026) but no config file, mise falls back to the default includes and renders each task's tera fields \u2014 and that tera environment has exec() registered. A {{ exec(command='\u2026') }} in any rendered field runs arbitrary commands the moment the tasks are merely listed. There's no config file to gate on, so no trust prompt ever appears. Read-only commands trigger it: mise tasks, mise task ls, mise run, mise tasks --usage (the query shell completion runs on Tab). The victim only has to cd into a cloned repo and list or tab-complete a task. This vulnerability is fixed in 2026.6.4.",
-      "published": "2026-06-26T18:17:01.190",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55441"
+      "id": "CVE-2026-55188",
+      "summary": "RustFS is a distributed object storage system built in Rust. From 1.0.0-alpha.1 until 1.0.0-beta.9, RustFS contains an authorization bypass in the bucket replication admin API. The ListRemoteTargetHandler handler for listing remote replication targets only checks whether request credentials exist, but does not verify that the caller has replication or administrator permissions. As a result, an authenticated user with no effective bucket or admin permissions can list remote replication target configuration for a bucket. Because the returned BucketTarget objects include remote target credentials, this can disclose replication access keys and secret keys. This vulnerability is fixed in 1.0.0-beta.9.",
+      "published": "2026-06-26T20:17:26.587",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55188"
     },
     {
-      "id": "CVE-2026-54557",
-      "summary": "mise manages dev tools like node, python, cmake, and terraform. Prior to 2026.6.1, the mise HTTP backend builds its install symlink destination from the raw resolved version string for non-latest versions. Normal tool install paths use the sanitized version pathname, but the HTTP backend's symlink path uses the raw value. On Unix-like systems, if that version is an absolute path, PathBuf::join discards the intended mise installs root. A repository-controlled .tool-versions file can therefore make mise install create a symlink outside the mise install tree. With bin_path, the same issue can place an executable symlink under an attacker-selected absolute prefix, such as a developer-tool prefix that is later added to PATH. This vulnerability is fixed in 2026.6.1.",
-      "published": "2026-06-26T18:17:00.553",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54557"
+      "id": "CVE-2026-53324",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: mana: Use pci_name() for debugfs directory naming\n\nUse pci_name(pdev) for the per-device debugfs directory instead of\nhardcoded \"0\" for PFs and pci_slot_name(pdev->slot) for VFs. The\nprevious approach had two issues:\n\n1. pci_slot_name() dereferences pdev->slot, which can be NULL for VFs\n   in environments like generic VFIO passthrough or nested KVM,\n   causing a NULL pointer dereference.\n\n2. Multiple PFs would all use \"0\", and VFs across different PCI\n   domains or buses could share the same slot name, leading to\n   -EEXIST errors from debugfs_create_dir().\n\npci_name(pdev) returns the unique BDF address, is always valid, and is\nunique across the system.",
+      "published": "2026-06-26T20:17:25.750",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53324"
     },
     {
-      "id": "CVE-2026-54341",
-      "summary": "Dragonfly is an in-memory data store built for modern application workloads. Prior to 1.39.0, a crafted RESTORE payload triggers an out-of-bounds read in DragonflyDB's listpack collection loaders, crashing the entire server process (SIGSEGV). Because DragonflyDB requires no authentication by default and RESTORE is a normal keyspace command, an unauthenticated remote attacker can crash the server with a single ~24-byte command \u2014 a remote, repeatable denial of service. This vulnerability is fixed in 1.39.0.",
-      "published": "2026-06-26T18:17:00.417",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54341"
+      "id": "CVE-2026-53323",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: dsa: remove redundant netdev_lock_ops() from conduit ethtool ops\n\nDSA replaces the conduit (master) device's ethtool_ops with its own\nwrappers that aggregate stats from both the conduit and DSA switch\nports. Taking the lock again inside the DSA wrappers causes a deadlock.\n\nStumbled upon this when booting qemu with fbnic and CONFIG_NET_DSA_LOOP=y\n(which looks like some kind of testing device that auto-populates the ports\nof eth0). `ethtool -i` is enough to deadlock. This means we have basically zero\ncoverage for DSA stuff with real ops locked devs.\n\nRemove the redundant netdev_lock_ops()/netdev_unlock_ops() calls from\nthe DSA conduit ethtool wrappers.",
+      "published": "2026-06-26T20:17:25.653",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53323"
     },
     {
-      "id": "CVE-2026-48743",
-      "summary": "Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to 1.35.11, 1.36.7, 1.37.3, and 1.38.1, Envoy can translate a downstream HTTP/3 request that is complete at the transport layer (HEADERS with FIN / headers-only close) but still carries a nonzero Content-Length into a complete upstream HTTP/1 request with unresolved body debt. In an HTTP/1 upstream deployment where the origin replies before reading the declared body and keeps the connection reusable, the beginning of the next Envoy-generated upstream request can be consumed as the first request's body. The remaining bytes are then parsed by the origin as a new HTTP/1 request. This was reproduced as a route-bypass/desync: direct /pwn was denied by Envoy, but the second downstream H3 stream received the response for backend-parsed GET /pwn HTTP/1.1. This vulnerability is fixed in 1.35.11, 1.36.7, 1.37.3, and 1.38.1.",
-      "published": "2026-06-26T18:17:00.173",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48743"
+      "id": "CVE-2026-53322",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nvfio/pci: Clean up DMABUFs before disabling function\n\nOn device shutdown, make vfio_pci_core_close_device() call\nvfio_pci_dma_buf_cleanup() before the function is disabled via\nvfio_pci_core_disable().  This ensures that all access via DMABUFs is\nrevoked before the function's BARs become inaccessible.\n\nThis fixes an issue where, if the function is disabled first, a tiny\nwindow exists in which the function's MSE is cleared and yet BARs\ncould still be accessed via the DMABUF.  The resources would also be\nfreed and up for grabs by a different driver.",
+      "published": "2026-06-26T20:17:25.560",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53322"
     }
   ]
 }
