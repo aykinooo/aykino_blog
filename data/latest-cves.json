@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-26T01:28:46+00:00",
+  "generated_at": "2026-06-26T06:19:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9222",
-      "summary": "Setracker2 Android Companion App com.tgelec.setracker versions 3.1.5 and prior only require the password hash when authenticating with backend services from the client. This could allow an attacker, who knows the hash, to authenticate and gain full access.",
-      "published": "2026-06-26T00:16:55.647",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9222"
-    },
-    {
-      "id": "CVE-2026-9221",
-      "summary": "The Setracker2 Android Companion App (com.tgelec.setracker) versions 3.1.5 and earlier uses MD5 to generate a request signature for authenticating communications between the mobile client and the backend REST API. Attackers could potentially reverse the signature to recover the session ID. With the session ID exposed, an attacker could impersonate the legitimate user and issue authenticated API requests.",
-      "published": "2026-06-26T00:16:55.500",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9221"
-    },
-    {
-      "id": "CVE-2026-9220",
-      "summary": "Setracker2 Android Companion App com.tgelec.setracker versions 3.1.5 and prior encrypts requests between the watch and its backend with static hardcoded AES keys and initialization vectors. This allows an attacker to decrypt Setracker2 watch traffic.",
-      "published": "2026-06-26T00:16:55.367",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9220"
-    },
-    {
-      "id": "CVE-2026-9219",
-      "summary": "Setracker2 Android Companion App com.tgelec.setracker versions 3.1.5 and prior have a predictable registration ID derived from IMEI. The enrollment system lacks additional authentication before assignment. If an attacker is able to obtain the registration ID, they would be able to arbitrarily enroll watches belonging to other users.",
-      "published": "2026-06-26T00:16:55.213",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9219"
-    },
-    {
-      "id": "CVE-2026-43920",
-      "summary": "FOSSBilling is a free, open-source billing and client management system. In versions 0.5.4 through 0.7.2, the /run-patcher maintenance endpoint in FOSSBilling was accessible without authentication, which allowed unauthenticated remote users to trigger update patch routines that modify configuration files, execute database schema changes, perform filesystem mutations, and clear caches. The /run-patcher endpoint executes privileged maintenance operations - configuration migrations, database patch execution (including ALTER TABLE, DROP TABLE, UPDATE statements), filesystem deletions and renames, and cache clearing - without requiring administrator authentication, CSRF validation, or CLI context. An unauthenticated remote attacker can trigger these operations by sending a simple HTTP GET request to /run-patcher, which can be abused for denial-of-service attacks. Certain patches (e.g., batch token regeneration for all admin and client accounts in patch 53, and session invalidation) are disruptive even when re-executed against an already-patched instance. Repeated or concurrent requests may also cause inconsistent database state. This issue has been fixed in version 0.8.0.",
-      "published": "2026-06-26T00:16:52.817",
+      "id": "CVE-2026-8797",
+      "summary": "An access control deficiency vulnerability exists in ExpressUpdate Agent for Windows. If a malicious user gains access to the product, arbitrary code could be executed with SYSTEM privileges.",
+      "published": "2026-06-26T05:16:31.930",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43920"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8797"
     },
     {
-      "id": "CVE-2026-13322",
-      "summary": "A flaw was found in KubeVirt's downward metrics virtio-serial server. The server reads guest requests using textproto.Reader.ReadLine(), which buffers input indefinitely until a newline character is received, with no length limit or read deadline. A user with access to a VM guest that has the downward metrics virtio-serial device configured can write a continuous byte stream to the device, causing unbounded memory allocation in the virt-handler process until it is OOM-killed.",
-      "published": "2026-06-26T00:16:51.397",
-      "cvss": 3.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13322"
+      "id": "CVE-2026-8661",
+      "summary": "Server-Side Cross-Site Scripting and Server-Side Request Forgery vulnerability in the markdown_to_pdf action of Rapid7 InsightConnect Markdown Plugin version 3.1.4 and earlier on Linux allows remote attackers to execute JavaScript server-side and make arbitrary outbound HTTP requests via crafted content embedded in Markdown input. The PDF rendering engine does not restrict script execution or outbound network access.",
+      "published": "2026-06-26T02:16:54.640",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8661"
+    },
+    {
+      "id": "CVE-2026-50745",
+      "summary": "A missing sanitisation vulnerability exists with user input in the stats-video.php script. The way URLs to this script were constructed did not follow best practices, and the output of the Smarty custom helper function url was neither properly encoded nor sanitised, allowing user\u2011supplied input to be reflected without escaping.",
+      "published": "2026-06-26T02:16:53.953",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50745"
+    },
+    {
+      "id": "CVE-2026-50744",
+      "summary": "A bypass to the admin\u2011only restriction of the XML\u2011RPC API in Revive Adserver 6.0.7. The API response for the ox.login method returned a session ID cookie in the HTTP headers, and although the method correctly returned an error, the associated session was not invalidated. As a result, the leaked session ID could be used to perform subsequent API calls without restrictions.",
+      "published": "2026-06-26T02:16:53.847",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50744"
+    },
+    {
+      "id": "CVE-2026-50742",
+      "summary": "A stored XSS vulnerabilities exists in the `maintenance-acl-check.php` and `maintenance-banners-check.php` tools of Revive Adserver 6.0.7. The issue was caused by entity names being displayed without proper escaping when inconsistencies were detected. Whether the XSS payload is executed when an administrator uses the affected maintenance tools is not entirely under the attacker's control.",
+      "published": "2026-06-26T02:16:53.740",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50742"
+    },
+    {
+      "id": "CVE-2026-50741",
+      "summary": "Bypass to the fix for CVE-2026-34916. Variants of such vectors have been also reported by phucrio and offsetmd. The fix can be bypassed either by sending a disallowed but otherwise valid plugin identifier as `type`, or using the `ox.setChannelTargeting` XML-RPC API method.",
+      "published": "2026-06-26T02:16:53.627",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50741"
     }
   ]
 }
