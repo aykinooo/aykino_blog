@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-28T04:47:46+00:00",
+  "generated_at": "2026-06-28T08:27:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-13483",
+      "summary": "A flaw has been found in arc53 DocsGPT up to 0.18.0. The affected element is the function encrypt_credentials of the file application/security/encryption.py of the component Credential Storage. This manipulation causes insufficient verification of data authenticity. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is described as difficult. The exploit has been published and may be used. The pull request to fix this issue awaits acceptance.",
+      "published": "2026-06-28T07:16:21.417",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13483"
+    },
+    {
+      "id": "CVE-2026-13482",
+      "summary": "A vulnerability was detected in skypilot-org skypilot up to 0.12.0. Impacted is the function username.encode of the file sky/users/server.py of the component User ID Handler. The manipulation results in use of weak hash. The attack may be performed from remote. This attack is characterized by high complexity. The exploitability is considered difficult. The exploit is now public and may be used. The vendor was contacted early about this disclosure.",
+      "published": "2026-06-28T05:16:21.200",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13482"
+    },
+    {
+      "id": "CVE-2026-10646",
+      "summary": "Zephyr's BSD-sockets getaddrinfo() implementation (subsys/net/lib/sockets/getaddrinfo.c) passes a pointer to a stack-allocated state object (struct getaddrinfo_state ai_state) as the user_data of an asynchronous DNS resolver query. The socket layer waits on a semaphore with a timeout deliberately set slightly longer than the resolver's own per-query timeout. When that semaphore wait nonetheless times out (-EAGAIN) - which can occur when the resolver's timeout work is delayed by workqueue contention, or in the documented multi-retry configuration where CONFIG_NET_SOCKETS_DNS_TIMEOUT exceeds CONFIG_NET_SOCKETS_DNS_BACKOFF_INTERVAL - the pre-fix code retries the query (goto again) without cancelling the previous one and without resetting the semaphore. The previous query slot remains active in the resolver with its callback and the stack pointer as user_data, and ai_state-dns_id is overwritten so the stale query can no longer be cancelled. A subsequent DNS response delivered over UDP and matched by its 16-bit transaction id (in dispatcher_cb()/dns_read()), or the resolver's own delayed query-timeout work, then invokes dns_resolve_cb() against the now out-of-scope stack frame, writing through the stale pointer (state-status, state-idx, state-ai_arr[], and k_sem_give()). Because the triggering response is network-delivered and its 16-bit id is spoofable/replayable by an on- or off-path attacker, this is a network-influenceable use-after-return that can corrupt reused stack memory, leading to crashes/denial of service or memory corruption. The fix cancels the timed-out query by name and type before retrying and resets the local semaphore, eliminating the stale callback path. Affected: Zephyr v4.0.0 through v4.4.0.",
+      "published": "2026-06-28T05:16:21.083",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10646"
+    },
+    {
+      "id": "CVE-2026-10644",
+      "summary": "The Microchip SERCOM-G1 UART driver (drivers/serial/uart_mchp_sercom_g1.c), used by the PIC32CM-JH SoC family, contains an out-of-bounds write in its asynchronous (DMA) receive path. When uart_rx_enable() is invoked with a one-byte receive buffer (len == 1) and CONFIG_UART_MCHP_ASYNC is enabled, the RX-complete ISR starts a single-beat DMA transfer while a received byte is already pending in the SERCOM DATA register. On this SoC the peripheral-triggered DMA start sequencing then writes one byte past the end of the caller-supplied buffer (CWE-787). The overflowed byte's value is the UART RX data supplied by the connected serial peer (adjacent attacker), while its size and location are fixed at one byte immediately after the buffer. Exploitation requires the async UART config (not enabled by default on the in-tree PIC32CM-JH boards) and a consumer that enables RX with a one-byte buffer; impact is limited single-byte memory corruption adjacent to the RX buffer (possible crash / denial of service). The defect shipped in v4.4.0. The fix reads the first byte with the CPU and, for one-byte buffers, performs no DMA at all; for larger buffers it sizes the DMA for the remaining len-1 bytes.",
+      "published": "2026-06-28T05:16:20.980",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10644"
+    },
+    {
+      "id": "CVE-2026-10593",
+      "summary": "The Zephyr Bluetooth LE Audio Basic Audio Profile (BAP) unicast client mishandles peer-supplied ASE state notifications. In unicast_client_ep_qos_state() (subsys/bluetooth/audio/bap_unicast_client.c), the handler writes attacker-controlled QoS fields (interval, framing, phy, sdu, rtn, latency, pd) through the stream-qos pointer with only a stream != NULL guard. stream-qos is NULL for any stream that has been codec-configured via bt_bap_stream_config() but not yet added to a unicast group (it is set only by unicast_group_add_stream()). A malicious or buggy remote ASCS server, to which the local device is connected as a BAP unicast client, can send a GATT notification announcing the ASE has entered the QoS Configured state while the local endpoint is still in the Codec Configured state \u2014 a transition the dispatcher explicitly permits \u2014 during that window, causing a write through a NULL pointer and a crash (denial of service). The data written is itself remote-controlled. The defect shipped in v4.3.0 and v4.4.0 (and earlier). The fix re-points all BAP QoS storage to the always-valid embedded ep-qos struct, eliminating the NULL dereference.",
+      "published": "2026-06-28T05:16:20.097",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10593"
+    },
     {
       "id": "CVE-2026-58058",
       "summary": "Nmap through 7.99 does not keep the IPv6 extension-header walk within the captured packet in ipv6_get_data_primitive (libnetutil/netutil.cc), so the pointer advances past the buffer and the remaining-length computation underflows to a large value. A scanned target or on-path attacker returning a crafted IPv6 response with a truncated extension header can trigger out-of-bounds reads and a crash during raw IPv6 scans.",
       "published": "2026-06-28T02:16:33.130",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58058"
-    },
-    {
-      "id": "CVE-2026-58057",
-      "summary": "Flowise before 3.1.3 validates Custom MCP stdio environment variables against a denylist using a case-sensitive comparison, so on Windows, where environment names are case-insensitive, supplying 'node_options' bypasses the NODE_OPTIONS denylist entry. An authenticated user who can configure a Custom MCP node can thereby inject NODE_OPTIONS --require and execute arbitrary code in the Flowise server context.",
-      "published": "2026-06-28T02:16:32.990",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58057"
-    },
-    {
-      "id": "CVE-2026-58056",
-      "summary": "RustDesk gates incoming control messages on per-capability flags rather than on the session's authorized connection type, and a file-transfer session does not clear those flags. A peer holding only a valid FileTransfer authorization can inject keyboard and mouse input and reach the unguarded screenshot and display-capture handlers, acting outside its granted scope.",
-      "published": "2026-06-28T02:16:32.860",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58056"
-    },
-    {
-      "id": "CVE-2026-58055",
-      "summary": "nghttp2's nghttpx proxy through 1.69.0 forwards an HTTP/1.1 Upgrade request that also carries a Content-Length header and body onto reusable keep-alive backend connections, re-adding the Upgrade and Connection headers while passing Content-Length verbatim. A backend that resolves the resulting ambiguous message in the attacker's favor enables HTTP request/response smuggling and cross-client response-queue poisoning.",
-      "published": "2026-06-28T02:16:32.677",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58055"
-    },
-    {
-      "id": "CVE-2026-58054",
-      "summary": "MyBB 1.8.40 does not restrict which usergroup a limited Admin Control Panel user may assign when creating or editing users; the user module offers the Administrators group (gid 4) and its datahandler's verify_usergroup() unconditionally returns true. An admin holding only the delegated user-management permission can assign the Administrators group to an account and escalate to the full Administrator permission set.",
-      "published": "2026-06-28T02:16:32.550",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58054"
-    },
-    {
-      "id": "CVE-2026-58053",
-      "summary": "Gitea act_runner with the Docker backend (through act 0.262.0) passes a workflow's container.options string to the Docker job container's HostConfig and, when configured with privileged: false, forces only the Privileged flag off while merging options such as --pid=host, --cap-add, and --security-opt unchanged. A user who can run a workflow on a Docker-backed runner can create a job container with host namespaces and broad capabilities and escape to the host as root despite privileged mode being disabled.",
-      "published": "2026-06-28T02:16:32.420",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58053"
     }
   ]
 }
