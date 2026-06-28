@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-27T23:17:40+00:00",
+  "generated_at": "2026-06-28T04:47:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-49416",
-      "summary": "The CONS_HISTORY ioctl handler did not adequately validate the requested history size.  A large value caused an integer overflow in the buffer size calculation, resulting in a heap allocation smaller than expected.  Subsequent initialization of the buffer wrote beyond the end of the allocation.\n\nAn unprivileged local user with access to a vt(4) device can trigger an out-of-bounds write in the kernel, potentially escalating privileges.",
-      "published": "2026-06-27T10:16:38.077",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49416"
+      "id": "CVE-2026-58058",
+      "summary": "Nmap through 7.99 does not keep the IPv6 extension-header walk within the captured packet in ipv6_get_data_primitive (libnetutil/netutil.cc), so the pointer advances past the buffer and the remaining-length computation underflows to a large value. A scanned target or on-path attacker returning a crafted IPv6 response with a truncated extension header can trigger out-of-bounds reads and a crash during raw IPv6 scans.",
+      "published": "2026-06-28T02:16:33.130",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58058"
     },
     {
-      "id": "CVE-2026-49414",
-      "summary": "The ELF image activator cleared per-process ASLR preference flags for setuid binaries after the code that computes the PIE base address, rather than before.  As a result, a user-requested ASLR disable was still in effect at the point where the base address was chosen.\n\nAn unprivileged local user can disable ASLR for a setuid PIE binary by calling procctl(2) before execve(2).  This makes exploitation of any separate memory corruption vulnerability in that binary significantly easier.",
-      "published": "2026-06-27T10:16:37.007",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49414"
+      "id": "CVE-2026-58057",
+      "summary": "Flowise before 3.1.3 validates Custom MCP stdio environment variables against a denylist using a case-sensitive comparison, so on Windows, where environment names are case-insensitive, supplying 'node_options' bypasses the NODE_OPTIONS denylist entry. An authenticated user who can configure a Custom MCP node can thereby inject NODE_OPTIONS --require and execute arbitrary code in the Flowise server context.",
+      "published": "2026-06-28T02:16:32.990",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58057"
     },
     {
-      "id": "CVE-2026-49417",
-      "summary": "Second, the audio buffer backing a mapping could be freed when the device was closed even though the mapping remained valid.  The freed memory could then be reused elsewhere while still accessible through the stale mapping.\n\nThe /dev/dsp device nodes are world-accessible by default.  On a system with an audio device, either issue allows an unprivileged local user to read and write kernel memory, which can be used to escalate privileges, potentially gaining full control of the affected system.  At a minimum, an attacker can crash the kernel, resulting in a Denial of Service (DoS).",
-      "published": "2026-06-27T09:16:24.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49417"
+      "id": "CVE-2026-58056",
+      "summary": "RustDesk gates incoming control messages on per-capability flags rather than on the session's authorized connection type, and a file-transfer session does not clear those flags. A peer holding only a valid FileTransfer authorization can inject keyboard and mouse input and reach the unguarded screenshot and display-capture handlers, acting outside its granted scope.",
+      "published": "2026-06-28T02:16:32.860",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58056"
     },
     {
-      "id": "CVE-2026-49413",
-      "summary": "The Linuxulator determined whether a binary was set-user-ID or set-group-ID by checking the P_SUGID process flag.  During execve(2), this flag is not yet set at the point where the auxiliary vector is constructed, so AT_SECURE was incorrectly set to zero for set-user-ID and set-group-ID executables.\n\nAn unprivileged local user can inject a shared library via LD_PRELOAD into a set-user-ID or set-group-ID Linux binary, gaining the privileges of that binary.",
-      "published": "2026-06-27T09:16:24.040",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49413"
+      "id": "CVE-2026-58055",
+      "summary": "nghttp2's nghttpx proxy through 1.69.0 forwards an HTTP/1.1 Upgrade request that also carries a Content-Length header and body onto reusable keep-alive backend connections, re-adding the Upgrade and Connection headers while passing Content-Length verbatim. A backend that resolves the resulting ambiguous message in the attacker's favor enables HTTP request/response smuggling and cross-client response-queue poisoning.",
+      "published": "2026-06-28T02:16:32.677",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58055"
     },
     {
-      "id": "CVE-2026-49412",
-      "summary": "The kernel handler for IPV6_MSFILTER dropped a serializing lock in order to copy the source-filter list from userspace, then reacquired the lock.  During this window another thread could free the multicast filter structure, leaving the handler with a stale pointer to freed memory.\n\nAn unprivileged local user can exploit this use-after-free to escalate privileges.",
-      "published": "2026-06-27T09:16:23.937",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49412"
+      "id": "CVE-2026-58054",
+      "summary": "MyBB 1.8.40 does not restrict which usergroup a limited Admin Control Panel user may assign when creating or editing users; the user module offers the Administrators group (gid 4) and its datahandler's verify_usergroup() unconditionally returns true. An admin holding only the delegated user-management permission can assign the Administrators group to an account and escalate to the full Administrator permission set.",
+      "published": "2026-06-28T02:16:32.550",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58054"
     },
     {
-      "id": "CVE-2026-45259",
-      "summary": "sigqueue(2) was marked as permitted in capability mode with the introduction of Capsicum in 2011, but the implementation of kern_sigqueue did not include a capability mode check restricting signal delivery to the calling process's own PID.\n\nA process in capability mode can use sigqueue(2) to send signals to any process it could signal following standard Unix permissions, bypassing the Capsicum sandbox restriction.  A compromised sandboxed process could interfere with other processes, for example by sending SIGKILL or SIGSTOP.  This could be any process running as the same user, or any process, for a superuser sandboxed process.",
-      "published": "2026-06-27T09:16:22.963",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45259"
+      "id": "CVE-2026-58053",
+      "summary": "Gitea act_runner with the Docker backend (through act 0.262.0) passes a workflow's container.options string to the Docker job container's HostConfig and, when configured with privileged: false, forces only the Privileged flag off while merging options such as --pid=host, --cap-add, and --security-opt unchanged. A user who can run a workflow on a Docker-backed runner can create a job container with host namespaces and broad capabilities and escape to the host as root despite privileged mode being disabled.",
+      "published": "2026-06-28T02:16:32.420",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58053"
     }
   ]
 }
