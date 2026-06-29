@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-29T09:57:15+00:00",
+  "generated_at": "2026-06-29T14:18:04+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9267",
-      "summary": "Eclipse tinydtls before commit\u00a0b3efd41ad111a4920f599f51ffa4f5e9f1e72221 contains an out-of-bounds read vulnerability in the check_server_certificate() function that allows unauthenticated attackers to trigger reads beyond valid buffer boundaries by crafting a Certificate handshake message with a specific fragment_length value. Attackers can exploit missing buffer length validation before uint24 reads, memcmp, and memcpy operations during DTLS epoch 0 on both client and server paths to cause denial of service on memory-constrained devices.",
-      "published": "2026-06-29T09:16:31.750",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9267"
-    },
-    {
-      "id": "CVE-2026-57966",
-      "summary": "A path traversal vulnerability was found in spice-vdagent. This flaw allows a malicious or compromised SPICE host to write arbitrary files to any location on the guest operating system. This occurs because the filename provided by the SPICE host during file transfers is not properly sanitized before being used. An attacker could exploit this to write to sensitive locations with the privileges of the spice-vdagent process, typically the logged-in user. This issue requires the SPICE host to be untrusted or compromised for exploitation.",
-      "published": "2026-06-29T09:16:31.403",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57966"
-    },
-    {
-      "id": "CVE-2026-57965",
-      "summary": "A flaw was found in spice-vdagent. A malicious or compromised SPICE host can trigger an integer overflow by sending a specially crafted message. This vulnerability can lead to a heap buffer overflow, causing the spice-vdagent daemon to crash and resulting in a Denial of Service (DoS) for the virtual machine. This issue requires the SPICE host to be untrusted or compromised for exploitation.",
-      "published": "2026-06-29T09:16:31.283",
-      "cvss": 5.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57965"
-    },
-    {
-      "id": "CVE-2026-57676",
-      "summary": "Authorization Bypass Through User-Controlled Key vulnerability in Matteo Manna Simple User Avatar allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects Simple User Avatar: from n/a through 4.9.",
-      "published": "2026-06-29T09:16:31.147",
+      "id": "CVE-2026-56457",
+      "summary": "HCL DevOps Deploy / HCL Launch is susceptible to an exposure of sensitive information vulnerability in output logs. This exposure could allow an attacker with access to the logs to potentially obtain sensitive values related to that step.",
+      "published": "2026-06-29T14:16:58.320",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57676"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56457"
     },
     {
-      "id": "CVE-2026-22078",
-      "summary": "Because O+ Connect's IPC service does not authenticate clients, external applications can escalate privileges and perform sensitive actions through the IPC channel.",
-      "published": "2026-06-29T09:16:28.440",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22078"
+      "id": "CVE-2026-54371",
+      "summary": "attr before version 2.6.0 contains a symlink traversal vulnerability in the getfattr and setfattr utilities that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link during directory hierarchy traversal. Attackers who control a pathname component can redirect getfattr and setfattr operations to arbitrary files by substituting a symlink, leading to local privilege escalation when getfattr or setfattr is invoked by a privileged process over an attacker-controlled path.",
+      "published": "2026-06-29T14:16:57.823",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54371"
     },
     {
-      "id": "CVE-2026-13595",
-      "summary": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
-      "published": "2026-06-29T09:16:28.303",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13595"
+      "id": "CVE-2026-54370",
+      "summary": "acl before version 2.4.0 contains a time-of-check to time-of-use (TOCTOU) race condition vulnerability that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link between an lstat() check and subsequent symlink-following operations such as stat(), chown(), chmod(), acl_get_file(), and acl_set_file(). Attackers who control a pathname component can redirect file access control list operations to arbitrary files when getfacl, setfacl, or chacl is invoked by a privileged process over an attacker-controlled path, resulting in local privilege escalation.",
+      "published": "2026-06-29T14:16:57.670",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54370"
+    },
+    {
+      "id": "CVE-2026-54369",
+      "summary": "acl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation.",
+      "published": "2026-06-29T14:16:57.487",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54369"
+    },
+    {
+      "id": "CVE-2026-40524",
+      "summary": "FrontAccounting before 2.4.20 contains a SQL injection vulnerability in the get_gl_transactions() function where the filter_type parameter is concatenated directly into a SQL IN() clause without parameterization. Attackers with SA_GLANALYTIC permission can inject arbitrary SQL by supplying a closing parenthesis followed by malicious conditions to extract sensitive journal entry data through boolean-based blind SQL injection with reliable response size differentials.",
+      "published": "2026-06-29T14:16:51.207",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40524"
+    },
+    {
+      "id": "CVE-2026-40523",
+      "summary": "FrontAccounting before 2.4.20 contains a SQL injection vulnerability in the Audit Trail report handler that allows authenticated attackers with SA_GLANALYTIC permission to execute arbitrary SQL queries by injecting malicious code into the PARAM_2 and PARAM_3 POST parameters. Attackers can exploit time-based blind SQL injection through SLEEP() functions that are amplified across JOIN result sets to cause denial of service by exhausting database connections, or extract arbitrary database content through UNION-based injection techniques.",
+      "published": "2026-06-29T14:16:51.067",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40523"
     }
   ]
 }
