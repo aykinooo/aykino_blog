@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-29T14:18:04+00:00",
+  "generated_at": "2026-06-29T17:46:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-56457",
-      "summary": "HCL DevOps Deploy / HCL Launch is susceptible to an exposure of sensitive information vulnerability in output logs. This exposure could allow an attacker with access to the logs to potentially obtain sensitive values related to that step.",
-      "published": "2026-06-29T14:16:58.320",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56457"
+      "id": "CVE-2026-13752",
+      "summary": "Improper neutralization of parameters in Snowflake CLI versions prior to 3.19 allowed unintended SQL execution. An attacker could exploit this by supplying crafted values to vulnerable command paths, causing Snowflake CLI to execute unintended SQL in the context of the user\u2019s Snowflake session. Successful exploitation required crafted values to reach vulnerable parameters, including through socially engineered input, malicious repository configuration, or compromised automation feeding external values into the CLI, and impact is limited by the privileges assigned to the active session. The fix is available in Snowflake CLI version 3.19, and users must manually upgrade.",
+      "published": "2026-06-29T17:16:30.160",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13752"
     },
     {
-      "id": "CVE-2026-54371",
-      "summary": "attr before version 2.6.0 contains a symlink traversal vulnerability in the getfattr and setfattr utilities that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link during directory hierarchy traversal. Attackers who control a pathname component can redirect getfattr and setfattr operations to arbitrary files by substituting a symlink, leading to local privilege escalation when getfattr or setfattr is invoked by a privileged process over an attacker-controlled path.",
-      "published": "2026-06-29T14:16:57.823",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54371"
+      "id": "CVE-2026-13751",
+      "summary": "Improper handling of untrusted remote references in Snowflake CLI versions prior to 3.19 allowed server-side request forgery. The SQL statement reader's !source/!load directives could reference remote URLs that were retrieved at runtime without sufficient restriction on the request destination. By supplying crafted SQL content processed through a vulnerable command path, an attacker could cause the victim's environment to issue unintended outbound requests to internal or otherwise non-public network locations, and could cause remote SQL content to be retrieved and executed in the context of the victim user's session. Successful exploitation requires the victim to process attacker-controlled content through a vulnerable command path and is limited by the privileges available to that session and environment. The fix is available in Snowflake CLI version 3.19, which adds an option to disable remote URL retrieval.",
+      "published": "2026-06-29T17:16:30.050",
+      "cvss": 4.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13751"
     },
     {
-      "id": "CVE-2026-54370",
-      "summary": "acl before version 2.4.0 contains a time-of-check to time-of-use (TOCTOU) race condition vulnerability that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link between an lstat() check and subsequent symlink-following operations such as stat(), chown(), chmod(), acl_get_file(), and acl_set_file(). Attackers who control a pathname component can redirect file access control list operations to arbitrary files when getfacl, setfacl, or chacl is invoked by a privileged process over an attacker-controlled path, resulting in local privilege escalation.",
-      "published": "2026-06-29T14:16:57.670",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54370"
+      "id": "CVE-2026-13591",
+      "summary": "A weakness has been identified in DeepMyst Mysti 0.4.0. Affected is the function _isTrackedConversation of the file src/managers/ChannelBridge.ts of the component Contact Tracking. This manipulation of the argument _channelType causes improper authorization. The attack may be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is told to be difficult. The exploit has been made available to the public and could be used for attacks. Patch name: 9b4aff0f106db424aa45a35aa89dd0b8f2eb9a48. It is suggested to install a patch to address this issue.",
+      "published": "2026-06-29T17:16:29.210",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13591"
     },
     {
-      "id": "CVE-2026-54369",
-      "summary": "acl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation.",
-      "published": "2026-06-29T14:16:57.487",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54369"
+      "id": "CVE-2026-13590",
+      "summary": "A security flaw has been discovered in seladb PcapPlusPlus 25.05. This impacts the function pcpp::ModbusLayer::getLength in the library Packet++/header/ModbusLayer.h of the component Modbus Protocol Handler. The manipulation of the argument length results in heap-based buffer overflow. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is said to be difficult. The exploit has been released to the public and may be used for attacks. The patch is identified as 4c90c3e3418a2b09dc82b7ca5775e9c1e22fe454. Applying a patch is advised to resolve this issue.",
+      "published": "2026-06-29T17:16:29.057",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13590"
     },
     {
-      "id": "CVE-2026-40524",
-      "summary": "FrontAccounting before 2.4.20 contains a SQL injection vulnerability in the get_gl_transactions() function where the filter_type parameter is concatenated directly into a SQL IN() clause without parameterization. Attackers with SA_GLANALYTIC permission can inject arbitrary SQL by supplying a closing parenthesis followed by malicious conditions to extract sensitive journal entry data through boolean-based blind SQL injection with reliable response size differentials.",
-      "published": "2026-06-29T14:16:51.207",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40524"
+      "id": "CVE-2026-13589",
+      "summary": "A vulnerability was identified in seladb PcapPlusPlus 25.05. This affects the function pcpp::TelnetLayer::getSubCommand of the file Packet++/src/TelnetLayer.cpp of the component Telnet Subnegotiation Packet Handler. The manipulation leads to heap-based buffer overflow. The attack can be initiated remotely. The complexity of an attack is rather high. The exploitability is reported as difficult. The exploit is publicly available and might be used. The identifier of the patch is 98e671010bc7c87b95898c22ae289220ae92542b. It is recommended to apply a patch to fix this issue.",
+      "published": "2026-06-29T17:16:28.907",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13589"
     },
     {
-      "id": "CVE-2026-40523",
-      "summary": "FrontAccounting before 2.4.20 contains a SQL injection vulnerability in the Audit Trail report handler that allows authenticated attackers with SA_GLANALYTIC permission to execute arbitrary SQL queries by injecting malicious code into the PARAM_2 and PARAM_3 POST parameters. Attackers can exploit time-based blind SQL injection through SLEEP() functions that are amplified across JOIN result sets to cause denial of service by exhausting database connections, or extract arbitrary database content through UNION-based injection techniques.",
-      "published": "2026-06-29T14:16:51.067",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40523"
+      "id": "CVE-2026-13588",
+      "summary": "A vulnerability was determined in seladb PcapPlusPlus 25.05. The impacted element is the function pcpp::SSLClientHelloMessage::getHandshakeVersion of the file Packet++/src/SSLHandshake.cpp of the component TLS Hello Handler. Executing a manipulation of the argument handshakeVersion can lead to heap-based buffer overflow. It is possible to launch the attack remotely. This attack is characterized by high complexity. The exploitability is regarded as difficult. The exploit has been publicly disclosed and may be utilized. This patch is called 98e671010bc7c87b95898c22ae289220ae92542b. It is best practice to apply a patch to resolve this issue.",
+      "published": "2026-06-29T17:16:28.753",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13588"
     }
   ]
 }
