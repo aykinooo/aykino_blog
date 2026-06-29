@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-29T17:46:48+00:00",
+  "generated_at": "2026-06-29T20:13:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-13752",
-      "summary": "Improper neutralization of parameters in Snowflake CLI versions prior to 3.19 allowed unintended SQL execution. An attacker could exploit this by supplying crafted values to vulnerable command paths, causing Snowflake CLI to execute unintended SQL in the context of the user\u2019s Snowflake session. Successful exploitation required crafted values to reach vulnerable parameters, including through socially engineered input, malicious repository configuration, or compromised automation feeding external values into the CLI, and impact is limited by the privileges assigned to the active session. The fix is available in Snowflake CLI version 3.19, and users must manually upgrade.",
-      "published": "2026-06-29T17:16:30.160",
-      "cvss": 6.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13752"
+      "id": "CVE-2026-58000",
+      "summary": "luci-proto-openvpn through 0.11.1, fixed in commit e4ff45e, contains a command injection vulnerability in the generateKey ubus method where the cl_meta parameter is interpolated into a shell command without proper escaping or quoting. An authenticated LuCI user with OpenVPN protocol configuration access can inject arbitrary shell metacharacters into cl_meta to execute commands as root via the popen function.",
+      "published": "2026-06-29T19:16:42.993",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58000"
     },
     {
-      "id": "CVE-2026-13751",
-      "summary": "Improper handling of untrusted remote references in Snowflake CLI versions prior to 3.19 allowed server-side request forgery. The SQL statement reader's !source/!load directives could reference remote URLs that were retrieved at runtime without sufficient restriction on the request destination. By supplying crafted SQL content processed through a vulnerable command path, an attacker could cause the victim's environment to issue unintended outbound requests to internal or otherwise non-public network locations, and could cause remote SQL content to be retrieved and executed in the context of the victim user's session. Successful exploitation requires the victim to process attacker-controlled content through a vulnerable command path and is limited by the privileges available to that session and environment. The fix is available in Snowflake CLI version 3.19, which adds an option to disable remote URL retrieval.",
-      "published": "2026-06-29T17:16:30.050",
-      "cvss": 4.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13751"
+      "id": "CVE-2026-57999",
+      "summary": "luci-app-tailscale-community contains a command injection vulnerability in the tailscale.do_login RPC method that allows authenticated users to execute arbitrary commands as root. The vulnerability exists because user-controlled loginserver and loginserver_authkey parameters are improperly quoted within a double-quoted shell command, allowing shell substitutions like $() to be evaluated by the outer shell before argument processing.",
+      "published": "2026-06-29T19:16:42.857",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57999"
     },
     {
-      "id": "CVE-2026-13591",
-      "summary": "A weakness has been identified in DeepMyst Mysti 0.4.0. Affected is the function _isTrackedConversation of the file src/managers/ChannelBridge.ts of the component Contact Tracking. This manipulation of the argument _channelType causes improper authorization. The attack may be initiated remotely. A high degree of complexity is needed for the attack. The exploitability is told to be difficult. The exploit has been made available to the public and could be used for attacks. Patch name: 9b4aff0f106db424aa45a35aa89dd0b8f2eb9a48. It is suggested to install a patch to address this issue.",
-      "published": "2026-06-29T17:16:29.210",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13591"
+      "id": "CVE-2026-53428",
+      "summary": "Memory Allocation with Excessive Size Value vulnerability in leandrocp mdex allows an unauthenticated attacker to cause a denial of service through unbounded memory allocation.\n\ncomrak_nif::lumis_adapter::LumisAdapter::parse_highlight_lines in native/comrak_nif/src/lumis_adapter.rs eagerly expands a user-controlled inclusive line range from a fenced code block's highlight_lines decorator into a Vec<usize>, pushing one element per integer in the range with no upper bound on the range size. An attacker who can supply Markdown that an application renders with MDEx.to_html/2 (for example a comment, chat message, or wiki page) can embed a code block whose info string is rust highlight_lines=\"1-100000000\", forcing the native adapter to allocate roughly 8 bytes per line in the range.\n\nA payload that differs by only a few bytes can therefore allocate hundreds of megabytes, and a sufficiently large range (for example 1-2000000000) exhausts host memory and aborts the BEAM, denying service to every user of the rendering process. The per-line write loop additionally tests membership with a linear scan over the same vector, degrading rendering to a quadratic cost even for ranges that do not immediately exhaust memory.\n\nThe vulnerable native code originally shipped inside mdex (in native/comrak_nif/src/lumis_adapter.rs) and was later extracted into the separate mdex_native package (native/mdex_native_nif/src/lumis_adapter.rs), where it remains unpatched.\n\nThis issue affects mdex from 0.11.0 before 0.12.3, and mdex_native from 0.1.0 before 0.2.3.",
+      "published": "2026-06-29T19:16:41.817",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53428"
     },
     {
-      "id": "CVE-2026-13590",
-      "summary": "A security flaw has been discovered in seladb PcapPlusPlus 25.05. This impacts the function pcpp::ModbusLayer::getLength in the library Packet++/header/ModbusLayer.h of the component Modbus Protocol Handler. The manipulation of the argument length results in heap-based buffer overflow. The attack can be launched remotely. A high complexity level is associated with this attack. The exploitability is said to be difficult. The exploit has been released to the public and may be used for attacks. The patch is identified as 4c90c3e3418a2b09dc82b7ca5775e9c1e22fe454. Applying a patch is advised to resolve this issue.",
-      "published": "2026-06-29T17:16:29.057",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13590"
+      "id": "CVE-2026-53427",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in leandrocp MDEx allows stored or reflected cross-site scripting via attacker-controlled Markdown.\n\nWhen syntax highlighting and full info-string forwarding (render: [full_info_string: true]) are enabled, the Lumis adapter copies the value of a code fence's highlight_lines_class info-string attribute, unescaped, into the class attribute of every rendered line. comrak_nif::lumis_adapter::LumisAdapter::parse_custom_attributes in native/comrak_nif/src/lumis_adapter.rs shlex-parses the info string and stores each key=value pair verbatim, highlight_lines_config pulls highlight_lines_class into the per-line class value, and write_highlighted interpolates that value directly into the class attribute of the per-line <div>. A single-quoted shell token preserves an inner double quote through shlex parsing, so a value such as '\"><script>alert(1)</script>' terminates the class attribute early and the markup that follows is emitted as live HTML.\n\nAn attacker who can submit Markdown (through comments, posts, wiki pages, documentation, or any user-generated content) can inject arbitrary HTML and JavaScript that runs in the browser of every user who views the rendered output, enabling session theft, account takeover, and other client-side attacks. No authentication or special privileges are required.\n\nThe vulnerable native code originally shipped inside mdex (in native/comrak_nif/src/lumis_adapter.rs) and was later extracted into the separate mdex_native package (native/mdex_native_nif/src/lumis_adapter.rs), where it remains unpatched.\n\nThis issue affects mdex from 0.11.3 before 0.12.3, and mdex_native from 0.1.0 before 0.2.3.",
+      "published": "2026-06-29T19:16:41.597",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53427"
     },
     {
-      "id": "CVE-2026-13589",
-      "summary": "A vulnerability was identified in seladb PcapPlusPlus 25.05. This affects the function pcpp::TelnetLayer::getSubCommand of the file Packet++/src/TelnetLayer.cpp of the component Telnet Subnegotiation Packet Handler. The manipulation leads to heap-based buffer overflow. The attack can be initiated remotely. The complexity of an attack is rather high. The exploitability is reported as difficult. The exploit is publicly available and might be used. The identifier of the patch is 98e671010bc7c87b95898c22ae289220ae92542b. It is recommended to apply a patch to fix this issue.",
-      "published": "2026-06-29T17:16:28.907",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13589"
+      "id": "CVE-2026-13757",
+      "summary": "A flaw was found in p11-kit. The RPC message attribute parsing functions p11_rpc_message_get_attribute() and p11_rpc_message_get_attribute_array_value() form a mutually-recursive call chain with no recursion depth limit when processing nested CKA_WRAP_TEMPLATE, CKA_UNWRAP_TEMPLATE, and CKA_DERIVE_TEMPLATE attributes. An unauthenticated attacker with local access to the p11-kit RPC Unix domain socket can send a specially crafted request with deeply nested template attributes, causing stack exhaustion and crashing the p11-kit server process and its dependent services.",
+      "published": "2026-06-29T19:16:40.907",
+      "cvss": 6.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13757"
     },
     {
-      "id": "CVE-2026-13588",
-      "summary": "A vulnerability was determined in seladb PcapPlusPlus 25.05. The impacted element is the function pcpp::SSLClientHelloMessage::getHandshakeVersion of the file Packet++/src/SSLHandshake.cpp of the component TLS Hello Handler. Executing a manipulation of the argument handshakeVersion can lead to heap-based buffer overflow. It is possible to launch the attack remotely. This attack is characterized by high complexity. The exploitability is regarded as difficult. The exploit has been publicly disclosed and may be utilized. This patch is called 98e671010bc7c87b95898c22ae289220ae92542b. It is best practice to apply a patch to resolve this issue.",
-      "published": "2026-06-29T17:16:28.753",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13588"
+      "id": "CVE-2026-57960",
+      "summary": "Hi.Events through 1.9.0 public check-in list endpoints use short_id as sole access control, allowing unauthenticated access to retrieve full attendee lists including emails and personal information. Attackers with knowledge of the short_id can call GET /api/public/check-in-lists/{short_id}/attendees to read attendee data and create or delete check-in records without authentication.",
+      "published": "2026-06-29T18:16:42.130",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57960"
     }
   ]
 }
