@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-30T20:18:26+00:00",
+  "generated_at": "2026-06-30T22:38:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9836",
-      "summary": "IBM InfoSphere Information Server 11.7.0.0 through 11.7.1.6 is affected by an information disclosure vulnerability.",
-      "published": "2026-06-30T20:17:32.183",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9836"
+      "id": "CVE-2026-58450",
+      "summary": "Invoice Ninja through 5.13.26 contains an open redirect vulnerability in the client portal login that allows unauthenticated attackers to redirect authenticated victims to attacker-controlled external URLs by injecting a malicious value into the intended query parameter. Attackers can craft a client login link with an external URL in the intended parameter, which is stored in the session without host validation and emitted verbatim via a bare redirect in the ContactLoginController authenticated() handler after the victim completes a legitimate login, enabling phishing attacks.",
+      "published": "2026-06-30T22:16:58.530",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58450"
     },
     {
-      "id": "CVE-2026-9002",
-      "summary": "IBM WebSphere Extreme Scale 8.6.1.0 through 8.6.1.6 could allow an adjacent attacker to cause a denial of service due to improper validation in the XDF decoder. The application processes deeply nested Protocol Buffers messages and attacker-controlled length prefixes without sufficient bounds checking, which may allow an attacker on the same network to trigger a StackOverflowError or OutOfMemoryError, resulting in a crash of the WebSphere Application Server JVM.",
-      "published": "2026-06-30T20:17:32.040",
+      "id": "CVE-2026-58449",
+      "summary": "txtai through 9.10.0, fixed in commit 11b32da, exposes an API /reindex endpoint whose function body parameter is resolved through txtai.util.Resolver, which performs __import__ and getattr on the caller-supplied dotted path with no allowlist. When the API is exposed with no TOKEN configured (authentication is opt-in, so all endpoints are unauthenticated) and the index is configured writable, a remote attacker can set function to an arbitrary callable such as subprocess.getoutput, achieving remote code execution as the server process during reindexing. Exploitation requires those deployment conditions (API exposed, no TOKEN, writable index); it is not the default configuration. The fix gates the endpoint behind a new reindex configuration flag.",
+      "published": "2026-06-30T22:16:58.397",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58449"
+    },
+    {
+      "id": "CVE-2026-58448",
+      "summary": "yudao-cloud before 2026.06 contains a broken access control vulnerability in the BPM module that allows any authenticated user to access arbitrary process instance records by supplying a caller-controlled process-instance identifier to an unprotected endpoint lacking the @PreAuthorize annotation. Attackers can query any process-instance identifier through the unguarded GET endpoint to read sensitive workflow data including submitted form variables, approver identities, approval and rejection comments, and process BPMN XML without ownership or tenant party verification.",
+      "published": "2026-06-30T22:16:58.240",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9002"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58448"
     },
     {
-      "id": "CVE-2026-7874",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 Langflow could allow disclosure of all stored credentials due to the use of a weak and reversible key derivation mechanism for encryption at rest.",
-      "published": "2026-06-30T20:17:31.900",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7874"
+      "id": "CVE-2026-58447",
+      "summary": "Invidious through 2.20260626.0, fixed in commit 77ad416, contains a broken object level authorization vulnerability that allows authenticated attackers to delete videos from other users' playlists by supplying an arbitrary global video index in the remove_video action of the playlist endpoint. Attackers can obtain per-video index values from the public playlist JSON API and submit them to the playlist video deletion endpoint without ownership validation, permanently removing videos from playlists they do not own.",
+      "published": "2026-06-30T22:16:58.103",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58447"
     },
     {
-      "id": "CVE-2026-7873",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 allows authenticated attackers to execute arbitrary OS commands and read sensitive files including credentials, enabling complete system compromise and lateral movement.",
-      "published": "2026-06-30T20:17:31.750",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7873"
+      "id": "CVE-2026-58446",
+      "summary": "Presenton before 0.8.8-beta bundles an MCP server that, on server/Docker deployments configured with session authentication (AUTH_USERNAME/AUTH_PASSWORD), is reachable unauthenticated at /mcp because the nginx front-end does not apply the auth_request gate to that path and the MCP server auto-mints a valid internal session token for the configured user. A remote unauthenticated attacker can invoke MCP tools such as generate_presentation, performing authenticated application actions, consuming the operators configured LLM API keys, and creating presentations in the operators instance. The Electron desktop build is not affected (MCP disabled).",
+      "published": "2026-06-30T22:16:57.963",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58446"
     },
     {
-      "id": "CVE-2026-7871",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 allows users with Redis access to execute arbitrary code with full application privileges, compromising all secrets, data, and system integrity.",
-      "published": "2026-06-30T20:17:31.543",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7871"
-    },
-    {
-      "id": "CVE-2026-7803",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 could allow arbitrary code execution due to improper validation of flow nodes with missing or empty component type fields.",
-      "published": "2026-06-30T20:17:31.413",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7803"
+      "id": "CVE-2026-57585",
+      "summary": "MessagePack is the serializer implementation for Python msgpack.org. Prior to 1.2.1, there is an Out-of-bounds read/crash on Unpacker reuse after a caught error, potentially leading to a DoS attack.  If the Unpacker is used repeatedly after an error occurs, the process may crash with a SEGV. This issue has been fixed in version 1.2.1.",
+      "published": "2026-06-30T22:16:57.837",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57585"
     }
   ]
 }
