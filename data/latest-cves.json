@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-30T15:41:29+00:00",
+  "generated_at": "2026-06-30T18:12:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-4360",
-      "summary": "In the Tarfile.extract() function, the filter parameter is not passed properly when extracting hardlinks. An affected system that extracts content from untrusted tar files could end up writing files with an unexpected uid/gid despite the user passing filter='data' to the extract() function.",
-      "published": "2026-06-30T15:16:57.193",
+      "id": "CVE-2026-9263",
+      "summary": "The Zephyr Bluetooth controller ISO Adaptation Layer (subsys/bluetooth/controller/ll_sw/isoal.c) fails to validate the length field of a framed ISO PDU start segment. Per the Bluetooth specification a start segment (sc=0) always carries a 3-byte time_offset, so its segment-header len must be at least PDU_ISO_SEG_TIMEOFFSET_SIZE (3). isoal_check_seg_header() accepted start segments with len < 3 as valid, and isoal_rx_framed_consume() then computed length = seg_hdr->len - 3 in a uint8_t, underflowing to 253-255 when len is 0-2. That oversized length is passed to isoal_rx_append_to_sdu(), whose copy is clamped only against the destination SDU buffer size, not the source PDU length, so up to ~255 bytes of controller memory beyond the received PDU are copied (via sink_sdu_write_hci()/net_buf_add_mem) into an HCI ISO data packet and delivered to the host. The PDU and its segment headers are entirely attacker-controlled and arrive over the air, reachable through both the CIS and BIS-sync HCI data paths (hci_driver.c) and the vendor data path (ull_iso.c), so a remote CIS peer or a broadcaster the device is synced to can trigger an out-of-bounds read causing information disclosure to the host and potential denial of service (faults or malformed oversized HCI ISO packets). The flaw affects all Zephyr releases since framed ISO reception was introduced in v3.0.0. The fix rejects sc=0 segments with len < 3 in isoal_check_seg_header() and adds a guard before the subtraction in isoal_rx_framed_consume().",
+      "published": "2026-06-30T17:16:26.387",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9263"
+    },
+    {
+      "id": "CVE-2026-8864",
+      "summary": "The HP Fan Control App might allow local escalation of privileges. An updated version of HP Fan Control App has been released\n               to mitigate this potential vulnerability.",
+      "published": "2026-06-30T17:16:26.260",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4360"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8864"
     },
     {
-      "id": "CVE-2026-48192",
-      "summary": "A vulnerability has been identified in Mendix Studio Pro 10.11 (All versions), Mendix Studio Pro 10.12 (All versions), Mendix Studio Pro 10.13 (All versions), Mendix Studio Pro 10.14 (All versions), Mendix Studio Pro 10.15 (All versions), Mendix Studio Pro 10.16 (All versions), Mendix Studio Pro 10.17 (All versions), Mendix Studio Pro 10.18 (All versions), Mendix Studio Pro 10.19 (All versions), Mendix Studio Pro 10.20 (All versions), Mendix Studio Pro 10.21 (All versions), Mendix Studio Pro 10.22 (All versions), Mendix Studio Pro 10.23 (All versions), Mendix Studio Pro 10.24 (All versions < V10.24.21), Mendix Studio Pro 11.0 (All versions), Mendix Studio Pro 11.1 (All versions), Mendix Studio Pro 11.10 (All versions), Mendix Studio Pro 11.11 (All versions), Mendix Studio Pro 11.2 (All versions), Mendix Studio Pro 11.3 (All versions), Mendix Studio Pro 11.4 (All versions), Mendix Studio Pro 11.5 (All versions), Mendix Studio Pro 11.6 (All versions < V11.6.7), Mendix Studio Pro 11.7 (All versions), Mendix Studio Pro 11.8 (All versions), Mendix Studio Pro 11.9 (All versions). Affected versions of Mendix Studio Pro do not properly validate or sanitize project files processed during the build pipeline.\r\nThis could allow an attacker who tricks a user into opening and running a specially crafted malicious project locally on their system to execute arbitrary code in the context of that user.",
-      "published": "2026-06-30T15:16:56.990",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48192"
+      "id": "CVE-2026-58377",
+      "summary": "JeecgBoot through 3.9.2 contains a broken access control vulnerability that allows authenticated low-privilege users to perform full create, read, update, and delete operations on OpenAPI credentials by accessing the OpenApiAuthController and OpenApiPermissionController endpoints which lack Shiro authorization annotations. Attackers can exploit the unenforced access controls to list, add, edit, and delete all AK/SK credential pairs, with the list endpoint returning secret keys in plaintext, enabling credential theft and unauthorized invocation of the OpenAPI surface.",
+      "published": "2026-06-30T17:16:26.010",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58377"
     },
     {
-      "id": "CVE-2026-44949",
-      "summary": "A Rancher FleetWorkspace admission path allowed side effects to occur in\n the Rancher webhook handler for versions 0.7.0 up to 0.7.10, 0.8.0 up to 0.8.7, 0.9.0 up to 0.9.6 and 0.10.0 up to 0.10.7. An unauthenticated attacker with network access to\n the in-cluster rancher-webhook service\n could submit a crafted admission payload and cause workspace-related \nKubernetes objects to be created with attacker-chosen identity data.",
-      "published": "2026-06-30T15:16:56.853",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44949"
+      "id": "CVE-2026-58376",
+      "summary": "Dolibarr through 23.0.3, fixed in commit 14db36e, contains a sql injection vulnerability that allows authenticated API users to exfiltrate arbitrary database contents by supplying malicious values to the sqlfilters query parameter in the setup dictionary and multicurrencies REST API endpoints. The affected endpoints in api_setup.class.php and api_multicurrencies.class.php validate sqlfilters only for balanced parentheses and rewrite matched triplets, allowing text placed outside the expected shape such as an appended UNION SELECT to be concatenated into the SQL WHERE clause unmodified, enabling retrieval of sensitive data including password hashes and API keys.",
+      "published": "2026-06-30T17:16:25.873",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58376"
     },
     {
-      "id": "CVE-2026-44947",
-      "summary": "A missing clean-up in the legacy Project Role Template Binding (PRTB) \nreconciler in Rancher versions 2.13.0 up to 2.13.7 and 2.14.0 up to 2.14.3 allowed users to retain unauthorized Pod Security \nAdmission (PSA) permissions after an administrator removes those \npermissions from a RoleTemplate.",
-      "published": "2026-06-30T15:16:56.727",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44947"
+      "id": "CVE-2026-58375",
+      "summary": "JimuReport through 2.5.0 exposes the POST /jmreport/auto/export endpoint without authentication: the handler is annotated @JimuNoLoginRequired, so JimuReportTokenInterceptor skips all authentication and authorization, and the export service streams the rendered report for any supplied report id without verifying the auto-export configuration flag. An unauthenticated remote attacker can enumerate Snowflake report identifiers and export the full contents of any report, including the data returned by the report configured SQL queries and any credentials embedded in its data sources.",
+      "published": "2026-06-30T17:16:25.743",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58375"
     },
     {
-      "id": "CVE-2026-27957",
-      "summary": "Coolify is an open-source and self-hostable tool for managing servers, applications, and databases. Prior to 4.0.0-beta.464, an authenticated command injection vulnerability in the CA Certificate management feature allows any authenticated user to execute arbitrary commands as the configured SSH user on the managed server host. As the SSH user typically would have to either be root or part of the docker group for Coolify to function as intended, this provides complete compromise of the managed server and associated docker containers. This vulnerability is fixed in 4.0.0-beta.464.",
-      "published": "2026-06-30T15:16:52.863",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27957"
-    },
-    {
-      "id": "CVE-2026-27956",
-      "summary": "Coolify is an open-source and self-hostable tool for managing servers, applications, and databases. Prior to 4.0.0-beta.464, `GET /api/v1/servers/{server_uuid}/domains?uuid={app_uuid}` bypasses team scoping when the optional uuid query parameter is provided. Any authenticated API user can enumerate domain names (FQDNs) of applications belonging to other teams. This vulnerability is fixed in 4.0.0-beta.464.",
-      "published": "2026-06-30T15:16:52.673",
+      "id": "CVE-2026-58373",
+      "summary": "CVAT before 2.69.0 contains an improper authorization vulnerability in QualityReportViewSet.get_queryset that allows authenticated attackers to enumerate quality report identifiers belonging to other organizations by exploiting a missing check_object_permissions call on the parent_id query parameter of the quality reports API endpoint. Attackers can send requests with sequential integer parent_id values and distinguish between existing and non-existing reports via HTTP 500 versus HTTP 404 response differences, disclosing cross-organization report existence without returning report content.",
+      "published": "2026-06-30T17:16:25.597",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27956"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58373"
     }
   ]
 }
