@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-06-30T10:35:23+00:00",
+  "generated_at": "2026-06-30T13:14:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9711",
-      "summary": "The EventON - WordPress Virtual Event Calendar Plugin plugin for WordPress (full) is vulnerable to SQL Injection via the WordPress 'search' parameter in versions up to, and including, 5.0.11 due to insufficient escaping on the user supplied parameter and lack of preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database, granted the \"Enable additional search queries\" setting is enabled and at least one published event exists.",
-      "published": "2026-06-30T10:16:37.350",
+      "id": "CVE-2026-8402",
+      "summary": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Eksagate Electronic Engineering and Computer Industry Trade Inc. SYSGUARD 6001 allows Blind SQL Injection.\n\nThis issue affects SYSGUARD 6001: from 2.0.2 before 6.1.16.0.\u00a0\nNOTE: The vendor was contacted and it was learned that the product is not supported.",
+      "published": "2026-06-30T12:16:26.613",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9711"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8402"
     },
     {
-      "id": "CVE-2026-8141",
-      "summary": "The Ajax Load More - Filters plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'taxonomy_include_children' parameter in all versions up to, and including, 3.4.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-06-30T10:16:37.213",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8141"
-    },
-    {
-      "id": "CVE-2026-6954",
-      "summary": "Cross-Site Scripting (XSS) vulnerability in Intermark IT's WebControl CMS v3.5. This vulnerability allows an attacker to execute JavaScript code or inject a dynamic iframe into the victim\u2019s browser by sending a malicious URL via the 'urlDestino' parameter in '/portal.do'. This vulnerability can be exploited to steal sensitive user data, such as session cookies, display phishing interfaces, or perform actions on the user\u2019s behalf.",
-      "published": "2026-06-30T10:16:36.523",
+      "id": "CVE-2026-57082",
+      "summary": "Net::BitTorrent versions through 2.0.1 for Perl generate the MSE Diffie-Hellman private key with a non-cryptographic PRNG.\n\nThe MSE (Message Stream Encryption) handshake derives its 160-bit Diffie-Hellman private key from Perl's rand(), a non-cryptographic drand48-class generator seeded once per process, in KeyExchange.pm. The shared secret and the RC4 keys derived from it (the SHA-1 of \"keyA\" or \"keyB\", the shared secret, and the infohash) therefore depend entirely on a predictable PRNG. The same handshake sends, in cleartext, random padding drawn from the same rand() sequence in _random_pad, immediately after the public key and the private-key draw.\n\nA passive observer of the handshake recovers the PRNG state from the cleartext padding, reconstructs the private key, computes the shared secret from the peer's public key on the wire, derives the RC4 keys, and decrypts the connection, defeating the passive-observation obfuscation MSE provides.",
+      "published": "2026-06-30T12:16:25.737",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6954"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57082"
     },
     {
-      "id": "CVE-2026-6953",
-      "summary": "HTML injection vulnerability in Intermark IT's WebControl CMS v3.5. This vulnerability allows an attacker to send an email containing malicious HTML code to a victim via the contact form. To exploit this vulnerability, the attacker must send a request using the 'nombreApellidos', 'direcci\u00f3n ', and 'comentarios ' parameters to '/processContact.do'.",
-      "published": "2026-06-30T10:16:34.760",
+      "id": "CVE-2026-57081",
+      "summary": "Net::BitTorrent versions through 2.0.1 for Perl allow remote memory exhaustion via deeply nested bencoded input.\n\nbdecode recurses once per nested list or dictionary level with no depth cap, and each recursive call receives the remaining buffer by value while the list and dictionary branches capture the whole remainder, so every live recursion frame keeps its own copy of the shrinking buffer (O(N^2) bytes for an N-deep input). The decoder runs on every untrusted bencode source: .torrent files, BEP09 metadata fetched from peers, DHT messages, and tracker responses.\n\nA bencoded input of roughly 150,000 nested lists (about 150 KB on the wire) drives multi-gigabyte peak memory, so one short message from any peer, or one crafted .torrent file or magnet link, terminates the client.",
+      "published": "2026-06-30T12:16:25.633",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6953"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57081"
     },
     {
-      "id": "CVE-2026-13149",
-      "summary": "brace-expansion through 5.0.6 is vulnerable to denial of service. The expand() function exhibits exponential-time complexity in the number of consecutive non-expanding '{}' brace groups. An attacker who passes a crafted string to expand(), directly or transitively, can cause significant CPU consumption and event-loop blocking. The max option does not mitigate this, as it bounds the output size rather than the recursion work.",
-      "published": "2026-06-30T10:16:34.560",
+      "id": "CVE-2026-57080",
+      "summary": "Net::BitTorrent versions through 2.0.1 for Perl allow remote memory exhaustion via an uncapped peer-wire message-length prefix.\n\nThe peer-wire framing in _process_messages trusts the 4-byte length prefix sent by a connected peer with no upper bound, while receive_data appends every inbound byte to the input buffer. A peer announces a length prefix of up to about 4 GiB and then streams bytes; the decoder waits until the buffer holds the full message before processing it, so the buffer grows without limit.\n\nPeer connections are unauthenticated, so any peer in the swarm exhausts the downloading process's memory. The largest legitimate message is a 16 KiB piece block, so any announced length far above that is anomalous.",
+      "published": "2026-06-30T12:16:25.533",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13149"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57080"
     },
     {
-      "id": "CVE-2026-12610",
-      "summary": "A flaw was found in sssd. When authenticating with a YubiKey, the SSSD PAM responder can crash due to a use-after-free vulnerability, where a memory pointer is incorrectly handled. A local attacker could exploit this flaw by manipulating smartcard or YubiKey contents, leading to a denial of service that disrupts authentication. This vulnerability also presents a potential for privilege escalation, although it is difficult to exploit.",
-      "published": "2026-06-30T10:16:34.397",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12610"
+      "id": "CVE-2026-57079",
+      "summary": "Net::BitTorrent versions through 2.0.1 for Perl write files outside the download directory via path traversal in peer-supplied metadata.\n\nNet::BitTorrent validates file path components only on the .torrent-file ingest path. The peer and magnet metadata path (_on_metadata_received, reached from the BEP09 ut_metadata extension) passes attacker-supplied file names straight to Storage::add_file and Storage::_parse_file_tree, where Path::Tiny's child() does not collapse \"..\". A v2 file tree key, a v1 files[].path element, or a single-file name containing \"..\" segments therefore resolves outside the download directory.\n\nBecause the peer also controls the piece hashes and the served bytes, content verification passes, so a malicious magnet or peer writes attacker-chosen content to an attacker-chosen path on the downloading host.",
+      "published": "2026-06-30T12:16:25.427",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57079"
+    },
+    {
+      "id": "CVE-2026-53692",
+      "summary": "Redeight CMS version 1.0 uses the MD5 algorithm without a salt to store user passwords. Because MD5 is a cryptographically broken algorithm and lacks salting, attackers who obtain the password hashes can trivially reverse them using rainbow tables, leading to the exposure of plaintext credentials.",
+      "published": "2026-06-30T12:16:24.647",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53692"
     }
   ]
 }
