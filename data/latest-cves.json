@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-01T15:49:22+00:00",
+  "generated_at": "2026-07-01T18:15:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6688",
-      "summary": "FatFs R0.16 and earlier contains a downstream-caller vulnerability pattern associated with FatFs long filename handling. With LFN enabled, fno.fname can be up to 255 characters; many callers copy it into short fixed buffers without bounds checks, causing overflow. This maps to CWE-120 (Buffer Copy without Checking Size of Input). Estimated CVSS v3.1 vector: CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H (7.6, High). The estimated CISA SSVC vectors are Exploitation: PoC, Technical Impact: Total.",
-      "published": "2026-07-01T15:17:13.013",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6688"
+      "id": "CVE-2026-58454",
+      "summary": "JAIOTlink C492A-W6 Wi-Fi IP cameras running firmware 4.8.30.57701411 contain a remote code execution vulnerability that allows authenticated attackers to execute arbitrary shell scripts by writing to the writable persistent JFFS2 storage path and triggering execution through the authenticated HTTP endpoint. Attackers can stage a malicious script in the writable persistent storage and request the config endpoint to invoke it via popen(), achieving persistent remote code execution that survives device reboots.",
+      "published": "2026-07-01T17:16:40.693",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58454"
     },
     {
-      "id": "CVE-2026-6687",
-      "summary": "FatFs R0.16 and earlier contains a stack overflow bug in f_getlabel() because exFAT label length (XDIR_NumLabel) is trusted without enforcing spec maximums. This maps to CWE-121 (Stack-based Buffer Overflow). Estimated CVSS v3.1 vector: CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H (7.6, High). The estimated CISA SSVC vectors are Exploitation: PoC, Technical Impact: Total.",
-      "published": "2026-07-01T15:17:12.870",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6687"
+      "id": "CVE-2026-58453",
+      "summary": "JAIOTlink C492A-W6 Wi-Fi IP cameras running firmware 4.8.30.57701411 contain a hard-coded credentials vulnerability that allows network-adjacent attackers to gain unauthorized access by using the default admin username with an empty password accepted by the anyka_ipc HTTP service on port 80. Attackers can authenticate with these hardcoded credentials to access camera snapshots, video streams, network configuration, and factory-level API endpoints including the SetMAC command injection surface.",
+      "published": "2026-07-01T17:16:40.517",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58453"
     },
     {
-      "id": "CVE-2026-6686",
-      "summary": "FatFs R0.16 and earlier contains an uninitialized cluster exposure when f_lseek() extends files beyond EOF without zero-filling newly allocated clusters. This maps to CWE-908 (Use of Uninitialized Resource). Estimated CVSS v3.1 vector: CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N (4.6, Medium). The estimated CISA SSVC vectors are Exploitation: PoC, Technical Impact: Partial.",
-      "published": "2026-07-01T15:17:12.763",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6686"
+      "id": "CVE-2026-58452",
+      "summary": "JAIOTlink C492A-W6 Wi-Fi IP cameras running firmware 4.8.30.57701411 contain an OS command injection vulnerability that allows authenticated attackers to achieve remote code execution by supplying a malicious Wireless parameter to the HTTP PUT NetSDK/Factory SetMAC endpoint. Attackers can craft a string beginning with a valid MAC-like prefix followed by a semicolon and a shell payload, which bypasses partial sscanf() validation and is passed unsanitized into an echo shell command executed through a system() wrapper.",
+      "published": "2026-07-01T17:16:40.347",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58452"
     },
     {
-      "id": "CVE-2026-6685",
-      "summary": "FatFs R0.16 and earlier exhibits a stale dirty-cache skip via unsigned-subtraction wrap in f_read() / f_write() (fp->sect - sect < cc) during interleaved read/write on fragmented filesystems. This maps to CWE-191 (Integer Underflow). Estimated CVSS v3.1 vector: CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:H (6.1, Medium). The estimated CISA SSVC vectors are Exploitation: PoC, Technical Impact: Total.",
-      "published": "2026-07-01T15:17:12.660",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6685"
+      "id": "CVE-2026-57721",
+      "summary": "Missing Authorization vulnerability in WP Reloaded ApplyOnline allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects ApplyOnline: from n/a through 2.6.7.6.",
+      "published": "2026-07-01T17:16:37.743",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57721"
     },
     {
-      "id": "CVE-2026-6684",
-      "summary": "FatFs prior to R0.16 that use GPT scanning with 'FF_LBA64 = 1' contains an issue where an unbounded loop count derived from GPT header field GPTH_PtNum, enabling extremely long or effectively infinite mount-time scans. This maps to CWE-835 (Loop with Unreachable Exit Condition). Estimated CVSS v3.1 vector: CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H (4.6, Medium). The estimated CISA SSVC vectors are Exploitation: PoC, Technical Impact: Partial.",
-      "published": "2026-07-01T15:17:12.553",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6684"
+      "id": "CVE-2026-57720",
+      "summary": "Missing Authorization vulnerability in Codexpert Inc ThumbPress allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects ThumbPress: from n/a through 6.3.2.",
+      "published": "2026-07-01T17:16:37.630",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57720"
     },
     {
-      "id": "CVE-2026-6683",
-      "summary": "FatFs R0.16 and earlier contains a divide-by-zero in exFAT sync logic bug when crafted metadata causes n_fatent - 2 to be zero during write/sync operations. This maps to CWE-369 (Divide By Zero). Estimated CVSS v3.1 vector: CVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H (4.6, Medium). Network-delivered update media can make this remote in some pipelines. The estimated CISA SSVC vectors are Exploitation: PoC, Technical Impact: Partial.",
-      "published": "2026-07-01T15:17:12.443",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6683"
+      "id": "CVE-2026-57516",
+      "summary": "Ray prior to 2.56.0 contains an unsafe deserialization vulnerability in the WebDataset reader that allows attackers to achieve remote code execution by supplying a malicious tar archive to the read_webdataset() function. The _default_decoder() function in webdataset_datasource.py unconditionally calls pickle.loads() on tar entries with .pkl/.pickle extensions and torch.load() with weights_only=False on .pt/.pth entries, executing arbitrary code inside Ray remote workers on every worker that processes the malicious archive.",
+      "published": "2026-07-01T17:16:37.390",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57516"
     }
   ]
 }
