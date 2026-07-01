@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-01T05:53:14+00:00",
+  "generated_at": "2026-07-01T10:10:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9107",
-      "summary": "The Kali Forms \u2014 Contact Form & Drag-and-Drop Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'meta[kaliforms_field_components]' parameter in all versions up to, and including, 2.4.13 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-07-01T05:16:25.510",
+      "id": "CVE-2026-56016",
+      "summary": "CGI::Session::ID::md5 versions before 4.49 for Perl generate predictable session ids from low-entropy sources.\n\nThe generate_id method builds the session id from a MD5 digest of the process id, the epoch time, and the built-in rand() function. All three are predictable, low-entropy sources: the PID is drawn from a small range, the epoch time can be guessed or read from the HTTP Date header, and Perl's rand() is unsuitable for security purposes because it is predictable and reversible.\n\nAn attacker who predicts a session id can impersonate the corresponding session and bypass authentication.",
+      "published": "2026-07-01T08:16:21.883",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56016"
+    },
+    {
+      "id": "CVE-2026-50043",
+      "summary": "Improper neutralization of special elements used in an OS command ('OS Command Injection') issue exists in SkyBridge MB-A100/MB-A110. If this vulnerability is exploited, an arbitrary OS command may be executed by an attacker who can log in to the product with an administrative privilege.",
+      "published": "2026-07-01T08:16:21.727",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50043"
+    },
+    {
+      "id": "CVE-2026-13733",
+      "summary": "The Download Manager plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'no_data_msg' Shortcode Attribute in all versions up to, and including, 3.3.60 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Although wp_kses_post is applied to post content on save, it only strips HTML tokens and does not neutralize C-style escape sequences embedded within shortcode attribute values, meaning contributors can craft a payload that survives the kses filter and is silently reconstructed into a raw script tag at render time.",
+      "published": "2026-07-01T08:16:21.603",
       "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9107"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13733"
     },
     {
-      "id": "CVE-2026-7840",
-      "summary": "UltraVNC repeater through 1.8.2.2 contains a global buffer overflow in its embedded HTTP administration server. The functions wi_senderr() and wi_replyhdr() in repeater/webgui/webutils.c write the caller-supplied HTTP request URI into a fixed 1000-byte global buffer (hdrbuf) via unchecked sprintf calls. The HTTP receive buffer accepts URIs up to approximately 150 KB (WI_RXBUFSIZE = 153600), so an unauthenticated attacker who can reach the repeater HTTP port (default TCP 80) can overflow hdrbuf by at least 500 bytes with a single HTTP request containing a URI of 1500 bytes or longer, corrupting adjacent .bss-segment globals. The overflow occurs before any authentication check, making it reachable without credentials. A remote, unauthenticated attacker can achieve arbitrary code execution on the host running the repeater.",
-      "published": "2026-07-01T05:16:24.820",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7840"
+      "id": "CVE-2026-12732",
+      "summary": "The LearnPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'class_wrapper_form' shortcode attribute in versions up to, and including, 4.4.0. This is due to insufficient input sanitization and output escaping in the FilterCourseTemplate::sections() method at line 98, where the attacker-controlled attribute is inserted into an HTML class attribute via sprintf('<form class=\"%s\">', $class_wrapper_form) without esc_attr() escaping. The FilterCourseShortcode::render() handler does not apply shortcode_atts() filtering, so raw user attributes flow directly through do_action('learn-press/filter-courses/layout', $data) into the template. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-07-01T08:16:21.487",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12732"
     },
     {
-      "id": "CVE-2026-7839",
-      "summary": "UltraVNC repeater through 1.8.2.2 initializes the HTTP administration server with a hardcoded default password. In repeater/webgui/settings.c:197, when settings2.txt is absent on first run the repeater writes the literal string \"adminadmi2\" as the admin password via strcpy_s(saved_password, 64, \"adminadmi2\"). The HTTP Basic-auth handler wi_decode_auth() checks this password without rate-limiting or lockout. Any remote attacker who can reach the repeater HTTP port (default TCP 80) can authenticate as administrator using the well-known default credential on a fresh or unmodified installation, gaining full control of the repeater configuration including allow/deny rules and session visibility.",
-      "published": "2026-07-01T05:16:24.680",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7839"
+      "id": "CVE-2026-12577",
+      "summary": "DVP80ES3 with Improperly Implemented Security Check for Standard vulnerability.",
+      "published": "2026-07-01T08:16:21.380",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12577"
     },
     {
-      "id": "CVE-2026-7838",
-      "summary": "UltraVNC viewer through 1.8.2.2 contains an integer overflow leading to a heap buffer overflow in the RFB protocol failure-response parsing path. In vncviewer/ClientConnection.cpp, the 4-byte network-supplied reasonLen field (type CARD32) is passed as reasonLen+1 to CheckBufferSize(). Because both operands are unsigned 32-bit, a reasonLen of 0xFFFFFFFF overflows to 0, causing CheckBufferSize to allocate only 256 bytes. The subsequent ReadString(m_netbuf, reasonLen) call then performs ReadExact for the original 4 GiB length into that 256-byte heap buffer. This overflow is reachable via rfbConnFailed (auth-scheme negotiation) and rfbVncAuthFailed (post-handshake) message types without successful authentication. A malicious VNC server, or any man-in-the-middle on the RFB stream, can trigger this condition when the victim viewer connects, potentially resulting in remote code execution as the user running the viewer. The crash was confirmed with AddressSanitizer on a portable reproduction harness (heap-buffer-overflow WRITE at offset 256).",
-      "published": "2026-07-01T05:16:24.540",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7838"
-    },
-    {
-      "id": "CVE-2026-7831",
-      "summary": "UltraVNC viewer through 1.8.2.2 contains an off-by-one stack buffer overflow in the RFB ServerInit message handler. In vncviewer/ClientConnection.cpp, when the server-supplied nameLength equals exactly 2024 the code declares a 2024-byte stack buffer _dn[2024] and calls ReadString(_dn, 2024). ReadString writes the NUL terminator at buf[length], i.e., _dn[2024], one byte past the end of the stack buffer. A malicious VNC server can trigger this condition by advertising a desktop name of length 2024 in its ServerInit message. On release builds without stack canaries the single-byte NUL overwrite adjacent stack data. On builds with /GS stack protection the canary is corrupted and the process terminates, resulting in denial of service. User interaction (connecting the viewer to the malicious server) is required.",
-      "published": "2026-07-01T05:16:24.380",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7831"
-    },
-    {
-      "id": "CVE-2026-7830",
-      "summary": "UltraVNC through 1.8.2.2 uses inadequate cryptography in the MS-Logon II authentication scheme (rfbUltraVNC_MsLogonIIAuth). In rfb/dh.cpp the Diffie-Hellman key exchange is performed with parameters that fit in an unsigned 64-bit integer (DH_MAX_BITS controls the prime size). A 64-bit DH key can be broken by Pollard's rho algorithm in under one second on current hardware. Additionally, the private exponent is generated by the rng() function, which multiplies three libc rand() values seeded from time(NULL). With approximately 31 bits of internal state and a time-based seed, the private exponent is recoverable in under a minute by a passive observer. A network attacker who can observe the MS-Logon II handshake (via sniffing, recording, or man-in-the-middle) can derive the shared DH key and decrypt the encapsulated username and password, resulting in full credential disclosure. This affects legacy MS-Logon II connections; MS-Logon III (X25519 + AES-256-GCM) is unaffected.",
-      "published": "2026-07-01T05:16:24.210",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7830"
+      "id": "CVE-2026-12576",
+      "summary": "DVP80ES3 with Improper Enforcement of Message Integrity During Transmission in a Communication Channel vulnerability.",
+      "published": "2026-07-01T08:16:21.277",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12576"
     }
   ]
 }
