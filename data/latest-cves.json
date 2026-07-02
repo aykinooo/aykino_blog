@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-02T20:35:57+00:00",
+  "generated_at": "2026-07-02T22:17:07+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59102",
-      "summary": "Forgejo before 15.0.3 contains a stored cross-site scripting vulnerability that allows authenticated attackers to execute arbitrary JavaScript in other users' browsers by setting a full name containing an HTML payload and triggering an Actions run. When the DEFAULT_SHOW_FULL_NAME option is enabled, the run description is assembled server-side with the user's display name interpolated into an HTML string via a translation function that does not escape its arguments, and the frontend renders the result using a Vue v-html binding, causing script execution for any user who views the affected Actions run page.",
-      "published": "2026-07-02T20:17:08.683",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59102"
+      "id": "CVE-2026-50722",
+      "summary": "Libreswan, via the function RSA_authenticate_hash_signature_pkcs1_1_5_rsa(), did not correctly verify the DER encoding of the ASN.1 digest when the IKEv2 AUTH payload was encoded using RSASSA-PKCS1-v1_5 (RFC 8017). A remote attacker can use a variation on the Bleichenbacher attack to forge the AUTH payload when small public exponents are used (e.g., e=3), leading to impersonation. Additionally, a remote attacker, by encoding a shorter than expected hash in the AUTH payload, could trigger an assertion leading to denial-of-service. The daemon aborts and restarts; continued exploitation causes sustained denial of service. Remote code execution is not possible. X.509 certificate verifications of the remote IKE peer are not affected.",
+      "published": "2026-07-02T22:16:43.550",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50722"
     },
     {
-      "id": "CVE-2026-59101",
-      "summary": "AutoBangumi before 3.2.8 contains a server-side request forgery (SSRF) vulnerability that allows unauthenticated remote attackers to probe internal network services by supplying arbitrary host values to an unprotected setup endpoint. Attackers can send requests to the POST /api/v1/setup/test-downloader endpoint during the initial setup window, causing the server to issue HTTP GET requests to internal or reserved addresses and leak information through echoed connection-error messages.",
-      "published": "2026-07-02T20:17:08.507",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59101"
+      "id": "CVE-2026-50721",
+      "summary": "Libreswan, via the function RSA_authenticate_hash_signature_raw_rsa(), did not correctly verify the length of the authentication hash when the SIG payload of an IKEv1 packet was encoded using PKCS #1 RSA Encryption as per RFC 2313. A remote attacker can use a variation on the Bleichenbacher attack to forge the SIG payload when small public exponents are being used (e.g., e=3), which could lead to impersonation. Additionally, a remote attacker, by encoding a shorter than expected hash in the SIG payload, could trigger an assertion leading to denial-of-service. The daemon aborts and restarts; continued exploitation causes sustained denial of service. Remote code execution is not possible. X.509 certificate verifications of remote IKE peers are not affected.",
+      "published": "2026-07-02T22:16:43.367",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50721"
     },
     {
-      "id": "CVE-2026-59100",
-      "summary": "LobeChat through 2.2.9 contains a broken object level authorization vulnerability that allows authenticated attackers to access and modify other users' chat-group agent data by supplying arbitrary group identifiers. Attackers can invoke the getGroupAgents, updateAgentInGroup, and removeAgentsFromGroup operations without user-scoped predicates to read agent listings, modify agent roles and ordering, and remove agents from chat groups belonging to other users.",
-      "published": "2026-07-02T20:17:08.380",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59100"
+      "id": "CVE-2026-12413",
+      "summary": "An invalidly formatted IKEv2 fragment causes the Libreswan pluto daemon to crash and restart. Continued exploitation would cause a denial of service. The function reassemble_v2_incoming_fragments() would ignore unknown outer payloads but still store these in a fixed size array msg_digest.digest[PAYLIMIT]. An off-by-one error in the assertion PASSERT(logger, md->digest_roof < elemsof(md->digest)) causes the daemon to abort. No remote code execution is possible. Any configuration that allows IKEv2 connections that do not set fragmentation=no are vulnerable. IKEv1 is not affected.",
+      "published": "2026-07-02T22:16:42.517",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12413"
     },
     {
-      "id": "CVE-2026-59099",
-      "summary": "Apereo CAS 7.3.0 before 8.0.0-RC6 contains a cryptographic vulnerability that allows remote unauthenticated attackers to recover plaintext conversation state by exploiting AES-GCM initialization vector reuse across the server lifetime. Attackers can collect multiple client-side webflow execution tokens from the unauthenticated login page and perform known-plaintext analysis to decrypt the webflow conversation state due to keystream reuse caused by a fixed all-zero IV paired with the same encryption key.",
-      "published": "2026-07-02T20:17:08.240",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59099"
+      "id": "CVE-2026-58460",
+      "summary": "react-native-receive-sharing-intent contains a path traversal vulnerability that allows a co-resident malicious application to write files outside the intended cache directory by supplying a crafted _display_name value containing dot-dot path components through a malicious ContentProvider. Attackers can fire an explicit ACTION_SEND intent at the consuming app's exported share-receiver activity to overwrite arbitrary files in the consuming app's private data directory, including databases, shared preferences, and cached configuration, with attacker-controlled content.",
+      "published": "2026-07-02T21:16:57.080",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58460"
     },
     {
-      "id": "CVE-2026-59098",
-      "summary": "LobeChat through 2.2.9 contains a broken access control vulnerability in the retrieval-augmented-generation semantic search functionality that allows authenticated attackers to access other users' data by exploiting missing user-identifier predicates in the chunk model semanticSearch method. Attackers can supply arbitrary victim file or knowledge-base identifiers through the chunk retrieval and chat knowledge-base paths to retrieve text content, file names, and metadata belonging to other users.",
-      "published": "2026-07-02T20:17:08.120",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59098"
+      "id": "CVE-2026-52830",
+      "summary": "fast-mcp-telegram is a Telegram MCP Server. Prior to 0.19.1, fast-mcp-telegram validates HTTP Bearer tokens by joining the raw token string into a session-file path. The verifier rejects the exact reserved token telegram, but it does not reject path separators or normalize the path before checking whether the session file exists. A remote HTTP client can therefore authenticate as the default legacy session with a token such as ../fast-mcp-telegram/telegram when the documented default session file ~/.config/fast-mcp-telegram/telegram.session exists. This bypasses the reserved session name control that is intended to prevent HTTP multi-user sessions from colliding with the default stdio or legacy account. With account-prefixed MCP tools enabled, the attacker still sees and calls the prefixed tools for the default account, so the prefix middleware does not stop the session selection bypass. This vulnerability is fixed in 0.19.1.",
+      "published": "2026-07-02T21:16:56.847",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52830"
     },
     {
-      "id": "CVE-2026-59097",
-      "summary": "Taiga before 6.10.2 contains a missing authorization vulnerability that allows unauthenticated remote attackers to create default due-date records in any project by exploiting unprotected POST endpoints on the user-story, task, and issue due-date API viewsets. Attackers can supply an arbitrary project identifier to these endpoints, which bypass permission checks and apply the AllowAny default, to pre-empt project administrators from initializing due dates by creating records before they can do so themselves.",
-      "published": "2026-07-02T20:17:07.990",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59097"
+      "id": "CVE-2026-52192",
+      "summary": "An issue in UTT nv518G nv518GV3v3.2.7-210919-161313 allows a remote attacker to cause a denial of service via the gohead/sub_445C5C component",
+      "published": "2026-07-02T21:16:56.747",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52192"
     }
   ]
 }
