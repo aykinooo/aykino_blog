@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-02T05:08:36+00:00",
+  "generated_at": "2026-07-02T08:23:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-57278",
-      "summary": "GeoWebPlayer (also called \"Web Plugin\" in the GV-VMS documentation and \"WS Player\" for VMS-Cloud) is an addon that can be installed with various GeoVision software (GV-VMS, GV-Cloud, ...). It creates a websocket server that expands the capabilities of the various web-interfaces provided by the GeoVision software and may be necessary for them to function properly.\n\nThe Websocket server can accept various commands coming from localhost. One of them, `connectionInfo` is meant to provide the necessary details to connect to a camera. The handler associated with this command that we call`handle_connection_info` contains multiple instances of string copy that can overflow. The function `handle_connect_info` copies attacker-controlled JSON strings into fixed-size buffers using manual byte-by-byte loops that do not enforce length limits.\n\n\n\n\n#### Buffer Overflow in ip field",
-      "published": "2026-07-02T04:17:15.380",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57278"
+      "id": "CVE-2026-33592",
+      "summary": "An unauthenticated remote attacker can exhaust\nserver memory via the FindServers Discovery Service in open62541. The\nserverUris field of FindServersRequest is not validated for length or array\nsize. An attacker can declare an arbitrarily large string (up to ~3.9 GB)\ndelivered across intermediate chunks without ever sending the final chunk. The\nserver buffers all chunks in RAM indefinitely until the SecureChannel times\nout. The attack is pre-session and bypasses all encryption configuration. The\u00a0issue affects open62541: from 1.4.0 through 1.4.16, from 1.5.0 through 1.5.4, master.",
+      "published": "2026-07-02T08:16:39.230",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33592"
     },
     {
-      "id": "CVE-2026-57277",
-      "summary": "GeoWebPlayer (also called \"Web Plugin\" in the GV-VMS documentation and \"WS Player\" for VMS-Cloud) is an addon that can be installed with various GeoVision software (GV-VMS, GV-Cloud, ...). It creates a websocket server that expands the capabilities of the various web-interfaces provided by the GeoVision software and may be necessary for them to function properly.\n\nThe Websocket server can accept various commands coming from localhost. One of them, `connectionInfo` is meant to provide the necessary details to connect to a camera. The handler associated with this command that we call`handle_connection_info` contains multiple instances of string copy that can overflow. The function `handle_connect_info` copies attacker-controlled JSON strings into fixed-size buffers using manual byte-by-byte loops that do not enforce length limits.\n\n\n\n\n#### Buffer Overflow in key field",
-      "published": "2026-07-02T04:17:15.157",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57277"
+      "id": "CVE-2026-5821",
+      "summary": "The Image Optimizer plugin for WordPress is vulnerable to arbitrary file deletion in versions up to and including 1.7.4. This is due to insufficient path validation in the Image_Backup::remove() function where backup file paths stored in post meta are used directly in file deletion operations without verifying they are within the uploads directory. The plugin stores backup file paths in the image_optimizer_metadata post meta field and trusts these paths completely when deleting backups on the delete_attachment hook. An authenticated attacker with Author-level access can edit the image_optimizer_metadata post meta on their own attachments via WordPress's Custom Fields interface, injecting arbitrary absolute file paths into the backups array. When the attacker subsequently deletes the attachment, the plugin calls File_System::delete() on each path without validation. This makes it possible for authenticated attackers, with Author-level access and above, to delete arbitrary files on the server within the web server's filesystem permissions, potentially leading to denial of service, data loss, or security degradation.",
+      "published": "2026-07-02T06:16:14.220",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5821"
     },
     {
-      "id": "CVE-2026-57276",
-      "summary": "GeoWebPlayer (also called \"Web Plugin\" in the GV-VMS documentation and \"WS Player\" for VMS-Cloud) is an addon that can be installed with various GeoVision software (GV-VMS, GV-Cloud, ...). It creates a websocket server that expands the capabilities of the various web-interfaces provided by the GeoVision software and may be necessary for them to function properly.\n\nThe Websocket server can accept various commands coming from localhost. One of them, `connectionInfo` is meant to provide the necessary details to connect to a camera. The handler associated with this command that we call`handle_connection_info` contains multiple instances of string copy that can overflow. The function `handle_connect_info` copies attacker-controlled JSON strings into fixed-size buffers using manual byte-by-byte loops that do not enforce length limits. \n\n\n\n\n#### Buffer Overflow in password field (key present)",
-      "published": "2026-07-02T04:17:14.763",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57276"
+      "id": "CVE-2026-5348",
+      "summary": "The Academy LMS \u2013 WordPress LMS Plugin for Complete eLearning Solution plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to, and including, 3.8.1. This is due to the '/topics' REST API endpoint being registered with a permission callback set to '__return_true', allowing unauthenticated access to course curriculum data without verifying the course's post status or user enrollment. This makes it possible for unauthenticated attackers to access detailed curriculum information for private, draft, scheduled, or password-protected courses by enumerating course IDs.",
+      "published": "2026-07-02T06:16:14.073",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5348"
     },
     {
-      "id": "CVE-2026-57275",
-      "summary": "GeoWebPlayer (also called \"Web Plugin\" in the GV-VMS documentation and \"WS Player\" for VMS-Cloud) is an addon that can be installed with various GeoVision software (GV-VMS, GV-Cloud, ...). It creates a websocket server that expands the capabilities of the various web-interfaces provided by the GeoVision software and may be necessary for them to function properly.\n\nThe Websocket server can accept various commands coming from localhost. One of them, `connectionInfo` is meant to provide the necessary details to connect to a camera. The handler associated with this command that we call`handle_connection_info` contains multiple instances of string copy that can overflow. The function `handle_connect_info` copies attacker-controlled JSON strings into fixed-size buffers using manual byte-by-byte loops that do not enforce length limits.\n\n\n\n\n#### Buffer Overflow in username field (key present)",
-      "published": "2026-07-02T04:17:14.587",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57275"
+      "id": "CVE-2026-14249",
+      "summary": "The Request a Quote plugin for WordPress is vulnerable to Code Injection in versions up to, and including, 2.5.5 via the emd_delete_file AJAX action. This is due to the emd_delete_file() handler deriving a PHP function name from the attacker-controlled $_POST['path'] parameter and invoking it dynamically via the variable-function call $sess_name(), and the handler being registered for wp_ajax_nopriv with its only protection being a nonce that the plugin prints into the public quote-form page via wp_localize_script. This makes it possible for unauthenticated attackers to invoke arbitrary zero-argument PHP functions on the server, such as phpinfo(), potentially exposing sensitive server configuration and credentials, or executing other destructive built-in PHP functions.",
+      "published": "2026-07-02T06:16:13.760",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14249"
     },
     {
-      "id": "CVE-2026-57274",
-      "summary": "GeoWebPlayer (also called \"Web Plugin\" in the GV-VMS documentation and \"WS Player\" for VMS-Cloud) is an addon that can be installed with various GeoVision software (GV-VMS, GV-Cloud, ...). It creates a websocket server that expands the capabilities of the various web-interfaces provided by the GeoVision software and may be necessary for them to function properly.\n\nThe Websocket server can accept various commands coming from localhost. One of them, `connectionInfo` is meant to provide the necessary details to connect to a camera. The handler associated with this command that we call`handle_connection_info` contains multiple instances of string copy that can overflow. The function `handle_connect_info` copies attacker-controlled JSON strings into fixed-size buffers using manual byte-by-byte loops that do not enforce length limits.\n\n\n\n\n\n#### Buffer Overflow in password field (no key present)",
-      "published": "2026-07-02T04:17:14.430",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57274"
+      "id": "CVE-2026-13704",
+      "summary": "The GiveWP \u2013 Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'sequoia[introduction][image]' parameter in all versions up to, and including, 4.16.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Give Worker-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-07-02T06:16:13.620",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13704"
     },
     {
-      "id": "CVE-2026-57273",
-      "summary": "GeoWebPlayer (also called \"Web Plugin\" in the GV-VMS documentation and \"WS Player\" for VMS-Cloud) is an addon that can be installed with various GeoVision software (GV-VMS, GV-Cloud, ...). It creates a websocket server that expands the capabilities of the various web-interfaces provided by the GeoVision software and may be necessary for them to function properly.\n\nThe Websocket server can accept various commands coming from localhost. One of them, `connectionInfo` is meant to provide the necessary details to connect to a camera. The handler associated with this command that we call`handle_connection_info` contains multiple instances of string copy that can overflow. The function `handle_connect_info` copies attacker-controlled JSON strings into fixed-size buffers using manual byte-by-byte loops that do not enforce length limits.\n\n\n\n\n\n#### Buffer Overflow in username field (no key present)",
-      "published": "2026-07-02T04:17:13.570",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57273"
+      "id": "CVE-2026-13357",
+      "summary": "The Houzez Property Feed plugin for WordPress is vulnerable to SQL Injection via the 'orderby' parameter in all versions up to, and including, 2.5.46 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query in the prepare_items() method of the Houzez_Property_Feed_Admin_Logs_Export_Table (and Houzez_Property_Feed_Admin_Logs_Import_Table) class. The user-controlled $_GET['orderby'] and $_GET['order'] values are filtered only with sanitize_text_field() and then concatenated into the SQL format string before $wpdb->prepare() is called \u2014 prepare() only parameterizes the appended LIMIT/OFFSET clause and cannot retroactively secure the already-tainted ORDER BY clause. This makes it possible for authenticated attackers, with Administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-07-02T06:16:13.490",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13357"
     }
   ]
 }
