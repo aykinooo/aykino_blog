@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-07-03T16:43:40+00:00",
+  "generated_at": "2026-07-03T18:37:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-14631",
+      "summary": "webpack-dev-server versions 5.2.5 and earlier terminate the whole Node.js process when an unauthenticated peer sends either a normal HTTP request with a malformed Host header or a WebSocket upgrade to the default /ws endpoint with a malformed Origin header. The malformed value causes an uncaught exception in the host-validation path and crashes the dev server. Impact is limited to availability of the development server, no data disclosure, no code execution. Patches: upgrade to webpack-dev-server 5.2.6. Workarounds: keep the dev server bound to localhost (the default) and do not expose it to untrusted networks.",
+      "published": "2026-07-03T18:16:24.687",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14631"
+    },
+    {
+      "id": "CVE-2026-14620",
+      "summary": "webpack-dev-server versions 5.2.5 and earlier expose two internal developer endpoints, /webpack-dev-server/open-editor and /webpack-dev-server/invalidate, that perform state-changing actions on any GET request without verifying that the request originated from the dev server's own page. Any website a developer visits while the dev server is running can trigger these endpoints cross-origin with no interaction beyond the visit. An attacker can open an arbitrary existing local file in the developer's editor, including files outside the project root, and repeated requests can spawn editor processes and force recompilations that degrade the developer's machine. Patches: upgrade to webpack-dev-server 5.2.6. Workarounds: none.",
+      "published": "2026-07-03T17:16:53.620",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14620"
+    },
     {
       "id": "CVE-2026-14615",
       "summary": "A flaw was found in the Fine-Grained Admin Permissions (FGAP) v2 implementation within Keycloak's administrative services. When FGAP v2 is enabled, the system fails to properly filter child groups based on the caller's specific permissions when requested through a parent group. This allows a delegated administrator to view details of child groups they are not authorized to access directly, including group names, paths, and custom attributes.",
@@ -29,20 +43,6 @@
       "published": "2026-07-03T16:16:54.470",
       "cvss": 4.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14612"
-    },
-    {
-      "id": "CVE-2026-53478",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an improper neutralization of special elements used in an OS command ('OS command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.",
-      "published": "2026-07-03T15:16:32.840",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53478"
-    },
-    {
-      "id": "CVE-2026-49815",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an improper neutralization of special Elements used in an OS command ('OS command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to execution of arbitrary OS commands.",
-      "published": "2026-07-03T15:16:32.720",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49815"
     }
   ]
 }
