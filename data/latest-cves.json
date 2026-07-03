@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-03T08:25:48+00:00",
+  "generated_at": "2026-07-03T11:40:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9230",
-      "summary": "The Quiz and Survey Master (QSM) \u2013 Easy Quiz and Survey Maker plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 11.1.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to modify quizzes they do not own, overwrite quiz results pages, and reroute quiz-result notification emails to attacker-controlled addresses. An attacker first calls the /quiz/structure endpoint with an arbitrary victim quiz ID to obtain a valid nonce bound to that quiz ID and their own user ID, then presents that nonce to the /quizzes/{id}/emails save endpoint, which accepts it without verifying quiz ownership.",
-      "published": "2026-07-03T08:16:25.483",
+      "id": "CVE-2026-13341",
+      "summary": "A vulnerability exists in the Kong Konnect Model Context Protocol (MCP) server prior to version 1.0.0, which could allow a remote attacker to perform an indirect prompt injection attack and execute unintended API requests.",
+      "published": "2026-07-03T11:16:27.720",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13341"
+    },
+    {
+      "id": "CVE-2026-10055",
+      "summary": "In Eclipse Theia since version 1.26.0, the backend /services/request-service RPC accepts an attacker-controlled URL from any client connected to the standard /services messaging endpoint, performs the HTTP request server-side, and returns the full response body to the caller.\n\n\n\n\nBecause the destination URL is neither validated nor allowlisted, a remote attacker with access to the Theia service connection can issue server-side HTTP requests to localhost or other backend-reachable hosts and read their responses, exposing internal administrative endpoints, cloud instance metadata services, and other resources that are intentionally outside the browser network boundary.\n\n\n\n\nThe vulnerability affects deployments where the Theia service connection is reachable by untrusted users (for example, multi-tenant or publicly-reachable Theia deployments).",
+      "published": "2026-07-03T11:16:27.600",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10055"
+    },
+    {
+      "id": "CVE-2026-10054",
+      "summary": "In affected versions of Eclipse Theia (1.8.1 and later), the browser backend exposes privileged terminal RPC over WebSocket (/services/shell-terminal, /services/terminals/:id) without service-level authentication.\n\n\n\n\nWebSocket origin validation in @theia/core is fail-open: connections are accepted when the Origin header is missing or when no THEIA_HOSTS allowlist is configured (the default). The Socket.IO integration additionally replaces the real Origin header with a client-supplied fix-origin header that an attacker can control or omit.\n\n\n\n\nAs a result, a foreign-origin web page visited by a user with a running Theia instance can open the /services WebSocket namespace, invoke terminal creation, attach to the resulting terminal data channel, execute arbitrary OS commands, and read their output. This affects both local developer setups (drive-by attack) and hosted or tunneled deployments without strong external authentication.\n\n\n\n\nA fix is in development that enforces same-origin validation by default, removes trust in the fix-origin header, gates HTTP and WebSocket access on a SameSite=Strict; HttpOnly connection-token cookie, and sanitizes shell terminal creation options.",
+      "published": "2026-07-03T11:16:26.847",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10054"
+    },
+    {
+      "id": "CVE-2026-5137",
+      "summary": "The RTMKit (rometheme-for-elementor) plugin for WordPress is vulnerable to Local File Inclusion in versions up to, and including, 2.0.7 This is due to insufficient path validation on the 'template' parameter in the render_templates AJAX endpoint, which is used directly in a require/include statement without sanitization. This makes it possible for authenticated attackers, with Contributor-level access and above, to include and execute files on the server ending in _templates.php, allowing the execution of any PHP code in those files.",
+      "published": "2026-07-03T10:16:33.113",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9230"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5137"
     },
     {
-      "id": "CVE-2026-9148",
-      "summary": "The Comments \u2013 wpDiscuz plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the guest commenter 'Website' field in versions up to, and including, 7.6.56 This is due to insufficient output escaping in the getCommentAuthor() function, which interpolates the stored comment_author_url value directly into single-quoted HTML attributes without applying esc_url() or esc_attr(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-07-03T08:16:25.367",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9148"
+      "id": "CVE-2026-4322",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Raera - Ankara Web Design and Digital Advertising Agency Destekz allows Reflected XSS.\n\nThis issue affects Destekz: through 02062026.\u00a0NOTE: The vendor was contacted and it was learned that the product is not supported.",
+      "published": "2026-07-03T10:16:32.993",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4322"
     },
     {
-      "id": "CVE-2026-8804",
-      "summary": "Puppet resource_api (shipped in Puppet Core 8.x and Puppet Enterprise 2023.8.x and 2025.x) does not preserve the sensitive flag on parameters defined via the resource-api, causing values such as passwords to be stored in cleartext in the agent's local transaction state cache. Affected versions of the resource_api module include all versions between 1.5.0 - 1.9.1 and 2.0.0 The issue was fixed in puppet resource_api\u00a01.9.2 and 2.0.1 released with Puppet Core 8.20.0 and PE 2023.8.10 & PE 2025.11.0.",
-      "published": "2026-07-03T08:16:25.227",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8804"
-    },
-    {
-      "id": "CVE-2026-8351",
-      "summary": "The RTMKit plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the Advanced Heading widget's 'Background Text' parameter in versions up to, and including, 2.0.7 This is due to insufficient output escaping on the 'background_text_heading' setting in the render() function, which concatenates the value directly into an HTML attribute without applying esc_attr(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-07-03T08:16:25.107",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8351"
-    },
-    {
-      "id": "CVE-2026-47898",
-      "summary": "Improper Restriction of XML External Entity Reference vulnerability in Apache Lucene.Net (Lucene.Net.Analysis.Common library).\n\nThis issue affects Apache Lucene.Net.Analysis.Common: from 4.8.0-beta00005 before 4.8.0-beta00018.\n\nUsers are recommended to upgrade to version 4.8.0-beta00018, which fixes the issue.",
-      "published": "2026-07-03T08:16:24.977",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47898"
-    },
-    {
-      "id": "CVE-2026-47897",
-      "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in Apache Lucene.Net (Lucene.Net.Replicator library).\n\nThis issue affects Apache Lucene.Net.Replicator: from 4.8.0-beta00005 before 4.8.0-beta00018.\n\nUsers are recommended to upgrade to version 4.8.0-beta00018, which fixes the issue.",
-      "published": "2026-07-03T08:16:24.817",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47897"
+      "id": "CVE-2026-4321",
+      "summary": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in Raera - Ankara Web Design and Digital Advertising Agency Destekz allows SQL Injection.\n\nThis issue affects Destekz: through 02062026.\u00a0NOTE: The vendor was contacted and it was learned that the product is not supported.",
+      "published": "2026-07-03T10:16:32.760",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4321"
     }
   ]
 }
