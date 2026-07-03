@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-03T14:29:41+00:00",
+  "generated_at": "2026-07-03T16:43:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-46466",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an use of less trusted source vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to information tampering.",
-      "published": "2026-07-03T14:16:30.593",
-      "cvss": 2.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46466"
+      "id": "CVE-2026-14615",
+      "summary": "A flaw was found in the Fine-Grained Admin Permissions (FGAP) v2 implementation within Keycloak's administrative services. When FGAP v2 is enabled, the system fails to properly filter child groups based on the caller's specific permissions when requested through a parent group. This allows a delegated administrator to view details of child groups they are not authorized to access directly, including group names, paths, and custom attributes.",
+      "published": "2026-07-03T16:16:55.773",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14615"
     },
     {
-      "id": "CVE-2026-46465",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an use of externally-controlled format string vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure and denial of service.",
-      "published": "2026-07-03T14:16:30.473",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46465"
+      "id": "CVE-2026-14614",
+      "summary": "A flaw was found in the ClientResource component of Keycloak's admin services when Fine-Grained Admin Permissions (FGAP) v2 is enabled. This issue allows a delegated administrator, who should only have limited control over specific clients, to attach or remove hidden client scopes that they are not authorized to see or manage. As a result, an attacker could inject unauthorized data or permissions into the security tokens issued to end-users, potentially tricking other applications into granting higher levels of access than intended.",
+      "published": "2026-07-03T16:16:55.650",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14614"
     },
     {
-      "id": "CVE-2026-46464",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an improper link resolution before file access ('Link following') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to information disclosure.",
-      "published": "2026-07-03T14:16:30.360",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46464"
+      "id": "CVE-2026-14613",
+      "summary": "A vulnerability was discovered in Keycloak's administrative interface that allows certain administrators to see information about groups they shouldn't have access to. When the new Fine-Grained Admin Permissions (FGAP v2) are turned on, an administrator who is allowed to see a specific \"role\" can also see a list of all groups assigned to that role. The system fails to check if the administrator has permission to see those specific groups. This could allow a restricted administrator to discover \"hidden\" groups and see their details, such as internal names and custom settings, which might contain sensitive deployment information.",
+      "published": "2026-07-03T16:16:55.527",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14613"
     },
     {
-      "id": "CVE-2026-46463",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an integer overflow or wraparound vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to denial of service.",
-      "published": "2026-07-03T14:16:29.660",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46463"
+      "id": "CVE-2026-14612",
+      "summary": "Two off-by-one errors in the FreeIPA ipa-otpd daemon's OAuth2 device authorization handler can cause out-of-bounds memory access when processing an oversized response from a configured external OAuth2/OIDC Identity Provider. An attacker who controls or can man-in-the-middle the IdP endpoint may be able to trigger ipa-otpd to write or read one byte past the end of a fixed-size buffer. Exploitation requires FreeIPA to be configured with an external IdP, attacker control or MITM of that IdP, and a user to initiate the OAuth2 device authorization flow. The most likely impact is limited denial of service affecting the ipa-otpd daemon.",
+      "published": "2026-07-03T16:16:54.470",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14612"
     },
     {
-      "id": "CVE-2026-59234",
-      "summary": "Authorization Bypass Through User-Controlled Key (CWE-639) in CalendarDeleteEventController (app/Http/Controllers/Calendar/CalendarDeleteEventController.php), exposed at GET /calendar/event/delete/{id}, in Prospero Flow CRM before 5.5.3 allows a remote, authenticated attacker to delete arbitrary calendar events belonging to other users by manipulating the {id} path parameter, because the delete handler resolves the record with Calendar::find($id)->delete() and performs no ownership check (no user_id/company_id scoping) before deletion. This results in unauthorized destruction of other users' calendar events across the platform.",
-      "published": "2026-07-03T13:17:30.353",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59234"
+      "id": "CVE-2026-53478",
+      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an improper neutralization of special elements used in an OS command ('OS command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to command execution.",
+      "published": "2026-07-03T15:16:32.840",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53478"
     },
     {
-      "id": "CVE-2026-56085",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an use of uninitialized resource vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to information exposure.",
-      "published": "2026-07-03T13:17:30.240",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56085"
+      "id": "CVE-2026-49815",
+      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an improper neutralization of special Elements used in an OS command ('OS command Injection') vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to execution of arbitrary OS commands.",
+      "published": "2026-07-03T15:16:32.720",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49815"
     }
   ]
 }
