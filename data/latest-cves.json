@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-02T22:17:07+00:00",
+  "generated_at": "2026-07-03T00:17:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-50722",
-      "summary": "Libreswan, via the function RSA_authenticate_hash_signature_pkcs1_1_5_rsa(), did not correctly verify the DER encoding of the ASN.1 digest when the IKEv2 AUTH payload was encoded using RSASSA-PKCS1-v1_5 (RFC 8017). A remote attacker can use a variation on the Bleichenbacher attack to forge the AUTH payload when small public exponents are used (e.g., e=3), leading to impersonation. Additionally, a remote attacker, by encoding a shorter than expected hash in the AUTH payload, could trigger an assertion leading to denial-of-service. The daemon aborts and restarts; continued exploitation causes sustained denial of service. Remote code execution is not possible. X.509 certificate verifications of the remote IKE peer are not affected.",
-      "published": "2026-07-02T22:16:43.550",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50722"
-    },
-    {
-      "id": "CVE-2026-50721",
-      "summary": "Libreswan, via the function RSA_authenticate_hash_signature_raw_rsa(), did not correctly verify the length of the authentication hash when the SIG payload of an IKEv1 packet was encoded using PKCS #1 RSA Encryption as per RFC 2313. A remote attacker can use a variation on the Bleichenbacher attack to forge the SIG payload when small public exponents are being used (e.g., e=3), which could lead to impersonation. Additionally, a remote attacker, by encoding a shorter than expected hash in the SIG payload, could trigger an assertion leading to denial-of-service. The daemon aborts and restarts; continued exploitation causes sustained denial of service. Remote code execution is not possible. X.509 certificate verifications of remote IKE peers are not affected.",
-      "published": "2026-07-02T22:16:43.367",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50721"
-    },
-    {
-      "id": "CVE-2026-12413",
-      "summary": "An invalidly formatted IKEv2 fragment causes the Libreswan pluto daemon to crash and restart. Continued exploitation would cause a denial of service. The function reassemble_v2_incoming_fragments() would ignore unknown outer payloads but still store these in a fixed size array msg_digest.digest[PAYLIMIT]. An off-by-one error in the assertion PASSERT(logger, md->digest_roof < elemsof(md->digest)) causes the daemon to abort. No remote code execution is possible. Any configuration that allows IKEv2 connections that do not set fragmentation=no are vulnerable. IKEv1 is not affected.",
-      "published": "2026-07-02T22:16:42.517",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12413"
-    },
-    {
-      "id": "CVE-2026-58460",
-      "summary": "react-native-receive-sharing-intent contains a path traversal vulnerability that allows a co-resident malicious application to write files outside the intended cache directory by supplying a crafted _display_name value containing dot-dot path components through a malicious ContentProvider. Attackers can fire an explicit ACTION_SEND intent at the consuming app's exported share-receiver activity to overwrite arbitrary files in the consuming app's private data directory, including databases, shared preferences, and cached configuration, with attacker-controlled content.",
-      "published": "2026-07-02T21:16:57.080",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58460"
-    },
-    {
-      "id": "CVE-2026-52830",
-      "summary": "fast-mcp-telegram is a Telegram MCP Server. Prior to 0.19.1, fast-mcp-telegram validates HTTP Bearer tokens by joining the raw token string into a session-file path. The verifier rejects the exact reserved token telegram, but it does not reject path separators or normalize the path before checking whether the session file exists. A remote HTTP client can therefore authenticate as the default legacy session with a token such as ../fast-mcp-telegram/telegram when the documented default session file ~/.config/fast-mcp-telegram/telegram.session exists. This bypasses the reserved session name control that is intended to prevent HTTP multi-user sessions from colliding with the default stdio or legacy account. With account-prefixed MCP tools enabled, the attacker still sees and calls the prefixed tools for the default account, so the prefix middleware does not stop the session selection bypass. This vulnerability is fixed in 0.19.1.",
-      "published": "2026-07-02T21:16:56.847",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52830"
-    },
-    {
-      "id": "CVE-2026-52192",
-      "summary": "An issue in UTT nv518G nv518GV3v3.2.7-210919-161313 allows a remote attacker to cause a denial of service via the gohead/sub_445C5C component",
-      "published": "2026-07-02T21:16:56.747",
+      "id": "CVE-2026-8247",
+      "summary": "An Out-of-bounds Write vulnerability in WatchGuard Fireware OS may allow an unauthenticated attacker on the same local network segment to execute arbitrary code.\n\n\n\n\nThis vulnerability affects Fireware OS 11.0 up to and including 11.12.4_Update1, 12.0 up to and including 12.12 and 2025.1 up to and including 2026.2.",
+      "published": "2026-07-03T00:16:52.773",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52192"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8247"
+    },
+    {
+      "id": "CVE-2026-55726",
+      "summary": "The Azure Blob Storage container used for Gardyn device logs is publicly listable without authentication. A malicious user would be able to access any device log file available in the blob storage container.",
+      "published": "2026-07-03T00:16:52.607",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55726"
+    },
+    {
+      "id": "CVE-2026-54477",
+      "summary": "The admin panel lacks standard security headers, enabling clickjacking and cross-site scripting attacks.",
+      "published": "2026-07-03T00:16:52.440",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54477"
+    },
+    {
+      "id": "CVE-2026-13768",
+      "summary": "Gardyn devices expose a privileged iothubowner key. Access to this key will allow a malicious user to invoke an IoTHub Registry Manager function which returns connection information for all Gardyn Home Kit and Studio devices. Access to this key also allows a malicious user to execute arbitrary commands on a specific connected device and may allow the malicious user to pivot to other devices on the user's network.",
+      "published": "2026-07-03T00:16:52.270",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13768"
+    },
+    {
+      "id": "CVE-2026-13728",
+      "summary": "In exception circumstances, WatchGuard Fireware OS on a FireCluster may use a hard-coded encryption key to encrypt saved credentials for Access Portal resources.\n\nThis vulnerability affects Fireware OS 12.1 up to and including 12.12 and 2025.1 up to and including 2026.2. This vulnerability does not affect devices that do not support the Access Portal feature or standalone Fireboxes not deployed in a FireCluster.",
+      "published": "2026-07-03T00:16:52.147",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13728"
+    },
+    {
+      "id": "CVE-2026-13722",
+      "summary": "WatchGuard Fireware OS contains a firmware validation bypass when processing a backup image via the backup/restore feature. An authenticated administrator can exploit this vulnerability to install a tampered firmware image.This vulnerability affects Fireware OS 11.0 up to and including 11.12.4_Update1, 12.0 up to and including 12.12 and 2025.1 up to and including 2025.6.2.",
+      "published": "2026-07-03T00:16:52.010",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13722"
     }
   ]
 }
