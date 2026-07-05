@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-07-05T18:14:02+00:00",
+  "generated_at": "2026-07-05T19:42:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-14766",
+      "summary": "A vulnerability was identified in CodeAstro Apartment Visitor Management System 1.0. Affected by this issue is some unknown functionality of the file /apartment-visitor/search-result.php of the component POST Parameter Handler. The manipulation of the argument searchdata leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used.",
+      "published": "2026-07-05T19:16:28.563",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14766"
+    },
+    {
+      "id": "CVE-2026-59510",
+      "summary": "AIL Framework contains a path traversal vulnerability in its PDF object handling. Prior to commit 14c618fce4d1df02358717c48ea903706abecdf2, the PDF.get_filepath() function constructed a file path by joining the configured PDF storage directory with a path derived from a PDF object identifier, without verifying that the resolved path remained within the intended PDF_FOLDER directory.\n\nAn authenticated attacker able to invoke PDF object operations with a crafted identifier could use relative traversal sequences or absolute path components to cause AIL Framework to open files located outside the PDF storage directory. This could allow disclosure of files readable by the AIL process, including application configuration, credentials, or other sensitive local data. This vulnerability is potential due to additional errors before being able to be executed.\n\nThe fix canonicalises the resulting path with os.path.realpath() and rejects paths whose common directory is outside the configured PDF directory.",
+      "published": "2026-07-05T18:16:57.080",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59510"
+    },
     {
       "id": "CVE-2026-14764",
       "summary": "A vulnerability has been found in code-projects Hotel and Tourism Reservation 1.0. This impacts an unknown function of the file /admin/add_event.php of the component Event Management Page. Such manipulation of the argument fdetails leads to sql injection. The attack can be launched remotely. The exploit has been disclosed to the public and may be used.",
@@ -29,20 +43,6 @@
       "published": "2026-07-05T16:19:44.893",
       "cvss": 3.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14761"
-    },
-    {
-      "id": "CVE-2026-14760",
-      "summary": "A weakness has been identified in radareorg radare2 up to 6.1.6. Impacted is the function r_core_seek_arch_bits of the file libr/core/disasm.c of the component regprofile Handler. Executing a manipulation can lead to use after free. The attack requires local access. The exploit has been made available to the public and could be used for attacks. This patch is called 8b25c773785d85cb0103410a0905089d286921c2. It is advisable to implement a patch to correct this issue.",
-      "published": "2026-07-05T16:19:44.740",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14760"
-    },
-    {
-      "id": "CVE-2026-14759",
-      "summary": "A security flaw has been discovered in radareorg radare2 up to 6.1.6. This issue affects the function r_bin_java_inner_classes_attr_calc_size of the file shlr/java/class.c of the component RBinJava Line Number Table Parser. Performing a manipulation results in heap-based buffer overflow. The attack requires a local approach. The exploit has been released to the public and may be used for attacks. The patch is named cd62d15a6cbecdc67fd03f3ebdbbbeb741d18f87. To fix this issue, it is recommended to deploy a patch.",
-      "published": "2026-07-05T16:19:44.583",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14759"
     }
   ]
 }
