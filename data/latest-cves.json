@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-05T08:14:15+00:00",
+  "generated_at": "2026-07-05T10:28:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-14781",
-      "summary": "A flaw exists in the org.keycloak.broker.oidc package where the OIDC broker incorrectly synchronizes the email_verified claim. When an OIDC identity provider is configured with trustEmail=true and the userinfo endpoint is enabled, Keycloak retrieves the email address from the userinfo response but retrieves the email_verified status exclusively from the id_token.\nThe root cause is a lack of validation ensuring that the email_verified claim in the id_token actually refers to the email address returned by the userinfo endpoint. If these two sources return different email addresses, the id_token's email_verified=true claim is blindly applied to the userinfo email.\nExploitation Conditions:\nThe OIDC identity provider must have trustEmail set to true (non-default).\n\nThe userinfo endpoint must be enabled (default).\n\nThe attacker must control or have compromised the upstream OIDC provider.\n\n\nConcrete Impact:\nMark arbitrary email addresses as verified in the Keycloak database.\n\nBypass email-based security controls or verification workflows.\n\nPotential account takeover if the application relies solely on the email_verified flag from the IdP to link accounts.",
-      "published": "2026-07-05T07:16:39.820",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14781"
-    },
-    {
-      "id": "CVE-2026-14717",
-      "summary": "A vulnerability was detected in itsourcecode Hospital Management System 1.0. The affected element is an unknown function of the file /patientlogin.php. Performing a manipulation of the argument loginid results in sql injection. Remote exploitation of the attack is possible. The exploit is now public and may be used.",
-      "published": "2026-07-05T07:16:39.630",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14717"
-    },
-    {
-      "id": "CVE-2026-14716",
-      "summary": "A security vulnerability has been detected in nextlevelbuilder GoClaw up to 3.13.0-beta.2. Impacted is the function MethodRouter.Handle of the file internal/gateway/router.go of the component WebSocket RPC Handler. Such manipulation leads to incorrect authorization. The attack may be launched remotely. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report.",
-      "published": "2026-07-05T06:16:31.240",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14716"
-    },
-    {
-      "id": "CVE-2026-14714",
-      "summary": "A weakness has been identified in zhayujie chatgpt-on-wechat CowAgent 2.1.0. This issue affects the function verify_server of the file channel/wechatmp/common.py of the component wx Endpoint. This manipulation of the argument wechatmp_token causes missing authentication. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 2.1.1 is capable of addressing this issue. Patch name: 3d7c68bac6ee74fad63f43cf99e45c62e202ed55. It is suggested to upgrade the affected component. The project confirms: \"We've added an explicit non-empty check for wechatmp_token in verify_server() so that the /wx endpoint now fails closed with 403 Forbidden whenever the token is missing or left at the default empty value, instead of relying on a signature check that silently degenerates to a predictable hash.\"",
-      "published": "2026-07-05T06:16:30.873",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14714"
-    },
-    {
-      "id": "CVE-2026-14713",
-      "summary": "A security flaw has been discovered in SourceCodester Pizzafy E-Commerce System 1.0. This vulnerability affects unknown code of the file /admin/ajax.php?action=confirm_order. The manipulation of the argument ID results in sql injection. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-07-05T06:16:30.480",
+      "id": "CVE-2026-14736",
+      "summary": "A vulnerability was found in Ruijie RG-UAC up to 1.0-R1.8.2.p5. The impacted element is an unknown function of the file user_auth_commit.php. Performing a manipulation of the argument upload_image results in unrestricted upload. The attack is possible to be carried out remotely. The exploit has been made public and could be used.",
+      "published": "2026-07-05T10:16:30.117",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14713"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14736"
     },
     {
-      "id": "CVE-2026-14706",
-      "summary": "A vulnerability was identified in code-projects Online Examination 1.0. This affects an unknown part of the file /update.php?q=addquiz of the component Quiz Creation Feature. The manipulation of the argument name/total/right/wrong/time/tag/desc leads to sql injection. The attack can be initiated remotely. The exploit is publicly available and might be used.",
-      "published": "2026-07-05T06:16:30.043",
+      "id": "CVE-2026-14735",
+      "summary": "A vulnerability has been found in code-projects Smart Parking System 1.0. The affected element is an unknown function of the file /parkings/parkings.php. Such manipulation of the argument street/city/status leads to sql injection. The attack can be executed remotely. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-07-05T10:16:29.960",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14735"
+    },
+    {
+      "id": "CVE-2026-14734",
+      "summary": "A flaw has been found in SourceCodester Class and Exam Timetabling System 1.0. Impacted is an unknown function of the file /edit_product.php. This manipulation of the argument ID causes sql injection. Remote exploitation of the attack is possible. The exploit has been published and may be used.",
+      "published": "2026-07-05T10:16:28.783",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14734"
+    },
+    {
+      "id": "CVE-2026-14733",
+      "summary": "A vulnerability was detected in SourceCodester Class and Exam Timetabling System 1.0. This issue affects some unknown processing of the file /edit_coursea.php. The manipulation of the argument ID results in sql injection. The attack may be launched remotely. The exploit is now public and may be used.",
+      "published": "2026-07-05T09:16:28.443",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14733"
+    },
+    {
+      "id": "CVE-2026-14732",
+      "summary": "A security vulnerability has been detected in SourceCodester Class and Exam Timetabling System 1.0. This vulnerability affects unknown code of the file /edit_exam.php. The manipulation of the argument ID leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-07-05T09:16:28.290",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14732"
+    },
+    {
+      "id": "CVE-2026-14731",
+      "summary": "A weakness has been identified in itsourcecode Hospital Management System 1.0. This affects an unknown part of the file /patientreport.php. Executing a manipulation of the argument editid can lead to sql injection. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-07-05T09:16:28.133",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14706"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14731"
     }
   ]
 }
