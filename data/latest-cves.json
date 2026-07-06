@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-06T12:57:26+00:00",
+  "generated_at": "2026-07-06T16:28:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2025-15668",
-      "summary": "A vulnerability was identified in GPAC up to b40ce70f5. This issue affects the function sgpd_del_entry of the file src/isomedia/box_code_base.c of the component MP4Box. Such manipulation of the argument data leads to heap-based buffer overflow. Local access is required to approach this attack. The exploit is publicly available and might be used. The name of the patch is f29f955f2a3b5e8e507caad3e52319f961bf37bf. It is advisable to implement a patch to correct this issue.",
-      "published": "2026-07-06T12:16:39.630",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15668"
-    },
-    {
-      "id": "CVE-2025-15667",
-      "summary": "A vulnerability was determined in GPAC up to 2.5-DEV. This vulnerability affects the function gf_isom_nalu_sample_rewrite of the file src/isomedia/avc_ext.c of the component MP4Box. This manipulation of the argument nalu_out_bs causes double free. It is possible to launch the attack on the local host. The exploit has been publicly disclosed and may be utilized. Patch name: f29f955f2a3b5e8e507caad3e52319f961bf37bf. To fix this issue, it is recommended to deploy a patch.",
-      "published": "2026-07-06T12:16:38.457",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15667"
-    },
-    {
-      "id": "CVE-2026-6901",
-      "summary": "Untrusted Search Path vulnerability in B&R Industrial Automation GmbH APROL.\n\nThis issue affects APROL: before R 4.4-01P5.",
-      "published": "2026-07-06T11:16:31.433",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6901"
-    },
-    {
-      "id": "CVE-2026-6900",
-      "summary": "Improper certificate validation vulnerability in B&R Industrial Automation GmbH APROL.\n\nThis issue affects APROL: before R 4.4-01P5.",
-      "published": "2026-07-06T11:16:31.297",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6900"
-    },
-    {
-      "id": "CVE-2026-58226",
-      "summary": "Inefficient Algorithmic Complexity vulnerability in elixir-mint hpax allows unauthenticated denial-of-service via unbounded HPACK integer decoding.\n\nhpax decodes HPACK variable-length integers with no upper bound on the decoded value or the number of continuation octets. 'Elixir.HPAX.Types':decode_remaining_integer/3 accumulates the integer as int + (value <<< m), shifting by 7 more bits for each continuation octet and stopping only on a terminating octet or truncated input, never because the integer grew too large. Because BEAM integers are arbitrary precision, a run of N continuation octets builds an O(N)-bit bignum and re-adds into an ever-larger bignum on each step, so the total decoding cost is superlinear (about O(N^2)). An unauthenticated attacker who can send an HTTP/2 header block to a server using this decoder (reached through the 'Elixir.HPAX':decode/2 entry point) can supply a small header block that forces a large, attacker-controlled amount of CPU (and transient memory), a denial-of-service amplification.\n\nThis issue affects hpax from 0.1.1 before 1.0.4.",
-      "published": "2026-07-06T11:16:31.143",
+      "id": "CVE-2026-5268",
+      "summary": "An authentication bypass vulnerability exists in\nthe default SFTP server component utilized across the Ciena products listed. This vulnerability allows a remote, unauthenticated attacker to bypass\nsecurity controls and gain unauthorized access to the underlying filesystem.\nSuccessful exploitation could allow an attacker to read or modify system files.",
+      "published": "2026-07-06T16:16:38.433",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58226"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5268"
     },
     {
-      "id": "CVE-2026-56810",
-      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in elixir-mint mint (Mint.HTTP1 module) allows a denial of service via an oversized chunked transfer-encoded response.\n\nThis vulnerability is associated with program files lib/mint/http1.ex and program routines 'Elixir.Mint.HTTP1':decode_body/5, 'Elixir.Mint.HTTP1':add_body_to_buffer/2.\n\nWhen Mint decodes a chunked HTTP response body, it accumulates each partial fragment of the current chunk in the connection's data_buffer (an unbounded iolist) via add_body_to_buffer/2 and does not emit the data to the caller until the full declared chunk length has been received. The chunk size is taken directly from the server and parsed with no upper bound, so a malicious or compromised server can announce one enormous chunk (for example a size line of 7FFFFFFF, about 2 GiB) and then send the body bytes slowly without ever completing the chunk. The client buffers every received byte while it waits for a completion that never arrives, and because no data responses are produced until the chunk finishes, a caller that otherwise streams large content-length bodies safely gains no protection. An unauthenticated remote server (reachable whenever a client follows redirects, fetches user-supplied URLs, or processes webhooks) can drive the client's memory arbitrarily high and trigger an out-of-memory condition.\n\nThis issue affects mint: from 0.5.0 before 1.9.1.",
-      "published": "2026-07-06T11:16:30.983",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56810"
+      "id": "CVE-2026-59196",
+      "summary": "pnpm is a package manager. Prior to 10.34.4 and 11.7.0, a crafted lockfile alias could be joined directly under a hoisted node_modules directory. Traversal aliases could escape that directory, while reserved aliases such as .bin or .pnpm could overwrite pnpm-owned layout.  This vulnerability is fixed in 10.34.4 and 11.7.0.",
+      "published": "2026-07-06T16:16:37.810",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59196"
+    },
+    {
+      "id": "CVE-2026-59195",
+      "summary": "pnpm is a package manager. Prior to 10.34.4 and 11.8.0, pnpm accepts package names from the env lockfile configDependencies section and uses those names directly when creating config dependency symlinks under node_modules/.pnpm-config. A malicious repository can commit a crafted pnpm-lock.yaml whose env-lockfile document contains a traversal-shaped config dependency name. During pnpm install, pnpm installs the config dependency and creates a symlink at a path derived from that name. This vulnerability is fixed in 10.34.4 and 11.8.0.",
+      "published": "2026-07-06T16:16:37.683",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59195"
+    },
+    {
+      "id": "CVE-2026-59194",
+      "summary": "pnpm is a package manager. Prior to 10.34.4 and 11.7.0, a crafted patch entry could resolve outside the configured patches directory and cause pnpm patch-remove to delete an arbitrary reachable file. This vulnerability is fixed in 10.34.4 and 11.7.0.",
+      "published": "2026-07-06T16:16:37.550",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59194"
+    },
+    {
+      "id": "CVE-2026-59152",
+      "summary": "LangSmith Client SDKs provide SDK's for interacting with the LangSmith platform. Prior to 0.8.18, an attacker who can send an HTTP request to a server running the LangSmith SDK's TracingMiddleware can cause that server to read an arbitrary file from its local filesystem and upload the contents to LangSmith as a trace attachment. Depending on how the distributed trace system is deployed, triggering a read may not require authentication. Retrieving the contents requires read access to the LangSmith workspace the traces are sent to. The net effect is a trust-boundary crossing: a party with workspace trace-read access (for example a low-privilege workspace member, a contractor, or a compromised teammate account) gains the ability to read files from any server running TracingMiddleware, a capability outside that workspace's intended trust boundary. This vulnerability is fixed in 0.8.18.",
+      "published": "2026-07-06T16:16:37.413",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59152"
+    },
+    {
+      "id": "CVE-2026-58203",
+      "summary": "pydantic-settings provides settings management using Pydantic. From 2.12.0 until 2.14.2, NestedSecretsSettingsSource reads secret values from files in a configured secrets_dir. When secrets_nested_subdir=True, a directory entry inside secrets_dir that is a symbolic link pointing outside secrets_dir is followed, so files outside the configured directory are read into settings values. The same code path bypasses the documented secrets_dir_max_size protection. An attacker or lower-privileged component able to influence entries in the configured secrets directory (for example, a writable or shared secrets mount) can turn this into an unintended local file read into settings and can defeat the advertised loading-size cap.  This vulnerability is fixed in 2.14.2.",
+      "published": "2026-07-06T16:16:35.590",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58203"
     }
   ]
 }
