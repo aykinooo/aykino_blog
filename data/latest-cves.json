@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-06T19:03:43+00:00",
+  "generated_at": "2026-07-06T20:59:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-48614",
-      "summary": "An improper authorization vulnerability in the Plesk XML API allows an authenticated user to inject arbitrary configuration directives, resulting in arbitrary file write as root and full privilege escalation on the underlying server.",
-      "published": "2026-07-06T18:16:46.130",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48614"
-    },
-    {
-      "id": "CVE-2026-41434",
-      "summary": "OP-TEE is a Trusted Execution Environment (TEE) designed as companion to a non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone technology. Starting in version 3.10.0 and prior to version 4.11.0, an unbounded recursion can crash the PKCS#11 TA. Version 4.11.0 contains a patch. No known workarounds are available.",
-      "published": "2026-07-06T18:16:43.923",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41434"
-    },
-    {
-      "id": "CVE-2026-12154",
-      "summary": "The Reviews Widgets for Google, Yelp & TripAdvisor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'page_id' shortcode attribute of the [fbrev] shortcode in versions up to and including 2.7.3. This is due to insufficient input sanitization and output escaping in the Feed_Shortcode::fbrev() method, which passes the raw shortcode attribute through Feed_Old::get_feed() into the View::render() method, where it is echoed directly into the data-id HTML attribute without esc_attr(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-07-06T18:16:36.670",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12154"
-    },
-    {
-      "id": "CVE-2026-48316",
-      "summary": "ColdFusion versions 2025.9, 2023.20 and earlier are affected by an Improper Input Validation vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue does not require user interaction. Scope is changed.",
-      "published": "2026-07-06T17:16:32.010",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48316"
-    },
-    {
-      "id": "CVE-2026-43825",
-      "summary": "Untrusted Java Deserialization in Apache OpenNLP SvmDoccatModel\n\nVersions Affected:\n\u00a0 before 3.0.0-M4 (libsvm document categorization module; introduced in\n\u00a0 OPENNLP-1808 and only present on the 3.x line)\n\nDescription:\nSvmDoccatModel.deserialize(InputStream) reads an attacker-controlled\nstream with java.io.ObjectInputStream and calls readObject() without an\nObjectInputFilter installed. ObjectInputStream materialises every class\nreferenced in the stream before the resulting object is cast to\nSvmDoccatModel, so the cast that follows readObject() executes only\nafter the foreign object graph has already been deserialised in full.\n\nIf a Java deserialization gadget chain is available on the consumer's\nclasspath, a crafted payload supplied to\ndeserialize() executes arbitrary code in the JVM that loads it. Apache\nOpenNLP itself does not ship a known gadget chain, so the realistic\nrisk is to downstream applications that embed the libsvm module\nalongside vulnerable transitive dependencies. The method is public and\nstatic, so any caller can pass an untrusted stream to it directly.\n\nThe practical impact is remote code execution against processes that\nload SvmDoccatModel instances from untrusted or semi-trusted origins.\n\nMitigation:\n\n3.x users should upgrade to 3.0.0-M4.\n\nUsers who cannot upgrade immediately should treat all serialized\nSvmDoccatModel streams as untrusted input unless their provenance is\nverified, and should avoid invoking SvmDoccatModel.deserialize() on\nstreams supplied by end users or fetched from third-party sources\nwithout integrity checks.",
-      "published": "2026-07-06T17:16:31.570",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43825"
-    },
-    {
-      "id": "CVE-2026-40257",
-      "summary": "OP-TEE is a Trusted Execution Environment (TEE) designed as companion to a non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone technology. Starting in version 3.21.0 and prior to version 4.11.0, the ARM Crypto Extensions accelerated SHA-3 implementation has an off-by-one error that can cause a massive heap overflow that corrupts all TEE kernel memory following the hash state. This affects all platforms built with `CFG_CRYPTO_WITH_CE82=y` (ARMv8.2+ with SHA3 Crypto Extensions). Version 4.11.0 contains a patch. As a workaround, disable SHA3 Crypto Extensions with `CFG_CRYPTO_WITH_CE82=n`.",
-      "published": "2026-07-06T17:16:31.253",
+      "id": "CVE-2026-59089",
+      "summary": "A flaw was found in GIMP. The PlayStation TIM loader, responsible for handling PlayStation image files, incorrectly calculates the size of the Color Look-Up Table (CLUT) due to an integer overflow. This occurs when multiplying num_colors and num_cluts, both 16-bit unsigned short integers, resulting in a value exceeding the maximum integer limit. An attacker could exploit this by providing a specially crafted image file, leading to undefined behavior and causing the GIMP plug-in to abort, effectively resulting in a denial of service.",
+      "published": "2026-07-06T20:16:38.433",
       "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40257"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59089"
+    },
+    {
+      "id": "CVE-2026-58404",
+      "summary": "Hugo is a static site generator. From v0.162.0 through v0.163.0, the default security.http.urls policy denies requests to loopback, internal, and cloud-metadata IPv4 literals, but the deny rule only matched dotted-decimal notation, so alternate IPv4 encodings of the same addresses, including integer, hex, or octal, passed the policy. When a template passes an untrusted or data-derived URL to resources.GetRemote and the host platform uses the cgo system resolver, these encodings resolve to the blocked address, allowing build-time server-side requests to loopback and internal services, including the cloud-metadata endpoint in hosted or CI builds; the same check is reused on redirects, so the gap also applies to each redirect hop. This issue is fixed in v0.163.1.",
+      "published": "2026-07-06T20:16:38.307",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58404"
+    },
+    {
+      "id": "CVE-2026-58403",
+      "summary": "Hugo is a static site generator. From v0.123.0 through v0.163.0, Hugo's virtual filesystem is designed so that files under a mount cannot reach outside the mount tree, but a regression caused RootMappingFs.statRoot to call Stat, which follows symlinks, instead of Lstat, so a direct os.ReadFile \"somefile\" where somefile was a symlink pointing outside the mount would return the target's contents. This effectively let a symlink planted inside a theme or local mount read arbitrary files reachable to the user running hugo. This issue is fixed in v0.163.1.",
+      "published": "2026-07-06T20:16:38.173",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58403"
+    },
+    {
+      "id": "CVE-2026-58402",
+      "summary": "Hugo is a static site generator. From 0.60.0 until 0.163.3, Hugo's default code-block renderer wrote the Markdown code-fence language or info-string into the code class=\"language-\u2026\" data-lang=\"\u2026\" wrapper without HTML escaping. A fence info-string containing a quote and a script payload breaks out of the attribute and injects a live script element. This issue is fixed in 0.163.3.",
+      "published": "2026-07-06T20:16:38.040",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58402"
+    },
+    {
+      "id": "CVE-2026-55646",
+      "summary": "vLLM is an inference and serving engine for large language models. From 0.22.0 to 0.23.0, the /v1/audio/transcriptions and /v1/audio/translations routes call request.file.read() to fully materialize an uploaded audio file into memory before vLLM checks the documented VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed upload size limit (default 25 MB) later in the speech-to-text preprocessing step, so an API caller who can reach those routes can submit an oversized multipart upload and cause vLLM to allocate memory proportional to the uploaded file size before the request is rejected as too large, creating memory pressure or terminating the process depending on deployment resource limits. This issue is fixed in version 0.24.0.",
+      "published": "2026-07-06T20:16:37.663",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55646"
+    },
+    {
+      "id": "CVE-2026-53763",
+      "summary": "OP-TEE is a Trusted Execution Environment (TEE) designed as companion to a non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone technology. Starting in version 3.0.0 and prior to version 4.11.0, 32-bit integer overflows in OP-TEE core's AES-GCM implementation cause the authentication tag to be computed with incorrect bit-length values after processing more than 512 megabytes of payload or Additional Authenticated Data (AAD). Version 4.11.0 contains a patch. No known workarounds are available.",
+      "published": "2026-07-06T20:16:37.327",
+      "cvss": 3.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53763"
     }
   ]
 }
