@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-06T20:59:17+00:00",
+  "generated_at": "2026-07-06T22:35:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59089",
-      "summary": "A flaw was found in GIMP. The PlayStation TIM loader, responsible for handling PlayStation image files, incorrectly calculates the size of the Color Look-Up Table (CLUT) due to an integer overflow. This occurs when multiplying num_colors and num_cluts, both 16-bit unsigned short integers, resulting in a value exceeding the maximum integer limit. An attacker could exploit this by providing a specially crafted image file, leading to undefined behavior and causing the GIMP plug-in to abort, effectively resulting in a denial of service.",
-      "published": "2026-07-06T20:16:38.433",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59089"
+      "id": "CVE-2026-59710",
+      "summary": "showdown contains a stored cross-site scripting vulnerability in the parseHeaders function of src/subParsers/makehtml/tables.js that fails to properly escape table header ID attributes. Attackers can inject arbitrary HTML and script-executing SVG elements through double-quote characters in markdown table headers, achieving stored XSS when untrusted markdown is rendered with the default github flavor configuration.",
+      "published": "2026-07-06T22:16:50.977",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59710"
     },
     {
-      "id": "CVE-2026-58404",
-      "summary": "Hugo is a static site generator. From v0.162.0 through v0.163.0, the default security.http.urls policy denies requests to loopback, internal, and cloud-metadata IPv4 literals, but the deny rule only matched dotted-decimal notation, so alternate IPv4 encodings of the same addresses, including integer, hex, or octal, passed the policy. When a template passes an untrusted or data-derived URL to resources.GetRemote and the host platform uses the cgo system resolver, these encodings resolve to the blocked address, allowing build-time server-side requests to loopback and internal services, including the cloud-metadata endpoint in hosted or CI builds; the same check is reused on redirects, so the gap also applies to each redirect hop. This issue is fixed in v0.163.1.",
-      "published": "2026-07-06T20:16:38.307",
+      "id": "CVE-2026-43928",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, the PayPalEmail payment adapter accepts PayPal IPN callbacks and credits the IPN-supplied amount (`mc_gross`) to the client's balance without validating it against the invoice total. Combined with a $0.05 floating-point epsilon tolerance in the invoice credit-payment logic, this allows a client to underpay an invoice by up to $0.04 and still have it marked as fully paid. Version 0.8.0 patches the issue. There is no effective workaround without modifying the source code. Merchants using the PayPalEmail adapter should monitor IPN transactions for amounts that do not match their corresponding invoice totals, and manually review and refund suspicious payments.",
+      "published": "2026-07-06T22:16:50.210",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58404"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43928"
     },
     {
-      "id": "CVE-2026-58403",
-      "summary": "Hugo is a static site generator. From v0.123.0 through v0.163.0, Hugo's virtual filesystem is designed so that files under a mount cannot reach outside the mount tree, but a regression caused RootMappingFs.statRoot to call Stat, which follows symlinks, instead of Lstat, so a direct os.ReadFile \"somefile\" where somefile was a symlink pointing outside the mount would return the target's contents. This effectively let a symlink planted inside a theme or local mount read arbitrary files reachable to the user running hugo. This issue is fixed in v0.163.1.",
-      "published": "2026-07-06T20:16:38.173",
+      "id": "CVE-2026-43927",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, a race condition in the cart checkout flow allows an authenticated client to apply a promo code beyond its configured maximum uses. By sending concurrent checkout requests before any single request completes the usage increment, a client can obtain unlimited discounted or free orders from a single-use or limited-use promo code. Version 0.8.0 patches the issue. Some workarounds are available. Disable promo codes entirely until a patch is available or monitor the `promo` table for `used` values exceeding `maxuses` and manually review affected orders.",
+      "published": "2026-07-06T22:16:50.083",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58403"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43927"
     },
     {
-      "id": "CVE-2026-58402",
-      "summary": "Hugo is a static site generator. From 0.60.0 until 0.163.3, Hugo's default code-block renderer wrote the Markdown code-fence language or info-string into the code class=\"language-\u2026\" data-lang=\"\u2026\" wrapper without HTML escaping. A fence info-string containing a quote and a script payload breaks out of the attribute and injects a live script element. This issue is fixed in 0.163.3.",
-      "published": "2026-07-06T20:16:38.040",
+      "id": "CVE-2026-43925",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, an unauthenticated mass assignment vulnerability in the client self-registration endpoint allows any visitor to assign themselves to an arbitrary client group during sign-up. Because client groups can gate promo code eligibility, an attacker may apply group-restricted discount codes and receive unauthorized discounts. Version 0.8.0 contains a patch. As a workaround, administrators can either remove group restrictions from promo codes or disable client self-registration (Settings \u2192 Clients \u2192 Disable signup).",
+      "published": "2026-07-06T22:16:49.963",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58402"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43925"
     },
     {
-      "id": "CVE-2026-55646",
-      "summary": "vLLM is an inference and serving engine for large language models. From 0.22.0 to 0.23.0, the /v1/audio/transcriptions and /v1/audio/translations routes call request.file.read() to fully materialize an uploaded audio file into memory before vLLM checks the documented VLLM_MAX_AUDIO_CLIP_FILESIZE_MB compressed upload size limit (default 25 MB) later in the speech-to-text preprocessing step, so an API caller who can reach those routes can submit an oversized multipart upload and cause vLLM to allocate memory proportional to the uploaded file size before the request is rejected as too large, creating memory pressure or terminating the process depending on deployment resource limits. This issue is fixed in version 0.24.0.",
-      "published": "2026-07-06T20:16:37.663",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55646"
+      "id": "CVE-2026-43921",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Versions 0.6.10 through 0.7.2 have a PHP code injection vulnerability in FOSSBilling's `Config::prettyPrintArrayToPHP()` method. When configuration values are updated, string values are written into `config.php` without escaping single quotes. Because `config.php` is loaded via a bare `include` on every HTTP request, an attacker with admin privileges can inject arbitrary PHP code that executes on every subsequent request. Version 0.8.0 contains a patch. Some workarounds are available. Restrict admin access to trusted personnel only; audit `config.php` for unexpected PHP code; and/ or at the reverse proxy/WAF level, restrict access to admin API endpoints that modify configuration.",
+      "published": "2026-07-06T22:16:49.837",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43921"
     },
     {
-      "id": "CVE-2026-53763",
-      "summary": "OP-TEE is a Trusted Execution Environment (TEE) designed as companion to a non-secure Linux kernel running on Arm; Cortex-A cores using the TrustZone technology. Starting in version 3.0.0 and prior to version 4.11.0, 32-bit integer overflows in OP-TEE core's AES-GCM implementation cause the authentication tag to be computed with incorrect bit-length values after processing more than 512 megabytes of payload or Additional Authenticated Data (AAD). Version 4.11.0 contains a patch. No known workarounds are available.",
-      "published": "2026-07-06T20:16:37.327",
-      "cvss": 3.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53763"
+      "id": "CVE-2026-43918",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, when a client or staff/admin account is suspended or marked inactive, existing authenticated sessions are not invalidated. The session identity loaders in src/di.php (loggedin_client and loggedin_admin) only reject sessions if the backing account record no longer exists in the database. They do not verify that the account's status is still active. This allows a suspended or deactivated user to retain full access until their session naturally expires. This issue has been fixed in version 0.8.0.",
+      "published": "2026-07-06T22:16:49.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43918"
     }
   ]
 }
