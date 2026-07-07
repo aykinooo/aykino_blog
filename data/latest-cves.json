@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-06T22:35:33+00:00",
+  "generated_at": "2026-07-07T00:18:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59710",
-      "summary": "showdown contains a stored cross-site scripting vulnerability in the parseHeaders function of src/subParsers/makehtml/tables.js that fails to properly escape table header ID attributes. Attackers can inject arbitrary HTML and script-executing SVG elements through double-quote characters in markdown table headers, achieving stored XSS when untrusted markdown is rendered with the default github flavor configuration.",
-      "published": "2026-07-06T22:16:50.977",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59710"
+      "id": "CVE-2026-53648",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.1, downloadable product files are stored using a deterministic filename-derived path. When an administrator uploads a file for a downloadable product, FOSSBilling stores the file as `md5(<original filename>)` under the uploads directory. Because the stored path depends only on the client-supplied filename, two different downloadable products, or product/order files, uploaded with the same original filename will resolve to the same stored file path. A later upload can overwrite an earlier upload, causing customers or administrators downloading the earlier product to receive the later file instead. Version 0.8.1 patches the issue. Some workarounds are available. Restrict the `servicedownloadable.manage` permission to fully trusted administrators only. As an operational mitigation, ensure downloadable product files use unique filenames before upload. This reduces accidental collisions but does not fully address the underlying issue.",
+      "published": "2026-07-07T00:16:34.390",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53648"
     },
     {
-      "id": "CVE-2026-43928",
-      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, the PayPalEmail payment adapter accepts PayPal IPN callbacks and credits the IPN-supplied amount (`mc_gross`) to the client's balance without validating it against the invoice total. Combined with a $0.05 floating-point epsilon tolerance in the invoice credit-payment logic, this allows a client to underpay an invoice by up to $0.04 and still have it marked as fully paid. Version 0.8.0 patches the issue. There is no effective workaround without modifying the source code. Merchants using the PayPalEmail adapter should monitor IPN transactions for amounts that do not match their corresponding invoice totals, and manually review and refund suspicious payments.",
-      "published": "2026-07-06T22:16:50.210",
+      "id": "CVE-2026-53647",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. In versions 0.5.3 through 0.7.2, the Guest `serviceapikey/get_info` API endpoint is accessible without authentication. Any caller with a valid API key can retrieve all custom configuration parameters (`custom_*` fields) stored in the key's database record. These custom fields are populated by billing administrators and can contain business-sensitive data such as pricing tiers, feature flags, rate limits, expiry overrides, or access scope data. Version 0.8.0 patches the issue. Some workarounds are available. Administrators can avoid storing sensitive data in `custom_*` API key configuration fields, monitor API logs for suspicious calls to `/api/guest/serviceapikey/get_info`, and/or disable the Serviceapikey module if not in active use.",
+      "published": "2026-07-07T00:16:34.263",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43928"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53647"
     },
     {
-      "id": "CVE-2026-43927",
-      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, a race condition in the cart checkout flow allows an authenticated client to apply a promo code beyond its configured maximum uses. By sending concurrent checkout requests before any single request completes the usage increment, a client can obtain unlimited discounted or free orders from a single-use or limited-use promo code. Version 0.8.0 patches the issue. Some workarounds are available. Disable promo codes entirely until a patch is available or monitor the `promo` table for `used` values exceeding `maxuses` and manually review affected orders.",
-      "published": "2026-07-06T22:16:50.083",
+      "id": "CVE-2026-13356",
+      "summary": "A malicious webpage could interrupt a pending navigation by enqueuing a synchronous JavaScript dialog, causing the browser UI to display the destination origin in the address bar while continuing to render attacker-controlled content. This vulnerability was fixed in Firefox for iOS 152.3.",
+      "published": "2026-07-07T00:16:34.063",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43927"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13356"
     },
     {
-      "id": "CVE-2026-43925",
-      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, an unauthenticated mass assignment vulnerability in the client self-registration endpoint allows any visitor to assign themselves to an arbitrary client group during sign-up. Because client groups can gate promo code eligibility, an attacker may apply group-restricted discount codes and receive unauthorized discounts. Version 0.8.0 contains a patch. As a workaround, administrators can either remove group restrictions from promo codes or disable client self-registration (Settings \u2192 Clients \u2192 Disable signup).",
-      "published": "2026-07-06T22:16:49.963",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43925"
+      "id": "CVE-2024-56141",
+      "summary": "Minosoft is an open-source, multi-version Minecraft Java Edition client written in Kotlin. Starting in commit f1ae30e2b046a490026a8413b075685deb795122, the CryptManager\u00a0 encryption routine (\u00a0CryptManager.kt\u00a0) initializes its AES cipher using an initialization vector (IV) that is set equal to the secret key rather than to a sufficiently random value. Because the IV is not random and is derived directly from the key, the encryption is vulnerable to chosen-ciphertext/chosen-plaintext attacks: an attacker who can submit specific messages for encryption can recover the secret key. This affects all versions supporting Minecraft protocol 1.7 and later. No patched version is available, and no known workarounds are available.",
+      "published": "2026-07-07T00:16:33.607",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-56141"
     },
     {
-      "id": "CVE-2026-43921",
-      "summary": "FOSSBilling is a free, open-source billing and client management system. Versions 0.6.10 through 0.7.2 have a PHP code injection vulnerability in FOSSBilling's `Config::prettyPrintArrayToPHP()` method. When configuration values are updated, string values are written into `config.php` without escaping single quotes. Because `config.php` is loaded via a bare `include` on every HTTP request, an attacker with admin privileges can inject arbitrary PHP code that executes on every subsequent request. Version 0.8.0 contains a patch. Some workarounds are available. Restrict admin access to trusted personnel only; audit `config.php` for unexpected PHP code; and/ or at the reverse proxy/WAF level, restrict access to admin API endpoints that modify configuration.",
-      "published": "2026-07-06T22:16:49.837",
+      "id": "CVE-2026-53646",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. In versions 0.5.6 through 0.7.2, when a `ClientPasswordReset` record already exists for a client (from a previous unexpired reset request), subsequent calls to the `reset_password` guest API endpoint reuse the existing token instead of generating a new one. The 15-minute validity window is anchored to the first request's `created_at` timestamp, not the time of the most recent email. An attacker who obtained the original reset link remains able to use it even after the victim requests a new reset, because the original token is never invalidated or rotated. Version 0.8.0 patches the issue. Some workarounds are available. Configure a reverse proxy (e.g., Nginx, Apache, Cloudflare) to apply per-IP rate limiting to the `/client/reset-password` endpoint to minimize the window of opportunity, and/or manually clear expired `client_password_reset` records from the database after a client reports a suspected compromise.",
+      "published": "2026-07-06T23:16:56.683",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43921"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53646"
     },
     {
-      "id": "CVE-2026-43918",
-      "summary": "FOSSBilling is a free, open-source billing and client management system. Prior to version 0.8.0, when a client or staff/admin account is suspended or marked inactive, existing authenticated sessions are not invalidated. The session identity loaders in src/di.php (loggedin_client and loggedin_admin) only reject sessions if the backing account record no longer exists in the database. They do not verify that the account's status is still active. This allows a suspended or deactivated user to retain full access until their session naturally expires. This issue has been fixed in version 0.8.0.",
-      "published": "2026-07-06T22:16:49.707",
+      "id": "CVE-2026-53645",
+      "summary": "FOSSBilling is a free, open-source billing and client management system. Versions prior to 0.8.0 allow a low-privileged staff account to grant arbitrary module permissions to itself through the admin API, resulting in persistent privilege escalation. A staff user that only has `staff.create_and_edit_staff` can call `/api/admin/staff/permissions_update` targeting their own account and write any permission structure, bypassing the intended role-based access control boundary. Version 0.8.0 patches the issue. Some workarounds are available. Restrict the `staff.create_and_edit_staff` permission to only highly trusted staff members and/or use a reverse proxy or WAF to restrict access to `/api/admin/staff/permissions_update` to specific trusted roles.",
+      "published": "2026-07-06T23:16:56.493",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-43918"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53645"
     }
   ]
 }
