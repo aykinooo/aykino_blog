@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-07T08:39:22+00:00",
+  "generated_at": "2026-07-07T12:08:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8377",
-      "summary": "Missing Authorization vulnerability in Armiya Information Technologies Ltd. Co. Access Control System (GKS) allows Collect Data from Common Resource Locations.\n\nThis issue affects Access Control System (GKS): before Version 2.",
-      "published": "2026-07-07T08:16:26.127",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8377"
+      "id": "CVE-2026-11340",
+      "summary": "Missing Authorization vulnerability in HAVELSAN Inc. Liman MYS allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Liman MYS: before release.Master.1107.",
+      "published": "2026-07-07T11:16:32.247",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11340"
     },
     {
-      "id": "CVE-2026-8309",
-      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Armiya Information Technologies Ltd. Co. Access Control System (GKS) allows Reflected XSS.\n\nThis issue affects Access Control System (GKS): before Version 2.",
-      "published": "2026-07-07T08:16:26.023",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8309"
+      "id": "CVE-2026-49487",
+      "summary": "In Apache Airflow before 3.3.0, the REST API task-instance detail and list\nendpoints returned a deferred task's trigger kwargs without masking. When a\ndeferred operator passed a secret (for example a provider API key) into its\ntrigger, any authenticated user with DAG-scoped task-instance read access for\nthat DAG could read that secret in clear text while the task was deferred.\nUsers should upgrade to apache-airflow 3.3.0 or later, which masks sensitive\nvalues in trigger kwargs returned by the API.",
+      "published": "2026-07-07T10:16:41.723",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49487"
     },
     {
-      "id": "CVE-2026-8306",
-      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Armiya Information Technologies Ltd. Co. Access Control System (GKS) allows Stored XSS.\n\nThis issue affects Access Control System (GKS): before Version 2.",
-      "published": "2026-07-07T08:16:25.910",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8306"
+      "id": "CVE-2026-49296",
+      "summary": "Before apache-airflow 3.3.0, a user authorized to read one Dag could disclose the source of other Dags co-located in the same source file. `GET /api/v2/dagSources/{dag_id}` \u2014 and the equivalent Dag-source view in the UI \u2014 returned the entire source file without redacting Dags the caller was not authorized to read, bypassing per-DAG read authorization. Deployments that co-locate multiple Dags in a single file and rely on per-DAG access control to limit source visibility are affected; single-Dag-per-file deployments are not. Upgrade to apache-airflow 3.3.0 or later.",
+      "published": "2026-07-07T10:16:41.603",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49296"
     },
     {
-      "id": "CVE-2026-7380",
-      "summary": "Improper neutralization of Script-Related HTML tags in a web page (basic XSS) vulnerability in Armiya Information Technologies Ltd. Co. Access Control System (GKS) allows XSS Targeting HTML Attributes.\n\nThis issue affects Access Control System (GKS): before Version 2.",
-      "published": "2026-07-07T08:16:25.793",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7380"
+      "id": "CVE-2026-48892",
+      "summary": "The Config API in Apache Airflow surfaced per-key secrets-backend overrides (environment variables like `AIRFLOW__SECRETS__BACKEND_KWARG__SECRET_ID` and `AIRFLOW__WORKERS__SECRETS_BACKEND_KWARG__SECRET_ID`) as synthetic config options whose option names were not in `sensitive_config_values`, so the masker did not redact them. An authenticated UI/API user with Config read permission could retrieve plaintext secrets-backend credentials (Vault `role_id` / `secret_id`, etc.) from the Config API output. Affects deployments that configure secrets backends via per-key environment overrides. Users are advised to upgrade to `apache-airflow` 3.3.0 or later.",
+      "published": "2026-07-07T10:16:41.480",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48892"
     },
     {
-      "id": "CVE-2026-5799",
-      "summary": "Authorization bypass through User-Controlled key vulnerability in Idvlabs Software and Consulting Services Inc. Ontime allows Exploitation of Trusted Identifiers.\n\nThis issue affects Ontime: through 04052026.",
-      "published": "2026-07-07T08:16:25.677",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5799"
+      "id": "CVE-2026-48891",
+      "summary": "A bug in Apache Airflow's `/ui/dependencies` scheduling graph endpoint applied the caller's readable-Dag filter to the top-level serialized Dag key but still emitted referenced Dag IDs through the `dep.source` and `dep.target` fields of trigger / sensor dependency entries. An authenticated UI user with read permission on some Dags could enumerate the identifiers of other Dags they were not authorized to read by inspecting the dependency graph for trigger / sensor references. Affects deployments that rely on per-Dag read scoping to keep Dag identifiers private across teams. This is a residual gap in the fix for CVE-2026-28563, which filtered the top-level Dag key but did not propagate the filter into the trigger / sensor dep-source / dep-target fields. Users who already upgraded for CVE-2026-28563 should additionally upgrade to `apache-airflow` 3.3.0 or later to cover the residual trigger / sensor dependency leak.",
+      "published": "2026-07-07T10:16:41.373",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48891"
     },
     {
-      "id": "CVE-2026-5730",
-      "summary": "Authorization bypass through User-Controlled key vulnerability in Idvlabs Software and Consulting Services Inc. Ontime allows Exploitation of Trusted Identifiers.\n\nThis issue affects Ontime: through 04052026.",
-      "published": "2026-07-07T08:16:25.540",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5730"
+      "id": "CVE-2026-48828",
+      "summary": "The Bulk Variables API in Apache Airflow called the redactor without passing the variable's key, so the key-based `should_hide_value_for_key` check (which triggers on secret-suffixed key names like `*_password` / `*_token` / `*_secret`) could not fire for JSON-decodable variable values. An authenticated UI/API user with bulk Variable read permission could retrieve plaintext values from JSON variables whose key would otherwise trigger redaction. Affects deployments that store sensitive values in JSON-typed Airflow Variables under secret-suffixed key names. Users are advised to upgrade to `apache-airflow` 3.3.0 or later (the fix landed on `main` after 3.2.2; no 3.2.x backport).",
+      "published": "2026-07-07T10:16:41.260",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48828"
     }
   ]
 }
