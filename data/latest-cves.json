@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-07T15:11:32+00:00",
+  "generated_at": "2026-07-07T17:25:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6101",
-      "summary": "The AMP for WP \u2013 Accelerated Mobile Pages plugin for WordPress is vulnerable to Arbitrary File Write in versions up to and including 1.1.12. This is due to unsafe ZIP file extraction in the ampforwp_save_local_font() function combined with inadequate cleanup that fails to remove nested directories and files. This makes it possible for authenticated attackers, with Author-level access and above, and permissions granted by an Administrator, to write arbitrary files to the server in a web-accessible location, potentially leading to remote code execution on hosts that execute PHP files in the uploads directory.",
-      "published": "2026-07-07T14:16:34.543",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6101"
+      "id": "CVE-2026-57851",
+      "summary": "MSI Feature Manager contains a local privilege escalation vulnerability in the KernCoreLib64.sys kernel driver that allows any locally logged-on user to perform arbitrary physical memory read/write and unrestricted I/O port operations by accessing exposed IOCTL handlers without administrator privileges. Attackers can exploit the accessible device object through IOCTL handlers to manipulate kernel objects, tamper with kernel-mode callbacks, bypass Protected Process Light protections, and disable security software.",
+      "published": "2026-07-07T17:16:36.880",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57851"
     },
     {
-      "id": "CVE-2026-53479",
-      "summary": "Dell\u00a0PowerProtect\u00a0Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70\u00a0contain\u202fan improper neutralization of special elements used in an OS\u00a0command ('OS\u00a0command Injection') vulnerability.\u00a0A\u00a0remote\u00a0high\u00a0privileged attacker could potentially exploit this vulnerability, leading to\u00a0protection mechanism bypass.\u00a0This is a Critical vulnerability as it allows an attacker\u00a0to\u00a0invoke arbitrary command execution with root privileges;\u00a0so\u00a0Dell recommends customers to upgrade at the earliest opportunity.",
-      "published": "2026-07-07T14:16:32.410",
+      "id": "CVE-2026-23698",
+      "summary": "Vtiger CRM through 8.4.0 contains an authenticated remote code execution vulnerability in the admin module import feature that allows administrator-level attackers to upload arbitrary PHP files by submitting a crafted zip archive through the ModuleManager import function, which extracts contents directly into the modules/ directory under the web root without validating file types beyond the manifest.xml descriptor. Attackers can place executable PHP files in the modules/ directory that become directly accessible via HTTP, bypassing Vtiger's authentication and authorization layer entirely since Apache resolves the path and invokes the PHP interpreter before the application routing layer is involved, resulting in a persistent web shell independent of the originating session.",
+      "published": "2026-07-07T17:16:36.123",
       "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53479"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23698"
     },
     {
-      "id": "CVE-2026-44938",
-      "summary": "A vulnerability has been identified in Fleet's agent-side deployer, which did not filter security-sensitive keys from namespaceLabels in fleet.yaml (or BundleDeployment.spec.options.namespaceLabels) when applying them to the target namespace.\n\n\n\n\nAn attacker with git push access to a\n Fleet-monitored repository could overwrite Pod Security Standards (PSS)\n enforcement labels on a target namespace. This allows the attacker to \nweaken admission controls and deploy workloads that PSS policies would \notherwise block.",
-      "published": "2026-07-07T14:16:30.690",
+      "id": "CVE-2026-23697",
+      "summary": "Vtiger CRM before 8.4.0 contains an authenticated file upload vulnerability that allows low-privileged users to achieve remote code execution by uploading a .phar file containing arbitrary PHP code through the Documents module, bypassing the extension denylist in config.inc.php which omits the .phar extension. The uploaded file is stored with its original .phar extension under the web-accessible storage directory, and a misconfigured .htaccess using Apache 2.2 syntax is silently ignored on Apache 2.4 deployments, allowing unauthenticated HTTP requests to directly execute the uploaded PHP payload.",
+      "published": "2026-07-07T17:16:35.977",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44938"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-23697"
     },
     {
-      "id": "CVE-2026-53483",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 an improper authentication vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access. This is a critical severity vulnerability as it allows an attacker to take complete control of system; so Dell recommends customers to upgrade at the earliest opportunity.",
-      "published": "2026-07-07T13:16:31.590",
+      "id": "CVE-2026-14904",
+      "summary": "AWS Research and Engineering Studio (RES) is an open-source solution that enables researchers and engineers to create and manage secure virtual desktops and computing resources on AWS.\n\n\n\nImproper link resolution before file access issue (CWE-59) in the Auth.GetUserPrivateKey API. An authenticated remote user could read arbitrary files on the cluster-manager EC2 instance by replacing their SSH private key file (~/.ssh/id_rsa) with a symbolic link targeting any file on the host. Because the cluster-manager process runs as root, any file readable by root is exposed, including other users' SSH private keys and application configuration secrets.\n\n\n\nIt's recommended to upgrade to RES version 2026.06.",
+      "published": "2026-07-07T17:16:35.627",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14904"
+    },
+    {
+      "id": "CVE-2026-13020",
+      "summary": "A Weak Password Recovery Mechanism for Forgotten Password exists in Esri Portal for ArcGIS versions 12.1 and earlier on Windows, Linux and Kubernetes. A remote, unauthorized attacker may assume ownership of a user\u2019s account by manipulating this mechanism. ArcGIS Administrators should configure an email server with ArcGIS Enterprise to facilitate user self-service password recovery. The ability for an administrator to reset a user\u2019s password remains unchanged.",
+      "published": "2026-07-07T17:16:35.510",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13020"
+    },
+    {
+      "id": "CVE-2026-13019",
+      "summary": "Esri Portal for ArcGIS versions 12.1 and earlier on Windows, Linux and Kubernetes have a missing authentication for critical function vulnerability allows a remote, unauthenticated attacker to access an unprotected API.",
+      "published": "2026-07-07T17:16:35.400",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53483"
-    },
-    {
-      "id": "CVE-2026-53481",
-      "summary": "Dell PowerProtect Data Domain, versions 7.7.1.0 through 8.7, LTS2026 release version 8.6.1.0 through 8.6.1.10, LTS2025 release version 8.3.1.0 through 8.3.1.30, LTS2024 release versions 7.13.1.0 through 7.13.1.70 contain an improper limitation of a pathname to a restricted directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access to the system. This is a critical severity vulnerability as it allows an attacker to take complete control of system; so Dell recommends customers to upgrade at the earliest opportunity.",
-      "published": "2026-07-07T13:16:31.397",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53481"
-    },
-    {
-      "id": "CVE-2026-10659",
-      "summary": "The Dhara flash translation layer disk driver (drivers/disk/ftl_dhara.c) implemented the dhara_nand_ callbacks so that, on a flash error, the error code was written unconditionally through the caller-supplied dhara_error_t err pointer (e.g. *err = DHARA_E_ECC in dhara_nand_read, and similar in dhara_nand_erase/prog/copy). The upstream Dhara library calls these callbacks with err == NULL along its journal-resume binary search: find_last_checkblock() invokes find_checkblock(j, mid, &found, NULL), which forwards the NULL pointer into dhara_nand_read(). This path runs during disk_ftl_access_init() -> dhara_map_resume() whenever the FTL disk is mounted/initialised. If a flash read error (uncorrectable ECC, bad block, controller error) occurs on one of the probed checkpoint pages, the driver dereferences and writes to NULL, faulting the kernel (denial of service). The trigger is conditioned on the NAND medium content/health, which can be influenced by media wear, induced faults, or a corrupted/crafted on-flash image. The fix routes all error assignments through the library's NULL-safe dhara_set_error() helper. Affects Zephyr v4.4.0, where the driver was introduced.",
-      "published": "2026-07-07T13:16:29.043",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10659"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13019"
     }
   ]
 }
