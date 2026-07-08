@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-08T06:37:09+00:00",
+  "generated_at": "2026-07-08T09:34:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9731",
-      "summary": "The Wp Js Detect plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 1.0.9. This is due to missing or incorrect nonce validation on the plugin_settings function. This makes it possible for unauthenticated attackers to update the plugin's notification text and CSS settings (wp_non_js_notification_text and wp_non_js_notification_css), injecting arbitrary content that is echoed unescaped on the frontend via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-07-08T06:16:23.217",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9731"
+      "id": "CVE-2026-6280",
+      "summary": "Exposure of sensitive information due to incompatible policies vulnerability in NOMYSOFT Informatics Education and Consulting Inc. Nomysem allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Nomysem: through 08072026.\u00a0NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-08T09:16:34.403",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6280"
     },
     {
-      "id": "CVE-2026-9700",
-      "summary": "The Eventer plugin for WordPress is vulnerable to time-based SQL Injection via the \u2018code\u2019 parameter in all versions up to, and including, 4.4.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-07-08T06:16:23.043",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9700"
-    },
-    {
-      "id": "CVE-2026-57895",
-      "summary": "Incorrect default permissions issue exists in Pupsman versions prior to 3.9.0. An attacker can place a malicious executable in the installation folder, which results in arbitrary code execution with SYSTEM privilege",
-      "published": "2026-07-08T06:16:22.900",
+      "id": "CVE-2026-57260",
+      "summary": "The application opened a PDF file containing an abnormal Unity 3D object. During parsing, the application incorrectly resolved a portion of the abnormal object as a pointer and used it as a valid address, ultimately causing the application to crash.",
+      "published": "2026-07-08T09:16:34.283",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57895"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57260"
     },
     {
-      "id": "CVE-2026-56437",
-      "summary": "Uncontrolled search path element issue exists in Pupsman versions prior to 3.9.0. If a crafted DLL file is placed in the same folder as the affected installer and the installer is executed, arbitrary code may be executed with SYSTEM privilege.",
-      "published": "2026-07-08T06:16:22.733",
+      "id": "CVE-2026-57259",
+      "summary": "The input file does not need to be strictly in a structurally valid PDF format. Instead, after reviewing the content, the original document disguised as a PDF will be sent to the parser. Malicious documents will construct malicious external entities that, through the protocol, point to local paths, thereby allowing access to any local files within the user's permission range.",
+      "published": "2026-07-08T09:16:34.157",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57259"
+    },
+    {
+      "id": "CVE-2026-57258",
+      "summary": "The PRC file header parsing logic trusts the constructed file structure description information, assumes that the underlying array contains elements and reads them, leading to out-of-bounds reads and application crashes.",
+      "published": "2026-07-08T09:16:34.030",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57258"
+    },
+    {
+      "id": "CVE-2026-57257",
+      "summary": "During the PRC parsing stage, there is a lack of boundary verification for the PRC entity index, which leads to an out-of-bounds read of the entity array. As a result, the application crashes.",
+      "published": "2026-07-08T09:16:33.907",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57257"
+    },
+    {
+      "id": "CVE-2026-57256",
+      "summary": "When the application opens a PDF and executes JavaScript, it performs abnormal operations on the list box field, and this operation is repeated after the form is reset. During this process, the application failed to adequately verify the validity of the form objects and their internal dictionary pointers, resulting in accessing internal members of invalid or improperly initialized fields. This led to an illegal pointer read, ultimately causing the application to crash.",
+      "published": "2026-07-08T09:16:33.770",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56437"
-    },
-    {
-      "id": "CVE-2026-14500",
-      "summary": "The Bulk Order Update for WooCommerce plugin for WordPress is vulnerable to Arbitrary File Read in versions up to, and including, 1.6. This is due to the bouw_fetch_csv_data() AJAX handler being registered on the wp_ajax_nopriv_ hook with no capability or nonce check, and passing the attacker-supplied csv_url POST parameter \u2014 filtered only by esc_url_raw() (which leaves absolute filesystem paths intact) and validate_file() (which only rejects '..' traversal patterns) \u2014 directly into fopen()/fgetcsv() and reflecting the first parsed line in the JSON response. This makes it possible for unauthenticated attackers to read the first line of arbitrary files on the server (such as /etc/passwd) and to use the handler as a file-existence oracle.",
-      "published": "2026-07-08T06:16:22.583",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14500"
-    },
-    {
-      "id": "CVE-2026-14495",
-      "summary": "The DoLogin Security plugin for WordPress is vulnerable to Authentication Bypass via Insufficient Randomness in all versions up to, and including, 4.3. The vulnerability exists because `dologin\\s::rrand()` seeds the Mersenne Twister with `mt_srand((double) microtime() * 1000000)` \u2014 discarding the integer-seconds component of `microtime()` and constraining the seed to a range of approximately 10^6 values (~20 bits of entropy) \u2014 after which every character of the 32-character magic-link token is drawn sequentially with `mt_rand()`, making the entire token a deterministic function of that seed. Because `Pswdless::try_login()` is registered on the unauthenticated `init` hook, resolves the target account by the auto-increment numeric ID embedded in the `?dologin=<id>.<hash>` parameter, performs the hash comparison using a non-constant-time `!=` operator, and then calls `wp_set_auth_cookie()` directly \u2014 never passing through `wp_authenticate()` and therefore never triggering the plugin's own `Auth::_has_login_err()` lockout \u2014 an unauthenticated attacker can brute-force the ~10^6-candidate seed space to reconstruct an active passwordless login token and authenticate as any targeted user, including administrators, without a password. Exploitation requires that a valid, unexpired passwordless login link (active for up to 7 days) exists for the target account at the time of the attack, and that the numeric link ID is known or guessable from the auto-increment primary key.",
-      "published": "2026-07-08T06:16:22.443",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14495"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57256"
     }
   ]
 }
