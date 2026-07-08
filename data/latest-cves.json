@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-07-08T09:34:19+00:00",
+  "generated_at": "2026-07-08T11:56:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-15041",
+      "summary": "A flaw was found in 389 Directory Server. The PBKDF2-SHA256 password verification function uses standard memcmp() for comparing password hashes instead of a constant-time comparison function. A remote attacker could potentially use timing measurements of LDAP bind attempts to infer partial hash information, though practical exploitation is extremely difficult due to PBKDF2 computational overhead.",
+      "published": "2026-07-08T11:16:26.260",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15041"
+    },
+    {
+      "id": "CVE-2026-56003",
+      "summary": "A heap buffer overflow due to missing size checking in the property buffer when parsing PCF files in libXfont2 ComputeScaledProperties() before libXfont2 before 2.0.8 could be used by attackers using authenticated X clients to execute code within the X server.",
+      "published": "2026-07-08T10:16:23.577",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56003"
+    },
+    {
+      "id": "CVE-2026-56002",
+      "summary": "A heap bufferflow in pcfReadFont() due to missing glyph bounds checking\u00a0in libXfont2 before 2.0.8\u00a0 allows attackers authenticated as X client to execute code within the X server.",
+      "published": "2026-07-08T10:16:23.327",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56002"
+    },
     {
       "id": "CVE-2026-6280",
       "summary": "Exposure of sensitive information due to incompatible policies vulnerability in NOMYSOFT Informatics Education and Consulting Inc. Nomysem allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Nomysem: through 08072026.\u00a0NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -22,27 +43,6 @@
       "published": "2026-07-08T09:16:34.157",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57259"
-    },
-    {
-      "id": "CVE-2026-57258",
-      "summary": "The PRC file header parsing logic trusts the constructed file structure description information, assumes that the underlying array contains elements and reads them, leading to out-of-bounds reads and application crashes.",
-      "published": "2026-07-08T09:16:34.030",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57258"
-    },
-    {
-      "id": "CVE-2026-57257",
-      "summary": "During the PRC parsing stage, there is a lack of boundary verification for the PRC entity index, which leads to an out-of-bounds read of the entity array. As a result, the application crashes.",
-      "published": "2026-07-08T09:16:33.907",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57257"
-    },
-    {
-      "id": "CVE-2026-57256",
-      "summary": "When the application opens a PDF and executes JavaScript, it performs abnormal operations on the list box field, and this operation is repeated after the form is reset. During this process, the application failed to adequately verify the validity of the form objects and their internal dictionary pointers, resulting in accessing internal members of invalid or improperly initialized fields. This led to an illegal pointer read, ultimately causing the application to crash.",
-      "published": "2026-07-08T09:16:33.770",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57256"
     }
   ]
 }
