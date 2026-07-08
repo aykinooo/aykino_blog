@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-08T14:38:56+00:00",
+  "generated_at": "2026-07-08T16:47:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-60125",
-      "summary": "MISP\u2019s importModule() path used getEnabledModule() to resolve a single import module by name, but this lookup did not enforce the per-organisation module restriction checked by getEnabledModules(). As a result, an authenticated user from an organisation that was not allowed to use a module restricted via Plugin.Import_<module>_restrict could still invoke that import module directly if they knew its name.\n\n\nThis could allow unauthorised access to restricted import-module functionality and, depending on the module and the user\u2019s event permissions, may allow unauthorised import or modification of event data through a module that should have been unavailable to the user\u2019s organisation.",
-      "published": "2026-07-08T14:17:22.640",
+      "id": "CVE-2026-9074",
+      "summary": "IBM API Connect 10.0.8.0 through 10.0.8.9 and\u00a012.1.0.0 through 12.1.0.3\u00a0contains an unauthenticated SQL injection vulnerability in the password reset functionality.",
+      "published": "2026-07-08T16:16:35.050",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9074"
+    },
+    {
+      "id": "CVE-2026-59880",
+      "summary": "Immutable.js provides many Persistent Immutable data structures. Prior to 4.3.9 and 5.1.8, Immutable.Map and Immutable.Set keep keys that share the same 32-bit hash in a HashCollisionNode collision bucket that is scanned linearly, allowing an attacker who controls keys inserted into a Map, such as through Immutable.Map(obj), Immutable.fromJS(obj), state.merge(userObject), or mergeDeep, to craft many colliding keys and degrade insertion and lookup to consume disproportionate CPU. This issue is fixed in versions 4.3.9 and 5.1.8.",
+      "published": "2026-07-08T16:16:34.517",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60125"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59880"
     },
     {
-      "id": "CVE-2026-60124",
-      "summary": "An authorization bypass in MISP\u2019s EventsController::importModule() allowed authenticated users or read-only API keys with event view access to persist data to events they were not allowed to modify. When an import module returned results in the misp_standard format, the write path did not verify event modification rights before saving the module output. This could allow a view-only user to inject or alter event data, impacting the integrity of MISP event content. The issue was fixed by enforcing the same modification-rights check used by related module result handling paths before processing misp_standard imports.",
-      "published": "2026-07-08T14:17:22.510",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60124"
+      "id": "CVE-2026-59877",
+      "summary": "protobufjs compiles protobuf definitions into JavaScript (JS) functions. Prior to 7.6.5 and 8.6.6, protobufjs parsed option names by advancing through schema tokens until reaching an = token without checking for end of input, so a crafted .proto schema that opens an option declaration and ends prematurely can cause parse, Root.load, or Root.loadSync to loop indefinitely. This issue is fixed in versions 7.6.5 and 8.6.6.",
+      "published": "2026-07-08T16:16:34.363",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59877"
     },
     {
-      "id": "CVE-2026-60092",
-      "summary": "AVideo (Meet plugin) through commit e8d6119f3cb1b849149906efeb0a41fc024f59f8 contains a stored cross-site scripting vulnerability in the Meet plugin's getMeetInfo.json.php endpoint. When a participant joins a public meeting, the raw HTTP User-Agent header is stored (meet_join_log.user_agent) without sanitization (bypassing AVideo's setter-level xss_esc() layer) and later echoed without output encoding (no htmlspecialchars()) in the Participants management panel, which is accessible to the meeting host and site administrators. An anonymous, unauthenticated attacker can join any public meeting while supplying a User-Agent header containing an HTML/JavaScript payload; the payload is persisted and executes in the privileged, authenticated browser session of the meeting host or a site administrator when they open the participant list. The issue was unpatched at the time of the report.",
-      "published": "2026-07-08T14:17:22.370",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60092"
-    },
-    {
-      "id": "CVE-2026-59257",
-      "summary": "n8n before 1.123.61, 2.x before 2.27.4, and 2.28.x before 2.28.1 contains a SQL injection vulnerability in the legacy MySQL v1 node's executeQuery operation. The operation substitutes evaluated {{ ... }} expression values directly into the raw SQL string without parameterization. When a workflow uses this operation with expression-sourced values and is connected to an externally-reachable trigger (such as a Webhook node), attacker-controlled input reaching those expressions results in SQL injection, allowing execution of arbitrary SQL with the configured MySQL credentials' privileges. The MySQL v2 node, which uses parameterized queries, is not affected.",
-      "published": "2026-07-08T14:17:20.807",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59257"
-    },
-    {
-      "id": "CVE-2026-59253",
-      "summary": "n8n before 2.28.0 contains an improper authorization vulnerability allowing authenticated users to assign workflows to folders in other projects. Attackers can bypass project and folder authorization boundaries by supplying crafted request payloads during workflow creation, causing logical integrity violations in target project folder structures.",
-      "published": "2026-07-08T14:17:20.683",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59253"
-    },
-    {
-      "id": "CVE-2026-58657",
-      "summary": "Grav before 2.0.0 (affected through 2.0.0-rc.9 and the 2.0 branch) contains a stored CSS injection vulnerability in the Markdown image resize() media action. Prior media hardening rejects direct ?style= payloads and unsafe attribute() fallbacks, but the resize() action in Excerpts::processMediaActions() writes caller-controlled values directly into the image's styleAttributes. A lower-privileged content editor who can edit page Markdown can store a crafted image URL with semicolon-delimited CSS declarations in the resize parameters, which are rendered into the final <img style=...> attribute when a higher-privileged reviewer/admin views the page or preview. This does not require JavaScript execution but enables UI redress/overlay and content-manipulation attacks (e.g., a full-viewport fixed overlay). Fixed in 2.0.0.",
-      "published": "2026-07-08T14:17:20.440",
+      "id": "CVE-2026-59876",
+      "summary": "protobufjs compiles protobuf definitions into JavaScript (JS) functions. From 8.2.0 until 8.6.5, the protobufjs Text Format extension parsed string-keyed map entries using ordinary property assignment, allowing a map entry with key __proto__ to change the prototype of the returned map object instead of creating an own map entry in protobufjs/ext/textformat. This issue is fixed in version 8.6.5.",
+      "published": "2026-07-08T16:16:34.233",
       "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58657"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59876"
+    },
+    {
+      "id": "CVE-2026-59875",
+      "summary": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.17, node-tar does not strip NUL bytes from PAX path and linkpath records in src/pax.ts, allowing a crafted archive with values to reach fs.lstat or fs.open and terminate the process with an uncaught exception. This issue is fixed in version 7.5.17.",
+      "published": "2026-07-08T16:16:34.107",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59875"
+    },
+    {
+      "id": "CVE-2026-59874",
+      "summary": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.18, tar.replace accepts a checksum-valid tar header with a negative base-256 encoded entry size, causing the archive scanner to make no progress while repeatedly parsing the same header. This issue is fixed in version 7.5.18.",
+      "published": "2026-07-08T16:16:33.990",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59874"
     }
   ]
 }
