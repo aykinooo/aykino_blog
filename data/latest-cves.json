@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-08T11:56:14+00:00",
+  "generated_at": "2026-07-08T14:38:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-15041",
-      "summary": "A flaw was found in 389 Directory Server. The PBKDF2-SHA256 password verification function uses standard memcmp() for comparing password hashes instead of a constant-time comparison function. A remote attacker could potentially use timing measurements of LDAP bind attempts to infer partial hash information, though practical exploitation is extremely difficult due to PBKDF2 computational overhead.",
-      "published": "2026-07-08T11:16:26.260",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15041"
+      "id": "CVE-2026-60125",
+      "summary": "MISP\u2019s importModule() path used getEnabledModule() to resolve a single import module by name, but this lookup did not enforce the per-organisation module restriction checked by getEnabledModules(). As a result, an authenticated user from an organisation that was not allowed to use a module restricted via Plugin.Import_<module>_restrict could still invoke that import module directly if they knew its name.\n\n\nThis could allow unauthorised access to restricted import-module functionality and, depending on the module and the user\u2019s event permissions, may allow unauthorised import or modification of event data through a module that should have been unavailable to the user\u2019s organisation.",
+      "published": "2026-07-08T14:17:22.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60125"
     },
     {
-      "id": "CVE-2026-56003",
-      "summary": "A heap buffer overflow due to missing size checking in the property buffer when parsing PCF files in libXfont2 ComputeScaledProperties() before libXfont2 before 2.0.8 could be used by attackers using authenticated X clients to execute code within the X server.",
-      "published": "2026-07-08T10:16:23.577",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56003"
+      "id": "CVE-2026-60124",
+      "summary": "An authorization bypass in MISP\u2019s EventsController::importModule() allowed authenticated users or read-only API keys with event view access to persist data to events they were not allowed to modify. When an import module returned results in the misp_standard format, the write path did not verify event modification rights before saving the module output. This could allow a view-only user to inject or alter event data, impacting the integrity of MISP event content. The issue was fixed by enforcing the same modification-rights check used by related module result handling paths before processing misp_standard imports.",
+      "published": "2026-07-08T14:17:22.510",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60124"
     },
     {
-      "id": "CVE-2026-56002",
-      "summary": "A heap bufferflow in pcfReadFont() due to missing glyph bounds checking\u00a0in libXfont2 before 2.0.8\u00a0 allows attackers authenticated as X client to execute code within the X server.",
-      "published": "2026-07-08T10:16:23.327",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56002"
+      "id": "CVE-2026-60092",
+      "summary": "AVideo (Meet plugin) through commit e8d6119f3cb1b849149906efeb0a41fc024f59f8 contains a stored cross-site scripting vulnerability in the Meet plugin's getMeetInfo.json.php endpoint. When a participant joins a public meeting, the raw HTTP User-Agent header is stored (meet_join_log.user_agent) without sanitization (bypassing AVideo's setter-level xss_esc() layer) and later echoed without output encoding (no htmlspecialchars()) in the Participants management panel, which is accessible to the meeting host and site administrators. An anonymous, unauthenticated attacker can join any public meeting while supplying a User-Agent header containing an HTML/JavaScript payload; the payload is persisted and executes in the privileged, authenticated browser session of the meeting host or a site administrator when they open the participant list. The issue was unpatched at the time of the report.",
+      "published": "2026-07-08T14:17:22.370",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60092"
     },
     {
-      "id": "CVE-2026-6280",
-      "summary": "Exposure of sensitive information due to incompatible policies vulnerability in NOMYSOFT Informatics Education and Consulting Inc. Nomysem allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects Nomysem: through 08072026.\u00a0NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-07-08T09:16:34.403",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6280"
+      "id": "CVE-2026-59257",
+      "summary": "n8n before 1.123.61, 2.x before 2.27.4, and 2.28.x before 2.28.1 contains a SQL injection vulnerability in the legacy MySQL v1 node's executeQuery operation. The operation substitutes evaluated {{ ... }} expression values directly into the raw SQL string without parameterization. When a workflow uses this operation with expression-sourced values and is connected to an externally-reachable trigger (such as a Webhook node), attacker-controlled input reaching those expressions results in SQL injection, allowing execution of arbitrary SQL with the configured MySQL credentials' privileges. The MySQL v2 node, which uses parameterized queries, is not affected.",
+      "published": "2026-07-08T14:17:20.807",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59257"
     },
     {
-      "id": "CVE-2026-57260",
-      "summary": "The application opened a PDF file containing an abnormal Unity 3D object. During parsing, the application incorrectly resolved a portion of the abnormal object as a pointer and used it as a valid address, ultimately causing the application to crash.",
-      "published": "2026-07-08T09:16:34.283",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57260"
+      "id": "CVE-2026-59253",
+      "summary": "n8n before 2.28.0 contains an improper authorization vulnerability allowing authenticated users to assign workflows to folders in other projects. Attackers can bypass project and folder authorization boundaries by supplying crafted request payloads during workflow creation, causing logical integrity violations in target project folder structures.",
+      "published": "2026-07-08T14:17:20.683",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59253"
     },
     {
-      "id": "CVE-2026-57259",
-      "summary": "The input file does not need to be strictly in a structurally valid PDF format. Instead, after reviewing the content, the original document disguised as a PDF will be sent to the parser. Malicious documents will construct malicious external entities that, through the protocol, point to local paths, thereby allowing access to any local files within the user's permission range.",
-      "published": "2026-07-08T09:16:34.157",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57259"
+      "id": "CVE-2026-58657",
+      "summary": "Grav before 2.0.0 (affected through 2.0.0-rc.9 and the 2.0 branch) contains a stored CSS injection vulnerability in the Markdown image resize() media action. Prior media hardening rejects direct ?style= payloads and unsafe attribute() fallbacks, but the resize() action in Excerpts::processMediaActions() writes caller-controlled values directly into the image's styleAttributes. A lower-privileged content editor who can edit page Markdown can store a crafted image URL with semicolon-delimited CSS declarations in the resize parameters, which are rendered into the final <img style=...> attribute when a higher-privileged reviewer/admin views the page or preview. This does not require JavaScript execution but enables UI redress/overlay and content-manipulation attacks (e.g., a full-viewport fixed overlay). Fixed in 2.0.0.",
+      "published": "2026-07-08T14:17:20.440",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58657"
     }
   ]
 }
