@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-08T16:47:58+00:00",
+  "generated_at": "2026-07-08T18:42:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9074",
-      "summary": "IBM API Connect 10.0.8.0 through 10.0.8.9 and\u00a012.1.0.0 through 12.1.0.3\u00a0contains an unauthenticated SQL injection vulnerability in the password reset functionality.",
-      "published": "2026-07-08T16:16:35.050",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9074"
-    },
-    {
-      "id": "CVE-2026-59880",
-      "summary": "Immutable.js provides many Persistent Immutable data structures. Prior to 4.3.9 and 5.1.8, Immutable.Map and Immutable.Set keep keys that share the same 32-bit hash in a HashCollisionNode collision bucket that is scanned linearly, allowing an attacker who controls keys inserted into a Map, such as through Immutable.Map(obj), Immutable.fromJS(obj), state.merge(userObject), or mergeDeep, to craft many colliding keys and degrade insertion and lookup to consume disproportionate CPU. This issue is fixed in versions 4.3.9 and 5.1.8.",
-      "published": "2026-07-08T16:16:34.517",
+      "id": "CVE-2026-59938",
+      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to 6.14.0, an attacker can craft a PDF with declared image size values that are much too large compared to the actual data, causing large memory usage in pypdf image parsing. This issue is fixed in version 6.14.0.",
+      "published": "2026-07-08T18:16:35.097",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59880"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59938"
     },
     {
-      "id": "CVE-2026-59877",
-      "summary": "protobufjs compiles protobuf definitions into JavaScript (JS) functions. Prior to 7.6.5 and 8.6.6, protobufjs parsed option names by advancing through schema tokens until reaching an = token without checking for end of input, so a crafted .proto schema that opens an option declaration and ends prematurely can cause parse, Root.load, or Root.loadSync to loop indefinitely. This issue is fixed in versions 7.6.5 and 8.6.6.",
-      "published": "2026-07-08T16:16:34.363",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59877"
-    },
-    {
-      "id": "CVE-2026-59876",
-      "summary": "protobufjs compiles protobuf definitions into JavaScript (JS) functions. From 8.2.0 until 8.6.5, the protobufjs Text Format extension parsed string-keyed map entries using ordinary property assignment, allowing a map entry with key __proto__ to change the prototype of the returned map object instead of creating an own map entry in protobufjs/ext/textformat. This issue is fixed in version 8.6.5.",
-      "published": "2026-07-08T16:16:34.233",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59876"
-    },
-    {
-      "id": "CVE-2026-59875",
-      "summary": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.17, node-tar does not strip NUL bytes from PAX path and linkpath records in src/pax.ts, allowing a crafted archive with values to reach fs.lstat or fs.open and terminate the process with an uncaught exception. This issue is fixed in version 7.5.17.",
-      "published": "2026-07-08T16:16:34.107",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59875"
-    },
-    {
-      "id": "CVE-2026-59874",
-      "summary": "node-tar is a tar archive manipulation library for Node.js. Prior to 7.5.18, tar.replace accepts a checksum-valid tar header with a negative base-256 encoded entry size, causing the archive scanner to make no progress while repeatedly parsing the same header. This issue is fixed in version 7.5.18.",
-      "published": "2026-07-08T16:16:33.990",
+      "id": "CVE-2026-59937",
+      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to 6.14.0, an attacker can craft a PDF with repeated malformed cross-reference streams that cause pypdf to spend long runtimes recovering broken cross-reference table entries. This issue is fixed in version 6.14.0.",
+      "published": "2026-07-08T18:16:34.963",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59874"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59937"
+    },
+    {
+      "id": "CVE-2026-50813",
+      "summary": "An issue in SQLite before Fossil check-in 869a51ae84df allows a local attacker to obtain sensitive information via the Session Extension changeset concat/changegroup merge path",
+      "published": "2026-07-08T18:16:32.560",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50813"
+    },
+    {
+      "id": "CVE-2026-50812",
+      "summary": "A NULL pointer dereference in the SQLite Session Extension in SQLite 3.53.1 and SQLite trunk builds before check-in e807d4e3798efd53 allows an attacker who can supply a malformed changeset blob to cause a denial of service. The issue occurs when sqlite3changeset_apply_v3() applies a corrupt changeset and reaches sqlite3_value_type() with a NULL sqlite3_value pointer.",
+      "published": "2026-07-08T18:16:32.400",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50812"
+    },
+    {
+      "id": "CVE-2026-14362",
+      "summary": "HashiCorp memberlist before version 0.6.0 is vulnerable to a denial-of-service issue in its push/pull state handling that may allow an attacker with network access to the gossip port to exhaust memory on a receiving node and cause the process to terminate. This vulnerability (CVE-2026-14362) is fixed in memberlist 0.6.0.",
+      "published": "2026-07-08T18:16:32.130",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14362"
+    },
+    {
+      "id": "CVE-2026-60102",
+      "summary": "Horde Virtual File System (VFS) API before 3.0.1 contains an OS command injection vulnerability in the Horde_Vfs_Smb driver where the _escapeShellCommand() method fails to sanitize command substitution sequences, allowing authenticated attackers to inject arbitrary shell commands through user-controlled filenames. Attackers can supply malicious filenames containing unescaped command substitution payloads through operations such as file upload, folder creation, rename, or deletion, which are interpolated into a double-quoted shell context and executed via proc_open() through /bin/sh -c before smbclient runs, resulting in arbitrary command execution on the underlying system.",
+      "published": "2026-07-08T17:17:28.997",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60102"
     }
   ]
 }
