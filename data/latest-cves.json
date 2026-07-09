@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-09T15:34:13+00:00",
+  "generated_at": "2026-07-09T18:06:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-60109",
-      "summary": "Zeek before 8.0.9 contains a null pointer dereference vulnerability in its Kerberos protocol analyzer that allows unauthenticated remote attackers to crash the sensor by sending a crafted KRB_ERROR message with error-code 25 (KDC_ERR_PREAUTH_REQUIRED) containing a PA-DATA element with padata-type 2, 3, 11, or 19. Attackers can exploit a parser and analyzer state mismatch where proc_padata() dereferences an uninitialized pa_data_element field selected by the wrong parsing arm, triggering a crash via a single UDP or TCP packet to port 88 without any credentials or prior authentication.",
-      "published": "2026-07-09T15:16:41.757",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60109"
+      "id": "CVE-2026-59715",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.16 before 0.10.0, the Socket.IO server is configured with always_connect=True. The ydoc:awareness:update and ydoc:document:leave Socket.IO handlers accepted collaborative-document events without requiring an authenticated user, allowing unauthorized manipulation of document collaboration state. This issue is fixed in version 0.10.0.",
+      "published": "2026-07-09T17:17:04.353",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59715"
     },
     {
-      "id": "CVE-2026-60108",
-      "summary": "Zeek before 8.0.9 contains an uncontrolled memory consumption vulnerability in the FTP analyzer that allows unauthenticated remote attackers to cause process termination by sending a crafted FTP control session negotiating AUTH GSSAPI followed by a large ADAT control line. Attackers can exploit the NVT_Analyzer component's lack of a maximum line length check, causing it to continuously double its internal buffer without bounds during base64 decoding of an attacker-controlled ADAT token, resulting in denial of service of the Zeek sensor.",
-      "published": "2026-07-09T15:16:41.627",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60108"
+      "id": "CVE-2026-59227",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.11 before 0.10.0, POST /api/v1/images/edit required only a verified account and did not enforce the global image-edit switch or the per-user image-generation permission, allowing a non-admin user to invoke server-side image editing with administrator-configured provider credentials. This issue is fixed in version 0.10.0.",
+      "published": "2026-07-09T17:17:04.223",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59227"
     },
     {
-      "id": "CVE-2026-5005",
-      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Twiser Informatics Technology Consulting, Trade and Education Inc. OKRs & Goals allows Stored XSS.\n\nThis issue affects OKRs & Goals: from 28220 before 28398.",
-      "published": "2026-07-09T15:16:40.943",
+      "id": "CVE-2026-59226",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 before 0.10.0, execute_automation rehydrated automation owners without rechecking that they were still active or still had features.automations, and check_model_access only enforced private-model grants for the exact user role, allowing deactivated pending users to continue scheduled model execution. This issue is fixed in version 0.10.0.",
+      "published": "2026-07-09T17:17:04.067",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59226"
+    },
+    {
+      "id": "CVE-2026-59225",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.12 before 0.10.0, an authenticated non-admin user with read access to an arena wrapper model can reach a restricted underlying model through task endpoints such as /api/v1/tasks/moa/completions. The normal chat route resolves arena models before the final chat dispatch and therefore re-checks the selected underlying model. The task routes call utils.chat.generate_chat_completion() directly. In that direct path, arena fallback resolution happens after the wrapper access check and then recurses with bypass_filter=True, skipping the selected submodel's access check. This issue is fixed in version 0.10.0.",
+      "published": "2026-07-09T17:17:03.903",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5005"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59225"
     },
     {
-      "id": "CVE-2026-56292",
-      "summary": "A SQLi vulnerability in AcyMailing component < 10.11.1 for Joomla was discovered. Exploiting this flaw can lead to unauthorized database access and data leakage.",
-      "published": "2026-07-09T15:16:37.937",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56292"
+      "id": "CVE-2026-59224",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.10.0, backend/open_webui/routers/terminals.py built the ws_terminal upstream URL from an unencoded session_id and appended user_id as a query parameter, allowing query injection to make the terminal backend resolve another user identity; the HTTP proxy path also forwarded X-User-Id as an integrity-unbound identity claim. This issue is fixed in version 0.10.0.",
+      "published": "2026-07-09T17:17:03.770",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59224"
     },
     {
-      "id": "CVE-2026-54801",
-      "summary": "A vulnerability has been identified in CPCI85 Central Processing/Communication (All versions < V26.20), SICORE Base system (All versions < V26.20.0). The affected application contains insufficient validation of authentication credentials when processing administrative account modifications through the web API. This could allow an authenticated attacker to bypass security controls and gain unauthorized elevated privileges.",
-      "published": "2026-07-09T15:16:36.830",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54801"
-    },
-    {
-      "id": "CVE-2026-54800",
-      "summary": "A vulnerability has been identified in CPCI85 Central Processing/Communication (All versions < V26.20), SICORE Base system (All versions < V26.20.0). The affected application ships with a default configuration that disables all OPC UA security mechanisms. This could allow an attacker to gain unauthorized access and control over critical system functions.",
-      "published": "2026-07-09T15:16:36.707",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54800"
+      "id": "CVE-2026-59223",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.10.0, WEB_FETCH_FILTER_LIST matching compared configured host entries against URL strings and non-label-boundary suffixes, allowing path-based blocklist bypasses such as !internal.example.com in a URL path and sibling-domain matches that did not reflect the intended hostname policy. This issue is fixed in version 0.10.0.",
+      "published": "2026-07-09T17:17:03.603",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59223"
     }
   ]
 }
