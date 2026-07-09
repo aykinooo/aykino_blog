@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-09T18:06:41+00:00",
+  "generated_at": "2026-07-09T20:02:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59715",
-      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.6.16 before 0.10.0, the Socket.IO server is configured with always_connect=True. The ydoc:awareness:update and ydoc:document:leave Socket.IO handlers accepted collaborative-document events without requiring an authenticated user, allowing unauthorized manipulation of document collaboration state. This issue is fixed in version 0.10.0.",
-      "published": "2026-07-09T17:17:04.353",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59715"
+      "id": "CVE-2026-59149",
+      "summary": "Mockoon provides way to design and run mock APIs. Prior to 9.7.0, a FILE response whose filePath embeds request data is confined by getSafeFilePath in packages/commons-server/src/libs/server/server.ts with resolvedPath.startsWith(staticBaseDir). That prefix test has no path-separator boundary, so a ../-escaped path whose absolute form string-prefixes the base directory passes, allowing an unauthenticated client to read files from sibling paths outside the served directory through HTTP sendFile, WebSocket, or callbacks. This issue is fixed in version 9.7.0.",
+      "published": "2026-07-09T19:17:07.207",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59149"
     },
     {
-      "id": "CVE-2026-59227",
-      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.11 before 0.10.0, POST /api/v1/images/edit required only a verified account and did not enforce the global image-edit switch or the per-user image-generation permission, allowing a non-admin user to invoke server-side image editing with administrator-configured provider credentials. This issue is fixed in version 0.10.0.",
-      "published": "2026-07-09T17:17:04.223",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59227"
+      "id": "CVE-2026-59148",
+      "summary": "Mockoon provides way to design and run mock APIs. Prior to 9.7.0, Mockoon's admin API in commons-server/src/libs/server/admin-api.ts is mounted on the same Express listener as user-defined mock routes, enabled by default in shipped runtimes, serves Access-Control-Allow-Origin: * with write methods allowed, and has no authentication. Any unauthenticated caller who can reach the mock server port can read MOCKOON_* environment variables, write arbitrary process environment variables through /mockoon-admin/env-vars, rewrite mock route bodies, statuses, and headers through PUT /mockoon-admin/environment, read transaction logs and SSE streams, and purge state. This issue is fixed in version 9.7.0.",
+      "published": "2026-07-09T19:17:07.067",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59148"
     },
     {
-      "id": "CVE-2026-59226",
-      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.0 before 0.10.0, execute_automation rehydrated automation owners without rechecking that they were still active or still had features.automations, and check_model_access only enforced private-model grants for the exact user role, allowing deactivated pending users to continue scheduled model execution. This issue is fixed in version 0.10.0.",
-      "published": "2026-07-09T17:17:04.067",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59226"
+      "id": "CVE-2026-58198",
+      "summary": "ChatterBot is a machine learning, conversational dialog engine for creating chat bots. Prior to 1.2.14, UbuntuCorpusTrainer.extract() uses a predictable home-rooted output directory (~/ubuntu_data/ubuntu_dialogs) with a check-then-create pattern followed by tar.extractall(path=self.data_path), allowing a local attacker who pre-plants a symlink at the predictable path to cause archive contents to be written through the symlink to an attacker-chosen directory. This issue is fixed in version 1.2.14.",
+      "published": "2026-07-09T19:17:06.933",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58198"
     },
     {
-      "id": "CVE-2026-59225",
-      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.8.12 before 0.10.0, an authenticated non-admin user with read access to an arena wrapper model can reach a restricted underlying model through task endpoints such as /api/v1/tasks/moa/completions. The normal chat route resolves arena models before the final chat dispatch and therefore re-checks the selected underlying model. The task routes call utils.chat.generate_chat_completion() directly. In that direct path, arena fallback resolution happens after the wrapper access check and then recurses with bypass_filter=True, skipping the selected submodel's access check. This issue is fixed in version 0.10.0.",
-      "published": "2026-07-09T17:17:03.903",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59225"
+      "id": "CVE-2026-55590",
+      "summary": "CakePHP Authentication is an authentication plugin for CakePHP that can also be used in PSR-7 based applications. Prior to 2.11.1, 3.3.6, and 4.1.1, the getLoginRedirect() method contains a weakness to backslash bypasses that allows redirect targets with attacker-controlled hostnames through the redirect query string parameter. This issue is fixed in versions 2.11.1, 3.3.6, and 4.1.1.",
+      "published": "2026-07-09T19:17:06.670",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55590"
     },
     {
-      "id": "CVE-2026-59224",
-      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.10.0, backend/open_webui/routers/terminals.py built the ws_terminal upstream URL from an unencoded session_id and appended user_id as a query parameter, allowing query injection to make the terminal backend resolve another user identity; the HTTP proxy path also forwarded X-User-Id as an integrity-unbound identity claim. This issue is fixed in version 0.10.0.",
-      "published": "2026-07-09T17:17:03.770",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59224"
+      "id": "CVE-2026-54695",
+      "summary": "Pipecat is an open-source Python framework for building real-time voice and multimodal conversational agents. Prior to 1.4.0, the pipecat development runner registers a /ws WebSocket endpoint for telephony testing that accepts connections without authentication, reads an attacker-supplied callSid from a Twilio stream-start handshake in src/pipecat/runner/utils.py, and passes it to TwilioFrameSerializer so the server can issue an authenticated Twilio REST API hang-up request with the server operator's credentials; equivalent unauthenticated call-control sinks exist for Telnyx and Plivo. This issue is fixed in version 1.4.0.",
+      "published": "2026-07-09T19:17:06.540",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54695"
     },
     {
-      "id": "CVE-2026-59223",
-      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. Prior to 0.10.0, WEB_FETCH_FILTER_LIST matching compared configured host entries against URL strings and non-label-boundary suffixes, allowing path-based blocklist bypasses such as !internal.example.com in a URL path and sibling-domain matches that did not reflect the intended hostname policy. This issue is fixed in version 0.10.0.",
-      "published": "2026-07-09T17:17:03.603",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59223"
+      "id": "CVE-2026-54005",
+      "summary": "Kirby is an open-source content management system. Prior to 4.9.4 and 5.4.4, Kirby sites where a role has the pages.access permission disabled allowed authenticated users who know or guess page IDs or UUIDs to retrieve page information, including full content and metadata, for arbitrary published pages through the /api/site/find route without authorization to access those pages. This issue is fixed in versions 4.9.4 and 5.4.4.",
+      "published": "2026-07-09T19:17:06.400",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54005"
     }
   ]
 }
