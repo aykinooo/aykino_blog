@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-09T21:41:39+00:00",
+  "generated_at": "2026-07-09T23:34:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-60120",
-      "summary": "Bagisto before 2.4.4 contains a stored cross-site scripting vulnerability via client-side template injection that allows unauthenticated attackers to execute arbitrary JavaScript in administrator browsers by registering a customer account with malicious payload in the first or last name field. The create.blade.php template renders customer name fields without the Vue.js v-pre directive, causing Vue.js to evaluate stored template expressions as live JavaScript when an administrator opens the Create Order page for the affected customer.",
-      "published": "2026-07-09T21:16:56.410",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60120"
-    },
-    {
-      "id": "CVE-2026-55865",
-      "summary": "Python Liquid is a Python engine for the Liquid template language. Prior to 2.2.1, given a malformed {% case %} tag without an associated {% when %} or {% else %} block and no terminating {% endcase %} tag, Python Liquid hangs in an infinite loop at parse time because liquid.TokenStream.eof did not give the EOF token matching kind and value fields, allowing malicious template authors to craft templates for a denial of service attack. This issue is fixed in version 2.2.1.",
-      "published": "2026-07-09T21:16:56.277",
+      "id": "CVE-2026-59858",
+      "summary": "Vim is an open source, command line text editor. Prior to 9.2.0735, the C omni-completion script in runtime/autoload/ccomplete.vim interpolates the typeref: or typename: extension field of a tags entry, without escaping, into a :vimgrep pattern that is run through :execute. Because :vimgrep honors the bar as a command separator, a crafted tag field can close the search pattern and append an arbitrary Ex command; opening a hostile .c file whose project tags file contains such an entry and invoking C omni-completion runs that command as the editing user. This issue is fixed in version 9.2.0735.",
+      "published": "2026-07-09T23:17:06.740",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55865"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59858"
     },
     {
-      "id": "CVE-2026-55212",
-      "summary": "Pimcore is an Open Source Data & Experience Management Platform. Prior to 2025.4.6 and 2026.1.6, the Studio API class definition creation endpoint POST /pimcore-studio/api/class/definition/configuration-view/detail/create is guarded by the objects permission instead of the classes permission, allowing a standard editor-level user to create class definitions without admin privileges. Class definition creation generates new database tables and PHP class files on the server, and missing API-layer UID format validation allows malformed UIDs to reach model-layer validation and return internal exceptions. This issue is fixed in versions 2025.4.6 and 2026.1.6.",
-      "published": "2026-07-09T21:16:56.150",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55212"
-    },
-    {
-      "id": "CVE-2026-55208",
-      "summary": "Pimcore Studio Backend Bundle is the backend bundle for Pimcore Studio. Prior to 2025.4.6 and 2026.1.6, an authenticated user can extract the admin password hash and other database content through time-based blind SQL injection in the DateFilter column key parameter. The POST /pimcore-studio/api/website-settings endpoint and other listing endpoints accept a columnFilters array where the key field is interpolated directly into SQL with manual backtick wrapping, allowing a backtick character to break out of quoting and append arbitrary SQL such as SLEEP() and IF() subqueries. This issue is fixed in versions 2025.4.6 and 2026.1.6.",
-      "published": "2026-07-09T21:16:56.020",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55208"
-    },
-    {
-      "id": "CVE-2026-55207",
-      "summary": "Pimcore is an Open Source Data & Experience Management Platform. Prior to 2025.4.6 and 2026.1.6, an unauthenticated attacker who knows a valid admin username can take over any Pimcore admin account by sending a password reset request with an attacker-controlled resetPasswordUrl. The server generates a real cryptographic recovery token, appends it to the supplied URL, and emails the link to the victim; when the victim clicks the link, the token is sent to the attacker and can be used with POST /pimcore-studio/api/login/token to authenticate with full admin privileges while bypassing two-factor authentication. This issue is fixed in versions 2025.4.6 and 2026.1.6.",
-      "published": "2026-07-09T21:16:55.890",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55207"
-    },
-    {
-      "id": "CVE-2026-51926",
-      "summary": "An issue in docuForm GmbH FSM Client v.11.11c allows a remote attacker to obtain sensitive information via the login.php component. A vulnerability was identified in the authentication mechanism that allows user enumeration through the login interface. An attacker can differentiate between valid and invalid usernames based on variations in server responses. This information can be leveraged to identify existing accounts and facilitate further attacks, including brute-force or credential stuffing.",
-      "published": "2026-07-09T21:16:55.790",
+      "id": "CVE-2026-59857",
+      "summary": "Vim is an open source, command line text editor. Prior to 9.2.0725, the single-byte branch of spell_soundfold_sal() in src/spell.c translates a word through a spell file's SAL sound-folding rules into a caller-owned result buffer, but its result writes are guarded with reslen < MAXWLEN, allowing reslen to reach MAXWLEN before res[reslen] = NUL writes one byte past the end of the MAXWLEN-element stack buffer. A boundary-length word passed to soundfold(), or reached via sound-based spell suggestion while a SAL-based spell language is active under a non-multibyte 8-bit encoding, can corrupt the eval_soundfold() stack frame and crash the editor. This issue is fixed in version 9.2.0725.",
+      "published": "2026-07-09T23:17:06.580",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51926"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59857"
+    },
+    {
+      "id": "CVE-2026-59856",
+      "summary": "Vim is an open source, command line text editor. Prior to 9.2.0736, the PHP omni-completion script in runtime/autoload/phpcomplete.vim interpolates a class or trait name, taken from the contents of the edited buffer, into a search() pattern that is run via win_execute() without escaping. A name containing a single quote can terminate the search() string argument early, and because the bar is honored as an Ex command separator, the remainder of the name is run as Ex commands; via the :! command this allows arbitrary operating-system command execution when a victim opens a crafted PHP file and invokes omni-completion. This issue is fixed in version 9.2.0736.",
+      "published": "2026-07-09T23:17:06.420",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59856"
+    },
+    {
+      "id": "CVE-2026-59855",
+      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.1, Asset.render in app/src/asset/index.ts interpolates the unsanitized this.path value into HTML assigned to innerHTML, allowing a crafted asset link containing a double quote to break out of the src attribute, inject an event handler, and execute JavaScript that can run OS commands in the Electron renderer. This issue is fixed in versions 3.7.1-alpha.2 and 3.7.1.",
+      "published": "2026-07-09T23:17:06.293",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59855"
+    },
+    {
+      "id": "CVE-2026-59854",
+      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.1, POST /api/file/globalCopyFiles accepts attacker-supplied absolute source paths and relies on util.IsSensitivePath in kernel/util/path.go, whose denylist misses common home-directory credential files such as .git-credentials, .netrc, .pgpass, .kube/config, .docker/config.json, and .gnupg, allowing an authenticated administrator or API-token user to copy those files into the workspace and exfiltrate them through the file API. This issue is fixed in versions 3.7.1-alpha.2 and 3.7.1.",
+      "published": "2026-07-09T23:17:06.163",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59854"
+    },
+    {
+      "id": "CVE-2026-59853",
+      "summary": "SiYuan is an open-source personal knowledge management system. Prior to 3.7.1, the /api/storage/getCriteria endpoint returns saved search criteria from data/storage/criteria.json without the publish-access filtering used by sibling storage endpoints, allowing a publish-mode Reader to read private document paths, notebook, document, and block IDs, and search and replace keywords for unpublished documents. This issue is fixed in versions 3.7.1.",
+      "published": "2026-07-09T23:17:06.030",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59853"
     }
   ]
 }
