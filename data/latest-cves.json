@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-09T12:14:22+00:00",
+  "generated_at": "2026-07-09T15:34:13+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9240",
-      "summary": "The Colissimo Officiel : M\u00e9thodes de livraison pour WooCommerce plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the updateShippingMethod() function (registered to the wp_ajax_lpc_order_affect AJAX action) in versions up to, and including, 2.9.0. This is due to the handler performing no current_user_can() capability check and no nonce verification before reading an attacker-supplied order_id and modifying that order's shipping method, pickup-point meta, and shipping address. This makes it possible for authenticated attackers, with Subscriber-level access and above, to create or modify the shipment information (shipping method, pickup relay data, and shipping address) of arbitrary WooCommerce orders, including orders placed by other users.",
-      "published": "2026-07-09T11:16:42.483",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9240"
+      "id": "CVE-2026-60109",
+      "summary": "Zeek before 8.0.9 contains a null pointer dereference vulnerability in its Kerberos protocol analyzer that allows unauthenticated remote attackers to crash the sensor by sending a crafted KRB_ERROR message with error-code 25 (KDC_ERR_PREAUTH_REQUIRED) containing a PA-DATA element with padata-type 2, 3, 11, or 19. Attackers can exploit a parser and analyzer state mismatch where proc_padata() dereferences an uninitialized pa_data_element field selected by the wrong parsing arm, triggering a crash via a single UDP or TCP packet to port 88 without any credentials or prior authentication.",
+      "published": "2026-07-09T15:16:41.757",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60109"
     },
     {
-      "id": "CVE-2026-9237",
-      "summary": "The Employee, Leave and Recruitment Management System \u2013 Crew HRM plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.2.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete, archive, unarchive, and duplicate arbitrary job listings \u2014 along with their associated stages, meta, addresses, and applications \u2014 by supplying an arbitrary integer job_id. The nonce verified by Dispatcher::dispatch() is exposed to all authenticated front-end visitors via wp_head script localization, meaning subscribers can trivially obtain it and satisfy the nonce check without possessing any elevated privilege.",
-      "published": "2026-07-09T11:16:42.370",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9237"
+      "id": "CVE-2026-60108",
+      "summary": "Zeek before 8.0.9 contains an uncontrolled memory consumption vulnerability in the FTP analyzer that allows unauthenticated remote attackers to cause process termination by sending a crafted FTP control session negotiating AUTH GSSAPI followed by a large ADAT control line. Attackers can exploit the NVT_Analyzer component's lack of a maximum line length check, causing it to continuously double its internal buffer without bounds during base64 decoding of an attacker-controlled ADAT token, resulting in denial of service of the Zeek sensor.",
+      "published": "2026-07-09T15:16:41.627",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60108"
     },
     {
-      "id": "CVE-2026-9235",
-      "summary": "The DHL eCommerce (Benelux) for WooCommerce plugin for WordPress is vulnerable to unauthorized modification and loss of data due to a missing capability check and missing nonce verification on the create_label() and delete_label() functions in versions up to, and including, 2.2.3. These functions are wired to the wp_ajax_dhlpwc_label_create and wp_ajax_dhlpwc_label_delete hooks and act on an attacker-supplied post_id (WooCommerce order ID). This makes it possible for authenticated attackers, with Subscriber-level access and above, to create or delete DHL shipping labels associated with any WooCommerce order on the site.",
-      "published": "2026-07-09T11:16:42.250",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9235"
+      "id": "CVE-2026-5005",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Twiser Informatics Technology Consulting, Trade and Education Inc. OKRs & Goals allows Stored XSS.\n\nThis issue affects OKRs & Goals: from 28220 before 28398.",
+      "published": "2026-07-09T15:16:40.943",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5005"
     },
     {
-      "id": "CVE-2026-9028",
-      "summary": "The CorvusPay WooCommerce Payment Gateway plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.7.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to cancel any WooCommerce order placed via the CorvusPay payment method by supplying an arbitrary order number to the /wp-json/corvuspay/cancel/ REST endpoint.",
-      "published": "2026-07-09T11:16:42.140",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9028"
+      "id": "CVE-2026-56292",
+      "summary": "A SQLi vulnerability in AcyMailing component < 10.11.1 for Joomla was discovered. Exploiting this flaw can lead to unauthorized database access and data leakage.",
+      "published": "2026-07-09T15:16:37.937",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56292"
     },
     {
-      "id": "CVE-2026-9027",
-      "summary": "The CorvusPay WooCommerce Payment Gateway plugin for WordPress is vulnerable to Payment Bypass via Improper Verification of Cryptographic Signature in all versions up to, and including, 2.7.4. The `corvuspay_success_handler` function registers the REST endpoint `POST /wp-json/corvuspay/success/` with `'permission_callback' => '__return_true'`, and while it calls `$this->client->validate->signature()` and stores the boolean result in `$res`, the result is never evaluated in a conditional \u2014 it is only written to the debug log \u2014 causing execution to unconditionally reach `$order->payment_complete()` regardless of whether the cryptographic signature is valid. This makes it possible for unauthenticated attackers to mark any pending WooCommerce order as fully paid by sending a POST request to the success endpoint containing an arbitrary or forged signature value, allowing them to obtain goods or services without payment. Because WooCommerce order IDs are sequential integers, target orders are trivially enumerable via the `order_number` POST parameter, requiring no prior knowledge of the victim order.",
-      "published": "2026-07-09T11:16:42.017",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9027"
+      "id": "CVE-2026-54801",
+      "summary": "A vulnerability has been identified in CPCI85 Central Processing/Communication (All versions < V26.20), SICORE Base system (All versions < V26.20.0). The affected application contains insufficient validation of authentication credentials when processing administrative account modifications through the web API. This could allow an authenticated attacker to bypass security controls and gain unauthorized elevated privileges.",
+      "published": "2026-07-09T15:16:36.830",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54801"
     },
     {
-      "id": "CVE-2026-9021",
-      "summary": "The Easy Invoice plugin for WordPress is vulnerable to Missing Authorization in versions up to, and including, 2.1.19. This is due to the plugin registering the easy_invoice_accept_quote and easy_invoice_decline_quote AJAX actions via wp_ajax_nopriv_ hooks and relying solely on a quote-scoped nonce that is rendered into the publicly accessible single quote template, combined with an ownership check that is gated behind an off-by-default Pro option (easy_invoice_pro_restrict_quote_to_client). This makes it possible for unauthenticated attackers to accept or decline arbitrary published quotes \u2014 and, depending on the configured accept action, automatically convert them into invoices (and even email them to the client) \u2014 by harvesting the per-quote nonce from the public quote page and submitting it to admin-ajax.",
-      "published": "2026-07-09T11:16:41.900",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9021"
+      "id": "CVE-2026-54800",
+      "summary": "A vulnerability has been identified in CPCI85 Central Processing/Communication (All versions < V26.20), SICORE Base system (All versions < V26.20.0). The affected application ships with a default configuration that disables all OPC UA security mechanisms. This could allow an attacker to gain unauthorized access and control over critical system functions.",
+      "published": "2026-07-09T15:16:36.707",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54800"
     }
   ]
 }
