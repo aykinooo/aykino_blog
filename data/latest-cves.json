@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-09T20:02:00+00:00",
+  "generated_at": "2026-07-09T21:41:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59149",
-      "summary": "Mockoon provides way to design and run mock APIs. Prior to 9.7.0, a FILE response whose filePath embeds request data is confined by getSafeFilePath in packages/commons-server/src/libs/server/server.ts with resolvedPath.startsWith(staticBaseDir). That prefix test has no path-separator boundary, so a ../-escaped path whose absolute form string-prefixes the base directory passes, allowing an unauthenticated client to read files from sibling paths outside the served directory through HTTP sendFile, WebSocket, or callbacks. This issue is fixed in version 9.7.0.",
-      "published": "2026-07-09T19:17:07.207",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59149"
+      "id": "CVE-2026-60120",
+      "summary": "Bagisto before 2.4.4 contains a stored cross-site scripting vulnerability via client-side template injection that allows unauthenticated attackers to execute arbitrary JavaScript in administrator browsers by registering a customer account with malicious payload in the first or last name field. The create.blade.php template renders customer name fields without the Vue.js v-pre directive, causing Vue.js to evaluate stored template expressions as live JavaScript when an administrator opens the Create Order page for the affected customer.",
+      "published": "2026-07-09T21:16:56.410",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60120"
     },
     {
-      "id": "CVE-2026-59148",
-      "summary": "Mockoon provides way to design and run mock APIs. Prior to 9.7.0, Mockoon's admin API in commons-server/src/libs/server/admin-api.ts is mounted on the same Express listener as user-defined mock routes, enabled by default in shipped runtimes, serves Access-Control-Allow-Origin: * with write methods allowed, and has no authentication. Any unauthenticated caller who can reach the mock server port can read MOCKOON_* environment variables, write arbitrary process environment variables through /mockoon-admin/env-vars, rewrite mock route bodies, statuses, and headers through PUT /mockoon-admin/environment, read transaction logs and SSE streams, and purge state. This issue is fixed in version 9.7.0.",
-      "published": "2026-07-09T19:17:07.067",
+      "id": "CVE-2026-55865",
+      "summary": "Python Liquid is a Python engine for the Liquid template language. Prior to 2.2.1, given a malformed {% case %} tag without an associated {% when %} or {% else %} block and no terminating {% endcase %} tag, Python Liquid hangs in an infinite loop at parse time because liquid.TokenStream.eof did not give the EOF token matching kind and value fields, allowing malicious template authors to craft templates for a denial of service attack. This issue is fixed in version 2.2.1.",
+      "published": "2026-07-09T21:16:56.277",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55865"
+    },
+    {
+      "id": "CVE-2026-55212",
+      "summary": "Pimcore is an Open Source Data & Experience Management Platform. Prior to 2025.4.6 and 2026.1.6, the Studio API class definition creation endpoint POST /pimcore-studio/api/class/definition/configuration-view/detail/create is guarded by the objects permission instead of the classes permission, allowing a standard editor-level user to create class definitions without admin privileges. Class definition creation generates new database tables and PHP class files on the server, and missing API-layer UID format validation allows malformed UIDs to reach model-layer validation and return internal exceptions. This issue is fixed in versions 2025.4.6 and 2026.1.6.",
+      "published": "2026-07-09T21:16:56.150",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55212"
+    },
+    {
+      "id": "CVE-2026-55208",
+      "summary": "Pimcore Studio Backend Bundle is the backend bundle for Pimcore Studio. Prior to 2025.4.6 and 2026.1.6, an authenticated user can extract the admin password hash and other database content through time-based blind SQL injection in the DateFilter column key parameter. The POST /pimcore-studio/api/website-settings endpoint and other listing endpoints accept a columnFilters array where the key field is interpolated directly into SQL with manual backtick wrapping, allowing a backtick character to break out of quoting and append arbitrary SQL such as SLEEP() and IF() subqueries. This issue is fixed in versions 2025.4.6 and 2026.1.6.",
+      "published": "2026-07-09T21:16:56.020",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55208"
+    },
+    {
+      "id": "CVE-2026-55207",
+      "summary": "Pimcore is an Open Source Data & Experience Management Platform. Prior to 2025.4.6 and 2026.1.6, an unauthenticated attacker who knows a valid admin username can take over any Pimcore admin account by sending a password reset request with an attacker-controlled resetPasswordUrl. The server generates a real cryptographic recovery token, appends it to the supplied URL, and emails the link to the victim; when the victim clicks the link, the token is sent to the attacker and can be used with POST /pimcore-studio/api/login/token to authenticate with full admin privileges while bypassing two-factor authentication. This issue is fixed in versions 2025.4.6 and 2026.1.6.",
+      "published": "2026-07-09T21:16:55.890",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59148"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55207"
     },
     {
-      "id": "CVE-2026-58198",
-      "summary": "ChatterBot is a machine learning, conversational dialog engine for creating chat bots. Prior to 1.2.14, UbuntuCorpusTrainer.extract() uses a predictable home-rooted output directory (~/ubuntu_data/ubuntu_dialogs) with a check-then-create pattern followed by tar.extractall(path=self.data_path), allowing a local attacker who pre-plants a symlink at the predictable path to cause archive contents to be written through the symlink to an attacker-chosen directory. This issue is fixed in version 1.2.14.",
-      "published": "2026-07-09T19:17:06.933",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58198"
-    },
-    {
-      "id": "CVE-2026-55590",
-      "summary": "CakePHP Authentication is an authentication plugin for CakePHP that can also be used in PSR-7 based applications. Prior to 2.11.1, 3.3.6, and 4.1.1, the getLoginRedirect() method contains a weakness to backslash bypasses that allows redirect targets with attacker-controlled hostnames through the redirect query string parameter. This issue is fixed in versions 2.11.1, 3.3.6, and 4.1.1.",
-      "published": "2026-07-09T19:17:06.670",
+      "id": "CVE-2026-51926",
+      "summary": "An issue in docuForm GmbH FSM Client v.11.11c allows a remote attacker to obtain sensitive information via the login.php component. A vulnerability was identified in the authentication mechanism that allows user enumeration through the login interface. An attacker can differentiate between valid and invalid usernames based on variations in server responses. This information can be leveraged to identify existing accounts and facilitate further attacks, including brute-force or credential stuffing.",
+      "published": "2026-07-09T21:16:55.790",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55590"
-    },
-    {
-      "id": "CVE-2026-54695",
-      "summary": "Pipecat is an open-source Python framework for building real-time voice and multimodal conversational agents. Prior to 1.4.0, the pipecat development runner registers a /ws WebSocket endpoint for telephony testing that accepts connections without authentication, reads an attacker-supplied callSid from a Twilio stream-start handshake in src/pipecat/runner/utils.py, and passes it to TwilioFrameSerializer so the server can issue an authenticated Twilio REST API hang-up request with the server operator's credentials; equivalent unauthenticated call-control sinks exist for Telnyx and Plivo. This issue is fixed in version 1.4.0.",
-      "published": "2026-07-09T19:17:06.540",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54695"
-    },
-    {
-      "id": "CVE-2026-54005",
-      "summary": "Kirby is an open-source content management system. Prior to 4.9.4 and 5.4.4, Kirby sites where a role has the pages.access permission disabled allowed authenticated users who know or guess page IDs or UUIDs to retrieve page information, including full content and metadata, for arbitrary published pages through the /api/site/find route without authorization to access those pages. This issue is fixed in versions 4.9.4 and 5.4.4.",
-      "published": "2026-07-09T19:17:06.400",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54005"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51926"
     }
   ]
 }
