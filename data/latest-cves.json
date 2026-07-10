@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-10T20:40:51+00:00",
+  "generated_at": "2026-07-10T22:13:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-57850",
-      "summary": "RustDesk before 1.4.9 does not enforce a session's authorized connection scope on the server side, so a peer granted a limited session type (FileTransfer, PortForward, ViewCamera, or Terminal) can send control messages and login options reserved for a full Remote session. An authenticated remote peer can exploit this missing scope check to act outside its granted scope, injecting out-of-scope control messages to observe and control the host beyond the permissions it was given.",
-      "published": "2026-07-10T20:16:48.663",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57850"
-    },
-    {
-      "id": "CVE-2026-57158",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. From 3.21.0 before 3.28.0, FreeRDP clients using the GFX pipeline contain an incomplete fix for CVE-2026-23530 in planar_decompress_plane_rle_only in libfreerdp/codec/planar.c, allowing a malicious RDP server to send a truncated RDPGFX_CMDID_WIRETOSURFACE_1 planar payload that reads one byte past the input buffer. This issue is fixed in version 3.28.0.",
-      "published": "2026-07-10T20:16:48.523",
+      "id": "CVE-2026-9726",
+      "summary": "Improperly Controlled Modification of Dynamically-Determined Object Attributes vulnerability in Drupal Drupal AlternativeCommerce (Basket) allows Object Injection. This issue affects Drupal AlternativeCommerce (Basket) versions: from 0.0.0 to 2.1.17.",
+      "published": "2026-07-10T21:17:00.737",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57158"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9726"
     },
     {
-      "id": "CVE-2026-57157",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to 3.28.0, FreeRDP server implementations with the MS-RDPECAM camera device enumerator channel enabled scan attacker-supplied DeviceName and VirtualChannelName fields for a NUL terminator in channels/rdpecam/server/camera_device_enumerator_main.c and then dereference once past the scan bound, allowing a malicious RDP client to trigger a 1- to 2-byte out-of-bounds heap read. This issue is fixed in version 3.28.0.",
-      "published": "2026-07-10T20:16:48.387",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57157"
-    },
-    {
-      "id": "CVE-2026-57156",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to 3.28.0 on 32-bit builds, FreeRDP clients contain an integer overflow in update_read_delta_points in libfreerdp/core/orders.c when multiplying an attacker-controlled point count by sizeof(DELTA_POINT), allowing a malicious RDP peer to allocate an undersized heap buffer and then write beyond it during initialization. This issue is fixed in version 3.28.0.",
-      "published": "2026-07-10T20:16:48.257",
+      "id": "CVE-2026-7639",
+      "summary": "Software installed and run as a non-privileged user may conduct a sequence of improper GPU system calls causing use after free, which helps in facilitating unprivileged memory access from a shader code.\n\n\n\nTriggering failure path in the MMU mapping logic by a malicious code could lead to incomplete cleanup of an internal driver state, allowing for future unauthorized access to the contents of the physical memory.",
+      "published": "2026-07-10T21:17:00.637",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57156"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7639"
     },
     {
-      "id": "CVE-2026-55827",
-      "summary": "FreeRDP is a free implementation of the Remote Desktop Protocol. Prior to 3.27.1, FreeRDP clients launched with the non-default /cache:codec:rfx option pass desktop stride and height to RemoteFX decoding for Cache Bitmap V3 data while allocating bitmap->data only for the smaller DstWidth and DstHeight in gdi_Bitmap_Decompress, allowing a malicious RDP server to trigger a heap out-of-bounds write with attacker-controlled offset and content. This issue is fixed in version 3.27.1.",
-      "published": "2026-07-10T20:16:48.060",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55827"
+      "id": "CVE-2026-58499",
+      "summary": "EverOS is a memory runtime for agents. Prior to 1.0.1, EverOS is vulnerable to path traversal in the POST /api/v1/memory/add ingestion endpoint because the per-message sender_id field was not validated as a path-safe identifier, unlike app_id and project_id. During user-memory extraction, sender_id is used as owner_id and joined into the filesystem path where the extracted episode is persisted as a Markdown file, so a sender_id containing ../ sequences could direct writes outside the configured memory root and allow an unauthenticated caller to create or overwrite .md files at locations writable by the server process with partially attacker-influenced content. This issue is fixed in version 1.0.1.",
+      "published": "2026-07-10T21:17:00.197",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58499"
     },
     {
-      "id": "CVE-2026-55789",
-      "summary": "Logto is the modern, open-source auth infrastructure for SaaS and AI apps. Prior to 1.41.0, Logto's self-hosted SAML application IdP built the signed SAML response and assertion by string-substituting user-controlled profile attributes such as name, email, and custom attribute-mapping values into element-text placeholders of a SAML XML template using samlify 2.10.0, which left those placeholders unescaped. An authenticated low-privilege user could place XML markup in a profile attribute so Logto signed a forged SAML attribute, such as an arbitrary role, allowing privilege escalation at relying Service Providers that authorize on SAML attributes. This issue is fixed in version 1.41.0.",
-      "published": "2026-07-10T20:16:47.933",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55789"
+      "id": "CVE-2026-57807",
+      "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in miniOrange Security Software Pvt Ltd. OAuth Single Sign On - SSO (OAuth Client) allows Password Recovery Exploitation.\n\nThis issue affects OAuth Single Sign On - SSO (OAuth Client): from n/a through 38.5.8.",
+      "published": "2026-07-10T21:16:59.947",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57807"
+    },
+    {
+      "id": "CVE-2026-57575",
+      "summary": "Misskey is an open source, federated social media platform. Prior to 2026.6.0, Misskey contains a Server-Side Request Forgery (SSRF) vulnerability in URL preview functionality in UrlPreviewService. Due to missing network restrictions before establishing outbound connections, a remote attacker can cause the Misskey server to initiate HTTP requests to loopback, private, or link-local services. Because IP address validation takes place after the request has been sent and the process is subsequently rejected, no sensitive internal data is believed to be transmitted back or exposed to the attacker. This issue is fixed in version 2026.6.0.",
+      "published": "2026-07-10T21:16:59.820",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57575"
+    },
+    {
+      "id": "CVE-2026-57574",
+      "summary": "Misskey is an open source, federated social media platform. Prior to 2026.6.0, Misskey contains a vulnerability in Time-based One-Time Password (TOTP) authentication in UserAuthService where insufficient validation of used tokens allows the reuse of a single-use code within its valid time step. If both credentials and a TOTP code are obtained concurrently, an attacker may reuse the code to perform unauthorized actions, potentially leading to account takeover. This issue is fixed in version 2026.6.0.",
+      "published": "2026-07-10T21:16:59.683",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57574"
     }
   ]
 }
