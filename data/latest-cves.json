@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-10T17:05:48+00:00",
+  "generated_at": "2026-07-10T18:43:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8609",
-      "summary": "An unauthenticated attacker can repeatedly call Grafana's OAuth login route with unique values, causing unbounded memory growth that can eventually exhaust memory and crash the Grafana instance (denial of service).",
-      "published": "2026-07-10T16:16:39.510",
+      "id": "CVE-2026-57476",
+      "summary": "Deloitte AI Assist for Customer exposed unauthenticated API endpoints that allowed an attacker with knowledge of additional parameters to read from or inject content into the retrieval-augmented generation (RAG) corpus. On 2026-03-25, AI Assist for Customer restricted network access and enforced authentication for the previously exposed endpoints.",
+      "published": "2026-07-10T18:16:24.947",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57476"
+    },
+    {
+      "id": "CVE-2026-57475",
+      "summary": "Deloitte AI Assist for Customer accepted unauthenticated POST requests through public-facing API endpoints that allowed a remote attacker to make limited additions to the configuration. These additions were not used by the system. On 2026-03-25, AI Assist for Customer restricted network access and enforced authentication for the previously exposed endpoints.",
+      "published": "2026-07-10T18:16:24.813",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8609"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57475"
     },
     {
-      "id": "CVE-2026-8595",
-      "summary": "A user with Editor permissions can craft a dashboard whose table (TableNG) panel contains a malicious field name that executes as a script in the browser of any user who views the dashboard (stored cross-site scripting).",
-      "published": "2026-07-10T16:16:39.400",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8595"
+      "id": "CVE-2026-57474",
+      "summary": "Deloitte AI Assist for Customer disclosed some configuration information through public-facing API endpoints that accepted unauthenticated requests. This information could reduce an attacker\u2019s reconnaissance effort. On 2026-03-25, AI Assist for Customer restricted network access and enforced authentication for the previously exposed endpoints.",
+      "published": "2026-07-10T18:16:24.657",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57474"
     },
     {
-      "id": "CVE-2026-56676",
-      "summary": "9Router is an AI router & token saver. Prior to 0.5.2, 9router validates image URLs by resolving the host before fetching, but open-sse/translator/concerns/image.js performs the later server-side image fetch with a separate DNS resolution. An authenticated attacker with access to the LLM proxy can use a vision-capable model and an attacker-controlled DNS name that first resolves to a public IP and then rebinds to an internal address, allowing server-side requests to internal-only HTTP services. This issue is fixed in version 0.5.2.",
-      "published": "2026-07-10T16:16:34.923",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56676"
+      "id": "CVE-2026-56668",
+      "summary": "ZITADEL is an open source identity management platform. Prior to 4.15.3, ZITADEL's OAuth2 Token Exchange endpoint for urn:ietf:params:oauth:grant-type:token-exchange does not verify that the subject token belongs to the requesting client or that requested scopes remain within the original token's scopes, allowing a low-privilege token to be exchanged for elevated permissions at another application. This issue is fixed in version 4.15.3.",
+      "published": "2026-07-10T18:16:24.413",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56668"
     },
     {
-      "id": "CVE-2026-55501",
-      "summary": "9Router is an AI router & token saver. Prior to 0.4.80, the dashboard login rate limiter in src/lib/auth/loginLimiter.js derives the client identity from the attacker-controlled X-Forwarded-For HTTP header, and src/app/api/auth/login/route.js uses that spoofable value for checkLock and recordFail. A remote attacker can rotate the X-Forwarded-For value on each login attempt to receive a fresh rate-limit bucket, bypass the 5-attempt threshold and progressive lockout durations, and perform unlimited brute-force attempts against the dashboard password. This issue is fixed in version 0.4.80.",
-      "published": "2026-07-10T16:16:33.493",
+      "id": "CVE-2026-56667",
+      "summary": "ZITADEL is an open source identity management platform. Prior to 4.15.3, ZITADEL Login V2 OIDC and SAML FailedPrecondition error paths return loginSettings.defaultRedirectUri to router.push without applying the isSafeRedirectUri check, allowing an organization or instance administrator to store a javascript or data URI that can execute in a user's browser when an affected login error path is reached. This issue is fixed in version 4.15.3.",
+      "published": "2026-07-10T18:16:24.283",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55501"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56667"
     },
     {
-      "id": "CVE-2026-55500",
-      "summary": "9Router is an AI router & token saver. Prior to 0.4.80, the /api/settings/database endpoint allows full database export (containing all credentials, API keys, OAuth tokens, and settings) and full database import (complete overwrite) without any authentication requirement beyond the ALWAYS_PROTECTED middleware check, which only validates JWT or CLI token. This issue is fixed in version 0.4.80.",
-      "published": "2026-07-10T16:16:33.357",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55500"
-    },
-    {
-      "id": "CVE-2026-54149",
-      "summary": "MaxKB is an open-source AI assistant for enterprise. Prior to 2.10.0-lts, MaxKB tool import functionality in apps/tools/serializers/tool.py and MCP referencing mode in apps/application/chat_pipeline/step/chat_step/impl/base_chat_step.py do not consistently validate MCP transport type, allowing an authenticated user to import a .tool file containing stdio transport with malicious commands and trigger the configuration through an AI Chat node so MultiServerMCPClient executes arbitrary system commands. This issue is fixed in version 2.10.0-lts.",
-      "published": "2026-07-10T16:16:32.587",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54149"
+      "id": "CVE-2026-56666",
+      "summary": "ZITADEL is an open source identity management platform. Prior to 4.15.3, ZITADEL's external identity provider handler checks that the local user's email is verified but does not verify that the external IdP confirmed ownership of the same email before auto-linking by email, allowing a permissive provider account with a victim email address to be linked to the victim's local account. This issue is fixed in version 4.15.3.",
+      "published": "2026-07-10T18:16:24.150",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56666"
     }
   ]
 }
