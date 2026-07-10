@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-10T04:11:46+00:00",
+  "generated_at": "2026-07-10T07:50:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-15320",
-      "summary": "A vulnerability was detected in Sipeed PicoClaw up to 0.2.9. This vulnerability affects the function rt.ReloadConfig of the file pkg/channels/pico/pico.go. Performing a manipulation of the argument message.send results in missing authorization. It is possible to initiate the attack remotely. The exploit is now public and may be used. The reported GitHub issue was closed automatically due to inactivity.",
-      "published": "2026-07-10T03:16:20.723",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15320"
-    },
-    {
-      "id": "CVE-2026-15319",
-      "summary": "A security vulnerability has been detected in Sipeed PicoClaw up to 0.2.9. This affects the function IPAllowlist of the file web/backend/middleware/access_control.go of the component Launcher. Such manipulation leads to improper access controls. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The name of the patch is 3126. A patch should be applied to remediate this issue.",
-      "published": "2026-07-10T03:16:20.433",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15319"
-    },
-    {
-      "id": "CVE-2026-15318",
-      "summary": "A weakness has been identified in Sipeed PicoClaw up to 0.2.9. Affected by this issue is some unknown functionality of the file pkg/channels/mqtt/mqtt.go of the component MQTT Channel Handler. This manipulation of the argument client_id causes incorrect authorization. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The reported GitHub issue was closed automatically due to inactivity.",
-      "published": "2026-07-10T02:16:25.457",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15318"
-    },
-    {
-      "id": "CVE-2026-55615",
-      "summary": "Langroid is a framework for building large-language-model-powered applications. Prior to version 0.65.5, Neo4jChatAgent passes LLM-generated Cypher queries straight to the Neo4j driver with no validation, no statement-type allowlist, and no opt-out gate. The query text is influenceable by prompt injection (direct user input or indirect content the agent reads back via RAG), so an attacker who can influence the prompt can read or destroy all graph data and, when APOC or dbms.security procedures are enabled on the server, achieve OS-command and filesystem access. This is the same defect class and threat model as the SQLChatAgent prompt-to-SQL-to-RCE issue fixed in version 0.63.0 (CVE-2026-25879); that fix did not extend to the neo4j module. Version 0.65.5 contains a fix for the neo4j module.",
-      "published": "2026-07-10T00:16:33.867",
+      "id": "CVE-2026-12685",
+      "summary": "The EscortWP escortwp WordPress theme through 3.6.2 was distributed with a vendor-authored, obfuscated backdoor that lets an unauthenticated attacker who supplies a hard-coded, per-build key permanently delete all of the site's content, and that covertly transmits the site URL, administrator email address, and license key to a third-party server.",
+      "published": "2026-07-10T07:16:28.313",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55615"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12685"
     },
     {
-      "id": "CVE-2026-54771",
-      "summary": "Langroid is a framework for building large-language-model-powered applications. Prior to version 0.65.3, a Langroid application exposing a chat interface to untrusted users may allow direct tool invocation via raw JSON payloads, even when tools are registered with `use=False, handle=True`. Version 0.65.3 fixes the issue.",
-      "published": "2026-07-10T00:16:33.737",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54771"
+      "id": "CVE-2026-12276",
+      "summary": "The LA-Studio Element Kit for Elementor WordPress plugin before 1.6.1 does not check whether user registration is enabled on the site before creating an account through one of its unauthenticated AJAX actions, allowing unauthenticated attackers to register new accounts even when registration has been disabled site-wide.",
+      "published": "2026-07-10T07:16:28.203",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12276"
     },
     {
-      "id": "CVE-2026-54769",
-      "summary": "Langroid is a framework for building large-language-model-powered applications. Versions prior to 0.65.2 are vulnerable to a critical Sandbox Escape leading to Remote Code Execution (RCE) in its `TableChatAgent` and `VectorStore` capabilities. When these agents evaluate LLM-generated tool messages with `full_eval=True`, they attempt to sandbox the execution by explicitly setting `locals` to an empty dictionary `{}` inside Python's `eval()` function. However, this relies on an incomplete understanding of Python's execution model. Because `__builtins__` is not explicitly scrubbed from the `globals` dictionary mapping, Python implicitly injects all built-ins during execution, granting full access to functions like `__import__('os').system()`. Since `TableChatAgent.pandas_eval()` executes external LLM outputs natively, this bypass permits any attacker providing prompt payload to achieve unauthenticated RCE on the host system. Version 0.65.2 patches the issue.",
-      "published": "2026-07-10T00:16:33.603",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54769"
+      "id": "CVE-2026-12123",
+      "summary": "The All-in-One Video Gallery plugin for WordPress is vulnerable to Server-Side Request Forgery in all versions up to, and including, 4.8.5 via the 'vdl' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services. A Subscriber-level attacker can plant an internal or loopback URL in the `mp4` post meta of a newly created `aiovg_videos` post via XML-RPC `wp.newPost`, then trigger the unauthenticated `?vdl=<post_id>` endpoint to force the server to fetch that URL and stream the full response body back to the requester.",
+      "published": "2026-07-10T07:16:27.430",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12123"
+    },
+    {
+      "id": "CVE-2026-21057",
+      "summary": "Improper input validation in Samsung Pass prior to version 5.2.10.3 allows local privileged attackers to write out-of-bounds memory.",
+      "published": "2026-07-10T05:16:36.453",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21057"
+    },
+    {
+      "id": "CVE-2026-21056",
+      "summary": "Improper authorization in Samsung Health prior to version 7.00.0.107 allows local attackers to access connected device information.",
+      "published": "2026-07-10T05:16:36.330",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21056"
+    },
+    {
+      "id": "CVE-2026-21055",
+      "summary": "Improper export of android application components in Bixby prior to version 4.0.70.8 allows local attackers to execute arbitrary commands with Bixby privilege.",
+      "published": "2026-07-10T05:16:36.217",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21055"
     }
   ]
 }
