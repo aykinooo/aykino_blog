@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-10T11:16:41+00:00",
+  "generated_at": "2026-07-10T14:49:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-58225",
-      "summary": "SQL Injection vulnerability in elixir-ecto postgrex allows an attacker who can influence a LISTEN channel name to inject SQL into the reconnect replay query, causing a denial of service of the notification connection.\n\nPostgrex.Notifications sanitizes channel names with quote_channel/1, which doubles double quotes so the name is safe inside a double-quoted identifier. This protects the single-statement LISTEN and UNLISTEN paths. On every (re)connect, however, handle_connect/1 replays all registered channels at once by concatenating their LISTEN statements and wrapping them in a dollar-quoted anonymous code block (DO $$BEGIN ... END$$). quote_channel/1 does not escape the $$ dollar-quote delimiter that opens and closes this block.\n\nThe listen/3 guards only reject null bytes and names longer than 63 bytes, so a channel name containing $$ passes validation unchanged. Once such a name is embedded, its $$ prematurely terminates the outer dollar-quoted string and PostgreSQL parses the remainder as additional top-level statements. Because handle_connect/1 runs on every (re)connect, the malformed replay query is rejected each time and the notification connection never re-establishes its subscriptions, silently dropping notifications for every channel sharing that connection.\n\nAn application is affected when it passes untrusted input (for example a tenant or user identifier) as a channel name to Postgrex.Notifications.listen/3. The double-quote doubling prevents forming a fully valid injected statement, so arbitrary SQL execution is not possible, but the corrupted query reliably breaks the shared notification connection for all tenants, resulting in denial of service.\n\nThis issue affects postgrex: from 0.16.0 before 0.22.3.",
-      "published": "2026-07-10T11:16:36.300",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58225"
+      "id": "CVE-2026-22660",
+      "summary": "FlaskBB through 2.2.0, fixed in commit a5da9a5, contains a logic flaw vulnerability that allows authenticated administrators to delete all built-in authorization groups by exploiting a type mismatch in the bulk delete protection check. The bulk AJAX endpoint in the management views compares received JSON integer group IDs against string literals, causing the protection check to always pass, which allows deletion of all six built-in groups and destroys the forum's permission model, potentially rendering the site unusable.",
+      "published": "2026-07-10T14:16:52.687",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22660"
     },
     {
-      "id": "CVE-2026-14461",
-      "summary": "mtr is vulnerable to Out-of-bound read vulnerability in ipinfo_lookup() function. An attacker who can influence the TXT response used for AS lookups can trigger this bug by returning a DNS response that is larger than 512 bytes and uses a crafted compression pointer in the answer NAME field.\u00a0ipinfo_lookup() function uses the length of the response as the\u00a0end-of-message boundary for dn_expand() function.\u00a0The result is a reliable crash.\n\n\nThis issue exists in the mtr through version 0.96 and it was fixed in commit\u00a048e1794414d338ce47abc0f27c25ade8788af9c3.",
-      "published": "2026-07-10T11:16:32.823",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14461"
+      "id": "CVE-2026-22659",
+      "summary": "FlaskBB through 2.2.0, fixed in commit acc88cf, contains an authorization bypass vulnerability that allows authenticated moderators to perform unauthorized actions on topics in forums they do not control by submitting crafted topic ID lists. Attackers can include a low-ID topic from a permitted forum as an anchor in a batch request, causing the permission check applied only to the first result to pass, and then execute lock, unlock, delete, or hide actions against topics in unmoderated forums.",
+      "published": "2026-07-10T14:16:52.547",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22659"
     },
     {
-      "id": "CVE-2026-9857",
-      "summary": "The Invoice123 plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 1.7.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to overwrite the plugin's API key stored in wp_options, modify invoice plugin settings, and alter WooCommerce tax rate data in the wp_woocommerce_tax_rates table.",
-      "published": "2026-07-10T10:16:24.310",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9857"
+      "id": "CVE-2026-56813",
+      "summary": "Improper Neutralization of Parameter/Argument Delimiters vulnerability in elixir-plug plug allows an attacker to inject or override HTTP cookie attributes.\n\nThe Plug.Conn.Cookies.encode/2 function in lib/plug/conn/cookies.ex builds the Set-Cookie response header by interpolating the cookie value and its path, domain, same_site, and extra attributes directly into the header without neutralizing the ';' delimiter that separates cookie attributes.\n\nAn application that places attacker-controlled data into a cookie value or attribute (for example via Plug.Conn.put_resp_cookie/4 when reflecting a username or preference) lets an attacker inject a ';' to append or override cookie attributes (such as Domain and Path scope, or dropping the Secure and HttpOnly flags), enabling cookie tossing and session fixation. Carriage return, line feed, and null bytes are rejected by Plug.Conn header validation, so HTTP response splitting is not possible, but attribute injection through ';' is not prevented.\n\nThis issue affects plug: from 0.1.0 before 1.16.6, from 1.17.0 before 1.17.4, from 1.18.0 before 1.18.5, from 1.19.0 before 1.19.5, from 1.20.0 before 1.20.3.",
+      "published": "2026-07-10T13:16:20.663",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56813"
     },
     {
-      "id": "CVE-2026-41880",
-      "summary": "R-SOFT DMS is vulnerable to\u00a0OS Command Injection in the Optical Character Recognition (OCR) module. Multiple command execution functions accept user-controllable file paths without proper sanitization before passing them to the system shell via SSH. In current infrastructure the URL encoding neutralizes the injection during the standard web upload flow. An authenticated attacker who\u00a0is able to trigger the OCR functionality for the uploaded file can execute OS commands within the context of a root user.\n\nThis issue was fixed in version\u00a0v3.19-2862\u00a0and v3.17-2580.",
-      "published": "2026-07-10T10:16:24.193",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41880"
+      "id": "CVE-2026-54470",
+      "summary": "Dell Unisphere for PowerMax, version(s) 10.3.0.5 and prior contain(s) an Improper Restriction of XML External Entity Reference vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.",
+      "published": "2026-07-10T13:16:20.550",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54470"
     },
     {
-      "id": "CVE-2026-41879",
-      "summary": "R-SOFT DMS\u00a0stores superadmin credentials using a non-salted nested MD5 hash. This allows an attacker who obtain password hash to decode superadmin credentials. Critically, this password cannot be changed\u00a0except by modifying the configuration file.\n\nThis issue was fixed in version\u00a0v3.17-2000.",
-      "published": "2026-07-10T10:16:24.077",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41879"
+      "id": "CVE-2026-54469",
+      "summary": "Dell Unisphere for PowerMax, version(s) 10.3.0.5 and prior, contain(s) a Deserialization of Untrusted Data vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to arbitrary command execution with root privileges.",
+      "published": "2026-07-10T13:16:20.427",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54469"
     },
     {
-      "id": "CVE-2026-41878",
-      "summary": "R-SOFT DMS is vulnerable to\u00a0Insecure Direct Object Reference (IDOR) attack in multiple file download endpoints. The application fetches files from the database by ID and serves them to whoever requests them, relying only on session authentication, meaning any valid user can access any file.\n\nThis issue was fixed in version v3.19-2862\u00a0and v3.17-2580.",
-      "published": "2026-07-10T10:16:23.957",
+      "id": "CVE-2026-56814",
+      "summary": "Plug.Parsers.MULTIPART, the multipart request-body parser used to handle file uploads and multipart forms, does not enforce its :length budget against all consumed resources, allowing an unauthenticated remote attacker to cause denial of service. The parser charges the :length limit only for part body bytes; part header bytes are never counted, and a part with an empty body costs zero.\n\nBecause every part whose Content-Disposition carries a non-empty filename creates a fresh temporary file (via Plug.Upload) and retains a Plug.Upload struct for the duration of the request, an attacker can send a single request composed of many empty-body file parts. Such a request stays well under the configured :length limit (8,000,000 bytes by default) while creating one temporary file per part, leading to inode and disk exhaustion and unbounded memory growth. Any application using Plug.Parsers with the :multipart parser is affected, and no authentication is required, only reachability of a multipart endpoint over HTTP.\n\nThis vulnerability is associated with program files lib/plug/parsers/multipart.ex and program routines Plug.Parsers.MULTIPART.parse_multipart/2, Plug.Parsers.MULTIPART.parse_multipart_headers/5, Plug.Parsers.MULTIPART.parse_multipart_body/4, and Plug.Parsers.MULTIPART.parse_multipart_file/4.\n\nThis issue affects plug: from 1.4.0 before 1.16.6, from 1.17.0 before 1.17.4, from 1.18.0 before 1.18.5, from 1.19.0 before 1.19.5, and from 1.20.0 before 1.20.3.",
+      "published": "2026-07-10T12:17:24.837",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41878"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56814"
     }
   ]
 }
