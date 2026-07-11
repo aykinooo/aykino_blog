@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-11T13:50:53+00:00",
+  "generated_at": "2026-07-11T15:13:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-57828",
-      "summary": "The Joomla extension Phoca Downloads is vulnerable to an authenticated arbitrary file upload that allows registered users uploading executable files and leads to full RCE.",
-      "published": "2026-07-11T10:16:35.710",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57828"
+      "id": "CVE-2026-61870",
+      "summary": "ImageMagick before 7.1.2-26 contains a memory leak vulnerability in the VIFF encoder when memory allocation fails. Attackers can trigger allocation failures by processing specially crafted VIFF images to exhaust available memory and cause denial of service.",
+      "published": "2026-07-11T14:16:24.270",
+      "cvss": 2.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61870"
     },
     {
-      "id": "CVE-2026-57827",
-      "summary": "The Joomla extension RSFiles is vulnerable to an unauthenticated arbitrary file upload that allows uploading executable files and leads to full RCE.",
-      "published": "2026-07-11T10:16:34.057",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57827"
+      "id": "CVE-2026-61861",
+      "summary": "ImageMagick before 7.1.2-26 contains a use-after-free vulnerability in the FormatMagickCaption method when memory allocation fails. Attackers can trigger memory allocation failures to cause a dangling pointer to reference freed memory, potentially enabling denial of service or code execution.",
+      "published": "2026-07-11T14:16:24.143",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61861"
     },
     {
-      "id": "CVE-2026-1359",
-      "summary": "The Genolve \u2013 AI image AI video generation plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the genolve_setOpt() function in all versions up to, and including, 5.0.5. This makes it possible for authenticated attackers, with Contributor-level access and above, to update arbitrary WordPress options, including enabling user registration and setting the default role to administrator, resulting in privilege escalation.",
-      "published": "2026-07-11T09:16:16.020",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1359"
+      "id": "CVE-2026-61858",
+      "summary": "ImageMagick before 7.1.2-26 contains a policy bypass vulnerability in the APNG encoder and external delegates due to missing validation checks. Attackers can write files to disallowed paths by bypassing configured policy restrictions through the APNG encoding process.",
+      "published": "2026-07-11T14:16:24.020",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61858"
     },
     {
-      "id": "CVE-2026-9282",
-      "summary": "The W3 Total Cache plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 2.9.4 via the setupSources function. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information. Exploitation requires enabling manual minify mode and supplying a manual-format minify filename so that the hash is empty and the f_array[] entries are not overwritten before reaching setupSources().",
-      "published": "2026-07-11T07:16:47.070",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9282"
+      "id": "CVE-2026-61857",
+      "summary": "ImageMagick before 7.1.2-26 contains a heap use-after-free vulnerability caused by missing null check when parsing XMP profiles. Attackers can craft malicious image files with specially crafted XMP data to trigger the vulnerability and cause application crashes.",
+      "published": "2026-07-11T14:16:23.893",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61857"
     },
     {
-      "id": "CVE-2026-9017",
-      "summary": "The NEX-Forms \u2013 Ultimate Forms Plugin for WordPress plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 9.2.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to overwrite the saved_admin_email, saved_user_email, and saved_user_email_address fields of arbitrary form entries belonging to other users, and cause the site to dispatch attacker-controlled email content to attacker-chosen recipient addresses.",
-      "published": "2026-07-11T07:16:46.923",
+      "id": "CVE-2026-61465",
+      "summary": "ImageMagick before 7.1.2-26 and 6.9.13-51 is missing a check for the allowed memory allocation limit in matrix-backed operations such as -canny. An attacker can supply a crafted image that causes ImageMagick to allocate more memory than permitted by the configured policy, resulting in a denial of service.",
+      "published": "2026-07-11T14:16:23.767",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61465"
+    },
+    {
+      "id": "CVE-2026-61454",
+      "summary": "The Grav Admin2 plugin (getgrav/grav-plugin-admin2) before 2.0.4 embeds a global JavaScript variable window.__GRAV_CONFIG__ in the Admin2 SPA bootstrap page at /grav/admin (and its subroutes). This object is returned in every unauthenticated response and discloses the server URL, API prefix, admin base path, runtime environment type, and exact Grav and Admin2 version numbers, allowing an unauthenticated attacker to fingerprint the deployment and select version-specific exploits without reconnaissance.",
+      "published": "2026-07-11T14:16:23.630",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9017"
-    },
-    {
-      "id": "CVE-2026-6939",
-      "summary": "The CorvusPay WooCommerce Payment Gateway plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'approval_code' parameter in all versions up to, and including, 2.7.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The unauthenticated REST endpoint POST /wp-json/corvuspay/success/ is registered with permission_callback set to __return_true, and although a signature validation step exists it only logs the result without halting execution, meaning an attacker can supply a completely arbitrary signature and have a malicious approval_code stored in the database unchallenged.",
-      "published": "2026-07-11T07:16:46.787",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6939"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61454"
     }
   ]
 }
