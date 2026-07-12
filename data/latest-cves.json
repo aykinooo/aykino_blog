@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-07-12T22:05:40+00:00",
+  "generated_at": "2026-07-12T23:07:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-15507",
+      "summary": "A vulnerability was detected in coollabsio Coolify up to 4.1.1. The impacted element is an unknown function of the file /app/Policies/ of the component Policy Handler. Performing a manipulation results in missing authorization. Remote exploitation of the attack is possible. The exploit is now public and may be used.",
+      "published": "2026-07-12T22:16:35.917",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15507"
+    },
+    {
+      "id": "CVE-2026-15506",
+      "summary": "A security vulnerability has been detected in SecureAge CatchPulse up to 10.9.3. The affected element is an unknown function in the library saappctl.sys of the component Driver. Such manipulation leads to heap-based buffer overflow. An attack has to be approached locally. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure.",
+      "published": "2026-07-12T22:16:34.873",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15506"
+    },
     {
       "id": "CVE-2026-15505",
       "summary": "A weakness has been identified in vnotex vnote up to 3.20.1. Impacted is an unknown function of the file /src/data/extra/web/js/markdownit.js of the component YAML Frontmatter. This manipulation of the argument p_metaData causes cross site scripting. The attack may be initiated remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
@@ -29,20 +43,6 @@
       "published": "2026-07-12T17:16:24.550",
       "cvss": 8.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10666"
-    },
-    {
-      "id": "CVE-2026-10665",
-      "summary": "In Zephyr's WireGuard subsystem (subsys/net/lib/wireguard), wg_process_data_message() in wg_crypto.c linearizes an inbound transport-data payload into a fixed pool buffer of CONFIG_WIREGUARD_BUF_LEN bytes before decryption. The call net_buf_linearize(buf->data, data_len, pkt->buffer, ..., data_len) passed the attacker-derived data_len as both the destination capacity and the copy length, defeating the function's internal len = min(len, dst_len) bound. data_len is derived from the received UDP datagram length and is only lower-bounded by wg_ctrl_recv() (no upper bound). When data_len exceeds CONFIG_WIREGUARD_BUF_LEN \u2014 e.g. when the buffer length is lowered below the link MTU, on links with MTU above the buffer size, or via reassembled IPv4/IPv6 fragments that exceed it \u2014 the underlying memcpy writes past the end of the pool buffer, an out-of-bounds write (CWE-787). The overflow occurs before the Poly1305 authentication check, so it requires only a valid receiver session index rather than a valid authenticator, and is reachable by a malicious or compromised peer (or an on-path attacker driving an established session) over the network, yielding remote memory corruption and at minimum a reliable denial of service. The defect was present in the WireGuard implementation shipped in Zephyr 4.4.0. The fix adds an explicit data_len > CONFIG_WIREGUARD_BUF_LEN rejection and corrects the linearize call to pass net_buf_max_len(buf) as the destination capacity.",
-      "published": "2026-07-12T17:16:24.433",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10665"
-    },
-    {
-      "id": "CVE-2026-10664",
-      "summary": "The nRF70 Wi-Fi driver's power-save event handler nrf_wifi_event_proc_get_power_save_info() in drivers/wifi/nrf_wifi/src/wifi_mgmt.c copied TWT (Target Wake Time) flow entries from an nrf_wifi_umac_event_power_save_info event into the fixed-size twt_flows[WIFI_MAX_TWT_FLOWS] (8-element) array of a caller-supplied struct wifi_ps_config, looping over event-provided num_twt_flows without validating it against WIFI_MAX_TWT_FLOWS or checking event_len. When num_twt_flows exceeds 8, the handler writes past the destination array (which is typically on the caller's stack, e.g. the wifi ps shell command) -- an out-of-bounds write of ~40-byte TWT entries -- and reads twt_flow_info[i] past the event buffer. The event is delivered by the nRF70 co-processor firmware in response to a host-initiated power-save GET, so reaching the overflow requires the firmware to emit a malformed or out-of-range event; the trust boundary is host-to-trusted-coprocessor rather than a direct remote-AP write, with over-the-air influence on the flow count being indirect and bounded by the 3-bit TWT flow-id space. Affected: builds with CONFIG_NRF70_STA_MODE on releases through v4.4.0. The fix rejects events with num_twt_flows > WIFI_MAX_TWT_FLOWS or with event_len shorter than the claimed entries, and adds a NULL check on the caller buffer.",
-      "published": "2026-07-12T17:16:24.317",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10664"
     }
   ]
 }
