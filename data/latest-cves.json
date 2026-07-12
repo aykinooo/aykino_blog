@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-12T00:08:43+00:00",
+  "generated_at": "2026-07-12T03:53:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-58281",
-      "summary": "Deserialization of untrusted data in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
-      "published": "2026-07-11T21:16:23.903",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58281"
+      "id": "CVE-2026-15475",
+      "summary": "A weakness has been identified in MiniTool Partition Wizard up to 13.6. The affected element is an unknown function in the library pwdrvio.sys of the component Signed Kernel Driver. This manipulation causes improper access controls. The attack can only be executed locally. The exploit has been made available to the public and could be used for attacks. Upgrading to version 13.9 is sufficient to fix this issue. The affected component should be upgraded. The vendor was contacted early about this disclosure.",
+      "published": "2026-07-12T03:16:10.860",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15475"
     },
     {
-      "id": "CVE-2026-10660",
-      "summary": "The Bluetooth BAP Broadcast Assistant GATT client in subsys/bluetooth/audio/bap_broadcast_assistant.c reassembled remote Broadcast Receive State data into a single file-static net_buf_simple (att_buf, BT_ATT_MAX_ATTRIBUTE_LEN = 512 bytes) shared by all connection instances, while the BUSY flag, long-read handle, and reset/offset state were per-connection.\n\nWhen the device acts as a Broadcast Assistant connected to multiple Scan Delegator peripherals, notification and long-read callbacks from different connections interleave on the shared buffer: the append in notify_handler (net_buf_simple_add_mem at the not-busy branch) performs no tailroom check, so receive-state notifications from two or more delegators accumulate on the same 512-byte buffer and, with a sufficiently large configured ATT MTU (BT_L2CAP_TX_MTU up to 2000) and two-to-three concurrent connections, write past the buffer into adjacent .bss (net_buf_simple_add only asserts in debug builds).\n\nEven below the overflow threshold, one connection's net_buf_simple_reset zeroes the shared length while another connection's reassembly and GATT read offset are in flight, mixing one peer's data into another's parse. A malicious or compromised Scan Delegator (or two colluding peers) over BLE can trigger this, causing out-of-bounds writes (memory corruption / denial of service) and cross-connection data corruption.\n\nThe fix moves the buffer into the per-connection instance struct so each connection reassembles into its own buffer. Affects Zephyr releases shipping the Broadcast Assistant with the shared buffer, including v4.4.0 and earlier.",
-      "published": "2026-07-11T17:16:23.920",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10660"
+      "id": "CVE-2026-15474",
+      "summary": "A security flaw has been discovered in Eleveo Call Recording Software 9.7.0. Impacted is an unknown function of the file /callrec/audio.jsp of the component Call Recording Handler. The manipulation of the argument callId results in improper authorization. The attack may be performed from remote. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-12T03:16:10.700",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15474"
     },
     {
-      "id": "CVE-2026-61870",
-      "summary": "ImageMagick before 7.1.2-26 contains a memory leak vulnerability in the VIFF encoder when memory allocation fails. Attackers can trigger allocation failures by processing specially crafted VIFF images to exhaust available memory and cause denial of service.",
-      "published": "2026-07-11T14:16:24.270",
-      "cvss": 2.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61870"
+      "id": "CVE-2026-15473",
+      "summary": "A vulnerability was identified in Eleveo Call Recording Software 9.7.0. This issue affects some unknown processing of the file /callrec/restoreCallAction.do of the component Recorded Calls Page. The manipulation leads to improper authorization. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-12T03:16:09.530",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15473"
     },
     {
-      "id": "CVE-2026-61861",
-      "summary": "ImageMagick before 7.1.2-26 contains a use-after-free vulnerability in the FormatMagickCaption method when memory allocation fails. Attackers can trigger memory allocation failures to cause a dangling pointer to reference freed memory, potentially enabling denial of service or code execution.",
-      "published": "2026-07-11T14:16:24.143",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61861"
+      "id": "CVE-2026-15472",
+      "summary": "A vulnerability was determined in Eleveo Call Recording Software 9.7.0. This vulnerability affects unknown code of the file /callrec/composeEmailAction.do. Executing a manipulation can lead to improper authorization. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-12T02:16:16.380",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15472"
     },
     {
-      "id": "CVE-2026-61858",
-      "summary": "ImageMagick before 7.1.2-26 contains a policy bypass vulnerability in the APNG encoder and external delegates due to missing validation checks. Attackers can write files to disallowed paths by bypassing configured policy restrictions through the APNG encoding process.",
-      "published": "2026-07-11T14:16:24.020",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61858"
+      "id": "CVE-2026-15471",
+      "summary": "A vulnerability was found in Eleveo Call Recording Software 9.7.0. This affects an unknown part of the file /callrec/pci_dss_status.jsp. Performing a manipulation results in improper authorization. Remote exploitation of the attack is possible. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-12T02:16:14.703",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15471"
     },
     {
-      "id": "CVE-2026-61857",
-      "summary": "ImageMagick before 7.1.2-26 contains a heap use-after-free vulnerability caused by missing null check when parsing XMP profiles. Attackers can craft malicious image files with specially crafted XMP data to trigger the vulnerability and cause application crashes.",
-      "published": "2026-07-11T14:16:23.893",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61857"
+      "id": "CVE-2026-15470",
+      "summary": "A vulnerability has been found in Eleveo Call Recording Software 9.7.0. Affected by this issue is some unknown functionality of the file /callrec/group.jsp. Such manipulation leads to improper authorization. The attack may be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-12T00:16:17.480",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15470"
     }
   ]
 }
