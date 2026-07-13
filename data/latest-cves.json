@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-13T17:21:25+00:00",
+  "generated_at": "2026-07-13T19:46:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-57433",
-      "summary": "Storable versions before 3.41 for Perl have a signed integer overflow when deserializing a crafted SX_HOOK record.\n\nretrieve_hook_common reads a signed 32-bit item count from an SX_HOOK record and calls av_extend with that count plus one. A count of I32_MAX wraps the addition to a negative value.\n\nA crafted blob passed to thaw or retrieve triggers the overflow; av_extend receives the negative count and dies with a panic, terminating the deserialization.",
-      "published": "2026-07-13T17:17:55.783",
+      "id": "CVE-2026-6875",
+      "summary": "ServiceNow has addressed a remote code execution vulnerability that was identified in the ServiceNow AI platform. This vulnerability could enable an unauthenticated user, in certain circumstances, to execute code within the ServiceNow platform.\n\n\nServiceNow addressed this vulnerability by deploying a security update to hosted instances. Relevant security updates have also been provided to ServiceNow self-hosted customers and partners.\n\n\n\n\nFurther, the vulnerability is addressed in the listed patches and family releases, which have been made available to hosted and self-hosted customers, as well as partners. We are not currently aware of exploitation against ServiceNow instances.\n\n\n\n\nWe recommend customers promptly apply appropriate updates or upgrade to a patched release if they have not already done so.",
+      "published": "2026-07-13T19:17:36.440",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57433"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6875"
     },
     {
-      "id": "CVE-2026-57432",
-      "summary": "Perl versions through 5.43.10 have an integer overflow in S_measure_struct leading to an out-of-bounds heap read in pack and unpack.\n\nS_measure_struct adds each item's size times its repeat count to a running total with no overflow check, so a large repeat count in a pack or unpack template wraps the signed SSize_t total negative. The @, X, and x position codes then guard their moves with a signed length comparison that passes when the length is negative, advancing the buffer pointer out of bounds.\n\nA template derived from untrusted input can read heap memory past the buffer and return it to the caller.",
-      "published": "2026-07-13T17:17:55.670",
+      "id": "CVE-2026-58228",
+      "summary": "Cross-site scripting vulnerability in phoenixframework phoenix_live_view allows an attacker to bypass URL scheme validation and execute JavaScript in a victim's browser session.\n\nThe Phoenix.LiveView.Utils.valid_destination!/2 and Phoenix.LiveView.Utils.valid_live_navigation_destination!/2 functions in lib/phoenix_live_view/utils.ex rely on an internal uri_scheme/1 helper that only detects a scheme when the input's first byte is an ASCII letter. Inputs beginning with an ASCII control character or space fall through to a nil-returning clause, causing the URL to be treated as a safe relative path.\n\nStandard browsers implement the WHATWG URL parser, which strips leading C0 control and space characters before parsing. As a result, an input such as \" javascript:alert(1)\" is passed unchanged into <.link href={...}> and, when clicked, is parsed by the browser as a javascript: URL that executes attacker-controlled script in the victim's session.\n\nApplications that render user-supplied URLs (for example profile links, redirect targets, or external references) via <.link href={...}> are affected.\n\nThis issue affects phoenix_live_view: from 1.2.2 before 1.2.7.",
+      "published": "2026-07-13T19:17:30.317",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57432"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58228"
     },
     {
-      "id": "CVE-2026-13221",
-      "summary": "Perl versions through 5.43.9 produce silently incorrect regular expression matches when an alternation of more than 65535 fixed string branches is compiled into a trie in Perl_study_chunk.\n\nWhen such branches are combined into a trie, the delta between the first branch and the shared tail is stored in a 16-bit field. A branch count above 65535 overflows the field, and the trie's match decision table is truncated with no warning or error.\n\nA pattern of this shape produces false positive matches (matching strings it should not) and false negative matches (failing to match strings it should). When such a pattern gates an access or filtering decision, the result is wrong.",
-      "published": "2026-07-13T17:16:48.923",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13221"
+      "id": "CVE-2026-55772",
+      "summary": "CedarJava is an open source Java implementation of the Cedar policy language, used for fine-grained authorization decisions. In versions prior to 2.3.6, 3.4.1 and 4.9.0, under certain circumstances, improper input handling could allow Record-to-Entity type confusion across the Java-Rust FFI boundary. CedarJava sends authorization requests to the Rust cedar-policy evaluator as JSON. The JSON protocol reserves magic single-key object shapes (__entity and __extn) for entity references and extension values. When serializing a CedarMap, there is no validation preventing these reserved keys from being used. If an integrating service builds a CedarMap from caller-supplied key/value data (such as request headers, user-defined metadata, or resource tags), an actor who controls those keys could cause the Rust evaluator to interpret a record as an entity reference. This issue requires the integrating service to build a CedarMap where the an actor controls the keys, and a policy must reference that value in a when/unless clause. This vulnerability has been fixed in versions 2.3.6, 3.4.1, and 4.9.",
+      "published": "2026-07-13T19:17:15.183",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55772"
     },
     {
-      "id": "CVE-2026-59245",
-      "summary": "In the Apache Airflow FAB auth manager, a DAG whose `dag_id` is `DAGs` collided with the global all-DAGs permission resource name produced by `resource_name()`, so a user granted per-DAG `access_control` on that one DAG was silently granted the global all-DAGs permission (privilege escalation). The escalation triggers when a DAG named `DAGs` exists and a lower-privileged user is given per-DAG access to it, granting that user read/edit access to every DAG. Users are advised to upgrade to `apache-airflow-providers-fab` 3.7.2 or later, which disambiguates the resource-name collision.",
-      "published": "2026-07-13T16:16:41.880",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59245"
+      "id": "CVE-2026-49972",
+      "summary": "Laravel-Mediable before 7.0.0 contains a file upload vulnerability that allows unauthenticated attackers to achieve remote code execution by uploading a file with an embedded PHP extension disguised within a double extension such as shell.php.jpg. The PATHINFO_FILENAME extraction preserves the inner .php extension in the base name, and on misconfigured Apache or nginx servers that execute any filename containing .php as PHP, the stored file is interpreted as executable code while all MIME type, extension, and aggregate type validation checks pass due to the outer .jpg extension.",
+      "published": "2026-07-13T19:17:10.447",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49972"
     },
     {
-      "id": "CVE-2026-58065",
-      "summary": "The Apache Airflow Git provider runs its git-over-SSH operations with `StrictHostKeyChecking=no` by default, disabling SSH host-key verification. An attacker who can intercept the network path between an Airflow worker and the Git server can impersonate the server (man-in-the-middle), capturing the SSH deploy key or injecting malicious repository content. Deployments that use the Git DAG bundle or Git provider to clone over SSH with a deploy key are affected. The fix changes the default to verify host keys; upgrade to apache-airflow-providers-git `0.4.1` or later and configure a `known_hosts` file.",
-      "published": "2026-07-13T16:16:41.757",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58065"
+      "id": "CVE-2026-49971",
+      "summary": "Laravel-Mediable before 7.0.0 contains a stored cross-site scripting vulnerability that allows authenticated or anonymous users to execute arbitrary JavaScript by uploading unsanitized SVG files containing embedded scripts in onload event handlers, script tags, or foreignObject elements. Attackers can store persistent XSS payloads in uploaded SVG files that execute with full DOM access when victims open or preview the file, enabling session cookie theft, CSRF token capture, and account takeover.",
+      "published": "2026-07-13T19:17:10.250",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49971"
     },
     {
-      "id": "CVE-2026-6847",
-      "summary": "Remote Code Execution vulnerability exists in ThemisNETPanel due to missing authentication for a critical file upload function. The application exposes an endpoint that allows unauthenticated attackers to upload arbitrary PHP files by providing a base64-encoded payload and to\u00a0execute arbitrary code on the underlying server. This issue has been fixed by a patch released in April 2026.",
-      "published": "2026-07-13T14:16:32.963",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6847"
+      "id": "CVE-2026-49970",
+      "summary": "Laravel-Mediable before 7.0.0 contains a path traversal vulnerability in the File::sanitizePath() function that allows attackers to write uploaded files to arbitrary locations by controlling the directory argument passed to MediaUploader::toDestination(). Attackers can exploit the permissive character-class regex that allows both dot and slash characters combined with an ineffective trailing trim() call to bypass sanitization and upload files to sensitive locations such as the document root, environment configuration files, or application configuration directories, enabling remote code execution.",
+      "published": "2026-07-13T19:17:09.943",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49970"
     }
   ]
 }
