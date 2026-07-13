@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-13T15:08:45+00:00",
+  "generated_at": "2026-07-13T17:21:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-57433",
+      "summary": "Storable versions before 3.41 for Perl have a signed integer overflow when deserializing a crafted SX_HOOK record.\n\nretrieve_hook_common reads a signed 32-bit item count from an SX_HOOK record and calls av_extend with that count plus one. A count of I32_MAX wraps the addition to a negative value.\n\nA crafted blob passed to thaw or retrieve triggers the overflow; av_extend receives the negative count and dies with a panic, terminating the deserialization.",
+      "published": "2026-07-13T17:17:55.783",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57433"
+    },
+    {
+      "id": "CVE-2026-57432",
+      "summary": "Perl versions through 5.43.10 have an integer overflow in S_measure_struct leading to an out-of-bounds heap read in pack and unpack.\n\nS_measure_struct adds each item's size times its repeat count to a running total with no overflow check, so a large repeat count in a pack or unpack template wraps the signed SSize_t total negative. The @, X, and x position codes then guard their moves with a signed length comparison that passes when the length is negative, advancing the buffer pointer out of bounds.\n\nA template derived from untrusted input can read heap memory past the buffer and return it to the caller.",
+      "published": "2026-07-13T17:17:55.670",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57432"
+    },
+    {
+      "id": "CVE-2026-13221",
+      "summary": "Perl versions through 5.43.9 produce silently incorrect regular expression matches when an alternation of more than 65535 fixed string branches is compiled into a trie in Perl_study_chunk.\n\nWhen such branches are combined into a trie, the delta between the first branch and the shared tail is stored in a 16-bit field. A branch count above 65535 overflows the field, and the trie's match decision table is truncated with no warning or error.\n\nA pattern of this shape produces false positive matches (matching strings it should not) and false negative matches (failing to match strings it should). When such a pattern gates an access or filtering decision, the result is wrong.",
+      "published": "2026-07-13T17:16:48.923",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13221"
+    },
+    {
+      "id": "CVE-2026-59245",
+      "summary": "In the Apache Airflow FAB auth manager, a DAG whose `dag_id` is `DAGs` collided with the global all-DAGs permission resource name produced by `resource_name()`, so a user granted per-DAG `access_control` on that one DAG was silently granted the global all-DAGs permission (privilege escalation). The escalation triggers when a DAG named `DAGs` exists and a lower-privileged user is given per-DAG access to it, granting that user read/edit access to every DAG. Users are advised to upgrade to `apache-airflow-providers-fab` 3.7.2 or later, which disambiguates the resource-name collision.",
+      "published": "2026-07-13T16:16:41.880",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59245"
+    },
+    {
+      "id": "CVE-2026-58065",
+      "summary": "The Apache Airflow Git provider runs its git-over-SSH operations with `StrictHostKeyChecking=no` by default, disabling SSH host-key verification. An attacker who can intercept the network path between an Airflow worker and the Git server can impersonate the server (man-in-the-middle), capturing the SSH deploy key or injecting malicious repository content. Deployments that use the Git DAG bundle or Git provider to clone over SSH with a deploy key are affected. The fix changes the default to verify host keys; upgrade to apache-airflow-providers-git `0.4.1` or later and configure a `known_hosts` file.",
+      "published": "2026-07-13T16:16:41.757",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58065"
+    },
     {
       "id": "CVE-2026-6847",
       "summary": "Remote Code Execution vulnerability exists in ThemisNETPanel due to missing authentication for a critical file upload function. The application exposes an endpoint that allows unauthenticated attackers to upload arbitrary PHP files by providing a base64-encoded payload and to\u00a0execute arbitrary code on the underlying server. This issue has been fixed by a patch released in April 2026.",
       "published": "2026-07-13T14:16:32.963",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6847"
-    },
-    {
-      "id": "CVE-2026-61498",
-      "summary": "Vitec Flamingo 4.12.2 contains an unauthenticated OS command injection vulnerability in the admin/ajax/gen_graphs.php endpoint that allows remote unauthenticated attackers to execute arbitrary commands by supplying shell metacharacters in the start, end, key, or format HTTP GET parameters. Attackers can exploit the lack of input sanitization in the graph generation script, which passes user-supplied values directly to shell commands via passthru(), to execute arbitrary OS commands with root privileges due to the web server context having passwordless sudo access.",
-      "published": "2026-07-13T14:16:32.213",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61498"
-    },
-    {
-      "id": "CVE-2026-60121",
-      "summary": "Vitec Flamingo 4.12.2 contains an unauthenticated OS command injection vulnerability in the admin/ajax/ping.php endpoint that allows remote attackers to execute arbitrary commands by exploiting a double-evaluation flaw in shell argument handling. The endpoint applies escapeshellarg() to the user-supplied host POST parameter before passing it to a system wrapper, but the wrapper retrieves the decoded value from argv and incorporates it into a second shell_exec() call without escaping, allowing injected commands to execute with root privileges via passwordless sudo.",
-      "published": "2026-07-13T14:16:32.067",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60121"
-    },
-    {
-      "id": "CVE-2026-40553",
-      "summary": "Buffer overflow vulnerability has been found in \"extension/readdir.c\" program file of gawk (ftype()\u00a0routine). This issue could be used to crash the program and potentially to achieve code execution, although the latter has not been confirmed to be feasible. It affects\u00a0gawk in versions 5.4.0 and below.",
-      "published": "2026-07-13T13:16:37.147",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40553"
-    },
-    {
-      "id": "CVE-2026-40469",
-      "summary": "Integer overflow vulnerability has been found in \"builtin.c\" program file of gawk (do_sub() routine). This issue could be used to overwrite gawk heap metadata and objects causing the program to crash. It affects\u00a032-bit builds of gawk in versions 5.4.0 and below.",
-      "published": "2026-07-13T13:16:37.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40469"
-    },
-    {
-      "id": "CVE-2026-40468",
-      "summary": "Integer overflow vulnerability has been found in \"builtin.c\" program file of gawk. This issue may lead to memory exhaustion on the hosting operating system and could be used to overwrite gawk heap metadata and objects with attacker-controlled bytes. It affects\u00a0gawk in versions 5.4.0 and below.",
-      "published": "2026-07-13T13:16:36.907",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40468"
     }
   ]
 }
