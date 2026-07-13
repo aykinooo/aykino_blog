@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-13T11:26:53+00:00",
+  "generated_at": "2026-07-13T15:08:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9824",
-      "summary": "Mattermost versions 11.7.x <= 11.7.2, 11.6.x <= 11.6.4, 10.11.x <= 10.11.19 fail to check the manage_shared_channels permission in the /share-channel autocomplete handler, which allows an authenticated user without that permission to enumerate configured remote cluster connection metadata via slash command autocomplete.. Mattermost Advisory ID: MMSA-2026-00676",
-      "published": "2026-07-13T11:16:28.317",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9824"
-    },
-    {
-      "id": "CVE-2026-9820",
-      "summary": "Mattermost versions 11.7.x <= 11.7.2, 10.11.x <= 10.11.19 fail to sanitize team objects returned by the scheme teams endpoint, which allows a user with the User Manager role to obtain invite links for private teams and use them to join or share access to those teams via the scheme teams API endpoint.. Mattermost Advisory ID: MMSA-2026-00671",
-      "published": "2026-07-13T11:16:28.203",
-      "cvss": 3.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9820"
-    },
-    {
-      "id": "CVE-2026-6541",
-      "summary": "Mattermost versions 11.7.x <= 11.7.1, 11.6.x <= 11.6.4, 10.11.x <= 10.11.19 fail to restrict metric configuration changes to the playbook being saved, which allows an authenticated user with team access to alter another user\u2019s playbook metric settings via a crafted import or update request with a foreign metric ID. Mattermost Advisory ID: MMSA-2026-00653",
-      "published": "2026-07-13T11:16:28.080",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6541"
-    },
-    {
-      "id": "CVE-2026-4765",
-      "summary": "Stored Cross-Site Scripting (XSS) vulnerability in the RD Station Conversas chat. The vulnerability resides in the \u2018name\u2019 parameter of the initialization process due to improper sanitization of user input. The vulnerability is not limited to self-exploitation: when a support agent joins the conversation, the malicious script also executes in their browser, increasing the impact. Successful exploitation of this vulnerability could allow an attacker to execute arbitrary JavaScript code within the context of the application.",
-      "published": "2026-07-13T11:16:27.450",
+      "id": "CVE-2026-6847",
+      "summary": "Remote Code Execution vulnerability exists in ThemisNETPanel due to missing authentication for a critical file upload function. The application exposes an endpoint that allows unauthenticated attackers to upload arbitrary PHP files by providing a base64-encoded payload and to\u00a0execute arbitrary code on the underlying server. This issue has been fixed by a patch released in April 2026.",
+      "published": "2026-07-13T14:16:32.963",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4765"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6847"
     },
     {
-      "id": "CVE-2026-14934",
-      "summary": "A Missing Authorization vulnerability in the repository creation functionality in Google Cloud BigQuery, Dataform and Colab Enterprise, in the versions between October 2025 and May 10th, 2026, on Google Cloud Platform, allows an authenticated attacker to escalate privileges and perform cross-tenant repository takeover.\n\n\nThis vulnerability was patched on 10 May 2026, and no customer action is needed.",
-      "published": "2026-07-13T11:16:26.470",
+      "id": "CVE-2026-61498",
+      "summary": "Vitec Flamingo 4.12.2 contains an unauthenticated OS command injection vulnerability in the admin/ajax/gen_graphs.php endpoint that allows remote unauthenticated attackers to execute arbitrary commands by supplying shell metacharacters in the start, end, key, or format HTTP GET parameters. Attackers can exploit the lack of input sanitization in the graph generation script, which passes user-supplied values directly to shell commands via passthru(), to execute arbitrary OS commands with root privileges due to the web server context having passwordless sudo access.",
+      "published": "2026-07-13T14:16:32.213",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61498"
+    },
+    {
+      "id": "CVE-2026-60121",
+      "summary": "Vitec Flamingo 4.12.2 contains an unauthenticated OS command injection vulnerability in the admin/ajax/ping.php endpoint that allows remote attackers to execute arbitrary commands by exploiting a double-evaluation flaw in shell argument handling. The endpoint applies escapeshellarg() to the user-supplied host POST parameter before passing it to a system wrapper, but the wrapper retrieves the decoded value from argv and incorporates it into a second shell_exec() call without escaping, allowing injected commands to execute with root privileges via passwordless sudo.",
+      "published": "2026-07-13T14:16:32.067",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60121"
+    },
+    {
+      "id": "CVE-2026-40553",
+      "summary": "Buffer overflow vulnerability has been found in \"extension/readdir.c\" program file of gawk (ftype()\u00a0routine). This issue could be used to crash the program and potentially to achieve code execution, although the latter has not been confirmed to be feasible. It affects\u00a0gawk in versions 5.4.0 and below.",
+      "published": "2026-07-13T13:16:37.147",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14934"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40553"
     },
     {
-      "id": "CVE-2026-61985",
-      "summary": "Missing Authorization vulnerability in magepeopleteam Car Rental Manager car-rental-manager allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Car Rental Manager: from n/a through <= 1.3.7.",
-      "published": "2026-07-13T10:16:47.633",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61985"
+      "id": "CVE-2026-40469",
+      "summary": "Integer overflow vulnerability has been found in \"builtin.c\" program file of gawk (do_sub() routine). This issue could be used to overwrite gawk heap metadata and objects causing the program to crash. It affects\u00a032-bit builds of gawk in versions 5.4.0 and below.",
+      "published": "2026-07-13T13:16:37.033",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40469"
+    },
+    {
+      "id": "CVE-2026-40468",
+      "summary": "Integer overflow vulnerability has been found in \"builtin.c\" program file of gawk. This issue may lead to memory exhaustion on the hosting operating system and could be used to overwrite gawk heap metadata and objects with attacker-controlled bytes. It affects\u00a0gawk in versions 5.4.0 and below.",
+      "published": "2026-07-13T13:16:36.907",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40468"
     }
   ]
 }
