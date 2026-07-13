@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-13T22:08:21+00:00",
+  "generated_at": "2026-07-13T23:10:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-58410",
-      "summary": "ChurchCRM is an open-source church management system. Prior to version 7.4.0, there was an authorization flaw in the family-scoped endpoints which allowed low-privileged users to read and modify other families\u2019 records. An authenticated non-admin user with EditSelf access can supply another family\u2019s `familyId` and access records outside their own family scope. The backend trusts the attacker-controlled `familyId`\u00a0and loads the corresponding family entity by ID without verifying that the requested family belongs to the current user. If the same user also has Notes permission, they can create notes on another family\u2019s record. This breaks the intended EditSelf scope and allows access to unrelated congregation records. This issue has been fixed in version 7.4.0.",
-      "published": "2026-07-13T21:16:48.573",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58410"
+      "id": "CVE-2026-62328",
+      "summary": "9Router through version 0.4.41 contain an unauthenticated information disclosure vulnerability that allows remote attackers to access sensitive user data by sending requests to unprotected API endpoints. Attackers can enumerate paginated request logs and retrieve complete AI conversation histories including system prompts, user messages, assistant responses, tool calls, and user email addresses by querying the request-logs and request-details API routes which lack authentication middleware.",
+      "published": "2026-07-13T22:16:52.550",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62328"
     },
     {
-      "id": "CVE-2026-58409",
-      "summary": "ChurchCRM is an open-source church management system. Prior to version 7.4.0, an authenticated administrator can achieve Remote Code Execution (RCE) on the server by installing a malicious plugin ZIP archive containing a PHP webshell. The application explicitly includes 'php' in its ALLOWED_EXTENSIONS list, while the dangerous extensions denylist (DENIED_EXTENSIONS) fails to block standard .php files. Because `php` is explicitly included in the allowed extension list for plugin archives, and extracted files are placed directly under the web root, any PHP file inside the ZIP becomes immediately executable via HTTP \u2014 without even needing to \"enable\" the plugin through the application UI. The /plugins/install-url API route (management.php) allows an administrator to source the malicious ZIP from any attacker-controlled HTTPS URL, validating it only against an attacker-supplied SHA-256 hash. This issue has been fixed in version 7.4.0.",
-      "published": "2026-07-13T21:16:48.450",
+      "id": "CVE-2026-62327",
+      "summary": "9Router through version 0.4.41 contain an unauthenticated information disclosure vulnerability that allows remote attackers to retrieve plaintext API keys for all connected AI provider accounts by sending a single unauthenticated request to the /api/usage/stats endpoint. Attackers can exploit the missing authentication middleware on the Next.js API route to obtain full API key strings alongside token counts, cost breakdowns, and request metadata, enabling unauthorized use of connected AI provider accounts, billing fraud, and quota exhaustion.",
+      "published": "2026-07-13T22:16:52.403",
       "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58409"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62327"
     },
     {
-      "id": "CVE-2026-48364",
-      "summary": "ColdFusion versions 2025.9, 2023.20 and earlier are affected by an Uncontrolled Search Path Element vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file. Scope is changed.",
-      "published": "2026-07-13T21:16:48.337",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48364"
+      "id": "CVE-2026-62242",
+      "summary": "Spring Boot Admin Server before 4.1.2 contains a server-side request forgery vulnerability that allows unauthenticated attackers to register instances with attacker-controlled healthUrl and managementUrl parameters without validation against private IP ranges or metadata endpoints. Attackers can force the server to make HTTP requests to arbitrary internal addresses and retrieve response bodies via the actuator proxy to exfiltrate cloud credentials.",
+      "published": "2026-07-13T22:16:52.260",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62242"
     },
     {
-      "id": "CVE-2026-48363",
-      "summary": "ColdFusion versions 2025.9, 2023.20 and earlier are affected by an Uncontrolled Search Path Element vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file. Scope is changed.",
-      "published": "2026-07-13T21:16:47.857",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48363"
+      "id": "CVE-2026-62240",
+      "summary": "CrewAI before 1.15.1 contains a server-side request forgery vulnerability in the validate_url function that performs one-shot DNS resolution and blocklist checks before returning the original URL unchanged. Attackers can bypass the security filter by supplying URLs that redirect to internal addresses or use DNS rebinding techniques to access internal services and cloud metadata endpoints.",
+      "published": "2026-07-13T22:16:52.117",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62240"
     },
     {
-      "id": "CVE-2026-15595",
-      "summary": "A vulnerability was determined in SourceCodester Class and Exam Timetabling System 1.0. The affected element is an unknown function of the file /forsubject.php. This manipulation of the argument subject causes cross site scripting. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-07-13T21:16:40.127",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15595"
+      "id": "CVE-2026-62239",
+      "summary": "FlashAttention through 2.8.3.post1, fixed in commit 0816ef1, contains a symlink attack vulnerability in the download_and_copy() function within hopper/setup.py that extracts NVIDIA toolchain archives without validating symlinks or filtering tar members. A local attacker can pre-plant a symlink in the predictable cache directory to redirect extracted binaries to an attacker-chosen location, enabling arbitrary file write with victim privileges during build time.",
+      "published": "2026-07-13T22:16:51.967",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62239"
     },
     {
-      "id": "CVE-2026-15594",
-      "summary": "A vulnerability was found in waooAI waoowaoo up to 0.4.1. Impacted is the function stablePublicIdFromStorageKey in the library src/lib/media/hash.ts of the component Media Handler. The manipulation of the argument storageKey results in improper authorization. The attack may be performed from remote. The attack requires a high level of complexity. The exploitability is considered difficult. The exploit has been made public and could be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-07-13T21:16:39.103",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15594"
+      "id": "CVE-2026-62200",
+      "summary": "OpenClaw versions before 2026.6.1 contain a flaw in host exec environment filtering that could allow Git ext transport to be abused. When the affected feature is enabled and reachable, a lower-trust caller or configured input path could execute or persist actions beyond the caller's intended authorization.",
+      "published": "2026-07-13T22:16:51.813",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62200"
     }
   ]
 }
