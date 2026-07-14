@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-14T00:05:38+00:00",
+  "generated_at": "2026-07-14T03:30:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-58489",
-      "summary": "HedgeDoc is an open source, real-time collaborative markdown notes application. Prior to 1.11.0, the GitHub Gist export flow created an OAuth2 \u00a0state\u00a0 value but only checked that it was present rather than validating it against the value expected for the user's session. Because the state was not properly validated, an attacker could forge a callback URL containing their own valid GitHub OAuth code. When processing the callback, HedgeDoc used the victim's logged-in session to select which note to export, but the attacker's authorization code to determine which GitHub account received it. As a result, a logged-in victim who clicked a crafted link could export their own private, protected, or limited note directly into a Gist controlled by the attacker. This issue has been fixed in version 1.11.0.",
-      "published": "2026-07-13T23:16:47.373",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58489"
+      "id": "CVE-2026-7640",
+      "summary": "The WP Customer Area plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'type' attribute of the `customer-area-protected-content` shortcode in all versions up to, and including, 8.3.5. This is due to insufficient input sanitization and output escaping on the shortcode attribute. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-07-14T02:16:57.980",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7640"
     },
     {
-      "id": "CVE-2026-58486",
-      "summary": "HedgeDoc is an open source, real-time, collaborative, markdown notes application. Prior to version 1.11.0, HedgeDoc was vulnerable to a YAML alias bomb due to unsafe processing of the note frontmatter. HedgeDoc parsed frontmatter with js-yaml.load (js-yaml v3) via @hedgedoc/meta-marked, which resolved YAML anchor aliases. A compact malicious payload could therefore expand into a huge object structure, consuming excessive CPU. This expansion ran on every request to the publish view (/s/<shortid>) and, when placed under the opengraph key, the editor view (/<noteId>). A ten-level alias bomb could block the single Node.js event loop for roughly 235 seconds per request, causing concurrent requests to hang or drop and rendering the instance unavailable (DoS). Because the note was stored in the database, the impact survived process restarts until the note was removed. toobusy-js did not reliably mitigate the worst cases, as the event loop was saturated before the middleware could respond. This issue was fixed in version 1.11.0.",
-      "published": "2026-07-13T23:16:47.233",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58486"
+      "id": "CVE-2026-15625",
+      "summary": "A vulnerability was found in nextlevelbuilder GoClaw 3.11.3. Affected by this issue is the function ExecApprovalManager.CheckCommand of the file internal/tools/exec_approval.go. The manipulation results in incomplete blacklist. The attack can be executed remotely. The exploit has been made public and could be used.",
+      "published": "2026-07-14T02:16:54.550",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15625"
     },
     {
-      "id": "CVE-2026-58102",
-      "summary": "Crypt::OpenSSL::X509 versions before 2.1.3 for Perl allow a heap out-of-bounds read via a long certificate extension OID in hv_exts.\n\nWhen building the extension hash (via extensions(), extensions_by_long_name(), extensions_by_oid(), or has_extension_oid()), the code passes OBJ_obj2txt()'s return value as the hash-key length; because that value is the OID's full text length rather than the bytes written to the fixed-size buffer (129 bytes), an OID whose text is longer than the 129-byte buffer causes a read past the allocation, exposing adjacent heap memory as the returned hash key. extensions_by_name() uses the static shortname path and is not affected.",
-      "published": "2026-07-13T23:16:47.127",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58102"
+      "id": "CVE-2026-15624",
+      "summary": "A vulnerability has been found in nextlevelbuilder GoClaw 3.13.3-beta.3. Affected by this vulnerability is the function bytePlusDownloadVideo of the file internal/tools/create_video_byteplus.go of the component invoke Endpoint. The manipulation of the argument output.video_url leads to server-side request forgery. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-07-14T02:16:54.393",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15624"
     },
     {
-      "id": "CVE-2026-58101",
-      "summary": "Crypt::OpenSSL::X509 versions before 2.1.3 for Perl allow denial of service via NULL pointer dereference.\n\nX509V3_EXT_d2i(ext) returns NULL when an extension's DER value fails to parse. basicC, ia5string, and auth_att dereference its result without a NULL check. keyid_data also dereferences akid->keyid, which is NULL for an empty AKI SEQUENCE (DER 30 00) even when the parse succeeds.\n\nA caller invoking an affected helper on an extension from an untrusted certificate triggers a SIGSEGV that crashes the Perl process.",
-      "published": "2026-07-13T23:16:47.020",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58101"
+      "id": "CVE-2026-15622",
+      "summary": "A flaw has been found in poco-ai poco-claw up to 0.5.4. Affected is the function get_workspace_file of the file executor_manager/app/api/v1/workspace.py of the component Workspace API. Executing a manipulation of the argument user_id can lead to authorization bypass. The attack may be launched remotely. The exploit has been published and may be used. This patch is called 67fcc88505c57f77d3fcf04eb5b89425b10cbf48. Upgrading the affected component is recommended.",
+      "published": "2026-07-14T02:16:54.223",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15622"
     },
     {
-      "id": "CVE-2026-57856",
-      "summary": "Cockpit CMS contains a path traversal vulnerability in the Bucket file storage API (/system/buckets/api). The api() method in modules/System/Controller/Buckets.php sanitizes the bucket name with preg_replace('/[^a-zA-Z0-9-_\\\\.]/','', $bucket), which permits '..' and '../' sequences. The sanitized value is interpolated into a Flysystem path as uploads://buckets/{bucket}. Flysystem's WhitespacePathNormalizer resolves 'buckets/..' to the empty string (the uploads storage root) without raising PathTraversalDetected because the '..' has a preceding component to consume. An authenticated low-privileged user can send a crafted request with a '../' bucket name to list, upload, and delete files across all buckets, including those belonging to other users or roles",
-      "published": "2026-07-13T23:16:46.883",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57856"
+      "id": "CVE-2026-11802",
+      "summary": "The FoodBook Lite - Online Food Ordering System plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 1.5.6. The registration() function, accessible via the wp_ajax_nopriv_registration_action AJAX action, lacks any nonce verification or capability check, and does not check the WordPress users_can_register option before calling wp_insert_user(). This makes it possible for unauthenticated attackers to create new user accounts with the 'customer' role and receive authentication cookies, even when the site administrator has explicitly disabled user registration.",
+      "published": "2026-07-14T02:16:52.577",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11802"
     },
     {
-      "id": "CVE-2026-57855",
-      "summary": "Cockpit CMS contains a missing authorization vulnerability in the Bucket file storage API (/system/buckets/api). The api() method in modules/System/Controller/Buckets.php executes bucket commands (ls, upload, removefiles, rename, createfolder) without performing any ACL or role check. Any authenticated user, regardless of role, can perform all bucket operations on any named bucket, including buckets intended for admin use only.",
-      "published": "2026-07-13T23:16:46.743",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57855"
+      "id": "CVE-2026-11390",
+      "summary": "The News Kit Addons For Elementor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Site Logo Title and Single Author Box Widgets in all versions up to, and including, 1.4.6 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires an attacker to intercept and modify the elementor_ajax AJAX save request in order to bypass the client-side SELECT control restrictions and submit arbitrary tag-name values.",
+      "published": "2026-07-14T02:16:52.280",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11390"
     }
   ]
 }
