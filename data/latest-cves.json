@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-14T21:13:12+00:00",
+  "generated_at": "2026-07-14T22:12:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53633",
-      "summary": "Vitest is a testing framework powered by Vite. From 3.0.0 until 3.2.5, 4.1.8, and 5.0.0-beta.4, Vitest Browser Mode exposed a cdp() API that forwarded raw Chrome DevTools Protocol methods without being gated by allowWrite or allowExec, allowing a remote client with exposed browser API metadata to use CDP Page.setDownloadBehavior and Runtime.evaluate to overwrite vite.config.ts and execute attacker-controlled Node.js code. This issue is fixed in versions 3.2.5, 4.1.8, and 5.0.0-beta.",
-      "published": "2026-07-14T20:17:42.173",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53633"
+      "id": "CVE-2026-61520",
+      "summary": "Simple Machines Forum 2.1 prior to commit 4bf35cf and 3.0 prior to commit b4d23df contains a server-side request forgery vulnerability in the image proxy that allows authenticated attackers to trigger internal HTTP requests by embedding attacker-controlled URLs in BBCode image tags, which the proxy fetches without validating resolved destination IPs against private address ranges, loopback, or link-local addresses. Attackers can leverage SMF's automatic HMAC signature generation for any embedded image URL to obtain valid signed proxy requests targeting internal services such as cloud instance metadata endpoints, internal web applications, and container network services.",
+      "published": "2026-07-14T21:17:06.290",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61520"
     },
     {
-      "id": "CVE-2026-50659",
-      "summary": "Improper encoding or escaping of output in .NET allows an authorized attacker to perform spoofing over a network.",
-      "published": "2026-07-14T20:17:38.917",
+      "id": "CVE-2026-59889",
+      "summary": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. From 2.18.0 until 2.18.9, 2.21.5, 2.22.1, 3.1.5, and 3.2.1, UnwrappedPropertyHandler.processUnwrapped() replays buffered JSON for a @JsonUnwrapped property and calls prop.deserializeAndSet() without a prop.visibleInView(ctxt.getActiveView()) guard, allowing a property annotated with both @JsonView and @JsonUnwrapped to be written from attacker JSON under a less-privileged active view. This issue is fixed in versions 2.18.9, 2.21.5, 2.22.1, 3.1.5, and 3.2.1.",
+      "published": "2026-07-14T21:17:06.160",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50659"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59889"
     },
     {
-      "id": "CVE-2026-50651",
-      "summary": "Allocation of resources without limits or throttling in .NET allows an unauthorized attacker to deny service over a network.",
-      "published": "2026-07-14T20:17:38.387",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50651"
+      "id": "CVE-2026-53486",
+      "summary": "The decompress package for Node.js extracts archives. Prior to 10.2.1 and 11.1.3, archive extraction can create files and links outside the target directory. When extracting an archive to a directory, a crafted archive can read or write files outside that directory because hardlink and symlink entries are created without checking where targets point, path containment used a string prefix comparison, and file modes failed to remove setuid, setgid, or sticky bits. This issue is fixed in @xhmikosr/decompress versions 10.2.1 and 11.1.3.",
+      "published": "2026-07-14T21:17:05.447",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53486"
     },
     {
-      "id": "CVE-2026-50650",
-      "summary": "Improper control of generation of code ('code injection') in .NET Framework allows an unauthorized attacker to elevate privileges locally.",
-      "published": "2026-07-14T20:17:38.230",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50650"
+      "id": "CVE-2026-52101",
+      "summary": "An issue in andreimarcu linux-server v.1.0 through v.2.3.8 allows a remote attacker to obtain sensitive information via the function uploadRemote function in upload.go",
+      "published": "2026-07-14T21:17:05.343",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52101"
     },
     {
-      "id": "CVE-2026-50649",
-      "summary": "Deserialization of untrusted data in .NET allows an unauthorized attacker to execute code locally.",
-      "published": "2026-07-14T20:17:38.103",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50649"
+      "id": "CVE-2026-52100",
+      "summary": "Cross Site Request Forgery vulnerability in andreimarcu linux-server v.1.0 through v.2.3.8 allows a remote attacker to execute arbitrary code via the uploadPutHandler function",
+      "published": "2026-07-14T21:17:05.237",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52100"
     },
     {
-      "id": "CVE-2026-50648",
-      "summary": "Allocation of resources without limits or throttling in .NET Framework allows an unauthorized attacker to deny service over a network.",
-      "published": "2026-07-14T20:17:37.937",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50648"
+      "id": "CVE-2026-49978",
+      "summary": "DOMPurify is a DOM-only cross-site scripting sanitizer for HTML, MathML, and SVG. Prior to 3.4.7, DOMPurify IN_PLACE sanitization could skip shadow contents attached to an element inside <template>.content, allowing attacker-controlled markup such as event handlers, JavaScript URLs, or scripts to survive and execute when an application cloned and inserted the sanitized template. This issue is fixed in version 3.4.7.",
+      "published": "2026-07-14T21:17:02.560",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49978"
     }
   ]
 }
