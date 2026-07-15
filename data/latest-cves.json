@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-15T09:19:55+00:00",
+  "generated_at": "2026-07-15T11:46:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-57832",
-      "summary": "The Joomla extension EDocman is vulnerable to an unauthenticated SQL injection.",
-      "published": "2026-07-15T09:16:33.450",
+      "id": "CVE-2026-59235",
+      "summary": "Missing Authorization (CWE-862) in BankAccountListController (app/Http/Controllers/Api/BankAccount/BankAccountListController.php), exposed at GET /api/bank-account, in Prospero Flow CRM <5.5.3, which allows a remote, authenticated attacker holding a low-privileged role (e.g. the \"User\"/\"Usuario\" role) to read arbitrary bank account records belonging to their company by sending an authenticated request to the endpoint with a valid bearer token, because the API route is protected only by the auth:api middleware and carries no permission gate, unlike the equivalent web route, which enforces can('read bank'), and the handler resolves records with Account::where('company_id', Auth::user()->company_id)->get(), performing only company scoping and no role or permission check before returning the data. This results in the unauthorized disclosure of sensitive banking information (e.g. IBAN, SWIFT/BIC, account identifiers) to users who should not have access to it.",
+      "published": "2026-07-15T11:16:33.493",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57832"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59235"
     },
     {
-      "id": "CVE-2026-57831",
-      "summary": "The Joomla extension DP Calendar is vulnerable to an unauthenticated SQL injection.",
-      "published": "2026-07-15T09:16:33.310",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57831"
-    },
-    {
-      "id": "CVE-2026-15804",
-      "summary": "The HCM developed by MetaGuru has a SQL Injection vulnerability. Authenticated remote attackers can inject SQL commands via specific parameters, thereby compromising the confidentiality, integrity, and availability of database data.",
-      "published": "2026-07-15T08:16:23.100",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15804"
-    },
-    {
-      "id": "CVE-2026-15583",
-      "summary": "A confused-deputy flaw in Grafana MCP Server allows an unauthenticated remote attacker to exfiltrate the server's environment-configured Grafana service-account token by supplying a crafted X-Grafana-URL request header. This also enables SSRF against arbitrary internal services, including cloud metadata endpoints.",
-      "published": "2026-07-15T08:16:22.977",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15583"
-    },
-    {
-      "id": "CVE-2026-14251",
-      "summary": "A flaw was found in the OpenShift GitOps operator. The ClusterRole reconciler does not validate resource ownership when reconciling ClusterRole objects. A namespace-scoped Argo CD instance can trigger deletion of a ClusterRole owned by a cluster-scoped Argo CD instance by crafting a name collision, resulting in a denial of service.",
-      "published": "2026-07-15T08:16:22.383",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14251"
-    },
-    {
-      "id": "CVE-2026-42936",
-      "summary": "The installer of HYPER SBI 2 insecurely loads Dynamic Link Libraries. If there is a crafted DLL at the same directory when invoking the affected installer, arbitrary code may be executed with the privilege of the user invoking the installer.",
-      "published": "2026-07-15T06:16:45.003",
+      "id": "CVE-2026-40633",
+      "summary": "Dell PowerScale OneFS versions 9.5.0.0 through 9.10.1.7, versions 9.11.0.0 through 9.13.0.2 contains an Insertion of Sensitive Information into Log File vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Information disclosure.",
+      "published": "2026-07-15T11:16:25.463",
       "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42936"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40633"
+    },
+    {
+      "id": "CVE-2026-58077",
+      "summary": "The Joomla extension 4Analytics is vulnerable to an unauthenticated stored XSS. A specially crafted unauthenticated request may result in website takeover under some circumstances.",
+      "published": "2026-07-15T10:16:47.870",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58077"
+    },
+    {
+      "id": "CVE-2026-57833",
+      "summary": "The Joomla extension 4Analytics is vulnerable to an unauthenticated stored XSS in relation to the AI analysis feature.",
+      "published": "2026-07-15T10:16:47.737",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57833"
+    },
+    {
+      "id": "CVE-2026-57821",
+      "summary": "A SQL Injection vulnerability exists in Apache Fineract's Office Search API (GET /api/v1/offices) in versions up to and including 1.14.0. The orderBy request parameter is concatenated into a SQL query without sufficient validation, allowing an authenticated user with permission to view offices to inject arbitrary SQL via a crafted orderBy value. This is a bypass of the ColumnValidator fix introduced for CVE-2024-32838, which does not detect bare subqueries in the ORDER BY position. This can be leveraged to perform time-based blind SQL injection for data exfiltration. Because the injected query blocks the database connection for its full duration, concurrent exploitation can exhaust the application's database connection pool, resulting in denial of service for other users. Users are recommended to upgrade to a version containing the fix.",
+      "published": "2026-07-15T10:16:47.620",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57821"
+    },
+    {
+      "id": "CVE-2026-56287",
+      "summary": "A boolean-based SQL Injection vulnerability exists in Apache Fineract's Client Search API (GET /api/v1/clients) in versions up to and including 1.14.0. The orderBy and sortOrder request parameters are concatenated into a SQL query without sufficient validation, allowing an authenticated user with permission to view clients to inject arbitrary SQL via a crafted orderBy value. This can be leveraged to perform blind boolean-based data extraction and, on MySQL/MariaDB, to disclose arbitrary files readable by the database process via the LOAD_FILE() function. Users are recommended to upgrade to a version containing the fix",
+      "published": "2026-07-15T10:16:47.507",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56287"
     }
   ]
 }
