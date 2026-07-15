@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-15T17:36:32+00:00",
+  "generated_at": "2026-07-15T19:34:18+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-62378",
-      "summary": "RustFS Console is a web management console for the RustFS distributed file system. From 0.1.7 until 0.1.10, the RustFS Console components/object/preview-modal.tsx and components/object/pdf-viewer.tsx extension-based PDF preview path can render HTML content uploaded as .pdf, allowing stored cross-site scripting in the management console and exposure of administrator AccessKeyId, SecretAccessKey, and SessionToken values. This is caused by a regression of CVE-2026-27822. This vulnerability is fixed in 0.1.10.",
-      "published": "2026-07-15T17:16:53.020",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62378"
+      "id": "CVE-2026-62947",
+      "summary": "OpenWrt is a Linux operating system targeting embedded devices. Prior to 25.12.5, the cgi-download handler in cgi-io authorizes the requested path against the caller's ubus session file ACL before canonicalization, and rpcd session.c uses fnmatch() without FNM_PATHNAME, allowing traversal such as an allowed wildcard prefix followed by ../ to read root-readable files including /etc/shadow. This vulnerability is fixed in 25.12.5.",
+      "published": "2026-07-15T19:18:38.533",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62947"
     },
     {
-      "id": "CVE-2026-59955",
-      "summary": "Apollo is a reliable configuration management system suitable for microservice configuration management scenarios. Prior to 2.5.2, Apollo ConfigService may allow unauthorized access to raw configuration data when AccessKey or management key authentication is enabled because requests under /configfiles/raw/{appId}/{clusterName}/{namespace} are parsed for authentication as appId raw instead of the actual path appId, causing ConfigService to look up AccessKey secrets for raw before verifying the request signature and potentially continue without signature verification for the target appId. This issue is fixed in version 2.5.2.",
-      "published": "2026-07-15T17:16:51.087",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59955"
-    },
-    {
-      "id": "CVE-2026-59954",
-      "summary": "Apollo is a reliable configuration management system suitable for microservice configuration management scenarios. Prior to 2.5.2, Apollo ConfigService may allow unauthorized access to configuration data when AccessKey or management key authentication is enabled because ConfigService can accept a non-canonical appId variant during authentication while downstream request handling resolves it to the protected app, including accent variants under accent-insensitive collations or trailing-space variants under PAD SPACE collations on /configs and /configfiles endpoints. This issue is fixed in version 2.5.2.",
-      "published": "2026-07-15T17:16:50.960",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59954"
-    },
-    {
-      "id": "CVE-2026-52843",
-      "summary": "Lightpanda is a headless browser designed for AI and automation. Prior to 0.2.9, Lightpanda fetch() and XMLHttpRequest unconditionally attached session cookies to every HTTP request, ignoring credentials: omit, credentials: same-origin, credentials: include, and XMLHttpRequest.withCredentials, allowing an attacker-controlled origin in a Lightpanda session to issue authenticated cross-origin requests against a victim origin. This issue is fixed in version 0.2.9.",
-      "published": "2026-07-15T17:16:50.467",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52843"
-    },
-    {
-      "id": "CVE-2026-52842",
-      "summary": "Lightpanda is a headless browser designed for AI and automation. Prior to 0.3.1, Lightpanda searched for @ across the entire URL string instead of only the authority component when computing a page origin, so a URL such as `http://attacker.com/@victim.com/` was fetched from attacker.com but treated as `http://victim.com`, allowing a complete Same-Origin Policy bypass. This issue is fixed in version 0.3.1.",
-      "published": "2026-07-15T17:16:50.317",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52842"
-    },
-    {
-      "id": "CVE-2026-49997",
-      "summary": "SurrealDB is a scalable, distributed, collaborative, document-graph database for the realtime web. Prior to 3.1.0, Document::purge_edges in surrealdb/core/src/doc/delete.rs automatically removed graph edge records with permissions disabled through opt.clone().with_perms(false) when a connected node was deleted, bypassing the edge table's PERMISSIONS FOR delete and PERMISSIONS FOR select clauses. This issue is fixed in version 3.1.0.",
-      "published": "2026-07-15T17:16:49.103",
+      "id": "CVE-2026-62355",
+      "summary": "TDengine is an open source, time-series database optimized for Internet of Things devices. Prior to 3.4.1.15, a Data Reader admin_user on a TDengine Cloud DB instance could run create udf even though standard users should have read-only permissions for non-database objects and show dnodes and create user were denied. This issue is fixed in version 3.4.1.15.",
+      "published": "2026-07-15T19:18:38.200",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49997"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62355"
+    },
+    {
+      "id": "CVE-2026-62353",
+      "summary": "TDengine is a time-series database optimized for Internet of Things devices. Prior to 3.4.1.14, source/libs/parser/src/parTokenizer.c tGetToken() incremented past a trailing backslash in a SQL string literal such as 'abc\\ and read one byte beyond the null terminator, allowing an authenticated user who can submit SQL queries to crash the server and possibly leak adjacent memory. This issue is fixed in version 3.4.1.14.",
+      "published": "2026-07-15T19:18:38.073",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62353"
+    },
+    {
+      "id": "CVE-2026-62351",
+      "summary": "TDengine is a time-series database optimized for Internet of Things devices. Prior to 3.4.1.15, source/libs/transport/src/transComm.c transDecompressMsg() read STransCompMsg.contLen when pHead->comp == 1 without first validating that the RPC packet contained the 8-byte STransCompMsg structure, causing an unauthenticated out-of-bounds read, uncontrolled allocation, integer underflow, and server crash. This issue is fixed in version 3.4.1.15.",
+      "published": "2026-07-15T19:18:37.947",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62351"
+    },
+    {
+      "id": "CVE-2026-62350",
+      "summary": "TDengine is an open source, time-series database optimized for Internet of Things devices. Prior to 3.4.1.15, a user with create udf privilege could upload a crafted shared library and install it as a user-defined function, such as eval, then execute arbitrary C code on the TDengine server side through database queries. This issue is fixed in version 3.4.1.15.",
+      "published": "2026-07-15T19:18:37.810",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62350"
+    },
+    {
+      "id": "CVE-2026-62349",
+      "summary": "TDengine is an open source, time-series database optimized for Internet of Things devices. In 3.4.1.6 and earlier, source/libs/parser/src/parUtil.c trimString() checks space for only one byte before processing SQL string escape sequences \\%, \\_, or \\x, allowing a one-byte out-of-bounds write to the stack buffer tmpTokenBuf that can cause denial of service and potentially remote code execution. This issue is fixed in version 3.4.1.14.",
+      "published": "2026-07-15T19:18:37.347",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62349"
     }
   ]
 }
