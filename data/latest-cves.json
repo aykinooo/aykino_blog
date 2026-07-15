@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-14T23:10:15+00:00",
+  "generated_at": "2026-07-15T00:03:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59733",
-      "summary": "Rclone is a command-line program to sync files and directories to and from different cloud storage providers. Prior to 1.74.4, rclone serve restic --private-repos enforces authorization using the routed user path segment while building the backend object key from the raw uncleaned URL path, allowing an authenticated user to include .. in a request such as //..//config and read, overwrite, or delete another user's private repository on backends that clean path components. This issue is fixed in version 1.74.4.",
-      "published": "2026-07-14T22:17:30.050",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59733"
-    },
-    {
-      "id": "CVE-2026-59732",
-      "summary": "Rclone is a command-line program to sync files and directories to and from different cloud storage providers. Prior to 1.74.4, rclone archive extract can write extracted files outside the user-selected destination prefix when extracting a crafted archive containing parent path components such as ../, allowing creation or overwrite of sibling objects in the same bucket or path scope. This issue is fixed in version 1.74.4.",
-      "published": "2026-07-14T22:17:29.920",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59732"
-    },
-    {
-      "id": "CVE-2026-54684",
-      "summary": "jadx is a Dex to Java decompiler. From 1.5.2 to 1.5.5, a malicious .xapk file can cause jadx to write attacker-controlled archive entry contents outside the intended XAPK plugin temporary unpack directory because XApkLoader resolves each entry name directly with tmpDir.resolve(fileName) after a CWD-based ZIP security check. When jadx is launched from a directory that is an ancestor of the config directory, the arbitrary write can plant a JAR in plugins/dropins, and the next jadx run loads the JAR with URLClassLoader and ServiceLoader, executing attacker-controlled plugin code. This issue is fixed in version 1.5.6.",
-      "published": "2026-07-14T22:17:16.680",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54684"
-    },
-    {
-      "id": "CVE-2026-54572",
-      "summary": "Rclone is a command-line program to sync files and directories to and from different cloud storage providers. Prior to 1.74.4, with -l/--links, rclone serializes symlinks as .rclonelink text objects and recreates them on a local destination without validating the target, allowing an attacker-controlled remote to plant an escaping symlink and cause a following object write to land outside the destination with attacker-chosen contents. This issue is fixed in version 1.74.4.",
-      "published": "2026-07-14T22:17:16.533",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54572"
-    },
-    {
-      "id": "CVE-2026-50130",
-      "summary": "Pi-hole is a DNS sinkhole that protects devices from unwanted content without installing any client-side software. From 6.0 to 6.4.2, a user with code execution as the unprivileged pihole user can escalate to root by replacing /etc/pihole/logrotate. The replacement is laundered to root:root ownership by pihole-FTL-prestart.sh and then parsed as root by the daily pihole flush cron, executing firstaction shell as uid 0. This issue is fixed in version 6.4.3.",
-      "published": "2026-07-14T22:17:13.203",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50130"
-    },
-    {
-      "id": "CVE-2026-49981",
-      "summary": "Twig is a template language for PHP. Prior to 3.27.0, the per-template filter, tag, and function allow-list verdict is computed when a Template instance is constructed and can remain cached after sandbox state changes between renders, allowing a later sandboxed render to reuse a template that was originally checked with a different or empty policy. This issue is fixed in version 3.27.0.",
-      "published": "2026-07-14T22:17:13.070",
+      "id": "CVE-2026-5270",
+      "summary": "An authentication bypass vulnerability exists in certain releases of Ciena Navigator Network Control Suite (NCS), Manage Control Plan (MCP), and Blue Planet\u00a0products. The issue is caused by improper handling of HTTP request paths and headers, which allows an unauthenticated attacker to manipulate requests in a manner that bypasses authentication and associated audit logging controls.",
+      "published": "2026-07-14T23:17:34.570",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49981"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5270"
+    },
+    {
+      "id": "CVE-2026-5269",
+      "summary": "In Ciena's Navigator Network Control Suite (NCS) and Manage Control Plan (MCP), there are hidden system accounts used for internal software operations. Some of these accounts have default passwords that may be predictable. While these accounts have very limited permissions on their own, an attacker could combine an attack using one of these accounts with other potential weaknesses to launch a more significant attack, possibly leading to escalation of privilege on the system.",
+      "published": "2026-07-14T23:17:34.453",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5269"
+    },
+    {
+      "id": "CVE-2026-51808",
+      "summary": "Buffer Overflow vulnerability in OpenHTJ2K v.0.18.4 and before allows an attacker to execute arbitrary code via the openhtj2k_decoder_impl::invoke, invoke_line_based, invoke_line_based_stream, and invoke_line_based_predecoded function in source/core/interface/decoder.cpp",
+      "published": "2026-07-14T23:17:29.957",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51808"
+    },
+    {
+      "id": "CVE-2026-51807",
+      "summary": "Buffer Overflow vulnerability in OpenHTJ2K v.0.18.4 and before allows an attacker to execute arbitrary code via the j2k_precinct_subband::parse_packet_header() in source/core/coding/coding_units.cpp",
+      "published": "2026-07-14T23:17:29.843",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51807"
+    },
+    {
+      "id": "CVE-2026-36035",
+      "summary": "Incorrect access control in the /api/License/deactivateOffline endpoint of CAXPerts UniversalPlantViewer WebServices Server v2.7.6 allows authenticated attackers with low-level privileges to cause a Denial of Service (DoS) via removing the license from the webserver.",
+      "published": "2026-07-14T23:17:29.730",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-36035"
+    },
+    {
+      "id": "CVE-2026-15753",
+      "summary": "A vulnerability was determined in zhinianboke xianyu-auto-reply on Server. Affected by this vulnerability is an unknown functionality of the file /api/v1/payment/withdraw/review?action=approve. Executing a manipulation can lead to trusting http permission methods on the server side. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. This patch is called 19fc3282a1bb78a05c34945c088525d20e081cbd. It is best practice to apply a patch to resolve this issue.",
+      "published": "2026-07-14T23:17:29.560",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15753"
     }
   ]
 }
