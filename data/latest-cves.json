@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-15T14:06:31+00:00",
+  "generated_at": "2026-07-15T15:47:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-58559",
-      "summary": "DoS vulnerability in the vibration service.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-07-15T13:17:31.283",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58559"
+      "id": "CVE-2026-62294",
+      "summary": "Flameshot is powerful yet simple to use screenshot software. Prior to 14.0.0, the Open With feature wrote screenshots to a predictable temporary path and followed symlinks, creating a time-of-check to time-of-use race that allowed a local unprivileged attacker on the same machine to pre-plant a symlink and cause Flameshot to write PNG data through it, overwriting any file the victim user could write. This issue is fixed in version 14.0.0.",
+      "published": "2026-07-15T15:16:49.010",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62294"
     },
     {
-      "id": "CVE-2026-58558",
-      "summary": "Permission control vulnerability in the file system.\u00a0Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
-      "published": "2026-07-15T13:17:31.053",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58558"
+      "id": "CVE-2026-61836",
+      "summary": "Directus is a real-time API and App dashboard for managing SQL database content. Prior to 12.0.0, when response caching is enabled, the cache-key derivation in api/src/utils/get-cache-key.ts includes version, path, query, and accountability.user but omits authorization context such as share, role, roles, admin, app, and policies. Directus share tokens and anonymous requests can both reduce to user null, so different shares or anonymous clients requesting the same URL and query can receive a permission-filtered cached response without permission re-evaluation. This issue is fixed in version 12.0.0.",
+      "published": "2026-07-15T15:16:48.603",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61836"
     },
     {
-      "id": "CVE-2026-58557",
-      "summary": "Design defect vulnerability in Expedition mode.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-07-15T13:17:30.617",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58557"
+      "id": "CVE-2026-61835",
+      "summary": "Directus is a real-time API and App dashboard for managing SQL database content. Prior to 12.0.0, the SSRF protection on Directus's file-import-from-URL feature can be bypassed using the address 0.0.0.0 because api/src/request/is-denied-ip.ts treats 0.0.0.0 as a keyword for local interfaces but never blocks the literal address itself. On Linux and macOS, connecting to 0.0.0.0 reaches localhost, so an authenticated user with file-upload rights can make the server fetch internal services through the /files/import endpoint and retrieve the response as a downloadable file. This issue is fixed in version 12.0.0.",
+      "published": "2026-07-15T15:16:48.470",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61835"
     },
     {
-      "id": "CVE-2026-58556",
-      "summary": "Permission control vulnerability in the Bluetooth module.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-07-15T13:17:30.510",
-      "cvss": 5.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58556"
+      "id": "CVE-2026-61740",
+      "summary": "LightRAG provides simple and fast retrieval-augmented generation. Prior to 1.5.4, when LightRAG is deployed with LIGHTRAG_API_KEY set but AUTH_ACCOUNTS unset, X-API-Key protection can be bypassed because lightrag/api/auth.py falls back to a hardcoded DEFAULT_TOKEN_SECRET, /auth-status and /login can mint guest JWTs, and combined_dependency in lightrag/api/utils_api.py accepts a valid guest token before checking the API key. A remote unauthenticated attacker can call endpoints guarded by combined_auth, including document read, upload, deletion, graph mutation, and query endpoints. This vulnerability is fixed in 1.5.4.",
+      "published": "2026-07-15T15:16:48.350",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61740"
     },
     {
-      "id": "CVE-2026-58555",
-      "summary": "Permission bypass vulnerability in the card module.\u00a0Impact: Successful exploitation of this vulnerability may affect availability.",
-      "published": "2026-07-15T13:17:30.233",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58555"
+      "id": "CVE-2026-61736",
+      "summary": "LightRAG provides simple and fast retrieval-augmented generation. Prior to 1.5.4, the server defaults to CORS_ORIGINS=* combined with allow_credentials=True in lightrag/api/lightrag_server.py, causing Starlette CORSMiddleware to effectively whitelist every origin for credentialed cross-origin requests. Any malicious website visited by an authenticated LightRAG user can silently make authenticated API requests, exfiltrating documents and knowledge graph data or performing destructive actions such as deleting the document store. This vulnerability is fixed in 1.5.4.",
+      "published": "2026-07-15T15:16:48.217",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61736"
     },
     {
-      "id": "CVE-2026-58554",
-      "summary": "Permission control vulnerability in the Settings module.\u00a0Impact: Successful exploitation of this vulnerability may affect service confidentiality.",
-      "published": "2026-07-15T13:17:29.730",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58554"
+      "id": "CVE-2026-61684",
+      "summary": "FastGPT is a knowledge-based AI application platform. In 4.15.0-beta4, FastGPT plugin invoke reverse-call endpoints under /api/invoke/* authenticate only by verifying a JWT signed with INVOKE_TOKEN_SECRET, which defaults to the constant string token and was not set in official deployment templates. An unauthenticated attacker can self-sign an HS256 JWT and reach /api/invoke/userInfo to disclose cross-tenant user PII by attacker-supplied tmbId values, or /api/invoke/fileUpload to write attacker-controlled content into chat files. This issue is fixed in version 4.15.0-beta5.",
+      "published": "2026-07-15T15:16:48.100",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61684"
     }
   ]
 }
