@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-15T22:12:36+00:00",
+  "generated_at": "2026-07-15T23:12:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-62361",
-      "summary": "listmonk is a standalone, self-hosted, newsletter and mailing list manager. Prior to 6.2.0, listmonk\u2019s GET /api/subscribers/export endpoint injects the user-controlled query parameter into QuerySubscribersForExport in internal/core/subscribers.go without calling validateQueryTables, unlike GET /api/subscribers, allowing an authenticated user with subscribers:sql_query and subscribers:get_all to read arbitrary database tables such as users and settings and execute data-modifying PostgreSQL CTEs. This issue is fixed in version 6.2.0.",
-      "published": "2026-07-15T21:16:55.933",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62361"
-    },
-    {
-      "id": "CVE-2026-62312",
-      "summary": "9Router is an AI router & token saver. Prior to 0.5.2, 9Router allows a remote authenticated attacker to achieve arbitrary code execution on the host operating system by combining a Host header bypass of localhost-only routes with unvalidated MCP plugin args passed to child_process.spawn(), allowing malicious custom plugins to execute commands through /api/mcp//sse. This issue is fixed in version 0.5.2.",
-      "published": "2026-07-15T21:16:55.810",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62312"
-    },
-    {
-      "id": "CVE-2026-59950",
-      "summary": "The MCP Python SDK, called mcp on PyPI, is a Python implementation of the Model Context Protocol (MCP). Prior to 1.28.1, the deprecated mcp.server.websocket.websocket_server transport accepted WebSocket handshakes without applying Host or Origin header validation, leaving no SDK-level way to restrict which origins could connect to applications that exposed that transport. This issue is fixed in version 1.28.1.",
-      "published": "2026-07-15T21:16:55.683",
+      "id": "CVE-2026-63175",
+      "summary": "PlaywrightCapture stored capture-specific configuration and runtime data as mutable class-level variables rather than instance-level variables. Consequently, multiple Capture objects running within the same Python process could share state, including HTTP headers, cookies, browser storage, HTTP credentials, proxy configuration, user-agent settings, geolocation information, and captured request data.\n\nIn a multi-user or concurrent deployment, information supplied during one capture could therefore persist and be reused by a subsequent or parallel capture. This could result in the disclosure of authentication cookies, credentials, browser storage, or captured request data belonging to another user. It could also cause requests to be performed with another capture's authentication context, headers, or proxy configuration, potentially enabling unauthorized access to remote resources or interference with other capture operations.\n\nThe vulnerability is resolved by initializing all capture-specific settings and request data as instance variables in the Capture constructor, ensuring that state is isolated between capture operations.",
+      "published": "2026-07-15T22:17:38.193",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59950"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63175"
     },
     {
-      "id": "CVE-2026-56679",
-      "summary": "9Router is an AI router & token saver. Prior to 0.5.4, the PATCH /api/settings endpoint writes the entire request body to persistent settings without a field whitelist, allowing an authenticated user to set security-critical fields such as requireLogin and disable authentication for the whole application, exposing protected routes such as /api/keys and /api/providers to unauthenticated access. This issue is reported as fixed in version 0.5.4.",
-      "published": "2026-07-15T21:16:55.560",
+      "id": "CVE-2026-62314",
+      "summary": "Anubis is a Web AI Firewall Utility that challenges users' connections in order to protect upstream resources from scraper bots. From 1.22.0 until 1.26.0-pre1, lib/policy/checker.go PathChecker.Check() trusted the client-controlled X-Original-URI header before matching r.URL.Path, allowing an HTTP client to match default data/common/keep-internet-working.yaml ALLOW rules such as ^/\\.well-known/.*$ and bypass the Anubis challenge. This issue is fixed in version 1.26.0-pre1.",
+      "published": "2026-07-15T22:17:38.050",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62314"
+    },
+    {
+      "id": "CVE-2026-55652",
+      "summary": "Wekan is open source kanban built with Meteor. Prior to 9.46, header-login with HEADER_LOGIN_TRUSTED_IPS uses getRequestIp() in server/lib/headerLoginAuth.js to trust the client-supplied X-Forwarded-For header before the real socket address, allowing an unauthenticated attacker to send HEADER_LOGIN_ID for any username and receive a meteor_login_token session, including for admin. This issue is fixed in version 9.46.",
+      "published": "2026-07-15T22:17:26.293",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55652"
+    },
+    {
+      "id": "CVE-2026-55576",
+      "summary": "MaaAssistantArknights is a one-click tool for daily Arknights tasks. In the current dev-v2 workflow, .github/workflows/release-preparation.yml inlined attacker-controlled github.event.pull_request.title into a run: shell command during the pull_request opened, reopened, and ready_for_review events, so a non-draft fork PR whose title starts with Release v could execute shell commands on the ubuntu-latest runner during the generate-changelog job. This vulnerability is fixed by commit cafc3946059e6337d2089d4fec8b6885ba17c332.",
+      "published": "2026-07-15T22:17:26.157",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56679"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55576"
     },
     {
-      "id": "CVE-2026-56678",
-      "summary": "9Router is an AI router & token saver. Prior to 0.5.6, the Kiro API-key validation endpoint POST /api/oauth/kiro/api-key builds an upstream URL using a user-controlled region value, allowing an authenticated attacker to supply a crafted region such as kiro-canary.local:8443# and cause 9Router to send the Kiro validation request to an attacker-controlled host while forwarding the submitted Kiro API key as an Authorization header. This issue is fixed in version 0.5.6.",
-      "published": "2026-07-15T21:16:55.430",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56678"
+      "id": "CVE-2026-55445",
+      "summary": "Qinglong is a timed task management platform supporting Python3, JavaScript, Shell, and Typescript. Prior to 2.20.1, the init guard middleware in back/loaders/express.ts checks /api/user/init but not /open/user/init, while rewrite('/open/*', '/api/$1') rewrites the whitelisted /open/* path after JWT authentication and the guard have passed; an unauthenticated attacker can send PUT /open/user/init to reset administrator credentials on an initialized instance. This issue is fixed in 2.20.1.",
+      "published": "2026-07-15T22:17:26.020",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55445"
     },
     {
-      "id": "CVE-2026-55608",
-      "summary": "n8n-MCP is an MCP server that provides AI assistants access to n8n node documentation, properties, and operations. Prior to 2.57.4, multi-tenant HTTP mode with ENABLE_MULTI_TENANT=true could allow an authenticated tenant to access default-scope workflow_versions backups instead of being confined to the tenant scope, exposing or deleting workflow-version backups from prior single-tenant deployments or migrations. This issue is fixed in version 2.57.4.",
-      "published": "2026-07-15T21:16:55.307",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55608"
+      "id": "CVE-2026-55234",
+      "summary": "Wekan is open source kanban built with Meteor. Prior to 9.37, Wekan DDP update allow rules in server/permissions/cards.js, server/permissions/lists.js, and server/permissions/swimlanes.js authorize against the stored source boardId and do not validate a new boardId in the update modifier. Any authenticated user with write access to their own board can call /cards/update, /lists/update, or /swimlanes/update to move cards, lists, or swimlanes into a private board they are not a member of. This issue is fixed in version 9.37.",
+      "published": "2026-07-15T22:17:25.880",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55234"
     }
   ]
 }
