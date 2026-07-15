@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-15T03:30:42+00:00",
+  "generated_at": "2026-07-15T06:26:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-42936",
+      "summary": "The installer of HYPER SBI 2 insecurely loads Dynamic Link Libraries. If there is a crafted DLL at the same directory when invoking the affected installer, arbitrary code may be executed with the privilege of the user invoking the installer.",
+      "published": "2026-07-15T06:16:45.003",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42936"
+    },
+    {
+      "id": "CVE-2026-12512",
+      "summary": "The Quotes llama WordPress plugin before 3.1.6 does not properly sanitize and escape a user-supplied parameter before using it in a SQL query, allowing unauthenticated attackers to perform UNION-based SQL injection and read arbitrary data from the database, including password hashes.",
+      "published": "2026-07-15T06:16:44.757",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12512"
+    },
+    {
+      "id": "CVE-2026-12281",
+      "summary": "The Shibboleth WordPress plugin before 2.5.4 does not fail closed when its HTTP header identity mode is enabled without an anti-spoofing key, treating any request that carries identity headers as an authenticated session without verifying them. On a deployment where untrusted client headers reach the application, an unauthenticated attacker can log in with forged identity headers and, when automatic account creation and the default administrator role mapping are enabled, create and sign in as a new administrator. Exploitation requires the non-default HTTP header attribute mode, an empty or absent spoof key, automatic account creation enabled, and a deployment that does not strip untrusted client headers before they reach the application.",
+      "published": "2026-07-15T06:16:43.840",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12281"
+    },
+    {
+      "id": "CVE-2026-11580",
+      "summary": "The Kali Forms \u2014 Contact Form & Drag-and-Drop Builder WordPress plugin before 2.4.17 does not perform a per-object capability check in its post-duplication AJAX action, allowing users with Contributor-level access or above to duplicate any post (regardless of owner, post type, or status) into a published post they own and read its private post metadata, including secrets stored by other Kali Forms \u2014 Contact Form & Drag-and-Drop Builder WordPress plugin before 2.4.17.",
+      "published": "2026-07-15T06:16:43.663",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11580"
+    },
+    {
+      "id": "CVE-2026-11579",
+      "summary": "The Kali Forms \u2014 Contact Form & Drag-and-Drop Builder WordPress plugin before 2.4.17 does not verify that a file upload is made against an existing form configured with a file-upload field, accepting uploads regardless of whether any such form exists, which allows unauthenticated users to upload files to the WordPress Media Library; the uploads are limited to WordPress's default-allowed MIME types, so this does not lead to code execution.",
+      "published": "2026-07-15T06:16:40.433",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11579"
+    },
     {
       "id": "CVE-2026-8920",
       "summary": "Improper Restriction of Communication Channel to Intended Endpoints and External Control of File Name or Path in Aura Wallpaper Service allow a local user to perform file operations by sending crafted commands containing an arbitrary file path and bypassing the service\u2019s path restrictions . On specific models , this can also cause a single feature to become unavailable .\nRefer to the '\u00a0Security Update for Aura Wallpaper Service\u00a0' section on the ASUS Security Advisory for more information.",
       "published": "2026-07-15T02:22:57.790",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8920"
-    },
-    {
-      "id": "CVE-2026-8919",
-      "summary": "Permissive Cross-domain Security Policy with Untrusted Domains in ASUS GameSDK allows a remote user to obtain a local user\u2019s NTLM hash by convincing the user to visit a crafted web page that sends a request containing a UNC path to the application\u2019s local service endpoint. This can result in information disclosure or data tampering, may cause GameSDK to become unavailable, and may also enable access to the victim\u2019s information on other services.\nRefer to the '\u00a0Security Update for ASUS GameSDK\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
-      "published": "2026-07-15T02:22:57.653",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8919"
-    },
-    {
-      "id": "CVE-2026-15030",
-      "summary": "Out-of-bounds Read in ASUS System Control Interface v3, ASUS System Control Interface, and ASUS Business Manager allows a local administrator to read memory regions beyond the intended firmware boundary by supplying a crafted IOCTL request that bypasses the validation.\nRefer to the '\u00a0Security Update for ASUS System Control Interface\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
-      "published": "2026-07-15T02:18:13.173",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15030"
-    },
-    {
-      "id": "CVE-2026-15029",
-      "summary": "Untrusted Pointer Dereference in ASUS System Control Interface v3, ASUS System Control Interface, and ASUS Business Manager allows a local administrator to perform arbitrary physical memory read and write operations via crafted IOCTL requests to the driver, bypassing OS-enforced memory protections.\nRefer to the '\u00a0\nSecurity Update for ASUS System Control Interface\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
-      "published": "2026-07-15T02:18:13.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15029"
-    },
-    {
-      "id": "CVE-2026-13585",
-      "summary": "Allocation of Resources Without Limits and Throttling and Sensitive Information in Resource Not Removed Before Reuse in the ASUS System Control Interface driver and ASUS Business Manager allow a local administrator to disclose sensitive information via crafted IOCTL requests, which, in severe cases, may lead to a Denial of Service (DoS) on the system.\nRefer to the '\u00a0\nSecurity Update for ASUS System Control Interface\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
-      "published": "2026-07-15T02:18:12.213",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13585"
-    },
-    {
-      "id": "CVE-2026-13385",
-      "summary": "An Improper Validation of Integrity Check Value and Improper Certificate Validation in certain ASUS router models allows a remote man-in-the-middle(MITM) user to make the router download and execute arbitrary command via a spoofed server.\nRefer to the '\u00a0\nSecurity Update for ASUS Router Firmware\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
-      "published": "2026-07-15T02:18:12.090",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13385"
     }
   ]
 }
