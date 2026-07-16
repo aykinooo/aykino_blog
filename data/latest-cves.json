@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-16T06:29:34+00:00",
+  "generated_at": "2026-07-16T09:25:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53366",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv4: account for fraggap on the paged allocation path\n\nIn __ip_append_data(), when the paged-allocation branch is taken,\nalloclen and pagedlen are computed as\n\n\talloclen = fragheaderlen + transhdrlen;\n\tpagedlen = datalen - transhdrlen;\n\ndatalen already includes fraggap, but the fraggap bytes carried over\nfrom the previous skb are copied into the new skb's linear area at\noffset transhdrlen by the subsequent skb_copy_and_csum_bits(). The\nlinear area is therefore undersized by fraggap bytes while pagedlen is\noverstated by the same amount.\n\nThe non-paged branch sets alloclen to fraglen, which already accounts\nfor fraggap because datalen does. Bring the paged branch in line by\nadding fraggap to alloclen and subtracting it from pagedlen.\n\nAfter this adjustment, copy no longer collapses to -fraggap on the\npaged path, so remove the stale comment describing that old arithmetic.",
-      "published": "2026-07-16T06:16:27.333",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53366"
-    },
-    {
-      "id": "CVE-2026-15458",
-      "summary": "The SEO Booster plugin for WordPress is vulnerable to generic SQL Injection via the 'sort_field' parameter in all versions up to, and including, 7.3.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-07-16T05:16:18.747",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15458"
-    },
-    {
-      "id": "CVE-2026-15445",
-      "summary": "The SEO Booster plugin for WordPress is vulnerable to time-based SQL Injection via the 'orderby' parameter in all versions up to, and including, 7.3.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Although esc_sql() and sanitize_text_field() are applied, neither neutralizes SQL keywords, commas, parentheses, or subquery syntax in an unquoted ORDER BY context, leaving the clause fully attacker-controlled.",
-      "published": "2026-07-16T05:16:18.633",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15445"
-    },
-    {
-      "id": "CVE-2026-15306",
-      "summary": "The Product Feed Manager For WooCommerce \u2013 Sell on 200+ Online Marketplaces plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via 's' Search Parameter in all versions up to, and including, 7.6.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
-      "published": "2026-07-16T05:16:18.170",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15306"
-    },
-    {
-      "id": "CVE-2026-15013",
-      "summary": "The SAML Single Sign On \u2013 SSO Login plugin for WordPress is vulnerable to Authentication Bypass via SAML Signature Algorithm Confusion in all versions up to, and including, 5.4.3. The vulnerability exists because `Mo_SAML_Utilities::mo_saml_cast_key()` reads the `SignatureMethod` Algorithm attribute directly from the attacker-controlled `SAMLResponse` parameter rather than enforcing the locally configured algorithm, causing the plugin to recast the IdP's RSA public key as an HMAC-SHA1 shared secret and validate the forged signature against it. This makes it possible for unauthenticated attackers to forge a SAML assertion targeting any WordPress account \u2014 including administrators \u2014 obtain valid WordPress authentication cookies, and achieve full administrator-level account takeover.",
-      "published": "2026-07-16T05:16:18.043",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15013"
-    },
-    {
-      "id": "CVE-2026-13042",
-      "summary": "The RPB Chessboard plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content in all versions up to, and including, 8.1.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. WordPress's save-time kses sanitization does not mitigate this issue because the crafted payload uses only kses-allowed tags and attributes (such as an &lt;a&gt; element with title and href), and the dangerous attribute-breaking HTML is synthesized entirely at render time by the plugin's own comment_text filter.",
-      "published": "2026-07-16T05:16:17.780",
+      "id": "CVE-2026-7543",
+      "summary": "The Breakdance plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'fields' parameter in versions up to, and including, 2.7.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-07-16T09:16:19.527",
       "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13042"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7543"
+    },
+    {
+      "id": "CVE-2026-6424",
+      "summary": "Use-after-free vulnerability in ESET Linux products\u00a0potentially allowed an attacker to trigger kernel panic on the system",
+      "published": "2026-07-16T09:16:19.403",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6424"
+    },
+    {
+      "id": "CVE-2026-6423",
+      "summary": "A local privilege escalation vulnerability in ESET Inspect Connector.\u00a0\nThe vulnerability was caused by improper authentication in an IPC channel.",
+      "published": "2026-07-16T09:16:19.273",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6423"
+    },
+    {
+      "id": "CVE-2026-58078",
+      "summary": "The Joomla extension Quix Page Builder Pro is vulnerable to an unauthenticated SQL injection.",
+      "published": "2026-07-16T09:16:19.140",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58078"
+    },
+    {
+      "id": "CVE-2026-15727",
+      "summary": "The WP Bulk Delete plugin for WordPress is vulnerable to generic SQL Injection via the 'delete_user_roles' parameter in all versions up to, and including, 1.4.2 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. wp_unslash() is applied to the raw POST body before parse_str() decomposes it, stripping WordPress magic-quotes protection and leaving attacker-controlled values fully unescaped prior to reaching the SQL sink.",
+      "published": "2026-07-16T09:16:18.510",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15727"
+    },
+    {
+      "id": "CVE-2026-15651",
+      "summary": "The WP TripAdvisor Review Slider plugin for WordPress is vulnerable to generic SQL Injection via the 'filtersource' parameter in all versions up to, and including, 14.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-07-16T09:16:18.393",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15651"
     }
   ]
 }
