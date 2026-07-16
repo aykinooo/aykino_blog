@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-16T20:10:00+00:00",
+  "generated_at": "2026-07-16T21:13:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-54526",
-      "summary": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. Prior to 3.7.15 and 4.0.6, the allow-list fix for CVE-2026-31892 is incomplete because workflow/util/merge.go ValidateUserOverrides and SanitizeUserWorkflowSpec walk only the top-level fields of WorkflowSpec via reflection, and WorkflowSpec.ArtifactGC is allow-listed wholesale; the struct behind that field, WorkflowLevelArtifactGC, has a PodSpecPatch sub-field whose contents flow unmodified into util.ApplyPodSpecPatch on the artifact-GC pod, the same sink the original fix closed for WorkflowSpec.PodSpecPatch, so a user submitting a Workflow under templateReferencing: Strict or Secure (against a referenced WorkflowTemplate that declares an output artifact and setting spec.artifactGC.strategy: OnWorkflowCompletion) can still inject an arbitrary strategic merge patch into the artifact-GC pod, including hostPath volumes, privileged: true, arbitrary image and command, and hostNetwork: true, defeating the stated purpose of Strict/Secure reference mode. This issue is fixed in versions 3.7.15 and 4.0.6.",
-      "published": "2026-07-16T19:16:50.373",
+      "id": "CVE-2026-63397",
+      "summary": "remorses/genql before version 6.3.4 allows an authenticated attacker with control of the GraphQL schema that is passed to genql to inject arbitrary JavaScript or TypeScript. The malicious code is injected into the generated schema.ts file and executes when the genql client is bundled and imported.",
+      "published": "2026-07-16T20:16:47.950",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63397"
+    },
+    {
+      "id": "CVE-2026-63089",
+      "summary": "WireGuard Easy through 15.3.0, fixed in commit 66b292b, contains a cryptographically weak one-time link token generation vulnerability that allows unauthenticated network attackers to recover WireGuard peer credentials by brute-forcing a keyspace of at most 1000 candidate tokens per client ID, as the token is computed using CRC32 over a random value constrained to 0-999. Attackers can enumerate candidate tokens against the unauthenticated /cnf/:oneTimeLink route, which lacks rate limiting and does not validate token expiration, to obtain a peer's PrivateKey and PresharedKey and impersonate that peer on the VPN network.",
+      "published": "2026-07-16T20:16:47.800",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63089"
+    },
+    {
+      "id": "CVE-2026-62994",
+      "summary": "CoreDNS is a DNS server written in Go. From 1.9.4 until 1.14.5, a network DNS client allowed to request AXFR for a CoreDNS zone can trigger a panic when CoreDNS is configured with k8s_external headless-service zone transfers and Kubernetes contains a headless service endpoint with no declared ports; plugin/kubernetes/object/endpoint.go creates Port: -1, plugin/k8s_external/msg_to_dns.go skips that service, plugin/k8s_external/transfer.go sends an empty []dns.RR batch, and plugin/transfer/transfer.go indexes records[0] without checking the batch is non-empty. This issue is fixed in version 1.14.5.",
+      "published": "2026-07-16T20:16:47.657",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62994"
+    },
+    {
+      "id": "CVE-2026-62963",
+      "summary": "Centrifugo is an open-source scalable real-time messaging server. Prior to 6.8.4, Centrifugo unidirectional WebSocket transport with uni_websocket.compression enabled enforced uni_websocket.message_size_limit against compressed wire-frame length in internal/websocket/conn.go advanceFrame, but ReadMessage used io.ReadAll after decompression without an output cap, allowing unauthenticated requests to /connection/uni_websocket to trigger large memory and CPU consumption. This issue is fixed in version 6.8.4.",
+      "published": "2026-07-16T20:16:47.533",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54526"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62963"
     },
     {
-      "id": "CVE-2026-53536",
-      "summary": "Activepieces is an open source AI workflow automation platform. Prior to 0.83.0, the /v1/step-files/signed download endpoint verified the supplied JWT against the shared signing secret but did not check the token's audience, and combined with a missing null-check on the decoded fileId, this allowed any caller holding any valid Activepieces JWT (including a freshly created user's own access token) to receive a step-file belonging to another tenant. The file returned was whatever PostgreSQL happened to scan first for type = FLOW_STEP_FILE, varying over time as the database changed, so an authenticated user could obtain step-file attachments belonging to other tenants on the same instance; the attacker could not target a specific victim or file, and the access was read-only with no integrity or availability impact. This issue is fixed in version 0.83.0.",
-      "published": "2026-07-16T19:16:50.240",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53536"
+      "id": "CVE-2026-62309",
+      "summary": "CoreDNS is a DNS server written in Go. Prior to 1.14.4, a single 28-byte UDP datagram can crash the CoreDNS process when the proxyproto plugin is enabled because plugin/pkg/proxyproto/proxyproto.go PacketConn.ReadFrom handles a PROXY v2 header with non-UDP transport such as family byte 0x11, reassigns addr from a nil readFrom result after parseProxyProtocol errors, and calls addr.String() in the warning log before ServeDNS recovery applies. This issue is fixed in version 1.14.4.",
+      "published": "2026-07-16T20:16:47.030",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62309"
     },
     {
-      "id": "CVE-2026-53535",
-      "summary": "Activepieces is an open source AI workflow automation platform. Prior to 0.82.0, the git-sync feature clones a user-configured Git repository into a temporary directory on the server and then writes flow, table, and connection state into it before pushing back, and two separate weaknesses allowed those writes to escape the intended workspace and land on arbitrary paths on the host filesystem: Git's symbolic-link handling was not disabled on the clone, so an attacker who controlled the remote repository could include symlinks that redirected the writes, and several user-supplied identifiers used to build on-disk paths (the repository slug and the externalId of tables, flows, and connections) were not validated against directory-traversal sequences such as ../. On a self-hosted Enterprise Edition deployment, a user authorized to configure or push to a git-sync repository (holding the WRITE_PROJECT_RELEASE permission) could cause the server to overwrite files anywhere the Activepieces process user can write, which depending on host layout can be leveraged for tampering, denial of service, or remote code execution. This issue is fixed in version 0.82.0.",
-      "published": "2026-07-16T19:16:50.097",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53535"
-    },
-    {
-      "id": "CVE-2026-47089",
-      "summary": "An issue was discovered in cyrus-imapd in Cyrus IMAP through 3.12.2. LISTRIGHTS os not limited to users with admin access. An authenticated user could call IMAP LISTRIGHTS against any mailbox they could name and learn what principals had what access to it. (This action should have been restricted to users with admin access on the target mailbox.)",
-      "published": "2026-07-16T19:16:49.647",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47089"
-    },
-    {
-      "id": "CVE-2026-47088",
-      "summary": "An issue was discovered in cyrus-imapd in Cyrus IMAP through 3.12.2. There is heap exposure in nested MIME comment parsing. An authenticated IMAP user could craft an email message containing an RFC 822 comment ending with a backslash. When parsing the message, the server would read past the message's end in memory, and read into the heap, returning the read content to the user.",
-      "published": "2026-07-16T19:16:49.513",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47088"
-    },
-    {
-      "id": "CVE-2026-47087",
-      "summary": "An issue was discovered in cyrus-imapd in Cyrus IMAP through 3.12.2. URLAUTH does not honor revoked authorizer access. A URLAUTH URL minted while the authorizer had access continued to work after that access was revoked.",
-      "published": "2026-07-16T19:16:49.383",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47087"
+      "id": "CVE-2026-62299",
+      "summary": "CoreDNS is a DNS server written in Go. Prior to 1.14.5, the CoreDNS rewrite plugin supports edns0 rewrite rules with an optional revert flag, and two response rules, edns0SetResponseRule and edns0ReplaceResponseRule[T] in plugin/rewrite/edns0.go, call res.IsEdns0() and immediately dereference the returned *dns.OPT without a nil check when a downstream plugin returns a response with no OPT record. A remote, unauthenticated client can send a single ordinary DNS query matching a rewrite edns0 <local|nsid|subnet> <set|append|replace> ... revert rule, causing ResponseReverter in plugin/rewrite/reverter.go to panic, return SERVFAIL, and degrade availability, or crash the CoreDNS process if the debug directive disables recovery. This issue is fixed in version 1.14.5.",
+      "published": "2026-07-16T20:16:46.693",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62299"
     }
   ]
 }
