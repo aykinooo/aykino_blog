@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-16T14:19:19+00:00",
+  "generated_at": "2026-07-16T18:18:13+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-5674",
-      "summary": "A flaw was found in PipeWire, a multimedia server. This vulnerability allows an attacker to escape sandboxed applications, such as Flatpak, by exploiting PipeWire's PulseAudio compatibility layer. An attacker with minimal permissions within a sandboxed environment can load a malicious library, leading to arbitrary code execution outside the sandbox and potential compromise of the user's system.",
-      "published": "2026-07-16T14:16:56.070",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5674"
+      "id": "CVE-2026-46687",
+      "summary": "Emlog is an open source website building system. In 2.6.13 and earlier, the article publishing interface stores a path-traversal template parameter from api_controller.php without validation, and log_controller.php later checks file_exists and calls include View::getView($template), allowing an authenticated author to include an arbitrary local .php file when an article is viewed. No fixed version is currently identified.",
+      "published": "2026-07-16T18:16:44.203",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46687"
     },
     {
-      "id": "CVE-2026-56456",
-      "summary": "HCL DFXAnalytics is affected by an Internal File Path Disclosure vulnerability. The application dashboard inadvertently leaks sensitive information regarding its internal file structure and directory paths through unhandled error messages, system logs, or debugging output, which could allow a remote attacker to map the underlying server environment and identify targets for further exploitation.",
-      "published": "2026-07-16T14:16:54.943",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56456"
+      "id": "CVE-2026-46686",
+      "summary": "Emlog is an open source website building system. In 2.6.13 and earlier, the admin backend user search module's keyword parameter from admin/user.php is processed with addslashes but not HTML-escaped before being rendered into the value attribute in admin/views/user.php, allowing reflected cross-site scripting in an administrator's backend session. No fixed version is currently identified.",
+      "published": "2026-07-16T18:16:44.063",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46686"
     },
     {
-      "id": "CVE-2026-56455",
-      "summary": "HCL DFXAnalytics is affected by a Buffer Overflow vulnerability that can lead to a Denial of Service (DoS). The application fails to properly validate input sizes, allowing an attacker to pass an excessive amount of information into a memory container, which can cause the system to crash or become unresponsive. To mitigate this flaw, comprehensive input length checks must be implemented and enforced on both the client and server sides.",
-      "published": "2026-07-16T14:16:54.797",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56455"
+      "id": "CVE-2026-46341",
+      "summary": "The Apify MCP server enables AI agents to extract data from websites using ready-made scrapers, crawlers, and automation tools available on the Apify Store. Prior to 0.9.21, the fetch-apify-docs tool in src/tools/common/fetch_apify_docs.ts validates allowlisted documentation domains with String.startsWith() rather than URL hostname comparison, allowing attacker-controlled URLs such as `https://docs.apify.com.evil.com/` and `https://docs.apify.com@evil.com/` to pass the ALLOWED_DOC_DOMAINS check and return arbitrary fetched content to the LLM. This issue is fixed in version 0.9.21.",
+      "published": "2026-07-16T18:16:43.913",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46341"
     },
     {
-      "id": "CVE-2026-56454",
-      "summary": "HCL DFXAnalytics is affected by a Deprecated Protocol vulnerability due to the use of TLS 1.0 and TLS 1.1. These legacy protocols contain numerous cryptographic design flaws that expose data to interception and decryption. To remediate this risk, the application must disable all support for TLS 1.0 and TLS 1.1, and exclusively enable support for secure protocols, specifically TLS 1.2 and TLS 1.3.",
-      "published": "2026-07-16T14:16:54.643",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56454"
+      "id": "CVE-2026-46336",
+      "summary": "Manyfold is an open source, self-hosted web application for managing a collection of 3d models, particularly focused on 3d printing. From 0.96.0 until 0.140.0, authenticated users can rename uploaded files with path traversal sequences because app/models/model_file.rb uses the user-controlled filename in File.join(model.path, filename) without sufficient sanitization, allowing files to be moved or written outside the configured library directory. This issue is fixed in version 0.140.0.",
+      "published": "2026-07-16T18:16:43.773",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46336"
     },
     {
-      "id": "CVE-2026-56453",
-      "summary": "HCL DFXAnalytics is affected by an Account Takeover via Response Manipulation vulnerability. A remote attacker can intercept and alter the contents of the server's HTTP responses before they reach the client application, allowing them to manipulate the authentication or authorization logic to bypass controls and gain unauthorized access to targeted user accounts.",
-      "published": "2026-07-16T14:16:54.497",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56453"
+      "id": "CVE-2026-45336",
+      "summary": "HireFlow is a web-based interview management system for managing candidates, scheduling interviews, and tracking hiring progress. In 1.2 and earlier, app.py assigns a hard-coded Flask secret_key used to sign session cookies, allowing unauthenticated attackers who know the public source value to forge cookies containing role=admin and user_id values and bypass authentication. The advisory lists version 1.3 as fixed.",
+      "published": "2026-07-16T18:16:43.517",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45336"
     },
     {
-      "id": "CVE-2026-35145",
-      "summary": "HCL DFXAnalytics is affected by a Missing HTTP Strict-Transport-Security Header vulnerability. The application fails to implement the HTTP Strict Transport Security (HSTS) policy within its responses, which could allow a remote attacker to downgrade the communication channel to an unencrypted connection (HTTP) and conduct man-in-the-middle (MitM) attacks. To remediate this, the application must include the \"Strict-Transport-Security\" header in all web application responses.",
-      "published": "2026-07-16T14:16:51.123",
+      "id": "CVE-2026-44970",
+      "summary": "dbt-mcp is a Model Context Protocol server for interacting with dbt. Prior to 1.17.1, DefaultUsageTracker.emit_tool_called_event() in src/dbt_mcp/tracking/tracking.py serialized every MCP tool call's complete arguments dictionary and sent it through dbtlabs_vortex.producer.log_proto without redaction, including sql_query from show, vars from run, build, and test, and node_selection from compile, while usage_tracking_enabled in settings.py enabled telemetry by default unless DBT_SEND_ANONYMOUS_USAGE_STATS=false or DO_NOT_TRACK=1 was set. This issue is fixed in version 1.17.1.",
+      "published": "2026-07-16T18:16:43.377",
       "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35145"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44970"
     }
   ]
 }
