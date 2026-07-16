@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-16T18:18:13+00:00",
+  "generated_at": "2026-07-16T20:10:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-46687",
-      "summary": "Emlog is an open source website building system. In 2.6.13 and earlier, the article publishing interface stores a path-traversal template parameter from api_controller.php without validation, and log_controller.php later checks file_exists and calls include View::getView($template), allowing an authenticated author to include an arbitrary local .php file when an article is viewed. No fixed version is currently identified.",
-      "published": "2026-07-16T18:16:44.203",
+      "id": "CVE-2026-54526",
+      "summary": "Argo Workflows is an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. Prior to 3.7.15 and 4.0.6, the allow-list fix for CVE-2026-31892 is incomplete because workflow/util/merge.go ValidateUserOverrides and SanitizeUserWorkflowSpec walk only the top-level fields of WorkflowSpec via reflection, and WorkflowSpec.ArtifactGC is allow-listed wholesale; the struct behind that field, WorkflowLevelArtifactGC, has a PodSpecPatch sub-field whose contents flow unmodified into util.ApplyPodSpecPatch on the artifact-GC pod, the same sink the original fix closed for WorkflowSpec.PodSpecPatch, so a user submitting a Workflow under templateReferencing: Strict or Secure (against a referenced WorkflowTemplate that declares an output artifact and setting spec.artifactGC.strategy: OnWorkflowCompletion) can still inject an arbitrary strategic merge patch into the artifact-GC pod, including hostPath volumes, privileged: true, arbitrary image and command, and hostNetwork: true, defeating the stated purpose of Strict/Secure reference mode. This issue is fixed in versions 3.7.15 and 4.0.6.",
+      "published": "2026-07-16T19:16:50.373",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46687"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54526"
     },
     {
-      "id": "CVE-2026-46686",
-      "summary": "Emlog is an open source website building system. In 2.6.13 and earlier, the admin backend user search module's keyword parameter from admin/user.php is processed with addslashes but not HTML-escaped before being rendered into the value attribute in admin/views/user.php, allowing reflected cross-site scripting in an administrator's backend session. No fixed version is currently identified.",
-      "published": "2026-07-16T18:16:44.063",
+      "id": "CVE-2026-53536",
+      "summary": "Activepieces is an open source AI workflow automation platform. Prior to 0.83.0, the /v1/step-files/signed download endpoint verified the supplied JWT against the shared signing secret but did not check the token's audience, and combined with a missing null-check on the decoded fileId, this allowed any caller holding any valid Activepieces JWT (including a freshly created user's own access token) to receive a step-file belonging to another tenant. The file returned was whatever PostgreSQL happened to scan first for type = FLOW_STEP_FILE, varying over time as the database changed, so an authenticated user could obtain step-file attachments belonging to other tenants on the same instance; the attacker could not target a specific victim or file, and the access was read-only with no integrity or availability impact. This issue is fixed in version 0.83.0.",
+      "published": "2026-07-16T19:16:50.240",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46686"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53536"
     },
     {
-      "id": "CVE-2026-46341",
-      "summary": "The Apify MCP server enables AI agents to extract data from websites using ready-made scrapers, crawlers, and automation tools available on the Apify Store. Prior to 0.9.21, the fetch-apify-docs tool in src/tools/common/fetch_apify_docs.ts validates allowlisted documentation domains with String.startsWith() rather than URL hostname comparison, allowing attacker-controlled URLs such as `https://docs.apify.com.evil.com/` and `https://docs.apify.com@evil.com/` to pass the ALLOWED_DOC_DOMAINS check and return arbitrary fetched content to the LLM. This issue is fixed in version 0.9.21.",
-      "published": "2026-07-16T18:16:43.913",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46341"
+      "id": "CVE-2026-53535",
+      "summary": "Activepieces is an open source AI workflow automation platform. Prior to 0.82.0, the git-sync feature clones a user-configured Git repository into a temporary directory on the server and then writes flow, table, and connection state into it before pushing back, and two separate weaknesses allowed those writes to escape the intended workspace and land on arbitrary paths on the host filesystem: Git's symbolic-link handling was not disabled on the clone, so an attacker who controlled the remote repository could include symlinks that redirected the writes, and several user-supplied identifiers used to build on-disk paths (the repository slug and the externalId of tables, flows, and connections) were not validated against directory-traversal sequences such as ../. On a self-hosted Enterprise Edition deployment, a user authorized to configure or push to a git-sync repository (holding the WRITE_PROJECT_RELEASE permission) could cause the server to overwrite files anywhere the Activepieces process user can write, which depending on host layout can be leveraged for tampering, denial of service, or remote code execution. This issue is fixed in version 0.82.0.",
+      "published": "2026-07-16T19:16:50.097",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53535"
     },
     {
-      "id": "CVE-2026-46336",
-      "summary": "Manyfold is an open source, self-hosted web application for managing a collection of 3d models, particularly focused on 3d printing. From 0.96.0 until 0.140.0, authenticated users can rename uploaded files with path traversal sequences because app/models/model_file.rb uses the user-controlled filename in File.join(model.path, filename) without sufficient sanitization, allowing files to be moved or written outside the configured library directory. This issue is fixed in version 0.140.0.",
-      "published": "2026-07-16T18:16:43.773",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46336"
+      "id": "CVE-2026-47089",
+      "summary": "An issue was discovered in cyrus-imapd in Cyrus IMAP through 3.12.2. LISTRIGHTS os not limited to users with admin access. An authenticated user could call IMAP LISTRIGHTS against any mailbox they could name and learn what principals had what access to it. (This action should have been restricted to users with admin access on the target mailbox.)",
+      "published": "2026-07-16T19:16:49.647",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47089"
     },
     {
-      "id": "CVE-2026-45336",
-      "summary": "HireFlow is a web-based interview management system for managing candidates, scheduling interviews, and tracking hiring progress. In 1.2 and earlier, app.py assigns a hard-coded Flask secret_key used to sign session cookies, allowing unauthenticated attackers who know the public source value to forge cookies containing role=admin and user_id values and bypass authentication. The advisory lists version 1.3 as fixed.",
-      "published": "2026-07-16T18:16:43.517",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45336"
-    },
-    {
-      "id": "CVE-2026-44970",
-      "summary": "dbt-mcp is a Model Context Protocol server for interacting with dbt. Prior to 1.17.1, DefaultUsageTracker.emit_tool_called_event() in src/dbt_mcp/tracking/tracking.py serialized every MCP tool call's complete arguments dictionary and sent it through dbtlabs_vortex.producer.log_proto without redaction, including sql_query from show, vars from run, build, and test, and node_selection from compile, while usage_tracking_enabled in settings.py enabled telemetry by default unless DBT_SEND_ANONYMOUS_USAGE_STATS=false or DO_NOT_TRACK=1 was set. This issue is fixed in version 1.17.1.",
-      "published": "2026-07-16T18:16:43.377",
+      "id": "CVE-2026-47088",
+      "summary": "An issue was discovered in cyrus-imapd in Cyrus IMAP through 3.12.2. There is heap exposure in nested MIME comment parsing. An authenticated IMAP user could craft an email message containing an RFC 822 comment ending with a backslash. When parsing the message, the server would read past the message's end in memory, and read into the heap, returning the read content to the user.",
+      "published": "2026-07-16T19:16:49.513",
       "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44970"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47088"
+    },
+    {
+      "id": "CVE-2026-47087",
+      "summary": "An issue was discovered in cyrus-imapd in Cyrus IMAP through 3.12.2. URLAUTH does not honor revoked authorizer access. A URLAUTH URL minted while the authorizer had access continued to work after that access was revoked.",
+      "published": "2026-07-16T19:16:49.383",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47087"
     }
   ]
 }
