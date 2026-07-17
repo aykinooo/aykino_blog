@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-17T21:06:16+00:00",
+  "generated_at": "2026-07-17T22:05:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8861",
-      "summary": "IBM Security Verify could allow a remote attacker to obtain sensitive information when a detailed technical error message is returned in the browser.\u00a0 This information could be used in further attacks against the system.",
-      "published": "2026-07-17T20:17:31.760",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8861"
+      "id": "CVE-2026-55518",
+      "summary": "Avo is a framework to create admin panels for Ruby on Rails apps. Prior to 3.32.1 and 4.0.0.beta.51, Avo's association attach workflow checks attach_<association>? in the UI and GET /resources/:resource/:id/:related/new path, but the actual write endpoint, POST /resources/:resource/:id/:related, does not run the same authorization check before mutating the association through Avo::AssociationsController#create. An authenticated low-privileged Avo user can bypass hidden or disabled attach controls and directly attach related records to a parent record by sending a crafted POST request, which can lead to privilege escalation and cross-tenant data exposure where associations represent authorization-bearing relationships. This issue is fixed in versions 3.32.1 and 4.0.0.beta.51.",
+      "published": "2026-07-17T21:17:09.173",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55518"
     },
     {
-      "id": "CVE-2026-8859",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 Langflow could allow an attacker to write arbitrary files to unintended locations due to improper input validation in the APIRequest component. A path traversal vulnerability exists when the \"Save to File\" feature is enabled, where filenames extracted from HTTP response Content-Disposition headers are not sanitized before being joined to the temporary directory path. An attacker controlling an external HTTP server can supply crafted filename values containing path traversal sequences (e.g., ../), enabling arbitrary file writes to locations accessible by the Langflow process.",
-      "published": "2026-07-17T20:17:31.643",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8859"
+      "id": "CVE-2026-54498",
+      "summary": "view_component is a framework for building reusable, testable, and encapsulated view components in Ruby on Rails. From 4.0.0 until 4.12.0, ViewComponent::Base#around_render can return HTML-unsafe strings that bypass the escaping behavior applied to normal #call return values. This creates an XSS risk when downstream applications use around_render to wrap, replace, instrument, or conditionally return content that includes user-controlled data, and ViewComponent::Collection#render_in can amplify the issue by joining per-item results and marking the entire output html_safe, converting raw unsafe output into an ActiveSupport::SafeBuffer. This issue is fixed in version 4.12.0.",
+      "published": "2026-07-17T21:17:09.043",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54498"
     },
     {
-      "id": "CVE-2026-8635",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 allows authenticated users to escalate privileges to superuser by directly manipulating the database, execute arbitrary system commands, and achieve full system compromise with Langflow service permissions.",
-      "published": "2026-07-17T20:17:31.527",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8635"
+      "id": "CVE-2026-54497",
+      "summary": "view_component is a framework for building reusable, testable, and encapsulated view components in Ruby on Rails. From 4.0.0 until 4.12.0, ViewComponent::Base instances retain render-scoped objects across calls to render_in; if the same component, collection, or spacer component instance is reused across requests, users, tenants, or threads, later renders can use stale helpers, controller, request, view_flow, format/variant details, and slot child context from an earlier render. This can cause authorization-aware components to render privileged UI for a lower-privileged user, generate links using a stale Host header, leak slot/helper state, and mix request context under concurrent rendering. This issue is fixed in version 4.12.0.",
+      "published": "2026-07-17T21:17:08.907",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54497"
     },
     {
-      "id": "CVE-2026-8505",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 has a vulnerability in Langflow's webhook authentication logic allows unauthenticated users to trigger the execution of any flow. The system incorrectly bypasses API key validation when the WEBHOOK_AUTH_ENABLE configuration is set to False (which is the default setting). This allows a remote attacker who knows a flow's UUID to execute it as if they were the owner, potentially leading to Remote Code Execution (RCE).",
-      "published": "2026-07-17T20:17:31.417",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8505"
+      "id": "CVE-2026-54490",
+      "summary": "websocket-driver is a WebSocket protocol handler with pluggable I/O. Prior to 0.7.5, if this library is used with the permessage-deflate extension, a WebSocket server or client can be made to accept messages that are larger than the configured maximum message size because the limit is checked against the message frames' length headers, which give the size of the compressed data, not the size after decompression in lib/websocket/driver/hybi.js. This can lead to applications accepting larger messages than expected and exceeding their intended resource usage. This issue is fixed in version 0.7.5.",
+      "published": "2026-07-17T21:17:08.780",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54490"
     },
     {
-      "id": "CVE-2026-8481",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 contain a critical remote code execution vulnerability in the code validation API endpoint.\u00a0The POST /api/v1/validate/code endpoint accepts user-supplied Python code and executes it directly using Python's built-in exec() function without sandboxing, input validation, or privilege restrictions, enabling any authenticated user to execute arbitrary system commands with the full privileges of the Langflow server process.",
-      "published": "2026-07-17T20:17:30.747",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8481"
+      "id": "CVE-2026-54466",
+      "summary": "websocket-driver is a WebSocket protocol handler with pluggable I/O. Prior to 0.7.5, the frame format in draft versions of the WebSocket protocol includes a length header that allows an arbitrarily large integer to be encoded as a sequence of bytes with the high bit set. By sending an indefinite sequence of bytes with values 0x80 or above, a client can make the server parse these bytes into an ever-growing integer in lib/websocket/driver/draft75.js; because JavaScript numbers are 64-bit floating point values, this number will eventually lose precision and lead to the subsequent payload being parsed incorrectly. This issue is fixed in version 0.7.5.",
+      "published": "2026-07-17T21:17:08.657",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54466"
     },
     {
-      "id": "CVE-2026-8476",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.0 contain a critical remote code execution vulnerability in the disk-based caching mechanism. The AsyncDiskCache class\u00a0uses Python's unsafe pickle.loads() function to deserialize cached objects from disk without validation, integrity verification, or authentication, enabling arbitrary code execution when malicious pickle payloads are processed. Attackers who can influence cached data through file system access, malicious workflow inputs, custom components, or API manipulation can achieve complete system compromise with the privileges of the Langflow server process.",
-      "published": "2026-07-17T20:17:30.623",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8476"
+      "id": "CVE-2026-54244",
+      "summary": "Statamic is a Laravel and Git powered content management system (CMS). Prior to 5.74.0 and 6.20.3, the Live Preview endpoint for existing entries and terms in src/Http/Controllers/CP/PreviewController.php only checked view authorization, but it accepts and renders caller-supplied field values. A Control Panel user with view but not edit permission could therefore submit content they were not authorized to author and generate a shareable Live Preview URL rendering it. This issue is fixed in versions 5.74.0 and 6.20.3.",
+      "published": "2026-07-17T21:17:08.523",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54244"
     }
   ]
 }
