@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-18T13:45:46+00:00",
+  "generated_at": "2026-07-18T15:12:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9147",
-      "summary": "uproot dynamically generates Python class source code from ROOT TStreamerInfo records in a file and compiles it at runtime. Some file-controlled streamer metadata fields (for example, streamer element names) are interpolated into the generated Python source without safe quoting via repr() or the !r format specifier. An attacker who can supply a crafted ROOT file can place Python expression-breaking content into a streamer metadata field. When uproot generates and invokes the corresponding reader method, the injected Python expression is evaluated in the context of the process opening the file, resulting in arbitrary Python code execution in applications that open or process attacker-controlled ROOT files with affected uproot code paths.",
-      "published": "2026-07-18T13:17:06.273",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9147"
+      "id": "CVE-2026-9323",
+      "summary": "The urwid web display backend (urwid/display/web.py) generates web session identifiers (urwid_id) in Screen.start() by concatenating two random.randrange(10**9) calls that use Python's Mersenne Twister PRNG, which is not cryptographically secure. Each call consumes approximately 30 bits of PRNG state, and the Mersenne Twister internal state is approximately 19,937 bits, so an attacker who observes approximately 334 session IDs (for example via the X-Urwid-ID HTTP response header) can fully reconstruct the internal state and predict all past and future session IDs (Path B). The same identifier is also used as the filename of a FIFO created in the world-listable /tmp directory (for example /tmp/urwid375487765176907690.in), so any local user on the host can list /tmp to enumerate active session tokens directly (Path A). With a valid session ID, an attacker can read the victim's terminal screen via the polling endpoint, inject keystrokes into the victim's session (yielding OS-level code execution with the session owner's privileges if the session runs a shell), and inject exit sequences or flood the FIFO to terminate or crash the session. A prior Bandit S311 warning on this usage was suppressed with # noqa: S311 rather than fixed",
+      "published": "2026-07-18T14:17:12.170",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9323"
     },
     {
-      "id": "CVE-2026-59173",
-      "summary": "Uncontrolled Resource Consumption vulnerability in Apache Traffic Server.\n\nThis issue affects Apache Traffic Server: from 9.0.0 through 9.1.13, from 10.0.0 through 10.1.2.\n\nUsers are recommended to upgrade to version 9.1.14 or 10.1.3, which fixes the issue.",
-      "published": "2026-07-18T13:17:06.150",
+      "id": "CVE-2026-16120",
+      "summary": "A vulnerability was determined in nextlevelbuilder GoClaw up to 3.13.3-beta.3. This impacts the function matchesAllowlist/extractBin of the file internal/tools/exec_approval.go. Executing a manipulation can lead to incorrectly-resolved name. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-07-18T14:17:11.907",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16120"
+    },
+    {
+      "id": "CVE-2026-16119",
+      "summary": "A vulnerability was found in nextlevelbuilder GoClaw up to 3.13.2. This affects the function RequestApproval of the file internal/tools/exec_approval.go of the component WebSocket Approval Endpoint. Performing a manipulation results in incorrect authorization. The attack is possible to be carried out remotely. The exploit has been made public and could be used.",
+      "published": "2026-07-18T14:17:11.740",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16119"
+    },
+    {
+      "id": "CVE-2026-16117",
+      "summary": "Impact: @fastify/http-proxy versions up to and including 11.5.0 fail to rewrite the request prefix when the prefix segment is URL-encoded. Fastify's router URL-decodes paths for route matching, but request.url retains the original encoded form, and the prefix-rewrite step uses a literal string replace against the decoded prefix. A request that encodes one or more characters of the configured prefix therefore matches the route but skips the rewrite, so the raw encoded path is forwarded to the upstream unchanged. The upstream then decodes the path and serves it, letting an attacker reach upstream paths that the proxy was configured to hide via rewritePrefix, including internal or administrative endpoints.\n\nPatches: upgrade to @fastify/http-proxy 11.6.0.\n\nWorkarounds: none.",
+      "published": "2026-07-18T14:17:11.620",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16117"
+    },
+    {
+      "id": "CVE-2026-11826",
+      "summary": "OpenPLC_v3 contains a heap-based buffer overflow in the getData() function in webserver/core/modbus_master.cpp. getData() reads characters between two delimiters into a caller-supplied buffer with no size parameter and no bounds check. In parseConfig() the function is invoked with the 100-byte heap-allocated MB_device.dev_name field. An authenticated attacker with access to the OpenPLC web interface can send a crafted HTTP POST to the /modbus endpoint with an oversized device_name value; the value is persisted to mbconfig.cfg and parsed on load, overflowing dev_name and overwriting adjacent struct fields (protocol at offset 108, dev_address at offset 109, ip_port at offset 210). A 200-byte payload writes 100 bytes past the allocation. The result is heap corruption leading to runtime crash and denial of service of the PLC process control loop, with attacker-controlled overwrite of adjacent configuration fields. The upstream repository was archived on 2026-04-04 and no fix is expected; the vendor has confirmed the issue does not affect OpenPLC Runtime v4.",
+      "published": "2026-07-18T14:17:11.480",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11826"
+    },
+    {
+      "id": "CVE-2025-71398",
+      "summary": "SurrealDB before 2.2.2 fails to validate HTTP redirects in http functions, allowing authenticated users to bypass deny-net restrictions by redirecting to blocked IP addresses. Attackers can host a public server that redirects to denied network targets, enabling server-side request forgery to access internal endpoints and retrieve sensitive information.",
+      "published": "2026-07-18T14:17:11.347",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59173"
-    },
-    {
-      "id": "CVE-2026-16158",
-      "summary": "Impact: @fastify/reply-from versions from 8.3.1 up to but not including 12.6.4 build the internal URL cache key by concatenating the destination and source path without a delimiter. Different destination and source pairs can therefore produce the same key while resolving to different upstream URLs. When getUpstream selects an upstream from request data, a URL cached for one upstream can be reused for a request intended for another upstream, causing cross-upstream data access and modification. The default configuration is affected. Setting disableCache to true prevents the behavior. Patches: upgrade to @fastify/reply-from 12.6.4. Workarounds: pass disableCache: true when registering the plugin.",
-      "published": "2026-07-18T13:17:06.030",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16158"
-    },
-    {
-      "id": "CVE-2026-15631",
-      "summary": "Impact: @fastify/http-proxy versions from 9.4.0 up to and including 11.5.0 fail to validate the resolved WebSocket destination path against the configured rewrite prefix. The WebSocket routing path in WebSocketProxy.findUpstream resolves the destination via the WHATWG URL constructor, which collapses dot segments, so a crafted upgrade request with path traversal sequences can escape the rewrite prefix and reach upstream endpoints that were not meant to be exposed by the proxy. This is a variant of CVE-2021-21322 in a code path that never went through the HTTP fix in fastify/reply-from. Exploitation requires a non-normalizing WebSocket client, since browsers and the ws package normalize the request path before sending, but raw HTTP clients or downstream proxies that forward the request target unchanged make the attack reachable in production topologies. \n\nPatches: upgrade to @fastify/http-proxy 11.6.0. \n\nWorkarounds: none.",
-      "published": "2026-07-18T13:17:05.323",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15631"
-    },
-    {
-      "id": "CVE-2026-16097",
-      "summary": "A vulnerability was found in Shibby Tomato 1.28. This vulnerability affects the function sub_42537C of the component Scheduler Name Handler. The manipulation of the argument a1 results in stack-based buffer overflow. It is possible to launch the attack remotely. This project is superseded by FreshTomato.",
-      "published": "2026-07-18T12:17:11.393",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16097"
-    },
-    {
-      "id": "CVE-2026-16096",
-      "summary": "A vulnerability has been found in Shibby Tomato 1.28 RT-N5x MIPSR2 Build 124. This affects the function sub_40BB50 of the file /proc/webmon_recent_domains. The manipulation leads to stack-based buffer overflow. It is possible to initiate the attack remotely. This project is superseded by FreshTomato.",
-      "published": "2026-07-18T12:17:11.223",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16096"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71398"
     }
   ]
 }
