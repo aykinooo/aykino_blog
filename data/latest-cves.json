@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-07-18T19:28:39+00:00",
+  "generated_at": "2026-07-18T21:03:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-57848",
+      "summary": "Stoat for Android exports the chat.stoat.activities.ShareTargetActivity component (reachable to any process on the device via the android.intent.action.SEND intent) and accepts the file to share as a URI supplied through the android.intent.extra.STREAM extra. The activity does not validate or filter the incoming URI before using it as the outgoing attachment, so a caller can pass a file:// URI pointing at the application's own internal storage (for example /data/data/chat.revolt/databases/revolt.db, cached authentication token files, or preferences) and have the app treat that internal file as a user-selected attachment. An attacker who can invoke intents on the victim's device (via ADB access, a co-installed malicious application, or any other route that reaches Android's intent dispatch) can launch ShareTargetActivity with such a URI and cause the victim, on a single channel-selection interaction, to send the internal file to any Stoat channel or user of the attacker's choosing. The composer displays the attachment as \\\"attachment\\\" with no filename indication, so the victim has no visible signal that the file being sent is their own internal application data. Consequences include disclosure of the local Stoat database (message history, contact list, cached content), disclosure of authentication tokens permitting full account takeover, and disclosure of any other file readable by the app process.",
+      "published": "2026-07-18T20:17:30.427",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57848"
+    },
+    {
+      "id": "CVE-2026-53994",
+      "summary": "ProFTPD mod_sftp contains a heap-based buffer overflow reachable by an authenticated SFTP user. The fxp_packet_read() function accepts the attacker-supplied 32-bit big-endian SFTP packet length without a minimum sanity check. A value of 0 causes an unsigned subtraction elsewhere in the read path to underflow to approximately 4 GB. That oversized request reaches the core memory allocator, where the rounded size is computed in size_t but passed to new_block() as a 32-bit int; the low 32 bits of 0x100000000 are 0, so new_block() returns a small (~512-byte) block while the caller is told it received ~4 GB. The subsequent fill loop then streams attacker-controlled bytes past the end of the 544-byte allocation, producing an attacker-controlled heap buffer overflow. An authenticated user can crash the per-connection ProFTPD session child on demand with a single malformed SFTP packet (packet_len=0 followed by a body greater than approximately 544 bytes), producing reliable authenticated remote denial of service. Depending on heap layout and adjacent allocations, heap metadata corruption and further consequences beyond denial of service may be possible, though only denial of service is demonstrated by the supplied proof of concept.",
+      "published": "2026-07-18T20:17:30.283",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53994"
+    },
+    {
+      "id": "CVE-2026-16151",
+      "summary": "A vulnerability has been found in CartoDB carto-api-client 0.5.29. This impacts the function addFilter of the file src/filters.ts. Such manipulation of the argument column leads to improperly controlled modification of object prototype attributes. The attack can be executed remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-07-18T20:17:30.107",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16151"
+    },
+    {
+      "id": "CVE-2026-16150",
+      "summary": "A vulnerability was found in RobinHerbots Inputmask up to 5.0.9. Affected by this issue is the function extendDefaults/extendDefinitions/extendAliases in the library lib/dependencyLibs/extend.js of the component Internal Deep Merge Helper. The manipulation results in improperly controlled modification of object prototype attributes. The attack may be performed from remote. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-07-18T20:17:29.947",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16150"
+    },
     {
       "id": "CVE-2026-16133",
       "summary": "A flaw has been found in LiuMengxuan04 MiniCode 0.1.0. Affected by this vulnerability is the function child_process.spawn of the file mcp.ts. Executing a manipulation can lead to command injection. The attack can be launched remotely. The attack requires a high level of complexity. The exploitation appears to be difficult. The exploit has been published and may be used. The pull request to fix this issue awaits acceptance.",
@@ -15,34 +43,6 @@
       "published": "2026-07-18T19:17:05.527",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16131"
-    },
-    {
-      "id": "CVE-2026-16130",
-      "summary": "A vulnerability was identified in nearai ironclaw up to 0.29.1. The affected element is the function validate_path of the file src/tools/builtin/path_utils.rs of the component write_file. The manipulation leads to link following. Local access is required to approach this attack. The exploit is publicly available and might be used. The identifier of the patch is 369ff3d240cf3c0787b50e1e9f182e1a06c71255. It is recommended to apply a patch to fix this issue.",
-      "published": "2026-07-18T18:16:37.430",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16130"
-    },
-    {
-      "id": "CVE-2026-16129",
-      "summary": "A vulnerability has been found in princezuda SafestClaw up to 4.2.4. This vulnerability affects the function ShellAction._validate_command of the file src/safestclaw/actions/shell.py of the component Built-in Web Interface. Such manipulation leads to incomplete blacklist. An attack has to be approached locally. The exploit has been disclosed to the public and may be used. The presence of this vulnerability remains uncertain at this time. The project maintainer explains: \"On paper you're correct, this is a vulnerability. In practice, nothing your AI generated shows how it makes users vulnerable. It's open source. Someone can mod the shell allow list or remove that system. Present an actual poc that shows a threat to users.\"",
-      "published": "2026-07-18T17:16:39.030",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16129"
-    },
-    {
-      "id": "CVE-2026-16128",
-      "summary": "A security flaw has been discovered in zevorn rt-claw up to 0.2.0. This impacts the function receiver_thread of the file claw/services/swarm/swarm.c of the component http_request. Performing a manipulation results in server-side request forgery. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-07-18T17:16:38.273",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16128"
-    },
-    {
-      "id": "CVE-2026-16127",
-      "summary": "A vulnerability was identified in zevorn rt-claw up to 0.2.0. This affects the function claw_net_get/claw_net_post of the file claw/tools/tool_net.c of the component http_request. Such manipulation of the argument url leads to server-side request forgery. The attack may be performed from remote. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-07-18T16:17:13.217",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16127"
     }
   ]
 }
