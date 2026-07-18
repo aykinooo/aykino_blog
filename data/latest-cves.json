@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-07-18T03:28:15+00:00",
+  "generated_at": "2026-07-18T06:16:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-9734",
+      "summary": "The W3SC Elementor to Zoho CRM plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.2.0. This is due to missing or incorrect nonce validation on the storeInfo function. This makes it possible for unauthenticated attackers to modify the plugin's Zoho CRM integration settings, replacing the configured data center, client ID, client secret, and user email credentials with attacker-controlled values via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-07-18T05:16:56.570",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9734"
+    },
+    {
+      "id": "CVE-2026-16075",
+      "summary": "A flaw has been found in AstrBotDevs AstrBot up to 4.25.5. This vulnerability affects the function OpenApiRoute.get_chat_sessions of the file astrbot/dashboard/routes/open_api.py of the component session-listing Endpoint. This manipulation of the argument Username causes authorization bypass. It is possible to initiate the attack remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-18T05:16:52.490",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16075"
+    },
     {
       "id": "CVE-2026-57980",
       "summary": "Authentication bypass using an alternate path or channel in Microsoft Edge (Chromium-based) allows an unauthorized attacker to perform tampering over a network.",
@@ -29,20 +43,6 @@
       "published": "2026-07-17T22:17:54.117",
       "cvss": 7.1,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56171"
-    },
-    {
-      "id": "CVE-2026-54335",
-      "summary": "Feathersjs is a framework for creating web APIs and real-time applications with TypeScript or JavaScript. In 5.0.44 and earlier, the _.merge(target, source) utility exported by @feathersjs/commons recursively merges source into target by iterating Object.keys(source). When source was produced by JSON.parse and contains a __proto__, constructor, or prototype key, that key is returned as an own-enumerable property; the recursive merge then resolves target['__proto__'] to Object.prototype and writes attacker-supplied properties onto it, polluting the prototype for all plain objects in the process for the lifetime of the Node process. This issue is fixed in version 5.0.45.",
-      "published": "2026-07-17T22:17:44.840",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54335"
-    },
-    {
-      "id": "CVE-2026-49485",
-      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.9 and 6.9.4.2, all implementations of FHIRPathEngine accept arbitrary FHIRPath expressions and evaluate them without input validation, and the FHIRPath functions matches(), matchesFull(), and replaceMatches() pass user-controlled regular expressions to Java's Pattern.compile() and String.replaceAll() through an incomplete timeout utility. An attacker can send a resource containing an evil regex pattern that causes catastrophic backtracking, exhausting CPU resources and causing denial of service in the FHIR Validator HTTP endpoint and affected org.hl7.fhir.* modules. This issue is fixed in versions 6.9.9 and 6.9.4.2.",
-      "published": "2026-07-17T22:17:16.893",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49485"
     }
   ]
 }
