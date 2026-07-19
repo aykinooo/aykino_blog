@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-19T12:05:10+00:00",
+  "generated_at": "2026-07-19T13:50:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53380",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: rzv2h-ivc: Fix concurrent buffer list access\n\nThe list of buffers (`rzv2h_ivc::buffers.queue`) is protected by a\nspinlock (`rzv2h_ivc::buffers.lock`). However, in\n`rzv2h_ivc_transfer_buffer()`, which runs in a separate workqueue, the\n`list_del()` call is executed without holding the spinlock, which makes\nit possible for the list to be concurrently modified\n\nFix that by removing a buffer from the list in the lock protected section.\n\n[assign ivc->buffers.curr in critical section as reported by Barnabas]",
-      "published": "2026-07-19T11:16:39.173",
+      "id": "CVE-2026-63836",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbatman-adv: tp_meter: avoid divide-by-zero for dec_cwnd\n\nThe cwnd is always MSS <= cwnd <= 0x20000000. But the calculation in\nbatadv_tp_update_cwnd() assumes unsigned 32 bit arithmetics.\n\n    ((mss * 8) ** 2) / (cwnd * 8)\n\nIn case cwnd is actually 0x20000000, it will be shifted by 3 bit to the\nleft end up at 0x100000000 or U32_MAX + 1. It will therefore wrap around\nand be 0 - resulting in:\n\n    ((mss * 8) ** 2) / 0\n\nThis is of course invalid and cannot be calculated. The calculation should\nmust be simplified to avoid this overflow:\n\n   (mss ** 2) * 8 / cwnd\n\nIt will keep the precision enhancement from the scaling (by 8) but avoid\nthe overflow in the divisor.\n\nIn theory, there could still be an overflow in the dividend. It is at the\nmoment fixed to BATADV_TP_PLEN in batadv_tp_recv_ack() - so it is not an\nimminent problem. But allowing it to use the whole u32 bit range, would\nmean that it can still use up to 67 bits. To keep this calculation safe for\n32 bit arithmetic, mss must never use more than floor((32 - 3) / 2) bits -\nor in other words: must never be larger than 16383.",
+      "published": "2026-07-19T12:16:57.103",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53380"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63836"
     },
     {
-      "id": "CVE-2026-53379",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: i2c: ov8856: free control handler on error in ov8856_init_controls()\n\nThe control handler wasn't freed if adding controls failed, add an error\nexit label and convert the existing error return to use it.",
-      "published": "2026-07-19T11:16:39.060",
+      "id": "CVE-2026-63835",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbatman-adv: v: prevent OGM aggregation on disabled hardif\n\nWhen an interface gets disabled, the worker is correctly disabled by\nbatadv_hardif_disable_interface() -> ... -> batadv_v_ogm_iface_disable().\nIn this process, the skb aggr_list is also freed.\n\nBut batadv_v_ogm_send_meshif() can still queue new skbs (via\nbatadv_v_ogm_queue_on_if()) to the aggr_list. This will only stop after all\ncores can no longer find the RCU protected list of hard interfaces. These\nqueued skbs will never be freed or consumed by batadv_v_ogm_aggr_work.\n\nThe batadv_v_ogm_iface_disable() function must block\nbatadv_v_ogm_queue_on_if() to avoid leak of skbs.",
+      "published": "2026-07-19T12:16:56.970",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53379"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63835"
     },
     {
-      "id": "CVE-2026-53378",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/colorop: Fix blob property reference tracking in state lifecycle\n\nThe colorop state blob property handling had memory leaks during state\nduplication, destruction, and reset operations. The implementation\nfailed to follow the established pattern from drm_crtc's handling of\nDEGAMMA/GAMMA blob properties.\n\nIssues fixed:\n- drm_colorop_atomic_destroy_state() was freeing state memory without\n  releasing the blob reference, causing a leak\n- drm_colorop_reset() was directly freeing old state with kfree()\n  instead of properly destroying it, leaking blob references\n- drm_colorop_cleanup() had duplicate blob cleanup code\n\nChanges:\n- Add __drm_atomic_helper_colorop_destroy_state() helper to properly\n  release blob references before freeing state memory\n- Update drm_colorop_atomic_destroy_state() to call the helper\n- Fix drm_colorop_reset() to use drm_colorop_atomic_destroy_state()\n  for proper cleanup of old state\n- Simplify drm_colorop_cleanup() to use the common destruction path\n\nThis matches the well-tested pattern used by drm_crtc since 2016 and\nensures proper reference counting throughout the state lifecycle.\n\nCo-developed by Claude Sonnet 4.5.",
-      "published": "2026-07-19T11:16:38.953",
+      "id": "CVE-2026-63834",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbatman-adv: tp_meter: restrict number of unacked list entries\n\nWhen the unacked_list is unbound, an attacker could send messages with\nsmall lengths and appropriated seqno + gaps to force the receiver to\nallocate more and more unacked_list entries. And the end either causing an\nout-of-memory situation or increase the management overhead for the (large)\nlist that significant portions of CPU cycles are wasted in searching\nthrough the list.\n\nWhen limiting the list to a specific number, it is important to still\ncorrectly add a new entry to the list. But if the list became larger than\nthe limit, the last entry of the list (with the highest seqno) must be\ndropped to still allow the earlier seqnos to finish and therefore to\ncontinue the process. Otherwise, the process might get stuck with too high\nseqnos which are not handled by batadv_tp_ack_unordered().",
+      "published": "2026-07-19T12:16:56.840",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53378"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63834"
     },
     {
-      "id": "CVE-2026-53377",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/msm: always recover the gpu\n\nPreviously, in case there was no more work to do, recover worker\nwouldn't trigger recovery and would instead rely on the gpu going to\nsleep and then resuming when more work is submitted.\n\nRecover_worker will first increment the fence of the hung ring so, if\nthere's only one job submitted to a ring and that causes an hang, it\nwill early out.\n\nThere's no guarantee that the gpu will suspend and resume before more\nwork is submitted and if the gpu is in a hung state it will stay in that\nstate and probably trigger a timeout again.\n\nJust stop checking and always recover the gpu.\n\nPatchwork: https://patchwork.freedesktop.org/patch/704066/",
-      "published": "2026-07-19T11:16:38.847",
+      "id": "CVE-2026-63833",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nntfs3: reject direct userspace writes to reserved $LX* xattrs\n\nNTFS3 uses $LXUID, $LXGID, $LXMOD and $LXDEV as internal WSL\npermission metadata and reloads them into i_uid, i_gid and i_mode\nfrom ntfs_get_wsl_perm().\n\nBecause the empty-prefix xattr handler also lets file owners call\nsetxattr() on these names directly, an unprivileged writer on a\nwritable ntfs3 mount can plant root ownership and S_ISUID on their own\nfile and gain euid 0 after inode reload.\n\nReject direct userspace writes to the reserved $LX* names. Internal\nntfs3 metadata updates are unchanged because ntfs_save_wsl_perm()\nwrites them via ntfs_set_ea() directly.\n\n[almaz.alexandrovich@paragon-software.com: added an additional check for non privileged users]",
+      "published": "2026-07-19T12:16:56.713",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53377"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63833"
     },
     {
-      "id": "CVE-2026-53376",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdkfd: Add upper bound check for num_of_nodes\n\ndrm/amdkfd: Add upper bound check for num_of_nodes\nin kfd_ioctl_get_process_apertures_new.\n\n(cherry picked from commit 98ff46a5ea090c14d2cdb4f5b993b05d74f3949f)",
-      "published": "2026-07-19T11:16:38.740",
+      "id": "CVE-2026-63832",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mt76: add wcid publish check in mt76_sta_add\n\nSince mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_add\nto avoid reinitializing the wcid->poll_list.\n\nFound dev->sta_poll_list corruption when using mt7925 and 7.1-rc4.\nAccording to the corruption information, prev->next was changed to itself.\n\nwlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8b:e2\nwlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=84:9e:56:9c:7e:6b)\nwlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)\n slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192\nlist_add corruption. prev->next should be next (ffff8c808a7488f8), but was ffff8c80958a7040. (prev=ffff8c80958a7040).\n\n mt76_wcid_add_poll+0x95/0xd0 [mt76]\n mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]\n mt7925_rx_check+0xa7/0xc0 [mt7925_common]\n mt76_dma_rx_poll+0x50d/0x790 [mt76]\n mt792x_poll_rx+0x52/0xe0 [mt792x_lib]",
+      "published": "2026-07-19T12:16:56.600",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53376"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63832"
     },
     {
-      "id": "CVE-2026-53375",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amdgpu/vce: Prevent partial address patches\n\nIn the case that only one of lo/hi is valid, the patching could result\nin a bad address written to in FW.",
-      "published": "2026-07-19T11:16:38.623",
+      "id": "CVE-2026-63831",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmac802154: llsec: add skb_cow_data() before in-place crypto\n\nllsec_do_encrypt_unauth(), llsec_do_encrypt_auth(),\nllsec_do_decrypt_unauth(), and llsec_do_decrypt_auth() all perform\nin-place cryptographic transformations on skb data.  They build a\nscatterlist with sg_init_one() pointing into the skb's linear data area\nand then pass the same scatterlist as both src and dst to the crypto API\n(e.g. crypto_skcipher_encrypt/decrypt, crypto_aead_encrypt/decrypt).\n\nOn the RX path, __ieee802154_rx_handle_packet() clones the received skb\nbefore handing it to each subscriber via ieee802154_subif_frame().  The\ncloned skb shares the same underlying data buffer via reference\ncounting.  When llsec_do_decrypt() subsequently modifies this shared\nbuffer in place, it corrupts data that other clones -- potentially\nbelonging to other sockets or subsystems -- still reference.\n\nOn the TX path, similar data sharing can occur when an skb's head has\nbeen cloned (skb_cloned() returns true).\n\nThe fix is to call skb_cow_data() before performing any in-place crypto\noperation.  skb_cow_data() ensures that the skb's data area is not\nshared: if the skb head is cloned or the data spans multiple fragments,\nit copies the data into a private buffer that can be safely modified in\nplace.  This is the same pattern used by:\n\n  - ESP (net/ipv4/esp4.c, net/ipv6/esp6.c)\n  - MACsec (drivers/net/macsec.c)\n  - WireGuard (drivers/net/wireguard/receive.c)\n  - TIPC (net/tipc/crypto.c)\n\nWithout this guard, in-place crypto on shared skb data leads to:\n  - Silent data corruption of other skb clones\n  - Use-after-free when the crypto API scatterwalk writes through a\n    page that has already been freed by another clone's kfree_skb()\n  - Kernel crashes under concurrent 802.15.4 traffic with security\n    enabled (KASAN/KMSAN reports slab-use-after-free)\n\nFound by 0sec (https://0sec.ai) using automated source analysis.",
+      "published": "2026-07-19T12:16:56.460",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53375"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63831"
     }
   ]
 }
