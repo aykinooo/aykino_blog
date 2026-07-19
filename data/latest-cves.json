@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-19T16:09:53+00:00",
+  "generated_at": "2026-07-19T17:13:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-63874",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: mctp: usb: fix race between urb completion and rx_retry cancellation\n\nIt's possible that sequencing between setting ->stopped and cancelling\nthe rx_retry work (in ndo_stop) could leave us with an urb queued:\n\n    T1: ndo_stop                  T2: rx_retry_work\n    ------------                  ----------------\n                                  LD: ->stopped => false\n    ST: ->stopped <= true\n    usb_kill_urb()\n                                  mctp_usb_rx_queue()\n                                    usb_submit_urb()\n    cancel_delayed_work_sync()\n\nThat urb completion can then re-schedule rx_retry_work.\n\nStrenghen the sequencing between the stop (preventing another requeue)\nand the cancel by updating both atomically under a new rx lock. After\nsetting ->rx_stopped, and cancelling pending work, we know that the\nrequeue cannot occur, so all that's left is killing any pending urb.",
-      "published": "2026-07-19T15:16:54.450",
+      "id": "CVE-2026-64186",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\niommu/amd: Remove latent out-of-bounds access in IOMMU debugfs\n\nIn iommu_mmio_write() and iommu_capability_write(), the variables\ndbg_mmio_offset and dbg_cap_offset are declared as int. However, they\nare populated using kstrtou32_from_user(). If a user provides a\nsufficiently large value, it can become a negative integer.\n\nPrior to this patch, the AMD IOMMU debugfs implementation was already\nprotected by different mechanisms.\n\n1. #define OFS_IN_SZ 8 ensures the user string <= 8 bytes, so\n   e.g. 0xffffffff isn't a valid input.\n\n  if (cnt > OFS_IN_SZ)\n     return -EINVAL;\n\n2. Implicit type promotion in iommu_mmio_write(), dbg_mmio_offset is int\n   and iommu->mmio_phys_end is u64\n\n  if (dbg_mmio_offset > iommu->mmio_phys_end - sizeof(u64))\n      return -EINVAL;\n\n3. The show handlers would currently catch the negative number and\n   refuse to perform the read.\n\nReplace kstrtou32_from_user() with kstrtos32_from_user() to parse the\ninput, and check for negative values to explicitly prevent out-of-bounds\nmemory accesses directly in iommu_mmio_write() and\niommu_capability_write().",
+      "published": "2026-07-19T16:18:01.037",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63874"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64186"
     },
     {
-      "id": "CVE-2026-63873",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\naccel/amdxdna: Fix mm_struct reference leak in aie2_populate_range()\n\naie2_populate_range() jumps back to the again label without calling\nmmput(mm), leaking a reference to the mm_struct.\n\nAdd the missing mmput() before jumping to again.",
-      "published": "2026-07-19T15:16:54.347",
+      "id": "CVE-2026-64185",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nsysfs: don't remove existing directory on update failure\n\nWhen sysfs_update_group() is called for a named group and create_files()\nfails (e.g. -ENOMEM), internal_create_group() calls kernfs_remove(kn) on\nthe group directory.  In the update path, kn was obtained via\nkernfs_find_and_get() and refers to a directory that already existed\nbefore this call.  Removing it silently destroys a sysfs group that the\ncaller did not create.\n\nOnly remove the directory if we created it ourselves.  On update failure\nthe directory remains as it is left empty by remove_files() inside\ncreate_files(), but can be repopulated by a retry.",
+      "published": "2026-07-19T16:18:00.917",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63873"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64185"
     },
     {
-      "id": "CVE-2026-63872",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nesp: fix page frag reference leak on skb_to_sgvec failure\n\nIn esp_output_tail(), when esp->inplace is false, the old skb page frags\nare replaced with a new page from the xfrm page_frag cache. The source\nscatterlist (sg) is built from the old frags before the replacement, and\nesp_ssg_unref() is responsible for releasing the old page references\nafter the crypto operation completes.\n\nHowever, if the second skb_to_sgvec() call (which builds the destination\nscatterlist from the new page) fails, the code jumps to error_free which\nonly calls kfree(tmp). The old page frag references captured in the\nsource scatterlist are never released:\n\n  1. sg[] is built from old frags via skb_to_sgvec() (no extra get_page)\n  2. nr_frags is set to 1 and frag[0] is replaced with the new page\n  3. Second skb_to_sgvec() fails -> goto error_free\n  4. kfree(tmp) frees the sg[] memory but old frags are not unref'd\n  5. kfree_skb() only releases frag[0] (the new page), not the old ones\n\nFix this by adding a bool parameter to esp_ssg_unref() that, when true,\nunconditionally unrefs the source scatterlist frags without checking\nreq->src and req->dst, since those fields are not yet initialized by\naead_request_set_crypt() at the point of the error. Existing callers\npass false to preserve the original behavior.\n\nThe same issue exists in both esp4 and esp6 as the code is identical.",
-      "published": "2026-07-19T15:16:54.247",
+      "id": "CVE-2026-64184",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/damon/sysfs-schemes: call missing mem_cgroup_iter_break()\n\ndamon_sysfs_memcg_path_to_id() breaks mem_cgroup_iter() loop without\ncalling mem_cgroup_iter_break().  This leaks the cgroup reference.  Fix\nthe issue by calling mem_cgroup_iter_break() before the break.\n\nThe issue was discovered [1] by Sashiko.",
+      "published": "2026-07-19T16:18:00.817",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63872"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64184"
     },
     {
-      "id": "CVE-2026-63871",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: ISO: Fix data-race on iso_pi fields in hci_get_route calls\n\niso_connect_bis(), iso_connect_cis(), iso_listen_bis(), and\niso_conn_big_sync() call hci_get_route() using iso_pi(sk)->dst,\niso_pi(sk)->src, and iso_pi(sk)->src_type without holding lock_sock().\n\nThese fields may be modified concurrently by connect() or setsockopt()\non the same socket, resulting in data-races reported by KCSAN.\n\nFix this by snapshotting the required fields under lock_sock() before\ncalling hci_get_route().\n\nBUG: KCSAN: data-race in memcmp+0x45/0xb0\n\nrace at unknown origin, with read to 0xffff8880122135cf of 1 bytes\nby task 333 on cpu 1:\n memcmp+0x45/0xb0\n hci_get_route+0x27e/0x490\n iso_connect_cis+0x4c/0xa10\n iso_sock_connect+0x60e/0xb30\n __sys_connect_file+0xbd/0xe0\n __sys_connect+0xe0/0x110\n __x64_sys_connect+0x40/0x50\n x64_sys_call+0xcad/0x1c60\n do_syscall_64+0x133/0x590\n entry_SYSCALL_64_after_hwframe+0x77/0x7f",
-      "published": "2026-07-19T15:16:54.133",
+      "id": "CVE-2026-64183",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nefi: Allocate runtime workqueue before ACPI init\n\nSince commit\n\n  5894cf571e14 (\"acpi/prmt: Use EFI runtime sandbox to invoke PRM handlers\")\n\nACPI PRM calls are delegated to a workqueue which runs in a kernel\nthread, making it easier to detect and mitigate faulting memory accesses\nperformed by the firmware.\n\nRafael reports that such PRM accesses may occur before efisubsys_init()\nexecutes, which is where the workqueue is allocated, leading to NULL\npointer dereferences. Since acpi_init() [which triggers the early PRM\naccesses] executes as a subsys_initcall() as well, and has its own\ndependencies that may be sensitive to initcall ordering, deferring\nacpi_init() is not an option.\n\nSo instead, split off the workqueue allocation into its own postcore\ninitcall, as this is the only missing piece to allow EFI runtime calls\nto be made. This ensures that EFI runtime call (including PRM calls) are\naccessible to all code running at subsys_initcall() level.",
+      "published": "2026-07-19T16:18:00.703",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63871"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64183"
     },
     {
-      "id": "CVE-2026-63870",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nieee802154: 6lowpan: only accept IPv6 packets in lowpan_xmit()\n\nThe aoe driver (or similar) generates a non-IPv6 packet\n(e.g., ETH_P_AOE) and queues it for transmission via dev_queue_xmit()\non a 6LoWPAN interface (configured by the user or test case).\n\nSince the packet is not IPv6, the 6LoWPAN header_ops->create function\n(lowpan_header_create or header_create) returns early without initializing\nthe lowpan_addr_info structure in the skb headroom.\n\nIn the transmit function (lowpan_xmit), the driver calls lowpan_header\n(or setup_header) which unconditionally copies and uses the lowpan_addr_info\nfrom the headroom, which contains uninitialized data.\n\nFix this by dropping non IPv6 packets.\n\nA similar fix is needed in net/bluetooth/6lowpan.c bt_xmit().",
-      "published": "2026-07-19T15:16:53.990",
+      "id": "CVE-2026-64182",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrivers/base/memory: fix memory block reference leak in poison accounting\n\nmemblk_nr_poison_inc() and memblk_nr_poison_sub() look up a memory block\nvia find_memory_block_by_id(), which acquires a reference to the memory\nblock device.\n\nBoth helpers use the returned memory block without dropping that\nreference, leaking the device reference on each successful lookup.  Drop\nthe reference after updating nr_hwpoison.",
+      "published": "2026-07-19T16:18:00.600",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63870"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64182"
     },
     {
-      "id": "CVE-2026-63869",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nwifi: mac80211: limit injected antenna index in ieee80211_parse_tx_radiotap\n\nWhen parsing the radiotap header of an injected frame,\nieee80211_parse_tx_radiotap() uses the IEEE80211_RADIOTAP_ANTENNA value\ndirectly as a shift count:\n\n\tinfo->control.antennas |= BIT(*iterator.this_arg);\n\n*iterator.this_arg is an 8-bit value taken straight from the frame\nsupplied by userspace, so BIT() can be asked to shift by up to 255. That\nis undefined behaviour on the unsigned long and is reported by UBSAN:\n\n  UBSAN: shift-out-of-bounds in net/mac80211/tx.c:2174:30\n  shift exponent 235 is too large for 64-bit type 'unsigned long'\n  Call Trace:\n   ieee80211_parse_tx_radiotap+0xadb/0x1950 net/mac80211/tx.c:2174\n   ieee80211_monitor_start_xmit+0xb1f/0x1250 net/mac80211/tx.c:2451\n   ...\n   packet_sendmsg+0x3eb6/0x50f0 net/packet/af_packet.c:3109\n\ninfo->control.antennas is a 2-bit bitmap (u8 antennas:2), so only antenna\nindices 0 and 1 can ever be represented. Ignore any larger value instead\nof shifting out of bounds.",
-      "published": "2026-07-19T15:16:53.873",
+      "id": "CVE-2026-64181",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm: fix __vm_normal_page() to handle missing support for pmd_special()/pud_special()\n\nOn x86 32-bit with THP enabled, zap_huge_pmd() is seen to generate a\n\"WARNING: mm/memory.c:735 at __vm_normal_page+0x6a/0x7d\", from the\nVM_WARN_ON_ONCE(is_zero_pfn(pfn) || is_huge_zero_pfn(pfn)); followed by\n\"BUG: Bad rss-counter state\"s, then later \"BUG: Bad page state\"s when\nreclaim gets to call shrink_huge_zero_folio_scan().\n\nIt's as if the _PAGE_SPECIAL bit never got set in the huge_zero pmd: and\nindeed, whereas pte_special() and pte_mkspecial() are subject to a\ndedicated CONFIG_ARCH_HAS_PTE_SPECIAL, pmd_special() and pmd_mkspecial()\nare subject to CONFIG_ARCH_SUPPORTS_PMD_PFNMAP, which is never enabled on\nany 32-bit architecture.\n\nWhile the problem was exposed through commit d80a9cb1a64a\n(\"mm/huge_memory: add and use normal_or_softleaf_folio_pmd()\"), it was an\noversight in commit af38538801c6 (\"mm/memory: factor out common code from\nvm_normal_page_*()\") and would result in other problems:\n* huge zero folio accounted in smaps, pagemap (PAGE_IS_FILE) and\n  numamaps as file-backed THP\n* folio_walk_start() returning the folio even without FW_ZEROPAGE set.\n  Callers seem to tolerate that, though.\n\n... and triggering the VM_WARN_ON_ONE(), although never reported so far.\n\nTo fix it, teach vm_normal_page_pmd()/vm_normal_page_pud() to consider\nwhether pmd_special/pud_special is actually implemented.",
+      "published": "2026-07-19T16:18:00.493",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63869"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64181"
     }
   ]
 }
