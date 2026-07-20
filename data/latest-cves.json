@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-20T04:01:41+00:00",
+  "generated_at": "2026-07-20T07:26:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-45138",
-      "summary": "CI4MS is a CodeIgniter 4-based content management system skeleton. Prior to version 0.31.9.0, the custom `html_purify` validation rule used to sanitize blog post bodies relies on by-reference mutation (`?string &$str`), but CodeIgniter 4's validator passes a local copy of the value, so the sanitized text is silently discarded. The Blog controller writes `$lanData['content']` directly into `blog_langs.content`, and the public template echoes it without escaping \u2014 yielding stored XSS executable in any visitor's browser, including the superadmin when previewing or editing posts. Version 0.31.9.0 patches the issue.",
-      "published": "2026-07-20T00:16:58.363",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45138"
-    },
-    {
-      "id": "CVE-2026-44359",
-      "summary": "Meshtastic is an open source mesh networking solution. Prior to version 2.7.21.1370b23, the Meshtastic GitHub repository's main_matrix.yml workflow is triggered by pull_request_target  and multiple jobs check out the attacker's fork code and execute it with access to repository secrets and elevated GITHUB_TOKEN permissions. No approval gate exists. Pull requests from external users with author_association: \"NONE\" triggered the CI workflow automatically. The workflow directly executes attacker-controlled files from the fork checkout. This issue could have resulted in supply chain compromise, self-hosted runner compromise, and/or repository takeover for the repo. This issue is separate from GHSA-6mwm-v2vv-pp96, which addressed a command injection via github.head_ref in the setup job of the same workflow. That fix correctly moved to environment variables. However, the more critical fork checkout vulnerability across the check, build, and build-debian-src jobs was not addressed. Version 2.7.21.1370b23 contains a patch for thie issue.",
-      "published": "2026-07-20T00:16:58.210",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44359"
-    },
-    {
-      "id": "CVE-2026-42566",
-      "summary": "Meshtastic is an open source mesh networking solution. Prior to version 2.7.23.b246bcd, a single node advertising a User.long_name that contains a malformed character encoding can render other radios unusable over BLE when managed through the iOS app. The malformed name does not need to be maliciously crafted \u2014 it can arise from ordinary buffer truncation and has been observed occurring naturally in the wild. At least one code path could place a null terminator in the middle of a multibyte sequence, leaving a malformed User.long_name in the node database. The problem surfaced downstream: the iOS app enforced encoding validation and therefore cannot parse a node database once it contains a poisoned entry. This caused BLE sync to enter a fail/retry loop, resulting in loss of control over the affected device. For a typical user managing their radio with the iOS app, the device becomes effectively unusable until the poisoned node ages out of the on-device database, or unless they have an alternate management path (e.g., the Python CLI, which can be used to identify and remove the offending entries manually). Because the malformed name propagates through the mesh, the temporary presence of a single affected node can degrade BLE management for iOS users across a wide geographical area for an extended period. Less technical users have no straightforward recovery path. Starting in version 2.7.23.b246bcd, the firmware has added input sanitization and regression tests demonstrating recovery for already-poisoned devices. The apps have also taken steps to ensure more graceful handling of malformed encoding sequences as well.",
-      "published": "2026-07-20T00:16:58.050",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42566"
-    },
-    {
-      "id": "CVE-2026-12484",
-      "summary": "A vulnerability in keras-team/keras version 3.15.0 allows unsafe deserialization of attacker-controlled PyTorch pickle data through the public `keras.layers.TorchModuleWrapper.from_config` method. This method invokes `torch.load(..., weights_only=False)` without requiring an explicit unsafe opt-in, such as a `safe_mode=False` parameter. When called outside a `SafeModeScope(True)` context, the absence of an ambient safe mode state permits unsafe deserialization by default. This issue can lead to arbitrary code execution if untrusted Keras layer configurations are processed using this method. The vulnerability arises because the method does not enforce safe deserialization practices unless explicitly guarded by Keras safe mode.",
-      "published": "2026-07-19T20:16:28.800",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12484"
-    },
-    {
-      "id": "CVE-2026-64186",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\niommu/amd: Remove latent out-of-bounds access in IOMMU debugfs\n\nIn iommu_mmio_write() and iommu_capability_write(), the variables\ndbg_mmio_offset and dbg_cap_offset are declared as int. However, they\nare populated using kstrtou32_from_user(). If a user provides a\nsufficiently large value, it can become a negative integer.\n\nPrior to this patch, the AMD IOMMU debugfs implementation was already\nprotected by different mechanisms.\n\n1. #define OFS_IN_SZ 8 ensures the user string <= 8 bytes, so\n   e.g. 0xffffffff isn't a valid input.\n\n  if (cnt > OFS_IN_SZ)\n     return -EINVAL;\n\n2. Implicit type promotion in iommu_mmio_write(), dbg_mmio_offset is int\n   and iommu->mmio_phys_end is u64\n\n  if (dbg_mmio_offset > iommu->mmio_phys_end - sizeof(u64))\n      return -EINVAL;\n\n3. The show handlers would currently catch the negative number and\n   refuse to perform the read.\n\nReplace kstrtou32_from_user() with kstrtos32_from_user() to parse the\ninput, and check for negative values to explicitly prevent out-of-bounds\nmemory accesses directly in iommu_mmio_write() and\niommu_capability_write().",
-      "published": "2026-07-19T16:18:01.037",
+      "id": "CVE-2026-9833",
+      "summary": "The Tag Groups is the Advanced Way to Display Your Taxonomy Terms WordPress plugin before 2.2.0 does not properly escape one of its AJAX parameters before reflecting it in the response body served with an HTML content type, allowing unauthenticated attackers to execute arbitrary JavaScript in the browser of a logged-in user with `edit_pages` capability (Editor or higher) who is tricked into following a crafted link.",
+      "published": "2026-07-20T07:16:42.657",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64186"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9833"
     },
     {
-      "id": "CVE-2026-64185",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nsysfs: don't remove existing directory on update failure\n\nWhen sysfs_update_group() is called for a named group and create_files()\nfails (e.g. -ENOMEM), internal_create_group() calls kernfs_remove(kn) on\nthe group directory.  In the update path, kn was obtained via\nkernfs_find_and_get() and refers to a directory that already existed\nbefore this call.  Removing it silently destroys a sysfs group that the\ncaller did not create.\n\nOnly remove the directory if we created it ourselves.  On update failure\nthe directory remains as it is left empty by remove_files() inside\ncreate_files(), but can be repopulated by a retry.",
-      "published": "2026-07-19T16:18:00.917",
+      "id": "CVE-2026-8825",
+      "summary": "The Elementor Website Builder  WordPress plugin before 4.1.4 does not properly check user permissions before returning post data through one of its REST endpoints, allowing authenticated users with Contributor-level access and above to retrieve the title, body and metadata of private posts, private pages and drafts authored by other users (including administrators).",
+      "published": "2026-07-20T07:16:42.553",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64185"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8825"
+    },
+    {
+      "id": "CVE-2026-6656",
+      "summary": "Crypt::Password versions through 0.28 for Perl are susceptible to timing attacks.\n\nThe check_password method uses the built-in eq operator. This allows discrepancies in timing to be used to guess the underlying hash.",
+      "published": "2026-07-20T07:16:42.440",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6656"
+    },
+    {
+      "id": "CVE-2026-16235",
+      "summary": "Crypt::Password versions through 0.28 for Perl generate insecure random values for salts.\n\nThese versions use the built-in rand function, which is predictable and unsuitable for cryptography.",
+      "published": "2026-07-20T07:16:37.320",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16235"
+    },
+    {
+      "id": "CVE-2026-13432",
+      "summary": "The ThumbPress  WordPress plugin before 6.2.2 does not perform a capability check on one of its AJAX actions, allowing authenticated users with subscriber-level access or higher to deactivate the ThumbPress  WordPress plugin before 6.2.2, disrupting the site's image-handling functionality.",
+      "published": "2026-07-20T07:16:35.783",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13432"
+    },
+    {
+      "id": "CVE-2026-13156",
+      "summary": "The MailerSend  WordPress plugin before 1.0.8 does not perform a nonce check on its configuration-delete action (it verifies the manage_options capability but ignores the nonce), so an attacker can trick a logged-in administrator into visiting a crafted page that wipes the MailerSend  WordPress plugin before 1.0.8's SMTP configuration and deactivates the MailerSend  WordPress plugin before 1.0.8, breaking the site's email delivery.",
+      "published": "2026-07-20T07:16:35.687",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13156"
     }
   ]
 }
