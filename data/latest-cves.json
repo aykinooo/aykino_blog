@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-20T13:16:02+00:00",
+  "generated_at": "2026-07-20T16:00:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-64623",
-      "summary": "Network-AI before 5.13.4 contains an improper cryptographic signature verification vulnerability in APSAdapter where the default local verifier accepts any non-empty string as valid. Unauthenticated attackers can submit forged APS delegation payloads with arbitrary scopes to bypass signature verification and obtain signed permission-grant tokens for sensitive resources including SHELL_EXEC.",
-      "published": "2026-07-20T12:19:47.200",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64623"
+      "id": "CVE-2026-63091",
+      "summary": "ProFTPD before 1.3.9c and 1.3.10rc3 contains a signed integer overflow vulnerability in the mod_sftp module's SCP size-record parser that allows authenticated low-privilege attackers to bypass ASLR by sending a crafted file size value of UINT64_MAX, which results in a negative off_t value. Attackers can exploit the subsequent conversion to uint32_t, causing an approximately 4 GB requested read length and forcing the server to read beyond the end of the SSH channel data and write overread process memory into the uploaded file. In tested configurations, the disclosed data contains libc, libcrypto, and PIE pointers sufficient to derive their randomized base addresses, thereby bypassing ASLR and enabling reliable exploitation of memory corruption vulnerabilities in the same process.",
+      "published": "2026-07-20T15:16:45.363",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63091"
     },
     {
-      "id": "CVE-2026-64622",
-      "summary": "Network-AI (npm: network-ai) versions 5.12.2 through 5.13.3 fail to apply the configured authorization check (checkAuth/secret) to the ApprovalInbox GET read routes, so even when an operator configures a secret, unauthenticated actors can access sensitive approval request details. The GET /approvals/?status=all, GET /approvals/:id, GET /approvals/stats, and GET /approvals/sse routes disclose full ApprovalEntry content including action/target shell-command strings, file paths, justifications, and risk levels. All responses also carry a hardcoded Access-Control-Allow-Origin: * header, enabling cross-origin disclosure from any website the operator visits. This is an incomplete fix for GHSA-mxjx-28vx-xjjj.",
-      "published": "2026-07-20T12:19:47.057",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64622"
+      "id": "CVE-2026-63090",
+      "summary": "ProFTPD before 1.3.9c and 1.3.10rc3 contains a heap-based buffer overflow vulnerability in the mod_sftp module that allows authenticated low-privilege attackers to achieve arbitrary code execution by sending crafted SFTP packet fragments exceeding the 16 KB reassembly buffer in the fxp.c component. Attackers can supply oversized fragments to trigger an incorrectly conditioned reallocation, corrupt pool freelist metadata, overwrite the root_fs BSS global pointer to reference a fake filesystem struct, and redirect pr_fsio_stat() to system() via a crafted RENAME request.",
+      "published": "2026-07-20T15:16:45.213",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63090"
     },
     {
-      "id": "CVE-2026-64621",
-      "summary": "FreeRDP before 3.28.0 (affected 3.x through 3.27.1) contains a double-free vulnerability in freerdp_client_rdp_file_apply_to_settings() (client/common/file.c) when parsing the selectedmonitors field of a .rdp connection file. The MonitorIds array is allocated through the settings object, and a raw non-owning pointer to it is freed on the strtoul error path without clearing settings->MonitorIds, leaving it dangling; at teardown freerdp_settings_free() frees the same buffer again. An attacker who convinces a victim to open a crafted .rdp file with oversized monitor tokens can trigger a size-controlled double-free in any FreeRDP CLI client (xfreerdp/sdl-freerdp/wlfreerdp) in the default configuration.",
-      "published": "2026-07-20T12:19:46.910",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64621"
-    },
-    {
-      "id": "CVE-2026-64620",
-      "summary": "FreeRDP before 3.28.0 (affected <=3.27.1) contains a heap-based buffer overflow in crypto_rsa_common() (libfreerdp/crypto/crypto.c). The function writes the modular-exponentiation result into the caller's output buffer via BN_bn2bin() and only afterward checks output_length > out_length, so out-of-bounds bytes are written before the bounds check. On the server side, when a client selects RDP Standard Security, the encrypted client random is decrypted into a fixed 32-byte buffer. Because the server publishes its RSA public key, an unauthenticated attacker can forge a ciphertext whose decrypted value is up to the full modulus length (e.g. 256 bytes for RSA-2048), overflowing the 32-byte heap buffer by up to ~224 attacker-controlled bytes pre-authentication, resulting in denial of service.",
-      "published": "2026-07-20T12:19:46.760",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64620"
-    },
-    {
-      "id": "CVE-2026-63763",
-      "summary": "SurrealDB before 2.5.0 and before 3.0.0-beta.3 contains a confused deputy privilege escalation vulnerability. Unprivileged users (e.g., those with the database editor role) can create or modify fields containing futures, functions, or closures. Because these are executed in the context of the invoking/querying user rather than their creator, an attacker can plant malicious logic that executes with a higher-privileged user's permissions when that user reads or writes the affected record. This can lead to full privilege escalation, including creation of a root owner and server takeover.",
-      "published": "2026-07-20T12:19:46.623",
+      "id": "CVE-2026-63071",
+      "summary": "Improper Isolation or Compartmentalization vulnerability in Apache Syncope.\n\nAn administrator with adequate entitlements for Implementations can create a malicious Groovy class containing untrusted code bypassing the Groovy security sandbox.\n\nThis issue affects Apache Syncope: from 3.0.0-M0 through 3.0.16, from 4.0.0-M0 through 4.0.6, from 4.1.0-M0 through 4.1.1.\n\nUsers are recommended to upgrade to version 4.0.7 / 4.1.2, which fix this issue by tightening the Groovy security sandbox.",
+      "published": "2026-07-20T15:16:45.093",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63763"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63071"
     },
     {
-      "id": "CVE-2026-63762",
-      "summary": "SurrealDB before v2.6.1 (and before v3.0.0-beta.3) contains a denial of service vulnerability in its embedded JavaScript scripting engine, which is enabled via the --allow-scripting capability (disabled by default). Any user able to execute arbitrary queries \u2014 including unauthenticated guests when --allow-guests is enabled \u2014 can use built-in string functions to construct a large string and pass it to the JavaScript runtime for compilation, triggering a null pointer dereference in the underlying QuickJS-NG engine. This causes the server process to terminate immediately without graceful shutdown, requiring a manual restart. The issue was fixed by updating the rquickjs dependency from v0.9.0 to v0.11.0.",
-      "published": "2026-07-20T12:19:46.477",
+      "id": "CVE-2026-62418",
+      "summary": "Low-privileged authenticated Server-Side Request Forgery (SSRF) \nvulnerability in Apache Syncope via Connectors and Resources check.\n\n\n\nThis issue affects Apache Syncope: from 3.0.0-M0 through 3.0.16, from 4.0.0-M0 Through 4.0.6, from 4.1.0-M0 through 4.1.1.\n\n\n\nUsers are recommended to upgrade to version 4.0.7 / 4.1.2, which fix this issue.",
+      "published": "2026-07-20T15:16:44.983",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63762"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62418"
+    },
+    {
+      "id": "CVE-2026-62183",
+      "summary": "Improper Privilege Management vulnerability in Apache Syncope.\n\nWhen:\n\n* the all-Java user workflow adapter is configured, or\n* the Flowable user workflow adapter is configured, bearing a BPMN definition not requiring admin approval for user self registration of self update requests\n\nthe following scenario could happen.\nA REST API call can allow the user to grant themselves one or more of defined Roles, thus gaining their Entitlements and becoming in fact an administrator; the actual Entitlements gained depend on the Roles that are effectively defined on the specific Syncope deployment.\n\n\nThis issue affects Apache Syncope: from 3.0.0-M0 through 3.0.16, from 4.0.0-M0 Through 4.0.6, from 4.1.0-M0 through 4.1.1.\n\nUsers are recommended to upgrade to version 4.0.7 / 4.1.2, which fix this issue.",
+      "published": "2026-07-20T15:16:44.860",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62183"
+    },
+    {
+      "id": "CVE-2026-59238",
+      "summary": "Stored Cross-site Scripting (CWE-79) in the client-side report rendering functions (renderPreview, renderEditor, renderAuditData in js/app.js) in maalfer Pentestify before 1.1.0 allows a remote, authenticated attacker to execute arbitrary JavaScript in the browser of any user who views an affected report via a payload stored in a finding's images array or a report's client_logo array, which is interpolated into an <img> src attribute without escaping.",
+      "published": "2026-07-20T15:16:44.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59238"
     }
   ]
 }
