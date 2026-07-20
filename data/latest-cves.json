@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-20T11:11:17+00:00",
+  "generated_at": "2026-07-20T13:16:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-2445",
-      "summary": "The affected product accepts user-supplied input within a URL parameter without enforcing expected sanitization or encoding before rendering it within the response. This condition allows for the injection of malicious JavaScript payloads.\n\nAn attacker can leverage this vulnerability to cause the user's browser to redirect to a malicious website, modify the user interface of the webpage, or retrieve sensitive information from the browser. However, the impact is mitigated for session hijacking as all session-related sensitive cookies are protected by the httpOnly flag.",
-      "published": "2026-07-20T08:16:30.143",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2445"
+      "id": "CVE-2026-64623",
+      "summary": "Network-AI before 5.13.4 contains an improper cryptographic signature verification vulnerability in APSAdapter where the default local verifier accepts any non-empty string as valid. Unauthenticated attackers can submit forged APS delegation payloads with arbitrary scopes to bypass signature verification and obtain signed permission-grant tokens for sensitive resources including SHELL_EXEC.",
+      "published": "2026-07-20T12:19:47.200",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64623"
     },
     {
-      "id": "CVE-2026-16242",
-      "summary": "A flaw was found in the Konnectivity proxy-server configuration for hosted control planes. The agent-facing listener was started without --cluster-ca-cert (and without token-based agent authentication), so client certificates were not validated. A remote attacker who can reach the Konnectivity cluster endpoint could connect as an unauthenticated agent, join the routing pool, and potentially proxy, inspect, modify, or drop control-plane-to-node traffic.",
-      "published": "2026-07-20T08:16:29.833",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16242"
+      "id": "CVE-2026-64622",
+      "summary": "Network-AI (npm: network-ai) versions 5.12.2 through 5.13.3 fail to apply the configured authorization check (checkAuth/secret) to the ApprovalInbox GET read routes, so even when an operator configures a secret, unauthenticated actors can access sensitive approval request details. The GET /approvals/?status=all, GET /approvals/:id, GET /approvals/stats, and GET /approvals/sse routes disclose full ApprovalEntry content including action/target shell-command strings, file paths, justifications, and risk levels. All responses also carry a hardcoded Access-Control-Allow-Origin: * header, enabling cross-origin disclosure from any website the operator visits. This is an incomplete fix for GHSA-mxjx-28vx-xjjj.",
+      "published": "2026-07-20T12:19:47.057",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64622"
     },
     {
-      "id": "CVE-2026-13577",
-      "summary": "Dancer2 versions through 2.1.0 for Perl generate insecure session ids when CSPRNG modules are unavailable.\n\nDancer2::Core::Role::SessionFactory::generate_id silently falls back to a built-in rand-derived session id when both Math::Random::ISAAC::XS and Crypt::URandom are unavailable.\n\nThe fallback session id is generated from a SHA-1 hash of a call to the built-in rand function, the absolute path of the Dancer2::Core::Role::SessionFactory module, an internal counter, the process id, the module instance memory address, and a shuffled string of characters (using the List::Util::shuffle function, which also uses the built-in rand function).\n\nThese are all low-entropy and easily guessed sources.\n\nThe built-in rand() function is seeded with 32-bits and considered unsuitable for security applications.\n\nPredictable session ids could allow an attacker to gain access to systems.",
-      "published": "2026-07-20T08:16:28.987",
+      "id": "CVE-2026-64621",
+      "summary": "FreeRDP before 3.28.0 (affected 3.x through 3.27.1) contains a double-free vulnerability in freerdp_client_rdp_file_apply_to_settings() (client/common/file.c) when parsing the selectedmonitors field of a .rdp connection file. The MonitorIds array is allocated through the settings object, and a raw non-owning pointer to it is freed on the strtoul error path without clearing settings->MonitorIds, leaving it dangling; at teardown freerdp_settings_free() frees the same buffer again. An attacker who convinces a victim to open a crafted .rdp file with oversized monitor tokens can trigger a size-controlled double-free in any FreeRDP CLI client (xfreerdp/sdl-freerdp/wlfreerdp) in the default configuration.",
+      "published": "2026-07-20T12:19:46.910",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64621"
+    },
+    {
+      "id": "CVE-2026-64620",
+      "summary": "FreeRDP before 3.28.0 (affected <=3.27.1) contains a heap-based buffer overflow in crypto_rsa_common() (libfreerdp/crypto/crypto.c). The function writes the modular-exponentiation result into the caller's output buffer via BN_bn2bin() and only afterward checks output_length > out_length, so out-of-bounds bytes are written before the bounds check. On the server side, when a client selects RDP Standard Security, the encrypted client random is decrypted into a fixed 32-byte buffer. Because the server publishes its RSA public key, an unauthenticated attacker can forge a ciphertext whose decrypted value is up to the full modulus length (e.g. 256 bytes for RSA-2048), overflowing the 32-byte heap buffer by up to ~224 attacker-controlled bytes pre-authentication, resulting in denial of service.",
+      "published": "2026-07-20T12:19:46.760",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64620"
+    },
+    {
+      "id": "CVE-2026-63763",
+      "summary": "SurrealDB before 2.5.0 and before 3.0.0-beta.3 contains a confused deputy privilege escalation vulnerability. Unprivileged users (e.g., those with the database editor role) can create or modify fields containing futures, functions, or closures. Because these are executed in the context of the invoking/querying user rather than their creator, an attacker can plant malicious logic that executes with a higher-privileged user's permissions when that user reads or writes the affected record. This can lead to full privilege escalation, including creation of a root owner and server takeover.",
+      "published": "2026-07-20T12:19:46.623",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13577"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63763"
     },
     {
-      "id": "CVE-2026-9833",
-      "summary": "The Tag Groups is the Advanced Way to Display Your Taxonomy Terms WordPress plugin before 2.2.0 does not properly escape one of its AJAX parameters before reflecting it in the response body served with an HTML content type, allowing unauthenticated attackers to execute arbitrary JavaScript in the browser of a logged-in user with `edit_pages` capability (Editor or higher) who is tricked into following a crafted link.",
-      "published": "2026-07-20T07:16:42.657",
+      "id": "CVE-2026-63762",
+      "summary": "SurrealDB before v2.6.1 (and before v3.0.0-beta.3) contains a denial of service vulnerability in its embedded JavaScript scripting engine, which is enabled via the --allow-scripting capability (disabled by default). Any user able to execute arbitrary queries \u2014 including unauthenticated guests when --allow-guests is enabled \u2014 can use built-in string functions to construct a large string and pass it to the JavaScript runtime for compilation, triggering a null pointer dereference in the underlying QuickJS-NG engine. This causes the server process to terminate immediately without graceful shutdown, requiring a manual restart. The issue was fixed by updating the rquickjs dependency from v0.9.0 to v0.11.0.",
+      "published": "2026-07-20T12:19:46.477",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9833"
-    },
-    {
-      "id": "CVE-2026-8825",
-      "summary": "The Elementor Website Builder  WordPress plugin before 4.1.4 does not properly check user permissions before returning post data through one of its REST endpoints, allowing authenticated users with Contributor-level access and above to retrieve the title, body and metadata of private posts, private pages and drafts authored by other users (including administrators).",
-      "published": "2026-07-20T07:16:42.553",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8825"
-    },
-    {
-      "id": "CVE-2026-6656",
-      "summary": "Crypt::Password versions through 0.28 for Perl are susceptible to timing attacks.\n\nThe check_password method uses the built-in eq operator. This allows discrepancies in timing to be used to guess the underlying hash.",
-      "published": "2026-07-20T07:16:42.440",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6656"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63762"
     }
   ]
 }
