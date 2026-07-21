@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-07-21T09:37:26+00:00",
+  "generated_at": "2026-07-21T11:58:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-64606",
+      "summary": "Deserialization of untrusted data vulnerability that may allow class-registration checks to be bypassed during Java lambda deserialization. Only lambda capture class is affected\n\n\nThis issue affects Apache Fory: from before 1.4.0.\n\nUsers are recommended to upgrade to version 1.4.0, which fixes the issue.",
+      "published": "2026-07-21T11:16:27.973",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64606"
+    },
+    {
+      "id": "CVE-2026-64609",
+      "summary": "Out-of-bounds read via sun.misc.Unsafe in Apache Fory. When out-of-band zero-copy deserialization is used, readAlignedVarUint() can read beyond the bounds of the underlying buffer. Out-of-band zero-copy deserialization is an opt-in feature; applications that do not use it are not affected.\n\nThis issue affects Apache Fory (formerly Apache Fury): from 0.5.0 before 1.4.0. Versions before 0.11.0 were published under the Maven coordinates org.apache.fury:fury-core.\n\nUsers are recommended to upgrade to version 1.4.0, which fixes the issue.",
+      "published": "2026-07-21T10:16:25.057",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64609"
+    },
+    {
+      "id": "CVE-2026-64608",
+      "summary": "Heap type confusion and out-of-bounds read/write in the Apache Fory C++ implementation. When deserializing data in compatible mode, the field-skip paths do not correctly validate the declared field types against the actual data, so input with an inconsistent schema can cause type confusion and out-of-bounds memory access. Only the C++ implementation is affected; other language implementations of Apache Fory are not.\n\nThis issue affects Apache Fory C++: from 0.14.0 before 1.4.0.\n\nUsers are recommended to upgrade to version 1.4.0, which fixes the issue.",
+      "published": "2026-07-21T10:16:24.923",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64608"
+    },
+    {
+      "id": "CVE-2026-62415",
+      "summary": "The Joomla extension Membership Pro prior version 4.6.2 did by default allow unauthenticated users to upload media assets.",
+      "published": "2026-07-21T10:16:24.727",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62415"
+    },
     {
       "id": "CVE-2026-1771",
       "summary": "The MapSVG plugin for WordPress is vulnerable to arbitrary file uploads due to missing file type validation in the SVGFile constructor in all versions up to, and including, 8.14.0 This is due to an incorrect conditional check that prevents file validation from taking place. This makes it possible for authenticated attackers, with Administrator-level access and above, to upload arbitrary files on the affected site's server which may make remote code execution possible.",
@@ -15,34 +43,6 @@
       "published": "2026-07-21T09:16:53.813",
       "cvss": 4.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1372"
-    },
-    {
-      "id": "CVE-2026-15370",
-      "summary": "A flaw was found in libssh. During SFTP server directory listing, the longname field is constructed with unsafe concatenation into a fixed-size stack buffer. When a client causes the server to list attacker-controlled filenames, sufficiently long names can overflow that stack buffer and may lead to crashes or possible code execution on the server.",
-      "published": "2026-07-21T09:16:53.683",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15370"
-    },
-    {
-      "id": "CVE-2026-15145",
-      "summary": "The Essential Addons for Elementor \u2013 Popular Elementor Templates & Widgets plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Fancy Text Widget in all versions up to, and including, 6.6.11 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-07-21T09:16:53.530",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15145"
-    },
-    {
-      "id": "CVE-2026-8593",
-      "summary": "Improper permission enforcement in Checkmk versions 2.5.0 before 2.5.0p9, 2.4.0 before 2.4.0p34, 2.3.0 before 2.3.0p49, and 2.2.0 (EOL) allows users without permissions to view and modify BI packs and rules",
-      "published": "2026-07-21T08:16:35.013",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8593"
-    },
-    {
-      "id": "CVE-2026-3183",
-      "summary": "Zohocorp ManageEngine ADSelfService Plus versions before 6524 are vulnerable to Multi Factor Authentication Bypass.",
-      "published": "2026-07-21T08:16:33.880",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3183"
     }
   ]
 }
