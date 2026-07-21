@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-21T14:18:50+00:00",
+  "generated_at": "2026-07-21T16:39:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9499",
-      "summary": "An out-of-bounds read (buffer over-read) vulnerability exists in QTextCodec::codecForName() in Qt. When the function is called with a QByteArray that is not NUL-terminated (for example, one created with QByteArray::fromRawData()), the codec-name matching routine reads past the end of the supplied buffer. In most cases this results in an incorrect text codec being selected; in the worst case, if the over-read reaches unmapped memory, the process crashes (denial of service). The over-read is bounded by the length of the longest codec-name candidate, and the out-of-bounds bytes are only compared internally against Qt's fixed list of codec names, so no data is disclosed to an attacker. Applications that do not pass non-NUL-terminated QByteArrays to QTextCodec::codecForName() are not exposed. The affected code resides in the Qt5Compat module from Qt 6.0.0 onward, and in Qt Core (qtbase) in Qt 4.x and Qt 5.x.",
-      "published": "2026-07-21T14:16:35.843",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9499"
+      "id": "CVE-2026-64825",
+      "summary": "Home Assistant Core before 2026.6.0 contains a path traversal vulnerability that allows unauthenticated attackers to write arbitrary files to any directory on the host filesystem by uploading a crafted backup archive during the initial onboarding window. Attackers can manipulate the 'name' field inside the uploaded archive's backup.json to supply an absolute path, causing pathlib.Path.__truediv__ to discard the configured backup directory prefix and write attacker-controlled content to arbitrary locations, with full filesystem access when the process runs as root.",
+      "published": "2026-07-21T16:17:21.633",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64825"
     },
     {
-      "id": "CVE-2026-59848",
-      "summary": "A flaw was found in libssh. A malicious SFTP server can send responses for unknown request IDs that libssh clients keep queued indefinitely, causing unbounded memory growth and client-side denial of service.",
-      "published": "2026-07-21T14:16:34.790",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59848"
+      "id": "CVE-2026-64824",
+      "summary": "Home Assistant Core before 2026.6.0 contains a path traversal vulnerability in the backup-restore function that allows attackers to write files to arbitrary absolute filesystem paths by supplying a crafted tar archive with a SYMTYPE entry containing a benign member name paired with an absolute linkname pointing outside the extraction directory. Because the official Docker image runs the Home Assistant process as root and the subsequent regular-file entry is written through the unvalidated symlink, attackers can achieve remote code execution by overwriting auto-imported Python paths such as site-packages/sitecustomize.py or custom component directories.",
+      "published": "2026-07-21T16:17:21.433",
+      "cvss": 8.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64824"
     },
     {
-      "id": "CVE-2026-59847",
-      "summary": "A flaw was found in libssh. Incorrect AES-GCM finalization checks in builds using the OpenSSL backend can effectively remove integrity protection, allowing an in-path attacker to modify plaintext on the wire without detection.",
-      "published": "2026-07-21T14:16:34.657",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59847"
+      "id": "CVE-2026-64823",
+      "summary": "Home Assistant Core before 2026.5.4 contains a cross-site scripting vulnerability in the Shelly integration's async_get_media_image() method that allows attackers controlling a Shelly device's thumb field to serve arbitrary HTML content by supplying a data URI with a text/html content type without validation against an image-only allowlist. Attackers can cause the media player proxy endpoint to serve attacker-controlled bytes with Content-Type text/html in the Home Assistant web origin, enabling theft of session tokens from local storage and authenticated calls to sensitive service endpoints including lock, alarm, and cover controls.",
+      "published": "2026-07-21T16:17:21.230",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64823"
     },
     {
-      "id": "CVE-2026-47121",
-      "summary": "Sparkle is a software update framework for macOS. Prior to version 2.9.2, `Autoupdate/SUBinaryDeltaApply.m` enforces `relativePath.pathComponents containsObject:@\"..\"` and rejects writes whose immediate parent directory IS itself a symbolic link, but does not detect symlinks deeper in the relative path. `Autoupdate/SPUSparkleDeltaArchive.m`'s `extractItem:` will create symlinks in the destination tree from archive content (no `..` check on the symlink target), and a subsequent `Extract` item targeting `<symlink>/foo/bar` then escapes the destination tree via `fopen(path, \"wb\")` because the kernel resolves the intermediate symlink during the open call. This is a defense-in-depth issue: exploitation requires a maliciously-crafted `.delta` that passes EdDSA signature verification, i.e. EdDSA private-key compromise. With the AppInstaller running as root for system-domain installs, it gives the holder of a stolen signing key arbitrary file write at root level via the delta-apply path, which is a strictly broader primitive than the \"drop-in replacement bundle\" install they would otherwise have. Version 2.9.2 contains a patch for the issue.",
-      "published": "2026-07-21T14:16:34.387",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47121"
+      "id": "CVE-2026-56586",
+      "summary": "HCL IEM was affected with X-Content-Type-Options Header Missing. It may enable attackers to perform SSL stripping or man-in-the-middle attacks and intercept sensitive data.",
+      "published": "2026-07-21T16:17:18.107",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56586"
     },
     {
-      "id": "CVE-2026-16447",
-      "summary": "A vulnerability has been found in D-Link DNS-320 1.0.2. Impacted is an unknown function of the file /web/jquery/uploader/multi_uploadify.php. The manipulation of the argument Filedata[] leads to unrestricted upload. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-07-21T14:16:33.650",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16447"
+      "id": "CVE-2026-56585",
+      "summary": "HCL IEM was affected with the Anti Clickjacking XFrame Options Header Missing. It may allow attackers to embed the application in malicious pages and induce unauthorized user actions.",
+      "published": "2026-07-21T16:17:17.977",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56585"
     },
     {
-      "id": "CVE-2025-66390",
-      "summary": "In Microsoft Azure API Management through 2025-10-17, when self-service signup (username/password Basic Authentication) is enabled in Tenant A, an attacker can reuse the registration flow by changing the hostname or tenant identifier to Tenant B, even when Tenant B has signup disabled at the UI level. In other words, disabling signup in the UI does not disable the underlying API endpoint (which still accepts cross-tenant requests based on the Host header). NOTE: The supplier states that they evaluated the report and determined it did not cross a security boundary (i.e., the observed behavior was a configuration/state issue rather than an exploitable product vulnerability affecting tenant isolation). NOTE: The supplier evaluated this report and determined that it did not cross a security boundary (i.e., the observed behavior was a configuration/state issue rather than an exploitable product vulnerability affecting tenant isolation).",
-      "published": "2026-07-21T14:16:32.797",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66390"
+      "id": "CVE-2026-47396",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to version 4.6.40, PraisonAI's call server exposes a network-facing agent control API without authentication when `CALL_SERVER_TOKEN` is not configured. The affected component is the `praisonai.api.agent_invoke` router as mounted by `praisonai.api.call`. The authentication helper `verify_token()` fails open when `CALL_SERVER_TOKEN` is unset. Since every sensitive agent-control endpoint depends on this helper, starting the call server without a token allows any reachable client to list agents, inspect agent metadata and instructions, invoke agents, and unregister agents. This is security-relevant because the bundled call server includes the vulnerable router and binds to `0.0.0.0`. As a result, operators who launch the call server without explicitly setting `CALL_SERVER_TOKEN` may unintentionally expose an unauthenticated remote agent control plane. Version 4.6.40 fixes the issue.",
+      "published": "2026-07-21T16:17:12.760",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47396"
     }
   ]
 }
