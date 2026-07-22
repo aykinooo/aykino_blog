@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-22T20:19:20+00:00",
+  "generated_at": "2026-07-22T22:14:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9737",
-      "summary": "During query planning when reading the sort pattern in raw BSONObj form, in some places we don\u2019t explicitly handle the meta expression case. This may lead to incorrect transformations leading to invariant failure.",
-      "published": "2026-07-22T20:17:09.863",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9737"
-    },
-    {
-      "id": "CVE-2026-64829",
-      "summary": "Question2Answer through 1.8.8 contains a session invalidation vulnerability that allows attackers with a previously obtained remember-me cookie to retain authenticated access by exploiting the forgot-password reset flow's failure to clear the sessioncode field in qa-include/app/users-edit.php. While the normal password-change flow in qa-include/pages/account.php explicitly clears the sessioncode to invalidate persistent qa_session cookies, the forgot-password handler qa_finish_reset_user() omits this step, allowing any valid persistent cookie issued before the reset to continue authenticating the account after the password reset completes.",
-      "published": "2026-07-22T20:17:08.423",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64829"
-    },
-    {
-      "id": "CVE-2026-14899",
-      "summary": "The code to parse MIME headers for display when forwarding a message (if the setting to view all headers was enabled) had an off-by-one error, allowing a single byte to be read from the memory after the buffer for the headers, and potentially crashing Thunderbird. This vulnerability was fixed in Thunderbird 153 and Thunderbird 140.13.",
-      "published": "2026-07-22T20:16:48.383",
+      "id": "CVE-2026-64798",
+      "summary": "Persistent URL login keys were also generated using a non-cryptographic random generator with insufficient entropy.",
+      "published": "2026-07-22T21:18:10.970",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14899"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64798"
     },
     {
-      "id": "CVE-2026-14881",
-      "summary": "When importing connections in Compass it is possible to override some connection options that are otherwise can't be changed via connection form. In particular it is possible to provide a custom browser open command for OIDC auth flow that is usually can be set only globally via Compass settings.",
-      "published": "2026-07-22T20:16:48.247",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14881"
+      "id": "CVE-2026-64797",
+      "summary": "IP Login trusted forwarded client-IP headers without requiring a configured trusted proxy. Attackers could spoof the IP used for automatic login and potentially impersonate mapped accounts.",
+      "published": "2026-07-22T21:18:10.870",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64797"
     },
     {
-      "id": "CVE-2026-13078",
-      "summary": "A vulnerability was discovered in MongoDB Server where the server-side MozJS scripting engine unconditionally registered a module loading hook that enables JavaScript calls to read arbitrary files from the host filesystem using the mongod process's privileges. An authenticated user could exploit this through crafted aggregation pipeline commands to read sensitive files accessible to the MongoDB server process.",
-      "published": "2026-07-22T20:16:46.650",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13078"
+      "id": "CVE-2026-64796",
+      "summary": "Free did not require both the article creator and last modifier to be Super Users before executing article PHP. Pro did not consistently enforce configured CSS, JavaScript and PHP permissions across tags, attributes, files and both article owners. PHP include attributes could also escape the configured include folder, and executable script/style variants could bypass detection.",
+      "published": "2026-07-22T21:18:10.763",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64796"
     },
     {
-      "id": "CVE-2026-13077",
-      "summary": "A missing bounds check in the BSON CodeWScope element accessors allows an attacker to trigger an out-of-bounds heap read via a crafted aggregation pipeline. The vulnerability can be exploited by an authenticated user by generating a malformed BSONColumn data containing a CodeWScope element, bypassing wire-level BSON validation. When the forged element is decompressed, the unchecked size value is used in pointer arithmetic, causing either a server crash or disclosure of adjacent heap memory contents.",
-      "published": "2026-07-22T20:16:46.517",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13077"
+      "id": "CVE-2026-64795",
+      "summary": "Tag-provided custom HTML, module content/title overrides and decoded modal or tooltip values could execute unsafe markup. A content author could inject JavaScript that ran in visitors\u2019 browsers.",
+      "published": "2026-07-22T21:18:10.660",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64795"
+    },
+    {
+      "id": "CVE-2026-64794",
+      "summary": "User tags, filters and conditions allowed access to insufficiently restricted user fields. Crafted content could expose authentication-related data, raw user parameters or restricted contact details.",
+      "published": "2026-07-22T21:18:10.553",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64794"
+    },
+    {
+      "id": "CVE-2026-64793",
+      "summary": "Content tags could use ignore flags or property overrides to render restricted or unpublished articles or modules. A content author could thereby expose content to visitors who lacked the required access.",
+      "published": "2026-07-22T21:18:10.447",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64793"
     }
   ]
 }
