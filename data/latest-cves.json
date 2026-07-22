@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-22T18:19:55+00:00",
+  "generated_at": "2026-07-22T20:19:20+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65650",
-      "summary": "Elgg before 7.0.0 does not check image dimensions to prevent denial of service via a large avatar upload.",
-      "published": "2026-07-22T18:17:06.047",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65650"
+      "id": "CVE-2026-9737",
+      "summary": "During query planning when reading the sort pattern in raw BSONObj form, in some places we don\u2019t explicitly handle the meta expression case. This may lead to incorrect transformations leading to invariant failure.",
+      "published": "2026-07-22T20:17:09.863",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9737"
     },
     {
-      "id": "CVE-2026-64835",
-      "summary": "FFmpeg versions 4.4 through 8.1.2 contain an out-of-bounds memory access vulnerability in the ADX audio decoder within libavcodec/adxdec.c that allows attackers to trigger both out-of-bounds reads and writes by supplying a crafted ADX or AAX audio file with a mid-stream channel layout change. When AV_PKT_DATA_NEW_EXTRADATA side data is received mid-stream, the adx_decode_frame function re-parses the stream header but fails to update the internal channel state, causing subsequent decoding operations to access the prev[] state array using a stale channel count.",
-      "published": "2026-07-22T18:17:05.917",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64835"
+      "id": "CVE-2026-64829",
+      "summary": "Question2Answer through 1.8.8 contains a session invalidation vulnerability that allows attackers with a previously obtained remember-me cookie to retain authenticated access by exploiting the forgot-password reset flow's failure to clear the sessioncode field in qa-include/app/users-edit.php. While the normal password-change flow in qa-include/pages/account.php explicitly clears the sessioncode to invalidate persistent qa_session cookies, the forgot-password handler qa_finish_reset_user() omits this step, allowing any valid persistent cookie issued before the reset to continue authenticating the account after the password reset completes.",
+      "published": "2026-07-22T20:17:08.423",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64829"
     },
     {
-      "id": "CVE-2026-64834",
-      "summary": "FFmpeg versions 0.6.3 through 8.1.2 contain an infinite loop vulnerability in the RTP/ASF demuxer within libavformat/rtpdec_asf.c that allows remote attackers to cause denial of service by sending a crafted RTP/ASF stream. The rtp_asf_fix_header function fails to validate a minimum chunksize when iterating over ASF objects, causing the loop pointer to never advance when a chunksize is smaller than the 24-byte minimum ASF object header size, resulting in CPU exhaustion that denies service to legitimate users.",
-      "published": "2026-07-22T18:17:05.780",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64834"
-    },
-    {
-      "id": "CVE-2026-64833",
-      "summary": "FFmpeg versions 0.7.1 through 8.1.2 contain an out-of-bounds read vulnerability in the S/PDIF muxer that allows attackers to access memory beyond buffer boundaries by supplying a crafted DTS stream with a core_size value larger than the actual packet length. Attackers can exploit the missing bounds check in the spdif_header_dts4 function by providing a malicious DTS-HD audio stream during S/PDIF re-muxing to trigger unauthorized memory reads beyond the packet buffer.",
-      "published": "2026-07-22T18:17:05.627",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64833"
-    },
-    {
-      "id": "CVE-2026-64832",
-      "summary": "FFmpeg versions 4.4 through 8.1.2 contain a double-free vulnerability in the NVIDIA NVDEC hardware decoder within libavcodec/nvdec.c that allows attackers to trigger memory corruption by supplying a crafted video file. When no decoder surfaces remain, the ff_nvdec_start_frame_sep_ref error path frees memory via nvdec_fdd_priv_free while the calling layer subsequently frees the same frame description data, resulting in a double-free of the underlying decoder context in any FFmpeg-based application using NVDEC hardware-accelerated decoding.",
-      "published": "2026-07-22T18:17:05.483",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64832"
-    },
-    {
-      "id": "CVE-2026-16157",
-      "summary": "Duplicati v2.3.0.1 backup software gives Authenticated Users MODIFY permissions that propagate to all subdirectories. Installing the software outside of the Program Files directory, or on a custom path, creates a LocalSystem service running from a directory that any standard local user can write to. A standard local user can overwrite any DLL in the service directory. On service restart, the OS loads the attacker's DLL before any managed code runs, executing arbitrary code as SYSTEM.",
-      "published": "2026-07-22T18:16:55.410",
+      "id": "CVE-2026-14899",
+      "summary": "The code to parse MIME headers for display when forwarding a message (if the setting to view all headers was enabled) had an off-by-one error, allowing a single byte to be read from the memory after the buffer for the headers, and potentially crashing Thunderbird. This vulnerability was fixed in Thunderbird 153 and Thunderbird 140.13.",
+      "published": "2026-07-22T20:16:48.383",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16157"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14899"
+    },
+    {
+      "id": "CVE-2026-14881",
+      "summary": "When importing connections in Compass it is possible to override some connection options that are otherwise can't be changed via connection form. In particular it is possible to provide a custom browser open command for OIDC auth flow that is usually can be set only globally via Compass settings.",
+      "published": "2026-07-22T20:16:48.247",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14881"
+    },
+    {
+      "id": "CVE-2026-13078",
+      "summary": "A vulnerability was discovered in MongoDB Server where the server-side MozJS scripting engine unconditionally registered a module loading hook that enables JavaScript calls to read arbitrary files from the host filesystem using the mongod process's privileges. An authenticated user could exploit this through crafted aggregation pipeline commands to read sensitive files accessible to the MongoDB server process.",
+      "published": "2026-07-22T20:16:46.650",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13078"
+    },
+    {
+      "id": "CVE-2026-13077",
+      "summary": "A missing bounds check in the BSON CodeWScope element accessors allows an attacker to trigger an out-of-bounds heap read via a crafted aggregation pipeline. The vulnerability can be exploited by an authenticated user by generating a malformed BSONColumn data containing a CodeWScope element, bypassing wire-level BSON validation. When the forged element is decompressed, the unchecked size value is used in pointer arithmetic, causing either a server crash or disclosure of adjacent heap memory contents.",
+      "published": "2026-07-22T20:16:46.517",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13077"
     }
   ]
 }
