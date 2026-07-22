@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-22T16:42:50+00:00",
+  "generated_at": "2026-07-22T18:19:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-64828",
-      "summary": "Froiden TableTrack through 1.3.10 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject arbitrary HTML and JavaScript through the order notes field without sanitization. Attackers can craft malicious payloads in customer order placement that execute in the admin's browser session when viewing order details, enabling session token theft or unauthorized administrative actions.",
-      "published": "2026-07-22T16:18:50.487",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64828"
+      "id": "CVE-2026-65650",
+      "summary": "Elgg before 7.0.0 does not check image dimensions to prevent denial of service via a large avatar upload.",
+      "published": "2026-07-22T18:17:06.047",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65650"
     },
     {
-      "id": "CVE-2026-49499",
-      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) a Generation of Incorrect Security Tokens vulnerability in the IAM. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "published": "2026-07-22T16:17:29.943",
+      "id": "CVE-2026-64835",
+      "summary": "FFmpeg versions 4.4 through 8.1.2 contain an out-of-bounds memory access vulnerability in the ADX audio decoder within libavcodec/adxdec.c that allows attackers to trigger both out-of-bounds reads and writes by supplying a crafted ADX or AAX audio file with a mid-stream channel layout change. When AV_PKT_DATA_NEW_EXTRADATA side data is received mid-stream, the adx_decode_frame function re-parses the stream header but fails to update the internal channel state, causing subsequent decoding operations to access the prev[] state array using a stale channel count.",
+      "published": "2026-07-22T18:17:05.917",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49499"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64835"
     },
     {
-      "id": "CVE-2026-46738",
-      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Improper Input Validation vulnerability in the REST API. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "published": "2026-07-22T16:17:24.223",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46738"
+      "id": "CVE-2026-64834",
+      "summary": "FFmpeg versions 0.6.3 through 8.1.2 contain an infinite loop vulnerability in the RTP/ASF demuxer within libavformat/rtpdec_asf.c that allows remote attackers to cause denial of service by sending a crafted RTP/ASF stream. The rtp_asf_fix_header function fails to validate a minimum chunksize when iterating over ASF objects, causing the loop pointer to never advance when a chunksize is smaller than the 24-byte minimum ASF object header size, resulting in CPU exhaustion that denies service to legitimate users.",
+      "published": "2026-07-22T18:17:05.780",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64834"
     },
     {
-      "id": "CVE-2026-46737",
-      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Improper Input Validation vulnerability in the REST API. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.",
-      "published": "2026-07-22T16:17:24.093",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46737"
+      "id": "CVE-2026-64833",
+      "summary": "FFmpeg versions 0.7.1 through 8.1.2 contain an out-of-bounds read vulnerability in the S/PDIF muxer that allows attackers to access memory beyond buffer boundaries by supplying a crafted DTS stream with a core_size value larger than the actual packet length. Attackers can exploit the missing bounds check in the spdif_header_dts4 function by providing a malicious DTS-HD audio stream during S/PDIF re-muxing to trigger unauthorized memory reads beyond the packet buffer.",
+      "published": "2026-07-22T18:17:05.627",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64833"
     },
     {
-      "id": "CVE-2026-44276",
-      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Exposure of Sensitive Information to an Unauthorized Actor vulnerability in the REST API. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Information exposure.",
-      "published": "2026-07-22T16:17:22.593",
-      "cvss": 6.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44276"
+      "id": "CVE-2026-64832",
+      "summary": "FFmpeg versions 4.4 through 8.1.2 contain a double-free vulnerability in the NVIDIA NVDEC hardware decoder within libavcodec/nvdec.c that allows attackers to trigger memory corruption by supplying a crafted video file. When no decoder surfaces remain, the ff_nvdec_start_frame_sep_ref error path frees memory via nvdec_fdd_priv_free while the calling layer subsequently frees the same frame description data, resulting in a double-free of the underlying decoder context in any FFmpeg-based application using NVDEC hardware-accelerated decoding.",
+      "published": "2026-07-22T18:17:05.483",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64832"
     },
     {
-      "id": "CVE-2026-40714",
-      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Improper Input Validation vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "published": "2026-07-22T16:17:19.423",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40714"
+      "id": "CVE-2026-16157",
+      "summary": "Duplicati v2.3.0.1 backup software gives Authenticated Users MODIFY permissions that propagate to all subdirectories. Installing the software outside of the Program Files directory, or on a custom path, creates a LocalSystem service running from a directory that any standard local user can write to. A standard local user can overwrite any DLL in the service directory. On service restart, the OS loads the attacker's DLL before any managed code runs, executing arbitrary code as SYSTEM.",
+      "published": "2026-07-22T18:16:55.410",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16157"
     }
   ]
 }
