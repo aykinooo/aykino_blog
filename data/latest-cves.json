@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-22T14:19:34+00:00",
+  "generated_at": "2026-07-22T16:42:50+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-62145",
-      "summary": "A vulnerability in Check Point Gaia Portal allows an authenticated attacker with read-only Gaia Portal privileges to execute commands with root privileges.",
-      "published": "2026-07-22T14:17:22.920",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62145"
+      "id": "CVE-2026-64828",
+      "summary": "Froiden TableTrack through 1.3.10 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject arbitrary HTML and JavaScript through the order notes field without sanitization. Attackers can craft malicious payloads in customer order placement that execute in the admin's browser session when viewing order details, enabling session token theft or unauthorized administrative actions.",
+      "published": "2026-07-22T16:18:50.487",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64828"
     },
     {
-      "id": "CVE-2026-62144",
-      "summary": "An authentication bypass vulnerability in Check Point Security Management and Multi-Domain Security Management allows an unauthenticated remote attacker to execute administrative commands on the Management Server. Successful exploitation may also allow command execution on managed Security Gateways. Exploitation requires network access to the Management Server without firewall protection or a configuration that does not restrict Trusted Clients.",
-      "published": "2026-07-22T14:17:22.807",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62144"
+      "id": "CVE-2026-49499",
+      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) a Generation of Incorrect Security Tokens vulnerability in the IAM. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-07-22T16:17:29.943",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49499"
     },
     {
-      "id": "CVE-2026-56444",
-      "summary": "In NLnet Labs Unbound 1.20.0 up to and including 1.25.1, when Unbound is configured with 'serve-expired: yes' and 'serve-expired-client-timeout > discard-timeout > 0' (contrary to the suggested values), the discard-timeout branch during the serve expired logic drops an aged client reply without performing the correct accounting for the number of reply addresses for the query. Other identical branches outside of serve expired perform the correct decrement. Since the counter is never decremented in such scenario, it can reach the maximum limit and new clients for duplicate in-flight queries are silently dropped resulting in degradation of resolution service. A malicious actor can exploit the vulnerability by querying the resolver for a client-controlled slow-on-demand authoritative zone that can drive the counter past the threshold. Shipped defaults for 'serve-expired-client-timeout: 1800' and 'discard-timeout: 1900' make the branch unreachable.",
-      "published": "2026-07-22T14:17:22.203",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56444"
+      "id": "CVE-2026-46738",
+      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Improper Input Validation vulnerability in the REST API. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-07-22T16:17:24.223",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46738"
     },
     {
-      "id": "CVE-2026-56416",
-      "summary": "In NLnet Labs Unbound up to and including version 1.25.1, when the validator builds the canonical RDATA form for an RRSIG-covered PX/RP/MINFO/SOA RRset, it computes the address of the second embedded domain name as 'datstart + dname_valid(datstart, ...)' and passes it straight to 'query_dname_tolower()' without checking that a second name is actually present in the RDATA. The wire-format parser accepts multi-dname RRs whose RDATA ends after the first name, so an attacker who runs a DNSSEC-signed authoritative server can deliver a record with an absent second domain name (e.g. SOA record) and cause 'query_dname_tolower()' to walk label-by-label through stale bytes in the per-worker 'env->scratch_buffer', past the end of that heap allocation if 'msg-buffer-size' has been lowered from the default. This leads to heap buffer overflow and on a release build the outcome relies heavily on the contents of the buffer tail and the adjacent heap chunk.",
-      "published": "2026-07-22T14:17:22.090",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56416"
+      "id": "CVE-2026-46737",
+      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Improper Input Validation vulnerability in the REST API. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote execution.",
+      "published": "2026-07-22T16:17:24.093",
+      "cvss": 6.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46737"
     },
     {
-      "id": "CVE-2026-55991",
-      "summary": "In NLnet Labs Unbound 1.22.0 up to and including 1.25.1, a remote unauthenticated client can trigger a libngtcp2 assertion (if compiled with assertions on) and terminate the entire Unbound process using a single DNS-over-QUIC (DoQ) connection and one normal DNS query. This is caused by an erroneous error value passed to libngtcp2. When 'ngtcp2_conn_writev_stream()' returns 'NGTCP2_ERR_STREAM_DATA_BLOCKED', Unbound continues to call 'ngtcp2_ccerr_set_application_error()' with a '-1' error value. The 'int' literal '-1' is implicitly converted to the function's 'uint64_t error_code' parameter as '0xFFFFFFFFFFFFFFFF'. The follow-on 'ngtcp2_conn_write_connection_close()' serialises that value as a QUIC variable-length integer; because '2^64-1' exceeds the 62-bit varint ceiling, 'ngtcp2_put_uvarintlen()' fails 'assert(n < 4611686018427387904ULL)' and the whole resolver process aborts. A remote, unauthenticated DoQ client can trigger this deterministically with a single QUIC connection by advertising 'initial_max_stream_data_bidi_local = 1' in its transport parameters and sending one DoQ query without ever reading the stream.",
-      "published": "2026-07-22T14:17:21.957",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55991"
+      "id": "CVE-2026-44276",
+      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Exposure of Sensitive Information to an Unauthorized Actor vulnerability in the REST API. A high privileged attacker with local access could potentially exploit this vulnerability, leading to Information exposure.",
+      "published": "2026-07-22T16:17:22.593",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44276"
     },
     {
-      "id": "CVE-2026-55990",
-      "summary": "In NLnet Labs Unbound 1.7.0 up to and including 1.25.1, when the 'dnscrypt:' clause lists more 'dnscrypt-provider-cert:' files than there are matching 'dnscrypt-secret-key:' files, Unbound fills only the matched prefix and leaves the tail slots at the '0xdb' fill that libsodium's allocator writes into every allocation. Unbound would then iterate over the number of cert files, not the actual slots, so it walks into a slot with garbage data filled with '0xdb' bytes. Any unauthenticated client that sends one UDP datagram of \u2265 68 bytes whose first 8 bytes are '0xdb' to 'dnscrypt-port' will use that garbage entry which leads to a garbage dereference killing the server. This is a silent faulty configuration that goes unnoticed until triggered with the right client query. Unbound needs to be compiled with DNSCrypt support ('--enable-dnscrypt').",
-      "published": "2026-07-22T14:17:21.810",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55990"
+      "id": "CVE-2026-40714",
+      "summary": "Dell PowerProtect Data Manager, versions prior to 20.2.0.0, contain(s) an Improper Input Validation vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-07-22T16:17:19.423",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40714"
     }
   ]
 }
