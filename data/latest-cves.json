@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-23T16:43:31+00:00",
+  "generated_at": "2026-07-23T18:35:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65917",
-      "summary": "CyberPanel through 1.9.1, fixed in commit b198460, contains an insecure direct object reference (IDOR) vulnerability in the IncBackups application's incremental-backup handlers (deleteBackup, fetchRestorePoints, and restorePoint) that allows authenticated panel users to access or manipulate other tenants' backup resources by supplying an attacker-controlled globally sequential IncJob integer ID that is never re-scoped to the authorized domain. Attackers can enumerate sequential backup IDs to read another tenant's backup metadata, irrecoverably delete another tenant's backup snapshots, or trigger unauthorized restoration of another tenant's backup job with root privileges.",
-      "published": "2026-07-23T16:17:55.020",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65917"
+      "id": "CVE-2026-6516",
+      "summary": "Zohocorp ManageEngine ADAudit Plus versions\u00a0before 8606 are affected by Unauthenticated Remote code execution due to the vulnerable agent API.",
+      "published": "2026-07-23T18:17:02.570",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6516"
     },
     {
-      "id": "CVE-2026-65916",
-      "summary": "CyberPanel through 1.9.1, fixed in commit b198460, contains a missing authorization vulnerability in the cancelBackupCreation handler that allows authenticated users to kill, delete, and corrupt other tenants' backups. Attackers can send crafted POST requests with arbitrary backupCancellationDomain and fileName parameters to terminate backup processes, delete backup archives, corrupt backup status files, and remove database records belonging to other tenants.",
-      "published": "2026-07-23T16:17:54.883",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65916"
+      "id": "CVE-2026-65920",
+      "summary": "Diffusers through 0.39.0, fixed in commit cee298c, contains a path traversal vulnerability in the _get_checkpoint_shard_files function that allows attackers to read arbitrary files by supplying malicious weight_map values in model index JSON. Attackers can use ../ sequences or absolute paths in weight_map entries to escape the model directory and read safetensors files outside the intended location during model loading.",
+      "published": "2026-07-23T18:17:02.427",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65920"
     },
     {
-      "id": "CVE-2026-48539",
-      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the MailInsights scheduled report configuration that allows authenticated attackers to inject arbitrary web script or HTML via the report name parameter to /Archiver/MailInsights.aspx. The injected payload is stored by ReportScheduling.btnSaveReport_Click() without output encoding and is executed in the browser of the user who created the scheduled report when they subsequently view the MailInsights page.",
-      "published": "2026-07-23T16:17:26.470",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48539"
+      "id": "CVE-2026-65919",
+      "summary": "Meshery before 1.0.57 contains an unauthenticated arbitrary file read vulnerability in the /api/system/fileView and /api/system/fileDownload endpoints that pass user-supplied file parameters directly to os.Open without path validation. Attackers can supply absolute paths or traversal sequences in the file parameter to read arbitrary files from the host filesystem without authentication.",
+      "published": "2026-07-23T18:17:02.290",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65919"
     },
     {
-      "id": "CVE-2026-48538",
-      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the default import settings configuration that allows authenticated attackers to inject arbitrary web script or HTML via the configured folders parameter to /Archiver/ImportSettingsWizard.ashx. The injected payload is stored by ImportSettingsWizard.SaveAllConfigSettings() without output encoding and is executed in the browsers of users who subsequently view the Archive Assistant default import settings.",
-      "published": "2026-07-23T16:17:26.320",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48538"
+      "id": "CVE-2026-65918",
+      "summary": "PyTorch torchvision through 0.28.0, fixed in commit 4e05dc2, contains an out-of-bounds heap read vulnerability in the GIF decoder's read_from_tensor callback that passes unclamped length to memcpy. Attackers can supply malicious or truncated GIF files to cause denial of service via segmentation fault or disclose adjacent heap memory contents.",
+      "published": "2026-07-23T18:17:02.143",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65918"
     },
     {
-      "id": "CVE-2026-48537",
-      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the File Archive Assistant configuration that allows authenticated attackers to inject arbitrary web script or HTML via the excluded extensions parameter to /Archiver/FileArchiveAssistantWizard.aspx. The injected payload is stored by FileArchiveAssistantWizard.btnSave_Click() without output encoding and is executed in the browsers of users who subsequently view the File Archive Assistant settings page.",
-      "published": "2026-07-23T16:17:26.177",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48537"
+      "id": "CVE-2026-65763",
+      "summary": "Joomla Extension - phoca.cz - Reflected XSS vulnerability in Phoca Maps 1.0.0-6.0.9 - Improper validation of user inputs lead to a reflective XSS vulnerability.",
+      "published": "2026-07-23T18:17:02.023",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65763"
     },
     {
-      "id": "CVE-2026-48536",
-      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the General Settings SMTP configuration that allows authenticated attackers to inject arbitrary web script or HTML via the SMTP server address parameter to /Archiver/GeneralSettingsWizard.aspx. The injected payload is stored by GeneralSettingsWizard.SaveAllConfigSettings() without output encoding and is executed in the browsers of users who subsequently view the General Settings page.",
-      "published": "2026-07-23T16:17:26.037",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48536"
+      "id": "CVE-2026-65762",
+      "summary": "Joomla Extension - phoca.cz - Reflected XSS vulnerability in Phoca Guestbook 1.0.0-6.1.0 - Improper validation of user inputs lead to a reflective XSS vulnerability.",
+      "published": "2026-07-23T18:17:01.903",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65762"
     }
   ]
 }
