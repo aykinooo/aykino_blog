@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-23T14:28:17+00:00",
+  "generated_at": "2026-07-23T16:43:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8287",
-      "summary": "Allocation of resources without limits or throttling vulnerability in BizimHesap Information Systems Industry and Trade Inc. Online Pre-Accounting Software allows Excessive Allocation.\n\nThis issue affects Online Pre-Accounting Software: through 17072026.",
-      "published": "2026-07-23T14:18:09.863",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8287"
+      "id": "CVE-2026-65917",
+      "summary": "CyberPanel through 1.9.1, fixed in commit b198460, contains an insecure direct object reference (IDOR) vulnerability in the IncBackups application's incremental-backup handlers (deleteBackup, fetchRestorePoints, and restorePoint) that allows authenticated panel users to access or manipulate other tenants' backup resources by supplying an attacker-controlled globally sequential IncJob integer ID that is never re-scoped to the authorized domain. Attackers can enumerate sequential backup IDs to read another tenant's backup metadata, irrecoverably delete another tenant's backup snapshots, or trigger unauthorized restoration of another tenant's backup job with root privileges.",
+      "published": "2026-07-23T16:17:55.020",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65917"
     },
     {
-      "id": "CVE-2026-65914",
-      "summary": "DOMPurify before 3.3.2 contains a mutation-XSS vulnerability when sanitized HTML is reinserted into special parsing contexts using innerHTML with wrappers like script, xmp, iframe, noembed, noframes, or noscript. Attackers can craft payloads with closing sequences that break out of the wrapper context during reparsing, reactivating dangerous markup with event handlers to execute JavaScript.",
-      "published": "2026-07-23T14:18:07.057",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65914"
+      "id": "CVE-2026-65916",
+      "summary": "CyberPanel through 1.9.1, fixed in commit b198460, contains a missing authorization vulnerability in the cancelBackupCreation handler that allows authenticated users to kill, delete, and corrupt other tenants' backups. Attackers can send crafted POST requests with arbitrary backupCancellationDomain and fileName parameters to terminate backup processes, delete backup archives, corrupt backup status files, and remove database records belonging to other tenants.",
+      "published": "2026-07-23T16:17:54.883",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65916"
     },
     {
-      "id": "CVE-2026-65913",
-      "summary": "DOMPurify before 3.3.2 contains a prototype pollution vulnerability in USE_PROFILES mode that allows attackers to bypass attribute filtering by polluting Array.prototype properties. Attackers can set Array.prototype properties like onclick to true, causing DOMPurify to accept event handlers as allowlisted attributes and resulting in DOM-based XSS when sanitized markup is rendered.",
-      "published": "2026-07-23T14:18:06.573",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65913"
+      "id": "CVE-2026-48539",
+      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the MailInsights scheduled report configuration that allows authenticated attackers to inject arbitrary web script or HTML via the report name parameter to /Archiver/MailInsights.aspx. The injected payload is stored by ReportScheduling.btnSaveReport_Click() without output encoding and is executed in the browser of the user who created the scheduled report when they subsequently view the MailInsights page.",
+      "published": "2026-07-23T16:17:26.470",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48539"
     },
     {
-      "id": "CVE-2026-65912",
-      "summary": "DOMPurify before 3.3.2 contains a URI validation bypass vulnerability when ADD_ATTR is provided as a predicate function via EXTRA_ELEMENT_HANDLING.attributeCheck. Attackers can supply a predicate that accepts specific attribute and tag combinations to bypass URI-safe validation, allowing unsafe protocols like javascript: to survive sanitization and execute as DOM-based XSS when the link is activated.",
-      "published": "2026-07-23T14:18:06.417",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65912"
+      "id": "CVE-2026-48538",
+      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the default import settings configuration that allows authenticated attackers to inject arbitrary web script or HTML via the configured folders parameter to /Archiver/ImportSettingsWizard.ashx. The injected payload is stored by ImportSettingsWizard.SaveAllConfigSettings() without output encoding and is executed in the browsers of users who subsequently view the Archive Assistant default import settings.",
+      "published": "2026-07-23T16:17:26.320",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48538"
     },
     {
-      "id": "CVE-2026-65911",
-      "summary": "In DOMPurify through 3.3.3, function predicates supplied via ADD_ATTR or ADD_TAGS to DOMPurify.sanitize() persist in internal state (EXTRA_ELEMENT_HANDLING) across subsequent sanitize() calls on the same instance. If a later call on the same instance provides ADD_ATTR or ADD_TAGS as an array rather than a function, the previously set function handler is neither cleared nor overwritten, so it continues to approve attacker-controlled attributes or tags. This can allow dangerous event-handler attributes or forbidden tags (bypassing FORBID_TAGS) to survive sanitization, resulting in cross-site scripting. The vendor (Cure53) considers this an edge case outside DOMPurify's threat model; the referenced advisory lists 3.4.0 as the patched version.",
-      "published": "2026-07-23T14:18:06.260",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65911"
+      "id": "CVE-2026-48537",
+      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the File Archive Assistant configuration that allows authenticated attackers to inject arbitrary web script or HTML via the excluded extensions parameter to /Archiver/FileArchiveAssistantWizard.aspx. The injected payload is stored by FileArchiveAssistantWizard.btnSave_Click() without output encoding and is executed in the browsers of users who subsequently view the File Archive Assistant settings page.",
+      "published": "2026-07-23T16:17:26.177",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48537"
     },
     {
-      "id": "CVE-2026-65904",
-      "summary": "DOMPurify through 3.3.3 fails to sanitize DOM elements passed via IN_PLACE mode when the element originates from a different window/realm (e.g., an iframe's contentDocument). A cross-realm instanceof check in the private _isNode() function returns false for foreign-realm nodes, causing DOMPurify to stringify the element (yielding '[object HTMLDivElement]'), silently reset IN_PLACE to false, and return the unsanitized element unchanged with any XSS payloads intact. The vendor considers this an edge case outside DOMPurify's threat model and, at time of publication, no fix was planned.",
-      "published": "2026-07-23T14:18:06.063",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65904"
+      "id": "CVE-2026-48536",
+      "summary": "GFI Archiver before 15.13 contains a stored cross-site scripting vulnerability in the General Settings SMTP configuration that allows authenticated attackers to inject arbitrary web script or HTML via the SMTP server address parameter to /Archiver/GeneralSettingsWizard.aspx. The injected payload is stored by GeneralSettingsWizard.SaveAllConfigSettings() without output encoding and is executed in the browsers of users who subsequently view the General Settings page.",
+      "published": "2026-07-23T16:17:26.037",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48536"
     }
   ]
 }
