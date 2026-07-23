@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-23T06:38:10+00:00",
+  "generated_at": "2026-07-23T09:34:18+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7534",
-      "summary": "The SUMO Reward Points plugin for WordPress is vulnerable to Unauthenticated Stored Cross-Site Scripting via the REST API endpoint `/wp-json/wc-srp/v1/earning` in versions up to, and including, 32.7.0. This is due to the `user_has_cap` filter in the `SRP_REST_Earning_Controller` class unconditionally granting the custom `rs_earning_read` capability to all users \u2014 including unauthenticated visitors \u2014 combined with missing sanitization of the `reason` parameter in the `create_items()` function and missing output escaping in the `column_default()` method of `SRP_Master_Log`. This makes it possible for unauthenticated attackers to inject arbitrary web scripts into the reward points log that will execute whenever an administrator accesses the Master Log or User Reward Points admin pages.",
-      "published": "2026-07-23T06:16:50.780",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7534"
+      "id": "CVE-2026-52688",
+      "summary": "RRSIGs with too few labels can lead to bypass of DNSSEC wildcard validation",
+      "published": "2026-07-23T09:16:27.080",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52688"
     },
     {
-      "id": "CVE-2026-7232",
-      "summary": "The FormCraft plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the '[parameter name]' parameter in all versions up to, and including, 3.9.14 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit chain combines a server-side gap \u2014 where composite matrix sub-field keys such as field2_0 and field2_1 are never passed through the sanitization loop and are stored raw via $wpdb->insert() \u2014 with a client-side gap where DOMPurify is only invoked when typeof field.value === 'string', but matrix values arrive from the server as arrays, bypassing the check before being mapped to strings and injected into the DOM. Additionally, the same sink is reachable via a second attack vector: array-typed field values are passed through htmlentities() on submission but later reversed by html_entity_decode() at formcraft-main.php:2608 and :2122, restoring the malicious payload before storage and rendering.",
-      "published": "2026-07-23T06:16:50.607",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7232"
+      "id": "CVE-2026-52686",
+      "summary": "The issue is a DNSSEC validation bypass where wildcard expansion proofs (NSEC/NSEC3 records) are accepted without signature validation when the wildcard answer is a CNAME or DNAME record.",
+      "published": "2026-07-23T09:16:26.967",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52686"
     },
     {
-      "id": "CVE-2026-64600",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: resample the data fork mapping after cycling ILOCK\n\nxfs_reflink_fill_{cow_hole,delalloc} are both presented with an inode,\na data fork mapping, and a cow fork mapping.  Unfortunately, these two\nhelpers cycle the ILOCK to grab a transaction, which means that the\nmappings are stale as soon as we reacquire the ILOCK.  Currently we\nrefresh the cow fork mapping by re-calling xfs_find_trim_cow_extent, but\nwe don't refresh the data fork mapping beforehand, which means that the\nxfs_bmap_trim_cow in that function queries the refcount btree about the\nwrong physical blocks and returns an inaccurate value in *shared.\n\nIf *shared is now false, the directio write proceeds with a stale data\nfork mapping.  Fix this by querying the data fork mapping if the\nsequence counter changes across the ILOCK cycle.",
-      "published": "2026-07-23T06:16:50.493",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64600"
+      "id": "CVE-2026-52684",
+      "summary": "If the auth responds very slowly and the records expire in between, the capping of TTLs is not enforced for lack of data. This does not happen on regular resolve as then then the \nchild records are used immediately if not expired and thus valid, or the\n records are expired, and in that case not used.  So this case \ncan only happen if almost expired records are used to refresh the \nauthoritative NS records.",
+      "published": "2026-07-23T09:16:26.843",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52684"
     },
     {
-      "id": "CVE-2026-63226",
-      "summary": "Printers and Multifunction Printers (MFPs) provided by Ricoh Company, Ltd. do not implement restrictions on SSH port forwarding, allowing to connect to arbitrary destinations. When SSH is enabled on an affected product, SSH port forwarding may be leveraged to connect to other node on the LAN.",
-      "published": "2026-07-23T06:16:49.037",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63226"
+      "id": "CVE-2026-16723",
+      "summary": "A remote code execution (RCE) vulnerability exists in fastjson 1.2.68 through 1.2.83. This vulnerability is exploitable under fastjson's\u00a0stock default configuration\u00a0\u2014 no AutoType enablement required, no classpath gadget required.",
+      "published": "2026-07-23T09:16:26.700",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16723"
     },
     {
-      "id": "CVE-2026-6390",
-      "summary": "A flaw was found in GNU nano's multi-buffer error message handling. When a user opens multiple files at startup and one triggers an ALERT-level error, a specially crafted filename containing printf format specifiers can be reinterpreted. This format string vulnerability may allow an attacker to achieve stack information disclosure, cause a denial of service (crash), or potentially perform arbitrary memory writes.",
-      "published": "2026-07-23T05:16:38.360",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6390"
+      "id": "CVE-2026-16287",
+      "summary": "Improper neutralization of special elements used in an OS command ('OS command injection') vulnerability in TUBITAK BILGEM Software Technologies Research Institute pardus-update allows OS Command Injection.\n\nThis issue affects pardus-update: from 0.6.6 before 0.7.0.",
+      "published": "2026-07-23T09:16:26.570",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16287"
     },
     {
-      "id": "CVE-2026-7120",
-      "summary": "@fastify/static evaluates the allowedPath callback before normalizing dot segments and duplicate path separators in the pathname used for file resolution. Versions up to and including 10.1.1 are affected. An unauthenticated attacker can bypass allowedPath restrictions by requesting equivalent non-canonical pathnames, causing files that were intended to be denied to be served anyway. The bypass does not allow access outside the configured static root by itself, it defeats path-based filtering only. The issue is patched in @fastify/static 10.1.2.",
-      "published": "2026-07-23T04:16:33.187",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7120"
+      "id": "CVE-2024-58330",
+      "summary": "A missing authentication check in Bosch IP cameras of families CPP13 and CPP14 allows an unauthenticated attacker to retrieve video analytics event data.",
+      "published": "2026-07-23T09:16:26.430",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-58330"
     }
   ]
 }
