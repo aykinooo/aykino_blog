@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-23T20:18:34+00:00",
+  "generated_at": "2026-07-23T22:13:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65706",
-      "summary": "FFmpeg versions 3.0 through 8.1.2 contain an out-of-bounds write vulnerability in the vf_swaprect video filter that allows attackers to corrupt heap memory by supplying a crafted NV12 video frame with odd width dimensions. The filter_frame() function reuses a temporary row buffer sized for plane 0's single-byte pixel step across all planes, causing an 18-byte memcpy into a 17-byte heap allocation when processing the two-byte-per-sample interleaved chroma plane of a 17x16 NV12 frame, resulting in heap corruption and process crash with potential for code execution.",
-      "published": "2026-07-23T20:17:22.257",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65706"
-    },
-    {
-      "id": "CVE-2026-65705",
-      "summary": "FFmpeg versions 3.4 through 8.1.2 contain an out-of-bounds write vulnerability in the vf_floodfill video filter that allows attackers to corrupt heap memory by supplying a dynamically sized video stream with filtergraph reinitialization disabled via -reinit_filter 0. When config_input() allocates the points traversal stack based on initial frame dimensions and a subsequent larger frame is processed, filter_frame() performs flood-fill neighbor pushes beyond the original allocation boundary, resulting in heap corruption and process crash with potential for code execution depending on heap layout and process hardening.",
-      "published": "2026-07-23T20:17:22.120",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65705"
-    },
-    {
-      "id": "CVE-2026-65704",
-      "summary": "FFmpeg through 8.1.2 contains an out-of-bounds write vulnerability that allows attackers to cause heap corruption by supplying a crafted ffconcat file processed with the -safe 0 flag. The TY demuxer's demux_audio() function decrements packet size without bounds checking, producing a negative size value that is passed to memcpy() in shorten_decode_frame(), where conversion to size_t wraps the value to near SIZE_MAX and triggers reads beyond the source allocation and writes far beyond the Shorten decoder's bitstream buffer.",
-      "published": "2026-07-23T20:17:21.973",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65704"
-    },
-    {
-      "id": "CVE-2026-65703",
-      "summary": "FFmpeg versions 2.7 through 8.1.2 contain an out-of-bounds write vulnerability in the TDSC video decoder that allows remote attackers to cause heap corruption by supplying a crafted AVI file that changes frame dimensions across TDSF frames. The tdsc_parse_tdsf() function fails to unreference the existing reference frame before calling av_frame_get_buffer(), causing tdsc_blit() and tdsc_yuv2rgb() to write attacker-controlled pixel data beyond the end of the undersized reference frame buffer, resulting in a process crash and potential code execution.",
-      "published": "2026-07-23T20:17:21.803",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65703"
-    },
-    {
-      "id": "CVE-2026-64785",
-      "summary": "SwiftNIO HTTP/2 was missing validation on inbound HEADERS frames that let CR, LF, NUL, SP and other control characters reach an HTTP/1.1 backend through NIOHTTP2's HTTP/2-to-HTTP/1 codec, enabling HTTP request smuggling or response splitting. This vulnerability is addressed in swift-nio-http2 version 1.45.0.",
-      "published": "2026-07-23T20:17:21.440",
+      "id": "CVE-2026-6924",
+      "summary": "A bug in the entropy initialization for SiWx917 causes the DRBG to use a predictable seed. As such, all random numbers generated in the Matter code use the same stream of numbers. This vulnerability was discovered after the impacted repository was already deprecated.",
+      "published": "2026-07-23T21:17:05.447",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64785"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6924"
     },
     {
-      "id": "CVE-2026-63359",
-      "summary": "The Appriss Insights (Equifax) Victim Information Notification Exchange (VINE) applications allow an unauthenticated attacker to send a specially-crafted request to bypass the login page, access other users' credentials, take over other user accounts, access sensitive PII, and dump other information from the database.",
-      "published": "2026-07-23T20:17:20.367",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63359"
+      "id": "CVE-2026-52439",
+      "summary": "An issue in xiandafu beetl 3.20.2 allows a remote attacker to execute arbitrary code via the type.new function and the property reflection mechanism",
+      "published": "2026-07-23T21:17:05.200",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52439"
+    },
+    {
+      "id": "CVE-2026-50103",
+      "summary": "A NULL pointer dereference in the L2 GOOSE and R-GOOSE shared parser, which may allow a network-adjacent attacker to crash a subscribing application by sending a crafted GOOSE frame containing a malformed TLV value.",
+      "published": "2026-07-23T21:17:05.057",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50103"
+    },
+    {
+      "id": "CVE-2026-50039",
+      "summary": "The affected product is vulnerable to a stack-based buffer overflow, which may allow an attacker to cause a memory corruption via a Read Request.",
+      "published": "2026-07-23T21:17:04.910",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50039"
+    },
+    {
+      "id": "CVE-2026-50032",
+      "summary": "A NULL pointer dereference in the MMS Write Named Variable List handler, which may allow a network adjacent attacker to crash the server by sending a WriteRequest with an empty listOfData field.",
+      "published": "2026-07-23T21:17:04.773",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50032"
+    },
+    {
+      "id": "CVE-2026-49035",
+      "summary": "The affected product is vulnerable to a heap-based buffer overflow via a crafted MMS Initiate request. Remote code execution (RCE) has been demonstrated when ASLR is disabled; memory corruption or denial of service may occur in configurations where ASLR is enabled.",
+      "published": "2026-07-23T21:17:04.620",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49035"
     }
   ]
 }
