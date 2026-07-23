@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-23T18:35:45+00:00",
+  "generated_at": "2026-07-23T20:18:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6516",
-      "summary": "Zohocorp ManageEngine ADAudit Plus versions\u00a0before 8606 are affected by Unauthenticated Remote code execution due to the vulnerable agent API.",
-      "published": "2026-07-23T18:17:02.570",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6516"
+      "id": "CVE-2026-65706",
+      "summary": "FFmpeg versions 3.0 through 8.1.2 contain an out-of-bounds write vulnerability in the vf_swaprect video filter that allows attackers to corrupt heap memory by supplying a crafted NV12 video frame with odd width dimensions. The filter_frame() function reuses a temporary row buffer sized for plane 0's single-byte pixel step across all planes, causing an 18-byte memcpy into a 17-byte heap allocation when processing the two-byte-per-sample interleaved chroma plane of a 17x16 NV12 frame, resulting in heap corruption and process crash with potential for code execution.",
+      "published": "2026-07-23T20:17:22.257",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65706"
     },
     {
-      "id": "CVE-2026-65920",
-      "summary": "Diffusers through 0.39.0, fixed in commit cee298c, contains a path traversal vulnerability in the _get_checkpoint_shard_files function that allows attackers to read arbitrary files by supplying malicious weight_map values in model index JSON. Attackers can use ../ sequences or absolute paths in weight_map entries to escape the model directory and read safetensors files outside the intended location during model loading.",
-      "published": "2026-07-23T18:17:02.427",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65920"
+      "id": "CVE-2026-65705",
+      "summary": "FFmpeg versions 3.4 through 8.1.2 contain an out-of-bounds write vulnerability in the vf_floodfill video filter that allows attackers to corrupt heap memory by supplying a dynamically sized video stream with filtergraph reinitialization disabled via -reinit_filter 0. When config_input() allocates the points traversal stack based on initial frame dimensions and a subsequent larger frame is processed, filter_frame() performs flood-fill neighbor pushes beyond the original allocation boundary, resulting in heap corruption and process crash with potential for code execution depending on heap layout and process hardening.",
+      "published": "2026-07-23T20:17:22.120",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65705"
     },
     {
-      "id": "CVE-2026-65919",
-      "summary": "Meshery before 1.0.57 contains an unauthenticated arbitrary file read vulnerability in the /api/system/fileView and /api/system/fileDownload endpoints that pass user-supplied file parameters directly to os.Open without path validation. Attackers can supply absolute paths or traversal sequences in the file parameter to read arbitrary files from the host filesystem without authentication.",
-      "published": "2026-07-23T18:17:02.290",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65919"
+      "id": "CVE-2026-65704",
+      "summary": "FFmpeg through 8.1.2 contains an out-of-bounds write vulnerability that allows attackers to cause heap corruption by supplying a crafted ffconcat file processed with the -safe 0 flag. The TY demuxer's demux_audio() function decrements packet size without bounds checking, producing a negative size value that is passed to memcpy() in shorten_decode_frame(), where conversion to size_t wraps the value to near SIZE_MAX and triggers reads beyond the source allocation and writes far beyond the Shorten decoder's bitstream buffer.",
+      "published": "2026-07-23T20:17:21.973",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65704"
     },
     {
-      "id": "CVE-2026-65918",
-      "summary": "PyTorch torchvision through 0.28.0, fixed in commit 4e05dc2, contains an out-of-bounds heap read vulnerability in the GIF decoder's read_from_tensor callback that passes unclamped length to memcpy. Attackers can supply malicious or truncated GIF files to cause denial of service via segmentation fault or disclose adjacent heap memory contents.",
-      "published": "2026-07-23T18:17:02.143",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65918"
+      "id": "CVE-2026-65703",
+      "summary": "FFmpeg versions 2.7 through 8.1.2 contain an out-of-bounds write vulnerability in the TDSC video decoder that allows remote attackers to cause heap corruption by supplying a crafted AVI file that changes frame dimensions across TDSF frames. The tdsc_parse_tdsf() function fails to unreference the existing reference frame before calling av_frame_get_buffer(), causing tdsc_blit() and tdsc_yuv2rgb() to write attacker-controlled pixel data beyond the end of the undersized reference frame buffer, resulting in a process crash and potential code execution.",
+      "published": "2026-07-23T20:17:21.803",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65703"
     },
     {
-      "id": "CVE-2026-65763",
-      "summary": "Joomla Extension - phoca.cz - Reflected XSS vulnerability in Phoca Maps 1.0.0-6.0.9 - Improper validation of user inputs lead to a reflective XSS vulnerability.",
-      "published": "2026-07-23T18:17:02.023",
+      "id": "CVE-2026-64785",
+      "summary": "SwiftNIO HTTP/2 was missing validation on inbound HEADERS frames that let CR, LF, NUL, SP and other control characters reach an HTTP/1.1 backend through NIOHTTP2's HTTP/2-to-HTTP/1 codec, enabling HTTP request smuggling or response splitting. This vulnerability is addressed in swift-nio-http2 version 1.45.0.",
+      "published": "2026-07-23T20:17:21.440",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65763"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64785"
     },
     {
-      "id": "CVE-2026-65762",
-      "summary": "Joomla Extension - phoca.cz - Reflected XSS vulnerability in Phoca Guestbook 1.0.0-6.1.0 - Improper validation of user inputs lead to a reflective XSS vulnerability.",
-      "published": "2026-07-23T18:17:01.903",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65762"
+      "id": "CVE-2026-63359",
+      "summary": "The Appriss Insights (Equifax) Victim Information Notification Exchange (VINE) applications allow an unauthenticated attacker to send a specially-crafted request to bypass the login page, access other users' credentials, take over other user accounts, access sensitive PII, and dump other information from the database.",
+      "published": "2026-07-23T20:17:20.367",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63359"
     }
   ]
 }
