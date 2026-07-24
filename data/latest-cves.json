@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-24T11:54:30+00:00",
+  "generated_at": "2026-07-24T14:09:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7483",
-      "summary": "Local privilege escalation\u00a0potentially allowed an attacker to write an arbitrary file with fully controlled content as a privileged user.",
-      "published": "2026-07-24T10:16:32.637",
+      "id": "CVE-2026-9765",
+      "summary": "Note: The CVE and blog post don't exist because we determined this is actually a cloud-only issue.\n\nAccess Controls are \u201cBroken\u201d when a user can access resources they are not authorized to access. An attacker can bypass any access control mechanisms in a web application, and gain unauthorized access to resources that are not available with their permissions. \n\nBroken access control can allow attackers to:\nAccess resources only accessible to certain users, thus allowing unauthorized access to data\nPerform operations on behalf of other users, leading to account takeovers in the worst cases\nAttempt privilege escalation\nAttempt to take over an account",
+      "published": "2026-07-24T13:18:31.480",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9765"
+    },
+    {
+      "id": "CVE-2026-7484",
+      "summary": "External control of Assumed-Immutable web parameter vulnerability in ABIS Technology Ltd. Co. AVES\u0130S allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects AVES\u0130S: before 202606251646.",
+      "published": "2026-07-24T13:18:30.867",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7484"
+    },
+    {
+      "id": "CVE-2026-66144",
+      "summary": "Although remote policy references are not retrieved during policy normalization, if they are manually retrieved via the API it can cause a denial of service attack if a huge policy is retrieved. Users are recommended to upgrade to version 3.2.3, which fixes this issue by imposing a default maximum size on data read from remote policy references.",
+      "published": "2026-07-24T13:18:29.467",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7483"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66144"
     },
     {
-      "id": "CVE-2026-16634",
-      "summary": "TOML::XS versions before 0.06 for Perl bundle an unsupported and vulnerable version of tomlc99.\n\nThe tomlc99 library is no longer maintained, and has an uncontrolled recursion vulnerability publicly reported in the issue tracker.\n\nAny caller that passes untrusted TOML to from_toml risks a stack overflow from a deeply-nested document.\n\nTOML::XS version 0.06 or later uses the successor tomlc17 library.",
-      "published": "2026-07-24T10:16:31.693",
+      "id": "CVE-2026-66143",
+      "summary": "It is possible to bypass the\u00a0maximum number of normalized policy alternatives that was introduced in Apache Neethi 3.2.2 via certain crafted policies, which may lead to a denial of service attack via resource consumption.\u00a0Users are recommended to upgrade to version 3.2.3, which fixes this issue.",
+      "published": "2026-07-24T13:18:29.350",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16634"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66143"
     },
     {
-      "id": "CVE-2026-15663",
-      "summary": "The Ninja Forms \u2013 The Contact Form Builder That Grows With You plugin for WordPress is vulnerable to generic SQL Injection via Import File 'settings' Key in all versions up to, and including, 3.14.9 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The vulnerable keys originate from the 'settings' object in an attacker-controlled import file processed via file_get_contents() or base64-decoded/JSON-decoded blobs, bypassing wp_magic_quotes protections entirely; two distinct sinks are affected \u2014 _save_setting() in Model.php and insert_form_meta() in ImportForm.php \u2014 as only the value side is escaped while the key side receives no sanitization or parameterization at any point in the call chain.",
-      "published": "2026-07-24T10:16:31.567",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15663"
-    },
-    {
-      "id": "CVE-2026-15401",
-      "summary": "The VikBooking Hotel Booking Engine & PMS plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'vbfX' parameter in all versions up to, and including, 1.8.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vbfX custom-field value is stored via the public-facing saveorder task, which has no capability or authentication check enforced by default, enabling fully unauthenticated submission of malicious payloads.",
-      "published": "2026-07-24T10:16:31.410",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15401"
-    },
-    {
-      "id": "CVE-2026-10033",
-      "summary": "The EventON Action User plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.5.14. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to grant EventON management capabilities and the upload_files capability to any non-administrator WordPress role or user, escalating their privileges within the site. The administrator role is protected by an early-return guard in update_role_caps(), so only non-administrator roles and individual users can be targeted; however, the same unauthenticated exposure also allows attackers to enumerate all WordPress users with their IDs and display names, disclose role and user capability state along with nonce values, and tamper with event-to-user term assignments.",
-      "published": "2026-07-24T10:16:29.983",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10033"
-    },
-    {
-      "id": "CVE-2026-63317",
-      "summary": "Arbitrary Class Instantiation via XML Feature Generator Descriptor and Format Name in Apache OpenNLP\n\nVersions Affected: \n\n- before 2.5.10\n- before 3.0.0-M5\n\nDescription: \n\nThree code paths in Apache OpenNLP load a class by its fully-qualified name via Class.forName() and invoke its no-arg constructor without any prior validation of the class name or its type.\u00a0\n\nThe affected paths are: \n\n(1) GeneratorFactory, which reads the class attribute of generator elements in an XML feature generator descriptor; such descriptors are embedded as artifacts in model archives (e.g. TokenNameFinder and POSTagger models) and are parsed during model loading, so an attacker who can supply a crafted model archive controls the class name directly. \n\n(2) StreamFactoryRegistry.getFactory(Class, String), which falls back to interpreting an unregistered format name as the fully-qualified class name of an ObjectStreamFactory; this is exploitable in applications that pass untrusted format names (e.g. exposing the -format parameter of the command-line tooling to external input). \n\n(3) StringInterners, which instantiates the interner implementation named by the opennlp.interner.class system property; this value is normally deployer-controlled, so it is hardened as defense in depth rather than being independently attacker-reachable.\n\nExploitation requires a class with attacker-useful side effects in its static initializer or no-arg constructor (JNDI lookup, outbound network I/O, filesystem access) to be present on the classpath, so this is not drop-in remote code execution. T\n\nMitigation: \n\nUpgrade to a fixed release. \n\nThe fix routes all three paths through ExtensionLoader.instantiateExtension(...), which consults a package-prefix allowlist before Class.forName() is invoked, so a disallowed class is never loaded, initialized, or constructed. \nClasses under the opennlp. prefix remain permitted by default. Deployments that load models referencing feature generator factories, object stream factories, or string interners outside opennlp.* must opt those packages in, either programmatically via ExtensionLoader.registerAllowedPackage(String) before the first model load, or by setting the OPENNLP_EXT_ALLOWED_PACKAGES system property to a comma-separated list of allowed package prefixes. \n\nUsers who cannot upgrade immediately should ensure all model files and format names are sourced from trusted origins and should audit their classpath for classes with side-effecting static initializers or constructors.",
-      "published": "2026-07-24T09:16:25.273",
+      "id": "CVE-2026-66142",
+      "summary": "Apache Neethi is vulnerable to uncontrolled recursion when parsing policies that lack policy Ids or with deeply nested structures, which may lead to a denial of service attack when parsing policies due to runtime memory exhaustion. Users are recommended to upgrade to version 3.2.3, which fixes this issue.",
+      "published": "2026-07-24T13:18:29.237",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63317"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66142"
+    },
+    {
+      "id": "CVE-2026-66010",
+      "summary": "DOMPurify before 3.4.12 fails to execute afterSanitizeElements hook for custom elements allowed via CUSTOM_ELEMENT_HANDLING.tagNameCheck, allowing attributes to bypass application security policies. Attackers can preserve sensitive attributes on custom elements that later re-inject them into innerHTML sinks, creating second-order XSS gadgets.",
+      "published": "2026-07-24T13:18:28.720",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66010"
     }
   ]
 }
