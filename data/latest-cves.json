@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-24T17:49:40+00:00",
+  "generated_at": "2026-07-24T19:44:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66035",
-      "summary": "libssh2 through 1.11.1, fixed in commit 42e33d8, contains a pre-authentication heap buffer overflow vulnerability that allows a malicious SSH server to corrupt heap metadata in any connecting client by sending a packet with a packet_length smaller than the cipher's block size during Encrypt-then-MAC cipher negotiation. In the fullpacket() function in src/transport.c, the ETM path allocates a buffer of packet_length bytes but copies blocksize minus one bytes via memcpy, causing an overflow that on 32-bit glibc writes attacker-controlled bytes into an adjacent chunk's SIZE field, enabling tcache bin confusion, overlapping live objects, and function pointer overwrite during the session handshake before authentication.",
-      "published": "2026-07-24T17:17:35.547",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66035"
+      "id": "CVE-2026-54342",
+      "summary": "In epa4all, prior to version 2026-05-20, an attacker on the network path between epa4all and any backend (ePA Aktensystem, Konnektor, IDP, TSS) can present a self-signed TLS certificate and intercept the connection. For non-VAU connections (Konnektor, IDP), this allows direct read and modification of the inner traffic, including smartcard operations and OIDC authentication exchanges. For the ePA backend, the disabled TLS verification is the transport-level enabler for the VAU MITM described in GHSA-vvh7-x6c7-46gh. This issue has been patched in version 2026-05-20.",
+      "published": "2026-07-24T19:16:59.200",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54342"
     },
     {
-      "id": "CVE-2026-66034",
-      "summary": "libssh2 through 1.11.1, fixed in commit a13bb6c, contains a missing bounds check vulnerability that allows a malicious SSH server to trigger an arbitrary-length heap out-of-bounds read and a free of an uninitialized pointer via the publickey subsystem. In libssh2_publickey_list_fetch(), the version 1 response parser reads a server-controlled comment_len value and advances the parse pointer without verifying sufficient bytes remain in the buffer, causing the out-of-bounds read to leak heap pointers from adjacent allocations defeating ASLR, followed by heap allocator state corruption when the error cleanup path frees an uninitialized pointer from a non-zeroed realloc() region.",
-      "published": "2026-07-24T17:17:35.407",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66034"
+      "id": "CVE-2026-48037",
+      "summary": "Hulumi is an open-source toolkit that ships secure-by-default cloud and platform infrastructure components for Pulumi. Prior to version 1.4.0, AccountFoundation reuse paths silently downgrade GuardDuty / Security Hub posture. This issue has been patched in version 1.4.0.",
+      "published": "2026-07-24T19:16:58.897",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48037"
     },
     {
-      "id": "CVE-2026-66033",
-      "summary": "libssh2 through 1.11.1, fixed in commit a2ed82d, contains a pre-authentication integer underflow vulnerability in the ssh2_cipher_crypt() function in src/openssl.c that allows a malicious SSH server to crash any connecting client by negotiating AES-GCM ciphers during handshake. Attackers can exploit the underflow in the expression computing blocksize minus aadlen minus authentication tag length to trigger an out-of-bounds read and a memcpy call with a near-SIZE_MAX length argument, causing immediate process crash before any authentication occurs.",
-      "published": "2026-07-24T17:17:35.263",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66033"
+      "id": "CVE-2026-48036",
+      "summary": "Hulumi is an open-source toolkit that ships secure-by-default cloud and platform infrastructure components for Pulumi. Prior to version 1.4.0, consumers running drift detection in CI / cron could see transient adapter failures silently cached as \"all clear\" \u2014 masking real attacks for up to six hours \u2014 or see ordinary provider-version churn falsely promoted to incident severity. Either way, the verdict source was unreliable for downstream incident workflows that gate on it. This issue has been patched in version 1.4.0.",
+      "published": "2026-07-24T19:16:58.753",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48036"
     },
     {
-      "id": "CVE-2026-66032",
-      "summary": "libssh2 through 1.11.1, fixed in commit 5e47761, contains a double-free vulnerability in the sftp_open() function in src/sftp.c that allows a malicious SSH server to corrupt the heap of any authenticated client opening an SFTP session. When a server responds to SSH_FXP_OPEN with SSH_FXP_STATUS containing FX_OK, the response data buffer is freed, and if a subsequent sftp_packet_require() call returns a specific error such as LIBSSH2_ERROR_CHANNEL_PACKET_EXCEEDED, the same pointer is freed a second time, enabling tcache dup conditions on glibc systems that allow overlapping allocations and function pointer overwrites.",
-      "published": "2026-07-24T17:17:35.120",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66032"
+      "id": "CVE-2026-48035",
+      "summary": "Hulumi is an open-source toolkit that ships secure-by-default cloud and platform infrastructure components for Pulumi. Prior to version 1.4.0, consumers using AccountFoundation could ship an AWS account whose CloudTrail / Config audit logs were deletable by any S3-delete-capable principal \u2014 while believing the startup-hardened tier guaranteed tamper-resistance. Sandbox-tier deployments had no audit immutability at all (defects 1 and 3 compounded). This issue has been patched in version 1.4.0.",
+      "published": "2026-07-24T19:16:58.617",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48035"
     },
     {
-      "id": "CVE-2026-65711",
-      "summary": "sysPass through version 3.2.11 contains an OS command injection vulnerability that allows authenticated administrators to execute arbitrary commands as the web server process user by setting a malicious backup path and triggering a backup. The FileBackupService builds a tar shell command via string concatenation, inserting the admin-configurable siteBackupPath setting without escapeshellarg() or equivalent sanitization before passing it to exec(), causing injected commands to persist and execute on every subsequent backup trigger.",
-      "published": "2026-07-24T17:17:34.857",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65711"
+      "id": "CVE-2026-48034",
+      "summary": "Hulumi is an open-source toolkit that ships secure-by-default cloud and platform infrastructure components for Pulumi. Prior to version 1.4.0, there is a bypass via decoy sibling resources targeting a different bucket. This issue has been patched in version 1.4.0.",
+      "published": "2026-07-24T19:16:58.477",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48034"
     },
     {
-      "id": "CVE-2026-65710",
-      "summary": "sysPass through version 3.2.11 contains a missing authorization vulnerability that allows authenticated users with the PUBLICLINK_CREATE profile flag to trigger unauthorized decryption and persistent storage of any vault account's password by exploiting the absence of AccountAcl checks in the public link creation flow. Attackers can invoke the saveCreateFromAccountAction endpoint to cause AccountService::getDataForLink to load arbitrary target accounts without AccountFilterUser restrictions, decrypt credentials using the session master key, and serialize cleartext passwords into Vault storage on the PublicLink database row, enabling subsequent unauthenticated retrieval if the generated link hash is recovered.",
-      "published": "2026-07-24T17:17:34.713",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65710"
+      "id": "CVE-2026-48033",
+      "summary": "Hulumi is an open-source toolkit that ships secure-by-default cloud and platform infrastructure components for Pulumi. Prior to version 1.4.0, policy packs can be bypassed by a forged Pulumi-URN logical name. This issue has been patched in version 1.4.0.",
+      "published": "2026-07-24T19:16:58.340",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48033"
     }
   ]
 }
