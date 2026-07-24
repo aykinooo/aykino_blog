@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-24T14:09:14+00:00",
+  "generated_at": "2026-07-24T15:42:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9765",
-      "summary": "Note: The CVE and blog post don't exist because we determined this is actually a cloud-only issue.\n\nAccess Controls are \u201cBroken\u201d when a user can access resources they are not authorized to access. An attacker can bypass any access control mechanisms in a web application, and gain unauthorized access to resources that are not available with their permissions. \n\nBroken access control can allow attackers to:\nAccess resources only accessible to certain users, thus allowing unauthorized access to data\nPerform operations on behalf of other users, leading to account takeovers in the worst cases\nAttempt privilege escalation\nAttempt to take over an account",
-      "published": "2026-07-24T13:18:31.480",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9765"
+      "id": "CVE-2026-8789",
+      "summary": "The Easy Appointments plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check and missing nonce verification on the `ea_delete_multiple_connections` AJAX action in all versions up to, and including, 3.12.27. This makes it possible for authenticated attackers, with Contributor-level access and above, to delete arbitrary connection records from the `wp_ea_connections` table, disrupting the plugin's core booking functionality.",
+      "published": "2026-07-24T15:19:08.320",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8789"
     },
     {
-      "id": "CVE-2026-7484",
-      "summary": "External control of Assumed-Immutable web parameter vulnerability in ABIS Technology Ltd. Co. AVES\u0130S allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects AVES\u0130S: before 202606251646.",
-      "published": "2026-07-24T13:18:30.867",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7484"
-    },
-    {
-      "id": "CVE-2026-66144",
-      "summary": "Although remote policy references are not retrieved during policy normalization, if they are manually retrieved via the API it can cause a denial of service attack if a huge policy is retrieved. Users are recommended to upgrade to version 3.2.3, which fixes this issue by imposing a default maximum size on data read from remote policy references.",
-      "published": "2026-07-24T13:18:29.467",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66144"
-    },
-    {
-      "id": "CVE-2026-66143",
-      "summary": "It is possible to bypass the\u00a0maximum number of normalized policy alternatives that was introduced in Apache Neethi 3.2.2 via certain crafted policies, which may lead to a denial of service attack via resource consumption.\u00a0Users are recommended to upgrade to version 3.2.3, which fixes this issue.",
-      "published": "2026-07-24T13:18:29.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66143"
-    },
-    {
-      "id": "CVE-2026-66142",
-      "summary": "Apache Neethi is vulnerable to uncontrolled recursion when parsing policies that lack policy Ids or with deeply nested structures, which may lead to a denial of service attack when parsing policies due to runtime memory exhaustion. Users are recommended to upgrade to version 3.2.3, which fixes this issue.",
-      "published": "2026-07-24T13:18:29.237",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66142"
-    },
-    {
-      "id": "CVE-2026-66010",
-      "summary": "DOMPurify before 3.4.12 fails to execute afterSanitizeElements hook for custom elements allowed via CUSTOM_ELEMENT_HANDLING.tagNameCheck, allowing attributes to bypass application security policies. Attackers can preserve sensitive attributes on custom elements that later re-inject them into innerHTML sinks, creating second-order XSS gadgets.",
-      "published": "2026-07-24T13:18:28.720",
+      "id": "CVE-2026-8308",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Polen Media Software and Information Services Website Template allows Reflected XSS.\n\nThis issue affects Website Template: before v2.",
+      "published": "2026-07-24T15:19:08.187",
       "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66010"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8308"
+    },
+    {
+      "id": "CVE-2026-7007",
+      "summary": "The Zephyr ext2 file system validates the on-disk superblock in ext2_verify_disk_superblock() (subsys/fs/ext2/ext2_impl.c) before completing a mount. The validator checked the magic number, block size, revision and feature flags, but did not verify that the on-disk fields s_blocks_per_group and s_inodes_per_group are non-zero. Both fields are read directly from the image and are later used as divisors during mount-time initialization.\n\nDuring mount, get_ngroups() divides and modulos s_blocks_count by s_blocks_per_group (reached via ext2_fetch_block_group() from ext2_init_fs()), and get_itable_entry() divides (ino - 1) by s_inodes_per_group when fetching the root inode (both in subsys/fs/ext2/ext2_diskops.c). A superblock with either field set to zero therefore causes an integer division by zero during the mount sequence.\n\nAn attacker who can present a crafted ext2 image to a device that mounts ext2 \u2014 removable media such as an SD card or a USB mass-storage device \u2014 can trigger this. On ARMv7-M / ARMv8-M-mainline Cortex-M targets, divide-by-zero trapping is enabled (SCB_CCR_DIV_0_TRP), so the division raises a UsageFault that Zephyr treats as a fatal error, producing a denial of service. The impact is limited to availability; the malformed value is consumed only as a divisor.\n\nThe fix rejects a zero s_blocks_per_group or s_inodes_per_group in the superblock validator, returning -EINVAL so the mount fails before any block-group or inode I/O occurs.",
+      "published": "2026-07-24T15:19:08.047",
+      "cvss": 4.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7007"
+    },
+    {
+      "id": "CVE-2026-66007",
+      "summary": "Datasets through 5.0.0, fixed in f989ef9, contains a path traversal vulnerability in folder-based dataset builders where the file_name metadata field is not properly validated before being joined to the dataset directory. Attackers can supply crafted file_name values with directory traversal sequences to read arbitrary local files, which are then embedded into output when save_to_disk or push_to_hub is called.",
+      "published": "2026-07-24T15:19:07.493",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66007"
+    },
+    {
+      "id": "CVE-2026-66006",
+      "summary": "lakeFS through 1.83.0, fixed in commit 71a45ee, contains an authentication bypass vulnerability in the /setup_comm_prefs endpoint that allows unauthenticated attackers to overwrite operator metadata including email, name, and company after setup completion. Attackers can POST to this endpoint to modify security update preferences, disable security communications, and trigger falsified telemetry events using the legitimate installation ID.",
+      "published": "2026-07-24T15:19:07.353",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66006"
+    },
+    {
+      "id": "CVE-2026-66005",
+      "summary": "Jan through 0.8.4, fixed in commit 3e1c1e7, contains a CORS misconfiguration vulnerability in its local API server that allows network-adjacent attackers to bypass trusted host restrictions by exploiting the server's replacement of user-configured trusted hosts with a wildcard that reflects arbitrary origins with credentials. Attackers on the local network or using DNS rebinding can reach the unauthenticated OpenAI-compatible API to perform inference, enumerate models, invoke MCP tools, and read cross-origin responses.",
+      "published": "2026-07-24T15:19:07.203",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66005"
     }
   ]
 }
