@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-24T06:37:29+00:00",
+  "generated_at": "2026-07-24T09:31:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-16870",
-      "summary": "Multiple security vulnerabilities in Snowflake libsnowflakeclient versions prior to 2.9.2 could allow remote code execution and credential exfiltration. A stack-based buffer overflow in the file download path could allow remote code execution on a victim host. An attacker could exploit this by uploading a file with a crafted encryption metadata field to a shared internal stage that a victim process later downloads, and impact would be limited to deployments where principals with different privilege levels share the same internal stage. A related out-of-bounds write in the same download path could allow memory corruption with attacker-controlled write primitives. An attacker may exploit this through a crafted initialization vector metadata field on a shared stage, and impact would be limited by the same stage-write precondition. Improper validation of connection parameters could allow an attacker-controlled input to redirect outbound authentication requests \u2014 including credentials and tokens \u2014 to an attacker-controlled endpoint. Impact is limited to embedding deployments where a lower-privileged principal can influence connection configuration while higher-privileged service credentials are in use. The fix is available in Snowflake libsnowflakeclient version 2.9.2. Users must manually upgrade.",
-      "published": "2026-07-24T06:16:42.553",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16870"
+      "id": "CVE-2026-63317",
+      "summary": "Arbitrary Class Instantiation via XML Feature Generator Descriptor and Format Name in Apache OpenNLP\n\nVersions Affected: \n\n- before 2.5.10\n- before 3.0.0-M5\n\nDescription: \n\nThree code paths in Apache OpenNLP load a class by its fully-qualified name via Class.forName() and invoke its no-arg constructor without any prior validation of the class name or its type.\u00a0\n\nThe affected paths are: \n\n(1) GeneratorFactory, which reads the class attribute of generator elements in an XML feature generator descriptor; such descriptors are embedded as artifacts in model archives (e.g. TokenNameFinder and POSTagger models) and are parsed during model loading, so an attacker who can supply a crafted model archive controls the class name directly. \n\n(2) StreamFactoryRegistry.getFactory(Class, String), which falls back to interpreting an unregistered format name as the fully-qualified class name of an ObjectStreamFactory; this is exploitable in applications that pass untrusted format names (e.g. exposing the -format parameter of the command-line tooling to external input). \n\n(3) StringInterners, which instantiates the interner implementation named by the opennlp.interner.class system property; this value is normally deployer-controlled, so it is hardened as defense in depth rather than being independently attacker-reachable.\n\nExploitation requires a class with attacker-useful side effects in its static initializer or no-arg constructor (JNDI lookup, outbound network I/O, filesystem access) to be present on the classpath, so this is not drop-in remote code execution. T\n\nMitigation: \n\nUpgrade to a fixed release. \n\nThe fix routes all three paths through ExtensionLoader.instantiateExtension(...), which consults a package-prefix allowlist before Class.forName() is invoked, so a disallowed class is never loaded, initialized, or constructed. \nClasses under the opennlp. prefix remain permitted by default. Deployments that load models referencing feature generator factories, object stream factories, or string interners outside opennlp.* must opt those packages in, either programmatically via ExtensionLoader.registerAllowedPackage(String) before the first model load, or by setting the OPENNLP_EXT_ALLOWED_PACKAGES system property to a comma-separated list of allowed package prefixes. \n\nUsers who cannot upgrade immediately should ensure all model files and format names are sourced from trusted origins and should audit their classpath for classes with side-effecting static initializers or constructors.",
+      "published": "2026-07-24T09:16:25.273",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63317"
     },
     {
-      "id": "CVE-2026-66141",
-      "summary": "Exim before 4.99.5 allows .forward privilege escalation because force_command for a pipe transport is mishandled.",
-      "published": "2026-07-24T05:16:49.890",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66141"
+      "id": "CVE-2026-56392",
+      "summary": "GNU coreutils unexpand is vulnerable to a heap-based buffer overflow due to an integer overflow during buffer allocation when processing large tab stop (-t) values. The multiplication used to calculate the allocation size can wrap around, resulting in an undersized buffer.\nWhen processing crafted input, subsequent writes exceed the allocated memory, leading to an out\u2011of\u2011bounds heap write.\n\nWhen running GNU coreutils unexpand with attacker-provided large tab stop (-t) arguments, this behavior leads to a crash and potentially achieve a heap write primitive depending on memory layout.\n\n\n\n\n\n\n\n\n\n\nThis issue has been fixed in the commit b60a159fdc5bfcf9988d3a4cb6f53abe8ad5d35d",
+      "published": "2026-07-24T09:16:25.147",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56392"
     },
     {
-      "id": "CVE-2026-66140",
-      "summary": "Exim before 4.99.5 allows directory traversal to access files outside of the spool area, and consequently gain privileges, because arguments related to queue-name are mishandled.",
-      "published": "2026-07-24T05:16:49.747",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66140"
+      "id": "CVE-2026-56391",
+      "summary": "GNU coreutils uniq is vulnerable to an out\u2011of\u2011bounds read due to incorrect handling of multibyte input when the -w (--check-chars) option is used. The find_field() function miscalculates the byte length of characters by repeatedly processing a fixed pointer instead of advancing through the input, resulting in an inflated length value. \nThis incorrect length is later used in a memcmp operation, causing reads beyond the allocated buffer when processing crafted multibyte input.\n\nWhen running GNU coreutils uniq with attacker-provided arguments, this behavior leads to a crash and potential adjacent heap memory exposure.\n\n\nThis issue has been fixed in the commit d64e35a8a4c0e4608321433e0d84d917e4e36371.",
+      "published": "2026-07-24T09:16:25.003",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56391"
     },
     {
-      "id": "CVE-2026-66139",
-      "summary": "OpenStack Zaqar through 22.0.0 allows authentication bypass via an EXTRA-SPEC header when a UUID is known.",
-      "published": "2026-07-24T05:16:49.577",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66139"
+      "id": "CVE-2026-49745",
+      "summary": "Kernel software installed and running inside a Guest VM may post improper commands to the GPU Firmware to trigger a write of data outside the Guest's virtualised GPU memory.\n\n\n\nSoftware installed and run under a Guest VM can send commands to the GPU which result in out of bounds memory accesses. These can be used to escalate privileges.",
+      "published": "2026-07-24T09:16:24.897",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49745"
     },
     {
-      "id": "CVE-2026-66138",
-      "summary": "In OpenStack Ironic Python Agent through 11.6.0, a\u00a0project-scoped user with the manager role can achieve arbitrary code execution on a running Ironic-Python-Agent via a maliciously constructed configuration, because the value of ntp_server is passed to a shell.",
-      "published": "2026-07-24T05:16:49.433",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66138"
+      "id": "CVE-2026-49744",
+      "summary": "Kernel software installed and running inside a Guest VM may post improper commands to the GPU Firmware to trigger a write of data outside the Guest's virtualised GPU memory.\n\n\n\nOut of bounds accesses triggered by malware introduced to a Guest KMD could allow privilege escalation which escapes virtualization boundaries.",
+      "published": "2026-07-24T09:16:24.787",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49744"
     },
     {
-      "id": "CVE-2026-54422",
-      "summary": "In OpenStack\u00a0Ironic Python Agent through 11.5.0, a malicious bootc container, when deployed using ironic-python-agent, may be able to extract the credentials\u00a0used to download it.",
-      "published": "2026-07-24T05:16:45.460",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54422"
+      "id": "CVE-2026-49743",
+      "summary": "Software installed and run as a non-privileged user may conduct improper GPU system calls to manipulate the lifetimes of synchronisation objects in the kernel, leading to read/write UAFs.\n\n\n\nDuring workload submission involving a fence exported by the GPU driver, the reference count of the underlying synchronisation primitive is not properly incremented. This can be exploited, by destroying the exported fence and prematurely release the underlying primitive, resulting in a potential use-after-free condition.",
+      "published": "2026-07-24T09:16:24.667",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49743"
     }
   ]
 }
