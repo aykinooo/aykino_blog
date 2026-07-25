@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-07-25T13:59:22+00:00",
+  "generated_at": "2026-07-25T15:17:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-10681",
+      "summary": "In Zephyr's userspace dynamic-objects subsystem, thread_idx_alloc() in kernel/userspace/userspace.c allocated a new thread permission index from the global _thread_idx_map[] bitmap without holding lists_lock.\n\nOn SMP systems, two user-mode threads invoking the k_object_alloc(K_OBJ_THREAD) syscall concurrently can both observe the same low free bit, perform the same non-atomic RMW to clear it, and return the identical tidx.\n\nThe two newly created K_OBJ_THREAD objects are then assigned the same thread_id, so the two user threads alias a single bit position in every kernel object's perms[] bitfield: any subsequent grant of access on a kernel object to one thread is implicitly a grant to the other, defeating userspace ACL isolation. A secondary lost-update window between the unlocked &=~BIT() in alloc and the locked |= BIT() in thread_idx_free() can also leak entries from the thread-index pool.\n\nThe defect is reachable from any user-mode thread via the unrestricted __syscall k_object_alloc and is gated on CONFIG_USERSPACE, CONFIG_DYNAMIC_OBJECTS, and CONFIG_SMP. The flaw was introduced when the per-thread permission index was added in 2018 and is present in every release up to and including v4.4.0. Fixed by holding lists_lock across the bitmap RMW and the permissions clear (and inlining the obj_list traversal that previously took the lock itself).",
+      "published": "2026-07-25T14:16:28.957",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10681"
+    },
     {
       "id": "CVE-2026-66013",
       "summary": "OpenRemote before 1.26.2 contains an authentication bypass vulnerability in the console registration API that allows unauthenticated attackers to update existing console assets by supplying a known asset identifier. Attackers can overwrite push notification tokens and console metadata without authentication or ownership validation, redirecting notifications or denying delivery to legitimate consoles.",
@@ -36,13 +43,6 @@
       "published": "2026-07-25T10:17:39.187",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64528"
-    },
-    {
-      "id": "CVE-2026-64527",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/hyperv: validate VMBus packet size in receive callback\n\nhyperv_receive_sub() reads msg->vid_hdr.type and dispatches into one\nof four message-type branches without knowing how many bytes the host\nwrote into hv->recv_buf. The completion path then runs\nmemcpy(hv->init_buf, msg, VMBUS_MAX_PACKET_SIZE), so the consumer that\nwakes on wait_for_completion_timeout() can read up to 16 KiB of\nresidue from a prior message as if it were the response payload.\n\nPass bytes_recvd into hyperv_receive_sub() and reject any packet that\ndoes not cover the pipe + synthvid header. A single switch on\nmsg->vid_hdr.type then computes the type-specific payload size: the\nthree completion-driving types (SYNTHVID_VERSION_RESPONSE,\nSYNTHVID_RESOLUTION_RESPONSE, SYNTHVID_VRAM_LOCATION_ACK) fall through\nto a shared exit that requires that size before memcpy/complete, while\nSYNTHVID_FEATURE_CHANGE validates its own payload and returns before\nreading is_dirt_needed. Unknown types are dropped.\n\nSYNTHVID_RESOLUTION_RESPONSE is variable length: the host fills\nresolution_count entries, not the full SYNTHVID_MAX_RESOLUTION_COUNT\narray. Validate the fixed prefix first so resolution_count can be\nread, bound it against the array, then require only the count-sized\narray, so the shorter responses the host actually sends are accepted.\n\nOnly run the sub-handler when vmbus_recvpacket() returned success. The\nmemcpy length is bytes_recvd, which is bounded by VMBUS_MAX_PACKET_SIZE\nonly on a successful receive; on -ENOBUFS vmbus_recvpacket() instead\nreports the required length, which can exceed hv->recv_buf, so copying\nbytes_recvd would read and write past the 16 KiB buffers. Gating on the\nsuccess return keeps the copy bounded. The nonzero-return path is itself\na malformed-message case and is now logged rather than silently skipped;\nchannel recovery is not attempted.\n\nRejected packets are reported via drm_err_ratelimited() rather than\nsilently dropped, matching the CoCo-hardened pattern in\nhv_kvp_onchannelcallback().",
-      "published": "2026-07-25T10:17:39.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64527"
     }
   ]
 }
