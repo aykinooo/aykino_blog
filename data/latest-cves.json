@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-24T23:14:29+00:00",
+  "generated_at": "2026-07-25T00:15:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-61884",
-      "summary": "The web management interface of\u00a0Tycon Systems TPDIN-Monitor-WEB2\n\n\u00a0does not perform server-side validation of credentials during the login process. By submitting empty values for both credential fields, an unauthenticated remote attacker can bypass the authentication check and establish a valid administrative session. This grants full access to device controls including power relay management, device reboot, remote access service configuration, and network settings, which could allow an attacker to disrupt connected infrastructure or cause physical damage to equipment.",
-      "published": "2026-07-24T22:16:50.963",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61884"
+      "id": "CVE-2026-66339",
+      "summary": "A flaw was found in libsoup. After a CONNECT tunnel is established through an HTTP proxy, libsoup incorrectly attaches the Proxy-Authorization header to subsequent HTTPS requests sent through that tunnel to the destination server. This allows the destination server to capture proxy credentials, leading to information disclosure.",
+      "published": "2026-07-24T23:16:52.187",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66339"
     },
     {
-      "id": "CVE-2026-55985",
-      "summary": "The web management interface in\u00a0\nTycon Systems TPDIN-Monitor-WEB2\n\nstores and displays system credentials in cleartext on a certain configuration page accessible to authenticated users. Any party with access to the administrative dashboard can immediately read these credentials, which may be used to compromise other systems on the local network.",
-      "published": "2026-07-24T22:16:50.807",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55985"
+      "id": "CVE-2026-66338",
+      "summary": "A flaw was found in libsoup. The chunked transfer encoding parser uses a permissive parsing function for chunk sizes that silently accepts inputs violating RFC 9112, including leading whitespace, plus sign prefixes, and trailing invalid characters. When libsoup operates behind a strict frontend proxy, this parsing differential can be exploited to smuggle HTTP requests.",
+      "published": "2026-07-24T23:16:52.040",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66338"
     },
     {
-      "id": "CVE-2025-71408",
-      "summary": "NLTK (Natural Language Toolkit) before version 3.9.3 contains an eval injection vulnerability in the nltk.collocations module that allows an attacker who controls command-line arguments to execute arbitrary Python code. When collocations.py is invoked directly, the __main__ block passes command-line arguments directly to eval() as suffixes of BigramAssocMeasures without allowlist validation or sanitization, enabling an attacker to supply a Python expression that escapes the intended attribute lookup and executes arbitrary code including OS commands via the os module.",
-      "published": "2026-07-24T22:16:50.063",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-71408"
+      "id": "CVE-2026-66337",
+      "summary": "A flaw was found in libsoup. An unsigned integer underflow in the soup_filter_input_stream_read_until() function causes a heap buffer over-read when parsing multipart HTTP responses. A malicious HTTP server can exploit this by sending a crafted multipart response, potentially causing the client application to crash or disclose sensitive heap memory.",
+      "published": "2026-07-24T23:16:51.760",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66337"
     },
     {
-      "id": "CVE-2026-66041",
-      "summary": "FFmpeg 7.0 through 8.1.2, fixed in commit 4da9812, contains a heap out-of-bounds write vulnerability in the vf_quirc filter that allows an attacker to corrupt heap memory by supplying a crafted PGS/SUP subtitle file with mismatched frame dimensions. Attackers can provide a subtitle file whose second presentation has larger dimensions than its first, causing av_image_copy_plane() to copy data exceeding the initial allocation size into the undersized libquirc grayscale image buffer, resulting in heap corruption and process crash with potential for code execution.",
-      "published": "2026-07-24T20:18:21.240",
+      "id": "CVE-2026-61892",
+      "summary": "Weintek cMT3092X HMI allows a non-privileged user to modify tokens to escalate privileges.",
+      "published": "2026-07-24T23:16:51.333",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66041"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61892"
     },
     {
-      "id": "CVE-2026-66040",
-      "summary": "FFmpeg through 8.1.2, fixed in commit b506faf, contains a heap out-of-bounds write vulnerability in the native PNG and APNG encoders that allows remote attackers to corrupt heap memory by supplying a crafted PNG image with a malicious eXIf chunk. Attackers can craft an eXIf chunk where multiple IFD entries reference the same large value payload, causing canonical serialization to expand the output far beyond the undersized allocation estimated by add_exif_profile_size(), resulting in png_write_chunk() writing tens of thousands of bytes past the buffer boundary, leading to deterministic heap corruption, process crash, and potentially arbitrary code execution.",
-      "published": "2026-07-24T20:18:21.063",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66040"
+      "id": "CVE-2026-61886",
+      "summary": "Weintek cMT3092X HMI stores user account passwords in plaintext.",
+      "published": "2026-07-24T23:16:51.197",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61886"
     },
     {
-      "id": "CVE-2026-66039",
-      "summary": "FFmpeg through 8.1.2, fixed in commit aafb5c6, contains a signed integer overflow vulnerability in the MACE6 audio decoder that allows attackers to corrupt heap memory by supplying a crafted CAF file with a malicious bytes_per_packet value. Attackers can craft a CAF file with oversized bytes_per_packet and frames_per_packet values in the desc chunk to trigger an integer overflow in mace_decode_frame() during output sample count computation, resulting in an undersized buffer allocation and heap out-of-bounds write that could enable code execution.",
-      "published": "2026-07-24T20:18:20.880",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66039"
+      "id": "CVE-2026-60135",
+      "summary": "An attacker can modify data that should be restricted to read\u2011only access.",
+      "published": "2026-07-24T23:16:51.037",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60135"
     }
   ]
 }
