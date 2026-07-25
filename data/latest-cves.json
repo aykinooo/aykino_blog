@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-25T09:10:46+00:00",
+  "generated_at": "2026-07-25T10:42:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-15425",
-      "summary": "The Yoast SEO \u2013 Advanced SEO with real-time guidance and built-in AI plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Post Slug (post_name) in all versions up to, and including, 28.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires pretty permalinks to be enabled, as the exploit chain depends on get_permalink() embedding the stored percent-encoded post_name in the generated URL.",
-      "published": "2026-07-25T07:17:09.897",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15425"
+      "id": "CVE-2026-64529",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: qat - remove unused character device and IOCTLs\n\nThe QAT driver exposes a character device (qat_adf_ctl) with IOCTLs\nfor device configuration, start, stop, status query and enumeration.\nThese IOCTLs are not part of any public uAPI header and have no known\nin-tree or out-of-tree users. Device lifecycle is already managed via\nsysfs.\n\nThe ioctl interface also increases the attack surface and is the\nsubject of a number of bug reports.\n\nRemove the character device, the IOCTL definitions, and the related\ndata structures (adf_dev_status_info, adf_user_cfg_key_val,\nadf_user_cfg_section, adf_user_cfg_ctl_data). Drop the now-unused\nadf_cfg_user.h header and strip adf_ctl_drv.c down to the minimal\nmodule_init/module_exit hooks for workqueue, AER, and crypto/compression\nalgorithm registration.\n\nClean up leftover dead code that was only reachable from the removed\nIOCTL paths: adf_cfg_del_all(), adf_devmgr_verify_id(),\nadf_devmgr_get_num_dev(), adf_devmgr_get_dev_by_id(),\nadf_get_vf_real_id() and the unused ADF_CFG macros.\n\nAdditionally, drop the entry associated to QAT IOCTLs in\nioctl-number.rst.",
+      "published": "2026-07-25T10:17:39.317",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64529"
     },
     {
-      "id": "CVE-2026-14955",
-      "summary": "The Checkout Field Editor for WooCommerce (Pro) plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 3.7.7 via the 'thwcfe_legacy_file' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information.",
-      "published": "2026-07-25T07:17:09.753",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14955"
+      "id": "CVE-2026-64528",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ntty: serial: samsung: Remove redundant port lock acquisition in rx helpers\n\nSashiko identified a deadlock when the console flow is engaged [1].\n\nWhen console flow control is enabled (UPF_CONS_FLOW),\ns3c24xx_serial_stop_tx() calls s3c24xx_serial_rx_enable() and\ns3c24xx_serial_start_tx() calls s3c24xx_serial_rx_disable().\n\nThe serial core framework invokes the .stop_tx() and .start_tx()\ncallbacks with the port->lock spinlock already held. Furthermore, all\ninternal driver paths that invoke stop_tx (such as the DMA TX\ncompletion handler s3c24xx_serial_tx_dma_complete() or the PIO TX IRQ\nhandler s3c24xx_serial_tx_irq()) also acquire port->lock prior to\ncalling it. (Note that s3c24xx_serial_start_tx() is only invoked by the\nserial core).\n\nHowever, s3c24xx_serial_rx_enable() and s3c24xx_serial_rx_disable()\nunconditionally attempt to acquire port->lock again using\nuart_port_lock_irqsave(). Since spinlocks are not recursive, this\ncauses a deadlock on the same CPU when console flow control is engaged.\n\nRemove the redundant lock acquisition from both rx helper functions.",
+      "published": "2026-07-25T10:17:39.187",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64528"
     },
     {
-      "id": "CVE-2026-10818",
-      "summary": "The WPForms Pro plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.10.1.1 via the ajax_chunk_upload_finalize function. This is due to the file type validation occurring after chunk metadata and file contents have already been written to disk, and the assembled file not being deleted upon validation failure. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
-      "published": "2026-07-25T07:17:08.880",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10818"
+      "id": "CVE-2026-64527",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/hyperv: validate VMBus packet size in receive callback\n\nhyperv_receive_sub() reads msg->vid_hdr.type and dispatches into one\nof four message-type branches without knowing how many bytes the host\nwrote into hv->recv_buf. The completion path then runs\nmemcpy(hv->init_buf, msg, VMBUS_MAX_PACKET_SIZE), so the consumer that\nwakes on wait_for_completion_timeout() can read up to 16 KiB of\nresidue from a prior message as if it were the response payload.\n\nPass bytes_recvd into hyperv_receive_sub() and reject any packet that\ndoes not cover the pipe + synthvid header. A single switch on\nmsg->vid_hdr.type then computes the type-specific payload size: the\nthree completion-driving types (SYNTHVID_VERSION_RESPONSE,\nSYNTHVID_RESOLUTION_RESPONSE, SYNTHVID_VRAM_LOCATION_ACK) fall through\nto a shared exit that requires that size before memcpy/complete, while\nSYNTHVID_FEATURE_CHANGE validates its own payload and returns before\nreading is_dirt_needed. Unknown types are dropped.\n\nSYNTHVID_RESOLUTION_RESPONSE is variable length: the host fills\nresolution_count entries, not the full SYNTHVID_MAX_RESOLUTION_COUNT\narray. Validate the fixed prefix first so resolution_count can be\nread, bound it against the array, then require only the count-sized\narray, so the shorter responses the host actually sends are accepted.\n\nOnly run the sub-handler when vmbus_recvpacket() returned success. The\nmemcpy length is bytes_recvd, which is bounded by VMBUS_MAX_PACKET_SIZE\nonly on a successful receive; on -ENOBUFS vmbus_recvpacket() instead\nreports the required length, which can exceed hv->recv_buf, so copying\nbytes_recvd would read and write past the 16 KiB buffers. Gating on the\nsuccess return keeps the copy bounded. The nonzero-return path is itself\na malformed-message case and is now logged rather than silently skipped;\nchannel recovery is not attempted.\n\nRejected packets are reported via drm_err_ratelimited() rather than\nsilently dropped, matching the CoCo-hardened pattern in\nhv_kvp_onchannelcallback().",
+      "published": "2026-07-25T10:17:39.053",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64527"
     },
     {
-      "id": "CVE-2026-66374",
-      "summary": "Knot Resolver before 6.4.1 allows remote code execution via a heap-based buffer overflow in the DoQ (DNS-over-QUIC) receive path.",
-      "published": "2026-07-25T01:16:26.423",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66374"
+      "id": "CVE-2026-64526",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nethtool: tsconfig: fix missing ethnl_ops_complete()\n\ntsconfig_prepare_data() calls ethnl_ops_begin(), we need to call\nethnl_ops_complete() before returning the error.",
+      "published": "2026-07-25T10:17:38.950",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64526"
     },
     {
-      "id": "CVE-2026-66373",
-      "summary": "Redis before 8.8.0, in the unusual case where an authenticated attacker can execute RESTORE, allows remote code execution via a RESTORE payload where the same NACK (pending entry) is referenced by more than one consumer, because deleting both consumers via XGROUP DELCONSUMER leads to a double free. NOTE: this issue exists because of an incomplete fix for CVE-2026-25243.",
-      "published": "2026-07-25T01:16:26.277",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66373"
+      "id": "CVE-2026-64525",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfrm: move policy_bydst RCU sync from per-netns .exit to .pre_exit\n\nThe struct pernet_operations docstring in include/net/net_namespace.h\nexplicitly warns against blocking RCU primitives in .exit handlers:\n\n    Exit methods using blocking RCU primitives, such as\n    synchronize_rcu(), should be implemented via exit_batch.\n    [...]\n    Please, avoid synchronize_rcu() at all, where it's possible.\n\n    Note that a combination of pre_exit() and exit() can\n    be used, since a synchronize_rcu() is guaranteed between\n    the calls.\n\nxfrm_policy_fini() violates this: it calls synchronize_rcu() before\nfreeing the policy_bydst hash tables (so no RCU reader is mid-\ntraversal at free time), but runs from xfrm_net_ops.exit -- once per\nnamespace -- so a cleanup_net() of N namespaces pays N full RCU\ngrace periods serially.\n\nUse the documented pre_exit/exit split. Move the policy flush (and\nthe workqueue drains it depends on) into a new .pre_exit handler;\nxfrm_policy_fini() then runs in .exit and frees the hash tables\nafter the synchronize_rcu_expedited() that cleanup_net() guarantees\nbetween the two phases. Providing O(1) RCU grace periods per batch\ninstead of O(N).\n\nObserved on Linux 6.18 with a workload doing unshare(CLONE_NEWNET)\nat ~13/sec sustained: cleanup_net() and the netns_wq rescuer kthread\nboth stuck in xfrm_policy_fini()'s synchronize_rcu(), >300k struct\nnet accumulated in the cleanup queue, Percpu in /proc/meminfo climbed\nto 130+ GB on 256-CPU hosts, and memcg OOMs followed. setup_net and\n__put_net counts were balanced, ruling out a refcount leak.",
+      "published": "2026-07-25T10:17:38.830",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64525"
     },
     {
-      "id": "CVE-2026-66339",
-      "summary": "A flaw was found in libsoup. After a CONNECT tunnel is established through an HTTP proxy, libsoup incorrectly attaches the Proxy-Authorization header to subsequent HTTPS requests sent through that tunnel to the destination server. This allows the destination server to capture proxy credentials, leading to information disclosure.",
-      "published": "2026-07-24T23:16:52.187",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66339"
+      "id": "CVE-2026-64524",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/hyperv: validate resolution_count and fix WIN8 fallback\n\nA SYNTHVID_RESOLUTION_RESPONSE with resolution_count > 64 walks past\nthe supported_resolution[SYNTHVID_MAX_RESOLUTION_COUNT] array in the\nparse loop. Bound resolution_count against the array size, folded\ninto the existing zero-check.\n\nWhen the WIN10 resolution probe fails, the caller in\nhyperv_connect_vsp() left hv->screen_*_max / preferred_* unpopulated,\nwhich sets mode_config.max_width / max_height to 0 and makes\ndrm_internal_framebuffer_create() reject every userspace framebuffer\nwith -EINVAL. The pre-WIN10 branch had the same gap for\npreferred_width / preferred_height. Use a single post-probe fallback\nguarded by screen_width_max == 0 so both paths converge on the WIN8\ndefaults.",
+      "published": "2026-07-25T10:17:38.713",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64524"
     }
   ]
 }
