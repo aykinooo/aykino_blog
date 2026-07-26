@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-07-26T00:11:07+00:00",
+  "generated_at": "2026-07-26T03:53:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-17433",
+      "summary": "A vulnerability was detected in nanocoai NanoClaw up to 2.0.64. This impacts the function createChatSdkBridge.setup of the file src/channels/chat-sdk-bridge.ts of the component MCP Server Approval. Performing a manipulation results in improper authorization. The attack needs to be approached locally. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-07-26T03:16:32.490",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17433"
+    },
+    {
+      "id": "CVE-2026-15962",
+      "summary": "The Fluent Forms Pro Add On Pack plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 6.2.6 via deserialization of untrusted input. This makes it possible for authenticated attackers, with Subscriber-level access and above, to inject a PHP Object. The additional presence of a POP chain allows attackers to change user passwords and potentially take over administrator accounts. Note: This can only be exploited if user update integration is enabled and a user meta field is mapped.",
+      "published": "2026-07-26T02:16:28.790",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15962"
+    },
+    {
+      "id": "CVE-2026-17432",
+      "summary": "A vulnerability was detected in NousResearch hermes-agent 2026.6.5. Affected by this vulnerability is an unknown functionality of the file hermes-agent/plugins/platforms/simplex/adapter.py of the component SimpleX Gateway Authorization. The manipulation of the argument contactId results in improper access controls. The attack may be launched remotely. A high complexity level is associated with this attack. The exploitation appears to be difficult. The exploit is now public and may be used. The patch is identified as 490c486ff65b766d9de0fe0e6f26e1778aaa8fb3. Applying a patch is advised to resolve this issue.",
+      "published": "2026-07-26T01:16:25.783",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17432"
+    },
     {
       "id": "CVE-2026-10681",
       "summary": "In Zephyr's userspace dynamic-objects subsystem, thread_idx_alloc() in kernel/userspace/userspace.c allocated a new thread permission index from the global _thread_idx_map[] bitmap without holding lists_lock.\n\nOn SMP systems, two user-mode threads invoking the k_object_alloc(K_OBJ_THREAD) syscall concurrently can both observe the same low free bit, perform the same non-atomic RMW to clear it, and return the identical tidx.\n\nThe two newly created K_OBJ_THREAD objects are then assigned the same thread_id, so the two user threads alias a single bit position in every kernel object's perms[] bitfield: any subsequent grant of access on a kernel object to one thread is implicitly a grant to the other, defeating userspace ACL isolation. A secondary lost-update window between the unlocked &=~BIT() in alloc and the locked |= BIT() in thread_idx_free() can also leak entries from the thread-index pool.\n\nThe defect is reachable from any user-mode thread via the unrestricted __syscall k_object_alloc and is gated on CONFIG_USERSPACE, CONFIG_DYNAMIC_OBJECTS, and CONFIG_SMP. The flaw was introduced when the per-thread permission index was added in 2018 and is present in every release up to and including v4.4.0. Fixed by holding lists_lock across the bitmap RMW and the permissions clear (and inlining the obj_list traversal that previously took the lock itself).",
@@ -22,27 +43,6 @@
       "published": "2026-07-25T11:17:19.053",
       "cvss": 10.0,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66012"
-    },
-    {
-      "id": "CVE-2026-66011",
-      "summary": "ImageMagick before 7.1.2-27 contains a memory leak vulnerability in the magick command-line interface when invalid options are provided. Attackers can trigger memory exhaustion by repeatedly supplying malformed command-line arguments to consume system resources.",
-      "published": "2026-07-25T11:17:18.347",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66011"
-    },
-    {
-      "id": "CVE-2026-64529",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: qat - remove unused character device and IOCTLs\n\nThe QAT driver exposes a character device (qat_adf_ctl) with IOCTLs\nfor device configuration, start, stop, status query and enumeration.\nThese IOCTLs are not part of any public uAPI header and have no known\nin-tree or out-of-tree users. Device lifecycle is already managed via\nsysfs.\n\nThe ioctl interface also increases the attack surface and is the\nsubject of a number of bug reports.\n\nRemove the character device, the IOCTL definitions, and the related\ndata structures (adf_dev_status_info, adf_user_cfg_key_val,\nadf_user_cfg_section, adf_user_cfg_ctl_data). Drop the now-unused\nadf_cfg_user.h header and strip adf_ctl_drv.c down to the minimal\nmodule_init/module_exit hooks for workqueue, AER, and crypto/compression\nalgorithm registration.\n\nClean up leftover dead code that was only reachable from the removed\nIOCTL paths: adf_cfg_del_all(), adf_devmgr_verify_id(),\nadf_devmgr_get_num_dev(), adf_devmgr_get_dev_by_id(),\nadf_get_vf_real_id() and the unused ADF_CFG macros.\n\nAdditionally, drop the entry associated to QAT IOCTLs in\nioctl-number.rst.",
-      "published": "2026-07-25T10:17:39.317",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64529"
-    },
-    {
-      "id": "CVE-2026-64528",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ntty: serial: samsung: Remove redundant port lock acquisition in rx helpers\n\nSashiko identified a deadlock when the console flow is engaged [1].\n\nWhen console flow control is enabled (UPF_CONS_FLOW),\ns3c24xx_serial_stop_tx() calls s3c24xx_serial_rx_enable() and\ns3c24xx_serial_start_tx() calls s3c24xx_serial_rx_disable().\n\nThe serial core framework invokes the .stop_tx() and .start_tx()\ncallbacks with the port->lock spinlock already held. Furthermore, all\ninternal driver paths that invoke stop_tx (such as the DMA TX\ncompletion handler s3c24xx_serial_tx_dma_complete() or the PIO TX IRQ\nhandler s3c24xx_serial_tx_irq()) also acquire port->lock prior to\ncalling it. (Note that s3c24xx_serial_start_tx() is only invoked by the\nserial core).\n\nHowever, s3c24xx_serial_rx_enable() and s3c24xx_serial_rx_disable()\nunconditionally attempt to acquire port->lock again using\nuart_port_lock_irqsave(). Since spinlocks are not recursive, this\ncauses a deadlock on the same CPU when console flow control is engaged.\n\nRemove the redundant lock acquisition from both rx helper functions.",
-      "published": "2026-07-25T10:17:39.187",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64528"
     }
   ]
 }
