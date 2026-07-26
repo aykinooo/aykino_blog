@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-07-26T13:53:23+00:00",
+  "generated_at": "2026-07-26T15:18:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-17497",
+      "summary": "NoteGen before 0.32.0 grants the Tauri shell plugin shell:allow-execute capability for bash, python, and python3 with arbitrary arguments in the default desktop capabilities. JavaScript running in the application webview can therefore invoke plugin:shell|execute to run attacker-controlled operating system commands with the privileges of the NoteGen process. In combination with script execution in the webview (for example via chat XSS), this enables full remote code execution on the user's machine.",
+      "published": "2026-07-26T15:16:27.873",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17497"
+    },
+    {
+      "id": "CVE-2026-17496",
+      "summary": "NoteGen before 0.32.0 renders AI chat responses with markdown-it configured with html:true and injects the result into the DOM via dangerouslySetInnerHTML in chat-preview, without HTML sanitization and with CSP set to null. Attacker-controlled content that reaches the model prompt (for example a malicious skill REFERENCE.md that instructs the model to emit HTML) can cause the model response to include executable markup such as an img onerror handler. When the user views the chat response, that markup runs as JavaScript in the privileged Tauri webview, enabling arbitrary script execution in the application context (cross-site scripting).",
+      "published": "2026-07-26T15:16:27.710",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17496"
+    },
     {
       "id": "CVE-2026-17459",
       "summary": "A vulnerability was determined in perwendel spark up to 2.9.4. This vulnerability affects the function staticFiles.externalLocation of the file src/main/java/spark/resource/ExternalResourceHandler.jav of the component SparkJava. Executing a manipulation can lead to symlink following. It is possible to launch the attack remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -29,20 +43,6 @@
       "published": "2026-07-26T07:16:41.680",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64530"
-    },
-    {
-      "id": "CVE-2024-14040",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: nexthop: Increase weight to u16\n\nIn CLOS networks, as link failures occur at various points in the network,\nECMP weights of the involved nodes are adjusted to compensate. With high\nfan-out of the involved nodes, and overall high number of nodes,\na (non-)ECMP weight ratio that we would like to configure does not fit into\n8 bits. Instead of, say, 255:254, we might like to configure something like\n1000:999. For these deployments, the 8-bit weight may not be enough.\n\nTo that end, in this patch increase the next hop weight from u8 to u16.\n\nIncreasing the width of an integral type can be tricky, because while the\ncode still compiles, the types may not check out anymore, and numerical\nerrors come up. To prevent this, the conversion was done in two steps.\nFirst the type was changed from u8 to a single-member structure, which\ninvalidated all uses of the field. This allowed going through them one by\none and audit for type correctness. Then the structure was replaced with a\nvanilla u16 again. This should ensure that no place was missed.\n\nThe UAPI for configuring nexthop group members is that an attribute\nNHA_GROUP carries an array of struct nexthop_grp entries:\n\n\tstruct nexthop_grp {\n\t\t__u32\tid;\t  /* nexthop id - must exist */\n\t\t__u8\tweight;   /* weight of this nexthop */\n\t\t__u8\tresvd1;\n\t\t__u16\tresvd2;\n\t};\n\nThe field resvd1 is currently validated and required to be zero. We can\nlift this requirement and carry high-order bits of the weight in the\nreserved field:\n\n\tstruct nexthop_grp {\n\t\t__u32\tid;\t  /* nexthop id - must exist */\n\t\t__u8\tweight;   /* weight of this nexthop */\n\t\t__u8\tweight_high;\n\t\t__u16\tresvd2;\n\t};\n\nKeeping the fields split this way was chosen in case an existing userspace\nmakes assumptions about the width of the weight field, and to sidestep any\nendianness issues.\n\nThe weight field is currently encoded as the weight value minus one,\nbecause weight of 0 is invalid. This same trick is impossible for the new\nweight_high field, because zero must mean actual zero. With this in place:\n\n- Old userspace is guaranteed to carry weight_high of 0, therefore\n  configuring 8-bit weights as appropriate. When dumping nexthops with\n  16-bit weight, it would only show the lower 8 bits. But configuring such\n  nexthops implies existence of userspace aware of the extension in the\n  first place.\n\n- New userspace talking to an old kernel will work as long as it only\n  attempts to configure 8-bit weights, where the high-order bits are zero.\n  Old kernel will bounce attempts at configuring >8-bit weights.\n\nRenaming reserved fields as they are allocated for some purpose is commonly\ndone in Linux. Whoever touches a reserved field is doing so at their own\nrisk. nexthop_grp::resvd1 in particular is currently used by at least\nstrace, however they carry an own copy of UAPI headers, and the conversion\nshould be trivial. A helper is provided for decoding the weight out of the\ntwo fields. Forcing a conversion seems preferable to bending backwards and\nintroducing anonymous unions or whatever.",
-      "published": "2026-07-26T07:16:39.583",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-14040"
-    },
-    {
-      "id": "CVE-2026-63720",
-      "summary": "datamodel-code-generator prior to version 0.70.0 contains a code injection vulnerability that allows attackers who control input schemas to achieve remote code execution by supplying a malicious customBasePath value containing embedded newlines and a dot-free Python expression. The crafted value is emitted verbatim into a generated 'from ... import ...' statement without identifier validation, causing arbitrary Python code to execute when the generated module is imported.",
-      "published": "2026-07-26T05:16:23.927",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63720"
     }
   ]
 }
