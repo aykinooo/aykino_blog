@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-27T18:44:58+00:00",
+  "generated_at": "2026-07-27T20:41:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66030",
-      "summary": "Ekushey Project Manager CRM through version 5.0 ccontains a stored cross-site scripting vulnerability that allows authenticated client users to inject arbitrary HTML and JavaScript by entering malicious payloads into the Ticket Title field on the Create New Ticket page. Attackers can craft and store malicious scripts that execute in the browser sessions of Staff or Administrator users who view the Client Support page where ticket titles are rendered unsanitized.",
-      "published": "2026-07-27T18:17:00.390",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66030"
+      "id": "CVE-2026-66018",
+      "summary": "Build readers can access another repository's environment properties. A caller with read access to an ordinary repository can select a readable repository parameter while retrieving environment properties for a protected build, exposing build environment secrets (confidentiality impact; no integrity or availability impact demonstrated).",
+      "published": "2026-07-27T20:16:42.027",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66018"
     },
     {
-      "id": "CVE-2026-66029",
-      "summary": "Ekushey Project Manager CRM through version 5.0 contains a stored cross-site scripting vulnerability that allows authenticated client users to inject arbitrary HTML and JavaScript by entering malicious payloads into the client Name field on the Edit Profile page without sanitization. Attackers can craft and store malicious scripts that execute in the browser sessions of Staff or Administrator users who view the Manage Clients or Manage Client Projects pages where client names are rendered unsanitized.",
-      "published": "2026-07-27T18:17:00.250",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66029"
+      "id": "CVE-2026-66015",
+      "summary": "An authenticated privilege-escalation vulnerability in JFrog Platform may be exploited under admin-provisioned account conditions. Successful exploitation may grant temporary platform administrator access.",
+      "published": "2026-07-27T20:16:41.907",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66015"
     },
     {
-      "id": "CVE-2026-66028",
-      "summary": "Ekushey Project Manager CRM through version 5.0 contains a missing uniqueness constraint vulnerability that allows authenticated administrators to create duplicate client accounts with identical email and password credentials. Attackers can exploit the lack of email field uniqueness enforcement to create conflicting account states where multiple accounts share the same email address with different passwords, resulting in unpredictable authentication behavior and unauthorized account access.",
-      "published": "2026-07-27T18:17:00.090",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66028"
+      "id": "CVE-2026-66014",
+      "summary": "JFrog Artifactory contains an authentication handling weakness in internal request processing that, under specific conditions, may allow an attacker to escalate privileges beyond the intended access level.",
+      "published": "2026-07-27T20:16:41.790",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66014"
     },
     {
-      "id": "CVE-2026-64645",
-      "summary": "Next.js is a React framework for building full-stack web applications. In versions 12.0.0 through 15.5.20 and 16.0.0 through 16.2.10, a\n rewrites() or redirects() rule that builds its external destination hostname from request-controlled input can be pointed at an arbitrary hostname, regardless of the rule's hostname suffix. For a rewrite, Next.js proxies the request to that arbitrary host and serves the response from the application's origin, leading to Server-Side Request forgery. A redirects() rule configured this way is vulnerable to an Open Redirect. This issue has been fixed in versions 15.5.21 and 16.2.11.",
-      "published": "2026-07-27T18:16:59.453",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64645"
+      "id": "CVE-2026-65925",
+      "summary": "A user with JFrog Artifactory Cargo remote repository read access could make Artifactory request unintended URLs and return the response.",
+      "published": "2026-07-27T20:16:41.677",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65925"
     },
     {
-      "id": "CVE-2026-64644",
-      "summary": "Next.js is a React framework for building full-stack web applications. In versions 15.5.0 through 15.5.20 and 16.0.0 through 16.2.10, when self-hosting Next.js with the default image loader, the Image Optimization API can optimize remotely hosted images if configured (not enabled by default). If those images contain malicious content, they can cause CPU exhaustion in /_next/image endpoints.Only config.images.remotePatterns is affected, and just the patterns in that array, whereas config.images.unoptimized: true, config.images.loader: 'custom', and Vercel are not impacted. This issue has been fixed in versions 15.5.21 and 16.2.11.",
-      "published": "2026-07-27T18:16:59.307",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64644"
+      "id": "CVE-2026-65924",
+      "summary": "JFrog Artifactory support for Terraform remote repositories was found to be susceptible to Server-Side Request Forgery (SSRF). An authenticated user - or, if anonymous access is enabled on the repository, an unauthenticated user - could cause Artifactory to issue outbound HTTP requests to arbitrary destinations and receive the response content.",
+      "published": "2026-07-27T20:16:41.553",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65924"
     },
     {
-      "id": "CVE-2026-64643",
-      "summary": "Next.js is a React framework for building full-stack web applications. In versions 12.0.0 through 15.5.20 and 16.0.0 through 16.2.10, Next.js applications using App Router, Server Actions (use server) or use cache endpoints can be disclosed bypassing any authentication on the pages where these endpoints are usually used. Server Action IDs can be disclosed to unauthenticated users via publicly served client artifacts (for example, static chunks containing action references). Affected users are applications using App Router and Server Actions. By itself, this disclosure is typically a recon/enumeration primitive; however, it can increase risk when combined with other weaknesses. This issue has been fixed in versions 15.5.21 and 16.2.11.",
-      "published": "2026-07-27T18:16:59.160",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64643"
+      "id": "CVE-2026-65923",
+      "summary": "A URL validation weakness in JFrog Artifactory Ansible repository handling could allow a user, under specific repository access conditions, to cause unintended server-side requests.\nThe issue primarily affects confidentiality and integrity and has been addressed in fixed Artifactory versions.",
+      "published": "2026-07-27T20:16:41.433",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65923"
     }
   ]
 }
