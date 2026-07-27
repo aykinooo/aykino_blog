@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-27T17:06:02+00:00",
+  "generated_at": "2026-07-27T18:44:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66399",
-      "summary": "phpMyFAQ before 4.1.6 contains a privilege escalation vulnerability in GroupController::updateMembers() that allows administrators with only group-management permissions to join privileged groups without verification of required rights. Attackers can add themselves to pre-existing groups holding user-management rights and immediately inherit those permissions to modify or delete user accounts.",
-      "published": "2026-07-27T16:18:12.633",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66399"
+      "id": "CVE-2026-66030",
+      "summary": "Ekushey Project Manager CRM through version 5.0 ccontains a stored cross-site scripting vulnerability that allows authenticated client users to inject arbitrary HTML and JavaScript by entering malicious payloads into the Ticket Title field on the Create New Ticket page. Attackers can craft and store malicious scripts that execute in the browser sessions of Staff or Administrator users who view the Client Support page where ticket titles are rendered unsanitized.",
+      "published": "2026-07-27T18:17:00.390",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66030"
     },
     {
-      "id": "CVE-2026-66398",
-      "summary": "phpMyFAQ before v4.1.6 contains a remote code execution vulnerability in the configuration API that allows authenticated administrators with CONFIGURATION_EDIT and ATTACHMENT_ADD privileges to write arbitrary PHP files by manipulating the upgrade.lastDownloadedPackage setting. Attackers can upload a malicious ZIP file as an attachment, point the updater configuration to its stored path, and extract it into the application root to achieve code execution as the web server user.",
-      "published": "2026-07-27T16:18:12.493",
+      "id": "CVE-2026-66029",
+      "summary": "Ekushey Project Manager CRM through version 5.0 contains a stored cross-site scripting vulnerability that allows authenticated client users to inject arbitrary HTML and JavaScript by entering malicious payloads into the client Name field on the Edit Profile page without sanitization. Attackers can craft and store malicious scripts that execute in the browser sessions of Staff or Administrator users who view the Manage Clients or Manage Client Projects pages where client names are rendered unsanitized.",
+      "published": "2026-07-27T18:17:00.250",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66029"
+    },
+    {
+      "id": "CVE-2026-66028",
+      "summary": "Ekushey Project Manager CRM through version 5.0 contains a missing uniqueness constraint vulnerability that allows authenticated administrators to create duplicate client accounts with identical email and password credentials. Attackers can exploit the lack of email field uniqueness enforcement to create conflicting account states where multiple accounts share the same email address with different passwords, resulting in unpredictable authentication behavior and unauthorized account access.",
+      "published": "2026-07-27T18:17:00.090",
+      "cvss": 6.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66028"
+    },
+    {
+      "id": "CVE-2026-64645",
+      "summary": "Next.js is a React framework for building full-stack web applications. In versions 12.0.0 through 15.5.20 and 16.0.0 through 16.2.10, a\n rewrites() or redirects() rule that builds its external destination hostname from request-controlled input can be pointed at an arbitrary hostname, regardless of the rule's hostname suffix. For a rewrite, Next.js proxies the request to that arbitrary host and serves the response from the application's origin, leading to Server-Side Request forgery. A redirects() rule configured this way is vulnerable to an Open Redirect. This issue has been fixed in versions 15.5.21 and 16.2.11.",
+      "published": "2026-07-27T18:16:59.453",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66398"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64645"
     },
     {
-      "id": "CVE-2026-66397",
-      "summary": "phpMyFAQ before 4.1.6 fails to validate path traversal sequences in the existing_image field during category updates, allowing authenticated attackers to delete arbitrary files by exploiting insufficient sanitization in Image::delete(). Attackers can delete the database.php configuration file to disable the installation gate and access the public setup wizard to create new superadmin accounts.",
-      "published": "2026-07-27T16:18:12.363",
+      "id": "CVE-2026-64644",
+      "summary": "Next.js is a React framework for building full-stack web applications. In versions 15.5.0 through 15.5.20 and 16.0.0 through 16.2.10, when self-hosting Next.js with the default image loader, the Image Optimization API can optimize remotely hosted images if configured (not enabled by default). If those images contain malicious content, they can cause CPU exhaustion in /_next/image endpoints.Only config.images.remotePatterns is affected, and just the patterns in that array, whereas config.images.unoptimized: true, config.images.loader: 'custom', and Vercel are not impacted. This issue has been fixed in versions 15.5.21 and 16.2.11.",
+      "published": "2026-07-27T18:16:59.307",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66397"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64644"
     },
     {
-      "id": "CVE-2026-66396",
-      "summary": "SiYuan before v3.7.2 fails to escape the title-img Individual Attribute List value when rendering Gallery and Kanban cover images, allowing stored cross-site scripting via unescaped style attribute interpolation. Attackers with editor permissions can inject onload handlers that execute arbitrary code in the Electron renderer with full Node.js access when victims open affected documents.",
-      "published": "2026-07-27T16:18:12.220",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66396"
-    },
-    {
-      "id": "CVE-2026-66395",
-      "summary": "SiYuan desktop before v3.7.2 contains a reflected cross-site scripting vulnerability in the bazaar plugin readme handler that allows attackers to execute arbitrary code by crafting a malicious siyuan:// deep link. Attackers can inject HTML payloads via the plugin name parameter that execute with full Node.js access through insertAdjacentHTML rendering in an insecurely configured Electron renderer.",
-      "published": "2026-07-27T16:18:12.083",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66395"
-    },
-    {
-      "id": "CVE-2026-66394",
-      "summary": "SiYuan before v3.7.3 contains stored and reflected cross-site scripting vulnerabilities in SVG sanitization that allows authenticated attackers to execute scripts by bypassing the HTML parser-based cleaner. Attackers can hide script tags within desc, style, or noscript elements which the HTML parser treats as raw text but browsers interpret as executable SVG content when served as image/svg+xml, enabling script execution in the application origin.",
-      "published": "2026-07-27T16:18:11.947",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66394"
+      "id": "CVE-2026-64643",
+      "summary": "Next.js is a React framework for building full-stack web applications. In versions 12.0.0 through 15.5.20 and 16.0.0 through 16.2.10, Next.js applications using App Router, Server Actions (use server) or use cache endpoints can be disclosed bypassing any authentication on the pages where these endpoints are usually used. Server Action IDs can be disclosed to unauthenticated users via publicly served client artifacts (for example, static chunks containing action references). Affected users are applications using App Router and Server Actions. By itself, this disclosure is typically a recon/enumeration primitive; however, it can increase risk when combined with other weaknesses. This issue has been fixed in versions 15.5.21 and 16.2.11.",
+      "published": "2026-07-27T18:16:59.160",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64643"
     }
   ]
 }
