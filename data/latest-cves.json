@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-27T11:36:14+00:00",
+  "generated_at": "2026-07-27T15:10:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-40000",
-      "summary": "The Activity zte.com.cn.filer/zte.com.cn.filer.FilePreViewActivity within ZTE File Manager is designed to preview compressed files. Third-party applications can launch this Activity and supply arbitrary file paths (e.g., content://zte.com.cn.filer.fileprovider/root_path), enabling file access with the privilege level of ZTE File Manager. This allows unrooted devices to read files under certain system directories such as /data/data and /data/local/tmp. If access restrictions do not block untrusted applications, additional directories may also be accessible.",
-      "published": "2026-07-27T10:16:37.907",
-      "cvss": 1.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40000"
-    },
-    {
-      "id": "CVE-2026-17534",
-      "summary": "Kimi Code (@moonshot-ai/kimi-code) before 0.27.0 implements FetchURL SSRF hardening as a static hostname and IP-literal denylist in assertSafeFetchTarget, without resolving DNS or re-validating hosts after HTTP redirects. An attacker who can influence a FetchURL call (for example via prompt injection) can supply a crafted public hostname that resolves to loopback or another internal address, or a public URL that redirects to such a target, and thereby reach internal network services that the denylist was intended to block. FetchURL is included in the default auto-approve tool set, so the call does not require interactive user confirmation in manual mode.",
-      "published": "2026-07-27T10:16:37.747",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17534"
-    },
-    {
-      "id": "CVE-2026-17527",
-      "summary": "In containerized-data-importer (CDI), the aggregated cdi.kubevirt.io:view ClusterRole, intended to provide read-only access to CDI resources, includes a rule granting create on the datavolumes/source subresource. CDI's DataVolume clone authorization accepts this permission as sufficient to authorize cloning the contents of any PVC the caller can name, without requiring write access to the source namespace. A user or service account bound to the view role, commonly granted cluster-wide via ClusterRoleBinding, who also has ordinary write access (edit/admin) to any single namespace, can use this to exfiltrate the contents of any PVC in the cluster into a namespace they control, bypassing namespace isolation and the read-only guarantee of the view role.",
-      "published": "2026-07-27T10:16:37.617",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17527"
-    },
-    {
-      "id": "CVE-2026-17523",
-      "summary": "A flaw was found in the kernel. An unprivileged local user can exploit this vulnerability to execute arbitrary code within the kernel, which leads to a local privilege escalation (LPE). This allows the attacker to gain root privileges and take full control of the affected system.",
-      "published": "2026-07-27T10:16:36.270",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17523"
-    },
-    {
-      "id": "CVE-2026-65765",
-      "summary": "Joomla Extension - phoca.cz - Path Traversal vulnerability in Phoca Commander 1.0.0-6.1.1 - Improper limitation of paths for save and download actions lead to path traversal vulnerabilities.",
-      "published": "2026-07-27T09:16:37.923",
+      "id": "CVE-2026-65879",
+      "summary": "Joomla Extension - joomshaper.com - Unauthenticated mail relay via a hardcoded, product-wide secret in SP Page Builder < 6.7.1 - A hardcoded secret allowed attackers to forge the mail from address of forms.",
+      "published": "2026-07-27T14:17:01.103",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65765"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65879"
     },
     {
-      "id": "CVE-2026-65764",
-      "summary": "Joomla Extension - phoca.cz - Reflected XSS vulnerability in Phoca Commander 5.0.0-6.1.1 - Improper validation of user inputs lead to a reflective XSS vulnerability.",
-      "published": "2026-07-27T09:16:37.790",
+      "id": "CVE-2026-65878",
+      "summary": "Joomla Extension - joomshaper.com - Authenticated arbitrary file delete in SP Page Builder < 6.7.1- Improper path validation and ACL checks lead to a file deletion vector in the media manager.",
+      "published": "2026-07-27T14:17:00.960",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65764"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65878"
+    },
+    {
+      "id": "CVE-2026-65877",
+      "summary": "Joomla Extension - joomshaper.com - Authenticated SQL injection  in SP Page Builder < 6.7.1 - Improper validation of various parameters in the media manager search and date filters lead to an SQL injection vector.",
+      "published": "2026-07-27T14:17:00.823",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65877"
+    },
+    {
+      "id": "CVE-2026-65876",
+      "summary": "Joomla Extension - joomshaper.com - Unauthenticated SQL injection  in SP Page Builder < 6.7.1 - Improper validation of catid parameters in the loadMoreArticles endpoint leads to an SQL injection vector.",
+      "published": "2026-07-27T14:17:00.680",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65876"
+    },
+    {
+      "id": "CVE-2026-65766",
+      "summary": "Joomla Extension - joomshaper.com - Unauthenticated SQL injection  in SP Page Builder < 6.7.1 - Improper validation of order parameters in the Dynamic Content endpoint leads to an SQL injection vector.",
+      "published": "2026-07-27T14:17:00.533",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65766"
+    },
+    {
+      "id": "CVE-2026-61511",
+      "summary": "vBulletin 5.x through 5.7.5 and 6.x through 6.2.1 contains an eval injection vulnerability in the vB5_Template_Runtime::runMaths() method within the template runtime that allows unauthenticated remote attackers to execute arbitrary PHP code by supplying crafted input through the pagenav[pagenumber] parameter. Attackers can exploit the insufficiently restrictive regex filter by using phpfuck-style encoding with permitted characters to inject and execute arbitrary PHP code via the unauthenticated ajax/render template route without any authentication.",
+      "published": "2026-07-27T14:16:59.177",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61511"
     }
   ]
 }
