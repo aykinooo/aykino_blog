@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-28T14:35:08+00:00",
+  "generated_at": "2026-07-28T16:48:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67173",
-      "summary": "Pivotick did not validate the URL scheme of node imagePath values derived from graph data before assigning them to SVG image resources. An attacker able to supply crafted graph data could set an image path to a malicious URI.\n\nWhen a victim rendered the affected graph, the browser could resolve the attacker-controlled URI and initiate an unintended request or invoke scheme-specific handling in the victim\u2019s context. Depending on the URI, browser behaviour, and installed protocol handlers, exploitation could disclose limited client or network metadata, facilitate rendering-based tracking, or attempt to access local or internal resources.\n\nExploitation requires a victim to load or render graph data containing the malicious imagePath. The patch normalizes ASCII whitespace and control characters in URI schemes and restricts image paths to relative URLs or the http, https, data, and blob schemes.",
-      "published": "2026-07-28T14:16:40.690",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67173"
+      "id": "CVE-2026-8058",
+      "summary": "IBM OPENBMC FW1110.00 through FW1110.20, and FW1060.00 through FW1060.71 allows a user to supply a password with a resource dump request stores that password into the BMC audit log where an admin user can see it.",
+      "published": "2026-07-28T16:20:21.987",
+      "cvss": 4.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8058"
     },
     {
-      "id": "CVE-2026-66922",
-      "summary": "Pivotick used plain JavaScript objects as lookup tables indexed by caller-controlled graph node identifiers in its tree-layout and cycle-detection components.\n\nNode identifiers matching properties inherited from Object.prototype, such as constructor, toString, or __proto__, were not handled as ordinary identifiers. These values could be interpreted as existing inherited properties, resolve to values of an unexpected type, or\u2014in the case of __proto__ assignments\u2014modify the prototype of an internal lookup object.\n\nAn attacker who can supply graph data containing crafted node identifiers could consequently cause nodes or edges to be silently omitted, produce incorrect hierarchy levels, bypass or corrupt cycle-detection results, or trigger an exception that interrupts graph processing and rendering. This affects the integrity of graph visualisations and analytics and may cause a client-side denial-of-service condition.\n\nThe affected code also failed to safely handle edges whose source node was absent from the supplied node set. Furthermore, calculating the maximum tree depth by spreading all level values into Math.max() could exceed the JavaScript function-argument limit when processing a sufficiently large graph, resulting in an exception and denial of service.\n\nThe patch replaces identifier-keyed plain objects with Map instances, ignores invalid edges during tree construction, and calculates the maximum depth iteratively.",
-      "published": "2026-07-28T14:16:40.533",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66922"
+      "id": "CVE-2026-7868",
+      "summary": "IBM OPENBMC FW1110.00 through FW1110.20, and FW1060.00 through FW1060.71 allows ReadOnly users to escalate privileges and give themselves administrator privileges.",
+      "published": "2026-07-28T16:20:21.813",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7868"
     },
     {
-      "id": "CVE-2026-66921",
-      "summary": "Pivotick\u2019s Markdown node-reference renderer failed to HTML-escape the attacker-controlled nodeName value before interpolating it into both the data-node-name attribute and the body of a generated <span> element.\n\nBecause the node-reference tokenizer rejected only square brackets, a crafted node name could still contain quotation marks, angle brackets, or other HTML metacharacters. An attacker could therefore terminate the quoted attribute or inject additional HTML elements and event-handler attributes.\n\nWhen malicious node-reference content is rendered by a consumer that does not apply DOMPurify or equivalent sanitization, arbitrary JavaScript may execute in the victim\u2019s browser in the security context of the application. Successful exploitation requires a victim to open or render a crafted graph or note and could allow the attacker to access same-origin information, modify displayed content, or perform actions using the victim\u2019s session.\n\nThe patch resolves the issue by applying context-appropriate HTML escaping to node names before inserting them into either HTML text or quoted attribute values. The shared escaping function now encodes ampersands, angle brackets, and both types of quotation marks.",
-      "published": "2026-07-28T14:16:40.367",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66921"
+      "id": "CVE-2026-7775",
+      "summary": "IBM Sterling B2B Integrator 6.2.0.0 through 6.2.0.6, 6.2.1.0 through 6.2.1.1_2, and 6.2.2.0 through 6.2.2.0_1 and IBM Sterling File Gateway 6.2.0.0 through 6.2.0.6, 6.2.1.0 through 6.2.1.1_2, and 6.2.2.0 through 6.2.2.0_1 is vulnerable to\u00a0stored\u00a0cross-site\u00a0scripting. This vulnerability allows a privileged user\u00a0to embed arbitrary JavaScript\u00a0code\u00a0in the Web UI\u00a0thus altering the\u00a0intended functionality potentially leading to credentials disclosure within a trusted session.",
+      "published": "2026-07-28T16:20:21.637",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7775"
     },
     {
-      "id": "CVE-2026-61487",
-      "summary": "Improper Authorization vulnerability in Apache ActiveMQ Broker, Apache ActiveMQ All, Apache ActiveMQ.\n\n An authenticated low-privilege user can bypass a per-destination\nwrite ACL by sending to an ActiveMQ temporary composite destination whose physical name is a\ncomma-separated composite of real queues.\u00a0This allows publishing messages to any of the destinations in the list without proper write ACL permissions because the authorization check is bypassed due to the composite destination being marked as temporary.\nThis issue affects Apache ActiveMQ Broker: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ All: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ: before 5.19.9, from 6.0.0 before 6.2.8.\n\nUsers are recommended to upgrade to version 5.19.9, 6.2.8 or 6.3.0, which fixes the issue.",
-      "published": "2026-07-28T14:16:38.453",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61487"
+      "id": "CVE-2026-67181",
+      "summary": "Rouille 0.3.3 through 3.6.2 contains an HTTP request smuggling vulnerability that allows remote attackers to desynchronize HTTP message boundaries by exploiting improper header forwarding in the proxy implementation. The proxy in src/proxy.rs forwards the client's Transfer-Encoding header to upstream backends unchanged while transmitting a body already de-chunked by tiny_http, enabling CL.TE desynchronization attacks where attackers control where the backend believes the request body ends.",
+      "published": "2026-07-28T16:20:20.103",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67181"
     },
     {
-      "id": "CVE-2026-59878",
-      "summary": "Improper Input Validation vulnerability in Apache ActiveMQ AMQP, Apache ActiveMQ, Apache ActiveMQ All.\n\nA remote unauthenticated peer that can reach an exposed AMQP NIO connector can trigger denial-of-service behavior by sending a frame size value. This cause the NIO threads to die and if done rapidly enough can lead to exhaustion of the NIO thread pool denying service to other connections.\nThis issue affects Apache ActiveMQ AMQP: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ All: before 5.19.9, from 6.0.0 before 6.2.8.\n\nUsers are recommended to upgrade to version 5.19.9, 6.2.8, or 6.3.0 which fixes the issue.",
-      "published": "2026-07-28T14:16:38.283",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59878"
+      "id": "CVE-2026-66754",
+      "summary": "Rouille 0.1.6 through 3.6.2 contains a reachable assertion vulnerability in the Request::remove_prefix function that allows remote unauthenticated attackers to crash the server by sending a crafted percent-encoded URL. Attackers can send a request whose decoded path matches a configured prefix while the raw percent-encoded path does not, causing the assert! to fail and triggering either a 500 error or full process termination depending on the panic configuration.",
+      "published": "2026-07-28T16:20:17.267",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66754"
     },
     {
-      "id": "CVE-2026-7187",
-      "summary": "Missing authentication for critical function vulnerability in Universal Software Inc. UKBS allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects UKBS: through 28072026.\nNOTE: The vendor was contacted and it was learned that the product is not supported.",
-      "published": "2026-07-28T13:19:08.247",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7187"
+      "id": "CVE-2026-66753",
+      "summary": "tiny-http through 0.12.0 contains an HTTP header injection vulnerability that allows attackers to inject carriage return (0x0D) and line feed (0x0A) bytes into HTTP header values on both request and response sides due to insufficient validation in header parsing and serialization. Attackers can exploit this injection primitive to perform response splitting, cache poisoning, session fixation via Set-Cookie injection, security header override, and request smuggling against line-feed-tolerant backends.",
+      "published": "2026-07-28T16:20:17.093",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66753"
     }
   ]
 }
