@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-28T12:11:16+00:00",
+  "generated_at": "2026-07-28T14:35:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65880",
-      "summary": "Joomla Extension - balbooa.com - Unauthenticated remote code execution in Balbooa Forms < 2.4.3 - An insecure form processing logic allowed code execution for forms that include the signature field type.",
-      "published": "2026-07-28T11:17:04.233",
+      "id": "CVE-2026-67173",
+      "summary": "Pivotick did not validate the URL scheme of node imagePath values derived from graph data before assigning them to SVG image resources. An attacker able to supply crafted graph data could set an image path to a malicious URI.\n\nWhen a victim rendered the affected graph, the browser could resolve the attacker-controlled URI and initiate an unintended request or invoke scheme-specific handling in the victim\u2019s context. Depending on the URI, browser behaviour, and installed protocol handlers, exploitation could disclose limited client or network metadata, facilitate rendering-based tracking, or attempt to access local or internal resources.\n\nExploitation requires a victim to load or render graph data containing the malicious imagePath. The patch normalizes ASCII whitespace and control characters in URI schemes and restricts image paths to relative URLs or the http, https, data, and blob schemes.",
+      "published": "2026-07-28T14:16:40.690",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65880"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67173"
     },
     {
-      "id": "CVE-2026-63303",
-      "summary": "A Path Traversal vulnerability exists in Quick.CMS through the URI path component of HTTP requests, where the server fails to normalize dot-dot-slash (../) sequences before resolving and serving the requested file. An authenticated attacker with admin privileges\u00a0can use this vulnerability to read contents of files located in the sibling directory of the webroot via a crafted HTTP request containing ../ sequences in the URI.\n\n\nThe vendor assessed the likelihood of exploitation as very low and determined that a fix is\u00a0not necessary.",
-      "published": "2026-07-28T11:17:04.100",
+      "id": "CVE-2026-66922",
+      "summary": "Pivotick used plain JavaScript objects as lookup tables indexed by caller-controlled graph node identifiers in its tree-layout and cycle-detection components.\n\nNode identifiers matching properties inherited from Object.prototype, such as constructor, toString, or __proto__, were not handled as ordinary identifiers. These values could be interpreted as existing inherited properties, resolve to values of an unexpected type, or\u2014in the case of __proto__ assignments\u2014modify the prototype of an internal lookup object.\n\nAn attacker who can supply graph data containing crafted node identifiers could consequently cause nodes or edges to be silently omitted, produce incorrect hierarchy levels, bypass or corrupt cycle-detection results, or trigger an exception that interrupts graph processing and rendering. This affects the integrity of graph visualisations and analytics and may cause a client-side denial-of-service condition.\n\nThe affected code also failed to safely handle edges whose source node was absent from the supplied node set. Furthermore, calculating the maximum tree depth by spreading all level values into Math.max() could exceed the JavaScript function-argument limit when processing a sufficiently large graph, resulting in an exception and denial of service.\n\nThe patch replaces identifier-keyed plain objects with Map instances, ignores invalid edges during tree construction, and calculates the maximum depth iteratively.",
+      "published": "2026-07-28T14:16:40.533",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63303"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66922"
     },
     {
-      "id": "CVE-2026-63302",
-      "summary": "Quick.CMS is vulnerable to Local File Inclusion (LFI) in the admin.php endpoint via the p parameter. An authenticated attacker with admin privileges can include arbitrary files located within the application's directory structure via a crafted HTTP request. Successful exploitation allows disclosure of the server's directory structure and absolute file paths (path disclosure).\n\n\n\nThe vendor assessed the likelihood of exploitation as very low and determined that a fix is\u00a0not necessary.",
-      "published": "2026-07-28T11:17:03.963",
+      "id": "CVE-2026-66921",
+      "summary": "Pivotick\u2019s Markdown node-reference renderer failed to HTML-escape the attacker-controlled nodeName value before interpolating it into both the data-node-name attribute and the body of a generated <span> element.\n\nBecause the node-reference tokenizer rejected only square brackets, a crafted node name could still contain quotation marks, angle brackets, or other HTML metacharacters. An attacker could therefore terminate the quoted attribute or inject additional HTML elements and event-handler attributes.\n\nWhen malicious node-reference content is rendered by a consumer that does not apply DOMPurify or equivalent sanitization, arbitrary JavaScript may execute in the victim\u2019s browser in the security context of the application. Successful exploitation requires a victim to open or render a crafted graph or note and could allow the attacker to access same-origin information, modify displayed content, or perform actions using the victim\u2019s session.\n\nThe patch resolves the issue by applying context-appropriate HTML escaping to node names before inserting them into either HTML text or quoted attribute values. The shared escaping function now encodes ampersands, angle brackets, and both types of quotation marks.",
+      "published": "2026-07-28T14:16:40.367",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63302"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66921"
     },
     {
-      "id": "CVE-2026-63301",
-      "summary": "In Quick.CMS, the administrative user interface restricts deletion of the primary language by omitting the corresponding option from the interface; however, the underlying language-deletion API endpoint does not enforce an equivalent server-side authorization check. As a result, an authenticated administrator can bypass the UI-level restriction and delete the primary language by sending a direct HTTP request to the API endpoint. Successful deletion of the primary language results in a Denial of Service (DoS) of application.\n\n\nCritically, when combined with a separate Cross-Site Request Forgery (CSRF) vulnerability (CVE-2026-1468)\u00a0an unauthenticated remote attacker can craft a malicious link, which if visited by an authenticated administrator, will trigger the DoS condition without direct access to the application\n\n\n\n\nThe vendor assessed the likelihood of exploitation as very low and determined that a fix is\u00a0not necessary.",
-      "published": "2026-07-28T11:17:03.823",
+      "id": "CVE-2026-61487",
+      "summary": "Improper Authorization vulnerability in Apache ActiveMQ Broker, Apache ActiveMQ All, Apache ActiveMQ.\n\n An authenticated low-privilege user can bypass a per-destination\nwrite ACL by sending to an ActiveMQ temporary composite destination whose physical name is a\ncomma-separated composite of real queues.\u00a0This allows publishing messages to any of the destinations in the list without proper write ACL permissions because the authorization check is bypassed due to the composite destination being marked as temporary.\nThis issue affects Apache ActiveMQ Broker: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ All: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ: before 5.19.9, from 6.0.0 before 6.2.8.\n\nUsers are recommended to upgrade to version 5.19.9, 6.2.8 or 6.3.0, which fixes the issue.",
+      "published": "2026-07-28T14:16:38.453",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63301"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61487"
     },
     {
-      "id": "CVE-2026-18029",
-      "summary": "Our payment integration with GiroCheckout did not properly validate \npayment status responses. An attacker could use a successful payment \nstatus response from one payment and supply it to the system for a \ndifferent payment, gaining access to multiple valid tickets with only \none payment.",
-      "published": "2026-07-28T11:17:03.677",
+      "id": "CVE-2026-59878",
+      "summary": "Improper Input Validation vulnerability in Apache ActiveMQ AMQP, Apache ActiveMQ, Apache ActiveMQ All.\n\nA remote unauthenticated peer that can reach an exposed AMQP NIO connector can trigger denial-of-service behavior by sending a frame size value. This cause the NIO threads to die and if done rapidly enough can lead to exhaustion of the NIO thread pool denying service to other connections.\nThis issue affects Apache ActiveMQ AMQP: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ: before 5.19.9, from 6.0.0 before 6.2.8; Apache ActiveMQ All: before 5.19.9, from 6.0.0 before 6.2.8.\n\nUsers are recommended to upgrade to version 5.19.9, 6.2.8, or 6.3.0 which fixes the issue.",
+      "published": "2026-07-28T14:16:38.283",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18029"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59878"
     },
     {
-      "id": "CVE-2026-18028",
-      "summary": "The \"quick setup\" view presented to users after they first create an \nevent allows to set up the most critical parts of an event in just a few\n clicks. This view did not properly check that the user has permission \nto change configuration for the given event. An attacker could use a \nwell-timed request to create products, quotas, set bank transfer \nconfiguration, or connect a stripe account to an event they do not have \naccess to.",
-      "published": "2026-07-28T11:17:03.530",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18028"
+      "id": "CVE-2026-7187",
+      "summary": "Missing authentication for critical function vulnerability in Universal Software Inc. UKBS allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects UKBS: through 28072026.\nNOTE: The vendor was contacted and it was learned that the product is not supported.",
+      "published": "2026-07-28T13:19:08.247",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7187"
     }
   ]
 }
