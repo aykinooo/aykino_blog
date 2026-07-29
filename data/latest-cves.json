@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-29T06:42:42+00:00",
+  "generated_at": "2026-07-29T09:47:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-18072",
-      "summary": "The Advanced Responsive Video Embedder for Rumble, Odysee, YouTube, Vimeo, Kick \u2026 plugin for WordPress is vulnerable to Authentication Bypass via a Hardcoded Backdoor in version 10.8.7. The vulnerability exists because the `_arve_uc_init()` function \u2014 registered on WordPress's `init` hook at priority 1 so that it runs before any authentication checks on every request \u2014 reads an attacker-supplied token from the `_wplogin` (or `_wpm`) parameter and compares it against a hardcoded SHA-256 hash embedded directly in the plugin source, with no nonce verification, no capability check, and no password validation anywhere in the flow. Because this static hash constitutes a set of universal credentials that are publicly accessible in the plugin's source code, unauthenticated attackers can supply the known token to be authenticated as an arbitrarily selected existing administrator account, gaining full administrative control over the affected WordPress site. This was likely introduced by an attacker who gained commit access to the developers account.",
-      "published": "2026-07-29T05:16:40.840",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18072"
-    },
-    {
-      "id": "CVE-2026-5626",
-      "summary": "The Survey Form Block plugin for WordPress is vulnerable to unauthorized access of data due to a missing capability check on the get_all_data() function in all versions up to, and including, 1.0.1. This makes it possible for authenticated attackers, with Subscriber-level access and above, to export all survey submission data and column metadata.",
-      "published": "2026-07-29T04:17:13.503",
+      "id": "CVE-2026-9720",
+      "summary": "The Facturaci\u00f3n Electr\u00f3nica Costa Rica plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.0.2. This is due to missing or incorrect nonce validation on the (global scope, included by fvcr_admin_page_html) function. This makes it possible for unauthenticated attackers to modify the plugin's configuration, including API tokens, access tokens, economic activity, Hacienda environment mode, invoice and ticket emission flags, exchange rate, and branch settings via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-07-29T09:16:30.670",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5626"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9720"
     },
     {
-      "id": "CVE-2026-15344",
-      "summary": "The WP Photo Album Plus plugin for WordPress is vulnerable to generic SQL Injection via the 'table' parameter in all versions up to, and including, 9.2.04.002 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The export-table endpoint lacks a nonce check, meaning this vulnerability can also be triggered via CSRF by tricking an authenticated administrator into visiting a malicious page.",
-      "published": "2026-07-29T04:17:13.313",
+      "id": "CVE-2026-65325",
+      "summary": "Apache Traffic Server reuses multiplexed HTTP/2 origin connections without verifying the server certificate covers the new request hostname.\n\nThis issue affects Apache Traffic Server: from 9.0.0 through 9.2.14, from 10.0.0 through 10.1.3.\n\nUsers are recommended to upgrade to version 9.2.15 or 10.1.4, which fix the issue.",
+      "published": "2026-07-29T09:16:30.543",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65325"
+    },
+    {
+      "id": "CVE-2026-65324",
+      "summary": "Apache Traffic Server drops the per-stream buffer cap when dechunking HTTP/2 or HTTP/3 responses, letting a slow client exhaust server memory.\n\nThis issue affects Apache Traffic Server: from 8.0.0 through 8.1.9, from 9.0.0 through 9.2.14, from 10.0.0 through 10.1.3.\n\nUsers are recommended to upgrade to version 9.2.15 or 10.1.4, which fix the issue.",
+      "published": "2026-07-29T09:16:30.410",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65324"
+    },
+    {
+      "id": "CVE-2026-64557",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: L2CAP: Fix use-after-free in l2cap_sock_new_connection_cb()\n\nl2cap_sock_new_connection_cb() returned l2cap_pi(sk)->chan after\nrelease_sock(parent). Once the parent lock is dropped the newly\nenqueued child socket sk is reachable via the accept queue, so another\ntask can accept and free it before the callback dereferences sk,\nresulting in a use-after-free.\n\nRework the ->new_connection() op so the core, rather than the callback,\nowns the child channel's lifetime. The op now receives a pre-allocated\nnew_chan and returns an errno instead of allocating and returning a\nchannel. l2cap_new_connection() allocates the child channel and links\nit into the conn list via __l2cap_chan_add() before invoking the\ncallback, so the conn-list reference keeps the channel alive once\nrelease_sock(parent) exposes the socket to other tasks.\n\nChannel configuration that was duplicated in l2cap_sock_init() and the\nvarious new_connection callbacks is consolidated into\nl2cap_chan_set_defaults(), which now inherits from the parent channel\nwhen one is supplied.",
+      "published": "2026-07-29T09:16:30.280",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64557"
+    },
+    {
+      "id": "CVE-2026-64556",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nperf/core: Detach event groups during remove_on_exec\n\nperf_event_remove_on_exec() removes events by calling\nperf_event_exit_event(). For top-level events, this removes the event from\nthe context with DETACH_EXIT only.\n\nThis can leave inconsistent group state when a removed event is a group\nleader and the group contains siblings without remove_on_exec. If the group\nwas active, the surviving siblings can remain active and attached to the\nremoved leader's sibling list, but are no longer represented by a valid\ngroup leader on the PMU context active lists.\n\nA later close of the removed leader uses DETACH_GROUP and can promote the\nstill-active siblings from this stale group state. The next schedule-in can\nthen add an already-linked active_list entry again, corrupting the PMU\ncontext active list.\n\nWith DEBUG_LIST enabled, this is caught as a list_add double-add in\nmerge_sched_in().\n\nFix this by detaching group relationships when remove_on_exec removes an\nevent. This preserves the existing task-exit and revoke behavior, while\nensuring surviving siblings are ungrouped before the removed event leaves\nthe context.",
+      "published": "2026-07-29T09:16:30.153",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64556"
+    },
+    {
+      "id": "CVE-2026-58156",
+      "summary": "Apache Traffic Server mis-parses ports in URLs and userinfo, allowing port-based access-control bypass.\n\nThis issue affects Apache Traffic Server: from 8.0.0 through 8.1.9, from 9.0.0 through 9.2.14, from 10.0.0 through 10.1.3.\n\nUsers are recommended to upgrade to version 9.2.15 or 10.1.4, which fix the issue.",
+      "published": "2026-07-29T09:16:30.023",
       "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15344"
-    },
-    {
-      "id": "CVE-2026-12476",
-      "summary": "The Easy Digital Downloads plugin for WordPress is vulnerable to Arbitrary File Upload in versions up to and including 3.6.9. This is due to insufficient file type validation in the edd_do_ajax_import_file_upload() function , which only checks the client-supplied $_FILES['edd-import-file']['type'] Content-Type header against an allow-list of CSV mime types, then uses raw move_uploaded_file() (bypassing wp_handle_upload()'s core MIME enforcement) to write the file under its original extension into the web-accessible wp-content/uploads/edd/exports/ directory. This makes it possible for authenticated attackers, with Shop Manager-level access and above, to upload arbitrary files on the affected site's server which may make remote code execution possible.",
-      "published": "2026-07-29T04:17:06.887",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12476"
-    },
-    {
-      "id": "CVE-2026-17166",
-      "summary": "The Event Booking Manager for WooCommerce \u2013 Sell Tickets, Event Registration, RSVP & Event Calendar plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 5.3.7. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to modify site-wide payment settings \u2014 including WooCommerce payment enablement, cart redirect behavior, login requirements for checkout, confirmation page ID, and confirmed ticket statuses \u2014 that govern how all event bookings are processed.",
-      "published": "2026-07-29T02:16:43.613",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17166"
-    },
-    {
-      "id": "CVE-2026-17162",
-      "summary": "The WowStore \u2013 Store Builder & Product Blocks for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'currentPostId' Block Attribute in all versions up to, and including, 4.4.24 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-07-29T02:16:43.480",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17162"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58156"
     }
   ]
 }
