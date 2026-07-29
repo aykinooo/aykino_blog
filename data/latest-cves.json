@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-29T09:47:36+00:00",
+  "generated_at": "2026-07-29T12:18:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9720",
-      "summary": "The Facturaci\u00f3n Electr\u00f3nica Costa Rica plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 2.0.2. This is due to missing or incorrect nonce validation on the (global scope, included by fvcr_admin_page_html) function. This makes it possible for unauthenticated attackers to modify the plugin's configuration, including API tokens, access tokens, economic activity, Hacienda environment mode, invoice and ticket emission flags, exchange rate, and branch settings via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
-      "published": "2026-07-29T09:16:30.670",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9720"
+      "id": "CVE-2026-14270",
+      "summary": "The Extra Checkout Options (addon for Extra Product Options & Add-Ons for WooCommerce) plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 2.3.2. This is due to missing authorization and nonce validation in the eco_save_settings() function, which allows low-privileged authenticated users to modify the tc_eco_custom_file_types upload allowlist setting, combined with insufficient authorization on the wc_eco_upload_file AJAX action. This makes it possible for authenticated attackers, with Subscriber-level access and above, to allow PHP uploads, upload a PHP file using the frontend upload nonce exposed on cart and checkout pages, and achieve remote code execution. NOTE: This vulnerability was partially fixed in version 2.3.2.",
+      "published": "2026-07-29T12:16:35.697",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14270"
     },
     {
-      "id": "CVE-2026-65325",
-      "summary": "Apache Traffic Server reuses multiplexed HTTP/2 origin connections without verifying the server certificate covers the new request hostname.\n\nThis issue affects Apache Traffic Server: from 9.0.0 through 9.2.14, from 10.0.0 through 10.1.3.\n\nUsers are recommended to upgrade to version 9.2.15 or 10.1.4, which fix the issue.",
-      "published": "2026-07-29T09:16:30.543",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65325"
+      "id": "CVE-2026-8791",
+      "summary": "The Booking System Trafft plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the `bookingWebsiteUrl` setting in all versions up to, and including, 1.0.17 due to a missing capability check on the `set_options` AJAX action when the plugin is operating in agency mode. The `trafftSetOptions()` handler verifies a nonce that is exposed to any authenticated user (it is printed inline on every admin page, including profile.php) but performs no capability check before calling `update_option('trafft_option', ['bookingWebsiteUrl' => ...])`. This setting is then used by `trafftAdminAssets()` to enqueue `<bookingWebsiteUrl>/embed.js` as a script on every front-end page that renders the booking shortcode. This makes it possible for authenticated attackers, with Subscriber-level access and above, to point the embed-script URL at an attacker-controlled origin and execute arbitrary JavaScript in the browser of every site visitor (including admins).",
+      "published": "2026-07-29T11:16:50.690",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8791"
     },
     {
-      "id": "CVE-2026-65324",
-      "summary": "Apache Traffic Server drops the per-stream buffer cap when dechunking HTTP/2 or HTTP/3 responses, letting a slow client exhaust server memory.\n\nThis issue affects Apache Traffic Server: from 8.0.0 through 8.1.9, from 9.0.0 through 9.2.14, from 10.0.0 through 10.1.3.\n\nUsers are recommended to upgrade to version 9.2.15 or 10.1.4, which fix the issue.",
-      "published": "2026-07-29T09:16:30.410",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65324"
+      "id": "CVE-2026-7436",
+      "summary": "The WPC Badge Management for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'text' attribute of the `wpcbm_best_seller` shortcode in all versions up to, and including, 3.1.6 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-07-29T11:16:50.553",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7436"
     },
     {
-      "id": "CVE-2026-64557",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nBluetooth: L2CAP: Fix use-after-free in l2cap_sock_new_connection_cb()\n\nl2cap_sock_new_connection_cb() returned l2cap_pi(sk)->chan after\nrelease_sock(parent). Once the parent lock is dropped the newly\nenqueued child socket sk is reachable via the accept queue, so another\ntask can accept and free it before the callback dereferences sk,\nresulting in a use-after-free.\n\nRework the ->new_connection() op so the core, rather than the callback,\nowns the child channel's lifetime. The op now receives a pre-allocated\nnew_chan and returns an errno instead of allocating and returning a\nchannel. l2cap_new_connection() allocates the child channel and links\nit into the conn list via __l2cap_chan_add() before invoking the\ncallback, so the conn-list reference keeps the channel alive once\nrelease_sock(parent) exposes the socket to other tasks.\n\nChannel configuration that was duplicated in l2cap_sock_init() and the\nvarious new_connection callbacks is consolidated into\nl2cap_chan_set_defaults(), which now inherits from the parent channel\nwhen one is supplied.",
-      "published": "2026-07-29T09:16:30.280",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64557"
-    },
-    {
-      "id": "CVE-2026-64556",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nperf/core: Detach event groups during remove_on_exec\n\nperf_event_remove_on_exec() removes events by calling\nperf_event_exit_event(). For top-level events, this removes the event from\nthe context with DETACH_EXIT only.\n\nThis can leave inconsistent group state when a removed event is a group\nleader and the group contains siblings without remove_on_exec. If the group\nwas active, the surviving siblings can remain active and attached to the\nremoved leader's sibling list, but are no longer represented by a valid\ngroup leader on the PMU context active lists.\n\nA later close of the removed leader uses DETACH_GROUP and can promote the\nstill-active siblings from this stale group state. The next schedule-in can\nthen add an already-linked active_list entry again, corrupting the PMU\ncontext active list.\n\nWith DEBUG_LIST enabled, this is caught as a list_add double-add in\nmerge_sched_in().\n\nFix this by detaching group relationships when remove_on_exec removes an\nevent. This preserves the existing task-exit and revoke behavior, while\nensuring surviving siblings are ungrouped before the removed event leaves\nthe context.",
-      "published": "2026-07-29T09:16:30.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64556"
-    },
-    {
-      "id": "CVE-2026-58156",
-      "summary": "Apache Traffic Server mis-parses ports in URLs and userinfo, allowing port-based access-control bypass.\n\nThis issue affects Apache Traffic Server: from 8.0.0 through 8.1.9, from 9.0.0 through 9.2.14, from 10.0.0 through 10.1.3.\n\nUsers are recommended to upgrade to version 9.2.15 or 10.1.4, which fix the issue.",
-      "published": "2026-07-29T09:16:30.023",
+      "id": "CVE-2026-6089",
+      "summary": "The WP CTA plugin for WordPress is vulnerable to Server-Side Request Forgery via the 'sticky_s_media' parameter in imported JSON files in all versions up to, and including, 2.1.2. This is due to the import_sidebars() function passing user-supplied URLs from imported JSON data to file_get_contents() with only FILTER_VALIDATE_URL validation (which allows internal IPs). This makes it possible for authenticated attackers, with Administrator-level access and above, to make web requests to arbitrary locations originating from the web application, which can be used to query and modify information from internal services. The response content is saved as a WordPress media attachment, making this a full-read SSRF.",
+      "published": "2026-07-29T11:16:50.423",
       "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58156"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6089"
+    },
+    {
+      "id": "CVE-2026-65883",
+      "summary": "Joomla Extension - aimy-extensions.com - RCE via PHP object injection in Aimy Captcha-Less Form Guard 18.0 - 20.0 - A forged clfgd field allows PHP objection injection and thereby remote code execution.",
+      "published": "2026-07-29T11:16:50.297",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65883"
+    },
+    {
+      "id": "CVE-2026-5060",
+      "summary": "The MasterStudy LMS WordPress Plugin \u2013 for Online Courses and Education plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 3.7.14. This is due to the `stm_lms_delete_cover()` function lacking ownership validation on the `file_id` parameter before passing it to `wp_delete_attachment()`. This makes it possible for authenticated attackers, with Instructor-level access and above, to delete arbitrary attachments belonging to any user by enumerating sequential attachment IDs.",
+      "published": "2026-07-29T11:16:50.093",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5060"
     }
   ]
 }
