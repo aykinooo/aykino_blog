@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-29T15:17:35+00:00",
+  "generated_at": "2026-07-29T17:35:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66724",
-      "summary": "MWDB Core versions >=2.0.0 and <2.19.0 contain a missing authorization vulnerability in the deprecated config and blob upload endpoints. These endpoints accept the undocumented POST method, which bypasses the capability checks applied to the documented PUT method. This allows any authenticated user without the adding_configs or adding_blobs capabilities to upload config and text blob objects to the system. The impact is limited to adding new config and blob objects. This issue has been fixed in version 2.19.0",
-      "published": "2026-07-29T15:16:30.010",
+      "id": "CVE-2026-8339",
+      "summary": "A SQL injection vulnerability exists in the Coverity Connect SOAP API for versions between 2024.6.0 and 2026.3.0 (inclusive). A malicious, authenticated threat actor who sends a specially crafted payload can achieve full read access to database contents and other unauthorized commands.",
+      "published": "2026-07-29T17:16:54.347",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66724"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8339"
     },
     {
-      "id": "CVE-2026-66723",
-      "summary": "MWDB Core versions >=2.2.0 and <2.19.0 contain a missing authorization vulnerability in the Remote Instances proxy API. The proxy API does not verify authentication for incoming requests, allowing an unauthenticated remote attacker to send arbitrary requests to a remote MWDB instance using the identity and permissions associated with the configured API key. This can result in unauthorized actions being performed on the remote instance as if executed by the user whose API key was used to set up the remote instance. The vulnerability is limited to deployments where Remote Instances have been configured.This issue has been fixed in version\u00a02.19.0",
-      "published": "2026-07-29T15:16:29.877",
+      "id": "CVE-2026-8338",
+      "summary": "A Spring Security authentication and authorization bypass exists in Coverity Connect versions between 2023.6.0 and 2026.3.0. An unauthenticated malicious threat actor that can send a specially crafted HTTP request is able to bypass authentication and authorization controls on certain API endpoints to access data within Coverity.",
+      "published": "2026-07-29T17:16:54.177",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66723"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8338"
     },
     {
-      "id": "CVE-2026-65947",
-      "summary": "Joomla Extension - balbooa.com - Various CSRF vectors in the admin interface in Gridbox < 2.20.2",
-      "published": "2026-07-29T15:16:29.500",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65947"
+      "id": "CVE-2026-67194",
+      "summary": "Courier IMAP before 6.0.1 and Courier Mail Server before 2.0.2 allow authenticated IMAP users to crash the imapd process via deeply nested parenthesized SEARCH queries. The SEARCH command parser (alloc_search_key in searchinfo.C) recursively descends on nested parenthesized groups through a mutual recursion chain with alloc_search_andlist() and alloc_search_notkey(), with no depth limit. Courier IMAP has no overall command line length limit, making exploitation trivial. A single IMAP command with ~2500 nested parentheses overflows the 8MB default stack, causing SIGSEGV.",
+      "published": "2026-07-29T17:16:54.017",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67194"
     },
     {
-      "id": "CVE-2026-65888",
-      "summary": "Joomla Extension - balbooa.com - Account takeover vulnerability in Gridbox < 2.20.2 - The socialLogin method allows actors to login as any given user on the target site.",
-      "published": "2026-07-29T15:16:28.813",
+      "id": "CVE-2026-64560",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nposix-cpu-timers: Prevent UAF caused by non-leader exec() race\n\nWongi and Jungwoo decoded and reported a non-leader exec() related race\nwhich can result in an UAF:\n\n sys_timer_delete()\t\t\texec()\n   posix_cpu_timer_del()\n   // Observes old leader\n   p = pid_task(pid, pid_type);\t\tde_thread()\n   \t\t\t\t\t  switch_leader();\n\t\t\t\t\t  release_task(old_leader)\n\t\t\t\t\t    __exit_signal(old_leader)\n\t\t\t\t\t      sighand = lock(old_leader, sighand);\n\t\t\t\t\t      posix_cpu_timers*_exit();\n   sighand = lock_task_sighand(p)\t      unhash_task(old_leader);\n     sh = lock(p, sighand)\t    \t      old_leader->sighand = NULL;\n\t\t\t\t\t      unlock(sighand);\n     (p->sighand == NULL)\n\tunlock(sh)\n\treturn NULL;\n\n   // Returns without action\n   if(!sighand)\n      return 0;\n   free_posix_timer();\n\nThis is \"harmless\" unless the deleted timer was armed and enqueued in\np->signal because on exec() a TGID targeted timer is inherited.\n\nAs sys_timer_delete() freed the underlying posix timer object\nrun_posix_cpu_timers() or any timerqueue related add/delete operations on\nother timers will access the freed object's timerqueue node, which results\nin an UAF.\n\nThere is a similar problem vs. posix_cpu_timer_set(). For regular posix\ntimers it just transiently returns -ESRCH to user space, but for the use\ncase in do_cpu_nanosleep() it's the same UAF just that the k_itimer is\nallocated on the stack.\n\nAlso posix_cpu_timer_rearm() fails to rearm the timer, which means it stops\nto expire.\n\nWhile debating solutions Frederic pointed out another problem:\n\n   posix_cpu_timer_del(tmr)\n\t\t\t\t\t__exit_signal(p)\n\t\t\t\t\t  posix_cpu_timers*_exit(p);\n\t\t\t\t\t  unhash_task(p);\n\t\t\t\t\t  p->sighand = NULL;\n     sh = lock_task_sighand(p)\n        sighand = p->sighand;\n\tif (!sighand)\n\t    return NULL;\n\tlock(sighand);\n\n     if (!sh)\n\tWARN_ON_ONCE(timer_queued(tmr));\n\nOn weakly ordered architectures it is not guaranteed that\nposix_cpu_timer_del() will observe the stores in posix_cpu_timers*_exit()\nwhen p->sighand is observed as NULL, which means the WARN() can be a false\npositive.\n\nSolve these issues by:\n\n  1) Changing the store in __exit_signal() to smp_store_release().\n\n  2) Adding a smp_acquire__after_ctrl_dep() into the !sighand path\n     of lock_task_sighand().\n\n  3) Creating a helper function for looking up the task and locking sighand\n     which does not return when sighand == NULL. Instead it retries the\n     task lookup and only if that fails it gives up.\n\n  4) Using that helper in the three affected functions.\n\n#1/#2 ensures that the reader side which observes sighand == NULL also\nobserves all preceeding stores, i.e. the stores in posix_cpu_timers*_exit()\nand the ones in unhash_task().\n\n#3 ensures that the above described non-leader exec() situation is handled\ngracefully. When the task lookup returns the old leader, but sighand ==\nNULL then it retries. In the non-leader exec() case the subsequent task\nlookup will observe the new leader due to #1/#2. In normal exit() scenarios\nthe subsequent lookup fails.\n\nWhen the task lookup fails, the function also checks whether the timer is\nstill enqueued and issues a warning if that's the case. Unfortunately there\nis nothing which can be done about it, but as the task is already not\nlonger visible the timer should not be accessed anymore. This check also\nrequires memory ordering, which is not provided when the first lookup\nfails. To achieve that the check is preceeded by a smp_rmb() which pairs\nwith the smp_wmb() in write_seqlock() in __exit_signal(). That ensures that\nthe stores in posix_cpu_timers*_exit() are visible.\n\nThe history of the non-leader exec() issue goes back to the early days of\nposix CPU timers, which stored a pointer to the group leader task in the\ntimer. That obviously fails when a non-leader exec() switches the leader.\ncommit e0a70217107e (\"posix-cpu-timers: workaround to suppress the problems\nwith mt exec\") added a temporary workaround for that in 2010 which surv\n---truncated---",
+      "published": "2026-07-29T17:16:53.637",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65888"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64560"
     },
     {
-      "id": "CVE-2026-65887",
-      "summary": "Joomla Extension - balbooa.com - Unauthenticated arbitrary password reset in Gridbox < 2.20.2 - The resetPassword method allows actors to reset any user password, allowing to login and act as these users - excluding super admins.",
-      "published": "2026-07-29T15:16:28.613",
+      "id": "CVE-2026-64559",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/pkey: Check length in PKEY_VERIFYPROTK ioctl\n\nExplicitly check the buffer length request structure provided by\nuser-space and fail, if it exceeds the buffer size.",
+      "published": "2026-07-29T17:16:53.523",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65887"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64559"
     },
     {
-      "id": "CVE-2026-65886",
-      "summary": "Joomla Extension - balbooa.com - Unauthenticated arbitrary file read in Gridbox < 2.20.2 - The photo viewer allows unauthenticated attackers to view arbitrary files.",
-      "published": "2026-07-29T15:16:28.467",
+      "id": "CVE-2026-64558",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/pkey: Check length in pkey_pckmo handler implementation\n\nExplicitly check the length of the target buffer in the pkey_pckmo\nimplementation of the key_to_protkey() handler function. The handler\nfunction fails, if the generated output data exceeds the length of the\nprovided target buffer.",
+      "published": "2026-07-29T17:16:53.410",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65886"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64558"
     }
   ]
 }
