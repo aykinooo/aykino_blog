@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T16:46:17+00:00",
+  "generated_at": "2026-07-30T18:43:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67596",
-      "summary": "CSL 1010 M2M 3G WiFi Module firmware through 2.2.1.4 contains a weak encryption vulnerability that allows unauthenticated attackers to recover all stored secrets in plaintext by reversing a single-byte XOR cipher with a static key applied to the configuration backup file. Attackers can trivially decrypt the Router.cfg backup file to expose web administration and telnet passwords, WPA/WPA2 pre-shared keys, PPPoE and 3G/APN credentials, and SIM identifiers including IMSI and IMEI.",
-      "published": "2026-07-30T16:17:16.497",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67596"
+      "id": "CVE-2026-9322",
+      "summary": "IBM WebSphere Application Server 9.0, and 8.5 and IBM WebSphere Application Server - Liberty 17.0.0.3 through 26.0.0.7 are vulnerable to a denial of service via a crafted HTTP request.",
+      "published": "2026-07-30T17:16:34.580",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9322"
     },
     {
-      "id": "CVE-2026-58222",
-      "summary": "A security flaw combining LDAP filter injection and improper authorization checks was found in Samba Active Directory Domain Controller (AD DC). When processing LDAP Compare requests, Samba fails to properly validate user-supplied attribute names and executes the resulting internal database search in a trusted context, bypassing normal Access Control List (ACL) enforcement. An authenticated low-privilege domain user can exploit these flaws to disclose confidential Active Directory attributes that would normally be inaccessible. The disclosed information may be leveraged to derive sensitive authentication material, potentially leading to privilege escalation and complete domain compromise. For example: In deployments configured with Group Managed Service Accounts (gMSAs), an attacker can extract the \"msKds-RootKeyData\" attribute and derive gMSA passwords offline, potentially leading to complete domain compromise if privileged gMSAs are present.",
-      "published": "2026-07-30T16:17:14.933",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58222"
+      "id": "CVE-2026-66414",
+      "summary": "Leantime 3.6.2 contains an open redirect vulnerability in the Login controller that allows unauthenticated attackers to redirect authenticated users to arbitrary external sites by manipulating the redirectUrl POST parameter. Attackers can craft a malicious login URL with a tampered redirectUrl value that bypasses FILTER_SANITIZE_URL validation to redirect victims to attacker-controlled sites for phishing or credential theft.",
+      "published": "2026-07-30T17:16:34.210",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66414"
     },
     {
-      "id": "CVE-2026-58216",
-      "summary": "An out-of-bounds read flaw was found in Samba's Kerberos Key Distribution Center's (KDC) password change (kpasswd) service. When processing malformed ASN.1-encoded Kerberos password change request, Samba server miscalculates the structure size and attempts to read up to six bytes beyond the end of the allocated buffer. While this out-of-bounds read typically results in a harmless decryption failure, if the read hits unmapped memory, it causes the KDC process to crash. An authenticated attacker can send a specially crafted kpasswd request containing malformed ASN.1 data to trigger the out-of-bounds read, which may cause the KDC process to terminate, resulting in a denial of service.",
-      "published": "2026-07-30T16:17:14.767",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58216"
+      "id": "CVE-2026-62663",
+      "summary": "Banks generates meaningful LLM prompts using a simple template language. In versions prior to 2.4.4, all four media filters (image, audio, video, document) in banks accept untrusted user input as file paths via Path(value) and pass them directly to open(file_path, \"rb\") without any path sanitization, canonicalization, or directory restriction. An attacker who controls template variables passed to a banks Prompt can use path traversal (../) to read arbitrary files accessible to the Python process\u2014including .env files, SSH keys, cloud credentials, source code, /etc/passwd, and /etc/shadow\u2014with the content returned base64-encoded in the rendered prompt output, making exfiltration trivial. This is particularly dangerous for applications that use banks to process user-provided template variables before sending prompts to an LLM. This issue has been fixed in version 2.4.4.",
+      "published": "2026-07-30T17:16:33.900",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62663"
     },
     {
-      "id": "CVE-2026-57862",
-      "summary": "Kanboard 1.2.52 and prior contains a server-side request forgery vulnerability that allows authenticated users to bypass SSRF protections by supplying hexadecimal IP address notation in user-controlled URLs. Attackers can submit hexadecimal-encoded internal IP addresses through the web link creation feature, causing cURL to resolve and connect to internal network resources such as cloud instance metadata services, localhost services, and RFC1918 addresses while the isPrivateURL() filter in app/Core/Http/Client.php incorrectly treats the input as safe due to FILTER_VALIDATE_IP rejecting non-dotted-decimal notation.",
-      "published": "2026-07-30T16:17:14.607",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57862"
-    },
-    {
-      "id": "CVE-2026-52680",
-      "summary": "Apache Kyuubi REST batch multipart upload handling uses the client-supplied multipart filename when creating a temporary uploaded resource. A remote attacker who can access the REST batch upload endpoint can provide path traversal sequences in the filename and cause the Kyuubi server process to write controlled content outside the intended upload directory, subject to filesystem permissions.\n\n\nThis issue affects Apache Kyuubi: from 1.7.0 through 1.11.1.\n\nUsers are recommended to upgrade to version 1.12.0, which fixes the issue.",
-      "published": "2026-07-30T16:17:14.040",
+      "id": "CVE-2026-54722",
+      "summary": "DSSRF is a Node.js library that provides a wide range of utilities and advanced SSRF defense checks. Prior to 1.0.4, is_url_safe in src/helpers.ts strips the @ userinfo delimiter with remove_at_symbol_in_string before new URL parses the URL, allowing an attacker-controlled URL to bypass internal-IP validation and cause a client using the original URL to reach an internal service. This issue is fixed in version 1.0.4.",
+      "published": "2026-07-30T17:16:33.180",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52680"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54722"
     },
     {
-      "id": "CVE-2026-4978",
-      "summary": "Improper neutralization of special elements used in an SQL command ('SQL injection') vulnerability in UMAI Vision Traffic Analysis System allows SQL Injection.\n\nThis issue affects Traffic Analysis System: from 30 before 34.",
-      "published": "2026-07-30T16:17:12.933",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4978"
+      "id": "CVE-2026-54522",
+      "summary": "MessagePack for Ruby is an implementation of the MessagePack binary serialization format. Prior to 1.8.2, MessagePack::Buffer#clear in ext/msgpack/buffer.c leaves rmem_last, rmem_end, and rmem_owner stale after _msgpack_buffer_shift_chunk returns an rmem page to the shared pool, allowing a subsequent Buffer#write and a second MessagePack::Buffer to alias the page and disclose or corrupt cross-buffer data. This issue is fixed in version 1.8.2.",
+      "published": "2026-07-30T17:16:33.030",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54522"
+    },
+    {
+      "id": "CVE-2026-51295",
+      "summary": "SQLite 3.41 is vulnerable to use after free in the jsonExtractFunc function. Premature release of parsed JSON object memory leads to subsequent illegal access of freed pointer. Remote attackers can trigger this flaw via specially crafted SQL queries, resulting in service crash and sensitive memory information leakage.",
+      "published": "2026-07-30T17:16:32.663",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51295"
     }
   ]
 }
