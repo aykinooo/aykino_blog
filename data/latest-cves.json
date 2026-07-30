@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T00:10:33+00:00",
+  "generated_at": "2026-07-30T03:25:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67595",
-      "summary": "VaahCMS versions 2.0.0 through 2.3.4 contain a malicious obfuscated JavaScript payload embedded in the Blade template responsible for rendering security OTP emails, allowing remote attackers to execute unauthorized code in any browser that renders the affected email template with JavaScript enabled. The payload establishes a WebSocket connection to a hardcoded command-and-control endpoint, installs a password-field keylogger using MutationObserver to capture dynamically added inputs, scrapes WhatsApp Web DOM content, and accepts remote commands to redirect or overwrite the rendered page.",
-      "published": "2026-07-29T22:16:52.667",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67595"
-    },
-    {
-      "id": "CVE-2026-15157",
-      "summary": "undici does not validate the type property of a duck-typed blob-like request body before using it as the Content-Type header on the HTTP/1.1 dispatcher. In undici before 6.28.0, from 7.0.0 up to before 7.29.0, and from 8.0.0 up to before 8.9.0, an application that passes a hand-rolled blob-like body (via request, stream, pipeline, or dispatch) whose type is derived from untrusted input allows an attacker to inject CRLF sequences and append arbitrary HTTP headers, potentially smuggling a second request past the upstream. Native Blob objects are safe because their constructor strips CRLF from the type, and fetch is unaffected because it validates headers, but ecosystem libraries that build duck-typed blob shapes from user input can reach the vulnerable path. This is the same defect class as CVE-2022-35948 and CVE-2026-1527, on a header sink that the earlier fixes did not cover. The issue is fixed in undici 6.28.0, 7.29.0, and 8.9.0.",
-      "published": "2026-07-29T22:16:52.463",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15157"
-    },
-    {
-      "id": "CVE-2026-14643",
-      "summary": "undici's cache interceptor mishandles optional whitespace placed around the equals sign of a qualified no-cache or private Cache-Control directive. In undici from 7.0.0 up to before 7.29.0 and from 8.0.0 up to before 8.9.0, the parser either drops the directive or stores a field name with literal quote characters, so the cache decision fails to recognize the qualification and the response is stored. In shared-cache mode, this lets a response containing one user's authenticated data be served from cache to a later caller, including an unauthenticated one, when both requests resolve to the same cache key. It affects applications that enable the cache interceptor in shared mode, forward Authorization headers upstream, and receive cacheable responses with qualified directives padded with whitespace around the equals sign. This is the whitespace-around-equals variant that the fix for CVE-2026-9678 did not normalize, and it is fixed in undici 7.29.0 and 8.9.0.",
-      "published": "2026-07-29T22:16:52.337",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14643"
-    },
-    {
-      "id": "CVE-2025-69949",
-      "summary": "kishan0725 Hospital Management System 4.0 is vulnerable to SQL Injection in check_availability.php via the parameters emailid and email.",
-      "published": "2026-07-29T22:16:52.213",
+      "id": "CVE-2026-67244",
+      "summary": "A format string vulnerability was found in the Notification OAuth settings of ADM. The vulnerability occurs because user-controlled notification configuration input may be processed through an unsafe format string operation. An authenticated administrator can exploit this issue to disclose memory information or cause denial of service of the affected component.\nAffected products and versions include: from ADM 4.1.0 through ADM 4.3.3.RUN1 as well as from ADM 5.0.0 through ADM 5.1.3.RI81.",
+      "published": "2026-07-30T03:16:25.090",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69949"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67244"
     },
     {
-      "id": "CVE-2025-69945",
-      "summary": "kishan0725 Hospital Management System 4.0 is vulnerable to SQL Injection in /doctor/edit-patient.php?editid=1.",
-      "published": "2026-07-29T22:16:52.097",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69945"
+      "id": "CVE-2026-48449",
+      "summary": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue does not require user interaction. Scope is changed.",
+      "published": "2026-07-30T03:16:24.957",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48449"
     },
     {
-      "id": "CVE-2025-69944",
-      "summary": "kishan0725 Hospital Management System 4.0 is vulnerable to SQL Injection in the view-medhistory.php endpoint via the viewid parameter.",
-      "published": "2026-07-29T22:16:51.987",
+      "id": "CVE-2026-48448",
+      "summary": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to gain file system read access. Exploitation of this issue does not require user interaction. Scope is changed.",
+      "published": "2026-07-30T03:16:24.810",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48448"
+    },
+    {
+      "id": "CVE-2026-1982",
+      "summary": "The Persian Elementor (\u0627\u0644\u0645\u0646\u062a\u0648\u0631 \u0641\u0627\u0631\u0633\u06cc) plugin for WordPress is vulnerable to Price Manipulation in all versions up to, and including, 2.8.1. This is due to the plugin trusting a user-supplied payment amount without server-side validation against the configured ZarinPal widget price. This makes it possible for unauthenticated attackers to submit arbitrary payment amounts to the ZarinPal gateway via the 'amount' parameter.",
+      "published": "2026-07-30T03:16:24.647",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1982"
+    },
+    {
+      "id": "CVE-2026-18188",
+      "summary": "A format string vulnerability was found in the Rsync Backup on the ADM. The vulnerability occurs because user-controlled rsync backup configuration or log data may be processed through an unsafe format string operation. An authenticated attacker can exploit this issue to disclose memory information or cause denial of service of the affected backup component.\nAffected products and versions include: from ADM 4.1.0 through ADM 4.3.3.RUN1 as well as from ADM 5.0.0 through ADM 5.1.3.RI81.",
+      "published": "2026-07-30T03:16:24.503",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-69944"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18188"
+    },
+    {
+      "id": "CVE-2026-18187",
+      "summary": "A format string vulnerability was found in the Internal Backup on the ADM. The vulnerability occurs because user-controlled task input may be included in an error response and processed through an unsafe format string operation. An authenticated attacker can exploit this issue to disclose memory information or cause denial of service of the affected CGI process.\nAffected products and versions include: from ADM 4.1.0 through ADM 4.3.3.RUN1 as well as from ADM 5.0.0 through ADM 5.1.3.RI81.",
+      "published": "2026-07-30T03:16:24.363",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18187"
     }
   ]
 }
