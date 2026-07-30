@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T18:43:10+00:00",
+  "generated_at": "2026-07-30T20:33:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9322",
-      "summary": "IBM WebSphere Application Server 9.0, and 8.5 and IBM WebSphere Application Server - Liberty 17.0.0.3 through 26.0.0.7 are vulnerable to a denial of service via a crafted HTTP request.",
-      "published": "2026-07-30T17:16:34.580",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9322"
+      "id": "CVE-2026-67594",
+      "summary": "Spikster through commit e1cdf8c contains a missing authentication vulnerability that allows unauthenticated remote attackers to access all API routes by exploiting the unattached CipiAuth middleware, which is registered but never applied to any route in the API routing configuration. Attackers can invoke approximately 50 unprotected API endpoints to enumerate and provision servers, reset root passwords, read and write arbitrary files on the host, and create database users.",
+      "published": "2026-07-30T20:18:15.173",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67594"
     },
     {
-      "id": "CVE-2026-66414",
-      "summary": "Leantime 3.6.2 contains an open redirect vulnerability in the Login controller that allows unauthenticated attackers to redirect authenticated users to arbitrary external sites by manipulating the redirectUrl POST parameter. Attackers can craft a malicious login URL with a tampered redirectUrl value that bypasses FILTER_SANITIZE_URL validation to redirect victims to attacker-controlled sites for phishing or credential theft.",
-      "published": "2026-07-30T17:16:34.210",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66414"
+      "id": "CVE-2026-67550",
+      "summary": "re2 provides Node.js bindings for Google's RE2 regular expression engine. Prior to 1.25.2, re2 validates lastIndex against the UTF-8 byte length of a subject but uses it as a UTF-16 code-unit offset in exec, test, match, replace, and split, allowing an attacker-influenced lastIndex on a non-ASCII subject to trigger an out-of-bounds heap read and an uncatchable process crash, with limited heap information disclosure in some cases. This issue is fixed in 1.25.2.",
+      "published": "2026-07-30T20:18:15.030",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67550"
     },
     {
-      "id": "CVE-2026-62663",
-      "summary": "Banks generates meaningful LLM prompts using a simple template language. In versions prior to 2.4.4, all four media filters (image, audio, video, document) in banks accept untrusted user input as file paths via Path(value) and pass them directly to open(file_path, \"rb\") without any path sanitization, canonicalization, or directory restriction. An attacker who controls template variables passed to a banks Prompt can use path traversal (../) to read arbitrary files accessible to the Python process\u2014including .env files, SSH keys, cloud credentials, source code, /etc/passwd, and /etc/shadow\u2014with the content returned base64-encoded in the rendered prompt output, making exfiltration trivial. This is particularly dangerous for applications that use banks to process user-provided template variables before sending prompts to an LLM. This issue has been fixed in version 2.4.4.",
-      "published": "2026-07-30T17:16:33.900",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62663"
+      "id": "CVE-2026-67530",
+      "summary": "WACRM is a self-hostable CRM template for WhatsApp. In 0.7.0 and earlier, the automation send_webhook action in src/lib/automations/engine.ts and its validation in src/lib/automations/validate.ts allowed an authenticated user with automation privileges to submit an arbitrary webhook URL that the server fetched without the existing isDeliverableUrl SSRF guard in src/lib/webhooks/ssrf.ts, allowing requests to private, loopback, link-local, or cloud metadata addresses such as the cloud metadata endpoint at 169.254.169.254. This vulnerability is fixed with commit 23838a9959550e975d732ae08a44a3a2f0cc084b.",
+      "published": "2026-07-30T20:18:14.887",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67530"
     },
     {
-      "id": "CVE-2026-54722",
-      "summary": "DSSRF is a Node.js library that provides a wide range of utilities and advanced SSRF defense checks. Prior to 1.0.4, is_url_safe in src/helpers.ts strips the @ userinfo delimiter with remove_at_symbol_in_string before new URL parses the URL, allowing an attacker-controlled URL to bypass internal-IP validation and cause a client using the original URL to reach an internal service. This issue is fixed in version 1.0.4.",
-      "published": "2026-07-30T17:16:33.180",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54722"
+      "id": "CVE-2026-67529",
+      "summary": "OpenProject is open-source, web-based project management software. Prior to 17.6.0, GET /api/v3/time_entries and GET /api/v3/cost_entries rendered _links.workPackage.title and _links.workPackage.href through associated_resource in modules/costs/lib/api/v3/time_entries/time_entry_representer.rb and modules/costs/lib/api/v3/cost_entries/cost_entry_representer.rb without checking WorkPackage.visible or view_work_packages, allowing users with view_time_entries or view_cost_entries to read private work package subjects and ids. This issue is fixed in 17.6.0.",
+      "published": "2026-07-30T20:18:14.750",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67529"
     },
     {
-      "id": "CVE-2026-54522",
-      "summary": "MessagePack for Ruby is an implementation of the MessagePack binary serialization format. Prior to 1.8.2, MessagePack::Buffer#clear in ext/msgpack/buffer.c leaves rmem_last, rmem_end, and rmem_owner stale after _msgpack_buffer_shift_chunk returns an rmem page to the shared pool, allowing a subsequent Buffer#write and a second MessagePack::Buffer to alias the page and disclose or corrupt cross-buffer data. This issue is fixed in version 1.8.2.",
-      "published": "2026-07-30T17:16:33.030",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54522"
+      "id": "CVE-2026-67528",
+      "summary": "OpenProject is open-source, web-based project management software. Prior to 17.6.0, GET /api/v3/custom_options/:id resolved CustomOption records by global numeric id and allowed UserCustomField and GroupCustomField options without checking visible(current_user), so authenticated non-admin users could enumerate sequential custom option ids and read labels belonging to admin_only user or group custom fields. This issue is fixed in 17.6.0.",
+      "published": "2026-07-30T20:18:14.613",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67528"
     },
     {
-      "id": "CVE-2026-51295",
-      "summary": "SQLite 3.41 is vulnerable to use after free in the jsonExtractFunc function. Premature release of parsed JSON object memory leads to subsequent illegal access of freed pointer. Remote attackers can trigger this flaw via specially crafted SQL queries, resulting in service crash and sensitive memory information leakage.",
-      "published": "2026-07-30T17:16:32.663",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51295"
+      "id": "CVE-2026-67527",
+      "summary": "OpenProject is open-source, web-based project management software. Prior to 17.6.0, PATCH /api/v3/work_packages/{id} accepted _links.fileLinks and allowed authenticated users with edit_work_packages but without manage_file_links to resolve Storages::FileLink records by raw id, detach or hard-delete existing FileLinks, and re-parent FileLinks from other projects to an attacker-controlled work package, exposing origin filename, origin id, and MIME type metadata. This issue is fixed in 17.6.0.",
+      "published": "2026-07-30T20:18:14.473",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67527"
     }
   ]
 }
