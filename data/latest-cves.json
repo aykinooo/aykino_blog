@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T12:02:33+00:00",
+  "generated_at": "2026-07-30T14:28:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-22622",
-      "summary": "Improper input validation in one of the session management interface of Eaton's Tripp Lite series PADM firmware could allow an authenticated user to elevate privileges resulting in unrestricted access to the device.",
-      "published": "2026-07-30T11:16:27.397",
+      "id": "CVE-2026-67351",
+      "summary": "Serendipity before 2.6.1 contains an authentication context confusion vulnerability where password validation and session loading operate independently without ensuring both use the same user record. An authenticated Editor can create a username collision with an Administrator account and obtain administrative privileges by logging in with their own password while the session loads the Administrator's account data.",
+      "published": "2026-07-30T14:17:04.503",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22622"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67351"
     },
     {
-      "id": "CVE-2026-22621",
-      "summary": "Improper input validation in one of the session management interface of Eaton's Tripp Lite Series\u00a0PADM firmware could allow an authenticated administrator to execute arbitrary commands within a restricted environment.",
-      "published": "2026-07-30T11:16:27.280",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22621"
-    },
-    {
-      "id": "CVE-2026-22620",
-      "summary": "Improper input validation in the authentication component of\u00a0Eaton's Tripp Lite series\u00a0PADM firmware could allow an unauthenticated remote attacker to bypass authentication and gain a privileged user access to the device.",
-      "published": "2026-07-30T11:16:27.130",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22620"
-    },
-    {
-      "id": "CVE-2026-18369",
-      "summary": "A flaw was found in Dogtag PKI's ACME responder where the HTTP-01 challenge validator accepts IP address literals as dns identifiers and follows HTTP redirects without validating that the target is a public address. An unauthenticated ACME account holder can exploit this to perform server-side request forgery (SSRF), making the Dogtag server send HTTP GET requests to internal network services. With the InMemory database backend, the response body of internal targets is disclosed to the attacker through the ACME challenge error.",
-      "published": "2026-07-30T11:16:26.973",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18369"
-    },
-    {
-      "id": "CVE-2026-18363",
-      "summary": "A logic vulnerability in the password reset token validation routine implemented by osTicket in versions prior to v1.17.8 and v1.18.4. During the password reset process, the application retrieves the timestamp associated with the provided token and checks whether the configured validity period has expired. Consequently, the expiry check is only performed if the timestamp lookup fails, allowing tokens with an existing timestamp to bypass the intended expiry validation. Therefore, an attacker able to obtain a valid password reset token could reuse it to perform an unauthorised password reset and compromise the affected account.",
-      "published": "2026-07-30T11:16:26.220",
+      "id": "CVE-2026-60075",
+      "summary": "Date::Manip versions through 6.99 for Perl allow CPU exhaustion via quadratic backtracking in the unanchored time substitution in _parse_time.\n\n_parse_time removes a time from anywhere in the string with the unanchored substitution `s/$timerx/ /`, where $timerx is an auto-generated alternation of time patterns reached through a leading `(?:$atrx|^|\\s+)`. The engine therefore retries the match at every position of an interior whitespace run: at each start position the leading `\\s+` consumes the rest of the run greedily, the time alternation fails because the run holds no digits, and the engine backtracks a space at a time across the run before advancing the start position, which is quadratic in the length of the run. No time need be present in the string for this to happen, only a long run of whitespace, and the parse time rises about fourfold for each doubling of the run: a few kilobytes of whitespace costs seconds of CPU per parse and tens of kilobytes costs minutes.\n\nAny caller that passes an untrusted string of unbounded length to ParseDate(), Date::Manip::Date->parse() or ->parse_time() can be made to spend unbounded CPU in a single parse, a denial of service.",
+      "published": "2026-07-30T14:17:02.710",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18363"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60075"
     },
     {
-      "id": "CVE-2026-18362",
-      "summary": "The IRIS web application in version 2.4.26 and possibly others does not protect its user authentication against brute-force attacks.",
-      "published": "2026-07-30T10:16:36.580",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18362"
+      "id": "CVE-2026-60074",
+      "summary": "Date::Manip versions through 6.99 for Perl return corrupted dates via non-ASCII decimal digits that pass the numeric range tests in check.\n\nThe parse regexes capture year, month and day with the `\\d` shorthand, which on a character string matches the whole Unicode decimal digit property `\\p{Nd}` and not just `[0-9]`. Date::Manip::Base::check then validates the captured fields with numeric comparisons alone (`$y<1 || $y>9999`, `$m<1 || $m>12`, `$d<1 || $d>$days`), and _parse_check stores the numified fields (`$y+0`). Perl truncates a string at the first character that is not an ASCII digit, so a field whose leading characters are ASCII digits numifies to an in-range prefix and satisfies every test: a year field of three ASCII digits followed by U+0664 ARABIC-INDIC DIGIT FOUR numifies to 202, giving the year 0202, and one non-ASCII digit in the month or day field shifts those fields the same way. The hour, minute and second fields match explicit ASCII character classes (`0?[0-9]`, `[0-5][0-9]`) and do not shift, though a non-ASCII digit in a fractional hour or minute field truncates the fraction.\n\nAny caller that passes an untrusted character string to ParseDate() or Date::Manip::Date->parse() can get back a date that differs from the string it parsed, with no parse error. Where the parsed date gates logic such as an expiry check or a retention window, the shift goes unnoticed.",
+      "published": "2026-07-30T14:17:02.587",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60074"
+    },
+    {
+      "id": "CVE-2026-5219",
+      "summary": "Cross-Site request forgery (CSRF) vulnerability in Softtr Information Technology Trade Ltd. Co. E-Commerce Pack allows Cross Site Request Forgery.\n\nThis issue affects E-Commerce Pack: through 30072026.\u00a0NOTE: The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-07-30T14:17:01.747",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5219"
+    },
+    {
+      "id": "CVE-2026-58218",
+      "summary": "A flaw was found in Samba's internal DNS server where unauthenticated TKEY registration requests were added to the TKEY name cache before being rejected. A remote, unauthenticated attacker can exploit this behavior by sending a large number of TKEY requests with arbitrary names, exhausting the cache and evicting legitimate TKEY entries. This can prevent legitimate TSIG authentication for signed DNS queries, resulting in a denial of service.",
+      "published": "2026-07-30T14:17:00.307",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58218"
+    },
+    {
+      "id": "CVE-2026-57859",
+      "summary": "e107 prior to version 2.3.8 contains a code execution vulnerability in the e_array deserialization handler that allows an attacker with out-of-band database write access to execute arbitrary PHP code by storing a crafted payload in the user_prefs column. The e_array::unserialize() function in e107_handlers/core_functions.php performs only a prefix check for the string 'array' before passing the stored value to eval(), causing automatic PHP execution whenever the affected user's preferences are materialized through e_user_pref::load().",
+      "published": "2026-07-30T14:16:59.923",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57859"
     }
   ]
 }
