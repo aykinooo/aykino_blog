@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T09:39:03+00:00",
+  "generated_at": "2026-07-30T12:02:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-18353",
-      "summary": "PIA's `POST /v1/upload/sbom` endpoint accepts a Bearer JWT and checks its **unverified** `iss` claim against an issuer allowlist using Python's `urlparse` before performing OIDC discovery with `requests`. Because `urlparse` and `requests`/`urllib3` parse an authority string containing a backslash (e.g. `https://attacker-host\\@ci.eclipse.org/`) into *different* hostnames, an attacker can craft an issuer that passes the allowlist check yet drives `requests` \u2014 and subsequently `urllib.request.urlopen` for JWKS retrieval \u2014 to connect to an arbitrary attacker-chosen host, port, and scheme.",
-      "published": "2026-07-30T08:16:28.887",
+      "id": "CVE-2026-22622",
+      "summary": "Improper input validation in one of the session management interface of Eaton's Tripp Lite series PADM firmware could allow an authenticated user to elevate privileges resulting in unrestricted access to the device.",
+      "published": "2026-07-30T11:16:27.397",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22622"
+    },
+    {
+      "id": "CVE-2026-22621",
+      "summary": "Improper input validation in one of the session management interface of Eaton's Tripp Lite Series\u00a0PADM firmware could allow an authenticated administrator to execute arbitrary commands within a restricted environment.",
+      "published": "2026-07-30T11:16:27.280",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22621"
+    },
+    {
+      "id": "CVE-2026-22620",
+      "summary": "Improper input validation in the authentication component of\u00a0Eaton's Tripp Lite series\u00a0PADM firmware could allow an unauthenticated remote attacker to bypass authentication and gain a privileged user access to the device.",
+      "published": "2026-07-30T11:16:27.130",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22620"
+    },
+    {
+      "id": "CVE-2026-18369",
+      "summary": "A flaw was found in Dogtag PKI's ACME responder where the HTTP-01 challenge validator accepts IP address literals as dns identifiers and follows HTTP redirects without validating that the target is a public address. An unauthenticated ACME account holder can exploit this to perform server-side request forgery (SSRF), making the Dogtag server send HTTP GET requests to internal network services. With the InMemory database backend, the response body of internal targets is disclosed to the attacker through the ACME challenge error.",
+      "published": "2026-07-30T11:16:26.973",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18369"
+    },
+    {
+      "id": "CVE-2026-18363",
+      "summary": "A logic vulnerability in the password reset token validation routine implemented by osTicket in versions prior to v1.17.8 and v1.18.4. During the password reset process, the application retrieves the timestamp associated with the provided token and checks whether the configured validity period has expired. Consequently, the expiry check is only performed if the timestamp lookup fails, allowing tokens with an existing timestamp to bypass the intended expiry validation. Therefore, an attacker able to obtain a valid password reset token could reuse it to perform an unauthorised password reset and compromise the affected account.",
+      "published": "2026-07-30T11:16:26.220",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18353"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18363"
     },
     {
-      "id": "CVE-2026-7849",
-      "summary": "Due to improper neutralization of special elements, an unauthenticated remote attacker is able to inject a command into the system configuration which is subsequently executed as root.",
-      "published": "2026-07-30T07:16:59.443",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7849"
-    },
-    {
-      "id": "CVE-2026-44108",
-      "summary": "Due to a flaw in the execution order of scripts during shutdown, the firewall is terminated prematurely during system shutdown. This creates a temporary window in which internal services may become externally accessible, potentially allowing an unauthenticated remote attacker to connect to these services, resulting in full system compromise.",
-      "published": "2026-07-30T07:16:59.307",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44108"
-    },
-    {
-      "id": "CVE-2026-44107",
-      "summary": "A reboot of the charging controller can be triggered via Modbus TCP without authentication. Therefore, when the Modbus functionality is enabled by opening the port that CharxModbusServer is listening, an unauthenticated attacker can perform a Denial-of-Service attack.",
-      "published": "2026-07-30T07:16:59.157",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44107"
-    },
-    {
-      "id": "CVE-2026-44106",
-      "summary": "A privilege escalation vulnerability in the init-script for user-applications allows a low-privileged local user to execute arbitrary commands as root, resulting in full system compromise.",
-      "published": "2026-07-30T07:16:59.027",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44106"
-    },
-    {
-      "id": "CVE-2026-44105",
-      "summary": "The credentials for the local user \"user-app\" may be exposed in log files, potentially enabling a low-privileged local attacker with access to the logs to authenticate via SSH as the limited user \"user-app\". Charging could be interrupted.",
-      "published": "2026-07-30T07:16:58.897",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44105"
+      "id": "CVE-2026-18362",
+      "summary": "The IRIS web application in version 2.4.26 and possibly others does not protect its user authentication against brute-force attacks.",
+      "published": "2026-07-30T10:16:36.580",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18362"
     }
   ]
 }
