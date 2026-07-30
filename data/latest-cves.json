@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T03:25:28+00:00",
+  "generated_at": "2026-07-30T06:39:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67244",
-      "summary": "A format string vulnerability was found in the Notification OAuth settings of ADM. The vulnerability occurs because user-controlled notification configuration input may be processed through an unsafe format string operation. An authenticated administrator can exploit this issue to disclose memory information or cause denial of service of the affected component.\nAffected products and versions include: from ADM 4.1.0 through ADM 4.3.3.RUN1 as well as from ADM 5.0.0 through ADM 5.1.3.RI81.",
-      "published": "2026-07-30T03:16:25.090",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67244"
-    },
-    {
-      "id": "CVE-2026-48449",
-      "summary": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue does not require user interaction. Scope is changed.",
-      "published": "2026-07-30T03:16:24.957",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48449"
-    },
-    {
-      "id": "CVE-2026-48448",
-      "summary": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could lead to disclosure of sensitive memory. An attacker could leverage this vulnerability to gain file system read access. Exploitation of this issue does not require user interaction. Scope is changed.",
-      "published": "2026-07-30T03:16:24.810",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48448"
-    },
-    {
-      "id": "CVE-2026-1982",
-      "summary": "The Persian Elementor (\u0627\u0644\u0645\u0646\u062a\u0648\u0631 \u0641\u0627\u0631\u0633\u06cc) plugin for WordPress is vulnerable to Price Manipulation in all versions up to, and including, 2.8.1. This is due to the plugin trusting a user-supplied payment amount without server-side validation against the configured ZarinPal widget price. This makes it possible for unauthenticated attackers to submit arbitrary payment amounts to the ZarinPal gateway via the 'amount' parameter.",
-      "published": "2026-07-30T03:16:24.647",
+      "id": "CVE-2026-64635",
+      "summary": "Improper handling of the returnUrl parameter in the Forgot Password function of Veeam Service Provider Console allows an unauthenticated attacker to control the domain of the generated password reset link. When the targeted user clicks the link delivered by email, the reset code is transmitted to an attacker-controlled host, allowing the attacker to take over the account.",
+      "published": "2026-07-30T06:25:59.930",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1982"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64635"
     },
     {
-      "id": "CVE-2026-18188",
-      "summary": "A format string vulnerability was found in the Rsync Backup on the ADM. The vulnerability occurs because user-controlled rsync backup configuration or log data may be processed through an unsafe format string operation. An authenticated attacker can exploit this issue to disclose memory information or cause denial of service of the affected backup component.\nAffected products and versions include: from ADM 4.1.0 through ADM 4.3.3.RUN1 as well as from ADM 5.0.0 through ADM 5.1.3.RI81.",
-      "published": "2026-07-30T03:16:24.503",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18188"
+      "id": "CVE-2026-59328",
+      "summary": "Spring Tools for Eclipse renders Spring Boot starter wizard dependency tooltips in a native embedded browser (SWT Browser) with JavaScript enabled. Using untrusted and compromised Initializr endpoints for the Spring Boot starter wizard can result in arbitrary script execution inside the embedded browser when a developer hovers a dependency checkbox in the New Spring Starter Project wizard. Impact is limited to in-IDE UI spoofing and outbound network beaconing rather than full code execution.\nAffected Spring Products and Versions:\nSpring Tools for Eclipse: 5.2.0 and earlier",
+      "published": "2026-07-30T06:25:55.920",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59328"
     },
     {
-      "id": "CVE-2026-18187",
-      "summary": "A format string vulnerability was found in the Internal Backup on the ADM. The vulnerability occurs because user-controlled task input may be included in an error response and processed through an unsafe format string operation. An authenticated attacker can exploit this issue to disclose memory information or cause denial of service of the affected CGI process.\nAffected products and versions include: from ADM 4.1.0 through ADM 4.3.3.RUN1 as well as from ADM 5.0.0 through ADM 5.1.3.RI81.",
-      "published": "2026-07-30T03:16:24.363",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18187"
+      "id": "CVE-2026-59327",
+      "summary": "Spring Tools for Eclipse stores the Spring Boot DevTools remote secret (spring.devtools.remote.secret) as a plain string attribute on the \"Spring Boot DevTools Client\" launch configuration. Eclipse persists launch configuration attributes as cleartext XML, either to workspace metadata or, if the user marks the configuration as a shared file, directly into the project tree where it can be committed to version control. This secret is the sole credential protecting the DevTools remote restart/reload endpoint, which accepts and executes arbitrary class bytes on the target application. Anyone able to read the .launch file (via filesystem access, a workspace backup, or a shared VCS repository) can extract the secret and use it to achieve remote code execution against the associated Spring Boot application.\nAffected Spring Products and Versions:\nSpring Tools for Eclipse: 5.2.0 and earlier",
+      "published": "2026-07-30T06:25:55.797",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59327"
+    },
+    {
+      "id": "CVE-2026-59326",
+      "summary": "The Spring Boot language server logs the raw value of the https_proxy/HTTPS_PROXY/http_proxy/HTTP_PROXY environment variable at INFO level whenever it creates an outbound HTTP client and no explicit http.proxy workspace setting is configured. Corporate proxy URLs frequently embed Basic-auth credentials in the form http://user:pass@proxy:8080, and the language server writes this value to its log file without any redaction. Since language server log files are often attached to bug reports or are readable by other local users/processes, this can result in disclosure of proxy credentials.\nAffected Spring Products and Versions:\nSpring Tools for Eclipse: 5.2.0 and earlier\nSpring Tools for VSCode / Cursor / Theia: 2.2.0 and earlier",
+      "published": "2026-07-30T06:25:55.677",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59326"
+    },
+    {
+      "id": "CVE-2026-58066",
+      "summary": "Rocket.Chat's SAML SSO before versions 8.7.0, 8.6.1, 8.5.2, 8.4.5, 8.3.7, 8.2.7, 8.1.7, 8.0.8, and 7.10.14 verified XML signatures but did not bind the validated signature to samlp:Response / saml:Assertion. An attacker could submit a wrapped document carrying forged identity attributes alongside any valid signature made by the trusted IdP certificate, and log in as an arbitrary user.",
+      "published": "2026-07-30T06:25:55.540",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58066"
+    },
+    {
+      "id": "CVE-2026-58046",
+      "summary": "Improper neutralization in the Plesk XML-RPC API allows a remote authenticated low-privileged user to perform SQL injection and read arbitrary data from the Plesk database, leading to full compromise of the panel.",
+      "published": "2026-07-30T06:25:55.430",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58046"
     }
   ]
 }
