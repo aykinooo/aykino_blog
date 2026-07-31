@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T03:51:08+00:00",
+  "generated_at": "2026-07-31T07:11:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-6890",
-      "summary": "A use of default credentials vulnerability in the Advantech ECU-1251D allows a remote attacker to gain unauthorised access to the device via SSH using the default root account with no password, as documented in the device manual. No prompt or guidance to change these credentials is provided during device configuration, increasing the risk of exploitation.",
-      "published": "2026-07-31T03:16:25.530",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6890"
+      "id": "CVE-2026-63223",
+      "summary": "CodeIgniter is a PHP full-stack web framework. Prior to 4.7.4, the is_image and mime_in upload validation rules do not independently enforce a safe client filename extension, allowing a remote attacker to upload executable content when an application preserves the client filename and stores uploads in a web-accessible script-enabled directory. Applications are impacted when they validate uploads using is_image or mime_in without an independent safe extension check (such as ext_in on patched versions), save uploaded files using the client-supplied filename, and place uploads in a web-accessible directory where PHP files can execute. This issue is fixed in version 4.7.4.",
+      "published": "2026-07-31T06:16:32.297",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63223"
     },
     {
-      "id": "CVE-2026-6889",
-      "summary": "A denial of service vulnerability in the Advantech ECU-1251D allows a network-adjacent attacker to send a DNP3 signal to the Digital Output address of the device, causing the DNP3Daemon to invoke a non-existent system file and enter an indefinite restart loop. While the device remains partially accessible via its web panel or direct signals, an operator using SCADA TelWin is unable to reconnect until the device is manually restarted.",
-      "published": "2026-07-31T03:16:25.387",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6889"
+      "id": "CVE-2026-63222",
+      "summary": "CodeIgniter is a PHP full-stack web framework. Prior to 4.7.4, calling UploadedFile::move() without a second argument uses the client-provided filename without sanitization, allowing a remote attacker to use path traversal sequences to write uploaded content outside the intended directory when the application exposes an upload path. This issue is fixed in version 4.7.4.",
+      "published": "2026-07-31T06:16:31.953",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63222"
     },
     {
-      "id": "CVE-2026-18157",
-      "summary": "A flaw was found in yggdrasil-worker-package-manager. A local attacker with existing access to the system could exploit an argument injection vulnerability in the APT backend. This allows specially crafted package names, which begin with a hyphen, to be misinterpreted as command options by apt-get. Successful exploitation could lead to remote code execution (RCE) with root privileges, enabling the attacker to fully compromise the system's integrity, confidentiality, and availability.",
-      "published": "2026-07-31T03:16:25.223",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18157"
+      "id": "CVE-2026-63221",
+      "summary": "CodeIgniter is a PHP full-stack web framework. From 4.3.0 through 4.7.3, Query Builder deleteBatch() substitutes bound values from where() conditions into generated SQL while ignoring their escape flags, allowing user-controlled condition values to be interpreted as SQL. This affects only the deleteBatch() code path. Regular delete() operations escape where() binds correctly. This issue is fixed in version 4.7.4.",
+      "published": "2026-07-31T06:16:31.603",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63221"
     },
     {
-      "id": "CVE-2026-14541",
-      "summary": "An authentication bypass and audience confusion vulnerability exists in the Google OAuth provider component of Google mcp-toolbox version 1.4.0. When a Google authService is initialized with mcpEnabled: true but lacks an explicitly defined audience or clientId, the ValidateMCPAuth pipeline for opaque tokens skips audience validation entirely. As a result, the toolbox will accept any valid Google OAuth access token\u2014even those minted for unrelated ecosystem applications\u2014granting unauthorized clients access to protected tools and data backends.",
-      "published": "2026-07-31T03:16:24.170",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14541"
+      "id": "CVE-2026-56673",
+      "summary": "ComfyUI is a modular diffusion model GUI, API, and backend with a graph-and-node interface. Prior to 0.28.0, folder_paths.get_annotated_filepath and exists_annotated_filepath join workflow-controlled annotated filenames to a base directory without a containment check, allowing an unauthenticated crafted POST /prompt workflow using LoadImage or sibling nodes to probe arbitrary host paths and exfiltrate image-format files through /view. LoadImage defines a VALIDATE_INPUTS method, which causes the execution engine to skip COMBO (input-directory) validation. Affected nodes include LoadImage, LoadImageMask, LoadImageOutput, LoadAudio, LoadLatent, LoadVideo, and Load3D. This issue is fixed in version 0.28.0.",
+      "published": "2026-07-31T06:16:30.520",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56673"
     },
     {
-      "id": "CVE-2026-14540",
-      "summary": "A Server-Side Request Forgery (SSRF) vulnerability exists in the generic HTTP source and tool components of Google mcp-toolbox versions 0.3.0 through 1.4.0. While the toolbox implements baseline input sanitization for user-controlled parameters, the underlying HTTP client (internal/sources/http/http.go) fails to safely regulate request redirection boundaries. Specifically, the client is initialized without a restrictive CheckRedirect policy hook and lacks target IP validation. An attacker or a malicious data-driven prompt can supply a crafted path parameter that triggers an open redirect or a direct destination swap on the target backend, coercing the mcp-toolbox into blindly following the redirection and making unauthorized requests to internal or arbitrary external endpoints.",
-      "published": "2026-07-31T02:16:29.060",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14540"
+      "id": "CVE-2026-56672",
+      "summary": "ComfyUI is a node-based diffusion model GUI, API, and backend. Prior to 0.28.0, GET /userdata/{file} served user-controlled HTML and SVG files with extension-derived content types, allowing stored cross-site scripting in the ComfyUI origin and access to browser-stored API tokens, settings, workflows, and authenticated-equivalent API calls. The handler used web.FileResponse(path), so an uploaded .html/.svg was served as text/html/image/svg+xml. POST /userdata stores arbitrary request bodies (confined to the user's userdata directory). When a victim navigated to the file URL, the embedded script executed same-origin. The /view endpoint already forced dangerous MIME types to download; that protection had never been applied to /userdata. This issue is fixed in version 0.28.0.",
+      "published": "2026-07-31T06:16:30.170",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56672"
     },
     {
-      "id": "CVE-2026-14539",
-      "summary": "An allocation of resources without limits vulnerability in the HTTP handler component of Google mcp-toolbox versions up to and including 1.4.0 allows an unauthenticated attacker to cause a denial of service (DoS). The /mcp endpoint handler reads incoming payloads directly into system memory using an unrestricted buffer loop (io.ReadAll) without applying defensive constraints such as http.MaxBytesReader or pre-read Content-Length enforcement. By submitting a single, massive HTTP request body, an attacker can linearly consume available host memory until the runtime process is terminated by an Out-Of-Memory (OOM) error.",
-      "published": "2026-07-31T02:16:28.920",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14539"
+      "id": "CVE-2026-56671",
+      "summary": "ComfyUI is a modular diffusion model GUI, api and backend with a graph/nodes interface. Prior to 0.28.0, get_model_preview in app/model_manager.py joins an unrestricted filename route capture to a selected model directory without a containment check, allowing an unauthenticated remote attacker to use traversal, encoded traversal, absolute paths, or an unbounded path_index to read image-decodable files and enumerate host paths. get_model_preview (app/model_manager.py) built the path with os.path.join(folder, filename) where filename is an unrestricted {filename:.*} route capture. Literal ../, percent-encoded %2e%2e%2f, and absolute paths all escaped the model directory; path_index was also unbounded. The target file is piped through Pillow and re-encoded as WEBP, so disclosure is limited to image-decodable files plus a file-existence/enumeration oracle (and internal-path leakage via path_index errors). This issue is fixed in version 0.28.0.",
+      "published": "2026-07-31T06:16:29.860",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56671"
     }
   ]
 }
