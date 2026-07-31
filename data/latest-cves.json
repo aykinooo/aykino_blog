@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T00:13:58+00:00",
+  "generated_at": "2026-07-31T03:51:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66720",
-      "summary": "The GOOSE subscriber component improperly validates the UTC timestamp \nfield in unauthenticated IEC 61850 GOOSE (EtherType 0x88B8) Layer-2 \nmulticast messages. A specially crafted GOOSE frame containing an \nundersized timestamp field can trigger a heap out-of-bounds read during \nmessage processing, causing the process to crash and resulting in a \ndenial-of-service condition.",
-      "published": "2026-07-30T23:16:53.830",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66720"
+      "id": "CVE-2026-6890",
+      "summary": "A use of default credentials vulnerability in the Advantech ECU-1251D allows a remote attacker to gain unauthorised access to the device via SSH using the default root account with no password, as documented in the device manual. No prompt or guidance to change these credentials is provided during device configuration, increasing the risk of exploitation.",
+      "published": "2026-07-31T03:16:25.530",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6890"
     },
     {
-      "id": "CVE-2026-66421",
-      "summary": "OpenClaw Dashboard contains a stored cross-site scripting vulnerability that allows unauthenticated remote attackers to execute arbitrary JavaScript in the administrator's browser session by injecting HTML markup into agent transcript messages processed through the sessions API. Attackers can craft a message containing inline event handler payloads such as an img tag with an onerror attribute within the 60-character rendering budget, which is stored in the session transcript and interpolated unsanitized into innerHTML on the default landing page, allowing theft of session tokens and unauthorized calls to authenticated administrative endpoints including agent instruction file modification.",
-      "published": "2026-07-30T23:16:53.687",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66421"
+      "id": "CVE-2026-6889",
+      "summary": "A denial of service vulnerability in the Advantech ECU-1251D allows a network-adjacent attacker to send a DNP3 signal to the Digital Output address of the device, causing the DNP3Daemon to invoke a non-existent system file and enter an indefinite restart loop. While the device remains partially accessible via its web panel or direct signals, an operator using SCADA TelWin is unable to reconnect until the device is manually restarted.",
+      "published": "2026-07-31T03:16:25.387",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6889"
     },
     {
-      "id": "CVE-2026-66420",
-      "summary": "MeshCentral 1.1.21 contains a cross-site WebSocket hijacking protection bypass vulnerability that allows unauthenticated remote attackers to hijack authenticated administrator sessions by exploiting an unconditional early return in the CheckWebServerOriginName() function within webserver.js when self-signed certificates are in use. Attackers can open cross-origin WebSocket connections to any of the twelve WebSocket endpoints, send crafted action commands to exfiltrate the server sessionKey used to sign session cookies, forge session tokens as arbitrary users, and gain full remote control of all managed devices governed by the MeshCentral instance.",
-      "published": "2026-07-30T23:16:53.527",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66420"
+      "id": "CVE-2026-18157",
+      "summary": "A flaw was found in yggdrasil-worker-package-manager. A local attacker with existing access to the system could exploit an argument injection vulnerability in the APT backend. This allows specially crafted package names, which begin with a hyphen, to be misinterpreted as command options by apt-get. Successful exploitation could lead to remote code execution (RCE) with root privileges, enabling the attacker to fully compromise the system's integrity, confidentiality, and availability.",
+      "published": "2026-07-31T03:16:25.223",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18157"
     },
     {
-      "id": "CVE-2026-66369",
-      "summary": "The GOOSE parser contains an off-by-one boundary-handling flaw that can \nbe triggered by a single unauthenticated Layer-2 multicast frame on the \nprocess bus. When specific GOOSE message fields are processed, the \nparser advances its internal buffer position incorrectly, resulting in a\n heap out-of-bounds read. On affected platforms, this condition reliably\n terminates the subscriber process and causes a denial-of-service.",
-      "published": "2026-07-30T23:16:53.377",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66369"
+      "id": "CVE-2026-14541",
+      "summary": "An authentication bypass and audience confusion vulnerability exists in the Google OAuth provider component of Google mcp-toolbox version 1.4.0. When a Google authService is initialized with mcpEnabled: true but lacks an explicitly defined audience or clientId, the ValidateMCPAuth pipeline for opaque tokens skips audience validation entirely. As a result, the toolbox will accept any valid Google OAuth access token\u2014even those minted for unrelated ecosystem applications\u2014granting unauthorized clients access to protected tools and data backends.",
+      "published": "2026-07-31T03:16:24.170",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14541"
     },
     {
-      "id": "CVE-2026-66364",
-      "summary": "The GOOSE payload parser contains a boundary handling flaw that can be \ntriggered by a single unauthenticated Layer 2 multicast frame on the \nprocess bus. When processing specific payload fields, an attacker \ncontrolled inner element length may exceed its enclosing length, causing\n the parser to over read by one byte. This out-of-bounds read reliably \nterminates the subscriber process, resulting in a denial-of-service \ncondition.",
-      "published": "2026-07-30T23:16:53.223",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66364"
+      "id": "CVE-2026-14540",
+      "summary": "A Server-Side Request Forgery (SSRF) vulnerability exists in the generic HTTP source and tool components of Google mcp-toolbox versions 0.3.0 through 1.4.0. While the toolbox implements baseline input sanitization for user-controlled parameters, the underlying HTTP client (internal/sources/http/http.go) fails to safely regulate request redirection boundaries. Specifically, the client is initialized without a restrictive CheckRedirect policy hook and lacks target IP validation. An attacker or a malicious data-driven prompt can supply a crafted path parameter that triggers an open redirect or a direct destination swap on the target backend, coercing the mcp-toolbox into blindly following the redirection and making unauthorized requests to internal or arbitrary external endpoints.",
+      "published": "2026-07-31T02:16:29.060",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14540"
     },
     {
-      "id": "CVE-2026-66360",
-      "summary": "The ISO Presentation layer contains a flaw in the handling of specific \nparameters during normal mode negotiation. A missing length check in the\n processing of the encoded presentation data allows an attacker \ncontrolled field with a zero length value to trigger a bounded heap over\n read. This condition occurs before MMS session establishment, a crafted\n TCP/102 connection attempt can trigger the issue. The resulting over \nread causes the process to terminate, leading to a denial of service \ncondition.",
-      "published": "2026-07-30T23:16:53.070",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66360"
+      "id": "CVE-2026-14539",
+      "summary": "An allocation of resources without limits vulnerability in the HTTP handler component of Google mcp-toolbox versions up to and including 1.4.0 allows an unauthenticated attacker to cause a denial of service (DoS). The /mcp endpoint handler reads incoming payloads directly into system memory using an unrestricted buffer loop (io.ReadAll) without applying defensive constraints such as http.MaxBytesReader or pre-read Content-Length enforcement. By submitting a single, massive HTTP request body, an attacker can linearly consume available host memory until the runtime process is terminated by an Out-Of-Memory (OOM) error.",
+      "published": "2026-07-31T02:16:28.920",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14539"
     }
   ]
 }
