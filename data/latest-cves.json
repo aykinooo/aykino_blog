@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T14:36:34+00:00",
+  "generated_at": "2026-07-31T16:55:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65636",
-      "summary": "Improper Neutralization of CRLF Sequences vulnerability in ufirstgroup ymlr (Elixir.Ymlr module) allows attackers to inject arbitrary content into generated YAML documents through document comments. Ymlr.document!/2 interpolates each caller-supplied comment string into the output behind a single # prefix without validating it or escaping line breaks. Because a YAML comment is terminated by a line break, the first carriage return or line feed in the comment string ends the comment context and everything after it is emitted at column 0 of the document body.\n\nAn attacker who controls text that the host application passes as a comment can forge top-level mapping keys, override values the application itself set, and emit --- or ... markers that split the output into additional documents. Downstream consumers of the generated YAML, such as configuration loaders, deployment manifests, CI pipelines and data importers, parse the injected content as legitimate data. The same clause backs Ymlr.document/2, Ymlr.documents!/2 and Ymlr.documents/2, so every document encoding entry point is affected.\n\nThis vulnerability is associated with program files lib/ymlr.ex and program routines 'Elixir.Ymlr':document!/2, 'Elixir.Ymlr':documents!/2.\n\nThis issue affects ymlr from 0.0.1 before 5.1.6.",
-      "published": "2026-07-31T14:16:51.240",
+      "id": "CVE-2026-67607",
+      "summary": "LightFTP 2.3.1 contains a race condition vulnerability that allows remote attackers to crash the server by racing a fresh connection that reuses the FTP context against an in-progress ABRT cleanup. Attackers can exploit the unprotected re-check of WorkerThreadId between worker_thread_cleanup() and pthread_join() outside of MTLock to cause pthread_join() to operate on an invalid thread ID, resulting in a server crash. CVE-2024-11144 identifies an incomplete fix of this vulnerability.",
+      "published": "2026-07-31T16:17:11.913",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67607"
+    },
+    {
+      "id": "CVE-2026-59232",
+      "summary": "Cross-site Scripting in the lead index view in Roskus Prospero Flow CRM before 5.3.7 allows authenticated users holding the create or update lead permission to execute arbitrary JavaScript in the application origin via HTML markup stored in the lead name field, which the view renders through Blade's unescaped output directive and inside a JavaScript string literal in an onclick attribute.",
+      "published": "2026-07-31T16:17:08.360",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65636"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59232"
     },
     {
-      "id": "CVE-2026-28145",
-      "summary": "Insufficient Verification of Data Authenticity vulnerability in StylemixThemes MasterStudy LMS allows Manipulating User State.\n\nThis issue affects MasterStudy LMS: from n/a through 3.7.39.",
-      "published": "2026-07-31T14:16:49.967",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28145"
-    },
-    {
-      "id": "CVE-2026-28144",
-      "summary": "Insertion of Sensitive Information Into Sent Data vulnerability in Flipper Code WP Maps allows Retrieve Embedded Sensitive Data.\n\nThis issue affects WP Maps: from n/a through 4.9.6.",
-      "published": "2026-07-31T14:16:49.800",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-28144"
-    },
-    {
-      "id": "CVE-2026-18358",
-      "summary": "A flaw was found in gnome-remote-desktop as shipped in Red Hat Enterprise Linux. When the daemon is running in system mode with RDP enabled, the incoming connection handler bypasses the connection throttler, allowing an unauthenticated remote attacker to open many parallel pre-authentication connections to the RDP listener. This can accumulate accepted sockets and pending routing-token operations until timeout, exhausting resources and preventing legitimate users from establishing RDP sessions. This issue does not affect the upstream version.",
-      "published": "2026-07-31T13:17:19.933",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18358"
-    },
-    {
-      "id": "CVE-2026-17561",
-      "summary": "Improper Control of Generation of Code ('Code Injection') vulnerability in Innotim Software, Telecommunications and Consulting Trade Ltd. Co. Logsign SIEM allows Code Injection.\n\nThis issue affects Logsign SIEM: before 6.4.108.",
-      "published": "2026-07-31T13:17:19.730",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17561"
-    },
-    {
-      "id": "CVE-2026-15227",
-      "summary": "Missing authorization in Checkmk <2.5.0p10, <2.4.0p35, <2.3.0p49, and 2.2.0 (EOL) allows an authenticated user lacking the \"Edit foreign Reports\" permission to modify reports owned by other users.",
-      "published": "2026-07-31T13:17:19.593",
+      "id": "CVE-2026-59231",
+      "summary": "Server-Side Request Forgery in the PDF export component in maalfer Pentestify before 1.1.0 allows authenticated users to cause outbound HTTP GET requests from the server to arbitrary attacker-chosen destinations via unvalidated URLs stored in the finding images field or the report client_logo field, which the server-side headless browser fetches while rendering the report.",
+      "published": "2026-07-31T16:17:08.227",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15227"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59231"
+    },
+    {
+      "id": "CVE-2026-56571",
+      "summary": "HCL iControl was affected by Improper Error Handling vulnerabilities. It involves Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout, and hundreds of other common conditions can cause errors to be generated.",
+      "published": "2026-07-31T16:17:07.753",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56571"
+    },
+    {
+      "id": "CVE-2026-56570",
+      "summary": "HCL iControl was affected by Auto complete Enabled vulnerabilities. It involves expose sensitive information such as: Valid usernames, Email addresses used for login, Account identifiers If the system is accessed from shared environments, attackers may enumerate valid usernames through browser suggestions.",
+      "published": "2026-07-31T16:17:07.637",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56570"
+    },
+    {
+      "id": "CVE-2026-56569",
+      "summary": "HCL iControl was affected by Sensitive Data Exposure vulnerabilities. It involves the public exposure of internal configuration files due to improper web server or application hardening.",
+      "published": "2026-07-31T16:17:07.523",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56569"
     }
   ]
 }
