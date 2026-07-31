@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-30T22:16:57+00:00",
+  "generated_at": "2026-07-31T00:13:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-68503",
-      "summary": "LazyOwn RedTeam/APT Framework is an AI-powered C2 and red-team operations framework. Prior to 0.2.154, LazyOwn ships default C2 credentials LazyOwn and LazyOwn in payload.json and core/payload_schema.py and passes them unchanged to lazyc2.py HTTP Basic authentication, allowing any network-reachable attacker who knows the defaults to authenticate to the C2 dashboard with operator-level access. This issue is fixed in 0.2.154.",
-      "published": "2026-07-30T21:18:13.460",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68503"
-    },
-    {
-      "id": "CVE-2026-68502",
-      "summary": "LazyOwn RedTeam/APT Framework is an AI-powered C2 and red-team operations framework. Prior to 0.2.154, LazyOwn's lazyc2.py registers an unauthenticated Socket.IO input event handler that dispatches data.get('value') to LazyOwnShell.one_cmd, reaching LazyOwnShell.do_cmd and subprocess.call(command, shell=True), allowing unauthenticated remote code execution in the C2 process. This issue is fixed in 0.2.154.",
-      "published": "2026-07-30T21:18:13.317",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68502"
-    },
-    {
-      "id": "CVE-2026-68501",
-      "summary": "Sylius Mollie Plugin provides Mollie payment integration for Sylius applications. Prior to 2.2.8, 3.2.4, and 3.3.1, Sylius Mollie Plugin's GET /{_locale}/thank-you PageRedirectController::thankYouAction and GET /{_locale}/get-code QrCodeAction::fetchQrCodeFromOrder endpoints look up sequential orderId values without ownership or session checks, exposing order tokenValue values that can be used with GET /{_locale}/register-after-checkout/{tokenValue} to view customer first name, last name, and email. This issue is fixed in 2.2.8, 3.2.4, and 3.3.1.",
-      "published": "2026-07-30T21:18:13.180",
+      "id": "CVE-2026-66720",
+      "summary": "The GOOSE subscriber component improperly validates the UTC timestamp \nfield in unauthenticated IEC 61850 GOOSE (EtherType 0x88B8) Layer-2 \nmulticast messages. A specially crafted GOOSE frame containing an \nundersized timestamp field can trigger a heap out-of-bounds read during \nmessage processing, causing the process to crash and resulting in a \ndenial-of-service condition.",
+      "published": "2026-07-30T23:16:53.830",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68501"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66720"
     },
     {
-      "id": "CVE-2026-68500",
-      "summary": "Sylius Mollie Plugin provides Mollie payment integration for Sylius applications. Prior to 2.2.8, 3.2.4, and 3.3.1, Sylius Mollie Plugin's POST /{_locale}/update-payment payment webhook accepts attacker-controlled id and orderId parameters but does not verify that the Mollie payment belongs to the referenced Sylius order, allowing an unauthenticated attacker with any valid paid Mollie payment ID to mark a victim order as paid without transferring funds for that order. This issue is fixed in 2.2.8, 3.2.4, and 3.3.1.",
-      "published": "2026-07-30T21:18:13.007",
+      "id": "CVE-2026-66421",
+      "summary": "OpenClaw Dashboard contains a stored cross-site scripting vulnerability that allows unauthenticated remote attackers to execute arbitrary JavaScript in the administrator's browser session by injecting HTML markup into agent transcript messages processed through the sessions API. Attackers can craft a message containing inline event handler payloads such as an img tag with an onerror attribute within the 60-character rendering budget, which is stored in the session transcript and interpolated unsanitized into innerHTML on the default landing page, allowing theft of session tokens and unauthorized calls to authenticated administrative endpoints including agent instruction file modification.",
+      "published": "2026-07-30T23:16:53.687",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66421"
+    },
+    {
+      "id": "CVE-2026-66420",
+      "summary": "MeshCentral 1.1.21 contains a cross-site WebSocket hijacking protection bypass vulnerability that allows unauthenticated remote attackers to hijack authenticated administrator sessions by exploiting an unconditional early return in the CheckWebServerOriginName() function within webserver.js when self-signed certificates are in use. Attackers can open cross-origin WebSocket connections to any of the twelve WebSocket endpoints, send crafted action commands to exfiltrate the server sessionKey used to sign session cookies, forge session tokens as arbitrary users, and gain full remote control of all managed devices governed by the MeshCentral instance.",
+      "published": "2026-07-30T23:16:53.527",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66420"
+    },
+    {
+      "id": "CVE-2026-66369",
+      "summary": "The GOOSE parser contains an off-by-one boundary-handling flaw that can \nbe triggered by a single unauthenticated Layer-2 multicast frame on the \nprocess bus. When specific GOOSE message fields are processed, the \nparser advances its internal buffer position incorrectly, resulting in a\n heap out-of-bounds read. On affected platforms, this condition reliably\n terminates the subscriber process and causes a denial-of-service.",
+      "published": "2026-07-30T23:16:53.377",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66369"
+    },
+    {
+      "id": "CVE-2026-66364",
+      "summary": "The GOOSE payload parser contains a boundary handling flaw that can be \ntriggered by a single unauthenticated Layer 2 multicast frame on the \nprocess bus. When processing specific payload fields, an attacker \ncontrolled inner element length may exceed its enclosing length, causing\n the parser to over read by one byte. This out-of-bounds read reliably \nterminates the subscriber process, resulting in a denial-of-service \ncondition.",
+      "published": "2026-07-30T23:16:53.223",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66364"
+    },
+    {
+      "id": "CVE-2026-66360",
+      "summary": "The ISO Presentation layer contains a flaw in the handling of specific \nparameters during normal mode negotiation. A missing length check in the\n processing of the encoded presentation data allows an attacker \ncontrolled field with a zero length value to trigger a bounded heap over\n read. This condition occurs before MMS session establishment, a crafted\n TCP/102 connection attempt can trigger the issue. The resulting over \nread causes the process to terminate, leading to a denial of service \ncondition.",
+      "published": "2026-07-30T23:16:53.070",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68500"
-    },
-    {
-      "id": "CVE-2026-68499",
-      "summary": "re2 provides Node.js bindings for Google's RE2 regular expression engine. Prior to 1.25.2, re2's String.prototype.match implementation with a global RE2 pattern that can match the empty string fails to advance its native matching cursor in lib/match.cc, causing an infinite loop and unbounded native memory growth that blocks the event loop and can exhaust host memory. This issue is fixed in 1.25.2.",
-      "published": "2026-07-30T21:18:12.870",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68499"
-    },
-    {
-      "id": "CVE-2026-66803",
-      "summary": "Improper access control in Azure Cosmos DB allows an unauthorized attacker to execute code over a network.",
-      "published": "2026-07-30T21:18:12.743",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66803"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66360"
     }
   ]
 }
