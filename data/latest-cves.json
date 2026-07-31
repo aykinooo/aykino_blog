@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T20:35:16+00:00",
+  "generated_at": "2026-07-31T22:14:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65841",
-      "summary": "Jodit Editor is a WYSIWYG editor with a built-in file browser & image editor. Prior to 4.13.6, Jodit's clean-html denyTags filter does not normalize foreign SVG or MathML script node names, allowing a script element nested directly in SVG or MathML to remain in editor.value and execute when content is loaded. This issue is fixed in version 4.13.6.",
-      "published": "2026-07-31T20:16:53.967",
+      "id": "CVE-2026-68770",
+      "summary": "sentence-transformers contains a security control bypass vulnerability that allows attackers to achieve arbitrary code execution by exploiting a logic flaw in the import_module_class helper within sentence_transformers/util/misc.py, where the guard condition includes an 'or os.path.exists(model_name_or_path)' clause that satisfies the trust gate whenever the supplied path exists on the local filesystem, regardless of the trust_remote_code=False argument. Attackers who can control or influence the contents of a model directory on disk can place malicious Python files such as modeling_*.py referenced via modules.json, causing the code to execute at import time when an application loads the model with SentenceTransformer(path, trust_remote_code=False), bypassing the documented security contract and achieving code execution within the loading process.",
+      "published": "2026-07-31T21:17:32.440",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68770"
+    },
+    {
+      "id": "CVE-2026-65981",
+      "summary": "Coturn is a free open source implementation of TURN and STUN Server. Prior to 4.15.0, a server using --mobility authenticates a resumed REFRESH request with the resuming user's credentials but does not verify that identity against the original allocation owner, allowing an authenticated attacker who obtains a victim MOBILITY-TICKET to receive and inject relayed traffic and consume the victim's quota. In the handle_turn_refresh resume branch, the victim allocation (orig_ss) is located solely by the attacker-controlled mobile id, and credentials are only adopted (via copy_auth_parameters) when the resuming session is unauthenticated. Because the attacker's session already has hmackey_set set to 1 from its own prior authentication (which is never reset for long-term-credential sessions), the credential copy is skipped and check_stun_auth validates the REFRESH against the attacker's own identity rather than the allocation owner's. This issue is fixed in version 4.15.0.",
+      "published": "2026-07-31T21:17:31.857",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65981"
+    },
+    {
+      "id": "CVE-2026-51785",
+      "summary": "An issue in Hugo Leisink Hiawatha v.12.1 and before allows a remote attacker to execute arbitrary code via a crafted request",
+      "published": "2026-07-31T21:17:31.730",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65841"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51785"
     },
     {
-      "id": "CVE-2026-62999",
-      "summary": "Copier is a library and CLI app for rendering project templates. From 9.5.0 through 9.16.0, percent-encoded parent-directory segments or encoded path separators in a template URL can match a configured trusted repository prefix before an HTTP server or Git transport decodes the path, allowing unsafe template features from a repository outside the trusted prefix to run after user interaction. This issue is fixed in version 9.17.0.",
-      "published": "2026-07-31T20:16:53.523",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62999"
-    },
-    {
-      "id": "CVE-2026-62959",
-      "summary": "Coturn is a free open source implementation of TURN and STUN Server. From 4.5.2 through 4.14.0, when Coturn is started with --acme-redirect <URL> and exposes a plaintext-TCP listener, an unauthenticated remote client can send a single ordinary HTTP GET request and receive a 301 response whose Location header contains up to ~870 bytes of adjacent process heap memory. The leaked region is a recycled network receive buffer that is reused without being zeroed, so on a busy server it can contain data from other clients' requests (TURN credentials, OAuth tokens, relayed payloads). Root cause is a signed\u2192unsigned conversion. This issue is fixed in version 4.15.0.",
-      "published": "2026-07-31T20:16:53.357",
+      "id": "CVE-2026-50986",
+      "summary": "PrestaShop module, totadministrativemandate <1.8.1 is vulnerable to Cross Site Request Forgery (CSRF). The payment validation controller has no CSRF token. An attacker can confirm an order in an awaiting status by hijacking a link.",
+      "published": "2026-07-31T21:17:31.610",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62959"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50986"
     },
     {
-      "id": "CVE-2026-62324",
-      "summary": "Jodit Editor is a WYSIWYG editor with a built-in file browser & image editor. Prior to 4.12.31, Jodit's sanitizeHTMLElement method fails to use isDangerousUrl to normalize javascript: href values before checking the scheme, allowing case variants, control-byte prefixes, and embedded tabs or newlines to bypass filtering and execute attacker-controlled script when a victim clicks a stored link rendered by an application. This issue is fixed in version 4.12.31.",
-      "published": "2026-07-31T20:16:53.197",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62324"
+      "id": "CVE-2026-38713",
+      "summary": "TR1200 v2.4.15, TR3000 v2.4.21, WR300 v2.4.25, WR1200 v2.4.23, WR1300 v2.4.22, WR1500 v2.3.10, WR3000 v2.4.19, WR3600 v2.3.16, and WR6500 v2.3.15 were discovered to contain a command injection vulnerability in the ipsec_conn interface. This vulnerability allows attackers to execute arbitrary commands as root via a crafted input.",
+      "published": "2026-07-31T21:17:30.937",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38713"
     },
     {
-      "id": "CVE-2026-55825",
-      "summary": "Contao is an Open Source CMS. In versions 5.7.0 through 5.7.6, an authenticated backend user who can access one job can request an attachment identifier containing ../ segments and make the job attachment download endpoint read a file from another job directory inside var/job-attachments. The controller authorizes only the jobUuid route parameter. The later attachment lookup joins that authorized job UUID with the attacker-controlled identifier, then passes the combined path to the virtual filesystem. VirtualFilesystem::resolve() canonicalizes the whole path and only rejects paths that escape the filesystem mount, so authorized-job/../victim-job/debug_log.csv becomes victim-job/debug_log.csv. This is a cross-job authorization bypass for known job attachment paths. It is not a practical brute-force against unknown jobs because job directories are UUID v4 values.",
-      "published": "2026-07-31T20:16:52.343",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55825"
-    },
-    {
-      "id": "CVE-2026-53599",
-      "summary": "REDAXO is a PHP-based content management system. From 5.18.2 until 5.21.1, rex_mediapool::isAllowedExtension in redaxo/src/addons/mediapool/lib/mediapool.php lets an authenticated backend user with media[upload] permission upload a JPEG/PHP polyglot named shell.php.any.jpg, which web servers with multi-extension PHP handlers can execute as the web-server user. This issue is fixed in version 5.21.1.",
-      "published": "2026-07-31T20:16:51.847",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53599"
+      "id": "CVE-2026-38710",
+      "summary": "TR1200 v2.4.15 and TR3000 v2.4.21 were discovered to contain a command injection vulnerability in the system.setclock interface. This vulnerability allows attackers to execute arbitrary commands as root via a crafted input.",
+      "published": "2026-07-31T21:17:30.830",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38710"
     }
   ]
 }
