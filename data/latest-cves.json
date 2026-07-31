@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T16:55:12+00:00",
+  "generated_at": "2026-07-31T18:43:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67607",
-      "summary": "LightFTP 2.3.1 contains a race condition vulnerability that allows remote attackers to crash the server by racing a fresh connection that reuses the FTP context against an in-progress ABRT cleanup. Attackers can exploit the unprotected re-check of WorkerThreadId between worker_thread_cleanup() and pthread_join() outside of MTLock to cause pthread_join() to operate on an invalid thread ID, resulting in a server crash. CVE-2024-11144 identifies an incomplete fix of this vulnerability.",
-      "published": "2026-07-31T16:17:11.913",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67607"
-    },
-    {
-      "id": "CVE-2026-59232",
-      "summary": "Cross-site Scripting in the lead index view in Roskus Prospero Flow CRM before 5.3.7 allows authenticated users holding the create or update lead permission to execute arbitrary JavaScript in the application origin via HTML markup stored in the lead name field, which the view renders through Blade's unescaped output directive and inside a JavaScript string literal in an onclick attribute.",
-      "published": "2026-07-31T16:17:08.360",
+      "id": "CVE-2026-55100",
+      "summary": "hashi-vault-js is a Node.js module for interacting with the HashiCorp Vault API. Prior to 0.5.2, src/Vault.js concatenates unencoded identifier values including name, username, group, role, and version into Vault request paths and query strings instead of using encodeURIComponent() and URLSearchParams, allowing path traversal and query parameter injection. This issue is fixed in version 0.5.2.",
+      "published": "2026-07-31T18:17:17.480",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59232"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55100"
     },
     {
-      "id": "CVE-2026-59231",
-      "summary": "Server-Side Request Forgery in the PDF export component in maalfer Pentestify before 1.1.0 allows authenticated users to cause outbound HTTP GET requests from the server to arbitrary attacker-chosen destinations via unvalidated URLs stored in the finding images field or the report client_logo field, which the server-side headless browser fetches while rendering the report.",
-      "published": "2026-07-31T16:17:08.227",
+      "id": "CVE-2026-54737",
+      "summary": "@phun-ky/defaults-deep is a library like lodash defaultsDeep with array preservation and no lodash dependency. Prior to 2.0.5, defaultsDeep() recursively merges user-supplied objects without filtering proto, constructor, and prototype, allowing properties to be written to Object.prototype. This issue is fixed in version 2.0.5.",
+      "published": "2026-07-31T18:17:17.330",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54737"
+    },
+    {
+      "id": "CVE-2026-54729",
+      "summary": "DSSRF is a Node.js library that provides a wide range of utilities and advanced SSRF defense checks. Prior to 1.0.5, is_url_safe can treat localhost as safe when DNS resolver 1.1.1.1 returns NXDOMAIN because dns.resolve4 yields no address and no dns.lookup fallback occurs, allowing server-side request forgery. This issue is fixed in version 1.0.5.",
+      "published": "2026-07-31T18:17:17.173",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59231"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54729"
     },
     {
-      "id": "CVE-2026-56571",
-      "summary": "HCL iControl was affected by Improper Error Handling vulnerabilities. It involves Out of memory, null pointer exceptions, system call failure, database unavailable, network timeout, and hundreds of other common conditions can cause errors to be generated.",
-      "published": "2026-07-31T16:17:07.753",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56571"
+      "id": "CVE-2026-54725",
+      "summary": "vault-secrets-webhook is a Kubernetes mutating webhook that makes direct secret injection into Pods possible. Prior to 1.23.1, parseVaultConfig() in pkg/webhook/config.go accepts the vault.security.banzaicloud.io/vault-addr annotation, MutateConfigMap and MutateSecret call newVaultClient in pkg/webhook/webhook.go, and vault.security.banzaicloud.io/vault-serviceaccount can cause a ServiceAccount JWT to be sent to an attacker-controlled Vault address. This issue is fixed in version 1.23.1.",
+      "published": "2026-07-31T18:17:17.013",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54725"
     },
     {
-      "id": "CVE-2026-56570",
-      "summary": "HCL iControl was affected by Auto complete Enabled vulnerabilities. It involves expose sensitive information such as: Valid usernames, Email addresses used for login, Account identifiers If the system is accessed from shared environments, attackers may enumerate valid usernames through browser suggestions.",
-      "published": "2026-07-31T16:17:07.637",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56570"
+      "id": "CVE-2026-34497",
+      "summary": "Improper neutralization of Script-Related HTML tags in a web page (basic XSS) vulnerability in Johnson Controls FM Systems Employee allows Cross-Site Scripting (XSS).\n\nThis issue affects FM Systems Employee: before 2025.3.1.",
+      "published": "2026-07-31T18:17:14.457",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34497"
     },
     {
-      "id": "CVE-2026-56569",
-      "summary": "HCL iControl was affected by Sensitive Data Exposure vulnerabilities. It involves the public exposure of internal configuration files due to improper web server or application hardening.",
-      "published": "2026-07-31T16:17:07.523",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56569"
+      "id": "CVE-2026-34495",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Johnson Controls FM Systems Employee allows Stored XSS.\n\nThis issue affects FM Systems Employee: before 2025.3.1.",
+      "published": "2026-07-31T18:17:14.310",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34495"
     }
   ]
 }
