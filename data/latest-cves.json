@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T22:14:06+00:00",
+  "generated_at": "2026-07-31T23:15:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-68770",
-      "summary": "sentence-transformers contains a security control bypass vulnerability that allows attackers to achieve arbitrary code execution by exploiting a logic flaw in the import_module_class helper within sentence_transformers/util/misc.py, where the guard condition includes an 'or os.path.exists(model_name_or_path)' clause that satisfies the trust gate whenever the supplied path exists on the local filesystem, regardless of the trust_remote_code=False argument. Attackers who can control or influence the contents of a model directory on disk can place malicious Python files such as modeling_*.py referenced via modules.json, causing the code to execute at import time when an application loads the model with SentenceTransformer(path, trust_remote_code=False), bypassing the documented security contract and achieving code execution within the loading process.",
-      "published": "2026-07-31T21:17:32.440",
+      "id": "CVE-2026-68771",
+      "summary": "ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthenticated remote attackers to execute arbitrary Python code by uploading a crafted pickle file and triggering its deserialization. Attackers can upload a malicious shard_*.pkl file via the unauthenticated POST /upload/image endpoint and then queue a workflow graph via POST /prompt referencing the uploaded file, causing torch.load to deserialize the attacker-controlled pickle payload using __reduce__ and execute arbitrary commands as the ComfyUI process user.",
+      "published": "2026-07-31T22:17:03.630",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68770"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
     },
     {
-      "id": "CVE-2026-65981",
-      "summary": "Coturn is a free open source implementation of TURN and STUN Server. Prior to 4.15.0, a server using --mobility authenticates a resumed REFRESH request with the resuming user's credentials but does not verify that identity against the original allocation owner, allowing an authenticated attacker who obtains a victim MOBILITY-TICKET to receive and inject relayed traffic and consume the victim's quota. In the handle_turn_refresh resume branch, the victim allocation (orig_ss) is located solely by the attacker-controlled mobile id, and credentials are only adopted (via copy_auth_parameters) when the resuming session is unauthenticated. Because the attacker's session already has hmackey_set set to 1 from its own prior authentication (which is never reset for long-term-credential sessions), the credential copy is skipped and check_stun_auth validates the REFRESH against the attacker's own identity rather than the allocation owner's. This issue is fixed in version 4.15.0.",
-      "published": "2026-07-31T21:17:31.857",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65981"
-    },
-    {
-      "id": "CVE-2026-51785",
-      "summary": "An issue in Hugo Leisink Hiawatha v.12.1 and before allows a remote attacker to execute arbitrary code via a crafted request",
-      "published": "2026-07-31T21:17:31.730",
+      "id": "CVE-2026-52371",
+      "summary": "A Server-Side Request Forgery (SSRF) in the xxl-job-admin/jobinfo/trigger component of xxl-job v3.4.0 allows authenticated attackers to scan resources via supplying a crafted HTTP request.",
+      "published": "2026-07-31T22:17:02.673",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51785"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52371"
     },
     {
-      "id": "CVE-2026-50986",
-      "summary": "PrestaShop module, totadministrativemandate <1.8.1 is vulnerable to Cross Site Request Forgery (CSRF). The payment validation controller has no CSRF token. An attacker can confirm an order in an awaiting status by hijacking a link.",
-      "published": "2026-07-31T21:17:31.610",
+      "id": "CVE-2026-52232",
+      "summary": "A reflected cross-site scripting (XSS) vulnerability in the /logo.asp component of FS Inc S3150-8T2F Switch 2.2.0D Build 118101 allows attackers to execute arbitrary Javascript in the context of the victim's browser via a crafted URL.",
+      "published": "2026-07-31T22:17:02.553",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50986"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52232"
     },
     {
-      "id": "CVE-2026-38713",
-      "summary": "TR1200 v2.4.15, TR3000 v2.4.21, WR300 v2.4.25, WR1200 v2.4.23, WR1300 v2.4.22, WR1500 v2.3.10, WR3000 v2.4.19, WR3600 v2.3.16, and WR6500 v2.3.15 were discovered to contain a command injection vulnerability in the ipsec_conn interface. This vulnerability allows attackers to execute arbitrary commands as root via a crafted input.",
-      "published": "2026-07-31T21:17:30.937",
+      "id": "CVE-2026-52134",
+      "summary": "An issue in the parseGoosePayload() function (/goose/goose_receiver.c) of libiec61850 v1.6 allows attackers to bypass authentication via a captured GOOSE frame.",
+      "published": "2026-07-31T22:17:02.437",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38713"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52134"
     },
     {
-      "id": "CVE-2026-38710",
-      "summary": "TR1200 v2.4.15 and TR3000 v2.4.21 were discovered to contain a command injection vulnerability in the system.setclock interface. This vulnerability allows attackers to execute arbitrary commands as root via a crafted input.",
-      "published": "2026-07-31T21:17:30.830",
+      "id": "CVE-2026-51953",
+      "summary": "An issue in FeehiCMS v.2.1.1 allows an attacker to escalate privileges via the Session management module, authentication logic, logout handler components",
+      "published": "2026-07-31T22:17:02.313",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38710"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51953"
+    },
+    {
+      "id": "CVE-2026-45086",
+      "summary": "Decidim is a participatory democracy framework. From 0.31.1 before 0.31.5 and in 0.32.0.rc1 before 0.32.0.rc2, a participant can directly load /admin/demographics/questions/edit_questions and reach the demographics questionnaire editor without the required administrator authorization. The demographics questionnaire editor should require admin access, but the route under /admin/demographics/questions renders the editor interface without checking whether the caller is an admin. A normal participant can load the page and see the live update form action, which proves the protected interface is reachable. This issue is fixed in versions 0.31.5 and 0.32.0.rc2.",
+      "published": "2026-07-31T22:17:02.157",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45086"
     }
   ]
 }
