@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T09:58:20+00:00",
+  "generated_at": "2026-07-31T12:14:07+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-65313",
-      "summary": "A provisioning script used when installing HIPASE-250 (formerly 250\nSCALA) engineering workstations sets a fixed, hard-coded x11vnc\npassword. Because the same credential is applied to every workstation\nprovisioned this way, an attacker with adjacent-network access who\nknows the password can gain VNC access to affected workstations.",
-      "published": "2026-07-31T09:16:59.090",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65313"
+      "id": "CVE-2026-64607",
+      "summary": "HttpClient based on the classic i/o model fails to correctly release the underlying connection back to the connection manager if it encounters an invalid or unsupported `Content-Encoding` header value in the response message.\u00a0Please note this defect does not affect HttpClient based on the async i/o model.\n\nThis issue affects Apache HttpComponents Client: from 5.0-alpha1 through 5.6.2.",
+      "published": "2026-07-31T11:17:11.710",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64607"
     },
     {
-      "id": "CVE-2026-65311",
-      "summary": "The HTTP server component of ANDRITZ HIPASE-250 (formerly 250 SCALA)\nin affected versions exposes an undocumented endpoint that changes\nthe server's logging level and target without requiring\nauthentication. A remote, unauthenticated attacker with network\naccess to the service may suppress audit logging, potentially\nconcealing other activity on the system.",
-      "published": "2026-07-31T09:16:58.960",
+      "id": "CVE-2026-62391",
+      "summary": "The security fix for CVE-2025-66518 is incomplete.\u00a0Any client who can access to Apache Kyuubi Server via Kyuubi frontend protocols can bypass server-side config\u00a0kyuubi.session.local.dir.allowlist via unprefixed Spark config aliases.\n\nThis issue affects Apache Kyuubi: from 1.6.0 before 1.12.0.\n\nUsers are recommended to upgrade to version 1.12.0, which fixes the issue.",
+      "published": "2026-07-31T11:17:11.593",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62391"
+    },
+    {
+      "id": "CVE-2026-44615",
+      "summary": "Path traversal vulnerability in Apache Zeppelin. When FileSystemNotebookRepo is configured, an authenticated attacker with permission to rename a note, or access to folder operations, could supply traversal segments in note or folder paths. \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Zeppelin composed these values into filesystem paths using the server's filesystem or Hadoop identity without ensuring that the result remained under the configured notebook directory. This could allow notebook files or directories to be moved, \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0written, or deleted outside the notebook root. This issue affects Apache Zeppelin versions 0.9.0 through 0.12.0. Users are recommended to upgrade to version 0.12.1, which fixes this issue.",
+      "published": "2026-07-31T11:17:10.087",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44615"
+    },
+    {
+      "id": "CVE-2026-17567",
+      "summary": "The Fluent Forms \u2013 Customizable Contact Forms, Survey, Quiz, & Conversational Form Builder plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 6.2.8 via the 'transaction' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to brute-force valid transaction hashes and view sensitive payment receipt data including customer name, email address, billing address, order items, payment method, and payment status belonging to other users. Because submission ID, form ID, and transaction creation time are either observable or guessable by an attacker, the effective brute-force space is bounded to approximately 900 candidates per second per (submission, form) pair, making exploitation practical without any prior authentication or account.",
+      "published": "2026-07-31T11:17:05.697",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65311"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17567"
     },
     {
-      "id": "CVE-2026-65310",
-      "summary": "ANDRITZ HIPASE-250 (formerly 250 SCALA), in the default configuration\nof affected versions, exposes its data and configuration endpoint\nwithout any authentication and permissive CORS on every response. An\nunauthenticated attacker with network access can read live process\nvalues and server configuration.",
-      "published": "2026-07-31T09:16:58.447",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65310"
+      "id": "CVE-2026-16843",
+      "summary": "Some Hikvision Wireless Access Points are vulnerable to authenticated command execution due to insufficient input validation. Attackers with valid credentials can exploit this flaw by sending crafted packets containing malicious commands to affected devices, leading to arbitrary command execution.",
+      "published": "2026-07-31T11:17:05.567",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16843"
     },
     {
-      "id": "CVE-2026-65309",
-      "summary": "ANDRITZ HIPASE-250 (formerly 250 SCALA) in affected versions stores\nand transmits user passwords using a reversible format instead of a\none-way password hash. This allows an attacker able to read the\ncredential store or capture network traffic to recover all stored\npasswords.",
-      "published": "2026-07-31T08:16:28.330",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65309"
-    },
-    {
-      "id": "CVE-2026-18218",
-      "summary": "A flaw was found in the TokenManager component of the Keycloak identity management service. When an administrator attempts to revoke tokens for a specific application (client) using a \"not-before\" policy, the revocation may be silently ignored if the overall security realm already has an older, non-zero revocation policy in place. This issue can allow previously issued tokens to remain valid for refreshing sessions and accessing user information even after an administrator has attempted to invalidate them.\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501",
-      "published": "2026-07-31T08:16:28.177",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18218"
-    },
-    {
-      "id": "CVE-2026-18217",
-      "summary": "A flaw was found in the SAML protocol implementation of Keycloak, an open-source identity and access management solution. The issue occurs when Keycloak handles SAML authentication requests using the HTTP-Redirect binding. If a client is configured with a wildcard redirect URL, an attacker can craft a request that includes malicious parameters. When a user authenticates, Keycloak appends its legitimate response to the attacker's parameters. This can cause some service providers to process the attacker's data instead of the real login information, potentially leading to a user being logged into the wrong account.",
-      "published": "2026-07-31T08:16:28.037",
-      "cvss": 3.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18217"
+      "id": "CVE-2026-18437",
+      "summary": "The MailerPress \u2013 Newsletter, email marketing & AI automation plugin for WordPress is vulnerable to unauthorized access due to a missing capability check on the  `mailerpress/v1/contact` endpoint in all versions up to, and including, 1.5.0. This makes it possible for unauthenticated attackers to update contact details.",
+      "published": "2026-07-31T10:16:45.157",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18437"
     }
   ]
 }
