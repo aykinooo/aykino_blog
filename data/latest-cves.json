@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-01T11:33:25+00:00",
+  "generated_at": "2026-08-01T13:51:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-18536",
-      "summary": "Data::Entropy versions before 0.010 for Perl read remote entropy sources over plain HTTP.\n\nThe Data::Entropy::RawSource::RandomOrg and Data::Entropy::RawSource::RandomnumbersInfo remote sources are accessed over plain HTTP.\n\nThe Data::Entropy::RawSource::RandomOrg integrity check trivially matches any non-empty byte string.\n\nAny on-path attacker, such as open WiFi, a compromised ISP, captive portal, or a hostile egress proxy substitutes the response and thereby chooses the bytes returned by rand_bits and rand_int for every application that selected one of these sources via with_entropy_source. The _checkbuf method response is equally attacker-controlled, so the retry/sleep behaviour is steerable too.",
-      "published": "2026-08-01T11:16:38.483",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18536"
+      "id": "CVE-2026-67355",
+      "summary": "guzzlehttp/guzzle versions before 7.15.1 fail to preserve host-only cookie scope, storing the request host in the Domain field instead of marking cookies as host-only. Attackers controlling child hosts can receive host-only cookies intended only for parent hosts, potentially disclosing session identifiers and authorization tokens when the same cookie jar is reused across trust boundaries.",
+      "published": "2026-08-01T13:17:06.283",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67355"
     },
     {
-      "id": "CVE-2026-6453",
-      "summary": "The CubeWP Framework plugin for WordPress is vulnerable to SQL Injection in all versions up to and including 1.1.30. This is due to insufficient input sanitization in the cubewp_remove_relation() AJAX function, specifically the use of wp_unslash() on the relation_id parameter before interpolating it directly into a raw SQL query without using $wpdb->prepare(). The wp_unslash() call explicitly removes the backslash escaping that WordPress's wp_magic_quotes() adds to all $_POST data, neutralizing the only layer of SQL injection protection. The sanitize_text_field() function applied afterward offers no SQL protection. This makes it possible for authenticated attackers, with subscriber-level access and above, to append additional SQL queries to the existing query.",
-      "published": "2026-08-01T09:17:02.530",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6453"
+      "id": "CVE-2026-67354",
+      "summary": "guzzlehttp/guzzle versions before 7.15.1 contain an information disclosure vulnerability in RedirectMiddleware. When the optional allow_redirects.referer setting is enabled, the middleware copies the URI fragment (the portion after '#') from the referring request into the generated Referer header when following a same-scheme redirect (e.g., HTTPS to HTTPS). An attacker who controls the redirect destination can read this fragment from the incoming Referer header, potentially disclosing one-time login secrets, access tokens, state values, or other sensitive client data to a server never meant to receive it. The referer setting is disabled by default. Fixed in 7.15.1, which strips the fragment before generating the Referer value.",
+      "published": "2026-08-01T13:17:06.143",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67354"
     },
     {
-      "id": "CVE-2026-18435",
-      "summary": "The Kadence Blocks \u2014 Page Builder Toolkit for Gutenberg Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'toggleIcon' Block Attribute in all versions up to, and including, 3.7.8 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-08-01T09:17:02.383",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18435"
-    },
-    {
-      "id": "CVE-2026-18344",
-      "summary": "The Wp Responsive Thumbnail Slider plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'id' parameter in versions up to, and excluding, 1.1.53. This is due to insufficient input sanitization and output escaping in the responsive_thumbnail_image_management() function, which echoes $_GET['id'] directly into a double-quoted HTML attribute with no esc_attr() call. The only guard is a loose PHP numeric comparison ($_GET['id']>0) that a string beginning with a numeric prefix trivially satisfies, and the addslashes() applied by wp_magic_quotes() is inert in HTML-attribute context because backslash is not an HTML escape character. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a specially crafted link.",
-      "published": "2026-08-01T09:17:02.237",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18344"
-    },
-    {
-      "id": "CVE-2026-18062",
-      "summary": "The Kadence Blocks \u2014 Page Builder Toolkit for Gutenberg Editor plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Identity Block Inner Image Content in all versions up to, and including, 3.7.8.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This vulnerability is only triggerable when the block's urlTransparent attribute is set to a non-empty value, as this is a required precondition for the vulnerable code path in build_html() to be reached.",
-      "published": "2026-08-01T09:17:02.100",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18062"
-    },
-    {
-      "id": "CVE-2026-18059",
-      "summary": "The PixelYourSite \u2013 Your smart PIXEL (TAG) & API Manager plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 11.2.1 via the getWooPurchaseEventParams. This makes it possible for unauthenticated attackers to extract WooCommerce purchase metadata \u2014 including product names, product IDs, quantities, per-item prices, order totals, currency, and order/transaction IDs \u2014 for any existing order by supplying an invalid or arbitrary order key. This is exploitable against any known or enumerated order ID, as the plugin resolves the order from the URL path variable alone and emits the full woo_purchase tracking payload into the page HTML via the pysOptions JavaScript object across its Facebook, Google Analytics, and Google Tag Manager integrations regardless of key validity.",
-      "published": "2026-08-01T09:17:01.963",
+      "id": "CVE-2026-67353",
+      "summary": "guzzlehttp/guzzle versions before 7.15.1 contain a denial of service vulnerability in the CookieJar that accepts unlimited Set-Cookie header fields with no size restrictions. Attackers can return many large cookies from a malicious server, causing Guzzle to store excessive data in memory and generate oversized Cookie headers that fail in handlers or destination servers.",
+      "published": "2026-08-01T13:17:06.000",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18059"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67353"
+    },
+    {
+      "id": "CVE-2026-67352",
+      "summary": "luci-app-https-dns-proxy contains a stored cross-site scripting vulnerability in the resolver_url parameter that allows authenticated users to inject active HTML. When an administrator views the HTTPS DNS Proxy status page, the resolver URL is rendered as raw HTML and executes JavaScript in the administrator's browser origin.",
+      "published": "2026-08-01T13:17:05.860",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67352"
+    },
+    {
+      "id": "CVE-2026-67344",
+      "summary": "ArcadeDB before 26.7.2 fails to enforce the UPDATE_SCHEMA database permission on the ALTER TYPE ... CUSTOM and ALTER TYPE ... BUCKETSELECTIONSTRATEGY SQL operations, which map to setCustomValue and setBucketSelectionStrategy in LocalDocumentType. An authenticated user with only read access (e.g., a read-only API token) can submit these ALTER TYPE statements via the HTTP command endpoint to mutate a type's custom schema metadata and bucket-selection strategy, bypassing the documented updateSchema permission boundary and potentially corrupting schema metadata and record routing.",
+      "published": "2026-08-01T13:17:05.700",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67344"
+    },
+    {
+      "id": "CVE-2026-67343",
+      "summary": "ArcadeDB versions before 26.7.2 fail to properly redact the cluster token in the GET /api/v1/server endpoint, allowing authenticated users to retrieve the arcadedb.ha.clusterToken value in cleartext. Attackers can use the leaked token with X-ArcadeDB-Cluster-Token and X-ArcadeDB-Forwarded-User headers to impersonate root and execute administrative actions including user creation, database operations, and server shutdown.",
+      "published": "2026-08-01T13:17:05.563",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67343"
     }
   ]
 }
