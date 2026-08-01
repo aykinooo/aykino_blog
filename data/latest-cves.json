@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-07-31T23:15:44+00:00",
+  "generated_at": "2026-08-01T03:47:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-68771",
-      "summary": "ComfyUI v0.23.0 contains an unsafe deserialization vulnerability in the LoadTrainingDataset node that allows unauthenticated remote attackers to execute arbitrary Python code by uploading a crafted pickle file and triggering its deserialization. Attackers can upload a malicious shard_*.pkl file via the unauthenticated POST /upload/image endpoint and then queue a workflow graph via POST /prompt referencing the uploaded file, causing torch.load to deserialize the attacker-controlled pickle payload using __reduce__ and execute arbitrary commands as the ComfyUI process user.",
-      "published": "2026-07-31T22:17:03.630",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68771"
+      "id": "CVE-2026-7623",
+      "summary": "The SureForms \u2013 Contact Form, Payment Form & Other Custom Form Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'headingWrapper' parameter in all versions up to, and including, 2.8.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-08-01T03:16:26.070",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7623"
     },
     {
-      "id": "CVE-2026-52371",
-      "summary": "A Server-Side Request Forgery (SSRF) in the xxl-job-admin/jobinfo/trigger component of xxl-job v3.4.0 allows authenticated attackers to scan resources via supplying a crafted HTTP request.",
-      "published": "2026-07-31T22:17:02.673",
+      "id": "CVE-2026-15414",
+      "summary": "The Subscriptions for WooCommerce plugin for WordPress is vulnerable to Privilege Escalation in versions up to, and including, 2.0.0. This is due to the `save_meta_boxes()` function persisting the `_wps_plan_user_role` membership plan meta from `$_POST` without an allowlist that excludes privileged roles \u2014 the only validations applied, `sanitize_key()` and `wp_roles()->is_role()`, both accept `'administrator'` as a valid value, and the UI's `disabled` attribute on the role dropdown is a client-side-only control trivially bypassed via DevTools or a direct POST request; additionally, because the `wps_membership_plan` custom post type is registered with `capability_type => 'post'`, any user who can edit posts satisfies the `current_user_can('edit_post', $post_id)` guard in `save_meta_boxes()`. This makes it possible for authenticated attackers, with Contributor-level access and above, to escalate their privileges to Administrator by storing `'administrator'` as the role granted on membership acquisition, which the Pro companion plugin then applies via `add_role()` during membership lifecycle events. Successful exploitation requires the Subscriptions for WooCommerce Pro companion plugin to be active, as it is the component that reads the stored `_wps_plan_user_role` meta via `get_post_meta()` and calls `add_role()` to apply the role during membership lifecycle events.",
+      "published": "2026-08-01T03:16:25.757",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15414"
+    },
+    {
+      "id": "CVE-2026-15403",
+      "summary": "The Pinpoint Booking System \u2013 Version 2 plugin for WordPress is vulnerable to blind SQL Injection via the 'field' parameter in all versions up to, and including, 2.9.9.6.9 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. The nonce required to reach the vulnerable endpoint is emitted on all plugin admin pages loaded under manage_options, making it trivially obtainable by any authenticated administrator.",
+      "published": "2026-08-01T03:16:25.620",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15403"
+    },
+    {
+      "id": "CVE-2026-15006",
+      "summary": "The Bit integrations \u2013 Form Integration, Webhook, Spreadsheets, CRM, LMS & Email Automation plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 2.9.0 via the processAttachment function. This makes it possible for unauthenticated attackers to read the contents of arbitrary files on the server, which can contain sensitive information.",
+      "published": "2026-08-01T03:16:25.460",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15006"
+    },
+    {
+      "id": "CVE-2026-13362",
+      "summary": "The SendPulse Email Marketing Newsletter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via _sp_form_code Post Meta in all versions up to, and including, 2.2.5 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacker to create a sendpulse_form post containing a benign SendPulse loader script tag alongside arbitrary HTML (e.g., an img onerror payload), which bypasses the allow-list check and executes in the browser of any user \u2014 including administrators \u2014 who previews or views a page rendering the [sendpulse-form] shortcode.",
+      "published": "2026-08-01T03:16:25.307",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13362"
+    },
+    {
+      "id": "CVE-2026-9044",
+      "summary": "An OS command injection vulnerability exists in the VPN module of TP-Link AXE75 V1 routers. This vulnerability allows an adjacent, authenticated attacker to execute arbitrary commands on the device by importing a specially crafted VPN client configuration file. The issue arises from\u00a0improper filtering of special characters.\u00a0\n\nSuccessful exploitation of this vulnerability may enable an attacker to gain full control of the affected device, potentially compromising configuration integrity, network security, and service availability.",
+      "published": "2026-07-31T23:17:26.767",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52371"
-    },
-    {
-      "id": "CVE-2026-52232",
-      "summary": "A reflected cross-site scripting (XSS) vulnerability in the /logo.asp component of FS Inc S3150-8T2F Switch 2.2.0D Build 118101 allows attackers to execute arbitrary Javascript in the context of the victim's browser via a crafted URL.",
-      "published": "2026-07-31T22:17:02.553",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52232"
-    },
-    {
-      "id": "CVE-2026-52134",
-      "summary": "An issue in the parseGoosePayload() function (/goose/goose_receiver.c) of libiec61850 v1.6 allows attackers to bypass authentication via a captured GOOSE frame.",
-      "published": "2026-07-31T22:17:02.437",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52134"
-    },
-    {
-      "id": "CVE-2026-51953",
-      "summary": "An issue in FeehiCMS v.2.1.1 allows an attacker to escalate privileges via the Session management module, authentication logic, logout handler components",
-      "published": "2026-07-31T22:17:02.313",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51953"
-    },
-    {
-      "id": "CVE-2026-45086",
-      "summary": "Decidim is a participatory democracy framework. From 0.31.1 before 0.31.5 and in 0.32.0.rc1 before 0.32.0.rc2, a participant can directly load /admin/demographics/questions/edit_questions and reach the demographics questionnaire editor without the required administrator authorization. The demographics questionnaire editor should require admin access, but the route under /admin/demographics/questions renders the editor interface without checking whether the caller is an admin. A normal participant can load the page and see the live update form action, which proves the protected interface is reachable. This issue is fixed in versions 0.31.5 and 0.32.0.rc2.",
-      "published": "2026-07-31T22:17:02.157",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45086"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9044"
     }
   ]
 }
