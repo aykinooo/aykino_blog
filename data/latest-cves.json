@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-01T19:31:18+00:00",
+  "generated_at": "2026-08-01T21:07:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-18556",
+      "summary": "Authentication bypass using an alternate path or channel vulnerability in N-able N-central allows Authentication Bypass.\n\nThis issue affects N-central: through 2026.1.",
+      "published": "2026-08-01T20:16:37.157",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18556"
+    },
     {
       "id": "CVE-2026-55735",
       "summary": "Improper Verification of Cryptographic Signature in ueberauth guardian allows an unauthenticated attacker to revoke a victim's session with a forged token.\n\nGuardian.revoke/3 in lib/guardian.ex decodes the supplied token with peek/1, which performs no signature verification (it only base64-decodes the JWT header and payload). The resulting unverified claims are forwarded directly to the configured token module's revoke callback and the implementation's on_revoke callback, a state-mutating sink. The sibling operations refresh/2 and exchange/4 both call decode_and_verify first, so the signature is checked before anything acts on the claims; revoke/3 is the only state-mutating path that acts on claims without verifying the signature.\n\nAn attacker who knows or guesses a victim's identifying claim values (jti, sub) can forge a JWT carrying those claims, sign it with an arbitrary key, and submit it to any endpoint that funnels a caller-supplied token into Guardian.revoke/3 (the standard logout / session-revocation pattern). When the token module mutates state keyed by the claims (whitelist deletion or blacklist insertion, for example a GuardianDb-style store), the victim's legitimate session is evicted. This is an unauthenticated session-revocation denial of service; the attacker never needs the signing secret.\n\nThis issue affects guardian: from 1.0.0 before 2.4.1.",
@@ -36,13 +43,6 @@
       "published": "2026-08-01T13:17:06.283",
       "cvss": 5.9,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67355"
-    },
-    {
-      "id": "CVE-2026-67354",
-      "summary": "guzzlehttp/guzzle versions before 7.15.1 contain an information disclosure vulnerability in RedirectMiddleware. When the optional allow_redirects.referer setting is enabled, the middleware copies the URI fragment (the portion after '#') from the referring request into the generated Referer header when following a same-scheme redirect (e.g., HTTPS to HTTPS). An attacker who controls the redirect destination can read this fragment from the incoming Referer header, potentially disclosing one-time login secrets, access tokens, state values, or other sensitive client data to a server never meant to receive it. The referer setting is disabled by default. Fixed in 7.15.1, which strips the fragment before generating the Referer value.",
-      "published": "2026-08-01T13:17:06.143",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67354"
     }
   ]
 }
