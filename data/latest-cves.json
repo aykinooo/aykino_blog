@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-03T00:10:11+00:00",
+  "generated_at": "2026-08-03T03:51:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-18577",
-      "summary": "An incomplete patch for CVE-2026-18556 allows for authentication bypass and account takeover in N-central Versions through 2026.3.1",
-      "published": "2026-08-02T23:16:26.210",
+      "id": "CVE-2026-58063",
+      "summary": "In Bouncy Castle for Java before 1.85, BCFKS keystore load honours unbounded KDF cost from untrusted file. This issue also affects Bouncy Castle for Java LTS before 2.73.12, and Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 1.0.2.7 (1.0.X series), 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series).",
+      "published": "2026-08-03T03:16:45.773",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18577"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58063"
     },
     {
-      "id": "CVE-2026-10848",
-      "summary": "The OCPP 1.6 client in subsys/net/lib/ocpp parsed inbound WAMP RPC frames in parse_rpc_msg() (subsys/net/lib/ocpp/ocpp_j.c) using a hand-rolled helper, extract_string_field(), that copied the message's uid and action fields with strncpy(out_buf, token + 1, outlen - 1) and then scanned the result with strchr(out_buf, '\"'). Because strncpy does not NUL-terminate the destination when the source is at least outlen - 1 (127) bytes long, the subsequent strchr reads past the 128-byte destination buffer into adjacent stack memory; if a \" byte is found beyond the buffer, a one-byte out-of-bounds NUL write also occurs. A related defect in extract_payload() runs strchr/strrchr over the receive buffer, which may not be NUL-terminated when a maximal-length frame fills it.\n\nThe parsed bytes come directly from the OCPP central-system server over a websocket: the reader thread fills recv_buf via websocket_recv_msg() and calls parse_rpc_msg() on each inbound DATA frame (subsys/net/lib/ocpp/ocpp.c). A malicious or compromised central server, or an on-path attacker (OCPP is commonly deployed over plain ws://), can send an RPC frame whose uid or action field is 127+ bytes with no closing quote, triggering the out-of-bounds access.\n\nThe primary impact is a remotely triggerable denial of service: the unbounded scan can fault on an unmapped page, and the stray NUL write can corrupt adjacent stack state. The over-read data is not reflected to the peer, so disclosure is limited. The feature is EXPERIMENTAL and must be explicitly enabled (CONFIG_OCPP). The fix replaces the manual parser with the bounds-respecting json_mixed_arr_parse() and copies the extracted uid with an explicitly NUL-terminated buffer, eliminating both over-reads.",
-      "published": "2026-08-02T17:16:58.163",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10848"
+      "id": "CVE-2026-58062",
+      "summary": "In Bouncy Castle for Java before 1.85, Stapled OCSP response accepted without binding to the checked certificate. This issue also affects Bouncy Castle for Java LTS before 2.73.12, and Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series).",
+      "published": "2026-08-03T03:16:45.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58062"
     },
     {
-      "id": "CVE-2026-9856",
-      "summary": "A vulnerability in huggingface/transformers versions <=5.8.0.dev0 allows an attacker to perform arbitrary file writes via path traversal. The issue resides in the `save_pretrained()` methods of `PreTrainedTokenizerBase` and `ProcessorMixin`, where keys from the `chat_template` dictionary are used directly as filenames without proper validation. An attacker can exploit this by publishing a malicious Hugging Face Hub repository with a crafted `tokenizer_config.json` file. When a victim downloads and saves the tokenizer or processor, the attacker-controlled keys can escape the intended save directory, enabling arbitrary file writes with attacker-controlled content. This vulnerability affects multiple processors inheriting from `ProcessorMixin`, including Idefics, Florence, Gemma, Phi, and Qwen-VL.",
-      "published": "2026-08-02T16:16:25.413",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9856"
+      "id": "CVE-2026-58061",
+      "summary": "In Bouncy Castle for Java before 1.85, CCM-family modes write plaintext to caller buffer before tag check. This issue also affects Bouncy Castle for Java LTS before 2.73.12, and Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 1.0.2.7 (1.0.X series), 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series).",
+      "published": "2026-08-03T03:16:45.500",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58061"
     },
     {
-      "id": "CVE-2026-65321",
-      "summary": "PyAthena prior to 3.35.4 contains a sql injection vulnerability that allows unauthenticated attackers to inject arbitrary SQL by exploiting improper quote-escaping in DefaultParameterFormatter.format(), which routes DELETE and CTAS statements to the _escape_hive function that backslash-escapes single quotes rather than doubling them. Because Athena and Trino do not treat backslashes as escape characters inside string literals, attacker-supplied input such as a single quote followed by SQL syntax causes the parser to terminate the string literal prematurely, enabling data exfiltration via UNION SELECT, execution of destructive statements, and attacker-controlled CTAS destination and content.",
-      "published": "2026-08-02T15:16:33.957",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65321"
+      "id": "CVE-2026-58060",
+      "summary": "In Bouncy Castle for Java before 1.85, HSS public-key level count unbounded, enabling huge allocation on verify. This issue also affects Bouncy Castle for Java LTS before 2.73.12, and Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series).",
+      "published": "2026-08-03T03:16:45.340",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58060"
     },
     {
-      "id": "CVE-2026-10774",
-      "summary": "Zephyr's Bluetooth Mesh subnet key management leaks one PSA Crypto key slot on every subnet-key teardown. In subsys/bluetooth/mesh/subnet.c, net_keys_create() imports the Private Beacon Key into a PSA key slot under CONFIG_BT_MESH_PRIV_BEACONS (enabled by default), but subnet_keys_destroy() guarded the matching psa_destroy_key() with CONFIG_BT_MESH_V1d1. That Kconfig symbol was removed when explicit Mesh 1.0.1 support was dropped, so the destroy branch became permanently dead code and the import is never balanced by a destroy.\n\nThe imbalanced teardown is reached every time subnet keys are destroyed: deleting a subnet (Config Server NetKey Delete), completing a Key Refresh Procedure (which retires the old key set), and resetting/re-provisioning the node. The over-the-air triggers are processed only under the node's device key, so they are exercisable by the provisioner or network administrator that owns the node, reachable over the Bluetooth Mesh network.\n\nWith the default CONFIG_MBEDTLS_PSA_KEY_SLOT_COUNT of 16, repeated add/delete or key-refresh cycles exhaust the shared PSA key-slot pool after roughly a dozen rounds. Once exhausted, bt_mesh_private_beacon_key() and thus subnet creation fail: the node can no longer add subnets or complete key refresh, and other PSA crypto consumers on the device may be starved, until the device is rebooted. The fix aligns the destroy guard with the import guard (CONFIG_BT_MESH_PRIV_BEACONS) so each slot is freed.",
-      "published": "2026-08-02T15:16:33.793",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10774"
+      "id": "CVE-2026-58059",
+      "summary": "In Bouncy Castle for Java before 1.85, Quadratic-time escaping when stringifying X.500 distinguished names. This issue also affects Bouncy Castle for Java LTS before 2.73.12, and Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 1.0.2.7 (1.0.X series), 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series).",
+      "published": "2026-08-03T03:16:45.137",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58059"
     },
     {
-      "id": "CVE-2026-68583",
-      "summary": "luci-app-adblock-fast before 1.2.4-4 contains a stored cross-site scripting vulnerability in the blocklist name field that allows lower-privileged users to inject active HTML. When an administrator views the AdBlock Fast status page, the injected payload executes in the administrator's browser under the LuCI origin.",
-      "published": "2026-08-02T13:16:54.377",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68583"
+      "id": "CVE-2026-20498",
+      "summary": "In geniezone, there is a possible escalation of privilege due to a missing permission check. This could lead to local escalation of privilege if a malicious actor has already obtained the System privilege. User interaction is not needed for exploitation. Patch ID: ALPS10900493; Issue ID: MSV-6765.",
+      "published": "2026-08-03T03:16:45.000",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20498"
     }
   ]
 }
