@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-03T17:18:45+00:00",
+  "generated_at": "2026-08-03T19:54:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-69153",
-      "summary": "PostCSS takes a CSS file and provides an API to analyze and modify its rules by transforming the rules into an Abstract Syntax Tree. Prior to 8.5.19, if from is unset, an attacker can cause PreviousMap.loadFile() to read an unintended source-map file by supplying an absolute or directory-traversal sourceMappingURL. The resulting map\u2019s sources and sourcesContent may then be exposed to the application. This issue is fixed in version 8.5.19.",
-      "published": "2026-08-03T17:16:46.127",
+      "id": "CVE-2026-59913",
+      "summary": "Dell Display and Peripheral Manager (DDPM Mac), versions prior to 2.3.0.1005, contain a Missing Authentication for Critical Function vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-08-03T19:16:48.193",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59913"
+    },
+    {
+      "id": "CVE-2026-59912",
+      "summary": "Dell Display and Peripheral Manager (DDPM Mac), versions prior to 2.3.0.1005, contain an Improper Access Control vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges and arbitrary code execution.",
+      "published": "2026-08-03T19:16:48.050",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59912"
+    },
+    {
+      "id": "CVE-2026-38447",
+      "summary": "osTicket 1.18.3 generates API keys using a predictable construction based on MD5 hashing. The use of MD5, combined with predictable inputs such as the current timestamp and client IP address, significantly reduces entropy. An attacker can approximate the key generation time and brute-force the key space within a feasible time window.",
+      "published": "2026-08-03T19:16:46.917",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69153"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38447"
     },
     {
-      "id": "CVE-2026-69152",
-      "summary": "The brace-expansion library generates arbitrary strings containing a common prefix and suffix. Prior to 1.1.18, 2.1.4, 3.0.6, and 5.0.9, expand() does not apply maxLength while constructing comma-alternative intermediate arrays or padded sequences, allowing attacker-controlled input to exhaust memory or block the event loop. The fix for CVE-2026-14257 is bypassed by the vulnerability. This issue is fixed in versions 1.1.18, 2.1.4, 3.0.6, and 5.0.9.",
-      "published": "2026-08-03T17:16:45.953",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69152"
-    },
-    {
-      "id": "CVE-2026-69151",
-      "summary": "Angular is a development platform for building mobile and desktop web applications using TypeScript/JavaScript and other languages. Prior to 20.3.27, 21.2.19, and 22.0.1, the Angular compiler i18n pipeline permits i18n-onerror and other i18n-on event-handler attributes, allowing a lower-trust translation file to replace a static handler with executable JavaScript. This issue is fixed in versions 20.3.27, 21.2.19, and 22.0.1.",
-      "published": "2026-08-03T17:16:45.797",
+      "id": "CVE-2026-38446",
+      "summary": "A stored cross-site scripting (XSS) vulnerability exists in osTicket 1.18.3 due to improper sanitization of the thread entry title field. User-controlled input in the title is stored without adequate HTML escaping and later rendered in multiple staff-facing templates without proper output encoding. An attacker can inject arbitrary JavaScript by submitting a crafted ticket reply or email with a malicious subject line.",
+      "published": "2026-08-03T19:16:46.793",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69151"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38446"
     },
     {
-      "id": "CVE-2026-69149",
-      "summary": "Angular is a development platform for building mobile and desktop web applications using TypeScript/JavaScript and other languages. Prior to 20.3.27, 21.2.19, and 22.0.7, a Cross-Site Scripting (XSS) vulnerability exists in @angular/platform-server's DOM emulation dependency (domino) when serializing the content of fallback raw-content elements (<iframe>, <noembed>, <noframes>, and <noscript>). This issue is fixed in versions 20.3.27, 21.2.19, and 22.0.7.",
-      "published": "2026-08-03T17:16:45.627",
+      "id": "CVE-2026-38444",
+      "summary": "osTicket v1.18.3 is vulnerable to Stored Cross-Site Scripting (XSS) via the email From-header display name. The value is extracted without sanitization in include/class.mailparse.php and stored raw in the poster field of ost_thread_entry. When an unauthenticated attacker sends a reply email to an existing ticket from an unregistered address with an XSS payload in the From display name.",
+      "published": "2026-08-03T19:16:46.653",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69149"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-38444"
     },
     {
-      "id": "CVE-2026-68945",
-      "summary": "Angular is a development platform for building mobile and desktop web applications using TypeScript/JavaScript and other languages. Prior to 20.3.27, 21.2.19, and 22.0.2, HttpTransferCache comma-joins repeated request parameters, allowing semantically distinct HttpClient requests to use the same transfer-cache key and reuse a wrong backend response. This issue is fixed in versions 20.3.27, 21.2.19, and 22.0.2.",
-      "published": "2026-08-03T17:16:45.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68945"
-    },
-    {
-      "id": "CVE-2026-68930",
-      "summary": "Russh is a Rust SSH client & server library. Prior to 0.62.5, russh dispatches channel-scoped Handler callbacks for recipient channel IDs that were never opened or confirmed in russh/src/server/encrypted.rs, server_read_authenticated, and the exec_request callback. Version 0.62.5 fixes the issue.",
-      "published": "2026-08-03T17:16:44.843",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68930"
+      "id": "CVE-2026-18616",
+      "summary": "A vulnerability was identified in GL-iNet GL-MT3000 up to 4.4.5. The impacted element is the function server.set_peer of the file /cgi-bin/glc of the component wg-server.so Native Plugin. The manipulation of the argument public_key leads to command injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure and confirmed the existence of the vulnerability.",
+      "published": "2026-08-03T19:16:45.557",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18616"
     }
   ]
 }
