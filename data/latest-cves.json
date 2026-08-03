@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-03T11:41:43+00:00",
+  "generated_at": "2026-08-03T15:13:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-69082",
-      "summary": "CTI-Transmute contained a cross-site request forgery vulnerability in the administrative user deletion functionality. The /account/delete/<id> endpoint accepted HTTP GET requests for an operation that modified application state.\n\nAn unauthenticated remote attacker could construct a malicious link or embed a request targeting this endpoint and induce an authenticated CTI-Transmute administrator to visit the attacker-controlled content. If the administrator had an active session, the browser would automatically include the administrator\u2019s session credentials, causing the selected user account to be deleted without the administrator intentionally confirming the operation.\n\nSuccessful exploitation requires interaction from a currently authenticated administrator who has permission to delete users. The attacker does not need a CTI-Transmute account or administrative privileges because the forged request executes using the victim administrator\u2019s session.\n\nThe vulnerability could allow an attacker to delete arbitrary user accounts, resulting in unauthorized modification of application state and denial of access for affected users. Depending on whether administrators can delete other administrators or the final administrative account, exploitation could also disrupt administration of the CTI-Transmute instance.\n\nThe patch resolves the issue by restricting the deletion endpoint to HTTP POST requests and submitting the deletion through a form containing a CSRF token.",
-      "published": "2026-08-03T10:16:33.540",
+      "id": "CVE-2026-9487",
+      "summary": "XML::Sig versions before 0.71 for Perl allow signature wrapping via duplicate ID.\n\n_get_signed_xml() in lib/XML/Sig.pm, called from verify(), resolves the SignedInfo Reference/@URI to a node with the XPath expression \"//*[@ID='$id']\" and returns the first node of the resulting node set. A document in which two elements share that ID value is accepted: the digest and signature are checked against whichever element comes first in document order, and the duplicate is not detected.\n\nSuch a document verifies successfully while an application that resolves the same ID independently can read the second, attacker supplied element; in a SAML2 context this places the contents of an Assertion under attacker control.",
+      "published": "2026-08-03T14:16:31.110",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69082"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9487"
     },
     {
-      "id": "CVE-2026-69079",
-      "summary": "CTI-Transmute contains an uncontrolled resource-consumption vulnerability in the unauthenticated /activity_timeline endpoint. The endpoint accepts a user-controlled days query parameter that was not restricted to a reasonable range.\n\nA remote, unauthenticated attacker could submit an excessively large value for this parameter, causing the application to retrieve and process activity data over an arbitrarily large period. This could consume excessive database, CPU, or memory resources, delay the processing of concurrent requests, or trigger an internal server error. Repeated requests could further degrade the availability of the CTI-Transmute website.\n\nThe vulnerability is corrected by clamping the requested timeline range to a minimum of one day and a maximum of 1,095 days.",
-      "published": "2026-08-03T10:16:33.407",
+      "id": "CVE-2026-9390",
+      "summary": "XML::Sig versions before 0.71 for Perl allow XPath injection in ID lookup.\n\nverify() and _get_signed_xml() in lib/XML/Sig.pm build XPath expressions by concatenating the SignedInfo/Reference/@URI value read from the document being verified. The value is neither escaped nor checked against the NCName grammar that XML requires of an ID, so a URI containing a single quote closes the string literal in the generated expression and appends arbitrary XPath operators.\n\nA crafted URI can make the lookup match elements the reference does not name, or every element in the document, so which node is selected for digest verification is decided by the injected expression rather than by the reference.",
+      "published": "2026-08-03T14:16:30.983",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69079"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9390"
     },
     {
-      "id": "CVE-2026-69078",
-      "summary": "CTI-Transmute is affected by a server-side request forgery vulnerability in the evaluation report PDF-generation functionality.\n\nUser-controlled CTI content, including conversion names, descriptions, and comments, is converted from Markdown to HTML and rendered as a PDF using WeasyPrint. Before the patch, the renderer used WeasyPrint\u2019s default URL-fetching behavior without restricting the protocols or destinations that could be referenced by the generated HTML.\n\nAn attacker able to supply content included in an evaluation report could inject crafted resource references using schemes such as http://, https://, or file://. When the report was rendered, CTI-Transmute could fetch these resources using the application server\u2019s network connectivity and filesystem privileges.\n\nSuccessful exploitation could allow an attacker to:\n\n  *  access services available only from the CTI-Transmute server or its internal network;\n  *  probe internal hosts and service endpoints;\n  *  retrieve local files readable by the application process; and\n  *  expose fetched content through the generated PDF, depending on the referenced resource type and rendering context.\n\n\nThe vulnerability is corrected by providing WeasyPrint with a restrictive URL fetcher that permits only self-contained data: URIs. The externally hosted Google Fonts stylesheet was also removed so that PDF generation performs no intentional network or filesystem fetches.",
-      "published": "2026-08-03T10:16:33.243",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69078"
+      "id": "CVE-2026-69097",
+      "summary": "GitPython before 3.1.53 fails to properly escape section names in git config files, allowing attackers to inject arbitrary configuration directives through malicious submodule names. Attackers can inject core.sshCommand or other dangerous config keys into the victim's .git/config via create_submodule or clone_from operations, achieving remote code execution when git performs ssh operations.",
+      "published": "2026-08-03T14:16:30.677",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69097"
     },
     {
-      "id": "CVE-2026-68742",
-      "summary": "A flaw was found in SSSD. The sss_nss_protocol_parse_addr() function in the NSS responder does not validate the addrlen field against the remaining packet body size. A local attacker can exploit this via a crafted GETHOSTBYADDR request to the NSS responder socket, causing an out-of-bounds read and process crash, resulting in a denial of service.",
-      "published": "2026-08-03T10:16:33.080",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68742"
+      "id": "CVE-2026-69096",
+      "summary": "OpenWrt luci-app-dockerman (LuCI master and openwrt-25.12 snapshots containing the ucode docker_rpc.uc RPC backend after the JS/ucode conversion) contains an OS command injection vulnerability. The package's read ACL grants broad ubus access to docker.* / docker.container.*, which exposes the docker.container.ttyd_start method even though it performs mutating operations. The run_ttyd handler builds a shell command from the request-controlled id, cmd, and uid fields and passes it to system() without quoting or argv-style execution in the rpcd root context. An authenticated attacker holding only the luci-app-dockerman read ACL can inject shell metacharacters (e.g., in id) to execute arbitrary commands as root via an HTTP POST to /ubus. openwrt-24.10 and openwrt-23.05 do not contain this backend and are not affected; no patched version was known as of the advisory.",
+      "published": "2026-08-03T14:16:30.500",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69096"
     },
     {
-      "id": "CVE-2026-33591",
-      "summary": "A vulnerability in Wapt Server before version 2.6.1.17813 allows a\u00a0 remote unauthenticated attacker to bypass\nsecurity restriction using a specially crafted packet and retrieve a valid\nsession token for the targeted account.",
-      "published": "2026-08-03T10:16:28.610",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33591"
+      "id": "CVE-2026-69095",
+      "summary": "OpenWrt luci-app-bmx7 before commit 5890760a454dad2cb00389dba2cdc5e779e0ffdd contains a path traversal vulnerability in the bmx7-info CGI script that allows unauthenticated attackers to read files outside the configured runtimeDir. Attackers can supply directory traversal sequences in the query string to escape the intended directory and read sensitive files accessible to the CGI process.",
+      "published": "2026-08-03T14:16:30.343",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69095"
     },
     {
-      "id": "CVE-2026-0392",
-      "summary": "eParakst\u012bt\u0101js 3.0 for Windows before version\n1.10.0 retrieves and executes its automatic updates over a channel that is not\nauthenticated or integrity-protected. On each launch the application fetches an\nupdate descriptor (XML) over TLS but accepts any TLS certificate (a permissive\nTrustManager and a HostnameVerifier that always returns true), does not verify\nany digital signature on the update descriptor, and does not verify the\nAuthenticode signature or a checksum of the downloaded installer before running\nit. A man-in-the-middle attacker able to redirect www.eparaksts.lv can serve a\ncrafted update descriptor pointing to an attacker-controlled executable, which\nthe client downloads and executes, resulting in arbitrary code execution on the\nvictim host.",
-      "published": "2026-08-03T10:16:27.747",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0392"
+      "id": "CVE-2026-69094",
+      "summary": "Admidio before 5.0.11 contains an insecure direct object reference vulnerability in the save_temporary mode of mylist_function.php that allows authenticated users to hijack list configurations. Attackers can enumerate global list UUIDs and overwrite admin-curated global lists or other users' private lists by supplying a list_uuid parameter, transferring ownership and demoting global lists to personal configurations.",
+      "published": "2026-08-03T14:16:30.203",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69094"
     }
   ]
 }
