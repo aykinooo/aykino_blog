@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-03T21:19:50+00:00",
+  "generated_at": "2026-08-03T23:17:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-69246",
-      "summary": "Guzzle is an extensible PHP HTTP client. Prior to 7.15.2 and 8.0.1, Guzzle gives a transport the request URI as text and supplies the Host header separately. The cURL handlers set CURLOPT_URL to the URI exactly as written and push that Host into CURLOPT_HTTPHEADER; StreamHandler does the same through fopen(). libcurl then parses the authority itself, percent-decoding it and, on an IDN-capable build, applying IDNA mapping, and uses the result to resolve, connect, name the TLS peer and address a proxy CONNECT, while the supplied Host suppresses the aligned one libcurl would have generated. For a URI host written as 127.0.0.%31, filter_var() rejects the host as an IP literal, yet libcurl decodes it to 127.0.0.1 and reaches loopback with no DNS lookup while the server receives Host: 127.0.0.%31. An attacker who influences a fetched URI can therefore reach a host the application's checks excluded and read whatever the host exposes of the response. The same divergence moves Guzzle's own decisions onto a spelling the transport does not use: no_proxy selects proxy routing from the literal host, and RedirectMiddleware decides from it whether to strip Authorization and Cookie. Exploitation requires the application to build a request URI from untrusted input and to make a host decision before handing it to Guzzle. This issue is fixed in versions 7.15.2 and 8.0.1.",
-      "published": "2026-08-03T21:16:42.563",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69246"
-    },
-    {
-      "id": "CVE-2026-69245",
-      "summary": "Guzzle is an extensible PHP HTTP client. Prior to 7.15.2 and 8.0.1, SetCookie::matchesDomain() gives every subdomain of a cookie Domain that cookie unless SetCookie::matchesDomain() recognizes the Domain as an IP literal or a numeric host, and the decision comes from the domain's own text, so two spellings a transport reads as an address keep subdomain scope. Hexadecimal and mixed-base forms such as 0x7f000001 and 0177.0.0.0x1 go unrecognized while libcurl 8.21.0 reads both as 127.0.0.1. A percent-escaped Domain keeps that scope on both branches because percent-decoding sits above numeric parsing, so 192.168.0.%31 and 127.0.0.1%2e are registered names in the URI grammar rather than address literals, and no numeric rule in any base classifies them, while libcurl decodes the host before resolving and reads them as 192.168.0.1 and 127.0.0.1. A cookie stored for Domain=0x7f000001 is placed in the Cookie header of a request to evil.0x7f000001, disclosing a session identifier or token to a host that is not that address, and a response from evil.0x7f000001 setting Domain=0x7f000001 is accepted into the jar and replayed to the address, so a server answering for the look-alike name can fix a session or set application state. Exploitation requires the application to enable cookie support, address an origin by one of these spellings, and contact a host whose name ends in that spelling. This issue is fixed in versions 7.15.2 and 8.0.1.",
-      "published": "2026-08-03T21:16:42.413",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69245"
-    },
-    {
-      "id": "CVE-2026-69244",
-      "summary": "AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.3, an out-of-bounds heap read could occur in the C response parser while building an error message for a malformed response. An attacker controlled server, or possibly an accidental response, could trigger a DoS in the client. The vulnerable path was error message construction in aiohttp/_http_parser.pyx, where an llhttp error-position pointer was used to build a snippet for malformed chunked responses and malformed request or response bytes at the buffer end. This issue is fixed in version 3.14.3.",
-      "published": "2026-08-03T21:16:42.273",
+      "id": "CVE-2026-67978",
+      "summary": "An issue in the SBN UDP interface of NASA cFS v7.0.1 allows attackers to cause a Denial of Service (DoS) via transmitting a crafted SBN frame.",
+      "published": "2026-08-03T23:16:47.213",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69244"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67978"
     },
     {
-      "id": "CVE-2026-69243",
-      "summary": "AIOHTTP is an asynchronous HTTP client/server framework for asyncio and Python. Prior to 3.14.2, the HTTP parsers were vulnerable to a request smuggling attack relating to WebSocket upgrades. If using the server-side component, an attacker may be able to execute a request smuggling vulnerability using an edge case in the WebSocket upgrade procedure. A WebSocket upgrade request with a body could cause the parser to switch protocols before the complete request body was received, leaving trailing bytes to be handled as upgraded-protocol or pipelined data rather than normal HTTP body data. This issue is fixed in version 3.14.2.",
-      "published": "2026-08-03T21:16:42.113",
+      "id": "CVE-2026-67673",
+      "summary": "A stack-based buffer overflow vulnerability exists in the cmd_edl function of OreSat Firmware v1.0. The vulnerability is triggered when processing the edl fw_flash command, where the <filename> argument is copied to a 64-byte stack buffer via memcpy without proper length validation. An attacker with physical access to the UART3 serial interface can exploit this vulnerability by sending a maliciously crafted command with an oversized filename parameter,",
+      "published": "2026-08-03T23:16:47.080",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69243"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67673"
     },
     {
-      "id": "CVE-2026-69240",
-      "summary": "Sequelize is a Node.js ORM tool. Prior to 6.37.4, SQL injection is possible with strings only if dialect is set to oracle. The escape function defined in sql-string.js does not escape quotes if the value starts with TO_TIMESTAMP or TO_DATE. In the Oracle dialect, when val is a string and starts with TO_TIMESTAMP or TO_DATE, escape returns val directly instead of replacing single quotes. An attacker can inject arbitrary SQL expressions through an application value that reaches this escape path. This issue is fixed in version 6.37.4.",
-      "published": "2026-08-03T21:16:41.970",
+      "id": "CVE-2026-48399",
+      "summary": "Adobe Campaign Classic (ACC) is affected by a Violation of Secure Design Principles vulnerability that could result in a Security feature bypass. An attacker could leverage this vulnerability to bypass security measures and gain unauthorized read access. Exploitation of this issue does not require user interaction.",
+      "published": "2026-08-03T23:16:46.693",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48399"
+    },
+    {
+      "id": "CVE-2026-48333",
+      "summary": "Adobe Campaign Classic (ACC) is affected by an Incorrect Authorization vulnerability that could result in privilege escalation. An attacker could exploit this vulnerability to gain elevated privileges. Exploitation of this issue does not require user interaction.",
+      "published": "2026-08-03T23:16:46.567",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69240"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48333"
     },
     {
-      "id": "CVE-2026-67976",
-      "summary": "The Ref::SignalGen component of fprime framework v4.2.2 does not validate the safety of user-controlled parameters, allowing attackers to cause a Denial of Service (DoS) via inputting unsafe parameters.",
-      "published": "2026-08-03T21:16:41.450",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67976"
+      "id": "CVE-2026-48331",
+      "summary": "Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in privilege escalation. Exploitation of this issue does not require user interaction. Scope is changed.",
+      "published": "2026-08-03T23:16:46.443",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48331"
+    },
+    {
+      "id": "CVE-2026-48330",
+      "summary": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary SQL commands, potentially gaining elevated access or control over the application. Exploitation of this issue does not require user interaction. Scope is changed.",
+      "published": "2026-08-03T23:16:46.317",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48330"
     }
   ]
 }
