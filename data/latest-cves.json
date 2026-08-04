@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-04T09:48:44+00:00",
+  "generated_at": "2026-08-04T12:16:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67243",
-      "summary": "freo2 provided by refirio contains an unrestricted upload of file with dangerous type vulnerability. A user with the highest-level administrative privileges for the product may upload an executable file and execute arbitrary OS commands.",
-      "published": "2026-08-04T08:16:35.240",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67243"
-    },
-    {
-      "id": "CVE-2026-18759",
-      "summary": "The background service of ABP or AES runs as NT AUTHORITY\\SYSTEM and implements a file-based inter-process communication (IPC) mechanism protected by AES encryption. Because the encryption key file is readable by standard users and protected using DPAPI. Any authenticated local user can recover the key and forge valid IPC requests. Furthermore, the service does not check the identity of the requesting process and validates destination paths using an insufficient substring check. A local attacker can submit crafted encrypted requests containing directory traversal sequences to perform arbitrary file reads and arbitrary file writes as NT AUTHORITY\\SYSTEM, leading to full local privilege escalation.\nAffected products and versions include: ABP (ASUSTOR Backup Plan) 2.0.7.10171 and earlier as well as AES (ASUSTOR EZSync) 1.1.1.3113 and earlier.",
-      "published": "2026-08-04T08:16:35.070",
+      "id": "CVE-2026-10050",
+      "summary": "In Eclipse Jetty, the Digest authentication server-side component uses ISO-8859-1 to encode the password as bytes.\n\n\n\nThis was done because the initial specification for HTTP did not specify explicitly a charset, and it was assumed to be ISO-8859-1 for historical reasons.\n\n\n\nIf the password contains characters that cannot be represented in ISO-8859-1, they are silently replaced by `?`. This happens with passwords that contain Chinese, Cyrillic or Greek characters, for example: `\u03b1\u03b2123` converts to `??123`.\n\n\n\nAn attacker can send a request with a digest `Authorization` header crafted with a password made of only `?` characters; the server would match any password of the same length that contains non-ISO-8859-1 characters.\n\n\n\nRecent HTTP Digest [RFC-7616](https://datatracker.ietf.org/doc/html/rfc7616) supports a `charset` parameters that defaults to UTF-8 that allows for correct encoding/decoding of passwords.",
+      "published": "2026-08-04T11:22:43.883",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18759"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10050"
     },
     {
-      "id": "CVE-2026-18755",
-      "summary": "A DLL hijacking vulnerability in GeoVision GV-ASManager allows a local attacker with write access to an unsafe search directory to execute arbitrary code. By placing a crafted dynamic-link library (DLL) file into the application search path prior to the legitimate library, the malicious code is loaded and executed under the security privileges of the GV-ASManager process.",
-      "published": "2026-08-04T08:16:34.930",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18755"
+      "id": "CVE-2026-18772",
+      "summary": "Improper input validation vulnerability in Samsung Open Source rlottie allows Oversized Serialized Data Payloads.",
+      "published": "2026-08-04T10:19:32.923",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18772"
     },
     {
-      "id": "CVE-2026-18754",
-      "summary": "The\nproduct firmware contains an embedded, static RSA private key utilized by the\nLighttpd web server for TLS termination. Exposure of this private key allows\nmalicious actors to breach the confidentiality and integrity of HTTPS\ncommunications, enabling traffic decryption and server spoofing.",
-      "published": "2026-08-04T08:16:34.803",
+      "id": "CVE-2026-15721",
+      "summary": "Cleartext storage of sensitive information vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows SQL Injection.\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
+      "published": "2026-08-04T10:19:32.667",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15721"
+    },
+    {
+      "id": "CVE-2026-14838",
+      "summary": "Use of GET request method with sensitive query strings vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Session Hijacking.\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
+      "published": "2026-08-04T10:19:32.540",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14838"
+    },
+    {
+      "id": "CVE-2026-14804",
+      "summary": "Use of hard-coded cryptographic key vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Read Sensitive Constants Within an Executable.\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
+      "published": "2026-08-04T10:19:32.417",
       "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18754"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14804"
     },
     {
-      "id": "CVE-2026-18753",
-      "summary": "The\nproduct firmware contains an embedded, static RSA private key utilized by the\nLighttpd web server for TLS termination. Exposure of this private key allows\nmalicious actors to breach the confidentiality and integrity of HTTPS\ncommunications, enabling traffic decryption and server spoofing.",
-      "published": "2026-08-04T08:16:34.640",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18753"
-    },
-    {
-      "id": "CVE-2026-64565",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nInput: ims-pcu - fix heap-buffer-overflow in ims_pcu_process_data()\n\nThe `ims_pcu_process_data()` processes incoming URB data byte by byte.\nHowever, it fails to check if the `read_pos` index exceeds\nIMS_PCU_BUF_SIZE.\n\nIf a malicious USB device sends a packet larger than IMS_PCU_BUF_SIZE,\n`read_pos` will increment indefinitely. Moreover, since `read_pos` is\nlocated immediately after `read_buf`, the attacker can overwrite\n`read_pos` itself to arbitrarily control the index.\n\nThis manipulated `read_pos` is subsequently used in\n`ims_pcu_handle_response()` to copy data into `cmd_buf`, leading to a\nheap buffer overflow.\n\nSpecifically, an attacker can overwrite the `cmd_done.wait.head` located\nat offset 136 relative to `cmd_buf` in the `ims_pcu_handle_response()`.\nConsequently, when the driver calls `complete(&pcu->cmd_done)`, it\ntriggers a control flow hijack by using the manipulated pointer.\n\nFix this by adding a bounds check for `read_pos` before writing to\n`read_buf`. If the packet is too long, discard it, log a warning,\nand reset the parser state.\n\n[dtor: factor out resetting packet state, reset checksum as well]",
-      "published": "2026-08-04T07:16:31.477",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64565"
+      "id": "CVE-2026-14465",
+      "summary": "Insufficient session expiration vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Reusing Session IDs (aka Session Replay).\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
+      "published": "2026-08-04T10:19:32.293",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14465"
     }
   ]
 }
