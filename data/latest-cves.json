@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-04T19:54:10+00:00",
+  "generated_at": "2026-08-04T21:33:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-70474",
-      "summary": "Flowise is a drag-and-drop user interface for building customized large language model (LLM) flows. Prior to 3.1.3, Flowise has three OAuth2 credential endpoints that look up credentials by id alone with no workspaceId filter. The authorize, callback, and refresh handlers query the Credential table by id only; callback and refresh are whitelisted from authentication. This allows any authenticated user to initiate OAuth2 flows against credentials belonging to other workspaces, allows an unauthenticated attacker to forge OAuth2 callbacks to overwrite tokens in any credential, and allows an unauthenticated attacker to refresh tokens for any credential. The affected routes include /api/v1/oauth2-credential/authorize/<VICTIM_CREDENTIAL_UUID>, /api/v1/oauth2-credential/callback?code=ATTACKER_AUTH_CODE&state=<VICTIM_CREDENTIAL_UUID>, and /api/v1/oauth2-credential/refresh/<VICTIM_CREDENTIAL_UUID>. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T19:16:54.977",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70474"
+      "id": "CVE-2026-70588",
+      "summary": "Ghost is a Node.js content management system. From 5.26.0 until 6.54.1, the Universal Import feature in Ghost Admin failed to properly sanitize imported content resulting in XSS in post content. This issue is fixed in version 6.54.1.",
+      "published": "2026-08-04T21:16:38.750",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70588"
     },
     {
-      "id": "CVE-2026-70473",
-      "summary": "Flowise is a drag-and-drop user interface for building customized large language model (LLM) flows. Prior to 3.1.3, Flowise GET /api/v1/upsert-history returns the entire server-wide upsert history instead of being scoped to the requesting user, tenant, or workspace. The response can exceed 100MB and includes sensitive configuration data, including Vector Store settings such as Qdrant Server URL and collection name. The observed behavior indicates missing or insufficient authorization checks, workspace/project/tenant isolation, and pagination or limits, exposing integration parameters and infrastructure details that may enable further targeted attacks. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T19:16:54.830",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70473"
-    },
-    {
-      "id": "CVE-2026-70472",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, Flowise openai-assistants-vector-store endpoints accept a client-controlled credential parameter and load credentials by id without checking whether that credential belongs to the caller workspace. Route permissions assistants:* only check feature access. The controller passes req.query.credential straight to the service, and the service uses findOneBy({ id: credentialId }), decrypts the credential, and calls OpenAI APIs without a workspaceId check. If an attacker knows another workspace credentialId, the attacker can use that workspace OpenAI key, read, modify, or delete victim vector stores and files, cause billing impact on the victim OpenAI account, and violate multi-tenant boundaries. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T19:16:54.680",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70472"
-    },
-    {
-      "id": "CVE-2026-70471",
-      "summary": "Flowise is a drag-and-drop user interface for building customized large language model (LLM) flows. Prior to 3.1.3, Flowise injects $vars into the code execution sandbox without requiring variables:view, bypassing the permission-protected Variables API. Variables for the active workspace are fetched at packages/components/src/utils.ts and runtime variables are resolved from server environment variables, while the official variables route enforces variables:view. A user or API key that is denied variables:view can call /api/v1/node-custom-function and receive $vars pre-populated with all variables for the workspace, including Variable.name to Variable.value static variables and Variable.name to process.env[Variable.name] runtime variables. This can expose secrets such as database passwords, JWT secrets, SMTP passwords, and cloud keys, depending on the workspace Variables configuration. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T19:16:54.540",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70471"
-    },
-    {
-      "id": "CVE-2026-69704",
-      "summary": "Atals-Livre contains a SQL injection vulnerability that allows attackers to manipulate database queries by passing unsanitized input through a GET parameter to the supp() deletion helper function. Attackers can inject malicious SQL syntax via the vulnerable GET parameter to perform unauthorized database operations including data deletion and extraction.",
-      "published": "2026-08-04T19:16:54.280",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69704"
-    },
-    {
-      "id": "CVE-2026-69703",
-      "summary": "Atlas-Livre contains an improper access control vulnerability in the admin controllers under Espace_admin/controleur/ that allows unauthenticated attackers to bypass session-based authentication guards by sending raw HTTP requests that ignore redirects. Attackers can invoke destructive admin actions such as record deletion by requesting controller endpoints with GET parameters like supp, because the PHP header() redirect is never followed by an exit or die call, allowing all subsequent code including database operations to execute regardless of session state.",
-      "published": "2026-08-04T19:16:54.130",
+      "id": "CVE-2026-70554",
+      "summary": "MaxSite CMS contains a PHP object injection vulnerability that allows unauthenticated attackers to execute arbitrary code by passing attacker-controlled serialized data in the maxsite_comuser cookie directly to unserialize() without validation or class allowlisting. Attackers can craft a malicious serialized PHP object payload delivered in a single HTTP request to trigger magic methods during object graph reconstruction, enabling property-oriented programming attacks or remote code execution via available gadget chains such as those targeting SoapClient or Imagick extensions.",
+      "published": "2026-08-04T21:16:38.613",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69703"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70554"
+    },
+    {
+      "id": "CVE-2026-70494",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.0, the DELETE /api/v1/folders/{id} handler in backend/open_webui/routers/folders.py allowed a user granted write access to a shared chat folder to permanently delete chats and messages belonging to the folder owner. The cascade following the authorization check is bound to the folder owner's id, but the subfolder check accepted any inherited write grant instead of requiring ownership or administrator status. A collaborator can destroy the owner's subtree or force-move chats out of it when delete_contents=false. This issue is fixed in 0.11.0.",
+      "published": "2026-08-04T21:16:38.470",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70494"
+    },
+    {
+      "id": "CVE-2026-70493",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.9.6 until 0.11.0, the built-in knowledge search path in backend/open_webui/tools/knowledge_fs.py and backend/open_webui/tools/builtin.py let a chat participant choose a pattern used to grep knowledge files. Patterns containing regex metacharacters were compiled with Python's backtracking re engine and run against every line of every reachable file with no time limit, so a crafted pattern such as (x|x)*y and one matching uploaded file line can pin one CPU core and block the event loop. This causes availability impact for every other user of the affected worker. This issue is fixed in 0.11.0.",
+      "published": "2026-08-04T21:16:38.327",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70493"
+    },
+    {
+      "id": "CVE-2026-70492",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. From 0.10.0 until 0.11.0, src/lib/components/chat/Messages/Markdown/KatexRenderer.svelte could store and render a chat message whose math block makes KaTeX fail with a stack overflow instead of a parse error. The catch branch fell back to inserting the original math source into the page as HTML through {@html} rather than as text, so script in the message runs in the browser of whoever views it, including shared chats and channels. The viewer's session token in localStorage can be stolen, and an administrator viewer can have their account taken over. This issue is fixed in 0.11.0.",
+      "published": "2026-08-04T21:16:38.190",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70492"
+    },
+    {
+      "id": "CVE-2026-70491",
+      "summary": "Open WebUI is an extensible, feature-rich, and user-friendly self-hosted AI platform. In 0.10.2 and earlier, the GET /api/v1/tools/, GET /api/v1/tools/list, and GET /api/v1/tools/id/{id} endpoints in backend/open_webui/routers/tools.py returned full Python tool source to authenticated non-admin read-only users. ToolResponse deliberately omitted source and specs, but ToolUserResponse permitted extra fields and handlers spread a full tool model dump into the response, re-admitting omitted fields. A non-admin with a read grant can obtain another user's server-side tool source, which commonly embeds hard-coded API keys, credentials, and internal service URLs. This issue is fixed in 0.11.0.",
+      "published": "2026-08-04T21:16:38.050",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70491"
     }
   ]
 }
