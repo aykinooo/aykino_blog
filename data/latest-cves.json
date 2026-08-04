@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-04T18:01:58+00:00",
+  "generated_at": "2026-08-04T19:54:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-69263",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the mitigation for CVE-2025-8943 blocked -y and --yes flags on npx, but packages/components/nodes/tools/MCP/core.ts denied only PATH, LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, and NODE_OPTIONS by exact environment-variable name. Because npm reads configuration from npm_config_* variables, setting npm_config_yes=true reproduced --yes behavior without using a blocked flag, causing npx to auto-install and execute the named package when a Custom MCP server launched. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T17:17:01.683",
+      "id": "CVE-2026-70474",
+      "summary": "Flowise is a drag-and-drop user interface for building customized large language model (LLM) flows. Prior to 3.1.3, Flowise has three OAuth2 credential endpoints that look up credentials by id alone with no workspaceId filter. The authorize, callback, and refresh handlers query the Credential table by id only; callback and refresh are whitelisted from authentication. This allows any authenticated user to initiate OAuth2 flows against credentials belonging to other workspaces, allows an unauthenticated attacker to forge OAuth2 callbacks to overwrite tokens in any credential, and allows an unauthenticated attacker to refresh tokens for any credential. The affected routes include /api/v1/oauth2-credential/authorize/<VICTIM_CREDENTIAL_UUID>, /api/v1/oauth2-credential/callback?code=ATTACKER_AUTH_CODE&state=<VICTIM_CREDENTIAL_UUID>, and /api/v1/oauth2-credential/refresh/<VICTIM_CREDENTIAL_UUID>. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T19:16:54.977",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69263"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70474"
     },
     {
-      "id": "CVE-2026-69262",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, `DELETE /api/v1/chatflows/:id` authorized requests with checkAnyPermission('chatflows:delete,agentflows:delete'), so possession of either permission was sufficient to reach the delete path. The delete logic then resolved the target record only by id and workspaceId and did not validate the target resource type, allowing a caller with only agentflows:delete to delete a CHATFLOW and a caller with only chatflows:delete to delete an AGENTFLOW in the same workspace. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T17:17:01.547",
+      "id": "CVE-2026-70473",
+      "summary": "Flowise is a drag-and-drop user interface for building customized large language model (LLM) flows. Prior to 3.1.3, Flowise GET /api/v1/upsert-history returns the entire server-wide upsert history instead of being scoped to the requesting user, tenant, or workspace. The response can exceed 100MB and includes sensitive configuration data, including Vector Store settings such as Qdrant Server URL and collection name. The observed behavior indicates missing or insufficient authorization checks, workspace/project/tenant isolation, and pagination or limits, exposing integration parameters and infrastructure details that may enable further targeted attacks. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T19:16:54.830",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69262"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70473"
     },
     {
-      "id": "CVE-2026-69259",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the SQLite Record Manager node in packages/components/nodes/recordmanager/SQLiteRecordManager/SQLiteRecordManager.ts accepted user-controlled additionalConfig and spread it after the intended database setting, allowing additionalConfig.database to overwrite the SQLite database path. An authenticated attacker using the published Docker image, which ran as root, could write a SQLite database to paths such as /etc/chromium/exploit.conf; by controlling the table name and namespace value, the attacker could place shell syntax into the database file and trigger execution when Puppeteer launched Chromium and sourced /etc/chromium/*.conf. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T17:17:01.413",
+      "id": "CVE-2026-70472",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, Flowise openai-assistants-vector-store endpoints accept a client-controlled credential parameter and load credentials by id without checking whether that credential belongs to the caller workspace. Route permissions assistants:* only check feature access. The controller passes req.query.credential straight to the service, and the service uses findOneBy({ id: credentialId }), decrypts the credential, and calls OpenAI APIs without a workspaceId check. If an attacker knows another workspace credentialId, the attacker can use that workspace OpenAI key, read, modify, or delete victim vector stores and files, cause billing impact on the victim OpenAI account, and violate multi-tenant boundaries. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T19:16:54.680",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69259"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70472"
     },
     {
-      "id": "CVE-2026-69258",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the unauthenticated POST /api/v1/prediction/:id endpoint accepted an overrideConfig object and unconditionally spread it into internal flowConfig and flowData objects in packages/server/src/utils/buildChatflow.ts and packages/server/src/utils/index.ts without checking apiOverrideStatus. This allowed unauthenticated attackers to inject arbitrary properties into the flow execution context of any public chatflow, overwrite values such as chatId, sessionId, and chatHistory, and control values resolved through $flow.* template variables consumed by flow nodes. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T17:17:01.280",
+      "id": "CVE-2026-70471",
+      "summary": "Flowise is a drag-and-drop user interface for building customized large language model (LLM) flows. Prior to 3.1.3, Flowise injects $vars into the code execution sandbox without requiring variables:view, bypassing the permission-protected Variables API. Variables for the active workspace are fetched at packages/components/src/utils.ts and runtime variables are resolved from server environment variables, while the official variables route enforces variables:view. A user or API key that is denied variables:view can call /api/v1/node-custom-function and receive $vars pre-populated with all variables for the workspace, including Variable.name to Variable.value static variables and Variable.name to process.env[Variable.name] runtime variables. This can expose secrets such as database passwords, JWT secrets, SMTP passwords, and cloud keys, depending on the workspace Variables configuration. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T19:16:54.540",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69258"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70471"
     },
     {
-      "id": "CVE-2026-69257",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, Flowise's HTTP security module httpSecurity.ts did not normalize IPv4-mapped IPv6 addresses such as ::ffff:127.0.0.1 and ::ffff:169.254.169.254 before checking them against the deny list. Because ipaddr.js reports these addresses as ipv6 while IPv4 CIDR deny-list entries are ipv4, isDeniedIP() skipped the IPv4 CIDR checks. An attacker who controls DNS resolution for a hostname used by the HTTP Node, API Chain, Document Loader, MCP tool, or other paths using secureAxiosRequest(), secureFetch(), or checkDenyList() could return a AAAA record for an IPv4-mapped target and cause requests to reach localhost, internal services, or cloud metadata endpoints. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T17:17:00.840",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69257"
+      "id": "CVE-2026-69704",
+      "summary": "Atals-Livre contains a SQL injection vulnerability that allows attackers to manipulate database queries by passing unsanitized input through a GET parameter to the supp() deletion helper function. Attackers can inject malicious SQL syntax via the vulnerable GET parameter to perform unauthorized database operations including data deletion and extraction.",
+      "published": "2026-08-04T19:16:54.280",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69704"
     },
     {
-      "id": "CVE-2026-69256",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the CSVAgent node allowed users to provide Python code that is executed through pyodide; although a denylist blocked dangerous Python constructs, pandas.read_pickle() could deserialize a pickled payload and achieve code execution without matching the denied words. The affected file is flowise-components/nodes/agents/CSVAgent/CSVAgent.ts, where user-supplied customReadCSVFunc is evaluated as pd.${customReadCSVFunc}. An authenticated user who can create or modify a chatflow can add a CSV Agent, place a malicious read_pickle payload in the Additional Parameters, save the chatflow, and trigger /api/v1/prediction/<UUID> to execute commands. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T17:17:00.707",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69256"
+      "id": "CVE-2026-69703",
+      "summary": "Atlas-Livre contains an improper access control vulnerability in the admin controllers under Espace_admin/controleur/ that allows unauthenticated attackers to bypass session-based authentication guards by sending raw HTTP requests that ignore redirects. Attackers can invoke destructive admin actions such as record deletion by requesting controller endpoints with GET parameters like supp, because the PHP header() redirect is never followed by an exit or die call, allowing all subsequent code including database operations to execute regardless of session state.",
+      "published": "2026-08-04T19:16:54.130",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69703"
     }
   ]
 }
