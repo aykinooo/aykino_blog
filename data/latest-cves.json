@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-04T06:38:37+00:00",
+  "generated_at": "2026-08-04T09:48:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-68744",
-      "summary": "A flaw was found in SSSD. The sss_nss_protocol_fill_initgr() function in the NSS responder pre-allocates reply space for all group entries but does not shrink the packet when groups are skipped, causing uninitialized heap bytes to be transmitted to the client. A local attacker can exploit this to disclose cached directory data and heap layout information from the sssd_nss process.",
-      "published": "2026-08-04T06:16:30.490",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68744"
+      "id": "CVE-2026-67243",
+      "summary": "freo2 provided by refirio contains an unrestricted upload of file with dangerous type vulnerability. A user with the highest-level administrative privileges for the product may upload an executable file and execute arbitrary OS commands.",
+      "published": "2026-08-04T08:16:35.240",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67243"
     },
     {
-      "id": "CVE-2026-18739",
-      "summary": "A flaw was found in popt, a command-line option parsing library. An off-by-one error in the poptStuffArgs function, when repeatedly called by a host application or through deep alias nesting, can lead to corruption of internal program data. This corruption could potentially enable a local attacker to execute arbitrary code if the host application then unsafely processes the altered data.",
-      "published": "2026-08-04T06:16:30.330",
-      "cvss": 2.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18739"
-    },
-    {
-      "id": "CVE-2026-18569",
-      "summary": "A flaw was found in the backchannel logout endpoint of the keycloak-services component, which is part of the Red Hat Build of Keycloak. This component handles authentication and session management for applications. The issue occurs when an OIDC identity provider is configured to skip signature validation. In this specific setup, the system incorrectly accepts logout requests that have no cryptographic signature. An attacker who knows certain technical details about a user's session can use this flaw to force that user to be logged out, potentially disrupting their work.",
-      "published": "2026-08-04T06:16:30.140",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18569"
-    },
-    {
-      "id": "CVE-2026-16881",
-      "summary": "A code injection vulnerability exists in the LINE Android app prior to version 26.7.2. \n\nThe profile rendering component does not adequately validate or sandbox externally supplied script content embedded in profile templates. \n\nAs a result, an attacker who is able to place crafted content in a profile could cause unintended code to execute with the application's privileges when a victim views that profile. \n\nA server-side mitigation has been deployed that also protects existing Android clients that have not been updated to version 26.7.2.",
-      "published": "2026-08-04T06:16:29.810",
+      "id": "CVE-2026-18759",
+      "summary": "The background service of ABP or AES runs as NT AUTHORITY\\SYSTEM and implements a file-based inter-process communication (IPC) mechanism protected by AES encryption. Because the encryption key file is readable by standard users and protected using DPAPI. Any authenticated local user can recover the key and forge valid IPC requests. Furthermore, the service does not check the identity of the requesting process and validates destination paths using an insufficient substring check. A local attacker can submit crafted encrypted requests containing directory traversal sequences to perform arbitrary file reads and arbitrary file writes as NT AUTHORITY\\SYSTEM, leading to full local privilege escalation.\nAffected products and versions include: ABP (ASUSTOR Backup Plan) 2.0.7.10171 and earlier as well as AES (ASUSTOR EZSync) 1.1.1.3113 and earlier.",
+      "published": "2026-08-04T08:16:35.070",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16881"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18759"
     },
     {
-      "id": "CVE-2026-42169",
-      "summary": "A heap-buffer-overflow vulnerability exists in the APNG (Animated PNG) file loader of GIMP. This flaw occurs when the `fcTL` width exceeds the `IHDR` width, leading to pixel data being written past the end of a heap allocation. Additionally, a heap-based buffer overflow exists in the DDS plug-in due to a BPP mismatch in the `load_layer()` function. Both vulnerabilities can be triggered by opening a specially crafted image file, potentially leading to code execution.",
-      "published": "2026-08-04T04:16:32.710",
+      "id": "CVE-2026-18755",
+      "summary": "A DLL hijacking vulnerability in GeoVision GV-ASManager allows a local attacker with write access to an unsafe search directory to execute arbitrary code. By placing a crafted dynamic-link library (DLL) file into the application search path prior to the legitimate library, the malicious code is loaded and executed under the security privileges of the GV-ASManager process.",
+      "published": "2026-08-04T08:16:34.930",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42169"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18755"
     },
     {
-      "id": "CVE-2026-18723",
-      "summary": "A vulnerability was determined in diaowen DWSurvey up to 6.14.0. The affected element is an unknown function of the file /api/dwsurvey/app/survey/up-survey-status.do of the component Survey Status Handler. This manipulation causes improper authorization. The attack may be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-04T04:16:32.493",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18723"
+      "id": "CVE-2026-18754",
+      "summary": "The\nproduct firmware contains an embedded, static RSA private key utilized by the\nLighttpd web server for TLS termination. Exposure of this private key allows\nmalicious actors to breach the confidentiality and integrity of HTTPS\ncommunications, enabling traffic decryption and server spoofing.",
+      "published": "2026-08-04T08:16:34.803",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18754"
+    },
+    {
+      "id": "CVE-2026-18753",
+      "summary": "The\nproduct firmware contains an embedded, static RSA private key utilized by the\nLighttpd web server for TLS termination. Exposure of this private key allows\nmalicious actors to breach the confidentiality and integrity of HTTPS\ncommunications, enabling traffic decryption and server spoofing.",
+      "published": "2026-08-04T08:16:34.640",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18753"
+    },
+    {
+      "id": "CVE-2026-64565",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nInput: ims-pcu - fix heap-buffer-overflow in ims_pcu_process_data()\n\nThe `ims_pcu_process_data()` processes incoming URB data byte by byte.\nHowever, it fails to check if the `read_pos` index exceeds\nIMS_PCU_BUF_SIZE.\n\nIf a malicious USB device sends a packet larger than IMS_PCU_BUF_SIZE,\n`read_pos` will increment indefinitely. Moreover, since `read_pos` is\nlocated immediately after `read_buf`, the attacker can overwrite\n`read_pos` itself to arbitrarily control the index.\n\nThis manipulated `read_pos` is subsequently used in\n`ims_pcu_handle_response()` to copy data into `cmd_buf`, leading to a\nheap buffer overflow.\n\nSpecifically, an attacker can overwrite the `cmd_done.wait.head` located\nat offset 136 relative to `cmd_buf` in the `ims_pcu_handle_response()`.\nConsequently, when the driver calls `complete(&pcu->cmd_done)`, it\ntriggers a control flow hijack by using the manipulated pointer.\n\nFix this by adding a bounds check for `read_pos` before writing to\n`read_buf`. If the packet is too long, discard it, log a warning,\nand reset the parser state.\n\n[dtor: factor out resetting packet state, reset checksum as well]",
+      "published": "2026-08-04T07:16:31.477",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64565"
     }
   ]
 }
