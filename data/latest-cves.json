@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-04T15:33:15+00:00",
+  "generated_at": "2026-08-04T18:01:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-69251",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, Flowise record manager and agent memory nodes allowed users to set arbitrary TypeORM DataSource options through the additionalConfig input in packages/components/nodes/recordmanager/MySQLRecordManager/MySQLrecordManager.ts, packages/components/nodes/recordmanager/PostgresRecordManager/PostgresRecordManager.ts, packages/components/nodes/recordmanager/SQLiteRecordManager/SQLiteRecordManager.ts, packages/components/nodes/memory/AgentMemory/MySQLAgentMemory/MySQLAgentMemory.ts, and packages/components/nodes/memory/AgentMemory/AgentMemory.ts. TypeORM DataSource options such as entities, subscribers, and migrations can load local JavaScript files, allowing an authenticated user to execute arbitrary code on the server by uploading a JavaScript payload and referencing it from additionalConfig.entities. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T15:16:44.430",
+      "id": "CVE-2026-69263",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the mitigation for CVE-2025-8943 blocked -y and --yes flags on npx, but packages/components/nodes/tools/MCP/core.ts denied only PATH, LD_LIBRARY_PATH, DYLD_LIBRARY_PATH, and NODE_OPTIONS by exact environment-variable name. Because npm reads configuration from npm_config_* variables, setting npm_config_yes=true reproduced --yes behavior without using a blocked flag, causing npx to auto-install and execute the named package when a Custom MCP server launched. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T17:17:01.683",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69251"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69263"
     },
     {
-      "id": "CVE-2026-69250",
-      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the OAuth2 token refresh endpoint POST /api/v1/oauth2-credential/refresh/:credentialId is unauthenticated by design and performs a server-side HTTP request to the credential-controlled accessTokenUrl without SSRF protections. Runtime validation confirmed that the endpoint was reachable without authentication, triggered outbound POST requests to an attacker-controlled server, reflected the full remote response body to the caller through tokenInfo, and sent client_id, client_secret, grant_type=refresh_token, and refresh_token in the request body. This issue is fixed in version 3.1.3.",
-      "published": "2026-08-04T15:16:44.277",
+      "id": "CVE-2026-69262",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, `DELETE /api/v1/chatflows/:id` authorized requests with checkAnyPermission('chatflows:delete,agentflows:delete'), so possession of either permission was sufficient to reach the delete path. The delete logic then resolved the target record only by id and workspaceId and did not validate the target resource type, allowing a caller with only agentflows:delete to delete a CHATFLOW and a caller with only chatflows:delete to delete an AGENTFLOW in the same workspace. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T17:17:01.547",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69250"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69262"
     },
     {
-      "id": "CVE-2026-68494",
-      "summary": "The fix released in jackson-core 2.18.6 and 2.21.1 for CVE-2026-18401 (GHSA-72hv-8253-57qq, number length constraint bypass in the non-blocking parser) is incomplete. This record covers the remaining bypass.\n\n\n\nThe earlier fix wired validateIntegerLength() into a new _setIntLength() helper and invoked it wherever the integer portion of a number is decided: a terminator byte arrives, a . or e/E is seen, or input ends inside a fully buffered value. It was not invoked on the attacker-relevant path where the parser runs out of input while still inside the MINOR_NUMBER_INTEGER_DIGITS minor state and returns NOT_AVAILABLE to the caller.\n\n\n\nAs a result, an attacker who streams JSON to a non-blocking parser in many small chunks, without ever sending a terminator byte, keeps the parser inside MINOR_NUMBER_INTEGER_DIGITS indefinitely. _textBuffer.expandCurrentSegment() grows the accumulator on every chunk while validateIntegerLength() is never called. The accumulator is bounded only by maxStringLength (20 MiB by default) rather than by maxNumberLength (1000 by default), an amplification of roughly 20,000x over the documented limit. Because Java char values occupy two bytes, a single connection can be driven to approximately 40 MiB of heap before the validator finally fires when the value completes.\n\n\n\nThe equivalent fraction-path code is correct: _finishFloatFraction() calls _setFractLength() before its NOT_AVAILABLE return. The missing call affects the integer-digit paths in _startPositiveNumber(), _startNegativeNumber() and _finishNumberIntegralPart() in NonBlockingUtf8JsonParserBase.\n\n\n\nImpact: reactive frameworks such as Spring WebFlux/Reactor, Quarkus, Helidon and Vert.x feed inbound HTTP or gRPC bytes to the async parser as they arrive, which is precisely the chunked-feed shape required. Operators who set StreamReadConstraints.maxNumberLength expecting it to cap memory per number value do not get that guarantee; memory accumulates per concurrent connection and attacker-controlled concurrency can exhaust the JVM heap. The synchronous parsers (UTF8StreamJsonParser, ReaderBasedJsonParser) and the async parser operating on complete input are not affected.\n\n\n\nExploitation requires only the ability to stream data to a parsing endpoint; no privileges or user interaction are needed.\n\n\n\nThis issue affects com.fasterxml.jackson.core:jackson-core from version 2.15.0 through 2.18.7, from 2.19.0 through 2.21.3, and from 2.22.0 through 2.22.0, and tools.jackson.core:jackson-core from 3.0.0 through 3.1.3 and from 3.2.0 through 3.2.0. Versions prior to 2.15.0 are not affected, because StreamReadConstraints -- which defines the maxNumberLength setting -- was first introduced in jackson-core 2.15.0, so no such constraint exists to be bypassed in earlier releases. Note that GHSA-r7wm-3cxj-wff9 states the affected 2.x range without a lower bound.",
-      "published": "2026-08-04T15:16:41.443",
+      "id": "CVE-2026-69259",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the SQLite Record Manager node in packages/components/nodes/recordmanager/SQLiteRecordManager/SQLiteRecordManager.ts accepted user-controlled additionalConfig and spread it after the intended database setting, allowing additionalConfig.database to overwrite the SQLite database path. An authenticated attacker using the published Docker image, which ran as root, could write a SQLite database to paths such as /etc/chromium/exploit.conf; by controlling the table name and namespace value, the attacker could place shell syntax into the database file and trigger execution when Puppeteer launched Chromium and sourced /etc/chromium/*.conf. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T17:17:01.413",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68494"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69259"
     },
     {
-      "id": "CVE-2026-67618",
-      "summary": "marimo before 0.23.15 contains a configuration injection vulnerability that allows notebook authors to exfiltrate operator API keys by embedding a malicious base_url in PEP-723 inline script metadata, which is merged into session configuration with higher precedence than the operator's own settings due to insufficient sanitization in sanitize_pyproject_dict. When an operator opens the crafted notebook and makes an AI request, marimo resolves the attacker-controlled base_url from the notebook config while falling back to the operator's OPENAI_API_KEY environment variable for authentication, transmitting the API key to the attacker-controlled endpoint without requiring any cell execution.",
-      "published": "2026-08-04T15:16:41.293",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67618"
+      "id": "CVE-2026-69258",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the unauthenticated POST /api/v1/prediction/:id endpoint accepted an overrideConfig object and unconditionally spread it into internal flowConfig and flowData objects in packages/server/src/utils/buildChatflow.ts and packages/server/src/utils/index.ts without checking apiOverrideStatus. This allowed unauthenticated attackers to inject arbitrary properties into the flow execution context of any public chatflow, overwrite values such as chatId, sessionId, and chatHistory, and control values resolved through $flow.* template variables consumed by flow nodes. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T17:17:01.280",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69258"
     },
     {
-      "id": "CVE-2026-67200",
-      "summary": "Perspective 5.0.0 contains a path traversal vulnerability that allows unauthenticated remote attackers to read arbitrary files from the server filesystem by including literal ../ segments in HTTP request URL paths. Attackers can bypass the insufficient query-string-stripping sanitization to traverse outside the configured asset root directory and retrieve sensitive files such as system credentials and application secrets, with results exposed cross-origin due to a wildcard Access-Control-Allow-Origin header set on all responses.",
-      "published": "2026-08-04T15:16:40.717",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67200"
+      "id": "CVE-2026-69257",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, Flowise's HTTP security module httpSecurity.ts did not normalize IPv4-mapped IPv6 addresses such as ::ffff:127.0.0.1 and ::ffff:169.254.169.254 before checking them against the deny list. Because ipaddr.js reports these addresses as ipv6 while IPv4 CIDR deny-list entries are ipv4, isDeniedIP() skipped the IPv4 CIDR checks. An attacker who controls DNS resolution for a hostname used by the HTTP Node, API Chain, Document Loader, MCP tool, or other paths using secureAxiosRequest(), secureFetch(), or checkDenyList() could return a AAAA record for an IPv4-mapped target and cause requests to reach localhost, internal services, or cloud metadata endpoints. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T17:17:00.840",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69257"
     },
     {
-      "id": "CVE-2026-67199",
-      "summary": "Perspective 5.0.0 contains a denial of service vulnerability that allows remote attackers to block the server event loop indefinitely by submitting a crafted expression containing unbounded for or while loop constructs in a TableMakeViewReq message. Attackers can embed an arbitrarily large iteration count in an expression column evaluated once per table row, causing the Tornado IOLoop to block without any iteration cap, deadline, or cancellation check, rendering the server unresponsive to all connected clients.",
-      "published": "2026-08-04T15:16:40.570",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67199"
+      "id": "CVE-2026-69256",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the CSVAgent node allowed users to provide Python code that is executed through pyodide; although a denylist blocked dangerous Python constructs, pandas.read_pickle() could deserialize a pickled payload and achieve code execution without matching the denied words. The affected file is flowise-components/nodes/agents/CSVAgent/CSVAgent.ts, where user-supplied customReadCSVFunc is evaluated as pd.${customReadCSVFunc}. An authenticated user who can create or modify a chatflow can add a CSV Agent, place a malicious read_pickle payload in the Additional Parameters, save the chatflow, and trigger /api/v1/prediction/<UUID> to execute commands. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T17:17:00.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69256"
     }
   ]
 }
