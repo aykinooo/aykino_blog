@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-04T12:16:24+00:00",
+  "generated_at": "2026-08-04T15:33:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-10050",
-      "summary": "In Eclipse Jetty, the Digest authentication server-side component uses ISO-8859-1 to encode the password as bytes.\n\n\n\nThis was done because the initial specification for HTTP did not specify explicitly a charset, and it was assumed to be ISO-8859-1 for historical reasons.\n\n\n\nIf the password contains characters that cannot be represented in ISO-8859-1, they are silently replaced by `?`. This happens with passwords that contain Chinese, Cyrillic or Greek characters, for example: `\u03b1\u03b2123` converts to `??123`.\n\n\n\nAn attacker can send a request with a digest `Authorization` header crafted with a password made of only `?` characters; the server would match any password of the same length that contains non-ISO-8859-1 characters.\n\n\n\nRecent HTTP Digest [RFC-7616](https://datatracker.ietf.org/doc/html/rfc7616) supports a `charset` parameters that defaults to UTF-8 that allows for correct encoding/decoding of passwords.",
-      "published": "2026-08-04T11:22:43.883",
+      "id": "CVE-2026-69251",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, Flowise record manager and agent memory nodes allowed users to set arbitrary TypeORM DataSource options through the additionalConfig input in packages/components/nodes/recordmanager/MySQLRecordManager/MySQLrecordManager.ts, packages/components/nodes/recordmanager/PostgresRecordManager/PostgresRecordManager.ts, packages/components/nodes/recordmanager/SQLiteRecordManager/SQLiteRecordManager.ts, packages/components/nodes/memory/AgentMemory/MySQLAgentMemory/MySQLAgentMemory.ts, and packages/components/nodes/memory/AgentMemory/AgentMemory.ts. TypeORM DataSource options such as entities, subscribers, and migrations can load local JavaScript files, allowing an authenticated user to execute arbitrary code on the server by uploading a JavaScript payload and referencing it from additionalConfig.entities. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T15:16:44.430",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10050"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69251"
     },
     {
-      "id": "CVE-2026-18772",
-      "summary": "Improper input validation vulnerability in Samsung Open Source rlottie allows Oversized Serialized Data Payloads.",
-      "published": "2026-08-04T10:19:32.923",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18772"
+      "id": "CVE-2026-69250",
+      "summary": "Flowise is a drag & drop user interface to build a customized large language model flow. Prior to 3.1.3, the OAuth2 token refresh endpoint POST /api/v1/oauth2-credential/refresh/:credentialId is unauthenticated by design and performs a server-side HTTP request to the credential-controlled accessTokenUrl without SSRF protections. Runtime validation confirmed that the endpoint was reachable without authentication, triggered outbound POST requests to an attacker-controlled server, reflected the full remote response body to the caller through tokenInfo, and sent client_id, client_secret, grant_type=refresh_token, and refresh_token in the request body. This issue is fixed in version 3.1.3.",
+      "published": "2026-08-04T15:16:44.277",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69250"
     },
     {
-      "id": "CVE-2026-15721",
-      "summary": "Cleartext storage of sensitive information vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows SQL Injection.\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
-      "published": "2026-08-04T10:19:32.667",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15721"
+      "id": "CVE-2026-68494",
+      "summary": "The fix released in jackson-core 2.18.6 and 2.21.1 for CVE-2026-18401 (GHSA-72hv-8253-57qq, number length constraint bypass in the non-blocking parser) is incomplete. This record covers the remaining bypass.\n\n\n\nThe earlier fix wired validateIntegerLength() into a new _setIntLength() helper and invoked it wherever the integer portion of a number is decided: a terminator byte arrives, a . or e/E is seen, or input ends inside a fully buffered value. It was not invoked on the attacker-relevant path where the parser runs out of input while still inside the MINOR_NUMBER_INTEGER_DIGITS minor state and returns NOT_AVAILABLE to the caller.\n\n\n\nAs a result, an attacker who streams JSON to a non-blocking parser in many small chunks, without ever sending a terminator byte, keeps the parser inside MINOR_NUMBER_INTEGER_DIGITS indefinitely. _textBuffer.expandCurrentSegment() grows the accumulator on every chunk while validateIntegerLength() is never called. The accumulator is bounded only by maxStringLength (20 MiB by default) rather than by maxNumberLength (1000 by default), an amplification of roughly 20,000x over the documented limit. Because Java char values occupy two bytes, a single connection can be driven to approximately 40 MiB of heap before the validator finally fires when the value completes.\n\n\n\nThe equivalent fraction-path code is correct: _finishFloatFraction() calls _setFractLength() before its NOT_AVAILABLE return. The missing call affects the integer-digit paths in _startPositiveNumber(), _startNegativeNumber() and _finishNumberIntegralPart() in NonBlockingUtf8JsonParserBase.\n\n\n\nImpact: reactive frameworks such as Spring WebFlux/Reactor, Quarkus, Helidon and Vert.x feed inbound HTTP or gRPC bytes to the async parser as they arrive, which is precisely the chunked-feed shape required. Operators who set StreamReadConstraints.maxNumberLength expecting it to cap memory per number value do not get that guarantee; memory accumulates per concurrent connection and attacker-controlled concurrency can exhaust the JVM heap. The synchronous parsers (UTF8StreamJsonParser, ReaderBasedJsonParser) and the async parser operating on complete input are not affected.\n\n\n\nExploitation requires only the ability to stream data to a parsing endpoint; no privileges or user interaction are needed.\n\n\n\nThis issue affects com.fasterxml.jackson.core:jackson-core from version 2.15.0 through 2.18.7, from 2.19.0 through 2.21.3, and from 2.22.0 through 2.22.0, and tools.jackson.core:jackson-core from 3.0.0 through 3.1.3 and from 3.2.0 through 3.2.0. Versions prior to 2.15.0 are not affected, because StreamReadConstraints -- which defines the maxNumberLength setting -- was first introduced in jackson-core 2.15.0, so no such constraint exists to be bypassed in earlier releases. Note that GHSA-r7wm-3cxj-wff9 states the affected 2.x range without a lower bound.",
+      "published": "2026-08-04T15:16:41.443",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68494"
     },
     {
-      "id": "CVE-2026-14838",
-      "summary": "Use of GET request method with sensitive query strings vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Session Hijacking.\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
-      "published": "2026-08-04T10:19:32.540",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14838"
-    },
-    {
-      "id": "CVE-2026-14804",
-      "summary": "Use of hard-coded cryptographic key vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Read Sensitive Constants Within an Executable.\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
-      "published": "2026-08-04T10:19:32.417",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14804"
-    },
-    {
-      "id": "CVE-2026-14465",
-      "summary": "Insufficient session expiration vulnerability in Bilin Software and Informatics Consultancy Inc. HUMANIST Digital Human Resources allows Reusing Session IDs (aka Session Replay).\n\nThis issue affects HUMANIST Digital Human Resources: from 26.0 before 26.1.",
-      "published": "2026-08-04T10:19:32.293",
+      "id": "CVE-2026-67618",
+      "summary": "marimo before 0.23.15 contains a configuration injection vulnerability that allows notebook authors to exfiltrate operator API keys by embedding a malicious base_url in PEP-723 inline script metadata, which is merged into session configuration with higher precedence than the operator's own settings due to insufficient sanitization in sanitize_pyproject_dict. When an operator opens the crafted notebook and makes an AI request, marimo resolves the attacker-controlled base_url from the notebook config while falling back to the operator's OPENAI_API_KEY environment variable for authentication, transmitting the API key to the attacker-controlled endpoint without requiring any cell execution.",
+      "published": "2026-08-04T15:16:41.293",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14465"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67618"
+    },
+    {
+      "id": "CVE-2026-67200",
+      "summary": "Perspective 5.0.0 contains a path traversal vulnerability that allows unauthenticated remote attackers to read arbitrary files from the server filesystem by including literal ../ segments in HTTP request URL paths. Attackers can bypass the insufficient query-string-stripping sanitization to traverse outside the configured asset root directory and retrieve sensitive files such as system credentials and application secrets, with results exposed cross-origin due to a wildcard Access-Control-Allow-Origin header set on all responses.",
+      "published": "2026-08-04T15:16:40.717",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67200"
+    },
+    {
+      "id": "CVE-2026-67199",
+      "summary": "Perspective 5.0.0 contains a denial of service vulnerability that allows remote attackers to block the server event loop indefinitely by submitting a crafted expression containing unbounded for or while loop constructs in a TableMakeViewReq message. Attackers can embed an arbitrarily large iteration count in an expression column evaluated once per table row, causing the Tornado IOLoop to block without any iteration cap, deadline, or cancellation check, rendering the server unresponsive to all connected clients.",
+      "published": "2026-08-04T15:16:40.570",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67199"
     }
   ]
 }
