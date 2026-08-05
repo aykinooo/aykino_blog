@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-05T09:46:39+00:00",
+  "generated_at": "2026-08-05T12:13:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8029",
-      "summary": "The ZTE Smart Life app contains an SQL injection vulnerability that allows attackers to execute UNION SELECT statements to query sensitive data in the feedback.db database across tables, including user accounts, phone numbers, feedback content, and local debug log paths, thereby enabling the theft of local privacy data.",
-      "published": "2026-08-05T09:18:16.187",
-      "cvss": 3.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8029"
+      "id": "CVE-2026-71252",
+      "summary": "toner-management's admin state-changing handlers (add.php, edit.php, delete.php under admin/toners, admin/toner-brands, admin/printers, and related admin subdirectories) executed INSERT/UPDATE/DELETE database operations with no authentication or authorization check, while access control was enforced only in listing views. An unauthenticated remote attacker could invoke these handlers directly to create, modify, or destroy application data. The vendor has since merged a fix requiring an authenticated admin session before any such handler proceeds.",
+      "published": "2026-08-05T11:16:28.383",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71252"
     },
     {
-      "id": "CVE-2026-10090",
-      "summary": "A flaw was found in the Application Subscription controller (multicluster-operators-subscription) of Red Hat Advanced Cluster Management for Kubernetes (ACM). A user with namespace-scoped \"edit\" privileges in an ACM hub namespace can create a Channel resource pointing to a Helm repository they control and a Subscription resource referencing it. The app-subscription controller fetches and applies the Helm chart contents with its own elevated authority, without verifying whether the subscription creator holds the \"open-cluster-management:subscription-admin\" role and without restricting applied resources to the subscription namespace. This allows the attacker to include cluster-scoped resources in the Helm chart, such as a ClusterRoleBinding granting the attacker's ServiceAccount the \"cluster-admin\" ClusterRole. Successful exploitation results in full cluster-admin privilege escalation. This contradicts the ACM documentation which states that non-subscription-admin users should have resources deployed into the subscription namespace only.",
-      "published": "2026-08-05T09:18:14.667",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10090"
-    },
-    {
-      "id": "CVE-2026-10059",
-      "summary": "A flaw was found in the Multicluster Engine for Kubernetes ClusterCurator controller. A tenant administrator with namespace-scoped privileges can exploit this vulnerability by creating a namespaced ClusterCurator. This action inadvertently grants the tenant administrator the ability to mint a token for a ServiceAccount with cluster-wide administrative authority. This leads to a privilege escalation, allowing the tenant administrator to gain full control over the cluster.",
-      "published": "2026-08-05T09:18:13.720",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10059"
-    },
-    {
-      "id": "CVE-2026-7726",
-      "summary": "The Layouts for WPBakery plugin for WordPress is vulnerable to unauthorized actions due to a missing capability check on the `Layouts_WPB_Remote::template_sync()` callback registered via `wp_ajax_nopriv_handle_sync` in all versions up to, and including, 1.1.3. This makes it possible for unauthenticated attackers to force the WordPress server to issue outbound HTTP requests to the plugin vendor's external API (`https://www.layoutsforwpbakery.com/wp-json/layoutsforwpbakery/v1/{templates,categories}`) and to write the JSON-decoded responses verbatim into the site's `wp_options` table via `set_transient()` \u2014 at any rate the attacker chooses, with no nonce verification, capability check, or rate limiting.",
-      "published": "2026-08-05T08:16:44.840",
+      "id": "CVE-2026-71251",
+      "summary": "Akaunting's shared download route (app/Http/Controllers/Common/Uploads.php::download(), reachable at uploads/{id}/download behind only generic auth middleware) fetched the requested Media record by ID with no verification that it belonged to the requesting portal customer's own company, allowing any authenticated portal customer to download any other company's uploaded files by guessing or enumerating media IDs. Fixed in commit 80ef6d3 (2026-07-12), which added an explicit ownership check comparing the media's parent record contact_id against the requesting user's own contact.",
+      "published": "2026-08-05T11:16:28.230",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7726"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71251"
     },
     {
-      "id": "CVE-2026-7693",
-      "summary": "The Backup Migration plugin for WordPress is vulnerable to OS Command Injection in all versions up to, and including, 2.1.5.1 due to insufficient sanitization of the `file` POST parameter on the `restoreBackup()` AJAX handler. The handler applies `esc_attr()` \u2014 an HTML-context sanitizer that does not strip shell metacharacters \u2014 and concatenates the result, unquoted, into a `php-cli -f \u2026 bmi_restore <file> <remote>` command passed to `exec()`. This makes it possible for authenticated attackers, with Administrator-level access (or any user granted the plugin's `do_backups` capability) and above, to execute arbitrary OS commands as the web-server user, bypassing WordPress hardening constants such as `DISALLOW_FILE_EDIT` and `DISALLOW_FILE_MODS` that would otherwise prevent code execution from the admin UI. This is an incomplete fix of CVE-2023-7002, which patched the same pattern only in the `$_POST['url']` path of `handleQuickMigration()`; the equivalent mitigations (`rawurlencode()` + explicit shell-metachar replacement + double-quoting in `exec()`) were never applied to `$backupName`.",
-      "published": "2026-08-05T08:16:44.703",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7693"
+      "id": "CVE-2026-71250",
+      "summary": "Firefly III's webhook URL validator (IsValidWebhookUrl.php) filters most private/reserved IPv4 ranges but contains an explicit early-return that allows any resolved address in 127.0.0.0/8, permitting an authenticated user (with webhooks enabled, which is off by default) to configure a webhook targeting loopback services on the server. Additionally, the validator resolves the target hostname once via gethostbyname() at validation time, but the actual outbound request (StandardWebhookSender.php, via Guzzle) re-resolves the hostname independently at send time, allowing a DNS-rebinding attacker to pass validation against a public IP and have the real request delivered to a private or internal address. The webhook response body is only written to a server-side debug log, not returned to the triggering user, so this is a blind SSRF primitive rather than one with direct response read-back.",
+      "published": "2026-08-05T11:16:28.110",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71250"
     },
     {
-      "id": "CVE-2026-7520",
-      "summary": "The MailChimp Forms by MailMunch plugin for WordPress is vulnerable to unauthorized modification of data due to a missing capability check on the `sign_in()` and `sign_up()` AJAX handlers in all versions up to, and including, 3.2.7. This makes it possible for authenticated attackers, with Subscriber-level access and above, to relink the site's MailMunch integration to an attacker-controlled MailMunch account by submitting attacker-supplied credentials. Once relinked, all subscriber data captured by the plugin's forms is delivered to the attacker, and the forms/landing pages rendered on the site are pulled from the attacker's MailMunch account.",
-      "published": "2026-08-05T08:16:44.560",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7520"
+      "id": "CVE-2026-71249",
+      "summary": "299Ko's public contact form (plugin/contact/controllers/ContactController.php, home()) sets raw POST field values (name, firstname, email, message) into the page template with no sanitization. The template engine's variable output function (common/Template.php, _show_var()) echoes values with no htmlspecialchars() call, and the sink template (contact.tpl) outputs these values unescaped into an HTML attribute and a textarea. An unauthenticated attacker can submit a payload such as name=\"><script>alert(document.domain)</script> to achieve reflected XSS against any visitor who submits or is tricked into auto-submitting the form, including a targeted administrator, enabling session token theft.",
+      "published": "2026-08-05T11:16:27.987",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71249"
+    },
+    {
+      "id": "CVE-2026-71248",
+      "summary": "Inventory-Management-System-PHP's login.php constructs its authentication query via direct string concatenation of raw POST parameters: $sql = \"select * from user where email = '$email' and password = '$password'\", with no escaping or parameterization, allowing authentication bypass via a payload such as email=' OR 1=1 LIMIT 1-- -. Separately, delete.php executes mysqli_query($db, \"DELETE FROM product WHERE product_id=\" . $_GET['id']) with no authentication check and no validation of the id parameter, allowing an unauthenticated attacker to delete arbitrary product rows or perform blind SQL injection via payloads such as id=0 OR SLEEP(5).",
+      "published": "2026-08-05T11:16:27.863",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71248"
+    },
+    {
+      "id": "CVE-2026-71247",
+      "summary": "Documenso's sign-field-with-token.ts, used by the live document-signing UI, allows a recipient with the ASSISTANT role to fetch and complete fields belonging to any later-or-equal-order, not-yet-signed recipient in the same envelope, with no restriction on field type. The handler upserts a Signature record tied to the target field's recipientId with no check that field.type is SIGNATURE and the acting recipient owns it. A newer V2 signing path (sign-envelope-field.ts) explicitly blocks assistants from completing SIGNATURE fields, and the project's own test suite comments confirm this guard is absent from the V1 path used here. In a sequential-signing document, an assistant recipient can therefore forge another signer's signature field.",
+      "published": "2026-08-05T11:16:27.743",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71247"
     }
   ]
 }
