@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-05T03:29:17+00:00",
+  "generated_at": "2026-08-05T06:39:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-18907",
-      "summary": "Path Traversal in Download File Feature in com.talpa.hibrowser 2.23.1.1 on Android allows arbitrary file write via directory traversal sequences in the filename.",
-      "published": "2026-08-05T02:16:37.950",
+      "id": "CVE-2026-9273",
+      "summary": "The Membership Plugin \u2013 Kadence Memberships plugin for WordPress (formerly Restrict Content) is vulnerable to password reset link poisoning leading to account takeover in all versions up to, and including, 4.0.0. This is due to the legacy lost-password handler rc_process_lost_password_form() consuming the attacker-controlled rc_redirect POST parameter into two unvalidated sinks in legacy/includes/forms.php: wp_redirect( esc_url( $_POST['rc_redirect'] ) . ... ) at line 243, and add_query_arg( array( 'key' => $key, 'login' => ... ), $_POST['rc_redirect'] ) inside rc_send_password_reset_email() at line 306. The nonce required to reach the handler is broadcast by the public [login_form] shortcode at line 207 to any anonymous visitor. This makes it possible for unauthenticated attackers to issue a password-reset request for any account (including administrators) whose reset email body points the victim at an attacker-controlled host carrying a valid reset key/login. When the victim clicks the link, the reset key leaks to the attacker, who can replay it against the legitimate site to complete account takeover.",
+      "published": "2026-08-05T06:16:40.967",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9273"
+    },
+    {
+      "id": "CVE-2026-8790",
+      "summary": "The Football Pool plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the `shouttext` POST parameter of the Shoutbox widget in all versions up to, and including, 2.13.4 due to insufficient input sanitization and output escaping. When a shoutbox form submission fails the nonce check (or `shouttext` is empty, or the user is unable to save), the raw POST value is echoed back into a `<textarea>` element using `printf('%s', ...)` with no HTML escaping. This makes it possible for unauthenticated attackers to execute arbitrary web scripts in the browser of an authenticated victim (Subscriber-level or higher) who is tricked into submitting a crafted POST request to a page that contains the Shoutbox widget.",
+      "published": "2026-08-05T06:16:40.810",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8790"
+    },
+    {
+      "id": "CVE-2026-8761",
+      "summary": "The Dokan plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.1. This is due to a missing authorization check in the `CustomersController` REST controller (`includes/REST/CustomersController.php`), which re-registers WooCommerce's customer CRUD routes under the `/dokan/v1/customers/` namespace and replaces WooCommerce's native `manage_woocommerce` capability check with a vendor-only check that inspects the **requesting** user's role and never validates the **target** user. This makes it possible for authenticated attackers with Vendor/Seller-level access and above to read, modify, or delete any WordPress user \u2014 including administrators \u2014 via `GET`/`PUT`/`DELETE` requests against `/wp-json/dokan/v1/customers/{id}`. Setting the `password` parameter on an administrator's record yields a full site takeover.",
+      "published": "2026-08-05T06:16:40.660",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8761"
+    },
+    {
+      "id": "CVE-2026-7753",
+      "summary": "The Cost Calculator Builder plugin for WordPress is vulnerable to unauthorized access of sensitive data due to a missing capability check on the `cost-calculator-custom-export-run` AJAX action (handler `CCBExportImport::export_calculators()`) in all versions up to, and including, 3.6.17. The handler only verifies a nonce, but the corresponding `ccb_export_nonce` is broadcast on every wp-admin page (including pages reachable to Subscribers, such as `/wp-admin/profile.php`) by the `ccb_add_admin_nonces` callback hooked to `admin_head`. This makes it possible for authenticated attackers, with Subscriber-level access and above, to export every calculator's full configuration \u2014 including stored Stripe secret keys, PayPal client secrets, Razorpay secret keys, webhook secret keys, and reCAPTCHA secret keys.",
+      "published": "2026-08-05T06:16:40.500",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7753"
+    },
+    {
+      "id": "CVE-2026-71192",
+      "summary": "In OpenStack Swift through 2.38.0, the S3API middleware does not sanitize Swift-native control headers (X-Copy-From, X-Copy-From-Account) from S3 API requests when s3_acl=true. An\nattacker can inject these headers into a signed PUT request targeting their own bucket, causing Swift to perform a server-side copy from another tenant's private object. The source object authorization is bypassed because the S3API middleware has already authorized the request against the destination. The attacker can read any object whose project_id, container name, and object name are known, regardless of the source object's ACLs or ownership. This requires the non-default s3_acl=true configuration.",
+      "published": "2026-08-05T06:16:40.333",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18907"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71192"
     },
     {
-      "id": "CVE-2026-18897",
-      "summary": "A vulnerability was identified in UTT HiPER 1250GW up to v3.2.7-210907-180535. The impacted element is the function strcpy of the file /goform/getOneApConfTempEntry. The manipulation of the argument tempName leads to stack-based buffer overflow. The attack can be initiated remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-05T02:16:37.773",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18897"
-    },
-    {
-      "id": "CVE-2026-18896",
-      "summary": "A vulnerability was determined in lavkush-maurya Student-Registration-System 1.0. The affected element is an unknown function of the file /student/changepass.php. Executing a manipulation of the argument oldpass can lead to sql injection. It is possible to launch the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-05T02:16:37.593",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18896"
-    },
-    {
-      "id": "CVE-2026-18895",
-      "summary": "A vulnerability was found in UTT HiPER 1250GW up to 3.2.7-210907-180535. Impacted is the function strcpy of the file /goform/APSecurity_5g. Performing a manipulation of the argument cipher results in stack-based buffer overflow. It is possible to initiate the attack remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-05T02:16:37.403",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18895"
-    },
-    {
-      "id": "CVE-2026-18859",
-      "summary": "A vulnerability was identified in ESAFENET CDG up to 20260615. Affected is an unknown function of the file /CDGServer3/ukey/usbkey;logindojojs. Such manipulation of the argument keyid leads to sql injection. The attack may be performed from remote. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-05T01:16:44.947",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18859"
-    },
-    {
-      "id": "CVE-2026-18856",
-      "summary": "A vulnerability was determined in Poesis Rhymix CMS up to 2.1.33. This impacts the function procImporterAdminCheckXmlFile of the file modules/importer/importer.admin.controller.php of the component Data Import Module. This manipulation of the argument filename causes server-side request forgery. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 2.1.34 will fix this issue. It is recommended to upgrade the affected component.",
-      "published": "2026-08-05T01:16:44.757",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18856"
+      "id": "CVE-2026-71191",
+      "summary": "In OpenStack Swift through 2.38.0, S3API middleware does not enforce that semantic x-amz-* headers are covered by the SigV4 signature on presigned URL requests. An attacker who obtains a presigned PUT URL can inject an unsigned X-Amz-Copy-Source header, causing Swift to perform a server-side copy from an arbitrary source object using the signer's authorization context. The attacker can read any object the signer has access to, provided the target project_id, container name, and object name are known. This affects all deployments using the default s3_acl=false configuration.",
+      "published": "2026-08-05T06:16:40.180",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71191"
     }
   ]
 }
