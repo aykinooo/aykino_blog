@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-05T18:47:20+00:00",
+  "generated_at": "2026-08-05T20:37:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9081",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.3, and 1.0.0 through 1.10.3 contains a Server-Side Request Forgery (SSRF) vulnerability in the validate_model_provider_key() function for the Ollama provider. The function accepts a user-supplied OLLAMA_BASE_URL parameter and passes it directly to requests.get() without validation, scheme/host allowlisting, or filtering of private IP ranges (loopback, RFC1918, link-local addresses).",
-      "published": "2026-08-05T18:17:16.130",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9081"
+      "id": "CVE-2026-70618",
+      "summary": "Spacebar Server before commit 51da17c contains a missing authorization vulnerability that allows any authenticated user to enumerate complete guild membership by querying the GET /guilds/{guild_id}/roles/{role_id}/member-ids endpoint without guild membership verification. Attackers can exploit the unprotected route handler in the roles member-ids endpoint, which lacks permission checks present in sibling endpoints, to retrieve the full list of member user IDs for any guild on the instance using only a valid bearer token and a known guild ID.",
+      "published": "2026-08-05T20:17:17.940",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70618"
     },
     {
-      "id": "CVE-2026-7657",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.10.3 Langflow could allow server-side request forgery (SSRF) due to incomplete and ineffective SSRF protection enforcement.",
-      "published": "2026-08-05T18:17:15.890",
+      "id": "CVE-2026-70617",
+      "summary": "Spacebar Server before commit dcfd910 contains a missing authorization vulnerability that allows any authenticated attacker to add themselves to arbitrary group DM channels by sending a PUT request to the channels recipient endpoint without membership verification. Attackers can exploit the unguarded PUT /channels/{channel_id}/recipients/{user_id} handler to join private group DMs, read complete message history, post messages as a participant, and force-add third-party users without their consent.",
+      "published": "2026-08-05T20:17:17.770",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70617"
+    },
+    {
+      "id": "CVE-2026-70616",
+      "summary": "boringproxy through 0.10.0 contains a resource exhaustion vulnerability that allows any authenticated user to permanently exhaust server file descriptors, goroutines, and memory by sending requests to the GET /loading endpoint with attacker-supplied id query parameter values. Because the handler performs no map-lookup validity check and receives on a nil channel that blocks forever, with no timeout, no context cancellation, and no server-side reclamation due to absent HTTP server timeouts, each malicious request permanently holds one goroutine, one file descriptor, and approximately 50 kB of memory until the server's file descriptor limit is reached and listener Accept calls fail, halting all tunnel traffic forwarding for all users.",
+      "published": "2026-08-05T20:17:17.600",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7657"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70616"
     },
     {
-      "id": "CVE-2026-70611",
-      "summary": "Electron is a framework for writing cross-platform desktop applications using JavaScript, HTML and CSS. Prior to 39.8.9, 40.9.2, 41.2.1, and 42.0.0-beta.3, the DevTools reveal in file manager action could launch the target file rather than reveal it. An attacker with a separate means of running script inside the DevTools frontend, such as a malicious DevTools extension, could use showItemInFolder handling to execute native code outside the sandbox when DevTools is opened for windows exposed to untrusted content or untrusted DevTools extensions. This issue is fixed in 39.8.9, 40.9.2, 41.2.1, and 42.0.0-beta.3.",
-      "published": "2026-08-05T18:17:15.613",
-      "cvss": 6.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70611"
+      "id": "CVE-2026-70615",
+      "summary": "boringproxy through 0.10.0 contains a newline injection vulnerability that allows authenticated low-privileged users with tunnel-creation permission to inject arbitrary lines into the server account's SSH authorized_keys file by supplying a percent-encoded newline character in the domain parameter of the tunnel creation endpoint. Attackers can insert an unrestricted public key entry into authorized_keys to gain persistent shell access, and subsequently read cleartext credentials from the database file including all user tokens, tunnel private keys, and TLS certificates.",
+      "published": "2026-08-05T20:17:17.420",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70615"
     },
     {
-      "id": "CVE-2026-70610",
-      "summary": "Electron is a framework for writing cross-platform desktop applications using JavaScript, HTML and CSS. Prior to 39.8.9, 40.9.2, 41.2.2, and 42.0.0-beta.4, objects copied across the contextBridge boundary from untrusted content could carry an attacker-influenced prototype, enabling prototype-pollution-style attacks against preload code despite context isolation being enabled. Apps are only affected if their preload code accepts object arguments from untrusted content and reads properties from them without own-property checks, while apps that only accept primitive arguments or validate object arguments are not affected. This issue is fixed in 39.8.9, 40.9.2, 41.2.2, and 42.0.0-beta.4.",
-      "published": "2026-08-05T18:17:15.463",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70610"
+      "id": "CVE-2026-69111",
+      "summary": "Milvus through 2.6.22 and 3.0.0 contains an unauthenticated denial of service vulnerability that allows remote attackers to terminate service components by sending a crafted HTTP GET request to the management server on port 9091. Attackers can exploit the unprotected /management/stop endpoint, which bypasses REST API authentication middleware, by supplying a 'role' parameter to shut down the proxy, datanode, or querynode components, resulting in denial of service.",
+      "published": "2026-08-05T20:17:14.657",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69111"
     },
     {
-      "id": "CVE-2026-70609",
-      "summary": "Electron is a framework for writing cross-platform desktop applications using JavaScript, HTML and CSS. Prior to 39.8.7, 40.9.0, 41.2.0, and 42.0.0-beta.1, the mode option of webContents.openDevTools() was not sanitized before use by the DevTools frontend. If an attacker can influence this value, script under their control may run in the DevTools context, which in unsandboxed configurations has access to Node.js, including when untrusted input reaches the mode argument of openDevTools() or untrusted content calls openDevTools() on a webview it embeds. This issue is fixed in 39.8.7, 40.9.0, 41.2.0, and 42.0.0-beta.1.",
-      "published": "2026-08-05T18:17:15.307",
-      "cvss": 5.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70609"
-    },
-    {
-      "id": "CVE-2026-70608",
-      "summary": "Electron is a framework for writing cross-platform desktop applications using JavaScript, HTML and CSS. Prior to 39.8.10, 41.10.3, and 42.0.1, a sandboxed iframe without the allow-popups keyword could still open a new window or trigger setWindowOpenHandler with no user interaction because new-window navigations taking the OpenURL path did not apply the iframe sandbox popup restriction. Apps that embed untrusted content in sandboxed iframes and rely on the absence of allow-popups to prevent window creation are affected, while apps that deny window creation in setWindowOpenHandler or do not embed untrusted content in sandboxed iframes are not affected. This issue is fixed in 39.8.10, 41.10.3, and 42.0.1.",
-      "published": "2026-08-05T18:17:15.160",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70608"
+      "id": "CVE-2026-68746",
+      "summary": "Not Failing Securely ('Failing Open') vulnerability in livebook-dev livebook allows an unauthenticated network client to obtain full access to a Livebook server that enforces identity through Livebook Teams.\n\nA Livebook Agent or App Server connected to Livebook Teams caches the identifier of the deployment group it belongs to, and resolves that identifier against a locally cached list of deployment groups on every request in order to decide whether Teams identity enforcement is active. Livebook.Hubs.TeamClient.handle_call/3 in lib/livebook/hubs/team_client.ex does not distinguish a deployment group that could not be resolved from one that was resolved with identity enforcement switched off: the clause matches only the case where a group was found with enforcement enabled, and falls through to a catch-all that reports enforcement as switched off for everything else. The two neighbouring functions that decide user and application access resolve the same identifier and treat the same unresolved result as a denial.\n\nWhen the identity status is reported as switched off, Livebook.ZTA.LivebookTeams.authenticate/3 in lib/livebook/zta/livebook_teams.ex returns empty identity metadata and allows the request to continue instead of halting it. LivebookWeb.UserPlug.build_current_user/3 merges that empty metadata into a newly built user, whose access type defaults to full access, and LivebookWeb.AuthPlug.authorized?/1 grants access to any user holding full access.\n\nThe cached identifier becomes unresolvable when the deployment group it refers to is deleted while the agent is not connected to receive the change, most concretely when a deployment group is deleted during the window in which an agent is disconnected or reconnecting. The client removes the group from its cached list without clearing the identifier that refers to it. Any client able to reach the affected server over the network is then granted the same access as a fully privileged member of the organisation, including the ability to read notebooks and configured secrets, execute code on the server's runtime, and disrupt its operation.\n\nThis issue affects livebook: from 0.19.7 before 0.19.9.",
+      "published": "2026-08-05T20:17:14.393",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68746"
     }
   ]
 }
