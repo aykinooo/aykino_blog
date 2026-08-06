@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-06T12:16:17+00:00",
+  "generated_at": "2026-08-06T15:25:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66909",
-      "summary": "Apache CXF's JMS transport deserializes the body of any inbound JMS ObjectMessage\u00a0using native Java deserialization, with no type restrictions in place. Any attacker able to place a message on the service's JMS destination can submit a malicious serialized object, leading to denial of service or, if a suitable gadget class is on the classpath, remote code execution. The fix disables ObjectMessage\u00a0deserialization by default, with a configuration switch to re-enable it if needed.\u00a0Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.",
-      "published": "2026-08-06T11:16:30.583",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66909"
+      "id": "CVE-2026-70646",
+      "summary": "aiosend is a synchronous and asynchronous Crypto Pay API client. Pror to version 3.0.7, `WebhookHandler.feed_update()` deserializes the entire request body before verifying the HMAC signature. This allows an unauthenticated attacker to force expensive parsing of arbitrary JSON payloads that will ultimately be rejected, leading to unnecessary CPU and memory consumption. Version 3.0.7 fixes the issue. Some workarounds are available. Restrict request body size at the reverse proxy or web framework, rate-limit webhook endpoints, and/or reject oversized requests before JSON parsing.",
+      "published": "2026-08-06T15:17:27.750",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70646"
     },
     {
-      "id": "CVE-2026-65432",
-      "summary": "Apache CXF reads a top-level WSDL through its hardened StaxUtils\u00a0path, which disables XML DTDs and external entities. However, any <wsdl:import>\u00a0or <xsd:import>\u00a0referenced from that top-level WSDL is handed off to WSDL4J, which does not\u00a0disable DOCTYPE declarations or external entities. As a result, the protections applied to the top-level document do not extend to imported documents, leaving imported WSDL/XSD content vulnerable to XML External Entity (XXE) attacks.\u00a0Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.",
-      "published": "2026-08-06T11:16:30.463",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65432"
+      "id": "CVE-2026-70637",
+      "summary": "LightFTP through 2.4 contains multiple data race vulnerabilities in ftpserv.c that allow anonymous attackers to cause undefined behavior by issuing LIST followed by ABOR commands without authentication. The control thread closes data_socket and file_fd descriptors while worker threads concurrently operate on the same fields in worker_thread_cleanup, allowing stale file descriptors to be reassigned by the OS and subsequently used by worker threads on unrelated resources, resulting in potential denial of service.",
+      "published": "2026-08-06T15:17:27.613",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70637"
     },
     {
-      "id": "CVE-2026-64958",
-      "summary": "An incomplete fix for\u00a0CVE-2026-50645 means that it is still possible to perform a denial of service attack on Apache CXF by sending a message with many attachment headers. Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.",
-      "published": "2026-08-06T11:16:30.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64958"
+      "id": "CVE-2026-67261",
+      "summary": "Dell Virtual Storage Integrator for VMware vSphere Client, versions prior to 10.11.1.0, contain(s) an OS Command Injection vulnerability in the IAPI component. A remote unauthenticated attacker could potentially exploit this vulnerability, leading to the execution of arbitrary OS commands on the application's underlying operating system with root privileges. Exploitation may lead to a complete system takeover by an attacker. This vulnerability is considered critical as it allows an unauthenticated remote attacker to achieve arbitrary code execution as root, potentially compromising the entire VSI deployment and underlying infrastructure. Dell recommends customers to upgrade at the earliest opportunity.",
+      "published": "2026-08-06T15:17:24.430",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67261"
     },
     {
-      "id": "CVE-2026-57819",
-      "summary": "Apache CXF allows to set a limit on the number of form parameters in a JAX-RS message via the \"maxFormParameterCount\" configuration option. However, no default limit is set which may lead to denial of service attacks when processing\u00a0 requests with very large numbers of form parameters. Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue by using a default limit of 500 parameters.",
-      "published": "2026-08-06T11:16:30.237",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57819"
+      "id": "CVE-2026-66712",
+      "summary": "Unauthenticated Broken Access Control in Simple Membership <= 4.7.8 versions.",
+      "published": "2026-08-06T15:17:24.307",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66712"
     },
     {
-      "id": "CVE-2026-57817",
-      "summary": "The OpenID Connect Core 1.0 specification mandates that the RP MUST validate the `c_hash` parameter when operating in the Hybrid Flow.\u00a0If an Apache CXF RP is integrated with a non-compliant or misconfigured Identity Provider (IdP) that omits the `c_hash`, the RP becomes vulnerable to Authorization Code Substitution/Injection attacks.\u00a0Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.",
-      "published": "2026-08-06T11:16:30.120",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57817"
+      "id": "CVE-2026-66711",
+      "summary": "Subscriber Cross Site Scripting (XSS) in WooCommerce Multilingual & Multicurrency <= 5.5.6 versions.",
+      "published": "2026-08-06T15:17:24.187",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66711"
     },
     {
-      "id": "CVE-2026-54225",
-      "summary": "Apache CXF allows to control the maximum attachment size via the\u00a0\"attachment-max-size\". Prior to Apache CXF 4.2.3 and 4.1.8 and 3.6.12, there was no default placed on this size, meaning that a denial of service attack is possible if the user doesn't explicitly set the limit. Users should update to Apache CXF 4.2.3 or 4.1.8 or 3.6.12 which fixes this problem by imposing a default attachment size limit of 50mb.",
-      "published": "2026-08-06T11:16:30.003",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54225"
+      "id": "CVE-2026-66710",
+      "summary": "Unauthenticated Local File Inclusion in e2pdf <= 1.32.40 versions.",
+      "published": "2026-08-06T15:17:24.060",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66710"
     }
   ]
 }
