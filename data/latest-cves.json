@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T11:54:50+00:00",
+  "generated_at": "2026-08-07T13:35:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-66838",
+      "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in elixir-ecto postgrex allows SQL Injection via the :comment option of Postgrex.stream/4. An attacker who can influence that value can close the comment delimiter with */ and extend the streamed statement with their own clauses, which execute under the connection's role. Ecto exposes the same option through Ecto.Repo.stream/2.\n\nPostgrex appends the comment by concatenating it into the statement text sent in the Parse message, without escaping or rejecting */. The option is validated by comment_not_present!/1 at every other execution point; stream/4 never calls it. Because Parse accepts a single command, the injection is confined to the streamed statement and further statements cannot be chained.\n\nThis issue affects postgrex: from 0.19.3 before 0.22.4.",
+      "published": "2026-08-07T13:16:52.960",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66838"
+    },
+    {
+      "id": "CVE-2026-66494",
+      "summary": "Joomla Extension - joomshaper.com - Unauthenticated stored XSS in Shapes API endpoint SP Page Builder < 6.7.0 - An unauthenticated attacker can store malicious JavaScript in a Joomla site's database via a single HTTP request. When an administrator opens the SP Page Builder editor, the JavaScript executes in their browser automatically..",
+      "published": "2026-08-07T13:16:52.827",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66494"
+    },
+    {
+      "id": "CVE-2026-56794",
+      "summary": "Dell OpenManage Server Administrator, versions prior to 11.1.0.2, contains a Relative Path Traversal vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to Filesystem access for attacker.",
+      "published": "2026-08-07T13:16:52.633",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56794"
+    },
+    {
+      "id": "CVE-2026-56793",
+      "summary": "Dell OpenManage Server Administrator, versions prior to 11.1.0.2, contains an Improper Authentication vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Unauthorized access.",
+      "published": "2026-08-07T13:16:52.503",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56793"
+    },
+    {
+      "id": "CVE-2026-48094",
+      "summary": "The ShareOpenly WordPress plugin prior to version 1.2.1 contains a Cross-Site Scripting vulnerability caused by the absence of WordPress's `esc_url()` escaping function on the `$url` variable before it is rendered into HTML content. This variable is constructed from `home_url( add_query_arg( array(), $wp->request ) )` and is concatenated directly into an HTML `href` attribute on every singular post or page where the plugin's sharing link is displayed. WordPress's security handbook mandates that every URL placed in HTML output must be passed through `esc_url()`, which both HTML-encodes special characters (converting `\"`, `<`, `>` into their safe HTML entity equivalents) and strips dangerous URI schemes such as `javascript:` and `data:`. The omission of this function means that if the `$url` value ever contains HTML-special characters or a dangerous URI scheme \u2014 through a `home_url` WordPress filter applied by another plugin or theme, through certain web server or hosting configurations, or through future code changes \u2014 the unescaped content will be injected verbatim into the rendered HTML of every post or page on the site. Version 1.2.1 contains a patch for the issue.",
+      "published": "2026-08-07T13:16:49.493",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48094"
+    },
     {
       "id": "CVE-2026-15816",
       "summary": "A flaw was found in dracut. The die() error-handling function writes its message into a shell script under the initramfs emergency-hook directory without properly shell-quoting it. When the message contains data derived from the DHCP ROOT_PATH option, an attacker on the adjacent network who controls a rogue DHCP server can inject a command-substitution sequence that executes as root the next time dracut sources its emergency hook scripts during standard boot-failure handling.",
       "published": "2026-08-07T11:17:05.100",
       "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15816"
-    },
-    {
-      "id": "CVE-2026-71560",
-      "summary": "Out-of-bounds Read vulnerability in Apache Fory C++ deserialization.\n\nThis issue affects Apache Fory C++ versions from 0.14.0 before 1.5.0 when deserializing structs containing tagged integer fields. A crafted input payload may trigger an out-of-bounds heap read in the tagged integer fast-path deserializer, potentially causing information disclosure or denial of service.\n\n\nUsers are recommended to upgrade to Apache Fory 1.5.0, which fixes this issue. Applications that do not use Apache Fory C++ or do not use tagged integer fields are not affected.",
-      "published": "2026-08-07T10:16:59.590",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71560"
-    },
-    {
-      "id": "CVE-2026-71559",
-      "summary": "Deserialization of Untrusted Data vulnerability in the Go implementation of Apache Fory allows an attacker to cause a denial of service by supplying crafted data containing malformed type metadata, which triggers an uncaught panic.\n\nThis issue affects Apache Fory: from 0.16.0 before 1.5.0.\u00a0 Users of other language implementations are not affected.\n\nUsers are recommended to upgrade to version 1.5.0, which fixes the issue.",
-      "published": "2026-08-07T10:16:59.477",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71559"
-    },
-    {
-      "id": "CVE-2026-71558",
-      "summary": "Heap type confusion vulnerability in Apache Fory C++ deserialization.\n\nThis issue affects Apache Fory C++ versions from 0.14.0 before 1.5.0. A crafted input payload can bypass type compatibility checks during polymorphic smart-pointer deserialization, causing an object of an incompatible type to be treated as the declared base type. This may result in undefined behavior and potentially lead to denial of service or arbitrary code execution.\n\n\nUsers are recommended to upgrade to Apache Fory 1.5.0, which fixes this issue. Applications not using Apache Fory C++ polymorphic smart-pointer deserialization are not affected.",
-      "published": "2026-08-07T10:16:59.337",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71558"
-    },
-    {
-      "id": "CVE-2026-54218",
-      "summary": "Use of hard-coded cryptographic key vulnerability in Tobit Laboratories AG TeamDavid's Webbox. For users created locally in David, passwords are stored in various \nfiles using only obfuscation. Any user with access to the server\u2019s file \nsystem, or who can otherwise extract files from the server (see \nvulnerability\u00a0\u201cRandom File Read\u201d), can potentially obtain affected \nusers\u2019 passwords.\u00a0This issue affects TeamDavid through Rollout 524.",
-      "published": "2026-08-07T10:16:59.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54218"
-    },
-    {
-      "id": "CVE-2026-54217",
-      "summary": "Tobit Laboratories AG TeamDavid's Webbox application is vulnerable to a stored XSS vulnerability. An \nattacker can send an email containing malicious JavaScript code. When a \nuser accesses the email, the stored cross-site scripting is triggered.\u00a0This issue affects TeamDavid through Rollout 524.",
-      "published": "2026-08-07T10:16:59.027",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54217"
     }
   ]
 }
