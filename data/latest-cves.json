@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T20:56:14+00:00",
+  "generated_at": "2026-08-07T21:53:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-71870",
-      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to 6.15.0, a crafted PDF can cause large memory consumption when pypdf/_cmap.py function parse_bfrange parses unusually large source-code or destination-string tokens in a font /ToUnicode CMap during text extraction. This issue is fixed in 6.15.0.",
-      "published": "2026-08-07T20:16:52.873",
+      "id": "CVE-2026-9031",
+      "summary": "An input validation\nvulnerability exists in the HTTP-WRITEOEM handler due to insufficient validation\nof user-supplied data before it is processed by internal flash-write handling\nlogic.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may cause httpd process or device to crash, resulting in loss of access\nto the web interface and a denial-of-service condition.",
+      "published": "2026-08-07T21:17:30.530",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71870"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9031"
     },
     {
-      "id": "CVE-2026-66151",
-      "summary": "SonicWall Global VPN Client version 4.10.8.1108 and earlier is vulnerable to an out-of-bounds kernel memory read in the SWIPsec.sys driver, which could allow a local attacker to cause a system crash.",
-      "published": "2026-08-07T20:16:52.750",
+      "id": "CVE-2026-9030",
+      "summary": "A denial-of-service\nvulnerability exists in httpd service on Archer A6 v4 where the asynchronous systool\ninstruction handlng path in httpd does not properly synchronize or safely manage\nconcurrent systool operations.\u00a0 \n\n\n\n\n\nBy sending\ncrafted systool instructions through the asynchronous request path, successful\nexploitation may cause the httpd process or device management service to crash\nand may result in temporary loss of access to the web management interface or\ndevice reboot.",
+      "published": "2026-08-07T21:17:30.370",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66151"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9030"
     },
     {
-      "id": "CVE-2026-65819",
-      "summary": "gopacket provides packet processing capabilities for Go. Through version 1.7.0, multiple layer decoders use attacker-controlled lengths, counts, or offsets before validating them against packet buffers, allowing a crafted packet decoded through DecodingLayerParser or DecodeFromBytes to trigger an unrecovered panic and remotely deny service.  A patch commit is available at 210f25f.",
-      "published": "2026-08-07T20:16:52.603",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65819"
+      "id": "CVE-2026-71381",
+      "summary": "Adobe Genuine Software Integrity Service was affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could have leveraged this vulnerability to bypass security measures and gain unauthorized limited write access. Exploitation of this issue did not require user interaction, but required the attacker to have access to the local environment the application is installed on.",
+      "published": "2026-08-07T21:17:30.147",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71381"
     },
     {
-      "id": "CVE-2026-62296",
-      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.11, XhtmlParser.java imposes no maximum element nesting depth, so a deeply nested text.div narrative triggers unbounded recursion between parseElementInner() and parseElement(), raising a StackOverflowError. An attacker who can submit FHIR resources containing such narratives can thus crash a parsing or validation worker thread, affecting validator services and any application that parses attacker-supplied FHIR JSON or XML. This issue is fixed in version 6.9.11.",
-      "published": "2026-08-07T20:16:52.457",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62296"
+      "id": "CVE-2026-69207",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. Prior to 4.12.34, the built-in CORS middleware, hono/cors, is vulnerable to a regular expression denial of service (ReDoS). During a preflight OPTIONS request, the middleware parses the attacker-controlled Access-Control-Request-Headers header using a whitespace-tolerant regular expression whose backtracking makes its running time quadratic in the input length. Because the header value is bounded only by the deployment's maximum HTTP header size, a single preflight carrying a long run of whitespace can consume seconds of CPU and block request processing. On runtimes that share one execution thread across requests, this stalls concurrent requests as well, and repeated requests can render the service unresponsive. This affects the default configuration, since the vulnerable path is reached whenever cors() is used with an unset or empty allowHeaders. Applications that set a non-empty allowHeaders are not affected. This issue is fixed in version 4.12.34.",
+      "published": "2026-08-07T21:17:29.847",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69207"
     },
     {
-      "id": "CVE-2026-62295",
-      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.11, the JSON utility parser in org.hl7.fhir.utilities.json.parser.JsonParser enforces no maximum nesting depth for arrays or objects. As a result, a small but deeply nested, syntactically valid FHIR JSON document can trigger unbounded readArray() or readObject() recursion, raising a StackOverflowError before structural validation runs. An attacker who can submit JSON resources for validation can thus crash the request thread, and services that do not isolate StackOverflowError safely may experience worker loss or process instability \u2014 a denial-of-service condition. This issue is fixed in version 6.9.11.",
-      "published": "2026-08-07T20:16:52.310",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62295"
+      "id": "CVE-2026-66061",
+      "summary": "Home Assistant is open source home automation software focused on local control and privacy.  Prior to 2026.5.0, the iOS Companion app treats tag links (NFC or QR) delivered through an OS-level routing mechanism such as iOS universal links as if they were physically scanned, without validating the calling app or prompting the user. As a result, any untrusted app on the device can forward an arbitrary tag to Home Assistant, causing it to execute the associated automation as though a legitimate user had scanned an authorized tag. This allows silent, unattended automation execution by untrusted local callers. This issue has been fixed in version 2026.5.0.",
+      "published": "2026-08-07T21:17:29.693",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66061"
     },
     {
-      "id": "CVE-2026-62293",
-      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.11, the hidden scan command concatenates attacker-controlled Implementation Guide titles, profile titles, and source references into scan.html without escaping in Scanner.java. As a result, a user who scans an attacker-supplied IG/profile and then opens or publishes the generated local/CI HTML report can trigger stored cross-site scripting, executing attacker-controlled JavaScript in the report's browser context. This issue is fixed in version 6.9.11.",
-      "published": "2026-08-07T20:16:52.157",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62293"
+      "id": "CVE-2026-66060",
+      "summary": "Home Assistant is open source home automation software focused on local control and privacy.  Prior to 2026.5.3,  the Companion app treats tag links (NFC or QR) delivered through an OS-level routing mechanism as if they were physically scanned, without validating the calling app or prompting the user. As a result, any untrusted app on the device can forward an arbitrary tag to Home Assistant, causing it to execute the associated automation as though a legitimate user had scanned an authorized tag. This allows silent, unattended automation execution by untrusted local callers. This issue is fixed in version 2026.8.1.",
+      "published": "2026-08-07T21:17:29.520",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66060"
     }
   ]
 }
