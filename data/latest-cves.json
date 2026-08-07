@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-07T11:05:21+00:00",
+  "generated_at": "2026-08-07T11:54:50+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-15816",
+      "summary": "A flaw was found in dracut. The die() error-handling function writes its message into a shell script under the initramfs emergency-hook directory without properly shell-quoting it. When the message contains data derived from the DHCP ROOT_PATH option, an attacker on the adjacent network who controls a rogue DHCP server can inject a command-substitution sequence that executes as root the next time dracut sources its emergency hook scripts during standard boot-failure handling.",
+      "published": "2026-08-07T11:17:05.100",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15816"
+    },
     {
       "id": "CVE-2026-71560",
       "summary": "Out-of-bounds Read vulnerability in Apache Fory C++ deserialization.\n\nThis issue affects Apache Fory C++ versions from 0.14.0 before 1.5.0 when deserializing structs containing tagged integer fields. A crafted input payload may trigger an out-of-bounds heap read in the tagged integer fast-path deserializer, potentially causing information disclosure or denial of service.\n\n\nUsers are recommended to upgrade to Apache Fory 1.5.0, which fixes this issue. Applications that do not use Apache Fory C++ or do not use tagged integer fields are not affected.",
@@ -36,13 +43,6 @@
       "published": "2026-08-07T10:16:59.027",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54217"
-    },
-    {
-      "id": "CVE-2026-54216",
-      "summary": "Tobit Laboratories AG TeamDavid's Webbox application contains a reflected cross-site scripting (XSS) \nvulnerability. By sending a specially crafted link including an \narbitrary path, an XSS payload or the parameter \u201cEntryInfo\u201d, and the \nparameter \u201c!templateName=entryMail\u201d, an attacker can cause the payload \nto execute in the victim\u2019s browser when they click the link.\u00a0This issue affects TeamDavid through Rollout 524.",
-      "published": "2026-08-07T10:16:58.893",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54216"
     }
   ]
 }
