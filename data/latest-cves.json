@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T19:12:45+00:00",
+  "generated_at": "2026-08-07T19:58:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66058",
-      "summary": "Frappe is a full-stack web application framework. Prior to 16.20.0 and 15.112.0, unrestricted access to a Document Follow API (update_follow) is possible for an authenticated user.\nThis issue is fixed in versions 16.20.0 and 15.112.0.",
-      "published": "2026-08-07T18:17:20.953",
+      "id": "CVE-2026-71852",
+      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to 6.15.0, a crafted PDF can cause long runtimes and large memory consumption when pypdf/_font.py function Font._collect_cid_character_widths expands unusually large CID font /W width ranges or excessive width entries during text extraction. This issue is fixed in 6.15.0.",
+      "published": "2026-08-07T19:18:54.547",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66058"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71852"
     },
     {
-      "id": "CVE-2026-64638",
-      "summary": "WordPress is vulnerable to a pre-auth reflected XSS vulnerability on the login screen.\r\n\r\nVia a specially crafted malicious third-party website hosted by an attacker, it is possible for this to be escalated to an RCE vulnerability with conditions outside of the attackers control. This requires successful social engineering of and explicit interaction by the target victim.\r\n\r\nThis issue affects all versions of WordPress. Version 7.0.3 has been released, containing a fix for the vulnerability, and as a courtesy to users on older branches the fix has been backported to all branches back to 4.7.\r\n\r\nDiscovered and responsibly disclosed by [the team at pwn.ai](https://pwn.ai/).",
-      "published": "2026-08-07T18:17:20.340",
+      "id": "CVE-2026-71851",
+      "summary": "crypto-js is a JavaScript library of crypto standards. Versions of crypto-js prior to 4.0.0 generate randomness in CryptoJS.lib.WordArray.random() using a custom variation of the Multiply-With-Carry pseudorandom number generator, seeded from Math.random(), instead of a cryptographically secure source. This generator was introduced in version 3.1.2-4 and remained present in nearly every 3.x release. Nominal requests for 128 or 256 bits of entropy through this function produce effective search spaces of approximately 2 to the 39th and 2 to the 47th possibilities, small enough to enumerate on commodity hardware. Downstream wallet applications that used CryptoJS.lib.WordArray.random() as the entropy source for BIP39 recovery phrases are affected, and an attacker who enumerates the reduced output space can recover the resulting private keys and control the associated funds. This issue is fixed in version 4.0.0.",
+      "published": "2026-08-07T19:18:54.390",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71851"
+    },
+    {
+      "id": "CVE-2026-71850",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. From 3.8.0 to 4.12.33, memo() from hono/jsx retains the result of a server side render and reuses it for later renders with comparator equal props, and request scoped values read inside the component take no part in that comparison, so a response can contain HTML rendered for another user's request. Components wrapped with memo() are compared by props alone; values read implicitly during rendering, such as JSX Context through createContext() and useContext(), useRequestContext() from hono/jsx-renderer, and getContext() from hono/context-storage, do not participate, and the retained result lives as long as the wrapped component, so it outlives the request that produced it. A user may receive a response containing HTML rendered for another user when both render the same memoized component with comparator equal props on the same warm instance, which may disclose another user's account or profile data, disclose request scoped secrets embedded in HTML such as CSRF tokens, or expose role specific content to users who should not receive it. This issue is fixed in version 4.12.34.",
+      "published": "2026-08-07T19:18:54.240",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71850"
+    },
+    {
+      "id": "CVE-2026-71849",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. From 4.7.0 to 4.12.33, the Proxy Helper proxy() function in hono/proxy does not remove response headers named by the origin's Connection header. Per RFC 9110 Section 7.6.1, an intermediary must remove the header fields listed in a message's Connection header field before forwarding the message, in addition to the well known hop by hop headers, but the proxy() function only removed the well known hop by hop headers, including Connection itself, from origin responses. A client may therefore receive response headers that the origin intended only for its immediate peer, disclosing connection scoped or internal metadata contained in such headers, when an application proxies responses from an origin that declares additional, non standard headers as hop by hop via the Connection response header. This issue is fixed in version 4.12.34.",
+      "published": "2026-08-07T19:18:54.100",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71849"
+    },
+    {
+      "id": "CVE-2026-71848",
+      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. From 4.12.0 to 4.12.33, the languageDetector middleware is vulnerable to algorithmic complexity denial of service when processing a crafted language tag containing a large number of hyphen separated subtags. To implement progressive language tag truncation, normalizeLanguage() repeatedly calls parts.slice(0, i).join('-') for every possible prefix, so the total amount of string processing grows quadratically with the number of subtags. Language values may come from a query parameter, cookie, Accept-Language header, or URL path, depending on the detector configuration, and the default detector order enables query string, cookie, and header detection, so applications using languageDetector() may expose this processing to unauthenticated requests. An attacker may repeatedly send requests containing long, hyphen separated language tags, causing excessive CPU consumption and preventing unrelated requests from being processed. This issue is fixed in version 4.12.34.",
+      "published": "2026-08-07T19:18:53.950",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71848"
+    },
+    {
+      "id": "CVE-2026-71847",
+      "summary": "Ruby JSON is a JSON implementation for Ruby. From 2.20.0 until 2.21.2, Ruby's JSON native C extension clears the consumed JSON::ResumableParser input buffer but leaves state.start, state.cursor, and state.end pointing into released storage. When partial_value reconstructs an incomplete object containing duplicate keys, the duplicate-key warning path calls cursor_position, which dereferences those stale pointers. This results in a heap-use-after-free and can terminate the Ruby process. An attacker who can supply JSON stream data to an application using JSON::ResumableParser may cause process termination when the application calls partial_value on incomplete attacker-controlled input containing duplicate object keys. This issue has been fixed in version 2.21.2.",
+      "published": "2026-08-07T19:18:53.807",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64638"
-    },
-    {
-      "id": "CVE-2026-64637",
-      "summary": "Improper privilege management in the XML-RPC API of Plesk before 18.0.80, allows an authenticated reseller to obtain an administrative session for the root user account.",
-      "published": "2026-08-07T18:17:20.200",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64637"
-    },
-    {
-      "id": "CVE-2026-64636",
-      "summary": "An SQL injection vulnerability in Plesk Obsidian up to 18.0.80 for Linux and Windows allows an authenticated user to read arbitrary data from the panel database.",
-      "published": "2026-08-07T18:17:20.070",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64636"
-    },
-    {
-      "id": "CVE-2026-56818",
-      "summary": "Netty is an asynchronous, event-driven network application framework. Prior to 4.1.136.Final and 4.2.16.Final, the RedisArrayAggregator Redis codec clears retained partial aggregate state when the maxNestedArrayDepth limit is exceeded, but it does not clear the same state when the sibling maxElements limit is exceeded. A peer can start a valid RESP array, send a bulk string child, then send a nested array header longer than the configured maxElements. Netty throws a decoder exception in decodeRedisArrayHeader, but the existing partial aggregate remains retained in the handler. If the application leaves the channel alive after the exception, later messages are still consumed into the pre-error aggregate, allowing an unauthenticated peer to keep attacker-controlled aggregate state alive across a security-limit exception and pin retained pooled buffers. This issue is fixed in versions 4.1.136.Final and 4.2.16.Final.",
-      "published": "2026-08-07T18:17:19.100",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56818"
-    },
-    {
-      "id": "CVE-2026-47364",
-      "summary": "On every successful login, the Datadog Android application calls FirebaseCrashlytics.setUserId with the signed-in user's Datadog UUID \u2014 a stable per-user identifier that is meaningful inside Datadog. This associates the Datadog user UUID with the device's Firebase installation ID on Google's backend. Separately, uncaught exceptions are forwarded to Firebase Crashlytics via recordException, attaching stack traces (which may include internal class names, package names, in-flight data referenced by crash frames, and any breadcrumbs) to the same user UUID.\r\nNo visible consent gate or opt-out for Crashlytics tagging was identified in the reviewed code paths. No email, name, or organization data is forwarded to Crashlytics in the reviewed paths.",
-      "published": "2026-08-07T18:17:17.217",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47364"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71847"
     }
   ]
 }
