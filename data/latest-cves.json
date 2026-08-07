@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T21:53:19+00:00",
+  "generated_at": "2026-08-07T22:53:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9031",
-      "summary": "An input validation\nvulnerability exists in the HTTP-WRITEOEM handler due to insufficient validation\nof user-supplied data before it is processed by internal flash-write handling\nlogic.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may cause httpd process or device to crash, resulting in loss of access\nto the web interface and a denial-of-service condition.",
-      "published": "2026-08-07T21:17:30.530",
+      "id": "CVE-2026-64676",
+      "summary": "Kata Containers is an open source implementation of lightweight Virtual Machines (VMs) that perform like containers. In versions prior to 4.0.0, the kata-agent is vulnerable to an authorization bypass in confidential-guest memory management. In Confidential Containers (CoCo) deployments, the kata-agent enforces an OPA/Rego-based AgentPolicy that must authorize every ttRPC API call, forming the security boundary that prevents an untrusted host from directing the confidential guest. Two ttRPC methods introduced with the mem-agent feature are missing this authorization check, so an untrusted host can invoke them unconditionally regardless of the guest's policy configuration. When mem-agent is enabled (off by default), this lets the host tamper with in-guest memory management by forcing swap, aggressive eviction, or compaction, resulting in attacker-controlled availability and performance degradation of the confidential workload entirely outside the agent-policy boundary. The impact does not include memory disclosure or code execution, and severity is bounded by the precondition that mem-agent must be explicitly enabled. This issue is fixed in version 4.0.0.",
+      "published": "2026-08-07T22:16:59.480",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64676"
+    },
+    {
+      "id": "CVE-2026-58262",
+      "summary": "Klever-Go is the Go implementation of the Klever blockchain protocol. Prior to 1.7.20, header signature verification counts the unused padding bits of the PubKeysBitmap toward the two-thirds validator quorum. These padding bits do not correspond to any validator and are ignored by the actual BLS aggregate-signature check, so a malicious or compromised block producer can set them to reach the required quorum while gathering fewer genuine validator signatures than the protocol demands. As a result, nodes that import or intercept the header accept it as correctly signed without a real two-thirds quorum, weakening consensus safety and undermining finality. This issue is fixed in version 1.7.20.",
+      "published": "2026-08-07T22:16:59.327",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9031"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58262"
     },
     {
-      "id": "CVE-2026-9030",
-      "summary": "A denial-of-service\nvulnerability exists in httpd service on Archer A6 v4 where the asynchronous systool\ninstruction handlng path in httpd does not properly synchronize or safely manage\nconcurrent systool operations.\u00a0 \n\n\n\n\n\nBy sending\ncrafted systool instructions through the asynchronous request path, successful\nexploitation may cause the httpd process or device management service to crash\nand may result in temporary loss of access to the web management interface or\ndevice reboot.",
-      "published": "2026-08-07T21:17:30.370",
+      "id": "CVE-2026-48170",
+      "summary": "`scim-patch`, a library to perform SCIM patch, prior to version 0.9.1 performs prototype pollution when applying a SCIM PATCH operation whose `value` object contains a key like `\"__proto__.someProp\"`. After one such patch,\n`Object.prototype.someProp` is set process-wide, affecting every plain object in the Node process. Any service that calls `scimPatch()` on attacker-controlled JSON (i.e. any SCIM endpoint accepting `PATCH` from an external IdP) is exploitable on a stock Node runtime. Version 0.9.1 contains a patch. A workaround is available. Calling `Object.freeze(Object.prototype)` (and the same on `Array.prototype`, `Function.prototype`) at process startup neutralizes this class of bug \u2014 assignment to a frozen prototype becomes a silent no-op in sloppy mode or a `TypeError` in strict mode. Node's `--frozen-intrinsics` flag does this for built-ins automatically.",
+      "published": "2026-08-07T22:16:59.170",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48170"
+    },
+    {
+      "id": "CVE-2026-48169",
+      "summary": "PraisonAI is a multi-agent teams system. Versions prior to 0.1.4 of the PraisonAI Platform API have two authorization failures that together break workspace isolation. The service layer for issues and projects performs global primary-key lookups without checking workspace ownership, so any authenticated user can read, modify, and delete resources in any workspace just by swapping UUIDs in their API requests. On top of that, every member management endpoint (add, update role, remove) only requires `min_role=\"member\"`, which lets any workspace member promote themselves to owner and kick out the original owner. A low-privilege member of one workspace can steal data from every other workspace and take over any workspace they belong to. Both issues come from the same gap: the route layer pulls `workspace_id` from the URL and verifies membership, but the service layer ignores the workspace scope for resource lookups and ignores the caller's role level for member operations. The `require_workspace_member()` dependency does its job correctly. The problem is that the service layer doesn't use the information it provides. Version 0.1.4 of the PraisonAI Platform API patch the issue.",
+      "published": "2026-08-07T22:16:59.013",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48169"
+    },
+    {
+      "id": "CVE-2026-47243",
+      "summary": "Kata Containers is an open source project focusing on a standard implementation of lightweight Virtual Machines (VMs) that perform like containers. Prior to 3.31.0, the runtime-rs standalone virtio-fs path is vulnerable to a guest-root to host-root escape. In this configuration, Kata runs the host virtiofsd as root with --sandbox none --seccomp none, so an attacker with root-equivalent access inside the guest can bypass the guest virtio-fs client entirely by taking over the virtio-fs PCI device and building a virtqueue in userspace to submit raw FUSE requests directly to the host virtiofsd. A crafted FUSE_SYMLINK request whose new symlink name is an absolute host path is honored outside the configured shared directory, allowing guest root to create root-owned symlinks in sensitive host locations such as /etc/cron.d. By pointing such a symlink at a guest-controlled crontab payload reachable through a live runtime process's mount namespace, the attacker causes the host cron daemon to execute that payload as host root, crossing the Kata isolation boundary. This issue is fixed in version 3.31.0.",
+      "published": "2026-08-07T22:16:58.753",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9030"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47243"
     },
     {
-      "id": "CVE-2026-71381",
-      "summary": "Adobe Genuine Software Integrity Service was affected by an Incorrect Authorization vulnerability that could result in a Security feature bypass. An attacker could have leveraged this vulnerability to bypass security measures and gain unauthorized limited write access. Exploitation of this issue did not require user interaction, but required the attacker to have access to the local environment the application is installed on.",
-      "published": "2026-08-07T21:17:30.147",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71381"
-    },
-    {
-      "id": "CVE-2026-69207",
-      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. Prior to 4.12.34, the built-in CORS middleware, hono/cors, is vulnerable to a regular expression denial of service (ReDoS). During a preflight OPTIONS request, the middleware parses the attacker-controlled Access-Control-Request-Headers header using a whitespace-tolerant regular expression whose backtracking makes its running time quadratic in the input length. Because the header value is bounded only by the deployment's maximum HTTP header size, a single preflight carrying a long run of whitespace can consume seconds of CPU and block request processing. On runtimes that share one execution thread across requests, this stalls concurrent requests as well, and repeated requests can render the service unresponsive. This affects the default configuration, since the vulnerable path is reached whenever cors() is used with an unset or empty allowHeaders. Applications that set a non-empty allowHeaders are not affected. This issue is fixed in version 4.12.34.",
-      "published": "2026-08-07T21:17:29.847",
+      "id": "CVE-2026-46405",
+      "summary": "OpenBao is an open source identity-based secrets management system. Prior to version 2.5.4, in OpenBao's Kerberos auth method on the `GET` handler, or when an `Authorization: Negotiate` header is supplied, the response is includes a `logical.Auth` object in addition to an error message. This results in tokens being created with only the default policy, default TTL, and no entity information, which are hidden by the returned error message. No access to these tokens by the caller occurs and the authentication token is not ever made accessible outside of `sys/raw`. This is fixed in OpenBao v2.5.4. As a workaround, users may set a rate limit quota to limit the creation of these paths. As the path is unauthenticated, it isn't possible to deny access to it.",
+      "published": "2026-08-07T22:16:58.600",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69207"
-    },
-    {
-      "id": "CVE-2026-66061",
-      "summary": "Home Assistant is open source home automation software focused on local control and privacy.  Prior to 2026.5.0, the iOS Companion app treats tag links (NFC or QR) delivered through an OS-level routing mechanism such as iOS universal links as if they were physically scanned, without validating the calling app or prompting the user. As a result, any untrusted app on the device can forward an arbitrary tag to Home Assistant, causing it to execute the associated automation as though a legitimate user had scanned an authorized tag. This allows silent, unattended automation execution by untrusted local callers. This issue has been fixed in version 2026.5.0.",
-      "published": "2026-08-07T21:17:29.693",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66061"
-    },
-    {
-      "id": "CVE-2026-66060",
-      "summary": "Home Assistant is open source home automation software focused on local control and privacy.  Prior to 2026.5.3,  the Companion app treats tag links (NFC or QR) delivered through an OS-level routing mechanism as if they were physically scanned, without validating the calling app or prompting the user. As a result, any untrusted app on the device can forward an arbitrary tag to Home Assistant, causing it to execute the associated automation as though a legitimate user had scanned an authorized tag. This allows silent, unattended automation execution by untrusted local callers. This issue is fixed in version 2026.8.1.",
-      "published": "2026-08-07T21:17:29.520",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66060"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46405"
     }
   ]
 }
