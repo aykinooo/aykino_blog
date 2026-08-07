@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T17:04:55+00:00",
+  "generated_at": "2026-08-07T17:59:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66059",
-      "summary": "Frappe is a full-stack web application framework. Prior to 16.20.0 and 15.112.0, a field-level permissions bypass exposes restricted DocType fields. This issue is fixed in versions 16.23.0 and 15.112.0.",
-      "published": "2026-08-07T16:17:26.513",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66059"
-    },
-    {
-      "id": "CVE-2026-62996",
-      "summary": "Smarty is a template engine for PHP, facilitating the separation of presentation (HTML/CSS) from application logic. From 5.0.0 until 5.8.4, Smarty's stream: resource-name handling does not adequately restrict which PHP stream wrappers and filter chains can be referenced from a template, allowing a php://filter-wrapped resource name to be used to read the contents of arbitrary local files accessible to the PHP process. An attacker able to author or influence a template's resource reference could exploit this to disclose sensitive file contents outside the intended template/config scope. This issue is fixed in version 5.8.4.",
-      "published": "2026-08-07T16:17:26.000",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62996"
-    },
-    {
-      "id": "CVE-2026-62992",
-      "summary": "Smarty is a template engine for PHP, facilitating the separation of presentation (HTML/CSS) from application logic. Prior to 5.8.2 (and 4.5.7 on the 4.x line), Security::_checkDir() does not fully resolve symbolic links before validating that a requested path lies within a configured secure directory. An attacker able to place or reference a symlink within a directory Smarty treats as trusted (e.g., a template or config directory) could use it to point outside the intended secure directory, bypassing the containment check and reading arbitrary files accessible to the PHP process. This issue is fixed in versions 5.8.2 and 4.5.7.",
-      "published": "2026-08-07T16:17:25.833",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62992"
-    },
-    {
-      "id": "CVE-2026-48093",
-      "summary": "The Code Embed WordPress plugin prior to version 2.6.1 is vulnerable to stored Cross-Site Scripting (XSS) through the external URL embed feature in post content. The vulnerable code scans rendered content for URL embed tokens, fetches the remote URL, and inserts the remote response body into the page without output sanitization or an `unfiltered_html` capability check. This allows a Contributor attacker to submit a pending post containing an inert-looking URL token that executes attacker-controlled JavaScript when an Administrator or Editor previews or reviews the post. This is distinct from CVE-2026-2512, which affected custom field meta values up to version 2.5.1. This vector affects version 2.6 and uses the documented external URL embed feature in post content. This particular issue is patched in version 2.6.1.",
-      "published": "2026-08-07T16:17:24.893",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48093"
-    },
-    {
-      "id": "CVE-2026-19210",
-      "summary": "A vulnerability has been found in SourceCodester Photo Share Website 1.0. The impacted element is an unknown function of the file /social/ajax.php?action=save_upload. Such manipulation of the argument img[]/imgName[] leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-08-07T16:17:24.113",
+      "id": "CVE-2026-71557",
+      "summary": "go-git is an extensible git implementation library written in pure Go. Prior to 5.19.2 and 6.0.0-alpha.5, reference names are not sanitized before being used to construct on-disk paths under the reference storage directory, so a maliciously crafted reference name (for example containing directory-traversal sequences) can cause go-git to write files outside the intended reference storage directory. Versions 5.19.2 and 6.0.0-alpha.5 fix the issue.",
+      "published": "2026-08-07T17:17:10.833",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19210"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71557"
     },
     {
-      "id": "CVE-2026-19209",
-      "summary": "A flaw has been found in SourceCodester Photo Share Website 1.0. The affected element is an unknown function of the file /social/index.php?page=home. This manipulation of the argument Comment causes cross site scripting. The attack may be initiated remotely. The exploit has been published and may be used.",
-      "published": "2026-08-07T16:17:23.933",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19209"
+      "id": "CVE-2026-71556",
+      "summary": "go-git is an extensible git implementation library written in pure Go. Prior to 5.19.2 and 6.0.0-alpha.5, worktree operations (including checkout, status, and add) resolve symbolic links inside the working tree without confining resolution to the worktree boundary, so a maliciously crafted repository containing a symlink can cause go-git to read from or write to files outside the intended working directory when the repository is cloned and its worktree operations are used. Versions 5.19.2 and 6.0.0-alpha.5.",
+      "published": "2026-08-07T17:17:10.150",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71556"
+    },
+    {
+      "id": "CVE-2026-68772",
+      "summary": "ZenML 0.94.6 contains a remote code execution vulnerability in the CloudpickleMaterializer component that allows attackers with write access to a shared artifact store to execute arbitrary code by planting a malicious pickle file. Attackers can replace a stored artifact.pkl file with a crafted cloudpickle payload containing a malicious __reduce__ method, which executes arbitrary system commands when any user or pipeline materializes the artifact through the unsanitized cloudpickle.load() call in cloudpickle_materializer.py.",
+      "published": "2026-08-07T17:17:07.573",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68772"
+    },
+    {
+      "id": "CVE-2026-67585",
+      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in DivvyPayHQ absinthe_federation allows an unauthenticated remote attacker to abort the Erlang VM via crafted _entities representation keys.\n\nEvery key of every object in the representations argument of the federation-mandated _entities field is converted with String.to_atom/1 by convert_key/2 in lib/absinthe/federation/schema/entities_field.ex. representations is typed as the open-ended _Any scalar, so its keys bypass schema coercion and the attacker names them freely. Atoms are never garbage collected and the BEAM atom table is hard-capped (about 1,048,576 entries by default), so one request carrying tens of thousands of unique keys creates that many permanent atoms and a handful of such requests exhausts the table and aborts the node. The impact is confined to availability: no data is read or altered, and recovery requires restarting the application.\n\nThis issue affects absinthe_federation: from 0.1.0 before 0.9.3.",
+      "published": "2026-08-07T17:17:06.927",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67585"
+    },
+    {
+      "id": "CVE-2026-66062",
+      "summary": "SvelteKit is a framework for rapidly developing robust, performant web applications using Svelte. Prior to 2.70.2, the content negotiation header parser used by SvelteKit's request handling (for headers such as Accept) uses a regular expression vulnerable to quadratic backtracking, so a maliciously crafted header value can cause excessive CPU consumption and degrade or deny service. Version 2.70.2 fixes the issue.",
+      "published": "2026-08-07T17:17:06.340",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66062"
+    },
+    {
+      "id": "CVE-2026-20348",
+      "summary": "A vulnerability in the XAR file format parser of ClamAV could allow an unauthenticated, remote attacker to cause a DoS condition or possibly other expanded impacts as a result of&nbsp;memory corruption on an affected device.\r\n\r\nThis vulnerability is due to improper boundary checks for content in XAR files during scanning. An attacker could exploit this vulnerability by submitting a crafted file that contains XAR content to be scanned by ClamAV on an affected device. A successful exploit could allow the attacker to cause the ClamAV scanning process to terminate, resulting in a DoS condition on the affected software.",
+      "published": "2026-08-07T17:17:03.537",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20348"
     }
   ]
 }
