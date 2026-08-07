@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T19:58:52+00:00",
+  "generated_at": "2026-08-07T20:56:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-71852",
-      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to 6.15.0, a crafted PDF can cause long runtimes and large memory consumption when pypdf/_font.py function Font._collect_cid_character_widths expands unusually large CID font /W width ranges or excessive width entries during text extraction. This issue is fixed in 6.15.0.",
-      "published": "2026-08-07T19:18:54.547",
+      "id": "CVE-2026-71870",
+      "summary": "pypdf is a free and open-source pure-python PDF library. Prior to 6.15.0, a crafted PDF can cause large memory consumption when pypdf/_cmap.py function parse_bfrange parses unusually large source-code or destination-string tokens in a font /ToUnicode CMap during text extraction. This issue is fixed in 6.15.0.",
+      "published": "2026-08-07T20:16:52.873",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71852"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71870"
     },
     {
-      "id": "CVE-2026-71851",
-      "summary": "crypto-js is a JavaScript library of crypto standards. Versions of crypto-js prior to 4.0.0 generate randomness in CryptoJS.lib.WordArray.random() using a custom variation of the Multiply-With-Carry pseudorandom number generator, seeded from Math.random(), instead of a cryptographically secure source. This generator was introduced in version 3.1.2-4 and remained present in nearly every 3.x release. Nominal requests for 128 or 256 bits of entropy through this function produce effective search spaces of approximately 2 to the 39th and 2 to the 47th possibilities, small enough to enumerate on commodity hardware. Downstream wallet applications that used CryptoJS.lib.WordArray.random() as the entropy source for BIP39 recovery phrases are affected, and an attacker who enumerates the reduced output space can recover the resulting private keys and control the associated funds. This issue is fixed in version 4.0.0.",
-      "published": "2026-08-07T19:18:54.390",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71851"
-    },
-    {
-      "id": "CVE-2026-71850",
-      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. From 3.8.0 to 4.12.33, memo() from hono/jsx retains the result of a server side render and reuses it for later renders with comparator equal props, and request scoped values read inside the component take no part in that comparison, so a response can contain HTML rendered for another user's request. Components wrapped with memo() are compared by props alone; values read implicitly during rendering, such as JSX Context through createContext() and useContext(), useRequestContext() from hono/jsx-renderer, and getContext() from hono/context-storage, do not participate, and the retained result lives as long as the wrapped component, so it outlives the request that produced it. A user may receive a response containing HTML rendered for another user when both render the same memoized component with comparator equal props on the same warm instance, which may disclose another user's account or profile data, disclose request scoped secrets embedded in HTML such as CSRF tokens, or expose role specific content to users who should not receive it. This issue is fixed in version 4.12.34.",
-      "published": "2026-08-07T19:18:54.240",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71850"
-    },
-    {
-      "id": "CVE-2026-71849",
-      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. From 4.7.0 to 4.12.33, the Proxy Helper proxy() function in hono/proxy does not remove response headers named by the origin's Connection header. Per RFC 9110 Section 7.6.1, an intermediary must remove the header fields listed in a message's Connection header field before forwarding the message, in addition to the well known hop by hop headers, but the proxy() function only removed the well known hop by hop headers, including Connection itself, from origin responses. A client may therefore receive response headers that the origin intended only for its immediate peer, disclosing connection scoped or internal metadata contained in such headers, when an application proxies responses from an origin that declares additional, non standard headers as hop by hop via the Connection response header. This issue is fixed in version 4.12.34.",
-      "published": "2026-08-07T19:18:54.100",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71849"
-    },
-    {
-      "id": "CVE-2026-71848",
-      "summary": "Hono is a Web application framework that provides support for any JavaScript runtime. From 4.12.0 to 4.12.33, the languageDetector middleware is vulnerable to algorithmic complexity denial of service when processing a crafted language tag containing a large number of hyphen separated subtags. To implement progressive language tag truncation, normalizeLanguage() repeatedly calls parts.slice(0, i).join('-') for every possible prefix, so the total amount of string processing grows quadratically with the number of subtags. Language values may come from a query parameter, cookie, Accept-Language header, or URL path, depending on the detector configuration, and the default detector order enables query string, cookie, and header detection, so applications using languageDetector() may expose this processing to unauthenticated requests. An attacker may repeatedly send requests containing long, hyphen separated language tags, causing excessive CPU consumption and preventing unrelated requests from being processed. This issue is fixed in version 4.12.34.",
-      "published": "2026-08-07T19:18:53.950",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71848"
-    },
-    {
-      "id": "CVE-2026-71847",
-      "summary": "Ruby JSON is a JSON implementation for Ruby. From 2.20.0 until 2.21.2, Ruby's JSON native C extension clears the consumed JSON::ResumableParser input buffer but leaves state.start, state.cursor, and state.end pointing into released storage. When partial_value reconstructs an incomplete object containing duplicate keys, the duplicate-key warning path calls cursor_position, which dereferences those stale pointers. This results in a heap-use-after-free and can terminate the Ruby process. An attacker who can supply JSON stream data to an application using JSON::ResumableParser may cause process termination when the application calls partial_value on incomplete attacker-controlled input containing duplicate object keys. This issue has been fixed in version 2.21.2.",
-      "published": "2026-08-07T19:18:53.807",
+      "id": "CVE-2026-66151",
+      "summary": "SonicWall Global VPN Client version 4.10.8.1108 and earlier is vulnerable to an out-of-bounds kernel memory read in the SWIPsec.sys driver, which could allow a local attacker to cause a system crash.",
+      "published": "2026-08-07T20:16:52.750",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71847"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66151"
+    },
+    {
+      "id": "CVE-2026-65819",
+      "summary": "gopacket provides packet processing capabilities for Go. Through version 1.7.0, multiple layer decoders use attacker-controlled lengths, counts, or offsets before validating them against packet buffers, allowing a crafted packet decoded through DecodingLayerParser or DecodeFromBytes to trigger an unrecovered panic and remotely deny service.  A patch commit is available at 210f25f.",
+      "published": "2026-08-07T20:16:52.603",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65819"
+    },
+    {
+      "id": "CVE-2026-62296",
+      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.11, XhtmlParser.java imposes no maximum element nesting depth, so a deeply nested text.div narrative triggers unbounded recursion between parseElementInner() and parseElement(), raising a StackOverflowError. An attacker who can submit FHIR resources containing such narratives can thus crash a parsing or validation worker thread, affecting validator services and any application that parses attacker-supplied FHIR JSON or XML. This issue is fixed in version 6.9.11.",
+      "published": "2026-08-07T20:16:52.457",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62296"
+    },
+    {
+      "id": "CVE-2026-62295",
+      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.11, the JSON utility parser in org.hl7.fhir.utilities.json.parser.JsonParser enforces no maximum nesting depth for arrays or objects. As a result, a small but deeply nested, syntactically valid FHIR JSON document can trigger unbounded readArray() or readObject() recursion, raising a StackOverflowError before structural validation runs. An attacker who can submit JSON resources for validation can thus crash the request thread, and services that do not isolate StackOverflowError safely may experience worker loss or process instability \u2014 a denial-of-service condition. This issue is fixed in version 6.9.11.",
+      "published": "2026-08-07T20:16:52.310",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62295"
+    },
+    {
+      "id": "CVE-2026-62293",
+      "summary": "HAPI FHIR is a complete implementation of the HL7 FHIR standard for healthcare interoperability in Java. Prior to 6.9.11, the hidden scan command concatenates attacker-controlled Implementation Guide titles, profile titles, and source references into scan.html without escaping in Scanner.java. As a result, a user who scans an attacker-supplied IG/profile and then opens or publishes the generated local/CI HTML report can trigger stored cross-site scripting, executing attacker-controlled JavaScript in the report's browser context. This issue is fixed in version 6.9.11.",
+      "published": "2026-08-07T20:16:52.157",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62293"
     }
   ]
 }
