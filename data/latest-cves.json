@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-08-07T15:07:11+00:00",
+  "generated_at": "2026-08-07T16:07:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19264",
+      "summary": "Postiz is an open-source social media scheduling tool. The route that serves locally stored media joins URL-supplied path segments onto the upload directory and streams the file without normalising the path or confining it to that directory, and the route requires no authentication. Raw dot-segments are collapsed before routing, but URL-encoded separators survive route matching and are decoded only once they reach the handler, restoring the traversal at the filesystem call. An unauthenticated remote attacker can therefore read any file readable by the application process, including the process environment, which exposes the JWT signing secret, the database connection string, and connected provider and billing secrets. Because session tokens are signed with that secret and carry no expiry, this allows forging a non-expiring session as any user, including an administrator, without a password.",
+      "published": "2026-08-07T15:17:00.297",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19264"
+    },
+    {
+      "id": "CVE-2026-19207",
+      "summary": "A security vulnerability has been detected in PHPGurukul Company Visitor Management System 1.0. This issue affects some unknown processing of the file /manage-newvisitors.php. The manipulation of the argument fullname leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-08-07T15:17:00.120",
+      "cvss": 2.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19207"
+    },
+    {
+      "id": "CVE-2026-18497",
+      "summary": "A heap-buffer-overflow vulnerability exists in the nothings stb TrueType library, up to version 1.26, that is used for parsing TrueType font files. The vulnerability exists in the stbtt__GetGlyphShapeTT() function within the nothings stb_truetype.h library when parsing malformed TTF (TrueType Font) files. The vulnerability resides in the glyph data parsing path.\r\n\r\nAn attacker can craft a malformed TTF file with an inflated endPtsOfContours value and truncate the remaining glyph data. When an application utilizing stb_truetype.h (such as various game engines or graphics software) attempts to load, bake, or render this malformed font via stbtt_GetGlyphShape(), the parser will attempt to read past the end of the glyph data buffer, triggering the out-of-bounds read.",
+      "published": "2026-08-07T15:16:59.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18497"
+    },
+    {
+      "id": "CVE-2022-4995",
+      "summary": "Weaver (Fanwei) E-cology 9.0 versions prior to 10.52 contain a file upload vulnerability that allows a remote, unauthenticated attacker to upload arbitrary files, including JSP webshells, by submitting a multipart/form-data POST request to /workrelate/plan/util/uploaderOperate.jsp with arbitrary secId and plandetailid field values. Successful exploitation results in remote code execution under the privileges of the application server process.\u00a0Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14 (UTC).",
+      "published": "2026-08-07T15:16:57.600",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-4995"
+    },
     {
       "id": "CVE-2026-66914",
       "summary": "Joomla Extension - seblod.com - Unauthenticated path traversal in SEBLOD < 3.30.0, < 4.7.0, < 6.0.1 - An unauthenticated attacker could download files from both inside and outside the webroot.",
@@ -15,34 +43,6 @@
       "published": "2026-08-07T14:17:00.187",
       "cvss": 2.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61477"
-    },
-    {
-      "id": "CVE-2026-37171",
-      "summary": "A lack of tenant separation in SuperTokens Inc. SuperTokens Core v6.0.0 to v11.4.0 allows an authenticated party in one tenant to access sessions, data, and endpoints of another tenant.",
-      "published": "2026-08-07T14:16:59.237",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-37171"
-    },
-    {
-      "id": "CVE-2026-19206",
-      "summary": "A security flaw has been discovered in MZ Automation libiec61850 up to 1.6.1. This affects the function SVReceiver_stopThreadless of the file src/sampled_values/sv_subscriber.c of the component ASDU Element Handler. Performing a manipulation results in heap-based buffer overflow. The attack must be initiated from a local position. The exploit has been released to the public and may be used for attacks. Upgrading to version 1.6.2 is able to mitigate this issue. The patch is named a96bd674e0238276dd1387d31d52e55229d0771e. The affected component should be upgraded.",
-      "published": "2026-08-07T14:16:59.020",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19206"
-    },
-    {
-      "id": "CVE-2026-16637",
-      "summary": "OPeNDAP Hyrax allows SSRF and credential disclosure via unvalidated HTTP redirects that bypass the AllowedHosts allowlist and leak Earthdata headers (User-Id, Echo-Token) to attacker-controlled endpoints.",
-      "published": "2026-08-07T14:16:57.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16637"
-    },
-    {
-      "id": "CVE-2026-15570",
-      "summary": "An improper restriction of URL schemes and destinations in the SmartCenter browserseturl command in the Telefunken TE24553B45V2DZ Smart TV running on the Vestel MB181 / Voltron181 / TiVo OS platform allows an attacker with access to the same local network to cause the embedded browser to issue requests to unintended loopback/internal destinations, including 127.0.0.1 addresses. In demonstrated scenarios, requests initiated through the SmartCenter browserseturl mechanism could reach an internal service and receive a successful response, although the same destination was not reachable through normal browser navigation. The issue affects firmware version V2.78.0.0 and is fixed in firmware version V2.85.2.0.",
-      "published": "2026-08-07T14:16:56.890",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15570"
     }
   ]
 }
