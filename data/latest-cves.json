@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-07T16:07:05+00:00",
+  "generated_at": "2026-08-07T17:04:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-19264",
-      "summary": "Postiz is an open-source social media scheduling tool. The route that serves locally stored media joins URL-supplied path segments onto the upload directory and streams the file without normalising the path or confining it to that directory, and the route requires no authentication. Raw dot-segments are collapsed before routing, but URL-encoded separators survive route matching and are decoded only once they reach the handler, restoring the traversal at the filesystem call. An unauthenticated remote attacker can therefore read any file readable by the application process, including the process environment, which exposes the JWT signing secret, the database connection string, and connected provider and billing secrets. Because session tokens are signed with that secret and carry no expiry, this allows forging a non-expiring session as any user, including an administrator, without a password.",
-      "published": "2026-08-07T15:17:00.297",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19264"
-    },
-    {
-      "id": "CVE-2026-19207",
-      "summary": "A security vulnerability has been detected in PHPGurukul Company Visitor Management System 1.0. This issue affects some unknown processing of the file /manage-newvisitors.php. The manipulation of the argument fullname leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-08-07T15:17:00.120",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19207"
-    },
-    {
-      "id": "CVE-2026-18497",
-      "summary": "A heap-buffer-overflow vulnerability exists in the nothings stb TrueType library, up to version 1.26, that is used for parsing TrueType font files. The vulnerability exists in the stbtt__GetGlyphShapeTT() function within the nothings stb_truetype.h library when parsing malformed TTF (TrueType Font) files. The vulnerability resides in the glyph data parsing path.\r\n\r\nAn attacker can craft a malformed TTF file with an inflated endPtsOfContours value and truncate the remaining glyph data. When an application utilizing stb_truetype.h (such as various game engines or graphics software) attempts to load, bake, or render this malformed font via stbtt_GetGlyphShape(), the parser will attempt to read past the end of the glyph data buffer, triggering the out-of-bounds read.",
-      "published": "2026-08-07T15:16:59.707",
+      "id": "CVE-2026-66059",
+      "summary": "Frappe is a full-stack web application framework. Prior to 16.20.0 and 15.112.0, a field-level permissions bypass exposes restricted DocType fields. This issue is fixed in versions 16.23.0 and 15.112.0.",
+      "published": "2026-08-07T16:17:26.513",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18497"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66059"
     },
     {
-      "id": "CVE-2022-4995",
-      "summary": "Weaver (Fanwei) E-cology 9.0 versions prior to 10.52 contain a file upload vulnerability that allows a remote, unauthenticated attacker to upload arbitrary files, including JSP webshells, by submitting a multipart/form-data POST request to /workrelate/plan/util/uploaderOperate.jsp with arbitrary secId and plandetailid field values. Successful exploitation results in remote code execution under the privileges of the application server process.\u00a0Exploitation evidence was first observed by the Shadowserver Foundation on 2023-10-14 (UTC).",
-      "published": "2026-08-07T15:16:57.600",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-4995"
-    },
-    {
-      "id": "CVE-2026-66914",
-      "summary": "Joomla Extension - seblod.com - Unauthenticated path traversal in SEBLOD < 3.30.0, < 4.7.0, < 6.0.1 - An unauthenticated attacker could download files from both inside and outside the webroot.",
-      "published": "2026-08-07T14:17:00.397",
+      "id": "CVE-2026-62996",
+      "summary": "Smarty is a template engine for PHP, facilitating the separation of presentation (HTML/CSS) from application logic. From 5.0.0 until 5.8.4, Smarty's stream: resource-name handling does not adequately restrict which PHP stream wrappers and filter chains can be referenced from a template, allowing a php://filter-wrapped resource name to be used to read the contents of arbitrary local files accessible to the PHP process. An attacker able to author or influence a template's resource reference could exploit this to disclose sensitive file contents outside the intended template/config scope. This issue is fixed in version 5.8.4.",
+      "published": "2026-08-07T16:17:26.000",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66914"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62996"
     },
     {
-      "id": "CVE-2026-61477",
-      "summary": "An injection vulnerability was found in libvirt's virtual network driver. The network XML parser does not strip newline characters from DNS TXT record value attributes and SRV record domain/target attributes. These values are written verbatim into the dnsmasq configuration file generated by the network driver, allowing a user with permission to define virtual networks to inject arbitrary dnsmasq configuration directives such as dhcp-script, leading to arbitrary command execution as root.",
-      "published": "2026-08-07T14:17:00.187",
-      "cvss": 2.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61477"
+      "id": "CVE-2026-62992",
+      "summary": "Smarty is a template engine for PHP, facilitating the separation of presentation (HTML/CSS) from application logic. Prior to 5.8.2 (and 4.5.7 on the 4.x line), Security::_checkDir() does not fully resolve symbolic links before validating that a requested path lies within a configured secure directory. An attacker able to place or reference a symlink within a directory Smarty treats as trusted (e.g., a template or config directory) could use it to point outside the intended secure directory, bypassing the containment check and reading arbitrary files accessible to the PHP process. This issue is fixed in versions 5.8.2 and 4.5.7.",
+      "published": "2026-08-07T16:17:25.833",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62992"
+    },
+    {
+      "id": "CVE-2026-48093",
+      "summary": "The Code Embed WordPress plugin prior to version 2.6.1 is vulnerable to stored Cross-Site Scripting (XSS) through the external URL embed feature in post content. The vulnerable code scans rendered content for URL embed tokens, fetches the remote URL, and inserts the remote response body into the page without output sanitization or an `unfiltered_html` capability check. This allows a Contributor attacker to submit a pending post containing an inert-looking URL token that executes attacker-controlled JavaScript when an Administrator or Editor previews or reviews the post. This is distinct from CVE-2026-2512, which affected custom field meta values up to version 2.5.1. This vector affects version 2.6 and uses the documented external URL embed feature in post content. This particular issue is patched in version 2.6.1.",
+      "published": "2026-08-07T16:17:24.893",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48093"
+    },
+    {
+      "id": "CVE-2026-19210",
+      "summary": "A vulnerability has been found in SourceCodester Photo Share Website 1.0. The impacted element is an unknown function of the file /social/ajax.php?action=save_upload. Such manipulation of the argument img[]/imgName[] leads to unrestricted upload. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-08-07T16:17:24.113",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19210"
+    },
+    {
+      "id": "CVE-2026-19209",
+      "summary": "A flaw has been found in SourceCodester Photo Share Website 1.0. The affected element is an unknown function of the file /social/index.php?page=home. This manipulation of the argument Comment causes cross site scripting. The attack may be initiated remotely. The exploit has been published and may be used.",
+      "published": "2026-08-07T16:17:23.933",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19209"
     }
   ]
 }
