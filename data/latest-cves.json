@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-08T13:54:59+00:00",
+  "generated_at": "2026-08-08T14:48:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19288",
+      "summary": "A vulnerability has been found in astralisone rive-mcp-server-core up to db1d0cc4cd52589116360428b7504fd0ca748b3e. This affects an unknown part of the file packages/mcp-server/src/tools/importRiveFile.ts of the component importRiveFile Flow. Such manipulation of the argument libraryId leads to path traversal. The attack needs to be performed locally. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-08T14:16:24.063",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19288"
+    },
+    {
+      "id": "CVE-2026-19287",
+      "summary": "A flaw has been found in abrinsmead mindpilot-mcp 0.5.0. Affected by this issue is some unknown functionality of the component HistoryService. This manipulation of the argument ID causes path traversal. The attack needs to be launched locally. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-08T14:16:22.913",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19287"
+    },
     {
       "id": "CVE-2026-19285",
       "summary": "A vulnerability was detected in aaronsb memory-graph up to 5cfd2382778837b9f6399080956eee670d00452c. Affected by this vulnerability is the function JsonMemoryStorage.createDomain/JsonMemoryStorage.getMemories/JsonMemoryStorage.saveMemories of the file src/tools/memoryTools.ts. The manipulation results in path traversal. The attack must be initiated from a local position. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -29,20 +43,6 @@
       "published": "2026-08-08T12:16:46.057",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19281"
-    },
-    {
-      "id": "CVE-2026-19279",
-      "summary": "A vulnerability was identified in MIMICLab mcp-pdf-vision 1.1.0. The impacted element is the function load_pdf of the file src/index.ts. Such manipulation of the argument pdfPath/sessionId leads to command injection. The attack can only be performed from a local environment. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-08T11:16:50.040",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19279"
-    },
-    {
-      "id": "CVE-2026-68082",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nlibceph: fix two unsafe bare decodes in decode_lockers()\n\ndecode_lockers() in cls_lock_client.c contains two bare decode operations\nthat allow a malicious or compromised OSD to trigger slab-out-of-bounds\nreads:\n\n1. ceph_decode_32(p) at the num_lockers field has no preceding bounds\n   check. ceph_start_decoding() accepts struct_len=0 as valid -- the\n   internal ceph_decode_need(p, end, 0, bad) always passes -- so when an\n   OSD sends struct_len=0, ceph_start_decoding() returns success with\n   p == end. The immediately following bare ceph_decode_32(p) then reads\n   4 bytes past the validated buffer boundary. The garbage value is\n   passed directly to kzalloc_objs() as the locker count.\n\n   The sibling function decode_watchers() in osd_client.c already uses\n   ceph_decode_32_safe() after its own ceph_start_decoding() call.\n   decode_lockers() was the only site using the bare variant.\n\n2. ceph_decode_8(p) after the decode_locker() loop has no preceding\n   bounds check. If an OSD crafts num_lockers such that the loop\n   advances p exactly to end, the subsequent bare ceph_decode_8(p) reads\n   one byte past the validated buffer boundary. The result is passed\n   directly into *type, which is used as a lock type discriminator by\n   callers, giving an OSD-controlled one-byte OOB read with direct\n   influence over the lock type field.\n\nFix both by replacing bare operations with their safe variants:\n  ceph_decode_32(p) -> ceph_decode_32_safe(p, end, *num_lockers,\n                                           err_inval)\n  ceph_decode_8(p)  -> ceph_decode_8_safe(p, end, *type,\n                                          err_free_lockers)\n\nThe goto targets differ intentionally:\n  err_inval: is a new label returning -EINVAL directly. It is used for\n  the pre-allocation failure path where *lockers is not yet allocated\n  and must not be passed to ceph_free_lockers().\n\n  err_free_lockers: is the existing label. It is used for the\n  post-allocation failure path where *lockers is allocated and must\n  be freed.\n\nret is set to -EINVAL before ceph_decode_8_safe() so that\nerr_free_lockers returns the correct error code on bounds violation.\nWithout this, err_free_lockers would return a stale ret value (0 from\nthe successful decode_locker() loop), silently swallowing the error.\n\n-EINVAL is correct for both failure paths. The data received from the\nOSD is structurally malformed. -ENOMEM would misrepresent the failure\nclass to callers and to stable@ backporters triaging error paths.\n\nAttacker model: a malicious or compromised OSD in a multi-tenant Ceph\ndeployment can trigger this against any kernel client that issues the\nlock.get_info class method (e.g. during RBD exclusive lock acquisition).\n\n[ idryomov: trim changelog, formatting ]",
-      "published": "2026-08-08T10:16:55.377",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68082"
     }
   ]
 }
