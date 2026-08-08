@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-08T04:19:15+00:00",
+  "generated_at": "2026-08-08T05:54:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-18988",
+      "summary": "The Easy Accordion plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'accordionTitleTag' block attribute in versions up to, and including, 3.1.8. This is due to insufficient input sanitization and output escaping in the accordion_header_renderer() function, which emits the attacker-supplied tag name using esc_attr() in an HTML tag-name context instead of tag_escape(). This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-08-08T05:17:06.790",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18988"
+    },
     {
       "id": "CVE-2026-13505",
       "summary": "In Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 1.0.2.7 (1.0.X series), 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series), sensitive key material held by the AES and DESede engines, the SP 800-90A DRBGs, SymmetricSecretKey and the PBKD and scrypt parameter classes was zeroised on garbage collection by overriding Object.finalize. Finalization runs at an unspecified time and in an unspecified order and is serviced by a single finalizer thread, so where objects carrying a finalizer are allocated faster than that thread retires them the pending-finalization queue grows without bound: disposal falls arbitrarily far behind, which can contribute to an OutOfMemoryError under load, and the key material those objects hold stays resident in the heap for as long as they are queued, defeating the purpose of the zeroisation. The behaviour was not a problem on Java 8 or Java 11; it is later JVMs, on which finalization has been deprecated and progressively de-emphasised, where it becomes one. Disposal of these classes now runs from a java.lang.ref.Cleaner registered in the multi-release jdk1.9 overlay, so on Java 9 and later it no longer depends on the finalizer being scheduled. Bouncy Castle for Java (bcprov) and Bouncy Castle for Java LTS are not affected, as neither implements the finalizer-based zeroisation scheme.",
@@ -36,13 +43,6 @@
       "published": "2026-08-07T23:17:04.593",
       "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52878"
-    },
-    {
-      "id": "CVE-2026-49343",
-      "summary": "Klever-Go is the Go implementation of the Klever blockchain protocol. In versions prior to 1.7.18, the account-data trie syncers are vulnerable to a resource-exhaustion flaw that leaks bounded throttler slots on error paths. In syncDataTrie() (in both userAccountsSyncer.go and kappAccountsSyncer.go), StartProcessing() reserves a slot from the NumGoRoutinesThrottler, but the corresponding EndProcessing() is only called on the success path and on the duplicate-root early return. As a result, any error from trie.NewTrie(), trie.NewTrieSyncer(), or trieSyncer.StartSyncing() (including the network-dependent timeout path) permanently consumes one slot for the lifetime of the throttler. An attacker who can repeatedly cause trie-node sync failures or timeouts during bootstrap can exhaust the bounded throttler, after which further account-data trie syncs stop making progress and SyncAccounts() returns a timeout. Because epoch bootstrap in syncUserAccountsState() and syncKappAccountsState() aborts on any such error, this causes bootstrap to fail, a core availability issue affecting fresh, restarting, or resyncing nodes and validators. This issue is fixed in version 1.7.18.",
-      "published": "2026-08-07T23:17:04.450",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49343"
     }
   ]
 }
