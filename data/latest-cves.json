@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-07T23:46:26+00:00",
+  "generated_at": "2026-08-08T02:18:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-13505",
+      "summary": "In Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 1.0.2.7 (1.0.X series), 2.0.2 (2.0.X series) and 2.1.3 (2.1.X series), sensitive key material held by the AES and DESede engines, the SP 800-90A DRBGs, SymmetricSecretKey and the PBKD and scrypt parameter classes was zeroised on garbage collection by overriding Object.finalize. Finalization runs at an unspecified time and in an unspecified order and is serviced by a single finalizer thread, so where objects carrying a finalizer are allocated faster than that thread retires them the pending-finalization queue grows without bound: disposal falls arbitrarily far behind, which can contribute to an OutOfMemoryError under load, and the key material those objects hold stays resident in the heap for as long as they are queued, defeating the purpose of the zeroisation. The behaviour was not a problem on Java 8 or Java 11; it is later JVMs, on which finalization has been deprecated and progressively de-emphasised, where it becomes one. Disposal of these classes now runs from a java.lang.ref.Cleaner registered in the multi-release jdk1.9 overlay, so on Java 9 and later it no longer depends on the finalizer being scheduled. Bouncy Castle for Java (bcprov) and Bouncy Castle for Java LTS are not affected, as neither implements the finalizer-based zeroisation scheme.",
+      "published": "2026-08-08T02:17:16.520",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13505"
+    },
+    {
+      "id": "CVE-2026-8798",
+      "summary": "In Bouncy Castle for Java FIPS (BC-FJA) before bc-fips 2.1.3, the native entropy source used on Intel platforms retried the CPU entropy instructions without any bound. RDSEED and RDRAND report failure through their carry flag, and the JNI seeding routine spun re-issuing the instruction for as long as that flag stayed clear, so a persistent failure of the on-chip entropy source - whether from a hardware fault, from the underlying DRBG being exhausted by contention across many cores, or from a hypervisor that does not provide the instruction - left the calling thread looping indefinitely inside the JNI call, where it could be neither interrupted nor timed out. Any operation drawing from the native entropy source could therefore hang, denying service to the application. The retry loops are now bounded (200 attempts for RDSEED and 20 for RDRAND, twice the baselines given in Intel's Digital Random Number Generator software implementation guide), pausing between attempts and, on exhaustion, clearing any partially written buffer and throwing rather than continuing to spin. The clear is performed by an un-elidable memzero, which uses a volatile pointer and an assembly memory barrier so that a compiler cannot optimise the erase away as a dead store. Bouncy Castle for Java (bcprov) is not affected, as it has no native entropy source; the 1.0.X and 2.0.X FIPS series are not affected.",
+      "published": "2026-08-08T01:16:31.393",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8798"
+    },
     {
       "id": "CVE-2026-52880",
       "summary": "Klever-Go is the Go implementation of the Klever blockchain protocol. Versions from 1.7.14 through 1.7.17 are vulnerable to a remotely triggerable denial of service. Both REST APIs are started with the Gin Engine.Run convenience method, which serves requests through Go's default HTTP server with no ReadHeaderTimeout, ReadTimeout, or MaxHeaderBytes configured. As a result, incoming connections that never complete their request headers are held open indefinitely. When a REST listener is reachable beyond localhost through the documented all-interface bind or a Docker port-publish deployment, a single unauthenticated client can open many slow-header connections and hold them open until server file descriptors are exhausted, preventing the API from accepting new connections. This renders the REST API unavailable to legitimate clients. This issue is fixed in version 1.7.18.",
@@ -29,20 +43,6 @@
       "published": "2026-08-07T23:17:04.450",
       "cvss": 5.9,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49343"
-    },
-    {
-      "id": "CVE-2026-48122",
-      "summary": "Ruby LSP is an implementation of the language server protocol for Ruby. Several workspace-level settings in the Ruby LSP VS Code extension prior to version 0.10.4 could override the path to the Ruby executable, the version manager executables, or the Bundler `Gemfile` used at startup. A malicious repository containing a `.vscode/settings.json` could set these values to attacker-controlled targets. Opening and trusting the repository would then execute code with the privileges of the developer. The Ruby LSP gem and clients of the language server in other editors are not affected. Version 0.10.4 of the Ruby LSP VS Code extension fixes the issue.",
-      "published": "2026-08-07T23:17:04.287",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48122"
-    },
-    {
-      "id": "CVE-2026-48120",
-      "summary": "Kakoune is a code editor. Prior to version 2026.05.21, the bundled, enabled by default, `autorestore.kak` script can be exploited by malicious backup files leading to arbitrary kakoune and shell commands being executed by simply opening a file. Kakoune 2026.05.21 fixes the issue. As a workaround, add `autorestore-disable` to the user kakrc will disable the autorestore feature.",
-      "published": "2026-08-07T23:17:04.117",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48120"
     }
   ]
 }
