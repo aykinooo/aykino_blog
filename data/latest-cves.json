@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-08T15:43:21+00:00",
+  "generated_at": "2026-08-08T16:49:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-67620",
+      "summary": "Flowise through 3.1.4 contains a server-side request forgery vulnerability in the SSRF guard implemented in httpSecurity.ts, where the DEFAULT_DENY_LIST omits the Oracle Cloud Infrastructure metadata endpoint 192.0.0.192 and the Alibaba Cloud metadata endpoint 100.100.100.200, allowing authenticated attackers to force the server to issue arbitrary GET requests to cloud instance metadata services. Attackers can send requests to the fetch-links API endpoint with a crafted URL parameter, bypassing deny-list validation including redirect-based bypasses, to reach instance metadata services and expose instance identity data and role credentials on Oracle Cloud Infrastructure or Alibaba Cloud deployments, with unauthenticated access possible when URL-fetching nodes exist in public chatflows.",
+      "published": "2026-08-08T16:16:49.420",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67620"
+    },
+    {
+      "id": "CVE-2026-42170",
+      "summary": "A heap-based buffer overflow vulnerability exists in the GIMP DDS (DirectDraw Surface) file parser. When a crafted DDS file declares a D3D9 pixel format but sets a lower bits-per-pixel (bpp) value in the header, the loader allocates an undersized heap buffer. Subsequent pixel data consumption at the real format's stride causes a write past the heap buffer boundary, leading to heap metadata corruption and potential code execution.",
+      "published": "2026-08-08T16:16:49.093",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42170"
+    },
     {
       "id": "CVE-2026-19288",
       "summary": "A vulnerability has been found in astralisone rive-mcp-server-core up to db1d0cc4cd52589116360428b7504fd0ca748b3e. This affects an unknown part of the file packages/mcp-server/src/tools/importRiveFile.ts of the component importRiveFile Flow. Such manipulation of the argument libraryId leads to path traversal. The attack needs to be performed locally. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -29,20 +43,6 @@
       "published": "2026-08-08T13:17:10.783",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19284"
-    },
-    {
-      "id": "CVE-2026-19282",
-      "summary": "A weakness has been identified in andreahaku llm_memory_mcp up to f11dc8bcff3ff8cf943a2945f99ff3b0bdc8a6d0. This impacts the function auto.capture of the file src/autolearn/GitHooksManager.ts of the component llm_memory_mcp. Executing a manipulation of the argument hash can lead to command injection. The attack is restricted to local execution. This product does not use versioning. This is why information about affected and unaffected releases are unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-08T13:17:10.603",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19282"
-    },
-    {
-      "id": "CVE-2026-19281",
-      "summary": "A security flaw has been discovered in adolfosalasgomez3011 slidev-builder-mcp 2.1.0. This affects the function generateChart of the file src/tools/generateAssets.ts of the component generateAssets Tool. Performing a manipulation of the argument outputDir results in command injection. The attack is only possible with local access. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-08T12:16:46.057",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19281"
     }
   ]
 }
