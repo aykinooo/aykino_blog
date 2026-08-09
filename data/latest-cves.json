@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-09T20:49:46+00:00",
+  "generated_at": "2026-08-09T21:45:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19369",
+      "summary": "A vulnerability was found in KS-GEN-AI jira-mcp-server 0.2.0. This affects the function axios.get of the file src/index.ts of the component add_attachment_from_public_url. The manipulation of the argument imageUrl results in server-side request forgery. The attack requires a local approach. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-09T21:16:59.363",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19369"
+    },
+    {
+      "id": "CVE-2026-19368",
+      "summary": "A vulnerability was found in PV-Bhat gemsuite-mcp 1.0.0. Affected by this issue is some unknown functionality of the file src/handlers/unified-gemini.ts of the component gemini_search/gemini_reason/gemini_process/gemini_analyze. The manipulation of the argument file_path/file_paths results in path traversal. The attack must be initiated from a local position. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-09T21:16:59.193",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19368"
+    },
     {
       "id": "CVE-2026-19367",
       "summary": "A vulnerability has been found in NocteDefensor LudusMCP 1.0.24. Affected by this vulnerability is an unknown functionality of the file src/tools/rangeConfig.ts of the component read_range_config. The manipulation of the argument Source leads to server-side request forgery. The attack may be initiated remotely. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -29,20 +43,6 @@
       "published": "2026-08-09T19:17:00.970",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19365"
-    },
-    {
-      "id": "CVE-2026-69659",
-      "summary": "Uncontrolled Resource Consumption vulnerability in ash-project ash allows an attacker to exhaust the memory of the node via a crafted keyset pagination cursor.\n\nRead actions with keyset pagination deserialize the client-supplied page[:after] or page[:before] cursor in decode_values/2 in lib/ash/page/keyset.ex, which base64-decodes the value and passes it to :erlang.binary_to_term/2 without bounding its size. The Erlang external term format supports zlib-compressed payloads, which the decoder inflates transparently, so a cursor of a few kilobytes can allocate tens of megabytes of heap in a single call. Ash itself only ever encodes cursors uncompressed, so the decoder accepts a term shape its encoder never produces. Concurrent requests aggregate these allocations and can terminate the node.\n\nThis issue affects ash: from 1.17.0 before 3.31.1.",
-      "published": "2026-08-09T18:16:43.627",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69659"
-    },
-    {
-      "id": "CVE-2026-19364",
-      "summary": "A vulnerability was determined in itsourcecode Hospital Management System 1.0. The affected element is an unknown function of the file /viewdoctorconsultancycharge.php. This manipulation of the argument delid causes sql injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-08-09T18:16:43.450",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19364"
     }
   ]
 }
