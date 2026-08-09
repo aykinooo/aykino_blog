@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-08-09T18:58:32+00:00",
+  "generated_at": "2026-08-09T19:46:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-70395",
+      "summary": "Improper Neutralization of Special Elements in Data Query Logic vulnerability in ash-project ash allows an attacker to forge a relationship to a record they cannot name, and to recover the secret value used to look it up.\n\nWhen manage_relationship is used with on_lookup: :relate on a belongs_to relationship, the client-supplied lookup value is passed to Ash.Query.filter/2 without being cast to the attribute type. A nested map submitted where a scalar is expected is therefore interpreted as a filter predicate rather than a literal, so a lookup for a specific record becomes a query for any record matching a condition. The same path omits Ash.Query.limit(1), leaving Ash.read_one/2 able to distinguish no match from one match from several, which turns comparison predicates into an oracle for the lookup value. Authorization is unaffected; the destination read policy still applies.\n\nThis issue affects ash: from 1.52.0-rc.11 before 3.31.1.",
+      "published": "2026-08-09T19:17:02.547",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70395"
+    },
+    {
+      "id": "CVE-2026-19366",
+      "summary": "A flaw has been found in NocteDefensor LudusMCP up to 1.0.24. Affected is an unknown function of the file src/tools/insertCredsRangeConfig.ts of the component insert_creds_range_config. Executing a manipulation of the argument configPath/outputPath can lead to path traversal. The attack is restricted to local execution. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-09T19:17:01.147",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19366"
+    },
+    {
+      "id": "CVE-2026-19365",
+      "summary": "A vulnerability was identified in Ichigo3766 image-gen-mcp 0.1.0. The impacted element is an unknown function of the file src/index.ts of the component upscale_images. Such manipulation of the argument output_path leads to path traversal. The attack must be carried out locally. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-09T19:17:00.970",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19365"
+    },
     {
       "id": "CVE-2026-69659",
       "summary": "Uncontrolled Resource Consumption vulnerability in ash-project ash allows an attacker to exhaust the memory of the node via a crafted keyset pagination cursor.\n\nRead actions with keyset pagination deserialize the client-supplied page[:after] or page[:before] cursor in decode_values/2 in lib/ash/page/keyset.ex, which base64-decodes the value and passes it to :erlang.binary_to_term/2 without bounding its size. The Erlang external term format supports zlib-compressed payloads, which the decoder inflates transparently, so a cursor of a few kilobytes can allocate tens of megabytes of heap in a single call. Ash itself only ever encodes cursors uncompressed, so the decoder accepts a term shape its encoder never produces. Concurrent requests aggregate these allocations and can terminate the node.\n\nThis issue affects ash: from 1.17.0 before 3.31.1.",
@@ -22,27 +43,6 @@
       "published": "2026-08-09T18:16:43.280",
       "cvss": 5.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19363"
-    },
-    {
-      "id": "CVE-2026-19362",
-      "summary": "A vulnerability has been found in lmammino oidc-authorizer 0.4.0. This issue affects the function parse_token_from_header of the file src/parse_token_from_header.rs of the component Authorization Header Parsing. The manipulation of the argument authorization_token leads to denial of service. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-09T18:16:43.117",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19362"
-    },
-    {
-      "id": "CVE-2026-19361",
-      "summary": "A flaw has been found in macrozheng mall 0504e86. This vulnerability affects unknown code of the file /sso/getAuthCode of the component mall-portal Module. Executing a manipulation can lead to weak password recovery. The attack may be launched remotely. This attack is characterized by high complexity. It is stated that the exploitability is difficult. The exploit has been published and may be used. The vendor deleted the GitHub issue for this vulnerability without any explanation. Afterwards the vendor was contacted early about this disclosure via email but did not respond in any way.",
-      "published": "2026-08-09T18:16:42.930",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19361"
-    },
-    {
-      "id": "CVE-2026-15534",
-      "summary": "Perl versions through 5.45.1 have out-of-bounds heap reads and writes during regular expression matching via an undersized superlinear cache in S_regmatch.\n\nThe regex engine's superlinear cache holds one bit per subject position for each participating WHILEM node, so the bit count is the subject length plus one times the number of nodes. Nothing checks that product for positive overflow of the signed 32-bit count: a 286331153 byte subject matched against a pattern with 15 participating nodes stores the count as 14, leaving a two byte cache. The cache is then indexed from the real match position and node number, so reads go past the end of the allocation, and on failure CACHEsayNO sets a bit past it.\n\nA caller that matches an attacker controlled subject of this size against a pattern of this shape can crash the process or corrupt heap memory.",
-      "published": "2026-08-09T18:16:42.800",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15534"
     }
   ]
 }
