@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-09T19:46:38+00:00",
+  "generated_at": "2026-08-09T20:49:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19367",
+      "summary": "A vulnerability has been found in NocteDefensor LudusMCP 1.0.24. Affected by this vulnerability is an unknown functionality of the file src/tools/rangeConfig.ts of the component read_range_config. The manipulation of the argument Source leads to server-side request forgery. The attack may be initiated remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-09T20:16:40.007",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19367"
+    },
     {
       "id": "CVE-2026-70395",
       "summary": "Improper Neutralization of Special Elements in Data Query Logic vulnerability in ash-project ash allows an attacker to forge a relationship to a record they cannot name, and to recover the secret value used to look it up.\n\nWhen manage_relationship is used with on_lookup: :relate on a belongs_to relationship, the client-supplied lookup value is passed to Ash.Query.filter/2 without being cast to the attribute type. A nested map submitted where a scalar is expected is therefore interpreted as a filter predicate rather than a literal, so a lookup for a specific record becomes a query for any record matching a condition. The same path omits Ash.Query.limit(1), leaving Ash.read_one/2 able to distinguish no match from one match from several, which turns comparison predicates into an oracle for the lookup value. Authorization is unaffected; the destination read policy still applies.\n\nThis issue affects ash: from 1.52.0-rc.11 before 3.31.1.",
@@ -36,13 +43,6 @@
       "published": "2026-08-09T18:16:43.450",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19364"
-    },
-    {
-      "id": "CVE-2026-19363",
-      "summary": "A vulnerability was found in lmammino oidc-authorizer up to 0.4.0. Impacted is the function unwrap of the file src/handler.rs of the component Fixed Message Handler. The manipulation of the argument jwtClaims results in deserialization. The attack can be executed remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-09T18:16:43.280",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19363"
     }
   ]
 }
