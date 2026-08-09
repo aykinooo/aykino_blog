@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-08T23:42:07+00:00",
+  "generated_at": "2026-08-09T02:26:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-71983",
-      "summary": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the wps.cgi interface that allows remote attackers to execute arbitrary commands by injecting malicious input through the pin2g, pin5g, or pin6g parameters. Attackers can exploit these unsanitized parameters to execute arbitrary commands on the affected device and obtain root privileges.",
-      "published": "2026-08-08T23:16:56.967",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71983"
-    },
-    {
-      "id": "CVE-2026-71502",
-      "summary": "CTI-Transmute contains a stored cross-site scripting vulnerability caused by insufficient neutralization of Vue template expression delimiters in server-rendered user-controlled data.\n\nAn unauthenticated attacker can create a public conversion whose name or description contains a malicious Vue expression using the application's configured [[ ... ]] delimiters. User profile names may provide an additional injection vector. Although Jinja HTML escaping is applied, the resulting value is subsequently included in a DOM region compiled by Vue.\n\nVue interprets the attacker-controlled value as a template expression rather than ordinary text. By accessing the JavaScript Function constructor from within the expression, an attacker can execute arbitrary JavaScript in the security context of the CTI-Transmute origin. The application's nonce-based Content Security Policy does not prevent exploitation because the Vue runtime compiler requires the unsafe-eval policy exception.\n\nThe malicious payload is stored by the application and executed whenever another user opens an affected page, such as the public conversion detail page. The victim may be a normal user or an administrator. Successful exploitation could allow the attacker to:\n\n  *  Access data available to the victim through the application.\n  *  Extract API keys, tokens, or other sensitive information exposed to the page.\n  *  Perform authenticated actions using the victim's session.\n  *  Modify conversions or other application data.\n  *  Escalate the impact by targeting an administrator.\n\n\nA demonstrated payload can use [].constructor.constructor(...) to obtain the JavaScript Function constructor and execute arbitrary code. The regression tests also show that a short first-stage payload could retrieve an uncapped conversion description and evaluate a larger second-stage payload.\n\nThe patch addresses the vulnerability by registering a global Jinja finalize hook that inserts a zero-width Unicode word joiner inside every Vue delimiter found in server-rendered values. This prevents Vue from recognizing the values as template expressions while preserving their visible representation.",
-      "published": "2026-08-08T22:16:34.360",
+      "id": "CVE-2026-17510",
+      "summary": "Crypt::OpenSSL::PKCS12 versions before 1.98 for Perl allow a NULL pointer dereference in print_attribute via a zero length BMPSTRING attribute.\n\nprint_attribute() sizes the destination buffer for a BMPSTRING attribute from its declared byte length with `Renew(*attribute, length, char)`. A zero length attribute makes that a zero size reallocation, which Perl implements as a free returning NULL, so the buffer pointer becomes NULL, the following `strncpy` copies nothing, and the caller dereferences NULL in the `strlen()` it passes to `newSVpvn()`. A zero length BMPSTRING is even length, so the ASN.1 decoder accepts it and the value reaches this code. The UTF8STRING, OCTET STRING and BIT STRING arms size on `length + 1` or `length * 4 + 1` and are unaffected.\n\nAny caller that passes an untrusted PKCS#12 file to info_as_hash() can crash the process. info() prints attribute values directly without sizing a buffer and is unaffected.",
+      "published": "2026-08-09T02:16:34.117",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71502"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17510"
     },
     {
-      "id": "CVE-2026-71958",
-      "summary": "D-Link DWR-M961 devices with hardware version C1 and software version 1.1.2_C1_202602110044 contain a buffer overflow vulnerability in the quicksetup.cgi interface. A remote attacker can write overly long strings to the test4, ssid2, and username fields and execute arbitrary commands by crafting a specific payload, or cause the device to crash.",
-      "published": "2026-08-08T18:16:56.783",
+      "id": "CVE-2026-71993",
+      "summary": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the openvpn function that allows remote attackers to execute arbitrary commands on the affected device. Attackers can exploit the macfilter function to inject malicious commands and obtain root privileges on the underlying system.",
+      "published": "2026-08-09T00:16:48.550",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71958"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71993"
     },
     {
-      "id": "CVE-2026-71957",
-      "summary": "D-Link DWR-M961 devices with hardware version C1 and software version 1.1.2_C1_202602110044 contain a buffer overflow vulnerability in the app.cgi interface. A remote attacker can write an overly long string to the netAcc.addlist[].name field and execute arbitrary commands by crafting a specific payload, or cause the device to crash.",
-      "published": "2026-08-08T18:16:56.647",
+      "id": "CVE-2026-71992",
+      "summary": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the macfilter function that allows remote attackers to execute arbitrary commands on the affected device. Attackers can exploit the macfilter function to inject malicious commands and obtain root privileges on the underlying system.",
+      "published": "2026-08-09T00:16:48.410",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71957"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71992"
     },
     {
-      "id": "CVE-2026-71956",
-      "summary": "D-Link DWR-M961 devices with hardware version C1 and software version 1.1.2_C1_202602110044 contain a command injection vulnerability in the app.cgi interface. A remote attacker can inject arbitrary malicious commands into the netDig.ping.dst field, resulting in command execution with root privileges.",
-      "published": "2026-08-08T18:16:56.503",
+      "id": "CVE-2026-71991",
+      "summary": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function used for Telnet configuration that allows remote attackers to execute arbitrary commands on the affected device. Attackers can exploit this vulnerability through the Telnet configuration interface to inject malicious commands and obtain root privileges on the underlying system.",
+      "published": "2026-08-09T00:16:48.270",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71956"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71991"
     },
     {
-      "id": "CVE-2026-71955",
-      "summary": "D-Link DWR-M961 devices with hardware version C1 and software version 1.1.2_C1_202602110044 contain a command injection vulnerability in the /boafrm/formWsc interface. A remote attacker can inject arbitrary malicious commands into the localPin, targetAPSsid, peerPin, and peerRptPin fields, resulting in command execution with root privileges.",
-      "published": "2026-08-08T17:16:49.250",
+      "id": "CVE-2026-71990",
+      "summary": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the TelnetSSH function used for SSH configuration that allows remote attackers to execute arbitrary commands on the affected device. Attackers can exploit this vulnerability through the SSH configuration interface to inject malicious commands and obtain root privileges on the underlying system.",
+      "published": "2026-08-09T00:16:48.130",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71955"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71990"
+    },
+    {
+      "id": "CVE-2026-71989",
+      "summary": "MSI Radix AXE6600 router firmware version v781521 contains a command injection vulnerability in the porTrigger function that allows remote attackers to execute arbitrary commands on the affected device. Attackers can exploit this vulnerability through the alg function to execute malicious commands and obtain root privileges on the underlying system.",
+      "published": "2026-08-09T00:16:47.953",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71989"
     }
   ]
 }
