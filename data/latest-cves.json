@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-10T15:14:23+00:00",
+  "generated_at": "2026-08-10T16:09:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-72761",
+      "summary": "The webhook URL validator in `website/notifications/webhooks.py` uses\n`ip.is_global` to reject non-public addresses after DNS resolution. IPv6\ntransition addresses (NAT64 `64:ff9b::/96`, 6to4 `2002::/16`, Teredo\n`2001:0000::/32`) are classified as globally routable by IANA, so `is_global`\nreturns `True` even when the embedded IPv4 targets a private, loopback, or\ncloud metadata destination. An attacker can register a webhook pointing at a\nhostname that resolves to a transition address to bypass the SSRF guard and\nexfiltrate vulnerability data to an internal endpoint.\n\nThe vulnerability was introduced on a non-release version. The fix was already done on HEAD. It only affects\n\norganisation running the HEAD.",
+      "published": "2026-08-10T15:17:44.783",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72761"
+    },
+    {
+      "id": "CVE-2026-72760",
+      "summary": "Affected versions of MISP cti-transmute disclose users' email addresses through the account following-list endpoint. When an authenticated user follows another account, get_following() includes the followed user's email field in the API response alongside their name, user ID, and follow date. Because the email address is not required for the functionality and other related user lists omit it, an authenticated attacker could systematically follow users and collect their email addresses. The fix removes user.email from the returned object.",
+      "published": "2026-08-10T15:17:44.657",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72760"
+    },
+    {
+      "id": "CVE-2026-72759",
+      "summary": "In affected versions of MISP cti-transmute, the conversion-history details endpoint performs an incomplete authorization check. When a history record references a deleted conversion, the associated conversion lookup returns None. The previous logic only denied access when the conversion object existed and the visibility check failed. As a result, deleted conversions bypassed the authorization check and their retained history input/output could be disclosed to a user able to request the corresponding history entry. The July 22, 2026 commit changes the logic to deny access whenever the conversion is missing or the requester lacks permission",
+      "published": "2026-08-10T15:17:44.520",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72759"
+    },
+    {
+      "id": "CVE-2026-19433",
+      "summary": "Authorization Bypass Through User-Controlled Key in the contact management component in Roskus Prospero Flow CRM before 5.4.8 allows authenticated users of any company to blindly overwrite the contact data of another company and to download that contact's personal data as a vCard via the contact's numeric identifier, because the save and export operations retrieve the record without constraining the query to the authenticated user's company.",
+      "published": "2026-08-10T15:17:43.330",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19433"
+    },
+    {
+      "id": "CVE-2026-18412",
+      "summary": "OpenCart extensions are uploaded as zip files with .ocmod.zip extensions. Upon installation, the OpenCart v4.2.0.0 extension installer extracts these zip files, but does not validate that the extracted paths stay inside the intended extraction directory. An attacker can craft a malicious extension containing file path traversal sequences, such as ../. With this vulnerability, an attacker can write files, such as a PHP web shell, into the webroot directory.",
+      "published": "2026-08-10T15:17:42.467",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18412"
+    },
     {
       "id": "CVE-2026-72751",
       "summary": "CTI-Transmute is affected by a stored cross-site scripting (XSS) vulnerability in the conversion graph used to visualise converted MISP and STIX content.\n\nAttacker-controlled values originating from converted CTI data were passed to multiple HTML-parsing sinks in the graph user interface without sufficient neutralisation. In particular, node labels, node sublabels, edge labels, node properties, edge properties, and node types could contain crafted HTML or JavaScript content.\n\nThe Pivotick graph library renders some of these values through HTML-parsing operations. Consequently, a malicious value such as an HTML element containing an event handler could be interpreted as markup rather than displayed as plain text. The first remediation explicitly notes that Pivotick rendered node and edge labels as HTML and therefore introduced escaping before data was handed to the graph renderer.\n\nA separate vulnerable sink was present in the Open raw JSON functionality. The raw object associated with a graph node was inserted into a new document using document.write() and an interpolated HTML string. Crafted JSON content could therefore break out of the intended <pre> element and inject executable markup. The fix replaced this construction with DOM APIs and assigns the JSON using textContent.\n\nThe initial correction did not cover all Pivotick rendering paths. A subsequent patch addressed additional XSS vectors in the graph properties panel. Values derived from the original CTI object\u2014including property names, property values, hash algorithm names, child attributes, edge properties, and STIX object types\u2014could still reach Pivotick's HTML resolver. According to the patch, Pivotick's tryResolveHTMLElement processes string values using template.innerHTML, allowing malicious markup to execute when a graph node is hovered over or selected.\n\nThe complete remediation therefore:\n\n  *  HTML-escapes node labels, node sublabels, and edge labels before they are passed to Pivotick.\n  *  Restricts graph node type values to a safe identifier character set.\n  *  Wraps node and edge property values in DOM elements populated through textContent, preventing Pivotick from treating attacker-controlled strings as HTML.\n  *  Replaces the raw-JSON popup's interpolated document.write() with DOM construction and textContent.",
       "published": "2026-08-10T14:17:31.553",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72751"
-    },
-    {
-      "id": "CVE-2026-71959",
-      "summary": "Bitwarden Server before 2026.7.2 does not verify that the caller is a member of the organization identified in a POST /collect request body, allowing any authenticated user to write forged, arbitrarily backdated entries into any organization's audit log.",
-      "published": "2026-08-10T14:17:26.870",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71959"
-    },
-    {
-      "id": "CVE-2026-63106",
-      "summary": "ReadyEcommerce before 4.5.2 contains an unauthenticated SQL injection vulnerability in the product listing API where the rating parameter from the products endpoint is concatenated directly into a MySQL HAVING clause without parameterization in ProductController.php. Attackers can perform time-based blind SQL injection through the unsanitized rating parameter to extract the full database contents, including user credentials and administrator password hashes, with potential additional file system access due to the database connection running as root.",
-      "published": "2026-08-10T14:17:25.633",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63106"
-    },
-    {
-      "id": "CVE-2026-63105",
-      "summary": "ReadyEcommerce before 4.5.2 contains a stored cross-site scripting (XSS) vulnerability that allows authenticated customers to inject malicious HTML payloads through the chat and support ticket messaging systems by exploiting unsanitized rendering via the v-html directive in Messages.vue, RightChatSidebar.vue, SupportTicketMessages.vue, and SupportTicketDetails.vue. Attackers can submit crafted message content that executes arbitrary JavaScript in the browser of any shop owner or administrator who views the message, enabling session cookie theft and account takeover.",
-      "published": "2026-08-10T14:17:25.477",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63105"
-    },
-    {
-      "id": "CVE-2026-59112",
-      "summary": "Improper verification of cryptographic signature and Improper Check for Unusual or Exceptional Conditions vulnerability in Estonian Information System Authority (RIA) libdigidocpp, DigiDoc4, DigiDoc on Android, and DigiDoc on iOS.\u00a0This issue affects libdigidocpp: from 4.1.0 before 4.2.1; DigiDoc4: from 4.7.0 before 4.8.2; DigiDoc on Android: from 2.7.0 before 2.7.2; DigiDoc on iOS: from 2.8.0 before 2.8.1.",
-      "published": "2026-08-10T14:17:25.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59112"
-    },
-    {
-      "id": "CVE-2026-18503",
-      "summary": "Attacker-controlled CSV samples can trigger super-linear \nregular-expression work during dialect sniffing and consume significant \nCPU when applications pass unbounded input to csv.Sniffer.sniff().",
-      "published": "2026-08-10T14:17:21.560",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18503"
     }
   ]
 }
