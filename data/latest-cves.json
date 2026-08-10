@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-10T19:14:08+00:00",
+  "generated_at": "2026-08-10T20:02:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-72900",
-      "summary": "Metabase allows an authenticated, low-privileged attacker to read the entire Metabase application database.",
-      "published": "2026-08-10T18:18:53.637",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72900"
-    },
-    {
-      "id": "CVE-2026-72899",
-      "summary": "Metabase allows an unauthenticated attacker to inject arbitrary SQL via a publicly shared card or dashboard that exposes a field-filter (dimension) parameter.",
-      "published": "2026-08-10T18:18:53.490",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72899"
-    },
-    {
-      "id": "CVE-2026-72898",
-      "summary": "Metabase allows a remote, unauthenticated attacker to inject arbitrary SQL via the '/reset_password' database endpoint and gain administrator access to the connected Metabase instance.",
-      "published": "2026-08-10T18:18:53.300",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72898"
-    },
-    {
-      "id": "CVE-2026-72862",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the mariadb.ts, mongo.ts, mysql.ts, postgres.ts, redis.ts, and libsql.ts Dokploy database service deployment functions pass user-controlled dockerImage fields unquoted into docker pull ${dockerImage} shell commands on the remote-server code path. This vulnerability is fixed in 0.29.13.",
-      "published": "2026-08-10T18:18:53.047",
+      "id": "CVE-2026-72872",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, application.saveBitbucketProvider stores bitbucketOwner and bitbucketRepository without validation and cloneBitbucketRepository in packages/server/src/utils/providers/bitbucket.ts interpolates those values into git clone commands executed through execAsync or execAsyncRemote, allowing a member with service deployment permission to execute arbitrary operating system commands on the Dokploy host or target server. This issue is fixed in version 0.29.13.",
+      "published": "2026-08-10T19:17:36.177",
       "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72862"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72872"
     },
     {
-      "id": "CVE-2026-72740",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, packages/server/src/utils/providers/git.ts parses the user-controlled customGitUrl with sanitizeRepoPathSSH and interpolates its domain into the ssh-keyscan command from addHostToKnownHostsCommand without shell quoting, allowing an authenticated member with service deployment permission and an attached SSH key to execute arbitrary commands on the Dokploy host during deployment. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T18:18:52.723",
+      "id": "CVE-2026-72871",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the unauthenticated /api/providers/github/setup route in apps/dokploy/pages/api/providers/github/setup.ts trusts gh_init organizationId and userId values from the state parameter and calls createGithub in packages/server/src/services/github.ts, allowing an attacker to insert a GitHub App provider containing client_secret, webhook_secret, and PEM private key material into another organization. This issue is fixed in version 0.29.13.",
+      "published": "2026-08-10T19:17:36.033",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72871"
+    },
+    {
+      "id": "CVE-2026-72870",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the buildRemoteDocker() function in packages/server/src/utils/providers/docker.ts interpolates the application-controlled dockerImage value directly into a docker pull shell command. An authenticated user with project access can set a crafted dockerImage through application.update and trigger application.deploy, causing execAsync() to execute arbitrary operating-system commands as the Dokploy server process. This issue is fixed in version 0.29.13.",
+      "published": "2026-08-10T19:17:35.897",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72870"
+    },
+    {
+      "id": "CVE-2026-72869",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the backup.restoreBackupWithLogs tRPC subscription passes the databaseName parameter to restore builders in packages/server/src/utils/restore/utils.ts, where PostgreSQL, MariaDB, MySQL, and MongoDB commands embed the value in nested shell text executed by Node.js exec. An authenticated user with backup:restore permission can supply a crafted databaseName that the host /bin/sh expands before docker exec, resulting in arbitrary commands running in the Docker-privileged host context. This issue is fixed in version 0.29.13.",
+      "published": "2026-08-10T19:17:35.753",
       "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72740"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72869"
     },
     {
-      "id": "CVE-2026-72739",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the createCommand() function constructs shell commands by interpolating compose service names and configuration into bash command strings. When a compose with a maliciously crafted name or service definition is deployed, the shell metacharacters are interpreted as command separators, allowing arbitrary command execution on the Docker host. This vulnerability is fixed in 0.29.13.",
-      "published": "2026-08-10T18:18:52.577",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72739"
+      "id": "CVE-2026-72868",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, apps/dokploy/server/api/routers/destination.ts interpolates the accessKey, secretAccessKey, region, endpoint, provider, and bucket fields from destination.testConnection into an rclone ls command executed through child_process.exec. The `withPermission(\"destination\", \"create\")` path permits a low-privileged organization member to reach the mutation, close a quoted argument with a crafted field, and execute arbitrary commands in the root Dokploy container, which has access to the host Docker socket. This issue is fixed in version 0.29.13.",
+      "published": "2026-08-10T19:17:35.600",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72868"
+    },
+    {
+      "id": "CVE-2026-72867",
+      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). From 0.29.3 until 0.29.13, the incomplete fix for CVE-2026-45628 leaves packages/server/src/db/schema/compose.ts branch fields without server-side validation, allowing a direct compose.update request to store a malicious customGitBranch, branch, gitlabBranch, bitbucketBranch, or giteaBranch. A low-privileged authenticated user can trigger compose.deploy, which passes the stored branch to shell-based Git clone commands in packages/server/src/utils/providers/git.ts, github.ts, gitlab.ts, bitbucket.ts, and gitea.ts, resulting in arbitrary host command execution. This issue is fixed in version 0.29.13.",
+      "published": "2026-08-10T19:17:35.443",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72867"
     }
   ]
 }
