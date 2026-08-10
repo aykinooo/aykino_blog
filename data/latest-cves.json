@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-10T20:59:30+00:00",
+  "generated_at": "2026-08-10T21:55:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-72902",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated user to execute arbitrary commands on a local or SSH-connected target server because registry.testRegistry and registry.testRegistryById in apps/dokploy/server/api/routers/registry.ts interpolate the password field into an execAsyncRemote shell command instead of using safeDockerLoginCommand. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T20:17:35.707",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72902"
+      "id": "CVE-2026-73035",
+      "summary": "npm-check-updates through 23.0.2, fixed in commit b554b84, contains a terminal escape sequence injection vulnerability that allows an attacker to embed arbitrary terminal control characters in a dependency's package.json homepage or repository URL fields. When a developer runs ncu with the --format homepage or --format repo option, unfiltered escape sequences are written directly to the terminal, enabling malicious output manipulation or other terminal-dependent effects.",
+      "published": "2026-08-10T21:17:26.760",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73035"
     },
     {
-      "id": "CVE-2026-72901",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, Dokploy allows an authenticated low-privilege member to execute arbitrary commands on the control-plane host because the volumeName field accepted by volumeBackup.create and volumeBackup.runManually is interpolated without quoting in packages/server/src/utils/volume-backups/backup.ts and executed through child_process.exec, with Docker socket access making execution host/root-equivalent. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T20:17:35.570",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72901"
+      "id": "CVE-2026-73033",
+      "summary": "Sucuri Security WordPress plugin through version 2.7.3 contains a path traversal vulnerability in the pageIntegritySubmission() method in src/integrity.lib.php that allows authenticated administrators to delete arbitrary files by supplying directory traversal sequences in the sucuriscan_integrity parameter. Attackers can manipulate the unsanitized file path concatenated with ABSPATH to traverse outside the WordPress installation directory and invoke unlink() on sensitive files such as wp-config.php and .htaccess, causing site outage or enabling malicious reinstallation.",
+      "published": "2026-08-10T21:17:26.610",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73033"
     },
     {
-      "id": "CVE-2026-72886",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). From 0.29.2 until 0.29.13, schedule.create and schedule.update in apps/dokploy/server/api/routers/schedule.ts derive serviceId from applicationId or composeId and execute the owner/admin host-schedule gate only in the alternative branch, allowing a member with access to one application to attach its applicationId to a dokploy-server schedule and run a supplied script as root through schedule.runManually. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T20:17:35.423",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72886"
+      "id": "CVE-2026-73030",
+      "summary": "unearth through 0.18.2, fixed in commit 6c78164, contains a path traversal vulnerability in the is_within_directory function that fails to normalize paths before validation, allowing ../ sequences to bypass directory containment checks. Attackers can supply malicious tar archives with symlink members or traversal sequences to write files to arbitrary filesystem locations accessible to the process.",
+      "published": "2026-08-10T21:17:26.450",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73030"
     },
     {
-      "id": "CVE-2026-72885",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, dockerContextPath accepted by apps/dokploy/components/dashboard/application/build/show.tsx flows through getDockerContextPath in packages/server/src/utils/filesystem/directory.ts into the unquoted cd command in packages/server/src/utils/builders/docker-file.ts before execution by execAsync, allowing an authenticated application editor to execute arbitrary commands on the Dokploy host. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T20:17:35.283",
+      "id": "CVE-2026-72913",
+      "summary": "Kitty is a cross-platform GPU based terminal. Prior to 0.48.2, the @kitty-echo and @kitty-ssh DCS handlers in kitty/window.py write unauthenticated data to the child shell's stdin, where handle_remote_echo accepts printable shell command characters and handle_remote_ssh calls get_ssh_data in kittens/ssh/utils.py, which emits a newline; chaining the handlers can execute attacker-controlled commands when a user displays untrusted terminal data. This issue is fixed in version 0.48.2.",
+      "published": "2026-08-10T21:17:26.297",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72885"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72913"
     },
     {
-      "id": "CVE-2026-72884",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, sanitizeCommand in packages/server/src/utils/builders/compose.ts only trims whitespace and strips surrounding quotes from compose.command before exportEnvCommand and docker command interpolation, allowing an authenticated user who can update a Compose service to inject shell metacharacters and execute arbitrary commands on the Dokploy host. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T20:17:35.140",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72884"
+      "id": "CVE-2026-72912",
+      "summary": "CyberChef is a web app for encryption, encoding, compression, and data analysis. Prior to 11.3.0, CyberChef's pretty-recipe parser in src/core/Utils.mjs can exhaust client-side CPU when a malformed #recipe= URL fragment containing a large number of unmatched quote characters reaches Utils.parseRecipeConfig(). The function synchronously applies a complex global regular expression that may perform heavy backtracking before rejecting the input, causing the victim's browser tab to freeze during startup for seconds or longer. No code execution, data exfiltration, or privilege escalation occurs. This issue is fixed in version 11.3.0.",
+      "published": "2026-08-10T21:17:26.130",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72912"
     },
     {
-      "id": "CVE-2026-72883",
-      "summary": "Dokploy is a free, self-hostable Platform as a Service (PaaS). Prior to 0.29.13, the WebSocket handlers in apps/dokploy/server/wss/terminal.ts, apps/dokploy/server/wss/docker-container-terminal.ts, apps/dokploy/server/wss/docker-container-logs.ts, and apps/dokploy/server/wss/docker-stats.ts validate organization membership but do not enforce checkServiceAccess, accessedServerIds, or accessedServices, allowing an authenticated organization member to obtain root terminal access and read logs or statistics for restricted servers and services. This issue is fixed in version 0.29.13.",
-      "published": "2026-08-10T20:17:35.003",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72883"
+      "id": "CVE-2026-72911",
+      "summary": "ERPNext is a free and open source Enterprise Resource Planning tool. Prior to 15.118.0 and 16.29.0, the validate_template and render_template calls in erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.py render subject, body, and pdf_name fields with unrestricted globals including frappe.utils, allowing an authenticated user with a common operational role to inject template expressions, execute arbitrary server-side code, and read data across the application. This issue is fixed in versions 15.118.0 and 16.29.0.",
+      "published": "2026-08-10T21:17:25.993",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72911"
     }
   ]
 }
