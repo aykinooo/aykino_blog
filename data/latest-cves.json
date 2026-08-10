@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-10T10:34:29+00:00",
+  "generated_at": "2026-08-10T11:56:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66915",
-      "summary": "Joomla Extension - fabrikar.com - Remote code execution in Fabrik < 4.6.7 - An unauthenticated attacker could execute arbitrary code by using the ajax_calc feature of the calc plugin.",
-      "published": "2026-08-10T10:17:33.310",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66915"
+      "id": "CVE-2026-72594",
+      "summary": "A stored cross-site scripting (XSS) vulnerability in lobehub/lobe-chat through v2.2.13 allows a low-privileged authenticated user to inject arbitrary JavaScript into the application by uploading a crafted SVG file as a user avatar. The avatar upload handler derives the stored file extension and S3 content type from the original filename rather than inspecting file content, enabling an attacker to store an SVG containing a script element that executes in the browser of any user who views the attacker's profile or avatar.",
+      "published": "2026-08-10T11:17:32.610",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72594"
     },
     {
-      "id": "CVE-2026-44630",
-      "summary": "Improper validation of length fields in the Apache IoTDB RPC service may allow a remote unauthenticated attacker to cause a denial of service. By sending a crafted malformed Thrift frame, an attacker can cause IoTDB to allocate an excessive amount of memory and crash with an OutOfMemoryError.\n\n\nThis issue affects Apache IoTDB: before 1.3.8, from 2.0.0 before 2.0.9.\n\nUsers are recommended to upgrade to version 2.0.10, which fixes the issue.",
-      "published": "2026-08-10T10:17:32.483",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44630"
+      "id": "CVE-2026-72593",
+      "summary": "A missing authentication vulnerability in dulldusk/phpfm through 1.8.0 allows an unauthenticated remote attacker to access the full file manager functionality including reading, writing, deleting, and uploading files anywhere on the server filesystem. The authentication check in index.php at line 637 evaluates 'if ($auth_pass == '' || $loggedon==$auth_pass)', and since auth_pass is an empty string in the default configuration, the condition always evaluates to true and grants full access without credentials.",
+      "published": "2026-08-10T11:17:32.490",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72593"
     },
     {
-      "id": "CVE-2026-19404",
-      "summary": "A flaw was found in 389 Directory Server. The CleanAllRUV and Abort CleanAllRUV replication-maintenance extended operations perform no authorization check, allowing an unauthenticated remote attacker to invoke them when nsslapd-allow-anonymous-access is enabled (the default), or any authenticated low-privilege user to invoke them otherwise. This allows removal of a replica ID from replication metadata, purging of changelog records, and interruption of administrator-initiated cleanup, which can leave replication inconsistent or unavailable.",
-      "published": "2026-08-10T10:17:32.250",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19404"
+      "id": "CVE-2026-72592",
+      "summary": "An unrestricted file upload vulnerability in dulldusk/phpfm through 1.8.0 allows an unauthenticated remote attacker to execute arbitrary PHP code on the server. The application ships with an empty upload extension filter ($upload_ext_filter = array()) and no authentication enabled by default (auth_pass is empty string), allowing an unauthenticated attacker to upload a PHP webshell and execute it by browsing to the uploaded path.",
+      "published": "2026-08-10T11:17:32.370",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72592"
     },
     {
-      "id": "CVE-2026-66411",
-      "summary": "DEEBOT PRO M1 and DEEBOT PRO K1VAC incorrectly implement authentication algorithm in Websocket communications.\r\nAn unauthenticated attacker may connect and operate the affected robot.",
-      "published": "2026-08-10T09:17:23.483",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66411"
+      "id": "CVE-2026-72591",
+      "summary": "A server-side request forgery (SSRF) vulnerability in gabehf/Koito through v0.3.2 allows an authenticated user to make the server perform HTTP requests to arbitrary internal or external hosts by supplying a crafted image_url value in the PATCH /apis/web/v1/album/{id}/image endpoint. The application fetches the supplied URL server-side without validating the destination host or blocking access to private, loopback, link-local, or internal addresses.",
+      "published": "2026-08-10T11:17:32.253",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72591"
     },
     {
-      "id": "CVE-2026-66410",
-      "summary": "Android and iOS apps ECOVACS PRO App improperly validate server certificates.\r\nCommunication may be retrieved and/or altered.",
-      "published": "2026-08-10T09:17:23.350",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66410"
+      "id": "CVE-2026-72590",
+      "summary": "An OS command injection vulnerability in alseambusher/crontab-ui through 0.4.2 allows an unauthenticated remote attacker to inject arbitrary cron job entries by sending a crafted GET request to /crontab with URL-encoded newlines in the env_vars parameter. The handler appends the env_vars value directly to the crontab file string as '${envVars}\\n' without stripping newline characters, enabling an attacker to insert arbitrary cron expressions that execute attacker-controlled commands.",
+      "published": "2026-08-10T11:17:32.123",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72590"
     },
     {
-      "id": "CVE-2026-66409",
-      "summary": "DEEBOT PRO M1 and DEEBOT PRO K1VAC are configured with weak passwords for their Wi-Fi hotspot networks.\r\nThe password may be analyzed and obtained to connect to the access point of an affected robot.",
-      "published": "2026-08-10T09:17:23.210",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66409"
+      "id": "CVE-2026-72589",
+      "summary": "An OS command injection vulnerability in alseambusher/crontab-ui through 0.4.2 allows an unauthenticated remote attacker to execute arbitrary system commands by importing a crafted crontab database file. The POST /import endpoint accepts arbitrary .db files and overwrites the application database without validation. The hook field value is embedded directly into a shell command by crontab.js makeCommand() without sanitization, so a malicious hook value in the imported file results in command execution on the next cron execution cycle.",
+      "published": "2026-08-10T11:17:32.003",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72589"
     }
   ]
 }
