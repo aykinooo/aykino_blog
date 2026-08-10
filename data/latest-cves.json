@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-10T17:06:40+00:00",
+  "generated_at": "2026-08-10T18:01:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-72726",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, an authenticated user could eavesdrop on private AI bot conversations through the AI bot reply stream. The issue is fixed in 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
-      "published": "2026-08-10T16:19:50.097",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72726"
+      "id": "CVE-2026-72731",
+      "summary": "Discourse is an open-source discussion platform. From 2026.1.0-latest until 2026.1.7, 2026.6.2, 2026.7.1, and 2026.8.0-latest.1, anyone able to run a parameterized Data Explorer query, including non-staff members of a group a query is shared with, could craft parameter values that escaped the intended query and executed arbitrary SQL through plugins/discourse-data-explorer/lib/discourse_data_explorer/data_explorer.rb and plugins/discourse-data-explorer/lib/discourse_data_explorer/workflows/sql_action/v1.rb. Recursive parameter interpolation allowed one parameter value to introduce another parameter, and parameter declarations in SQL comments could be used to inject a statement. Queries run in a read-only transaction, so data could not be modified, but any table could be read. This issue is fixed in versions 2026.1.7, 2026.6.2, 2026.7.1, and 2026.8.0-latest.1.",
+      "published": "2026-08-10T17:17:37.663",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72731"
     },
     {
-      "id": "CVE-2026-72725",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, the staff action log model rendered unescaped previous and new value fields that could inject stored cross-site scripting into the staff interface. The issue is fixed in 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
-      "published": "2026-08-10T16:19:49.957",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72725"
+      "id": "CVE-2026-72730",
+      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, the Rich Text Editor rendered a chat-transcript username as HTML, allowing stored cross-site scripting. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "published": "2026-08-10T17:17:37.507",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72730"
     },
     {
-      "id": "CVE-2026-72724",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, plugins/chat/lib/chat/onebox_handler.rb resolves Chat::Thread by route thread_id independently of the route channel_id before checking whether the user can preview the selected chat channel. An authenticated user can pair a public channel ID with a private thread ID in a /onebox.json request and obtain private thread message content. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
-      "published": "2026-08-10T16:19:49.810",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72724"
+      "id": "CVE-2026-72729",
+      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, the discourse-local-dates plugin rendered crafted local-date format data as HTML on sites with a modified or disabled default Content Security Policy. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "published": "2026-08-10T17:17:37.337",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72729"
     },
     {
-      "id": "CVE-2026-72723",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, SiteSerializer.anonymous_default_navigation_menu_tags serializes tags from SiteSetting.default_navigation_menu_tags without applying DiscourseTagging.filter_visible for the anonymous viewer. An unauthenticated user can retrieve restricted tag names and descriptions through /site.json when those tags are limited by inaccessible categories, category tag groups, or tag-group permissions. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
-      "published": "2026-08-10T16:19:49.667",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72723"
+      "id": "CVE-2026-72728",
+      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.7, an authenticated user could submit specially formed URLs that bypassed the Onebox allowlist and embedded malicious content in a site. This issue is fixed in versions 2026.1.7, 2026.6.2, 2026.7.1, and 2026.8.0-latest.1.",
+      "published": "2026-08-10T17:17:37.013",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72728"
     },
     {
-      "id": "CVE-2026-72722",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, TopicLink.extract_from, TopicLink.ensure_entry_for, and TopicLink.duplicate_lookup do not consistently enforce Guardian.can_see? checks when processing internal links. An authenticated user can submit links to restricted topics, private messages, or hidden posts and receive canonicalized slugs or titles in the composer_messages duplicate_lookup response even though the targets are not visible to that user. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
-      "published": "2026-08-10T16:19:49.520",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72722"
+      "id": "CVE-2026-72727",
+      "summary": "Discourse is an open-source discussion platform. Prior to 026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, a low-privileged user could place crafted content in the moderation review queue that executed stored cross-site scripting when a moderator viewed it on a site with a modified or disabled default Content Security Policy. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
+      "published": "2026-08-10T17:17:36.833",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72727"
     },
     {
-      "id": "CVE-2026-72721",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0, Onebox::DomainChecker.is_blocked? compares hostnames and SiteSetting.blocked_onebox_domains entries case-sensitively, allowing an attacker to bypass configured Onebox domain restrictions by changing character casing in a redirect target hostname. This issue is fixed in versions 2026.1.6, 2026.5.2, 2026.6.1, and 2026.7.0.",
-      "published": "2026-08-10T16:19:49.360",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72721"
+      "id": "CVE-2026-71577",
+      "summary": "A flaw was found in multicluster-global-hub. During a ManagedClusterMigration, the system incorrectly grants all managed hubs read access to a shared communication topic. This allows a compromised managed hub to intercept and collect sensitive bootstrap kubeconfigs, which contain API server tokens intended for other hubs. These tokens have an extended validity of approximately 9.86 years, significantly increasing the risk of unauthorized access and information disclosure to other managed clusters.",
+      "published": "2026-08-10T17:17:36.197",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71577"
     }
   ]
 }
