@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-09T23:44:11+00:00",
+  "generated_at": "2026-08-10T02:31:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-19374",
-      "summary": "A security vulnerability has been detected in adafap api-mcp up to 92b9a5d04acfec165c7d4ef852496593aa87be06. This affects the function customAxios of the file app/api/proxy/route.ts of the component Proxy API Endpoint. The manipulation of the argument url leads to server-side request forgery. The attack is possible to be carried out remotely. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-09T23:16:36.487",
+      "id": "CVE-2026-19383",
+      "summary": "A security vulnerability has been detected in saithink/saigroup SaiAdmin up to 5.0.1. This impacts the function shell_exec of the file /app/saipackage/install/upload of the component Plugin Upload Endpoint. The manipulation leads to unrestricted upload. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. This product is published by multiple vendors.",
+      "published": "2026-08-10T02:16:43.910",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19383"
+    },
+    {
+      "id": "CVE-2026-19382",
+      "summary": "A weakness has been identified in Almico Speedfan 4.52. This affects the function KiSystemCall64 in the library speedfan.sys of the component MSR Index Handler. Executing a manipulation can lead to memory leak. The attack can only be executed locally. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-08-10T01:16:48.537",
+      "cvss": 2.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19382"
+    },
+    {
+      "id": "CVE-2026-19381",
+      "summary": "A security flaw has been discovered in Kingston FURY CTRL RGB Control Software 2.0.65.0. The impacted element is an unknown function in the library NTIOLib_KSFX.sys of the component Driver. Performing a manipulation results in improper privilege management. The attack needs to be approached locally. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-08-10T01:16:48.367",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19381"
+    },
+    {
+      "id": "CVE-2026-19380",
+      "summary": "A vulnerability was identified in Mullvad wireguard.sys 0.10.1. The affected element is the function AdapterState of the component IOCTL Handler. Such manipulation leads to improper update of reference count. Local access is required to approach this attack. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure.",
+      "published": "2026-08-10T01:16:48.163",
+      "cvss": 2.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19380"
+    },
+    {
+      "id": "CVE-2026-19379",
+      "summary": "A vulnerability was determined in EFM ipTIME AX8004M 15.09.0. Impacted is the function popen of the file /cgi/d.cgi of the component CGI Endpoint. This manipulation of the argument fname causes os command injection. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-08-10T01:16:47.980",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19374"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19379"
     },
     {
-      "id": "CVE-2026-19373",
-      "summary": "A weakness has been identified in PhialsBasement KoboldCPP-MCP-Server 1.0.0. Affected by this issue is the function makeRequest of the file src/index.ts of the component BaseConfigSchema. Executing a manipulation of the argument apiUrl can lead to server-side request forgery. It is possible to launch the attack on the local host. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-09T23:16:36.280",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19373"
-    },
-    {
-      "id": "CVE-2026-19372",
-      "summary": "A security flaw has been discovered in Handwriting-OCR handwriting-ocr-mcp-server 0.1.0. Affected by this vulnerability is the function fs.readFileSync of the file src/index.ts of the component upload_document. Performing a manipulation of the argument File results in path traversal. Attacking locally is a requirement. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-09T23:16:36.110",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19372"
-    },
-    {
-      "id": "CVE-2026-19371",
-      "summary": "A vulnerability was identified in Nikolaibibo claude-comfyui-mcp 1.0.0. Affected is the function copyFileSync of the file src/tools/utils.ts of the component comfy_upload_image. Such manipulation of the argument image_path leads to path traversal. An attack has to be approached locally. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-09T23:16:35.943",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19371"
-    },
-    {
-      "id": "CVE-2026-12372",
-      "summary": "A Server-Side Request Forgery (SSRF) vulnerability exists in nltk/nltk versions 3.9.4 and the current develop branch. The `nltk.pathsec.validate_network_url()` function, intended to prevent SSRF by rejecting internal network addresses, fails to reject IPs in the RFC 6598 shared address space (`100.64.0.0/10`). This occurs because Python's `ipaddress` module does not classify such addresses as `is_private` or `is_global`, and the current guard only checks `is_private` and a few explicit categories. An attacker who can influence a URL passed to NLTK's network-loading helpers can exploit this vulnerability to make a strict-mode application send requests to shared-address-space hosts, potentially exposing non-public infrastructure reachable from the application host. The impact is limited to SSRF-style confidentiality exposure, with no code execution claimed.",
-      "published": "2026-08-09T23:16:35.793",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12372"
-    },
-    {
-      "id": "CVE-2026-19370",
-      "summary": "A vulnerability was determined in bartekke8it56w2 new-mcp 0.1.0. This impacts the function fs.writeFileSync/fs.existsSync/fs.readFileSync of the file index.ts of the component geminithinking. This manipulation of the argument sessionCommand/sessionPath causes path traversal. The attack requires local access. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-09T22:16:31.393",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19370"
+      "id": "CVE-2026-19378",
+      "summary": "A vulnerability was found in code-projects Task Management System 1.0. This issue affects some unknown processing of the file /user/CommentSave.php. The manipulation of the argument comment/task_id/mineId/recId/myName/myImage results in cross site scripting. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
+      "published": "2026-08-10T00:17:11.023",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19378"
     }
   ]
 }
