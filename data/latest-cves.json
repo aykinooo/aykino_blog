@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-11T22:02:18+00:00",
+  "generated_at": "2026-08-11T23:00:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-71290",
-      "summary": "Improper TLS hostname verification vulnerability in Apache HttpComponents Client 5.4 or newer.\u00a0HostnameVerificationPolicy#BUILTIN setting has no effect when used with the async version of HttpClient. An attacker that can intercept and modify traffic between the client and\n the server can impersonate the server by presenting a valid certificate\n for a different domain.\u00a0\n\n\nPlease note the classic version of HttpClient is not affected by this vulnerability.\u00a0\n\nAffected users are recommended to upgrade to at least version 5.6.4, which fixes the issue.",
-      "published": "2026-08-11T21:17:51.157",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71290"
+      "id": "CVE-2026-73249",
+      "summary": "calibre is an e-book manager. Prior to 9.12.0, the calibre Content Server endpoint POST /book-update-annotations/{library_id}/{book_id}/{fmt} in src/calibre/srv/books.py omits needs_db_write=True, causing Router.dispatch() to skip ctx.check_for_write_access() before update_annotations() passes attacker-controlled JSON to db.merge_annotations_for_book(), which allows a readonly user or an anonymous user on an unauthenticated deployment to persist unauthorized book annotation changes. This issue is fixed in version 9.12.0.",
+      "published": "2026-08-11T22:19:05.687",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73249"
     },
     {
-      "id": "CVE-2026-66832",
-      "summary": "When the Mira Android app opens in-app WebView content (e.g., shop redirect flows), the user's live session token is appended to the URL as a query string parameter, and a persistent user identifier is included in the WebView's User-Agent header. Both are then transmitted to third-party web properties, referrer logs, and any JavaScript running in the WebView context.",
-      "published": "2026-08-11T21:17:49.713",
+      "id": "CVE-2026-73248",
+      "summary": "calibre is an e-book manager. Prior to 9.12.0, calibre processes attacker-controlled composite_template metadata from a malicious EPUB, OPF, PDF, or similar file through program: and a nested template() call whose formatter does not inherit allow_python_templates=False, allowing a nested python: template to reach compile_python_template and execute arbitrary Python code when the file is opened or imported. This issue is fixed in version 9.12.0.",
+      "published": "2026-08-11T22:19:05.553",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73248"
+    },
+    {
+      "id": "CVE-2026-73247",
+      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 2.0.0, Kestra's core/src/main/java/io/kestra/core/runners/pebble/functions/HttpFunction.java passes the user-controlled http() uri argument to URI.create() and the server-side HTTP client without restricting private, loopback, or link-local destinations, allowing an unauthenticated attacker to import and execute a flow that accesses internal services or cloud metadata.",
+      "published": "2026-08-11T22:19:05.417",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73247"
+    },
+    {
+      "id": "CVE-2026-73246",
+      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 2.0.0-rc6, Kestra's worker/src/main/java/io/kestra/worker/endpoint/WorkerEndpoint.java serves GET /worker without authentication and serializes the complete live Task object, which can expose commands, environment variables, HTTP headers, connection details, plaintext credentials, and execution identifiers while the main API on port 8080 remains protected. This issue is fixed in 2.0.0-rc6.",
+      "published": "2026-08-11T22:19:05.287",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73246"
+    },
+    {
+      "id": "CVE-2026-73245",
+      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 2.0.0-rc6, Kestra's cli/src/main/resources/application.yml serves Micronaut management endpoints on port 8081 without authentication even when Basic Auth protects /api/v1/** on port 8080, allowing unauthenticated GET /env requests to disclose resolved configuration and POST /loggers/{name} requests to change runtime log levels. This issue is fixed in 2.0.0-rc6.",
+      "published": "2026-08-11T22:19:05.140",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66832"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73245"
     },
     {
-      "id": "CVE-2026-66154",
-      "summary": "An insufficient certificate validation in a privileged communication workflow, was identified in a GMS application 9.5.1 (Build 9510.1044) and earlier versions which, under a successful MitM attack and controlled network conditions, could permit unauthorized changes.",
-      "published": "2026-08-11T21:17:49.600",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66154"
-    },
-    {
-      "id": "CVE-2026-66150",
-      "summary": "Improper Control of Generation of Code ('Code Injection') Vulnerability in the SonicWall Email Security appliance allows an authenticated attacker with access to the SonicWall Email Security restricted CLI can inject arbitrary OS commands that execute as root via SNMP.",
-      "published": "2026-08-11T21:17:49.497",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66150"
-    },
-    {
-      "id": "CVE-2026-66149",
-      "summary": "Improper Control of Generation of Code ('Code Injection') Vulnerability in the SonicWall Email Security appliance allows an authenticated attacker with access to the SonicWall Email Security restricted CLI can inject arbitrary OS commands that execute as root via netmask.",
-      "published": "2026-08-11T21:17:49.393",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66149"
-    },
-    {
-      "id": "CVE-2026-66148",
-      "summary": "An authenticated command injection vulnerability was identified in GMS Command-Line Interface (CLI) 9.5.1 (Build 9510.1044) and earlier versions which allows low-privileged local user to execute system commands with root privileges.",
-      "published": "2026-08-11T21:17:49.287",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66148"
+      "id": "CVE-2026-68067",
+      "summary": "The login endpoint on the Mira cloud API accepts any format-valid string in the password field and returns a live active session token for the account matching the supplied email address. An attacker could use an email address to control cloud accounts and access hormone record information and account settings.",
+      "published": "2026-08-11T22:18:55.017",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68067"
     }
   ]
 }
