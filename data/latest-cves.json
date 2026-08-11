@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-11T15:14:41+00:00",
+  "generated_at": "2026-08-11T16:11:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73210",
-      "summary": "A Server-Side Request Forgery (SSRF) vulnerability existed in Lookyloo's PlaywrightCapture when the only_global_lookup option was enabled.\n\nPlaywrightCapture implements this option to prevent captures from accessing local, loopback, or otherwise non-public network resources. However, favicon retrieval was performed separately from the browser request-routing protections. Favicon URLs extracted from rendered HTML were resolved and subsequently fetched directly using an aiohttp.ClientSession.\n\nAn attacker able to supply or control a web page processed by PlaywrightCapture could include a crafted favicon reference, for example pointing to a loopback address, private IP address, or another resource reachable only from the PlaywrightCapture host. When the page was processed, the favicon retrieval routine could issue an HTTP request to this destination despite only_global_lookup being enabled.\n\nThis bypass could therefore be used to make the PlaywrightCapture host interact with internal network services that should not be reachable through a capture. Depending on the targeted service and its response, this could enable internal service discovery, access to internal resources, or interaction with HTTP endpoints available only from the capture infrastructure.\n\nThe patch introduces a common URL validation routine and applies it to favicon retrieval. Direct non-global IP addresses, localhost, .local domains, malformed URLs, and other explicitly non-public destinations are rejected before the favicon request is performed.",
-      "published": "2026-08-11T14:17:16.070",
+      "id": "CVE-2026-73067",
+      "summary": "Tesseract is an open source OCR engine. Prior to 5.5.3, a crafted .traineddata model loaded through TessBaseAPI::Init can cause SquishedDawg::read_squished_dawg in src/dict/dawg.cpp to accept an unterminated forward-edge run, after which SquishedDawg::Load calls num_forward_edges(0) and last_edge in src/dict/dawg.h reads beyond edges_, causing a heap out-of-bounds read and process crash before image processing. This issue is fixed in version 5.5.3.",
+      "published": "2026-08-11T15:17:38.927",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73210"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73067"
     },
     {
-      "id": "CVE-2026-51584",
-      "summary": "An issue in usememos v0.27.1 allows a remote attacker to achieve account takeover via the ssoCredentials branch of the SignIn handler in server/router/api/v1/auth_service.go, because SSO identity is matched only on an attacker-controllable identifier without binding to the IdP's stable subject claim.",
-      "published": "2026-08-11T14:17:14.463",
+      "id": "CVE-2026-73066",
+      "summary": "Tesseract is an open source OCR engine. Prior to 5.5.3, a crafted .traineddata LSTM model component loaded through Tesseract's deserializer can cause an unchecked signed integer multiplication in Convolve::DeSerialize in src/lstm/convolve.cpp to wrap the convolution output-channel count, undersizing the forward-pass output buffer while writes use the unwrapped element count and causing a heap out-of-bounds write during OCR recognition. This issue is fixed in version 5.5.3.",
+      "published": "2026-08-11T15:17:38.777",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51584"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73066"
     },
     {
-      "id": "CVE-2026-51583",
-      "summary": "An issue in usememos through v0.30.0 allows a remote authenticated attacker to perform Server-Side Request Forgery (SSRF) via the Webhook validation mechanism in internal/webhook/validate.go, by setting a webhook target to an internal address.",
-      "published": "2026-08-11T14:17:14.323",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51583"
+      "id": "CVE-2026-72925",
+      "summary": "SWC is a TypeScript / JavaScript compiler written in Rust. Prior to @swc/html 1.15.47-nightly-20260729.1 and swc_html_minifier 59.0.0, the minifyJson processing in crates/swc_html_minifier/src/lib.rs parsed and serialized attacker-controlled JSON in application/json and application/ld+json script elements without the escape_json_for_html_script behavior to re-escape less-than signs, allowing a closing script sequence to terminate the element early and execute script in the generated page's origin. This issue is fixed in @swc/html 1.15.47-nightly-20260729.1 and swc_html_minifier 59.0.0.",
+      "published": "2026-08-11T15:17:38.497",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72925"
     },
     {
-      "id": "CVE-2026-48056",
-      "summary": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Versions prior to 2.5.0  improperly validate executable paths supplied to the \u00a0run-download\u00a0 IPC handler, allowing a compromised renderer process to execute arbitrary local binaries with the application\u2019s privileges. Version 2.5.0 contains a patch.",
-      "published": "2026-08-11T14:17:14.170",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48056"
+      "id": "CVE-2026-72922",
+      "summary": "AutoGPT is a workflow automation platform for creating, deploying, and managing continuous artificial intelligence agents. Prior to 0.6.70, AutoGPT's autogpt_platform/backend/backend/api/features/integrations/router.py webhook_ingress_generic route selected get_webhook_manager(provider) from the untrusted provider URL segment without verifying webhook.provider, allowing a request to /compass/webhooks/{webhook_id}/ingress to use CompassWebhookManager's inherited no-op BaseWebhooksManager.verify_signature instead of GenericWebhooksManager.verify_signature, bypass X-Webhook-Secret for a configured secret_token, and execute a generic webhook graph as its owner. This issue is fixed in version 0.6.70.",
+      "published": "2026-08-11T15:17:38.350",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72922"
     },
     {
-      "id": "CVE-2026-48046",
-      "summary": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Versions prior to 2.5.0 contain an unvalidated auto-updater URL vulnerability that allows a compromised renderer process to make the main process download and execute an arbitrary binary, resulting in remote code execution. Version 2.5.0 contains a patch.",
-      "published": "2026-08-11T14:17:14.020",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48046"
+      "id": "CVE-2026-72921",
+      "summary": "SeaweedFS is a distributed storage system. Prior to 4.24, the weed/server/filer_server_handlers.go allowed_prefixes authorization check used strings.HasPrefix on raw path strings, so a filer JWT scoped to /tenant1 also authorized sibling paths such as /tenant1234, /tenant1-old, and /tenant1backup, enabling cross-tenant reads and writes with a valid scoped token. This issue is fixed in version 4.24.",
+      "published": "2026-08-11T15:17:38.217",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72921"
     },
     {
-      "id": "CVE-2026-46670",
-      "summary": "YesWiki is a wiki system written in PHP. Prior to version 4.6.4,  an unauthenticated SQL injection in the Bazar form-import path (`FormManager::create()`) allows any unauthenticated visitor of a default YesWiki install to inject arbitrary SQL into an `INSERT` statement and read the full database, including `yeswiki_users.password` hashes. Version 4.6.4 fixes the issue.",
-      "published": "2026-08-11T14:17:13.863",
+      "id": "CVE-2026-72920",
+      "summary": "SeaweedFS is a distributed storage system. Prior to 4.24, the filer registers the SeaweedIdentityAccessManagement gRPC service without mandatory authentication when jwt.filer_signing.key is unset, allowing any client that can reach the filer gRPC port to invoke CreateUser, CreateAccessKey, PutPolicy, and related IAM RPCs to mint credentials and gain S3 administrative control. This issue is fixed in versions 4.24.",
+      "published": "2026-08-11T15:17:38.053",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46670"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72920"
     }
   ]
 }
