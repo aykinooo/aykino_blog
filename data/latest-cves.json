@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-11T13:39:31+00:00",
+  "generated_at": "2026-08-11T15:14:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-72785",
-      "summary": "Craft CMS 5.0.0-RC1 through 5.10.5 contains an incorrect authorization vulnerability. A control-panel user holding only the viewCategories permission (without saveCategories) for a category group can permanently modify that group's category structure \u2014 reordering and re-parenting categories \u2014 via the structures/move-element action. The structureEditable flag is computed from the view permission rather than the save permission, and the StructuresController authorizes the mutating action on that read-time session grant without a save re-check. Because a category's URI is derived from its position in the structure, moving a category changes its URL and those of its descendants and can corrupt navigation menus built from the category taxonomy. The issue is fixed in 5.10.6.",
-      "published": "2026-08-11T13:19:09.220",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72785"
+      "id": "CVE-2026-73210",
+      "summary": "A Server-Side Request Forgery (SSRF) vulnerability existed in Lookyloo's PlaywrightCapture when the only_global_lookup option was enabled.\n\nPlaywrightCapture implements this option to prevent captures from accessing local, loopback, or otherwise non-public network resources. However, favicon retrieval was performed separately from the browser request-routing protections. Favicon URLs extracted from rendered HTML were resolved and subsequently fetched directly using an aiohttp.ClientSession.\n\nAn attacker able to supply or control a web page processed by PlaywrightCapture could include a crafted favicon reference, for example pointing to a loopback address, private IP address, or another resource reachable only from the PlaywrightCapture host. When the page was processed, the favicon retrieval routine could issue an HTTP request to this destination despite only_global_lookup being enabled.\n\nThis bypass could therefore be used to make the PlaywrightCapture host interact with internal network services that should not be reachable through a capture. Depending on the targeted service and its response, this could enable internal service discovery, access to internal resources, or interaction with HTTP endpoints available only from the capture infrastructure.\n\nThe patch introduces a common URL validation routine and applies it to favicon retrieval. Direct non-global IP addresses, localhost, .local domains, malformed URLs, and other explicitly non-public destinations are rejected before the favicon request is performed.",
+      "published": "2026-08-11T14:17:16.070",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73210"
     },
     {
-      "id": "CVE-2026-72784",
-      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.6 and >= 4.0.0-RC1 before 4.18.2 contain a server-side request forgery vulnerability in the GraphQL save<Volume>Asset mutation, which fetches an attacker-supplied URL server-side. The anti-SSRF validation is incomplete: validateIp() does not cover CGNAT (100.64.0.0/10) or NAT64 (64:ff9b::/96) ranges, and the only IP check runs after the request has already been issued. An attacker holding a GraphQL token scoped only to asset-creation permissions can disclose internal HTTP content from CGNAT/NAT64 targets, force outbound GET requests to internal hosts (including RFC1918, loopback, and metadata endpoints), and enumerate internal services.",
-      "published": "2026-08-11T13:19:09.077",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72784"
+      "id": "CVE-2026-51584",
+      "summary": "An issue in usememos v0.27.1 allows a remote attacker to achieve account takeover via the ssoCredentials branch of the SignIn handler in server/router/api/v1/auth_service.go, because SSO identity is matched only on an attacker-controllable identifier without binding to the IdP's stable subject claim.",
+      "published": "2026-08-11T14:17:14.463",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51584"
     },
     {
-      "id": "CVE-2026-72783",
-      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.6 and >= 4.0.0-RC1 before 4.18.2 contain a theoretical path traversal weakness in the ensurePathIsContained function of the Local file system class. The order of operations validates the path before normalization, so normalization could invalidate prior validation assumptions (a desanitization-style issue) and potentially resolve to files outside the intended volume directory. The vendor notes the issue is not directly exploitable and no exploitable scenario has been discovered; the fix is recommended for hardening.",
-      "published": "2026-08-11T13:19:08.940",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72783"
+      "id": "CVE-2026-51583",
+      "summary": "An issue in usememos through v0.30.0 allows a remote authenticated attacker to perform Server-Side Request Forgery (SSRF) via the Webhook validation mechanism in internal/webhook/validate.go, by setting a webhook target to an internal address.",
+      "published": "2026-08-11T14:17:14.323",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-51583"
     },
     {
-      "id": "CVE-2026-72782",
-      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.6 and >= 4.0.0-RC1 before 4.18.2 interpolate environment variables and secrets (via ${ENV_VAR} strings in the elementId parameter) into Twig templates before rendering, even when the Twig sandbox is enabled. An authenticated attacker with control panel access can render a malicious sandboxed Twig template and, using a blind error-based technique across many requests, incrementally leak arbitrary environment variables and secrets. These can be abused to forge sessions (via CRAFT_SECURITY_KEY), escalate privileges, and steal database, SMTP, API, or blob storage credentials. Fixed in 5.10.6 and 4.18.2.",
-      "published": "2026-08-11T13:19:08.797",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72782"
+      "id": "CVE-2026-48056",
+      "summary": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Versions prior to 2.5.0  improperly validate executable paths supplied to the \u00a0run-download\u00a0 IPC handler, allowing a compromised renderer process to execute arbitrary local binaries with the application\u2019s privileges. Version 2.5.0 contains a patch.",
+      "published": "2026-08-11T14:17:14.170",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48056"
     },
     {
-      "id": "CVE-2026-72781",
-      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.7 and >= 4.0.0-RC1 before 4.18.3 contain a remote code execution vulnerability in the Twig sandbox mechanism. Because Craft marks the ElementInterface as safe (via the AllowedInSandbox attribute) and the sandbox allowlisting extends to the entire class hierarchy (craft\\base\\Component up to yii\\base\\Component), an authenticated attacker with permission to access the control panel can render a malicious Twig template that abuses the yii\\base\\Component arbitrary function-call gadget to execute arbitrary code, even when the Twig sandbox is enabled via enableTwigSandbox().",
-      "published": "2026-08-11T13:19:08.657",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72781"
+      "id": "CVE-2026-48046",
+      "summary": "Streambert is a cross-platform Electron Desktop App to stream and download video content. Versions prior to 2.5.0 contain an unvalidated auto-updater URL vulnerability that allows a compromised renderer process to make the main process download and execute an arbitrary binary, resulting in remote code execution. Version 2.5.0 contains a patch.",
+      "published": "2026-08-11T14:17:14.020",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48046"
     },
     {
-      "id": "CVE-2026-72780",
-      "summary": "Craft CMS before 5.10.5 fails to persist updated credential counters after WebAuthn assertion validation in the passkey login endpoint. Attackers can replay captured login request bodies containing requestOptions and response to create additional authenticated sessions for victim accounts.",
-      "published": "2026-08-11T13:19:08.510",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72780"
+      "id": "CVE-2026-46670",
+      "summary": "YesWiki is a wiki system written in PHP. Prior to version 4.6.4,  an unauthenticated SQL injection in the Bazar form-import path (`FormManager::create()`) allows any unauthenticated visitor of a default YesWiki install to inject arbitrary SQL into an `INSERT` statement and read the full database, including `yeswiki_users.password` hashes. Version 4.6.4 fixes the issue.",
+      "published": "2026-08-11T14:17:13.863",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46670"
     }
   ]
 }
