@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-08-11T04:37:42+00:00",
+  "generated_at": "2026-08-11T06:02:14+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19425",
+      "summary": "Travel Agency Management System developed by Win Men Intermational has a SQL Injection vulnerability. Unauthenticated remote attackers can inject arbitrary SQL commands to read, modify, and delete database contents.",
+      "published": "2026-08-11T05:17:14.680",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19425"
+    },
+    {
+      "id": "CVE-2026-16974",
+      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the post_meta Shortcode in all versions up to, and including, 6.2.0 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-08-11T05:17:12.560",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16974"
+    },
+    {
+      "id": "CVE-2026-11985",
+      "summary": "On the Zephyr ARM port, enabling the hardware FPU (CONFIG_FPU) forces the \"Floating point ABI\" choice, which defaults to CONFIG_FP_HARDABI. Both FP_HARDABI and FP_SOFTABI permit the compiler to emit hardware FP instructions in any function, even code that never uses floating-point types. However, the callee-saved FP registers (s16-s31 / d8-d15) are only saved and restored across a context switch when CONFIG_FPU_SHARING is enabled (arch/arm/core/cortex_m/swap_helper.S and arch/arm/core/cortex_a_r/swap_helper.S), and prior to this fix selecting an ABI did not enable FPU register sharing, which defaults off.\n\nIn a build that enables the FPU with the default ABI but leaves CONFIG_FPU_SHARING disabled, the kernel preserves no callee-saved FP register state across thread switches. The documented precondition for this \"unshared\" mode \u2014 that only a single thread ever executes FP instructions \u2014 is silently violated because the compiler may generate FP instructions in every thread.\n\nUnder CONFIG_USERSPACE, where threads are mutually isolated, this becomes an information-disclosure boundary crossing: a victim thread can leave secret-derived values in s16-s31, and a co-resident unprivileged thread can read those registers directly (FP register access is not privilege-gated), recovering data left behind by another thread. Without userspace the same defect causes cross-thread FP state corruption (a correctness fault). The leak is bounded to the 16 callee-saved single-precision registers and is opportunistic, so impact is low.\n\nThe fix makes FP_HARDABI and FP_SOFTABI select CONFIG_FPU_SHARING and tags every thread with K_FP_REGS at creation, so callee-saved FP state is always preserved across context switches whenever the compiler may emit FP instructions.",
+      "published": "2026-08-11T05:17:11.780",
+      "cvss": 3.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11985"
+    },
+    {
+      "id": "CVE-2026-11893",
+      "summary": "The Bluetooth HCI driver for Bouffalo Lab on-chip BLE controllers (BL60x/BL70x/BL61x), bt_bflb_send() in drivers/bluetooth/hci/hci_bflb.c, violates the bt_hci_driver_api.send() buffer-ownership contract. That contract (documented at include/zephyr/drivers/bluetooth.h) requires the buffer reference to be consumed only on success; on error the caller still owns the reference and unrefs it. The driver instead routed all error paths through a shared label that unconditionally called net_buf_unref(buf) before returning the error code, consuming the buffer on failure as well.\n\nWhen send() returns an error, the host TX path (send_buf() in subsys/bluetooth/host/conn.c) unrefs the same buffer again, believing it still owns it. This double-unref over-decrements the net_buf reference count. Because the buffer is a TX fragment whose destroy callback also decrements its still-queued parent buffer, the parent is freed prematurely while reachable on the connection TX queue, producing a use-after-free and corruption of the shared net_buf pool rather than a benign leak.\n\nThe error conditions are on the host-to-controller transmit path (controller send failure, or an unsupported H:4 packet type), so they are not driven directly by attacker-supplied radio bytes; a remote/adjacent peer can influence them only indirectly, e.g. by inducing controller TX failures under heavy link load. The consequence when reached is BLE-stack denial of service (crash / pool corruption) with possible further memory corruption, bounded to devices using one of these Bouffalo Lab on-chip controllers.",
+      "published": "2026-08-11T05:17:11.567",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11893"
+    },
     {
       "id": "CVE-2026-8917",
       "summary": "Untrusted Pointer Dereference in ASUS GPU Tweak III, GPUTweakII, AI Suite3, and VGAdll: An IOCTL vulnerability allows a local attacker to write a specific value to an arbitrary memory address, potentially leading to privilege escalation.\nRefer to the '\u00a0\nSecurity Update for ASUS GPU Tweak III, GPU Tweak II, AI Suite 3, and Armoury Crate Security Bulletin\u00a0\u00a0\u00a0' section on the ASUS Security Advisory for more information.",
@@ -15,34 +43,6 @@
       "published": "2026-08-11T03:17:36.463",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24330"
-    },
-    {
-      "id": "CVE-2026-24329",
-      "summary": "A flaw was found in wildfly-core. A remote user authenticated as an administrative user can inject a malformed payload into the Inet Address field through the Management Model. This injection causes the server to crash and become unrecoverable, as the payload is written into the standalone.xml configuration file. Manual intervention is required to restore server operation, leading to a denial of service.",
-      "published": "2026-08-11T03:17:36.313",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-24329"
-    },
-    {
-      "id": "CVE-2026-19424",
-      "summary": "Chiline Cloud developed by Inventec Appliances has a Insecure Direct Object Reference vulnerability. Unauthenticated remote attackers can modify a specific parameter to read other users' sensitive data.",
-      "published": "2026-08-11T03:17:36.157",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19424"
-    },
-    {
-      "id": "CVE-2026-66779",
-      "summary": "Due to a Cross-Site Scripting (XSS) vulnerability in SAP NetWeaver Application Server ABAP, an authenticated attacker could generate a malicious link and make it publicly accessible. If an authenticated victim accesses this link, the injected input is processed and reflected within the DOM on the client side during page rendering, resulting in the execution of malicious content in the victim's browser context. Successful exploitation could result in a high impact to the confidentiality and a low impact to the integrity of the system, while availability remains unaffected.",
-      "published": "2026-08-11T01:17:24.403",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66779"
-    },
-    {
-      "id": "CVE-2026-66778",
-      "summary": "SAP Approuter does not sufficiently sanitize certain request headers before forwarding traffic to internal components. An unauthenticated attacker could send a specially crafted request to obtain limited unauthorized access to information. This results in a low impact on confidentiality. There is no impact on integrity and availability.",
-      "published": "2026-08-11T01:17:24.283",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66778"
     }
   ]
 }
