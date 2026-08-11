@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-10T23:49:26+00:00",
+  "generated_at": "2026-08-11T02:24:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8718",
-      "summary": "tls_opt_dtls_peer_connection_id_value_get() in subsys/net/lib/sockets/sockets_tls.c, which handles getsockopt(SOL_TLS, TLS_DTLS_PEER_CID_VALUE), passed the caller-supplied optval directly to mbedtls_ssl_get_peer_cid() without verifying the buffer was at least MBEDTLS_SSL_CID_OUT_LEN_MAX (default 32) bytes. mbedtls_ssl_get_peer_cid() copies the peer-negotiated DTLS Connection ID (length 1..MBEDTLS_SSL_CID_OUT_LEN_MAX) into that buffer without a destination-size parameter, so a caller-supplied optlen smaller than the CID causes a write of up to 31 bytes past the buffer end.\n\nIn CONFIG_USERSPACE builds the getsockopt syscall verifier (z_vrfy_zsock_getsockopt) bounce-buffers the user's optval into a kernel allocation of exactly optlen bytes (k_usermode_alloc_from_copy -> z_thread_malloc), so an unprivileged user thread that passes a small optlen on a connected DTLS socket with Connection ID enabled induces a kernel-heap buffer overflow, with the overflowing content being the remote peer's CID.\n\nThe defect requires CONFIG_MBEDTLS_SSL_DTLS_CONNECTION_ID, an established DTLS session with a negotiated peer CID, and (for the kernel-crossing case) CONFIG_USERSPACE. Introduced when the TLS_DTLS_CID option was added (v3.5.0).\n\nThe fix rejects callers whose optlen is below MBEDTLS_SSL_CID_OUT_LEN_MAX with -EINVAL.",
-      "published": "2026-08-10T23:16:51.587",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8718"
+      "id": "CVE-2026-66779",
+      "summary": "Due to a Cross-Site Scripting (XSS) vulnerability in SAP NetWeaver Application Server ABAP, an authenticated attacker could generate a malicious link and make it publicly accessible. If an authenticated victim accesses this link, the injected input is processed and reflected within the DOM on the client side during page rendering, resulting in the execution of malicious content in the victim's browser context. Successful exploitation could result in a high impact to the confidentiality and a low impact to the integrity of the system, while availability remains unaffected.",
+      "published": "2026-08-11T01:17:24.403",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66779"
     },
     {
-      "id": "CVE-2026-48161",
-      "summary": "react18-use is a React 19 use hook shim. Between 2026-05-19 01:07:01 and 2026-05-19 15:20:43, the default branch contained malicious commits 7b79148d1495a2505f9277da295a98cf176f4496 through 7b79148d1495a2505f9277da295a98cf176f4496 that executed remote attacker-controlled code on developer machines during `npm install`. The commits were removed by force-push, but local clones, forks, and direct-SHA URLs may still contain them, and `npm install` against an affected checkout will still execute the code today. The package was not published to npm. `src/install.js` was added and wired into the `postinstall` script. It fetched a JavaScript payload from an attacker-controlled HTTPS endpoint (configurable via an environment variable), disabled TLS verification, and evaluated the response as code with `require` available. Execution was deliberately skipped on CI and cloud/serverless environments, targeting developer workstations. The second-stage payload was attacker-hosted and cannot be reconstructed. Assume full compromise of anything reachable from a Node process with the user's permissions. Those who ran `npm install` against an affected checkout on a developer machine on or after 2026-05-19 01:07:01 should treat the machine as compromised, rotate every credential the machine could reach, audit account activity since 2026-05-19 01:07:01, and clean local clones.",
-      "published": "2026-08-10T23:16:51.343",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48161"
+      "id": "CVE-2026-66778",
+      "summary": "SAP Approuter does not sufficiently sanitize certain request headers before forwarding traffic to internal components. An unauthenticated attacker could send a specially crafted request to obtain limited unauthorized access to information. This results in a low impact on confidentiality. There is no impact on integrity and availability.",
+      "published": "2026-08-11T01:17:24.283",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66778"
     },
     {
-      "id": "CVE-2026-11812",
-      "summary": "The UpdateHub management subsystem (subsys/mgmt/updatehub/updatehub.c) drives every update operation through a single file-scope ctx structure that holds the CoAP block context, payload buffer, status code, socket, and a one-element poll-fd array fds[1]. Access to ctx was not serialized, and prepare_fds() wrote ctx.fds[ctx.nfds] and incremented ctx.nfds with no bounds check.\n\nTwo independent paths mutate ctx concurrently: the background autohandler running on the system workqueue, and user-triggered operations reached through the updatehub run shell command, direct API calls, or \u2014 since the operations are exposed as syscalls \u2014 userspace threads. When a second flow enters prepare_fds() while ctx.nfds is already 1, the write lands one element past the array; by struct layout it overlaps the adjacent ctx.sock/ctx.nfds members. More broadly, the unsynchronized sharing lets two flows interleave connection setup and teardown, double-closing a socket descriptor or scribbling the shared buffers.\n\nThe result is corruption of the update subsystem's internal state and denial of service of the firmware-update path; the out-of-bounds write is contained within the ctx structure and there is no demonstrated path to memory outside it or to code execution. Triggering requires a local actor able to invoke update operations (or, with CONFIG_USERSPACE, an unprivileged userspace thread) and to win a timing race against the background handler; remote peers cannot control the race timing. The fix serializes the entry points with a mutex and adds a bounds check to prepare_fds().",
-      "published": "2026-08-10T23:16:51.020",
-      "cvss": 2.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11812"
+      "id": "CVE-2026-66777",
+      "summary": "SAP Approuter does not sufficiently validate certain incoming requests before forwarding them to backend destinations. Due to the complexity of the required conditions, an attacker with low privileges could send specially crafted requests to bypass authorization checks and reach protected resources beyond their assigned scope. Successful exploitation could allow the attacker to read sensitive data and perform limited modifications on protected resources, resulting in a high impact on confidentiality and a low impact on integrity. There is no impact on availability.",
+      "published": "2026-08-11T01:17:24.160",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66777"
     },
     {
-      "id": "CVE-2026-11811",
-      "summary": "The UpdateHub over-the-air update client's start_coap_client() in subsys/mgmt/updatehub/updatehub.c leaks the CoAP/DTLS socket descriptor on its connection-setup failure paths. The shared error: cleanup gated socket closing on a ret > 0 flag, but ret was set to -1 immediately after the socket was created, so when zsock_setsockopt() (DTLS) or zsock_connect() subsequently failed the gate was false and cleanup_connection() was never called. The open descriptor in the global ctx.sock was then overwritten by the next attempt, permanently leaking it from the socket / net_context pool until reboot.\n\nThe failing setup path is reached every time the OTA client tries to contact the UpdateHub server and the connection cannot be established \u2014 driven automatically by the periodic autohandler() poll (and on demand via the updatehub_probe()/updatehub_update() API or the updatehub run shell command). The DTLS handshake/connect outcome is influenceable by a network or on-path attacker who drops, resets, or otherwise disrupts traffic to the server, and also fails naturally whenever the server is unreachable.\n\nEach failed attempt permanently leaks one descriptor; once the shared socket pool is exhausted, networking degrades device-wide until the device is rebooted, a denial-of-service condition. Severity is low because the leak rate is bounded by the configured OTA poll interval (default once per 24 hours), the effect is gradual and recovered by reboot, and only builds with the UpdateHub client enabled are affected. There is no memory-corruption, information-disclosure, or authentication impact.",
-      "published": "2026-08-10T23:16:50.893",
+      "id": "CVE-2026-66776",
+      "summary": "SAP Approuter does not consistently enforce integrity verification on certain session-related request headers under specific conditions. An attacker with low privileges could send a specially crafted request that bypasses the integrity check and loads another user's session context. Successful exploitation requires the attacker to have previously observed matching session values out-of-band, which makes the attack complex to execute. This could result in a high impact on confidentiality and a low impact on integrity. There is no impact on availability.",
+      "published": "2026-08-11T01:17:24.030",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66776"
+    },
+    {
+      "id": "CVE-2026-66775",
+      "summary": "SAP Approuter does not enforce cross-site request forgery protection on the authentication flow by default. An unauthenticated attacker could craft a malicious link and trick a victim into following it. Successful exploitation could allow the attacker to bind the victim's session to an attacker-controlled identity, resulting in a low impact on integrity. There is no impact on confidentiality and availability.",
+      "published": "2026-08-11T01:17:23.917",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66775"
+    },
+    {
+      "id": "CVE-2026-66774",
+      "summary": "SAP Approuter does not consistently handle certain error conditions. An attacker with low privileges could exploit this under a non-default configuration. Successful exploitation is highly complex, as it depends on conditions outside the attacker's control. This could result in a low impact on availability. There is no impact on confidentiality and integrity.",
+      "published": "2026-08-11T01:17:23.787",
       "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-11811"
-    },
-    {
-      "id": "CVE-2025-30241",
-      "summary": "Certain web\ninterface components in affected TP-Link Aginet devices do not validate and sanitize user-supplied input properly before\npassing it to system-level command execution functions.\u00a0 An authenticated adjacent attacker may inject\nspecially crafted input to execute arbitrary operation system commands with\nelevated privileges.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may allow execution of arbitrary system commands, potentially\nleading to full device compromise.",
-      "published": "2026-08-10T23:16:50.670",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30241"
-    },
-    {
-      "id": "CVE-2025-30240",
-      "summary": "The affected TP-Link Aginet devices do not properly validate symbolic links created on external USB storage\ndevices. By placing a crafted symbolic link on supported storage media, an\nattacker may cause the system to resolve the link.\n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation may allow unauthorized read access to sensitive files within the\ndevice filesystem.",
-      "published": "2026-08-10T23:16:50.463",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-30240"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66774"
     }
   ]
 }
