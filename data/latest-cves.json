@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-11T09:11:45+00:00",
+  "generated_at": "2026-08-11T10:09:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73156",
-      "summary": "Affected versions of cti-transmute fail to HTML-escape attacker-controlled values used in ECharts Sunburst and Treemap tooltip formatters. Slice names may originate directly from STIX or MISP data, including STIX types, relationship_type, pattern prefixes, and MISP category/type values. Since ECharts interprets the formatter return value as HTML, crafted values can inject markup or script-capable content into the tooltip.\n\n\nAn attacker who can cause malicious conversion data to be processed can therefore inject content that executes when another user views the visualization and hovers over the affected slice. The patch replaces direct interpolation with dedicated formatter functions that call escapeHtml() on p.name, p.data.value, and p.value.",
-      "published": "2026-08-11T08:17:21.323",
+      "id": "CVE-2026-73161",
+      "summary": "Affected versions of cti-transmute improperly handle conversion-table values passed through the search highlighting feature. The highlight() function previously returned the underlying text directly when no search query was supplied, or performed a regex replacement that inserted <mark> tags without first escaping the original content. Because the resulting value is used by an HTML-rendering sink, malicious markup contained in conversion data could be interpreted as HTML rather than displayed as text.\n\nThe fix introduces a shared highlightMatches() helper that first converts special characters such as <, >, &, and quotes into HTML entities. Only after escaping does the code insert the application-controlled <mark> element used for search highlighting.",
+      "published": "2026-08-11T09:17:15.163",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73156"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73161"
     },
     {
-      "id": "CVE-2026-73155",
-      "summary": "Affected versions of cti-transmute allow authenticated users to add or remove emoji reactions on comments without first checking whether those users are authorized to view the target comment.\n\n\nThe vulnerable react() handler passed an attacker-controlled comment_id directly to comments_repo.toggle_reaction() after only validating that the ID existed syntactically and that the requested emoji was permitted. Because comment-level visibility was not enforced, a user who could identify the ID of a private or otherwise inaccessible comment could modify reaction state on that comment despite lacking permission to access it.\n\n\nThe fix retrieves the target comment, rejects missing or deleted comments, retrieves its associated conversion, and enforces access.can_see_comment(current_user, comment, conversion). Unauthorized requests now receive HTTP 403.",
-      "published": "2026-08-11T08:17:21.183",
+      "id": "CVE-2026-73160",
+      "summary": "Affected versions of cti-transmute contain an SSRF vulnerability in the /fetch_misp_event and /misp_search_events endpoints.\n\n\nThe URL validation routine checked whether a supplied hostname was itself an IP literal and rejected private, loopback, link-local, or reserved IPs. However, ordinary domain names were accepted without resolving them first. An attacker could therefore use a hostname whose DNS record pointed to an internal address and cause the cti-transmute server to issue requests into its internal network. The commit explicitly states that anonymous callers could make the server request the internal target and read the response.\n\n\nThe fix resolves hostnames using socket.getaddrinfo(), checks that every resolved address is globally routable, and additionally places @login_required on both affected MISP fetch/search routes.",
+      "published": "2026-08-11T09:17:15.030",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73155"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73160"
     },
     {
-      "id": "CVE-2026-73140",
-      "summary": "Affected versions of cti-transmute fail to apply comment-level access-control rules when generating evaluation report exports. Although normal comment retrieval filters comments according to conversion visibility, comment privacy, ownership, authorship, and administrative privileges, build_evaluation_report() previously included all evaluation comments without applying those rules.\n\n\nConsequently, a user who was authorized to view a conversion could export its evaluation report as Markdown or PDF and obtain private evaluation comments that should only have been visible to the conversion owner, the comment author, or an administrator. The leaked report data also contained the comment author's name. The fix passes the requesting user into the report builder and filters every evaluation comment using the shared access.can_see_comment() authorization function.",
-      "published": "2026-08-11T08:17:21.040",
+      "id": "CVE-2026-73159",
+      "summary": "Affected versions of cti-transmute allow a tag's icon value to be stored and later interpolated into HTML through Vue's v-html. The helper mapIcon() previously constructed an HTML string directly from the icon value:\n\n\n<i class=\"fas fa-${name}\"></i>\n\n\nBecause the icon is user-supplied, a crafted value could break out of the intended markup and inject attacker-controlled HTML. When the affected tag was later rendered, including on the administrative triage interface, the payload could execute in the viewer's browser.\n\n\nThe patch mitigates the issue at multiple layers: v-html is replaced with Vue :class binding, mapIcon() now returns only a constrained FontAwesome class string, and the backend validates icons against the FontAwesome catalogue or a strict [a-z0-9-]{1,40} slug pattern before storing them.",
+      "published": "2026-08-11T09:17:14.897",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73140"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73159"
     },
     {
-      "id": "CVE-2026-19519",
-      "summary": "A flaw was found in claircore's RPM package scanner. Crafted RPM header data in a container layer can cause an unchecked type assertion to panic the scanner. The panic is not recovered, causing the Clair indexer process to crash, leading to a denial of service.",
-      "published": "2026-08-11T08:17:20.880",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19519"
-    },
-    {
-      "id": "CVE-2026-19418",
-      "summary": "The referrer enforcement introduced with  TYPO3-CORE-SA-2020-006 https://news.typo3.com/security/advisory/typo3-core-sa-2020-006  ( CVE-2020-11069 https://www.cve.org/CVERecord ) became ineffective in TYPO3 v13.0, where TYPO3 CMS started serving the backend and Install Tool applications from the site's main entry script instead of the dedicated typo3/ directory. Whether a request originated from the backend or Install Tool itself was determined by comparing the referrer against the directory of the entry script, which since then is the site root. As a consequence, requests originating from any script running on one of the TYPO3 instance's own domains, such as a frontend page, were accepted by backend routes and Install Tool endpoints. Attackers able to execute JavaScript on one of those domains, for instance by exploiting a cross-site scripting vulnerability, could invoke these endpoints via Fetch/XHR with the privileges of an authenticated victim's user session. This issue affects TYPO3 CMS versions 13.0.0-13.4.33 and 14.0.0-14.3.5.",
-      "published": "2026-08-11T08:17:20.533",
+      "id": "CVE-2026-73158",
+      "summary": "Affected versions of cti-transmute insufficiently validate saved graph configuration data. Graph configurations can contain style properties that are later consumed by Pivotick, and Pivotick interprets svgIcon as HTML. Because saved configurations may be created by one user and later displayed to other users\u2014including administrators\u2014a malicious user could store a crafted svgIcon value that executes script in another viewer\u2019s browser.\n\n\nThe fix introduces a strict configuration schema on both the server and client. Only known properties are accepted, style entries are limited to shape, color, and size, and dangerous properties such as svgIcon and iconClass are explicitly rejected. Existing stored configurations are also sanitized when listed and again before being applied in the browser.",
+      "published": "2026-08-11T09:17:14.763",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19418"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73158"
     },
     {
-      "id": "CVE-2026-19518",
-      "summary": "Improper Validation of Specified Quantity in Input vulnerability in Samsung Open Source rlottie allows Input Data Manipulation.",
-      "published": "2026-08-11T07:17:29.883",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19518"
+      "id": "CVE-2026-73157",
+      "summary": "Affected versions of cti-transmute render data obtained from a remote MISP instance into the event-browser interface using HTML interpolation. Because fields such as event IDs, event information, organization names, tags, tag colors, TLP labels, distribution labels, and error/flash text may be controlled by the remote MISP server, a malicious or compromised remote instance could return crafted values that inject HTML or script-capable content into the cti-transmute interface.\n\n\nThe patch explicitly notes that remote-derived values must not reach innerHTML, and replaces string-built rows and badges with DOM nodes populated through textContent. It also restricts remote-controlled tag colors to six-digit hexadecimal values, preventing malicious CSS values such as url(...).",
+      "published": "2026-08-11T09:17:14.633",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73157"
+    },
+    {
+      "id": "CVE-2026-72694",
+      "summary": "A flaw was found in MRTG. When the MRTG daemon is started as a root user and subsequently drops privileges, a local, low-privileged attacker can exploit a symbolic link (symlink) following vulnerability. By influencing or pre-placing a symlink in the process ID (PID) file path, the attacker can trick the root process into changing the ownership of an arbitrary existing file to the daemon user. This can lead to local privilege escalation, allowing unauthorized access to or modification of sensitive files.",
+      "published": "2026-08-11T09:17:14.493",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72694"
     }
   ]
 }
