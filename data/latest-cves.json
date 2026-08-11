@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-08-11T10:09:36+00:00",
+  "generated_at": "2026-08-11T11:03:20+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-73162",
+      "summary": "Affected versions of MISP cti-transmute expose several state-changing account operations as GET requests:\n\n\n\n  *  \n/account/follow\n\n\n  *  \n/account/delete_notification\n\n\n  *  \n/account/mark_notification_read\n\n\n  *  \n/account/mark_all_read\n\n\n\n\n\nThese endpoints require authentication, but before the fix they could be invoked with simple GET requests. That makes them susceptible to cross-site request forgery because a third-party site can induce the victim\u2019s browser to send authenticated GET requests automatically.\n\n\nThe patch converts the actions to POST or DELETE and updates the frontend to include an X-CSRFToken header, providing explicit CSRF protection for those state-changing operations.",
+      "published": "2026-08-11T10:17:13.180",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73162"
+    },
+    {
+      "id": "CVE-2026-33922",
+      "summary": "A path traversal vulnerability was discovered in the Offline archives functionality of the local web interface due to insufficient validation of an input parameter. A local user with administrative credentials for the web interface could submit an archive name containing traversal sequences and delete arbitrary files reachable by the Arc process, which runs with administrative privileges on the host.",
+      "published": "2026-08-11T10:17:12.257",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33922"
+    },
+    {
+      "id": "CVE-2026-33921",
+      "summary": "The Windows installer deployed Npcap leaving its access restriction option at the insecure default value, so the driver was accessible to every local user of the host instead of being restricted to administrators only. A local user without administrative privileges could use the Npcap driver to capture the traffic reaching the host, which discloses information belonging both to the host and to other systems on the same network segment, and to send arbitrary raw packets on that segment.",
+      "published": "2026-08-11T10:17:11.963",
+      "cvss": 5.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33921"
+    },
     {
       "id": "CVE-2026-73161",
       "summary": "Affected versions of cti-transmute improperly handle conversion-table values passed through the search highlighting feature. The highlight() function previously returned the underlying text directly when no search query was supplied, or performed a regex replacement that inserted <mark> tags without first escaping the original content. Because the resulting value is used by an HTML-rendering sink, malicious markup contained in conversion data could be interpreted as HTML rather than displayed as text.\n\nThe fix introduces a shared highlightMatches() helper that first converts special characters such as <, >, &, and quotes into HTML entities. Only after escaping does the code insert the application-controlled <mark> element used for search highlighting.",
@@ -22,27 +43,6 @@
       "published": "2026-08-11T09:17:14.897",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73159"
-    },
-    {
-      "id": "CVE-2026-73158",
-      "summary": "Affected versions of cti-transmute insufficiently validate saved graph configuration data. Graph configurations can contain style properties that are later consumed by Pivotick, and Pivotick interprets svgIcon as HTML. Because saved configurations may be created by one user and later displayed to other users\u2014including administrators\u2014a malicious user could store a crafted svgIcon value that executes script in another viewer\u2019s browser.\n\n\nThe fix introduces a strict configuration schema on both the server and client. Only known properties are accepted, style entries are limited to shape, color, and size, and dangerous properties such as svgIcon and iconClass are explicitly rejected. Existing stored configurations are also sanitized when listed and again before being applied in the browser.",
-      "published": "2026-08-11T09:17:14.763",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73158"
-    },
-    {
-      "id": "CVE-2026-73157",
-      "summary": "Affected versions of cti-transmute render data obtained from a remote MISP instance into the event-browser interface using HTML interpolation. Because fields such as event IDs, event information, organization names, tags, tag colors, TLP labels, distribution labels, and error/flash text may be controlled by the remote MISP server, a malicious or compromised remote instance could return crafted values that inject HTML or script-capable content into the cti-transmute interface.\n\n\nThe patch explicitly notes that remote-derived values must not reach innerHTML, and replaces string-built rows and badges with DOM nodes populated through textContent. It also restricts remote-controlled tag colors to six-digit hexadecimal values, preventing malicious CSS values such as url(...).",
-      "published": "2026-08-11T09:17:14.633",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73157"
-    },
-    {
-      "id": "CVE-2026-72694",
-      "summary": "A flaw was found in MRTG. When the MRTG daemon is started as a root user and subsequently drops privileges, a local, low-privileged attacker can exploit a symbolic link (symlink) following vulnerability. By influencing or pre-placing a symlink in the process ID (PID) file path, the attacker can trick the root process into changing the ownership of an arbitrary existing file to the daemon user. This can lead to local privilege escalation, allowing unauthorized access to or modification of sensitive files.",
-      "published": "2026-08-11T09:17:14.493",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72694"
     }
   ]
 }
