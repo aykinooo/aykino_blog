@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-11T11:54:43+00:00",
+  "generated_at": "2026-08-11T13:39:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-58231",
-      "summary": "SAP Commerce Cloud allows an unauthenticated\nattacker to abuse a default authentication client and submit specially crafted\ninput to certain functions lacking sufficient validation. Successful\nexploitation could enable arbitrary code execution and compromise internal\ncomponents, resulting in high impact on confidentiality, integrity, and\navailability of the application.",
-      "published": "2026-08-11T11:17:15.390",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58231"
+      "id": "CVE-2026-72785",
+      "summary": "Craft CMS 5.0.0-RC1 through 5.10.5 contains an incorrect authorization vulnerability. A control-panel user holding only the viewCategories permission (without saveCategories) for a category group can permanently modify that group's category structure \u2014 reordering and re-parenting categories \u2014 via the structures/move-element action. The structureEditable flag is computed from the view permission rather than the save permission, and the StructuresController authorizes the mutating action on that read-time session grant without a save re-check. Because a category's URI is derived from its position in the structure, moving a category changes its URL and those of its descendants and can corrupt navigation menus built from the category taxonomy. The issue is fixed in 5.10.6.",
+      "published": "2026-08-11T13:19:09.220",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72785"
     },
     {
-      "id": "CVE-2026-73162",
-      "summary": "Affected versions of MISP cti-transmute expose several state-changing account operations as GET requests:\n\n\n\n  *  \n/account/follow\n\n\n  *  \n/account/delete_notification\n\n\n  *  \n/account/mark_notification_read\n\n\n  *  \n/account/mark_all_read\n\n\n\n\n\nThese endpoints require authentication, but before the fix they could be invoked with simple GET requests. That makes them susceptible to cross-site request forgery because a third-party site can induce the victim\u2019s browser to send authenticated GET requests automatically.\n\n\nThe patch converts the actions to POST or DELETE and updates the frontend to include an X-CSRFToken header, providing explicit CSRF protection for those state-changing operations.",
-      "published": "2026-08-11T10:17:13.180",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73162"
+      "id": "CVE-2026-72784",
+      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.6 and >= 4.0.0-RC1 before 4.18.2 contain a server-side request forgery vulnerability in the GraphQL save<Volume>Asset mutation, which fetches an attacker-supplied URL server-side. The anti-SSRF validation is incomplete: validateIp() does not cover CGNAT (100.64.0.0/10) or NAT64 (64:ff9b::/96) ranges, and the only IP check runs after the request has already been issued. An attacker holding a GraphQL token scoped only to asset-creation permissions can disclose internal HTTP content from CGNAT/NAT64 targets, force outbound GET requests to internal hosts (including RFC1918, loopback, and metadata endpoints), and enumerate internal services.",
+      "published": "2026-08-11T13:19:09.077",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72784"
     },
     {
-      "id": "CVE-2026-33922",
-      "summary": "A path traversal vulnerability was discovered in the Offline archives functionality of the local web interface due to insufficient validation of an input parameter. A local user with administrative credentials for the web interface could submit an archive name containing traversal sequences and delete arbitrary files reachable by the Arc process, which runs with administrative privileges on the host.",
-      "published": "2026-08-11T10:17:12.257",
-      "cvss": 6.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33922"
+      "id": "CVE-2026-72783",
+      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.6 and >= 4.0.0-RC1 before 4.18.2 contain a theoretical path traversal weakness in the ensurePathIsContained function of the Local file system class. The order of operations validates the path before normalization, so normalization could invalidate prior validation assumptions (a desanitization-style issue) and potentially resolve to files outside the intended volume directory. The vendor notes the issue is not directly exploitable and no exploitable scenario has been discovered; the fix is recommended for hardening.",
+      "published": "2026-08-11T13:19:08.940",
+      "cvss": 6.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72783"
     },
     {
-      "id": "CVE-2026-33921",
-      "summary": "The Windows installer deployed Npcap leaving its access restriction option at the insecure default value, so the driver was accessible to every local user of the host instead of being restricted to administrators only. A local user without administrative privileges could use the Npcap driver to capture the traffic reaching the host, which discloses information belonging both to the host and to other systems on the same network segment, and to send arbitrary raw packets on that segment.",
-      "published": "2026-08-11T10:17:11.963",
-      "cvss": 5.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33921"
+      "id": "CVE-2026-72782",
+      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.6 and >= 4.0.0-RC1 before 4.18.2 interpolate environment variables and secrets (via ${ENV_VAR} strings in the elementId parameter) into Twig templates before rendering, even when the Twig sandbox is enabled. An authenticated attacker with control panel access can render a malicious sandboxed Twig template and, using a blind error-based technique across many requests, incrementally leak arbitrary environment variables and secrets. These can be abused to forge sessions (via CRAFT_SECURITY_KEY), escalate privileges, and steal database, SMTP, API, or blob storage credentials. Fixed in 5.10.6 and 4.18.2.",
+      "published": "2026-08-11T13:19:08.797",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72782"
     },
     {
-      "id": "CVE-2026-73161",
-      "summary": "Affected versions of cti-transmute improperly handle conversion-table values passed through the search highlighting feature. The highlight() function previously returned the underlying text directly when no search query was supplied, or performed a regex replacement that inserted <mark> tags without first escaping the original content. Because the resulting value is used by an HTML-rendering sink, malicious markup contained in conversion data could be interpreted as HTML rather than displayed as text.\n\nThe fix introduces a shared highlightMatches() helper that first converts special characters such as <, >, &, and quotes into HTML entities. Only after escaping does the code insert the application-controlled <mark> element used for search highlighting.",
-      "published": "2026-08-11T09:17:15.163",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73161"
+      "id": "CVE-2026-72781",
+      "summary": "Craft CMS versions >= 5.0.0-RC1 before 5.10.7 and >= 4.0.0-RC1 before 4.18.3 contain a remote code execution vulnerability in the Twig sandbox mechanism. Because Craft marks the ElementInterface as safe (via the AllowedInSandbox attribute) and the sandbox allowlisting extends to the entire class hierarchy (craft\\base\\Component up to yii\\base\\Component), an authenticated attacker with permission to access the control panel can render a malicious Twig template that abuses the yii\\base\\Component arbitrary function-call gadget to execute arbitrary code, even when the Twig sandbox is enabled via enableTwigSandbox().",
+      "published": "2026-08-11T13:19:08.657",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72781"
     },
     {
-      "id": "CVE-2026-73160",
-      "summary": "Affected versions of cti-transmute contain an SSRF vulnerability in the /fetch_misp_event and /misp_search_events endpoints.\n\n\nThe URL validation routine checked whether a supplied hostname was itself an IP literal and rejected private, loopback, link-local, or reserved IPs. However, ordinary domain names were accepted without resolving them first. An attacker could therefore use a hostname whose DNS record pointed to an internal address and cause the cti-transmute server to issue requests into its internal network. The commit explicitly states that anonymous callers could make the server request the internal target and read the response.\n\n\nThe fix resolves hostnames using socket.getaddrinfo(), checks that every resolved address is globally routable, and additionally places @login_required on both affected MISP fetch/search routes.",
-      "published": "2026-08-11T09:17:15.030",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73160"
+      "id": "CVE-2026-72780",
+      "summary": "Craft CMS before 5.10.5 fails to persist updated credential counters after WebAuthn assertion validation in the passkey login endpoint. Attackers can replay captured login request bodies containing requestOptions and response to create additional authenticated sessions for victim accounts.",
+      "published": "2026-08-11T13:19:08.510",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72780"
     }
   ]
 }
