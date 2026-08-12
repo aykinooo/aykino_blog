@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T08:37:50+00:00",
+  "generated_at": "2026-08-12T10:18:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-19426",
-      "summary": "POS System developed by FitSoft has a Missing Authentication vulnerability. Unauthenticated remote attackers can directly access and operate the system.",
-      "published": "2026-08-12T08:17:17.493",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19426"
+      "id": "CVE-2026-67284",
+      "summary": "Joomla Extension - tabaoca.org - Improper ACL implementation allows file operations in Cotton Cloud < 2.0.3 - Authenticated users could perform various file-related operations (read, delete, overwrite, re-assign permissions) on files owned by other users.",
+      "published": "2026-08-12T10:17:20.440",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67284"
     },
     {
-      "id": "CVE-2025-41771",
-      "summary": "An authenticated attacker with low privileges can access an endpoint in the controller\u2019s web interface that is vulnerable to SQL injection. The vulnerability affects a SQLite database used only for storing notification messages. Therefore, the impact is limited to the system\u2019s notification functionality.",
-      "published": "2026-08-12T08:17:12.130",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41771"
+      "id": "CVE-2026-64955",
+      "summary": "When Microsoft Excel imports a CSV file, it executes cells beginning with certain characters as formulas, giving such CSV files arbitrary execution.\u00a0\n\nVelociraptor fails to sanitize such cells when exporting to CSV from various places such as the GUI, offline collector or data exports.\n\nIt is not clear if the vulnerability is actually in Microsoft Excel treating a CSV data file as executable content, or if Velociraptor should be sanitizing the data to prevent Excel from executing it. However, since this is such a common use case for Velociraptor we decided to highlight it in an advisory.",
+      "published": "2026-08-12T10:17:20.310",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64955"
     },
     {
-      "id": "CVE-2025-41770",
-      "summary": "An unauthenticated denial-of-service vulnerability in the device's PLCnext Engineer communication interface allow an remote attacker to interrupt access via the client application. Successful exploitation prevents communication until the PLCnext service is manually restarted.",
-      "published": "2026-08-12T08:17:11.910",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41770"
+      "id": "CVE-2026-64952",
+      "summary": "The hunt_delete() VQL function allows deleting hunts.\u00a0\n\nVelociraptor misapplied the permission check requiring only COLLECT_CLIENT (usually assigned to the \"investigator\" role) instead of the \"DELETE_RESULTS\" permission (usually only assigned to \"administrators\").",
+      "published": "2026-08-12T10:17:20.193",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64952"
     },
     {
-      "id": "CVE-2025-41769",
-      "summary": "The device's PROFINET service is affected by a buffer overflow vulnerability that exists in the default configuration. An unauthenticated remote attacker could exploit this vulnerability to reboot the device or execute arbitrary code.",
-      "published": "2026-08-12T08:17:11.590",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41769"
+      "id": "CVE-2026-64951",
+      "summary": "A rogue Velociraptor client can upload a malformed sparse file such that if the GUI attempts to expand the file, a panic occurs which may crash the server process.\n\nThe problem is a Divide by Zero bug in the\u00a0ShouldPadFile() function.",
+      "published": "2026-08-12T10:17:20.063",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64951"
     },
     {
-      "id": "CVE-2026-66659",
-      "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Essekia Tablesome Table allows Blind SQL Injection.\n\nThis issue affects Tablesome Table: from n/a through 1.2.9.",
-      "published": "2026-08-12T06:22:09.420",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66659"
+      "id": "CVE-2026-18663",
+      "summary": "A flaw was found in 389-ds-base. The get_ldapmessage_controls_ext() function frees the parsed controls array on the Session Tracking critical-control rejection path without clearing the SLAPI_REQCONTROLS pblock slot. Operation teardown then frees the same pointer again, causing a double-free. An unauthenticated remote attacker can trigger this with a single BIND request carrying a critical Session Tracking control, resulting in heap corruption and potential denial of service.",
+      "published": "2026-08-12T10:17:18.437",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18663"
     },
     {
-      "id": "CVE-2026-19594",
-      "summary": "Insufficient input sanitization in Snowflake Python API (`snowflake.core`) versions prior to 1.13.0 allowed confused-deputy privilege escalation through two related weaknesses: path traversal (CWE-22) via unencoded `..` identifier path segments, and HTTP parameter pollution (CWE-141) via unencoded `&`/`#`/`=` characters in query string values. An attacker with access to a downstream application built on snowflake.core could exploit the path traversal by supplying `..` as an object name, causing `snowflake.core` to issue REST requests against a parent resource or exploit the parameter pollution by injecting `&`/`#`/`=` into a free-form name field to override constraints on swap, clone, or rename operations \u2014 all executed under the application's privileged session. Successful exploitation requires the attacker to control an identifier or object-name string in an application built on snowflake.core that passes it to `snowflake.core` under a higher-privileged Snowflake session (e.g., an EXECUTE AS OWNER stored procedure, Streamlit app, or Native App). The fix is available in Snowflake Python API version 1.13.0, which also addresses several additional security findings. Users must manually upgrade.",
-      "published": "2026-08-12T06:21:57.223",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19594"
+      "id": "CVE-2026-18652",
+      "summary": "Velociraptor allows reading Stacked result sets from the GUI.\u00a0 Velociraptor's multi-tenant design stores sub orgs within the datastore directory.\u00a0The path requested by the GUI is not correctly checked against the prefix deny list, allowing result sets to read from denied prefixes.\n\nIn particular, a user with read access to the root org can access result sets from child orgs.",
+      "published": "2026-08-12T10:17:16.940",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18652"
     }
   ]
 }
