@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T04:59:08+00:00",
+  "generated_at": "2026-08-12T06:40:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2025-15687",
-      "summary": "A security flaw has been discovered in Open5GS up to 2.7.6. Impacted is the function smf_gx_cca_cb of the component SMF Diameter Gx Credit-Control-Answer Handler. The manipulation results in denial of service. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. Upgrading to version 2.7.7 is recommended to address this issue. The patch is identified as f23d7a5e959acd8f37b925dc29b85f26b7d391cb. Upgrading the affected component is advised.",
-      "published": "2026-08-12T04:17:38.617",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15687"
+      "id": "CVE-2026-66659",
+      "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection') vulnerability in Essekia Tablesome Table allows Blind SQL Injection.\n\nThis issue affects Tablesome Table: from n/a through 1.2.9.",
+      "published": "2026-08-12T06:22:09.420",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66659"
     },
     {
-      "id": "CVE-2026-9318",
-      "summary": "tablib prior to 3.10.0 contains a stored cross-site scripting vulnerability in the HTML export functionality that allows attackers to execute arbitrary JavaScript by embedding malicious payloads in dataset titles, which are interpolated unsanitized into HTML output via the export_book method in the _html.py format handler. Attackers can rename worksheet sheets in imported files such as XLSX, ODS, XLS, or YAML with script payloads that are assigned to the Dataset title attribute and rendered unescaped inside an HTML h3 tag, leading to session hijacking, unauthorized administrative actions, and sensitive data exposure when the output is rendered in a browser.",
-      "published": "2026-08-12T03:16:43.233",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9318"
-    },
-    {
-      "id": "CVE-2026-19588",
-      "summary": "Integer Overflow to Buffer Overflow vulnerability in Samsung Open Source rlottie allows Overflow Buffers.",
-      "published": "2026-08-12T03:16:43.083",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19588"
-    },
-    {
-      "id": "CVE-2026-19587",
-      "summary": "Uncontrolled Resource Consumption vulnerability in Samsung Open Source rlottie allows Excessive Allocation.",
-      "published": "2026-08-12T03:16:42.950",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19587"
-    },
-    {
-      "id": "CVE-2026-18961",
-      "summary": "The Social Login, Passkeys, Magic Link & Email OTP \u2013 Passwordless Login by VentraConnect plugin for WordPress is vulnerable to Authentication Bypass via Unverified Provider Email in all versions up to, and including, 1.4.3. This is due to the plugin trusting the unverified email field returned by Spotify's /v1/me endpoint as proof of mailbox ownership \u2014 Generic::normalize_common() copies this value into the normalized profile without requiring an email_verified assertion, and User_Links::link_or_login_user() subsequently passes it directly to get_user_by('email', $email) and issues a persistent authentication cookie via wp_set_auth_cookie() without a provider-specific verified-email gate, a local mailbox challenge, or a logged-in approval step. This makes it possible for unauthenticated attackers to log in as any existing WordPress user, including Administrators, by supplying a known target email address through a controlled Spotify OAuth flow, gaining full administrative access to the site.",
-      "published": "2026-08-12T03:16:42.807",
+      "id": "CVE-2026-19594",
+      "summary": "Insufficient input sanitization in Snowflake Python API (`snowflake.core`) versions prior to 1.13.0 allowed confused-deputy privilege escalation through two related weaknesses: path traversal (CWE-22) via unencoded `..` identifier path segments, and HTTP parameter pollution (CWE-141) via unencoded `&`/`#`/`=` characters in query string values. An attacker with access to a downstream application built on snowflake.core could exploit the path traversal by supplying `..` as an object name, causing `snowflake.core` to issue REST requests against a parent resource or exploit the parameter pollution by injecting `&`/`#`/`=` into a free-form name field to override constraints on swap, clone, or rename operations \u2014 all executed under the application's privileged session. Successful exploitation requires the attacker to control an identifier or object-name string in an application built on snowflake.core that passes it to `snowflake.core` under a higher-privileged Snowflake session (e.g., an EXECUTE AS OWNER stored procedure, Streamlit app, or Native App). The fix is available in Snowflake Python API version 1.13.0, which also addresses several additional security findings. Users must manually upgrade.",
+      "published": "2026-08-12T06:21:57.223",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18961"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19594"
     },
     {
-      "id": "CVE-2025-15686",
-      "summary": "A vulnerability has been found in Open5GS up to 2.7.6. Affected by this issue is the function fd_msg_sess_get of the component HSS Service. Such manipulation of the argument Session-Id leads to denial of service. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. The project locked and limited conversation to collaborators.",
-      "published": "2026-08-12T03:16:42.600",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15686"
+      "id": "CVE-2026-19217",
+      "summary": "The Royal Addons for Elementor  WordPress plugin before 1.7.1065 does not validate a widget setting used to build an HTML tag before outputting it, which could allow users with the Contributor role and above to perform Stored Cross-Site Scripting attacks.",
+      "published": "2026-08-12T06:21:47.283",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19217"
+    },
+    {
+      "id": "CVE-2026-19073",
+      "summary": "The Order Sync with Zendesk for WooCommerce WordPress plugin before 2.2.3 does not perform any capability check on one of its REST API endpoints, and does not verify that the requester owns the account being queried, allowing unauthenticated attackers to retrieve the order history and purchase totals of any customer whose email address they know or can enumerate.",
+      "published": "2026-08-12T06:21:47.157",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19073"
+    },
+    {
+      "id": "CVE-2026-19052",
+      "summary": "The ProSolution WP Client WordPress plugin before 2.0.9 does not perform capability checks on two administrative AJAX actions, and the nonce they rely on is published on its public frontend, allowing any authenticated user, such as a subscriber, to trigger an administrative data synchronisation and to clear the ProSolution WP Client WordPress plugin before 2.0.9's activity records.",
+      "published": "2026-08-12T06:21:05.213",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19052"
+    },
+    {
+      "id": "CVE-2026-19050",
+      "summary": "The ProSolution WP Client WordPress plugin before 2.0.9 does not validate a user-supplied URL, and does not check the capability or nonce of the requester, before performing a server-side HTTP request with it, allowing any authenticated user, such as a subscriber, to make the site issue arbitrary requests to internal hosts and services, including requests with an attacker-chosen method, headers and body.",
+      "published": "2026-08-12T06:20:55.603",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19050"
     }
   ]
 }
