@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T18:05:11+00:00",
+  "generated_at": "2026-08-12T19:17:13+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73297",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. Prior to 3.0.8, _is_blocked_ip in ufo/utils/url_security.py did not block NAT64 prefixes 64:ff9b::/96 and 64:ff9b:1::/48, the 6to4 prefix 2002::/16, or the Teredo prefix 2001::/32 and did not re-check embedded IPv4 destinations, allowing an unauthenticated remote attacker who can influence URLs processed by validate_url to bypass the SSRF guard and reach cloud metadata, internal services, or localhost. This issue is fixed in version 3.0.8.",
-      "published": "2026-08-12T17:17:32.933",
+      "id": "CVE-2026-8667",
+      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.6 before 19.0.6, 19.1 before 19.1.4, and 19.2 before 19.2.2  that under certain conditions could have allowed an authenticated user with developer role to modify certain package registry metadata without the required maintainer-level permissions due to improper authorization checks.",
+      "published": "2026-08-12T18:18:16.283",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8667"
+    },
+    {
+      "id": "CVE-2026-7427",
+      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.5 before 19.0.6, 19.1 before 19.1.4, and 19.2 before 19.2.2 that under certain conditions could have allowed an unauthenticated user to cause a denial of service due to improper input validation.",
+      "published": "2026-08-12T18:18:16.157",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7427"
+    },
+    {
+      "id": "CVE-2026-73327",
+      "summary": "Joomla 6.1.1 contains a path traversal vulnerability in the com_joomlaupdate extension that allows a Super User to be induced into extracting a crafted archive containing directory traversal sequences or absolute paths in ZIP entry filenames. Attackers can supply malicious ZIP entry names with parent-directory segments or absolute paths to the extract.php extraction routine, causing files to be written outside the intended destination root and enabling persistent remote code execution via planted PHP files.",
+      "published": "2026-08-12T18:18:15.480",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73327"
+    },
+    {
+      "id": "CVE-2026-73300",
+      "summary": "Budibase is an open-source low-code platform. Prior to 3.40.0, the MySQL integration component in Budibase is configured with multipleStatements: true, enabling execution of multiple SQL statements in a single query. Attackers can inject malicious SQL commands through user input fields, leading to complete database compromise. This vulnerability is fixed in 3.40.0.",
+      "published": "2026-08-12T18:18:15.340",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73300"
+    },
+    {
+      "id": "CVE-2026-73299",
+      "summary": "Prompty is a markdown file format (.prompty) for LLM prompts. Prior to 0.1.5 and 2.0.0-beta.5, the TypeScript Nunjucks renderer evaluated untrusted .prompty template bodies with unrestricted JavaScript member access. An attacker-controlled template could traverse constructor and prototype properties to execute JavaScript in the host Node.js process. This issue is fixed in versions 0.1.5 and 2.0.0-beta.5.",
+      "published": "2026-08-12T18:18:15.197",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73299"
+    },
+    {
+      "id": "CVE-2026-73298",
+      "summary": "The Microsoft Container Migration Solution Accelerator is a multi-service application that provides a multi-agent, AI-driven migration solution for moving container service configurations to Azure Kubernetes Service. In version 2.1.2 and earlier, a security vulnerability was identified in the Container Migration Solution Accelerator, specifically an authenticated IDOR (Insecure Direct Object Reference) that allows users to read, write, and delete processes belonging to other authenticated users. The issue affects multiple API endpoints, where ownership checks are missing, enabling unauthorized access and modification of migration data across users within the same organization. The vulnerability is present in both process and file management APIs, and the application relies on Entra ID authentication but lacks proper authorization controls between users. Authenticated users are able to access, modify, and delete processes and files belonging to other users without proper authorization checks.",
+      "published": "2026-08-12T18:18:15.057",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73297"
-    },
-    {
-      "id": "CVE-2026-73296",
-      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. Prior to 3.0.8, create_mobile_data_collection_server and create_mobile_action_server in ufo/client/mcp/http_servers/mobile_mcp_server.py exposed Streamable HTTP MCP services on TCP ports 8020 and 8021 without authentication, allowing an unauthenticated remote attacker to invoke capture_screenshot, get_ui_tree, tap, swipe, type_text, launch_app, press_key, and click_control against an ADB-connected Android device, disclose screen and device data, and modify device state. This issue is fixed in version 3.0.8.",
-      "published": "2026-08-12T17:17:32.780",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73296"
-    },
-    {
-      "id": "CVE-2026-73295",
-      "summary": "Material for MkDocs is a powerful documentation framework built on top of MkDocs. From 7.2.0 until 9.7.7, the mountSearchSuggest function in src/templates/assets/javascripts/components/search/suggest/index.ts contains a DOM-based cross-site scripting vulnerability in the optional search.suggest feature that allows a crafted q URL parameter to execute JavaScript in a documentation site's origin after user interaction. This issue is fixed in version 9.7.7.",
-      "published": "2026-08-12T17:17:32.637",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73295"
-    },
-    {
-      "id": "CVE-2026-73240",
-      "summary": "Specifically crafted inputs may lead to git argument injection in Apache Allura.\n\nThis issue affects Apache Allura: before 1.19.1.\n\nUsers are recommended to upgrade to version 1.19.1, which fixes the issue.",
-      "published": "2026-08-12T17:17:32.307",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73240"
-    },
-    {
-      "id": "CVE-2026-73239",
-      "summary": "Insecure Direct Object Reference (IDOR) due to missing permission checks for multiple Artifact types\u00a0in Apache Allura.\n\nThis issue affects Apache Allura: before 1.19.1.\n\nUsers are recommended to upgrade to version 1.19.1, which fixes the issue.",
-      "published": "2026-08-12T17:17:32.190",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73239"
-    },
-    {
-      "id": "CVE-2026-73238",
-      "summary": "XSS vulnerability in code display in Apache Allura.\n\nThis issue affects Apache Allura: before 1.19.1.\n\nUsers are recommended to upgrade to version 1.19.1, which fixes the issue.",
-      "published": "2026-08-12T17:17:32.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73238"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73298"
     }
   ]
 }
