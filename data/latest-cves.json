@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T17:09:49+00:00",
+  "generated_at": "2026-08-12T18:05:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73325",
-      "summary": "Fujitsu Research's OneCompression library 1.2.0 contains an unsafe deserialization vulnerability that allows attackers to execute arbitrary code by supplying a crafted model.pt checkpoint file, as QuantizedModelLoader.load_quantized_model_pt() unconditionally calls torch.load with weights_only=False, invoking Python's pickle machinery during deserialization. Attackers can embed malicious __reduce__ methods in a crafted model checkpoint to execute arbitrary Python code, including system commands, when the library loads the file from a caller-selected model directory.",
-      "published": "2026-08-12T16:17:23.000",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73325"
+      "id": "CVE-2026-73297",
+      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. Prior to 3.0.8, _is_blocked_ip in ufo/utils/url_security.py did not block NAT64 prefixes 64:ff9b::/96 and 64:ff9b:1::/48, the 6to4 prefix 2002::/16, or the Teredo prefix 2001::/32 and did not re-check embedded IPv4 destinations, allowing an unauthenticated remote attacker who can influence URLs processed by validate_url to bypass the SSRF guard and reach cloud metadata, internal services, or localhost. This issue is fixed in version 3.0.8.",
+      "published": "2026-08-12T17:17:32.933",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73297"
     },
     {
-      "id": "CVE-2026-73294",
-      "summary": "Semaphore UI is a web interface for managing DevOps tools. Prior to 2.18.17 and 2.19.5-beta2, repository git_url handling passes an attacker-controlled --upload-pack option to CmdGitClient.GetLastRemoteCommitHash through POST /api/project/{id}/repositories and scheduled commit-hash polling, allowing a project Manager or Owner to execute arbitrary OS commands in the Semaphore server process. This issue is fixed in versions 2.18.17 and 2.19.5-beta2.",
-      "published": "2026-08-12T16:17:22.640",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73294"
+      "id": "CVE-2026-73296",
+      "summary": "Microsoft UFO open-source framework for intelligent automation across devices and platforms. Prior to 3.0.8, create_mobile_data_collection_server and create_mobile_action_server in ufo/client/mcp/http_servers/mobile_mcp_server.py exposed Streamable HTTP MCP services on TCP ports 8020 and 8021 without authentication, allowing an unauthenticated remote attacker to invoke capture_screenshot, get_ui_tree, tap, swipe, type_text, launch_app, press_key, and click_control against an ADB-connected Android device, disclose screen and device data, and modify device state. This issue is fixed in version 3.0.8.",
+      "published": "2026-08-12T17:17:32.780",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73296"
     },
     {
-      "id": "CVE-2026-73293",
-      "summary": "Semaphore UI is a web interface for managing DevOps tools.  Prior to 2.18.19 and from 2.19.0-alpha3 until 2.19.5-beta5, ProjectMiddleware and GetProjectOrGlobalRoleBySlug allow a project manager to use POST /api/project/{id}/roles to create a custom manager role with permission bitmask 15, overriding the built-in manager permissions and granting CanUpdateProject and CanManageProjectUsers owner capabilities. This issue is fixed in versions 2.18.19 and 2.19.5-beta5.",
-      "published": "2026-08-12T16:17:22.493",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73293"
+      "id": "CVE-2026-73295",
+      "summary": "Material for MkDocs is a powerful documentation framework built on top of MkDocs. From 7.2.0 until 9.7.7, the mountSearchSuggest function in src/templates/assets/javascripts/components/search/suggest/index.ts contains a DOM-based cross-site scripting vulnerability in the optional search.suggest feature that allows a crafted q URL parameter to execute JavaScript in a documentation site's origin after user interaction. This issue is fixed in version 9.7.7.",
+      "published": "2026-08-12T17:17:32.637",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73295"
     },
     {
-      "id": "CVE-2026-73292",
-      "summary": "Semaphore UI is a web interface for managing DevOps tools. Prior to 2.18.21, the /api/users/{id}/password endpoint accepts a cross-site request using the authenticated user's semaphore session cookie without CSRF protection or current-password confirmation, allowing an unauthenticated attacker to change an administrator's or another user's password after user interaction. This issue is fixed in version 2.18.21.",
-      "published": "2026-08-12T16:17:22.343",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73292"
+      "id": "CVE-2026-73240",
+      "summary": "Specifically crafted inputs may lead to git argument injection in Apache Allura.\n\nThis issue affects Apache Allura: before 1.19.1.\n\nUsers are recommended to upgrade to version 1.19.1, which fixes the issue.",
+      "published": "2026-08-12T17:17:32.307",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73240"
     },
     {
-      "id": "CVE-2026-70547",
-      "summary": "An authenticated user without repository read permission may access package metadata under specific conditions.",
-      "published": "2026-08-12T16:17:21.440",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70547"
+      "id": "CVE-2026-73239",
+      "summary": "Insecure Direct Object Reference (IDOR) due to missing permission checks for multiple Artifact types\u00a0in Apache Allura.\n\nThis issue affects Apache Allura: before 1.19.1.\n\nUsers are recommended to upgrade to version 1.19.1, which fixes the issue.",
+      "published": "2026-08-12T17:17:32.190",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73239"
     },
     {
-      "id": "CVE-2026-69107",
-      "summary": "An unauthenticated user may access restricted artifacts in JFrog Artifactory under specific conditions.",
-      "published": "2026-08-12T16:17:20.220",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69107"
+      "id": "CVE-2026-73238",
+      "summary": "XSS vulnerability in code display in Apache Allura.\n\nThis issue affects Apache Allura: before 1.19.1.\n\nUsers are recommended to upgrade to version 1.19.1, which fixes the issue.",
+      "published": "2026-08-12T17:17:32.080",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73238"
     }
   ]
 }
