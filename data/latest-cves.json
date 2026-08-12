@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T15:12:21+00:00",
+  "generated_at": "2026-08-12T16:08:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-67285",
-      "summary": "Joomla Extension - joomshaper.com - Unauthenticated arbitrary local PHP file inclusion in SP Page Builder < 6.8.0 - An unauthenticated attacker can perform includes to arbitrary PHP files that are accessible by the system.",
-      "published": "2026-08-12T14:18:33.423",
+      "id": "CVE-2026-73432",
+      "summary": "Vulnerability-Lookup contains a server-side request forgery (SSRF) vulnerability in the remote-instance synchronization functionality. Remote instance addresses were validated only for basic URL syntax before being stored, while the synchronization worker later dereferenced these addresses using requests.get() with automatic redirect handling and without enforcing network-boundary restrictions. \n\n\nAn authenticated administrator with the admin:access permission could configure a remote instance whose address points to an internal, loopback, link-local, or cloud metadata HTTP(S) service. When synchronization is performed, the Vulnerability-Lookup server would issue the request from its own network context. An attacker could also use a publicly accessible URL that redirects to an internal destination, because redirects were previously followed without revalidating the destination.\n\n\nSuccessful exploitation could allow a privileged attacker to probe or interact with services that are accessible from the Vulnerability-Lookup server but not directly reachable by the attacker, including private network services or cloud instance metadata endpoints. The exact confidentiality, integrity, or availability impact depends on the services reachable from the application server.\n\n\nThe patch introduces a shared outbound URL policy that restricts remote instances to HTTP(S), rejects non-public IP addresses, resolves hostnames at request time, and manually validates each redirect destination before following it.  The implementation explicitly blocks private, loopback, link-local, multicast, reserved, and unspecified addresses.",
+      "published": "2026-08-12T15:18:33.617",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67285"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73432"
     },
     {
-      "id": "CVE-2026-47232",
-      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, the sensitive `mode=export` action in `modules/sso/keys.php` exports a PKCS#12 bundle containing the configured private key and certificate, but the CSRF validation line is commented out. A forged cross-site POST from an administrator session can therefore trigger private key export without a valid form token. Version 5.0.10 contains a fix.",
-      "published": "2026-08-12T14:17:54.360",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47232"
+      "id": "CVE-2026-73431",
+      "summary": "Vulnerability-Lookup contains an \nauthentication weakness in its account activation and password-recovery \nmechanism. Activation and recovery links were generated using stateless \nsigned tokens containing only the user's login. Although the token \nsignature and age were validated, the application did not track whether a\n token had already been successfully used. As a result, a captured \nactivation or password-recovery link remained valid for the entire \nconfigured TOKEN_VALIDITY_PERIOD, even after the associated password had been changed. \n\n\nAn attacker who obtains a valid \nactivation or recovery token could therefore replay it multiple times \nduring its validity period to set a new password and repeatedly take \ncontrol of the affected account. In addition, tokens were not bound to a\n specific purpose, allowing the same token mechanism to be used across \nactivation and recovery workflows. The patch introduces purpose-bound \ntokens and a random nonce whose SHA-256 digest is stored with the user \naccount. The nonce is invalidated after a successful password change, \nmaking tokens single-use, while issuing a new token invalidates any \npreviously issued token.  The password-setting operation now explicitly consumes the token before committing the account change. \n\n\nSuccessful exploitation requires \nthe attacker to obtain a currently valid activation or recovery link, \nbut does not require knowledge of the victim's existing password or an \nauthenticated session.",
+      "published": "2026-08-12T15:18:33.483",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73431"
     },
     {
-      "id": "CVE-2026-47231",
-      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, `modules/documents-files.php` gates state-changing modes by checking that the actor has `hasUploadRight()` on the URL parameter `folder_uuid`. The `move_save` handler then operates on a *separate* URL parameter `file_uuid` and calls `File::moveToFolder($destFolderUUID)`. `File::moveToFolder()` checks the upload right on the destination folder but never on the source folder containing the file. As a result, any user who can upload to any single folder can move any file from any other folder \u2014 including private folders to which they have no view rights \u2014 into a folder they control, and then download it. Confidentiality is broken (private file contents leak) and integrity is broken (the file is removed from the original location). Version 5.0.10 contains a fix.",
-      "published": "2026-08-12T14:17:54.210",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47231"
+      "id": "CVE-2026-73405",
+      "summary": "An authorization bypass vulnerability in Vulnerability-Lookup allowed inactive or unconfirmed accounts to subscribe to Server-Sent Events (SSE) streams through the /pubsub/subscribe/<topic> endpoint.\n\n\nThe token_required decorator used by the Pub/Sub interface authenticated requests solely by matching the X-API-KEY header against an existing user API key. Unlike the REST API authentication mechanism, it did not verify the account's is_active and is_confirmed state.\n\n\nBecause the self-registration process issues an API key before account confirmation is completed, an attacker could create an account and immediately use the resulting API key to access Pub/Sub topics that should only be available to active, confirmed users. This could expose stream events that would otherwise be inaccessible through the REST API, including newly submitted or not-yet-moderated data such as comments.\n\n\nThe vulnerability results from inconsistent authorization enforcement between the REST API and the SSE streaming interface.\n\n\nThe patch corrects the issue by requiring accounts to be both active and confirmed before permitting access to Pub/Sub streams, bringing the SSE authorization boundary in line with the REST API.",
+      "published": "2026-08-12T15:18:33.343",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73405"
     },
     {
-      "id": "CVE-2026-47230",
-      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, `modules/documents-files.php` mode `file_rename_save` shares the same root-cause shape as the cross-folder move bug (`05-documents-cross-folder-move-idor.md`): the top-level rights check at lines 79-89 validates `hasUploadRight()` on the URL parameter `folder_uuid`, but the rename operation acts on `file_uuid` \u2014 a separate URL parameter \u2014 without re-checking the folder that actually contains the file. `DocumentsService::renameFile()` resolves the target file via `getFileForDownload()` (which permits view-readable files) but does not require upload right on the file's source folder. Result: a user with upload right on any folder A can rename a file in folder B as long as they can view it. They can also overwrite the file's description. Version 5.0.10 contains a fix.",
-      "published": "2026-08-12T14:17:54.057",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47230"
+      "id": "CVE-2026-73374",
+      "summary": "A stored cross-site scripting (XSS) vulnerability existed in Vulnerability-Lookup in the render_tag_badges Jinja filter used to display reference tags associated with vulnerability records.\n\nValues from containers.cna.references[].tags[] were directly interpolated into HTML badge elements and the resulting string was wrapped in markupsafe.Markup. Because Markup marks the generated content as safe, Jinja's automatic HTML escaping was bypassed.\n\nAn authenticated user with permissions to create or modify vulnerability records, such as a user holding the vulnerability:create or vulnerability:modify permission, could submit a crafted reference tag through the CNA API containing arbitrary HTML or JavaScript-capable markup.\n\nThe malicious value would subsequently be stored as part of the vulnerability record. When another user visited the corresponding public /cve/<id> or /vuln/<id> page, the crafted tag would be rendered as HTML in the viewer's browser. This could result in JavaScript execution in the security context of the Vulnerability-Lookup application.\n\nSuccessful exploitation could allow an attacker to perform actions in the context of a victim, access information available to the victim's browser session, or modify page content. As the affected vulnerability pages can be accessed publicly, exploitation may affect users who are not authenticated.\n\nThe issue was corrected by applying markupsafe.escape() to each reference tag before inserting it into the HTML badge markup, while retaining Markup only for the static HTML scaffolding.",
+      "published": "2026-08-12T15:18:33.173",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73374"
     },
     {
-      "id": "CVE-2026-47229",
-      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, `modules/sso/clients.php` validates an `adm_csrf_token` on every state-changing branch except `enable`. The `enable` case loads the SAML or OIDC client by UUID, calls `$client->enable($enabled)`, and persists the new state with no token check. Because the action is reachable via plain GET parameters, a third-party page can trick an authenticated administrator into disabling (or silently re-enabling) any configured SAML or OIDC client. Disabling an SSO client breaks every downstream relying-party application that authenticates through it. Version 5.0.10 contains a fix.",
-      "published": "2026-08-12T14:17:53.910",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47229"
+      "id": "CVE-2026-73291",
+      "summary": "Seerr is an open-source media request and discovery manager for Jellyfin, Plex, and Emby. Prior to version 3.4.0, Seerr's ImageProxy in server/lib/imageproxy.ts uses the upstream ETag and Content-Type response headers to build a cache filename for the unauthenticated GET /avatarproxy/:jellyfinUserId route, allowing a malicious or compromised Jellyfin or Emby server, or a man-in-the-middle attacker on a plaintext media-server connection, to supply traversal sequences that path.join and fs.writeFile normalize outside the cache directory, overwrite /app/dist/index.js or other files, and execute code as the node user after a container restart. This issue is fixed in version 3.4.0.",
+      "published": "2026-08-12T15:18:33.020",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73291"
     },
     {
-      "id": "CVE-2026-47228",
-      "summary": "Admidio is an open-source user management solution. `modules/registration.php` mode `send_login` regenerates a random password for `user_uuid_assigned`, stores its bcrypt hash in `adm_users.usr_password`, and emails the cleartext to that user. Every other state-changing mode in the same file (`assign_member`, `assign_user`, `delete_user`, `create_user`) calls `SecurityUtils::validateCsrfToken($_POST['adm_csrf_token'])` first; the `send_login` branch does not. Prior to version 5.0.10, page visited by a registration-administrator can issue the request as a top-level navigation, the browser sends the admin's `SameSite=Lax` cookies, and the server resets the chosen user's password without any further interaction from the admin. Version 5.0.10 fixes the issue.",
-      "published": "2026-08-12T14:17:53.750",
-      "cvss": 5.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47228"
+      "id": "CVE-2026-73290",
+      "summary": "RustFS is a distributed object storage system built in Rust. Prior to 1.0.0-beta.12, an anonymous ListObjectVersions request in rustfs/src/storage/access.rs that lacks a direct bucket-policy grant falls back to an s3:ListBucket check and returns before the policy_allowed path applies deny_anonymous_table_data_plane_if_needed and RestrictPublicBuckets, so a bucket that permits anonymous listing can continue exposing version listings after an operator enables the public-access control. The bypass affects GET /<bucket>?versions= and can disclose object version metadata even though equivalent GetObject requests are denied. This issue is fixed in version 1.0.0-beta.12.",
+      "published": "2026-08-12T15:18:32.883",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73290"
     }
   ]
 }
