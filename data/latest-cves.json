@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T21:59:50+00:00",
+  "generated_at": "2026-08-12T22:58:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73491",
-      "summary": "Loofah is a general library for manipulating and transforming HTML/XML documents and fragments, built on top of Nokogiri. From 2.25.0 until 2.25.2, Loofah::HTML5::Scrub.allowed_uri? does not reject javascript: URIs whose scheme is split or prefixed with the HTML5 named whitespace character references &Tab; or &NewLine;. CGI.unescapeHTML leaves those references intact, so allowed_uri? reports the URL safe even though a browser decodes and strips the tab or line feed and executes the resulting javascript: URL. This issue affects only callers that pass HTML-encoded strings directly to allowed_uri?; Loofah's default sanitize() path is not affected. This issue is fixed in version 2.25.2.",
-      "published": "2026-08-12T21:17:42.273",
+      "id": "CVE-2026-7366",
+      "summary": "IBM DataPower Gateway 11.0.0.0 through 11.0.0.1 and IBM DataPower Gateway 10.5.0.0 through 10.5.0.21 and IBM DataPower Gateway 10.6.0.0 through 10.6.0.9 allows a race condition that results in improper isolation of request state when handling the built\u2011in X\u2011Client\u2011IP header. Under concurrent request processing, X\u2011Client\u2011IP values may be contaminated across requests, enabling IP spoofing and disclosure of other clients\u2019 IP addresses.",
+      "published": "2026-08-12T22:17:17.780",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7366"
+    },
+    {
+      "id": "CVE-2026-73519",
+      "summary": "WolfStack before 25.9.2 contains a hard-coded cluster-authentication secret compiled into every build and published as a constant in src/auth/mod.rs, allowing remote unauthenticated attackers to bypass authentication by supplying this value in the X-WolfStack-Secret header to the require_auth() gate without any session, API key, or user account. Attackers can reach an affected node's management port to enumerate all Docker and LXC containers on the host and execute arbitrary commands as root inside any container via the POST /api/containers/{runtime}/{id}/exec endpoint.",
+      "published": "2026-08-12T22:17:17.600",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73519"
+    },
+    {
+      "id": "CVE-2026-73501",
+      "summary": "kin-openapi is a Go project for handling OpenAPI files. Prior to 0.144.0, ValidationHandler.Load() in openapi3filter/validation_handler.go silently replaces a nil AuthenticationFunc with NoopAuthenticationFunc, which returns nil without checking credentials. This substitution causes every OpenAPI security requirement to be satisfied for unauthenticated requests when an application relies on ValidationHandler as its enforcement middleware. The no-op callback prevents the fail-closed ErrAuthenticationServiceMissing path from being reached and forwards the request to protected handlers that may require an API key, OAuth token, or another security scheme. This issue is fixed in version 0.144.0.",
+      "published": "2026-08-12T22:17:17.443",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73501"
+    },
+    {
+      "id": "CVE-2026-73500",
+      "summary": "etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a network attacker who can reach an etcd TLS listener can open many TCP connections and never send a ClientHello. In client/pkg/transport/listener_tls.go, each connection handled by tlsListener.acceptLoop spawns a goroutine that blocks indefinitely inside tls.Conn.Handshake() and remains tracked in the pending map. Unbounded goroutine and map growth can exhaust memory in the etcd process, causing loss of availability for the cluster and, when etcd backs Kubernetes, the control plane. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
+      "published": "2026-08-12T22:17:17.290",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73491"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73500"
     },
     {
-      "id": "CVE-2026-73490",
-      "summary": "Loofah is a general library for manipulating and transforming HTML/XML documents and fragments, built on top of Nokogiri. Prior to 2.25.2, Loofah's HTML5 sanitizer applies its local-reference restriction only to the xlink:href attribute on SVG use and feImage elements, while browsers also accept the plain href attribute. A crafted sanitized SVG can therefore reference an arbitrary same-origin external document; use may render external SVG content containing scripts or other dangerous content, and feImage may load external images for tracking. Applications that sanitize user-supplied SVG with Loofah's default allowlist are affected. This issue is fixed in version 2.25.2.",
-      "published": "2026-08-12T21:17:42.127",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73490"
-    },
-    {
-      "id": "CVE-2026-73430",
-      "summary": "Russh is a Rust SSH client & server library. Prior to 0.62.4, an unauthenticated SSH client can cause a denial of service by sending SSH_MSG_KEX_ECDH_INIT with a 32-byte all-zero Q_C value. Curve25519Kex::server_dh in russh/src/kex/curve25519.rs accepts the all-zero peer public value and computes an all-zero shared secret, after which compute_exchange_hash calls encode_mpint in russh/src/kex/mod.rs and indexes beyond the end of the input while skipping leading zero bytes. The resulting panic occurs before authentication and terminates the server key-exchange task. This issue is fixed in version 0.62.4.",
-      "published": "2026-08-12T21:17:41.883",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73430"
-    },
-    {
-      "id": "CVE-2026-73429",
-      "summary": "Russh is a Rust SSH client & server library. Prior to 0.62.4, a malicious SSH server can crash a russh client session with a malformed KEX_ECDH_REPLY containing a server ephemeral value that is not 32 bytes long. The client-side Curve25519Kex::compute_shared_secret function in russh/src/kex/curve25519.rs passes the decoded exchange.server_ephemeral value to clone_from_slice without validating its length, causing a deterministic panic before the server host key is verified. The panic terminates the spawned client session task and surfaces as a JoinError, while the embedding process normally remains running. This issue is fixed in version 0.62.4.",
-      "published": "2026-08-12T21:17:41.750",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73429"
-    },
-    {
-      "id": "CVE-2026-73427",
-      "summary": "Trix is a what-you-see-is-what-you-get rich text editor for everyday writing. Prior to 2.1.18, Trix is vulnerable to cross-site scripting when a crafted application/x-trix-document JSON payload is dropped into an editor using the fallback Level0InputController, such as an embedded WebView without Input Events Level 2 support. The StringPiece.fromJSON method trusts href attributes from the JSON payload without sanitization, allowing a draggable element containing a javascript: URI to bypass DOMPurify sanitization and inject executable JavaScript into the DOM. Exploitation requires the victim to drag and drop attacker-controlled content, and server-side HTML sanitization can neutralize the payload on save. This issue is fixed in version 2.1.18.",
-      "published": "2026-08-12T21:17:41.613",
+      "id": "CVE-2026-73499",
+      "summary": "etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a user granted READ permission on a single exact key can use the Watch gRPC API with clientv3.WithFromKey() to receive watch events for every key lexicographically greater than or equal to the permitted key. In server/etcdserver/api/v3rpc/watch.go, the open-ended RangeEnd sentinel is rewritten before the RBAC permission check in server/auth/range_perm_cache.go function isRangeOpPermitted, causing the request to be treated as an exact-key watch. Range/Get and DeleteRange requests are not affected, and the issue affects only clusters with authentication enabled. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
+      "published": "2026-08-12T22:17:17.130",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73427"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73499"
     },
     {
-      "id": "CVE-2026-73425",
-      "summary": "Astro is a web framework for content-driven websites. Prior to 8.1.2, the Astro Netlify adapter converts each image.remotePatterns entry into a regular expression written to .netlify/v1/config.json under images.remote_images for Netlify's Image CDN allowlist. In packages/integrations/netlify/src/index.ts, remotePatternToRegex() escapes dots in hostname values but interpolates literal pathname values without escaping regular expression metacharacters such as ., +, ?, (, and [, so a restrictive pathname such as /img/v1.0/file also matches metacharacter-adjacent paths, including paths that cross a segment. Netlify enforces the generated regular expression directly and Astro's matchPattern() helper does not revalidate the request, allowing optimization of images on an already-allowed host that the declared pathname was intended to exclude. This issue is fixed in version 8.1.2.",
-      "published": "2026-08-12T21:17:41.473",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73425"
+      "id": "CVE-2026-73498",
+      "summary": "MCP Atlassian is a Model Context Protocol (MCP) server for Atlassian products (Confluence and Jira). Prior to 0.22.0, confluence_upload_attachment passes its client-supplied file_path directly to open(file_path, \"rb\") in src/mcp_atlassian/confluence/attachments.py through _upload_attachment_direct() without calling validate_safe_path. An authenticated MCP client can read any file accessible to the server process and exfiltrate it to Confluence as an attachment. If an AI agent can be induced to call the tool through untrusted content, the same flaw can disclose server environment variables such as CONFLUENCE_API_TOKEN and other credentials. This issue is fixed in version 0.22.0.",
+      "published": "2026-08-12T22:17:16.973",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73498"
     }
   ]
 }
