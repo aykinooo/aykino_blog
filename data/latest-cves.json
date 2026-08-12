@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T02:41:24+00:00",
+  "generated_at": "2026-08-12T04:59:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73122",
-      "summary": "A flaw was found in the multicloud-operators-channel component of Red Hat Advanced Cluster Management (RHACM). This vulnerability allows a compromised agent from a managed cluster to gain unauthorized access to sensitive information. Specifically, the agent can read all Secrets and ConfigMaps within any Channel namespace on the hub, potentially exposing credentials for other tenants' Git and Helm repositories. This could lead to significant information disclosure.",
-      "published": "2026-08-12T02:16:38.330",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73122"
+      "id": "CVE-2025-15687",
+      "summary": "A security flaw has been discovered in Open5GS up to 2.7.6. Impacted is the function smf_gx_cca_cb of the component SMF Diameter Gx Credit-Control-Answer Handler. The manipulation results in denial of service. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. Upgrading to version 2.7.7 is recommended to address this issue. The patch is identified as f23d7a5e959acd8f37b925dc29b85f26b7d391cb. Upgrading the affected component is advised.",
+      "published": "2026-08-12T04:17:38.617",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15687"
     },
     {
-      "id": "CVE-2026-72526",
-      "summary": "A flaw was found in the multicloud-integrations component. The Application propagation controller processes the `ocm-managed-cluster` annotation from an Application Custom Resource (CR) without proper validation. A tenant with permissions to create Applications on the hub cluster can exploit this to target arbitrary managed clusters. This can force ArgoCD on the spoke clusters to synchronize attacker-controlled manifests, leading to arbitrary code execution or privilege escalation on those clusters.",
-      "published": "2026-08-12T02:16:38.200",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72526"
+      "id": "CVE-2026-9318",
+      "summary": "tablib prior to 3.10.0 contains a stored cross-site scripting vulnerability in the HTML export functionality that allows attackers to execute arbitrary JavaScript by embedding malicious payloads in dataset titles, which are interpolated unsanitized into HTML output via the export_book method in the _html.py format handler. Attackers can rename worksheet sheets in imported files such as XLSX, ODS, XLS, or YAML with script payloads that are assigned to the Dataset title attribute and rendered unescaped inside an HTML h3 tag, leading to session hijacking, unauthorized administrative actions, and sensitive data exposure when the output is rendered in a browser.",
+      "published": "2026-08-12T03:16:43.233",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9318"
     },
     {
-      "id": "CVE-2026-70398",
-      "summary": "A flaw was found in multicloud-integrations, a component of Red Hat Advanced Cluster Management (RHACM). This vulnerability allows an authenticated user, referred to as a tenant, to manipulate the GitOpsCluster controller. By exploiting this, a tenant can redirect sensitive spoke cluster bearer tokens from secure locations to a namespace they control. This unauthorized access to tokens can lead to the disclosure of critical information and bypass security policies within ArgoCD AppProjects.",
-      "published": "2026-08-12T02:16:38.060",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70398"
+      "id": "CVE-2026-19588",
+      "summary": "Integer Overflow to Buffer Overflow vulnerability in Samsung Open Source rlottie allows Overflow Buffers.",
+      "published": "2026-08-12T03:16:43.083",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19588"
     },
     {
-      "id": "CVE-2026-66878",
-      "summary": "A flaw was found in multicloud-operators-subscription. A privileged user, specifically a namespace administrator capable of creating Channel and Subscription resources, can exploit this vulnerability. By manipulating the Channel.Spec.SecretRef.Namespace field, the user can cause the system to copy sensitive Secret contents from other namespaces into their own, leading to information disclosure.",
-      "published": "2026-08-12T02:16:37.937",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66878"
+      "id": "CVE-2026-19587",
+      "summary": "Uncontrolled Resource Consumption vulnerability in Samsung Open Source rlottie allows Excessive Allocation.",
+      "published": "2026-08-12T03:16:42.950",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19587"
     },
     {
-      "id": "CVE-2026-64927",
-      "summary": "A flaw was found in the multicloud-operators-channel component. This vulnerability allows a user with specific permissions to manipulate how the system handles sensitive information, known as Secrets, across different parts of the system (namespaces). By exploiting this, an attacker can modify these Secrets in unauthorized areas. This could lead to unauthorized access to information or elevated privileges within the system.",
-      "published": "2026-08-12T02:16:37.780",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64927"
+      "id": "CVE-2026-18961",
+      "summary": "The Social Login, Passkeys, Magic Link & Email OTP \u2013 Passwordless Login by VentraConnect plugin for WordPress is vulnerable to Authentication Bypass via Unverified Provider Email in all versions up to, and including, 1.4.3. This is due to the plugin trusting the unverified email field returned by Spotify's /v1/me endpoint as proof of mailbox ownership \u2014 Generic::normalize_common() copies this value into the normalized profile without requiring an email_verified assertion, and User_Links::link_or_login_user() subsequently passes it directly to get_user_by('email', $email) and issues a persistent authentication cookie via wp_set_auth_cookie() without a provider-specific verified-email gate, a local mailbox challenge, or a logged-in approval step. This makes it possible for unauthenticated attackers to log in as any existing WordPress user, including Administrators, by supplying a known target email address through a controlled Spotify OAuth flow, gaining full administrative access to the site.",
+      "published": "2026-08-12T03:16:42.807",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18961"
     },
     {
-      "id": "CVE-2026-6484",
-      "summary": "In an UEFI, Lack of verified boot to certain FV may cause arbitrary code execution.",
-      "published": "2026-08-12T01:17:08.060",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6484"
+      "id": "CVE-2025-15686",
+      "summary": "A vulnerability has been found in Open5GS up to 2.7.6. Affected by this issue is the function fd_msg_sess_get of the component HSS Service. Such manipulation of the argument Session-Id leads to denial of service. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. The project locked and limited conversation to collaborators.",
+      "published": "2026-08-12T03:16:42.600",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-15686"
     }
   ]
 }
