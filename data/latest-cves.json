@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-11T23:57:10+00:00",
+  "generated_at": "2026-08-12T02:41:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73250",
-      "summary": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, the Notepad++ Windows 11 x64 and ARM64 installer passes the attacker-influenced installation directory `$INSTDIR` from PowerEditor/installer/nppSetup.nsi into a PowerShell `-Command` string used by RegisterMSIX to invoke Add-AppxPackage, allowing PowerShell subexpression syntax such as `$()` in the installation path to execute commands in the installer's security context when the context menu component is selected. This issue is fixed in version 8.9.7.",
-      "published": "2026-08-11T23:18:10.320",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73250"
+      "id": "CVE-2026-73122",
+      "summary": "A flaw was found in the multicloud-operators-channel component of Red Hat Advanced Cluster Management (RHACM). This vulnerability allows a compromised agent from a managed cluster to gain unauthorized access to sensitive information. Specifically, the agent can read all Secrets and ConfigMaps within any Channel namespace on the hub, potentially exposing credentials for other tenants' Git and Helm repositories. This could lead to significant information disclosure.",
+      "published": "2026-08-12T02:16:38.330",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73122"
     },
     {
-      "id": "CVE-2026-73249",
-      "summary": "calibre is an e-book manager. Prior to 9.12.0, the calibre Content Server endpoint POST /book-update-annotations/{library_id}/{book_id}/{fmt} in src/calibre/srv/books.py omits needs_db_write=True, causing Router.dispatch() to skip ctx.check_for_write_access() before update_annotations() passes attacker-controlled JSON to db.merge_annotations_for_book(), which allows a readonly user or an anonymous user on an unauthenticated deployment to persist unauthorized book annotation changes. This issue is fixed in version 9.12.0.",
-      "published": "2026-08-11T22:19:05.687",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73249"
+      "id": "CVE-2026-72526",
+      "summary": "A flaw was found in the multicloud-integrations component. The Application propagation controller processes the `ocm-managed-cluster` annotation from an Application Custom Resource (CR) without proper validation. A tenant with permissions to create Applications on the hub cluster can exploit this to target arbitrary managed clusters. This can force ArgoCD on the spoke clusters to synchronize attacker-controlled manifests, leading to arbitrary code execution or privilege escalation on those clusters.",
+      "published": "2026-08-12T02:16:38.200",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72526"
     },
     {
-      "id": "CVE-2026-73248",
-      "summary": "calibre is an e-book manager. Prior to 9.12.0, calibre processes attacker-controlled composite_template metadata from a malicious EPUB, OPF, PDF, or similar file through program: and a nested template() call whose formatter does not inherit allow_python_templates=False, allowing a nested python: template to reach compile_python_template and execute arbitrary Python code when the file is opened or imported. This issue is fixed in version 9.12.0.",
-      "published": "2026-08-11T22:19:05.553",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73248"
+      "id": "CVE-2026-70398",
+      "summary": "A flaw was found in multicloud-integrations, a component of Red Hat Advanced Cluster Management (RHACM). This vulnerability allows an authenticated user, referred to as a tenant, to manipulate the GitOpsCluster controller. By exploiting this, a tenant can redirect sensitive spoke cluster bearer tokens from secure locations to a namespace they control. This unauthorized access to tokens can lead to the disclosure of critical information and bypass security policies within ArgoCD AppProjects.",
+      "published": "2026-08-12T02:16:38.060",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70398"
     },
     {
-      "id": "CVE-2026-73247",
-      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 2.0.0, Kestra's core/src/main/java/io/kestra/core/runners/pebble/functions/HttpFunction.java passes the user-controlled http() uri argument to URI.create() and the server-side HTTP client without restricting private, loopback, or link-local destinations, allowing an unauthenticated attacker to import and execute a flow that accesses internal services or cloud metadata.",
-      "published": "2026-08-11T22:19:05.417",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73247"
+      "id": "CVE-2026-66878",
+      "summary": "A flaw was found in multicloud-operators-subscription. A privileged user, specifically a namespace administrator capable of creating Channel and Subscription resources, can exploit this vulnerability. By manipulating the Channel.Spec.SecretRef.Namespace field, the user can cause the system to copy sensitive Secret contents from other namespaces into their own, leading to information disclosure.",
+      "published": "2026-08-12T02:16:37.937",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66878"
     },
     {
-      "id": "CVE-2026-73246",
-      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 2.0.0-rc6, Kestra's worker/src/main/java/io/kestra/worker/endpoint/WorkerEndpoint.java serves GET /worker without authentication and serializes the complete live Task object, which can expose commands, environment variables, HTTP headers, connection details, plaintext credentials, and execution identifiers while the main API on port 8080 remains protected. This issue is fixed in 2.0.0-rc6.",
-      "published": "2026-08-11T22:19:05.287",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73246"
+      "id": "CVE-2026-64927",
+      "summary": "A flaw was found in the multicloud-operators-channel component. This vulnerability allows a user with specific permissions to manipulate how the system handles sensitive information, known as Secrets, across different parts of the system (namespaces). By exploiting this, an attacker can modify these Secrets in unauthorized areas. This could lead to unauthorized access to information or elevated privileges within the system.",
+      "published": "2026-08-12T02:16:37.780",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64927"
     },
     {
-      "id": "CVE-2026-73245",
-      "summary": "Kestra is an open-source, event-driven orchestration platform. Prior to 2.0.0-rc6, Kestra's cli/src/main/resources/application.yml serves Micronaut management endpoints on port 8081 without authentication even when Basic Auth protects /api/v1/** on port 8080, allowing unauthenticated GET /env requests to disclose resolved configuration and POST /loggers/{name} requests to change runtime log levels. This issue is fixed in 2.0.0-rc6.",
-      "published": "2026-08-11T22:19:05.140",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73245"
+      "id": "CVE-2026-6484",
+      "summary": "In an UEFI, Lack of verified boot to certain FV may cause arbitrary code execution.",
+      "published": "2026-08-12T01:17:08.060",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6484"
     }
   ]
 }
