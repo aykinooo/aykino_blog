@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T19:17:13+00:00",
+  "generated_at": "2026-08-12T21:00:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8667",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 17.6 before 19.0.6, 19.1 before 19.1.4, and 19.2 before 19.2.2  that under certain conditions could have allowed an authenticated user with developer role to modify certain package registry metadata without the required maintainer-level permissions due to improper authorization checks.",
-      "published": "2026-08-12T18:18:16.283",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8667"
+      "id": "CVE-2026-73434",
+      "summary": "A flaw was found in GStreamer gst-plugins-good (avidemux). In gst_avi_demux_riff_parse_vprp(), the number of available gst_riff_vprp_video_field_desc entries is calculated by dividing the remaining buffer size by the attacker-controlled vprp->fields value, rather than by sizeof(gst_riff_vprp_video_field_desc). This can cause the parser to treat more field descriptors as available than fit in the input buffer, resulting in out-of-bounds reads. Processing a crafted AVI via playbin/decodebin can crash the application (denial of service). Fixed upstream in gst-plugins-good 1.28.6 (GStreamer-SA-2026-0072).",
+      "published": "2026-08-12T20:17:56.943",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73434"
     },
     {
-      "id": "CVE-2026-7427",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.5 before 19.0.6, 19.1 before 19.1.4, and 19.2 before 19.2.2 that under certain conditions could have allowed an unauthenticated user to cause a denial of service due to improper input validation.",
-      "published": "2026-08-12T18:18:16.157",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7427"
-    },
-    {
-      "id": "CVE-2026-73327",
-      "summary": "Joomla 6.1.1 contains a path traversal vulnerability in the com_joomlaupdate extension that allows a Super User to be induced into extracting a crafted archive containing directory traversal sequences or absolute paths in ZIP entry filenames. Attackers can supply malicious ZIP entry names with parent-directory segments or absolute paths to the extract.php extraction routine, causing files to be written outside the intended destination root and enabling persistent remote code execution via planted PHP files.",
-      "published": "2026-08-12T18:18:15.480",
+      "id": "CVE-2026-73433",
+      "summary": "A flaw was found in GStreamer gst-plugins-good (avidemux). When parsing FUJIFILM metadata in an AVI strd chunk, gst_avi_demux_parse_strd() decrements a remaining-length counter by fixed offsets (98 and 10 bytes) without verifying sufficient data remains. For crafted strd payloads of exactly 106 or 107 bytes, the counter underflows to a very large unsigned value, causing subsequent null-terminated string scanning to read far beyond the allocated heap buffer. Date-format normalization may also write beyond the buffer end. Confirmed impacts include heap out-of-bounds read, out-of-bounds write, heap information disclosure (adjacent data appearing in parsed metadata), and application crash/denial of service. The avidemux element is auto-plugged by playbin, decodebin, and gst-discoverer, so opening or previewing a crafted AVI is sufficient to trigger the issue. Fixed upstream in gst-plugins-good 1.28.6 (GStreamer-SA-2026-0072).",
+      "published": "2026-08-12T20:17:56.810",
       "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73327"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73433"
     },
     {
-      "id": "CVE-2026-73300",
-      "summary": "Budibase is an open-source low-code platform. Prior to 3.40.0, the MySQL integration component in Budibase is configured with multipleStatements: true, enabling execution of multiple SQL statements in a single query. Attackers can inject malicious SQL commands through user input fields, leading to complete database compromise. This vulnerability is fixed in 3.40.0.",
-      "published": "2026-08-12T18:18:15.340",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73300"
-    },
-    {
-      "id": "CVE-2026-73299",
-      "summary": "Prompty is a markdown file format (.prompty) for LLM prompts. Prior to 0.1.5 and 2.0.0-beta.5, the TypeScript Nunjucks renderer evaluated untrusted .prompty template bodies with unrestricted JavaScript member access. An attacker-controlled template could traverse constructor and prototype properties to execute JavaScript in the host Node.js process. This issue is fixed in versions 0.1.5 and 2.0.0-beta.5.",
-      "published": "2026-08-12T18:18:15.197",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73299"
-    },
-    {
-      "id": "CVE-2026-73298",
-      "summary": "The Microsoft Container Migration Solution Accelerator is a multi-service application that provides a multi-agent, AI-driven migration solution for moving container service configurations to Azure Kubernetes Service. In version 2.1.2 and earlier, a security vulnerability was identified in the Container Migration Solution Accelerator, specifically an authenticated IDOR (Insecure Direct Object Reference) that allows users to read, write, and delete processes belonging to other authenticated users. The issue affects multiple API endpoints, where ownership checks are missing, enabling unauthorized access and modification of migration data across users within the same organization. The vulnerability is present in both process and file management APIs, and the application relies on Entra ID authentication but lacks proper authorization controls between users. Authenticated users are able to access, modify, and delete processes and files belonging to other users without proper authorization checks.",
-      "published": "2026-08-12T18:18:15.057",
+      "id": "CVE-2026-73415",
+      "summary": "jupyterlab is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook Architecture. Prior to 4.5.10 and 4.6.2, in packages/imageviewer/src/widget.ts, JupyterLab's ImageViewer uses URL.createObjectURL for a specially crafted SVG image and revokes the blob URL too early, allowing the image to retain an executable same-origin context when it is opened through the image viewer and then opened in a new browser tab. The resulting cross-site scripting can be used to execute arbitrary code on the JupyterLab server. This issue is fixed in versions 4.5.10 and 4.6.2.",
+      "published": "2026-08-12T20:17:56.660",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73298"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73415"
+    },
+    {
+      "id": "CVE-2026-73414",
+      "summary": "Shescape is a simple shell escape library for JavaScript. Prior to 2.1.14 and 3.0.1, getEscapeFunction in src/internal/win/cmd.js does not escape `(` and `)` when applications use the escape or escapeAll APIs on Windows with shell set to cmd.exe, or with shell set to true when CMD is the default. An attacker-controlled argument can break out of a parenthesized CMD construct and inject shell syntax depending on the original command, resulting in arbitrary command execution. This issue is fixed in versions 2.1.14 and 3.0.1.",
+      "published": "2026-08-12T20:17:56.510",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73414"
+    },
+    {
+      "id": "CVE-2026-73413",
+      "summary": "Shescape is a simple shell escape library for JavaScript. From 2.1.11 until 2.1.14 and 3.0.1, the flag-protection loop in compose in src/internal/compose.js repeatedly joins and slices flag fragments when flagProtection is enabled, which is the default, making processing quadratic in input size across the escape, escapeAll, quote, and quoteAll APIs. An attacker who can supply a large untrusted input containing many flag fragments can consume CPU and cause denial of service. This issue is fixed in versions 2.1.14 and 3.0.1.",
+      "published": "2026-08-12T20:17:56.350",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73413"
+    },
+    {
+      "id": "CVE-2026-73412",
+      "summary": "Shescape is a simple shell escape library for JavaScript. Prior to 2.1.14 and 3.0.1, this impacts users of Shescape on Unix systems that explicitly configure shell to Zsh, or true when the default shell is Zsh, using the escape and escapeAll. The Zsh options EXTENDED_GLOB and MAGIC_EQUAL_SUBST exacerbate the problem. In certain case, an attacker can leverage home directory expansion and extended glob syntax to obtain lists of files and directories on the system. Depending on what the command does, this may be used to leak more information. This issue is fixed in versions 2.1.14 and 3.0.1.",
+      "published": "2026-08-12T20:17:56.203",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73412"
     }
   ]
 }
