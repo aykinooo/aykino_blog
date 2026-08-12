@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T13:43:06+00:00",
+  "generated_at": "2026-08-12T15:12:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-71408",
-      "summary": "A allocation of resources without limits or throttling vulnerability in Fortinet FortiOS 7.6.0 through 7.6.6, FortiOS 7.4 all versions, FortiOS 7.2 all versions may allow attacker to denial of service via <insert attack vector here>",
-      "published": "2026-08-12T13:17:25.677",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71408"
+      "id": "CVE-2026-67285",
+      "summary": "Joomla Extension - joomshaper.com - Unauthenticated arbitrary local PHP file inclusion in SP Page Builder < 6.8.0 - An unauthenticated attacker can perform includes to arbitrary PHP files that are accessible by the system.",
+      "published": "2026-08-12T14:18:33.423",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67285"
     },
     {
-      "id": "CVE-2026-71407",
-      "summary": "A Stack-based Buffer Overflow vulnerability [CWE-121] vulnerability in Fortinet FortiOS 7.6.1 through 7.6.6 may allow an unauthenticated attacker who can bypass stack protection and ASLR to execute arbitrary code or commands in the context of the WAD daemon via crafted sockets, only if the explicit proxy is configured with Kerberos authentication and SOCKS enabled.",
-      "published": "2026-08-12T13:17:25.497",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71407"
+      "id": "CVE-2026-47232",
+      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, the sensitive `mode=export` action in `modules/sso/keys.php` exports a PKCS#12 bundle containing the configured private key and certificate, but the CSRF validation line is commented out. A forged cross-site POST from an administrator session can therefore trigger private key export without a valid form token. Version 5.0.10 contains a fix.",
+      "published": "2026-08-12T14:17:54.360",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47232"
     },
     {
-      "id": "CVE-2026-70468",
-      "summary": "A authentication bypass using an alternate path or channel vulnerability in Fortinet FortiManager 7.6.1, FortiManager 7.4.3 through 7.4.5, FortiManager 7.2.5 through 7.2.9, FortiManager Cloud 7.6.1, FortiManager Cloud 7.4.3 through 7.4.5, FortiManager Cloud 7.2.5 through 7.2.9 may allow attacker to improper access control via <insert attack vector here>",
-      "published": "2026-08-12T13:17:25.227",
+      "id": "CVE-2026-47231",
+      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, `modules/documents-files.php` gates state-changing modes by checking that the actor has `hasUploadRight()` on the URL parameter `folder_uuid`. The `move_save` handler then operates on a *separate* URL parameter `file_uuid` and calls `File::moveToFolder($destFolderUUID)`. `File::moveToFolder()` checks the upload right on the destination folder but never on the source folder containing the file. As a result, any user who can upload to any single folder can move any file from any other folder \u2014 including private folders to which they have no view rights \u2014 into a folder they control, and then download it. Confidentiality is broken (private file contents leak) and integrity is broken (the file is removed from the original location). Version 5.0.10 contains a fix.",
+      "published": "2026-08-12T14:17:54.210",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70468"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47231"
     },
     {
-      "id": "CVE-2026-70467",
-      "summary": "A server-side request forgery (ssrf) vulnerability in Fortinet FortiSIEM 7.5.0, FortiSIEM 7.4.0 through 7.4.2, FortiSIEM 7.3.0 through 7.3.5, FortiSIEM 7.2 all versions, FortiSIEM 7.1 all versions, FortiSIEM 7.0 all versions, FortiSIEM 6.7 all versions, FortiSIEM 6.6 all versions, FortiSIEM 6.5 all versions may allow attacker to execute unauthorized code or commands via <insert attack vector here>",
-      "published": "2026-08-12T13:17:25.070",
-      "cvss": 3.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70467"
+      "id": "CVE-2026-47230",
+      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, `modules/documents-files.php` mode `file_rename_save` shares the same root-cause shape as the cross-folder move bug (`05-documents-cross-folder-move-idor.md`): the top-level rights check at lines 79-89 validates `hasUploadRight()` on the URL parameter `folder_uuid`, but the rename operation acts on `file_uuid` \u2014 a separate URL parameter \u2014 without re-checking the folder that actually contains the file. `DocumentsService::renameFile()` resolves the target file via `getFileForDownload()` (which permits view-readable files) but does not require upload right on the file's source folder. Result: a user with upload right on any folder A can rename a file in folder B as long as they can view it. They can also overwrite the file's description. Version 5.0.10 contains a fix.",
+      "published": "2026-08-12T14:17:54.057",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47230"
     },
     {
-      "id": "CVE-2026-70466",
-      "summary": "A incomplete list of disallowed inputs vulnerability in Fortinet FortiWeb 8.0.0 through 8.0.2, FortiWeb 7.6.0 through 7.6.5, FortiWeb 7.4 all versions, FortiWeb 7.2 all versions, FortiWeb 7.0 all versions may allow attacker to improper access control via <insert attack vector here>",
-      "published": "2026-08-12T13:17:24.883",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70466"
+      "id": "CVE-2026-47229",
+      "summary": "Admidio is an open-source user management solution. Prior to version 5.0.10, `modules/sso/clients.php` validates an `adm_csrf_token` on every state-changing branch except `enable`. The `enable` case loads the SAML or OIDC client by UUID, calls `$client->enable($enabled)`, and persists the new state with no token check. Because the action is reachable via plain GET parameters, a third-party page can trick an authenticated administrator into disabling (or silently re-enabling) any configured SAML or OIDC client. Disabling an SSO client breaks every downstream relying-party application that authenticates through it. Version 5.0.10 contains a fix.",
+      "published": "2026-08-12T14:17:53.910",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47229"
     },
     {
-      "id": "CVE-2026-57858",
-      "summary": "Cal.com Cal.diy versions 2.1.1 through 6.2.0 contain a stored cross-site scripting vulnerability in the BookingPageTagManager component that allows authenticated event owners to inject arbitrary JavaScript by supplying a malicious analytics tracking ID without sanitization. Attackers can close the inline script string literal with a crafted payload that executes in the browser of every visitor to the affected public booking page, enabling session cookie theft, forged authenticated requests, and wormable propagation by chaining with CSRF-able endpoints to persist payloads on additional events.",
-      "published": "2026-08-12T13:17:22.943",
-      "cvss": 8.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57858"
+      "id": "CVE-2026-47228",
+      "summary": "Admidio is an open-source user management solution. `modules/registration.php` mode `send_login` regenerates a random password for `user_uuid_assigned`, stores its bcrypt hash in `adm_users.usr_password`, and emails the cleartext to that user. Every other state-changing mode in the same file (`assign_member`, `assign_user`, `delete_user`, `create_user`) calls `SecurityUtils::validateCsrfToken($_POST['adm_csrf_token'])` first; the `send_login` branch does not. Prior to version 5.0.10, page visited by a registration-administrator can issue the request as a top-level navigation, the browser sends the admin's `SameSite=Lax` cookies, and the server resets the chosen user's password without any further interaction from the admin. Version 5.0.10 fixes the issue.",
+      "published": "2026-08-12T14:17:53.750",
+      "cvss": 5.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47228"
     }
   ]
 }
