@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-12T22:58:49+00:00",
+  "generated_at": "2026-08-12T23:55:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-7366",
-      "summary": "IBM DataPower Gateway 11.0.0.0 through 11.0.0.1 and IBM DataPower Gateway 10.5.0.0 through 10.5.0.21 and IBM DataPower Gateway 10.6.0.0 through 10.6.0.9 allows a race condition that results in improper isolation of request state when handling the built\u2011in X\u2011Client\u2011IP header. Under concurrent request processing, X\u2011Client\u2011IP values may be contaminated across requests, enabling IP spoofing and disclosure of other clients\u2019 IP addresses.",
-      "published": "2026-08-12T22:17:17.780",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7366"
+      "id": "CVE-2026-71194",
+      "summary": "In OpenStack Designate before 22.0.2, the mDNS handler performs pool-blind lookups when resolving record queries and NOTIFY requests. When two zones with the same name exist across different pools, the lookup fails with a deterministic error, causing the handler to return REFUSED for all DNS queries through that path. The _handle_notify path is exploitable via a single unauthenticated UDP packet. This is independently reachable through the cross-tenant zone overlap described in a different recent CVE, and also affects legitimate same-tenant cross-pool configurations. BIND9 views do not mitigate this issue as mDNS is a shared service upstream of any view configuration.",
+      "published": "2026-08-12T23:17:22.170",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71194"
     },
     {
-      "id": "CVE-2026-73519",
-      "summary": "WolfStack before 25.9.2 contains a hard-coded cluster-authentication secret compiled into every build and published as a constant in src/auth/mod.rs, allowing remote unauthenticated attackers to bypass authentication by supplying this value in the X-WolfStack-Secret header to the require_auth() gate without any session, API key, or user account. Attackers can reach an affected node's management port to enumerate all Docker and LXC containers on the host and execute arbitrary commands as root inside any container via the POST /api/containers/{runtime}/{id}/exec endpoint.",
-      "published": "2026-08-12T22:17:17.600",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73519"
+      "id": "CVE-2026-71193",
+      "summary": "In OpenStack Designate before 22.0.1, zone creation checks (_is_subzone, _is_superzone, and the duplicate-zone DB constraint) are scoped to the target pool only. An authenticated user can bypass these checks by scheduling a zone to a different pool via the AttributeFilter scheduler, creating an overlapping zone that conflicts with another tenant's zone. This enables cross-tenant DNS hijack (redirecting traffic to attacker-controlled IPs) and DNS denial of service (NODATA responses). Exploitation requires a multi-pool deployment with AttributeFilter enabled in scheduler_filters, which is a non-default but documented and supported configuration for self-service tiering.",
+      "published": "2026-08-12T23:17:22.030",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71193"
     },
     {
-      "id": "CVE-2026-73501",
-      "summary": "kin-openapi is a Go project for handling OpenAPI files. Prior to 0.144.0, ValidationHandler.Load() in openapi3filter/validation_handler.go silently replaces a nil AuthenticationFunc with NoopAuthenticationFunc, which returns nil without checking credentials. This substitution causes every OpenAPI security requirement to be satisfied for unauthenticated requests when an application relies on ValidationHandler as its enforcement middleware. The no-op callback prevents the fail-closed ErrAuthenticationServiceMissing path from being reached and forwards the request to protected handlers that may require an API key, OAuth token, or another security scheme. This issue is fixed in version 0.144.0.",
-      "published": "2026-08-12T22:17:17.443",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73501"
+      "id": "CVE-2026-49481",
+      "summary": "UpSnap is a wake on lan web app. Versions prior to 5.4.0 have an OS command injection vulnerability in the UpSnap\u2019s device management functionality due to the presence of unsafe shell command template interpolation using the ip and the mac fields. User-controlled values can be inserted into the wake_cmd and shutdown_cmd templates and executed via /bin/sh -c (Linux) or cmd /C (Windows) without sanitization, resulting in an authenticated Remote Code Execution (RCE). A low-privileged user with permission to create or edit devices can execute arbitrary operating system commands on the UpSnap hosted server. Version 5.4.0 patches the issue.",
+      "published": "2026-08-12T23:17:21.363",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49481"
     },
     {
-      "id": "CVE-2026-73500",
-      "summary": "etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a network attacker who can reach an etcd TLS listener can open many TCP connections and never send a ClientHello. In client/pkg/transport/listener_tls.go, each connection handled by tlsListener.acceptLoop spawns a goroutine that blocks indefinitely inside tls.Conn.Handshake() and remains tracked in the pending map. Unbounded goroutine and map growth can exhaust memory in the etcd process, causing loss of availability for the cluster and, when etcd backs Kubernetes, the control plane. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
-      "published": "2026-08-12T22:17:17.290",
+      "id": "CVE-2026-47718",
+      "summary": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. When `secureEnabled=true`, FUXA `1.3.0-2773` still allows guest and invalid-token requests to read project, alarms, and scheduler APIs. Version 1.3.1 fixes this issue.",
+      "published": "2026-08-12T23:17:20.783",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73500"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47718"
     },
     {
-      "id": "CVE-2026-73499",
-      "summary": "etcd is a distributed key-value store for the data of a distributed system. Prior to versions 3.5.33, 3.6.14, and 3.7.1, a user granted READ permission on a single exact key can use the Watch gRPC API with clientv3.WithFromKey() to receive watch events for every key lexicographically greater than or equal to the permitted key. In server/etcdserver/api/v3rpc/watch.go, the open-ended RangeEnd sentinel is rewritten before the RBAC permission check in server/auth/range_perm_cache.go function isRangeOpPermitted, causing the request to be treated as an exact-key watch. Range/Get and DeleteRange requests are not affected, and the issue affects only clusters with authentication enabled. This issue is fixed in versions 3.5.33, 3.6.14, and 3.7.1.",
-      "published": "2026-08-12T22:17:17.130",
+      "id": "CVE-2026-47717",
+      "summary": "FUXA is a web-based Process Visualization (SCADA/HMI/Dashboard) software. In fuxa-server version 1.3.0, the GET /api/project endpoint exposes sensitive project configuration data to guest-context requests even when secureEnabled is enabled. Version 1.3.1 fixes the issue.",
+      "published": "2026-08-12T23:17:20.643",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47717"
+    },
+    {
+      "id": "CVE-2026-15141",
+      "summary": "The web\ninterface of the affected\ndevice relies on the HTTP referrer header as part of\nrequest validation.\u00a0 Requests\u00a0containing empty Referer value, or omitting\nthe Referer header entirely, may be accepted and processed due to insufficient\nvalidation logic.\n\n\n\n\n\nSuccessful exploitation may allow an adjacent attacker with access to the web management\ninterface to obtain device configuration details and other sensitive\ninformation.",
+      "published": "2026-08-12T23:17:19.703",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73499"
-    },
-    {
-      "id": "CVE-2026-73498",
-      "summary": "MCP Atlassian is a Model Context Protocol (MCP) server for Atlassian products (Confluence and Jira). Prior to 0.22.0, confluence_upload_attachment passes its client-supplied file_path directly to open(file_path, \"rb\") in src/mcp_atlassian/confluence/attachments.py through _upload_attachment_direct() without calling validate_safe_path. An authenticated MCP client can read any file accessible to the server process and exfiltrate it to Confluence as an attachment. If an AI agent can be induced to call the tool through untrusted content, the same flaw can disclose server environment variables such as CONFLUENCE_API_TOKEN and other credentials. This issue is fixed in version 0.22.0.",
-      "published": "2026-08-12T22:17:16.973",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73498"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15141"
     }
   ]
 }
