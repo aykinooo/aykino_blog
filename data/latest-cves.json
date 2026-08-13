@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-13T15:12:30+00:00",
+  "generated_at": "2026-08-13T16:08:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73403",
-      "summary": "Unauthenticated Broken Access Control in User Registration <= 5.2.6 versions.",
-      "published": "2026-08-13T14:17:13.533",
+      "id": "CVE-2026-73558",
+      "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user's input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user's inference result. This issue is fixed in version 0.27.0.",
+      "published": "2026-08-13T15:20:18.220",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73403"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73558"
     },
     {
-      "id": "CVE-2026-73401",
-      "summary": "Unauthenticated Broken Access Control in InstaWP Connect <= 0.1.3.7 versions.",
-      "published": "2026-08-13T14:17:13.407",
+      "id": "CVE-2026-73557",
+      "summary": "vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.",
+      "published": "2026-08-13T15:20:18.080",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73557"
+    },
+    {
+      "id": "CVE-2026-73556",
+      "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.",
+      "published": "2026-08-13T15:20:17.927",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73401"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73556"
     },
     {
-      "id": "CVE-2026-73357",
-      "summary": "Donor Cross Site Scripting (XSS) in GiveWP < 4.16.6 versions.",
-      "published": "2026-08-13T14:17:13.280",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73357"
-    },
-    {
-      "id": "CVE-2026-73353",
-      "summary": "Unauthenticated Broken Access Control in Revolut Gateway for WooCommerce < 4.22.10 versions.",
-      "published": "2026-08-13T14:17:13.140",
+      "id": "CVE-2026-73555",
+      "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
+      "published": "2026-08-13T15:20:17.773",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73353"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73555"
     },
     {
-      "id": "CVE-2026-73349",
-      "summary": "Unauthenticated Broken Access Control in GiveWP < 4.16.6 versions.",
-      "published": "2026-08-13T14:17:13.010",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73349"
-    },
-    {
-      "id": "CVE-2026-73346",
-      "summary": "Administrator SQL Injection in MailChimp For WooCommerce < 6.2 versions.",
-      "published": "2026-08-13T14:17:12.880",
+      "id": "CVE-2026-73509",
+      "summary": "OpenList a file list program that supports multiple storage. Prior to 4.2.4, the authenticated /api/fs/batch_rename handler in server/handles/fsbatch.go authorizes only the source directory produced by user.JoinPath(req.SrcDir) and validates renameObject.NewName with checkRelativePath, but does not validate attacker-controlled renameObject.SrcName, supplied as src_name, before concatenating it with the authorized path and passing the result to fs.Rename. A user with rename permission can use traversal segments in src_name to make path normalization select a file outside the authorized directory and configured base path, resulting in cross-user file integrity loss, limited availability impact, and file-existence disclosure through success or error responses. This issue is fixed in version 4.2.4.",
+      "published": "2026-08-13T15:20:17.623",
       "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73346"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73509"
+    },
+    {
+      "id": "CVE-2026-73508",
+      "summary": "Netty is an asynchronous, event-driven network application framework. Prior to 4.1.136.Final and 4.2.16.Final, io.netty.handler.codec.dns.AbstractDnsRecord, io.netty.handler.codec.dns.DefaultDnsRecordDecoder.decodeRecord(), and io.netty.handler.codec.dns.DnsCodecUtil.decompressDomainName() failed to release retained or newly allocated ByteBuf objects when IDN.toASCII() or encodeDomainName() rejected a malformed domain name, allowing unauthenticated remote DNS packets to leak direct memory incrementally until denial of service. This issue is fixed in versions 4.1.136.Final and 4.2.16.Final.",
+      "published": "2026-08-13T15:20:17.463",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73508"
     }
   ]
 }
