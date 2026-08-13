@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-13T16:08:44+00:00",
+  "generated_at": "2026-08-13T17:09:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73558",
-      "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.27.0, an integer overflow in blockIdx.x * 2 * d in activation_kernels.cu can cause act_and_mul_kernel to consume another batched user's input, allowing a request processed in the same inference batch to receive a partial or complete copy of another user's inference result. This issue is fixed in version 0.27.0.",
-      "published": "2026-08-13T15:20:18.220",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73558"
+      "id": "CVE-2026-73671",
+      "summary": "Saurus CMS Community Edition contains an unauthenticated open redirect vulnerability in the logout handling code in classes/port.inc.php, where the url parameter supplied via GET or POST is passed directly to the Location header without domain allowlist, scheme validation, or relative path enforcement. Attackers can craft a malicious logout URL containing an arbitrary external domain or javascript: URI scheme to redirect authenticated users to attacker-controlled phishing pages after session destruction, enabling credential theft and OAuth redirect abuse.",
+      "published": "2026-08-13T16:19:07.580",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73671"
     },
     {
-      "id": "CVE-2026-73557",
-      "summary": "vLLM is an inference and serving engine for large language models. From 0.20.2rc0 until 0.26.0, safe_load_prompt_embeds in vllm/renderers/embed_utils.py uses torch.sparse.check_sparse_tensor_invariants, whose process-global save, enable, and restore state can be raced by concurrent prompt_embeds parts submitted to POST /v1/chat/completions through AsyncMultiModalItemTracker.resolve_items, asyncio.gather, and the default executor, allowing an invalid sparse tensor to reach tensor.to_dense despite the CVE-2025-62164 guard when enable_prompt_embeds is enabled. This issue is fixed in version 0.26.0.",
-      "published": "2026-08-13T15:20:18.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73557"
+      "id": "CVE-2026-73670",
+      "summary": "A CMS contains a SQL injection vulnerability in admin/db_data.php at line 509 that allows authenticated administrators to inject arbitrary SQL into a SHOW COLUMNS FROM statement by supplying unsanitized input through the table_name GET or POST parameter. Attackers can perform table traversal, time-based blind, boolean-based blind, and error-based injection techniques to enumerate full database schema, access system tables such as information_schema, and chain the disclosure with secondary injection points to extract credential data.",
+      "published": "2026-08-13T16:19:07.400",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73670"
     },
     {
-      "id": "CVE-2026-73556",
-      "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the structured_outputs.regex parameter in vllm/v1/structured_output/backend_lm_format_enforcer.py is passed to lmformatenforcer.RegexParser without compile_regex_with_timeout or validation in validate_structured_output_request_lm_format_enforcer, allowing an unauthenticated /v1/completions request against the lm-format-enforcer backend to consume a CPU core and stall the structured-output engine path with a catastrophic regular expression. This issue is fixed in version 0.26.0.",
-      "published": "2026-08-13T15:20:17.927",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73556"
+      "id": "CVE-2026-73576",
+      "summary": "In Zimbra Collaboration (ZCS) before 10.1.17,\u00a0weak cryptographic key generation vulnerability exists in the OnlyOffice integration. The zimbraDocumentEditingJwtSecret is generated using an insecure random number generator, resulting in insufficient entropy. An attacker who obtains a JWT signed with the generated secret may be able to recover the JWT signing secret through offline brute-force, potentially enabling JWT forgery.",
+      "published": "2026-08-13T16:19:06.923",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73576"
     },
     {
-      "id": "CVE-2026-73555",
-      "summary": "vLLM is an inference and serving engine for large language models. Prior to 0.26.0, the validation_exception_handler in vllm/entrypoints/openai/server_utils.py converts FastAPI RequestValidationError objects with str(exc), and sanitize_message in vllm/entrypoints/utils.py does not remove traceback-style file paths, allowing unauthenticated malformed JSON requests to /v1/chat/completions, /v1/completions, /tokenize, and /detokenize to disclose the OS username, home and virtual-environment paths, Python version, internal package structure, line numbers, and endpoint handler names. This issue is fixed in version 0.26.0.",
-      "published": "2026-08-13T15:20:17.773",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73555"
+      "id": "CVE-2026-73575",
+      "summary": "In Zimbra Collaboration (ZCS) before 10.1.17, a Cross-Site Request Forgery (CSRF) vulnerability exists in the Exchange Web Services (EWS) endpoint of Zimbra Collaboration (ZCS) due to insufficient validation of request content types. An attacker can exploit this vulnerability by causing an authenticated user to submit a crafted request, potentially allowing unauthorized actions to be performed on behalf of the victim.",
+      "published": "2026-08-13T16:19:06.767",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73575"
     },
     {
-      "id": "CVE-2026-73509",
-      "summary": "OpenList a file list program that supports multiple storage. Prior to 4.2.4, the authenticated /api/fs/batch_rename handler in server/handles/fsbatch.go authorizes only the source directory produced by user.JoinPath(req.SrcDir) and validates renameObject.NewName with checkRelativePath, but does not validate attacker-controlled renameObject.SrcName, supplied as src_name, before concatenating it with the authorized path and passing the result to fs.Rename. A user with rename permission can use traversal segments in src_name to make path normalization select a file outside the authorized directory and configured base path, resulting in cross-user file integrity loss, limited availability impact, and file-existence disclosure through success or error responses. This issue is fixed in version 4.2.4.",
-      "published": "2026-08-13T15:20:17.623",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73509"
+      "id": "CVE-2026-73574",
+      "summary": "In Zimbra Collaboration before 10.1.17, a local file inclusion (LFI) vulnerability exists in the Zimbra Classic Web Client due to improper validation of the fu request parameter. An unauthenticated attacker can exploit this vulnerability by supplying a crafted path, potentially allowing unauthorized disclosure of protected files, such as WEB-INF/web.xml, within the web application directory. This occurs in the Forward servlet.",
+      "published": "2026-08-13T16:19:06.593",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73574"
     },
     {
-      "id": "CVE-2026-73508",
-      "summary": "Netty is an asynchronous, event-driven network application framework. Prior to 4.1.136.Final and 4.2.16.Final, io.netty.handler.codec.dns.AbstractDnsRecord, io.netty.handler.codec.dns.DefaultDnsRecordDecoder.decodeRecord(), and io.netty.handler.codec.dns.DnsCodecUtil.decompressDomainName() failed to release retained or newly allocated ByteBuf objects when IDN.toASCII() or encodeDomainName() rejected a malformed domain name, allowing unauthenticated remote DNS packets to leak direct memory incrementally until denial of service. This issue is fixed in versions 4.1.136.Final and 4.2.16.Final.",
-      "published": "2026-08-13T15:20:17.463",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73508"
+      "id": "CVE-2026-73573",
+      "summary": "In Zimbra Collaboration (ZCS) before 10.1.17, a path traversal vulnerability exists in the Zimbra Briefcase document editing functionality due to improper validation of the packages parameter. An authenticated attacker can exploit this vulnerability by supplying a crafted path traversal sequence, potentially allowing unauthorized disclosure of sensitive files within the web application directory.",
+      "published": "2026-08-13T16:19:06.437",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73573"
     }
   ]
 }
