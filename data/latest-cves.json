@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-13T21:00:00+00:00",
+  "generated_at": "2026-08-13T22:00:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73669",
-      "summary": "The Signify Philips Hue Bridge Pro firmware embeds a Mosquitto MQTT broker (v2.0.22) that listens on all network interfaces with anonymous access enabled and no firewall restriction. An attacker with access to the Bridge's network can read device data and control connected lights.",
-      "published": "2026-08-13T20:17:30.440",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73669"
+      "id": "CVE-2026-8715",
+      "summary": "Vault Secrets Operator 1.3.0 up to 1.4.1 is vulnerable to an arbitrary file read and credential exfiltration issue in the AppRole authentication configuration that may allow a tenant with limited Kubernetes RBAC permissions to read files from the operator pod's filesystem and transmit their contents to a tenant-controlled endpoint, potentially leading to privilege escalation within the cluster. This vulnerability (CVE-2026-8715) is fixed in Vault Secrets Operator 1.5.0.",
+      "published": "2026-08-13T21:18:32.333",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8715"
     },
     {
-      "id": "CVE-2026-73656",
-      "summary": "Trigger.dev is a platform for building and deploying fully managed AI agents and workflows. Prior to 4.5.6, POST /api/v1/deployments/:deploymentId/background-workers calls CreateDeploymentBackgroundWorkerServiceV4.call() in apps/webapp/app/v3/services/createDeploymentBackgroundWorkerV4.server.ts, where workerDeployment.findFirst() selects a deployment by friendlyId without an environmentId predicate. A caller with a valid API key for one project can submit another project's deployment identifier, link an attacker-owned background worker to the victim deployment, and move the victim deployment from BUILDING to DEPLOYING. This issue is fixed in version 4.5.6.",
-      "published": "2026-08-13T20:17:30.297",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73656"
+      "id": "CVE-2026-73480",
+      "summary": "gdu fails to strip terminal escape sequences from directory and file names when printing paths after TUI exit. Attackers can craft malicious directory or file names containing escape sequences that are interpreted by the terminal, enabling title spoofing, clipboard manipulation, or other terminal-dependent effects.",
+      "published": "2026-08-13T21:18:32.187",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73480"
     },
     {
-      "id": "CVE-2026-73655",
-      "summary": "Trigger.dev is a platform for building and deploying fully managed AI agents and workflows. Prior to 4.5.2, addGoogleStrategy() in apps/webapp/app/services/googleAuth.server.ts passes a Google profile email to findOrCreateGoogleUser() in apps/webapp/app/models/user.server.ts without requiring Google's email_verified assertion. When existingEmailUser && !existingUser is true, the flow writes the new Google authIdentifier into the existing email-matched account and returns that user object, allowing an attacker-controlled Google profile with an unverified matching email to take over the account. This issue is fixed in version 4.5.2.",
-      "published": "2026-08-13T20:17:30.153",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73655"
+      "id": "CVE-2026-19749",
+      "summary": "A vulnerability was detected in Tenda CH7, CH7G, CH10, CP3, CP3 Pro, CP7, TC3B14C, TC3B15C, TC3T14C and TC3T15C up to 20260625. Affected by this vulnerability is an unknown functionality of the component RTSP/ONVIF. Performing a manipulation results in missing authentication. It is possible to initiate the attack remotely. The attack is considered to have high complexity. The exploitation appears to be difficult. The exploit is now public and may be used.",
+      "published": "2026-08-13T21:17:46.557",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19749"
     },
     {
-      "id": "CVE-2026-73654",
-      "summary": "Trigger.dev is a platform for building and deploying fully managed AI agents and workflows. From 3.3.8 until 4.5.6, the PUT /api/v1/runs/:runId/metadata endpoint passes attacker-controlled operation.key values to new JSONHeroPath(operation.key).set(newMetadata, value) in packages/core/src/v3/runMetadata/operations.ts without rejecting dangerous constructor and prototype path segments. A caller with a normal environment API key can pollute Object.prototype in the shared webapp process, corrupting Prisma queries and Prometheus labels, breaking other tenants' worker authentication, and causing a process-wide denial of service. This issue is fixed in version 4.5.6.",
-      "published": "2026-08-13T20:17:30.007",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73654"
+      "id": "CVE-2026-19748",
+      "summary": "A security vulnerability has been detected in Tenda CH7, CH7G, CH10, CP3, CP3 Pro, CP7, TC3B14C, TC3B15C, TC3T14C and TC3T15C up to 20260625. Affected is the function CWebSessionManager_ParseSession of the file /user/bin/Kylin of the component Kylin Web Service. Such manipulation of the argument SESSION leads to insufficient entropy. The attack may be performed from remote. Attacks of this nature are highly complex. The exploitability is told to be difficult.",
+      "published": "2026-08-13T21:17:46.343",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19748"
     },
     {
-      "id": "CVE-2026-73531",
-      "summary": "django-helpdesk before 2.3.3 contains a stored cross-site scripting vulnerability that allows unauthenticated attackers to inject arbitrary JavaScript by submitting HTML-formatted email messages or uploading .html/.htm file attachments through public ticket submission channels. Attackers can exploit the lack of sanitization and Content-Disposition headers at the attachment-serving layer to execute malicious scripts in the browser session of authenticated staff members who open the attachment while triaging tickets.",
-      "published": "2026-08-13T20:17:29.747",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73531"
+      "id": "CVE-2026-19483",
+      "summary": "IBM Storage Scale 5.2.3.0 through 5.2.3.8, and 6.0.0.0 through 6.0.1.0 Secrets may be disclosed in log files in IBM Storage Scale Management GUI The admin password is logged into the GUI log of IBM Storage Scale Systems Deploy and Upgrade from GUI. Secrets may be disclosed in information related to exceptions in IBM Storage Scale Management GUI.",
+      "published": "2026-08-13T21:17:46.003",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19483"
     },
     {
-      "id": "CVE-2026-73530",
-      "summary": "Flyto2 Core before 2.28.0 contains a server-side request forgery guard bypass vulnerability that allows attackers to reach internal services by supplying URLs using the unblocked IPv6 address `::` which the kernel routes to loopback identically to `0.0.0.0`. Attackers can submit requests or trigger 302 redirects to ` to bypass the private IP range and blocked hostname checks in `is_private_ip()`, reaching services bound to IPv6 loopback across the `http.get`, `http.request`, and `http.batch` modules.",
-      "published": "2026-08-13T20:17:29.590",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73530"
+      "id": "CVE-2026-19297",
+      "summary": "IBM Langflow OSS 1.0.0 through 1.9.6 could allow a remote attacker to obtain unauthorized access to user accounts due to improper restriction of excessive authentication attempts.",
+      "published": "2026-08-13T21:17:45.870",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19297"
     }
   ]
 }
