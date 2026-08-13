@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-13T02:44:22+00:00",
+  "generated_at": "2026-08-13T05:01:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-50544",
-      "summary": "NortheBridge/luminalshine is a Sunshine-compatible game stream host for Moonlight. Prior to version 26.05.0-rc4, a latent gap exists on a default install, the file at `src/platform/windows/misc.cpp` lives at `C:\\ProgramData\\LuminalShine\\config\\apps.json` and is created by the `SYSTEM` service. Under Windows' default `C:\\ProgramData` inheritance, that gives `BUILTIN\\Users` only Read+Execute \u2014 not writable \u2014 so the canonical EoP doesn't actually trigger on a vanilla install. Version 26.05.0-rc4 contains a patch for the issue. As a workaround, use default condition DACLs for `ProgramData`.",
-      "published": "2026-08-13T00:17:32.930",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50544"
+      "id": "CVE-2026-18728",
+      "summary": "A flaw was found in open-iscsi. An integer underflow vulnerability in the `iscsiuio` component, specifically during IPv4 Dynamic Host Configuration Protocol (DHCP) parsing, allows a remote attacker on the same local network segment to cause a denial of service. By sending a specially crafted IPv4/UDP DHCP reply, the attacker can trigger an out-of-bounds read, leading to the `iscsiuio` process crashing. This issue affects systems where `iscsiuio` is actively handling IPv4 DHCP traffic.",
+      "published": "2026-08-13T04:17:19.340",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18728"
     },
     {
-      "id": "CVE-2026-49819",
-      "summary": "UpSnap is a wake on lan web app. Versions 4.4.1 through 5.3.5 are vulnerable to a missing-authentication / privilege-escalation chain in `pb.HandlerInitSuperuser` (`backend/pb/handlers.go:249`), reachable as `POST /api/upsnap/init-superuser`. The vulnerable code lacks any authentication, setup token, IP allow-list, or rate limit and is gated only by a `totalSuperusers > 0` count check \u2014 a condition that is false on every fresh install \u2014 allowing an unauthenticated network-adjacent attacker to register the initial superuser account, receive a long-lived JWT, and pivot to root remote code execution at `backend/networking/wake.go:43` (`exec.CommandContext(ctx, \"/bin/sh\", \"-c\", wake_cmd)`). Version 5.4.0 fixes the issue.",
-      "published": "2026-08-13T00:17:32.747",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49819"
-    },
-    {
-      "id": "CVE-2026-49473",
-      "summary": "@cedar-policy/authorization-for-expressjs is an open-source Express.js middleware that integrates Cedar authorization into Express applications by mapping HTTP requests to Cedar actions and evaluating authorization policies before allowing requests to proceed. Versions prior to 0.3.0 have an issue where, under certain circumstances, the middleware matches incoming requests against Cedar action mappings using req.originalUrl, which includes the query string, while Express routes requests using only the path component. The middleware uses req.originalUrl to match incoming requests against Cedar action mappings. In Express, req.originalUrl includes the query string, while route matching uses only the path. This creates a divergence between what Cedar authorizes and what Express executes. When an application defines separate actions for overlapping path prefixes with different authorization requirements (for example, GET /users for listing all users with admin-only access, and GET /users/{id} for retrieving a single user with any authenticated user access), an actor can append a query string to bypass the more restrictive policy. Sending GET /users/?x=1 causes the middleware to match against /users/{id} (with id parameter set to ?x=1) and evaluate the less restrictive action, while Express routes the request to the /users list handler. This allows inappropriate access to the more restrictive endpoint. This issue has been addressed in version 0.30. Some workarounds are available. Validate and sanitize incoming request paths before they reach the authorization middleware. Ensure that applications do not rely solely on the middleware for authorization when defining multiple actions on overlapping path prefixes with different permission levels.",
-      "published": "2026-08-13T00:17:32.587",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49473"
-    },
-    {
-      "id": "CVE-2026-48791",
-      "summary": "sigstore-java is a sigstore java client for interacting with sigstore infrastructure. Version 2.0.0 erroneously removed verification of the integrated (Rekor entry) time) against the Fulcio certificate. Version 2.1.0 re-added this verification with enhancements that adhere to the Sigstore verification spec. The old sigstore-conformance test for this check was built incorrectly. This vulnerability impacts only users verifying bundles with `dev.sigstore:sigstore-java:2.0.0`. Older versions are not affected; it is fixed in `dev.sigstore:sigstore-java:2.1.0` A malicious actor may exploit this if they were able to access a users system and exfiltrate the temporary private key used during signing and then reuse an old fulcio certificate later without requiring direct access to the user's credentials. Users may protect themselves by re-verifying their artifacts using the newest sigstore-java or another current sigstore client. Transparency logs may also be audited for unauthorized signatures for a suspected reused identity.",
-      "published": "2026-08-13T00:17:32.407",
-      "cvss": 2.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48791"
-    },
-    {
-      "id": "CVE-2026-46688",
-      "summary": "The Meeting Room Booking System (MRBS) is a PHP-based application for booking meeting rooms. Prior to version 1.12.2, an unauthenticated request can be made to redirect the user to a query-specified location. This allows an attacker to create a specially-crafted URL to an MRBS installation that will cause the user who clicks it to be redirected to the attacker-specified redirect URL, which could be a spoofed MRBS login page, for example. Version 1.12.2 contains a fix. No known workarounds are available.",
-      "published": "2026-08-13T00:17:32.250",
+      "id": "CVE-2026-0301",
+      "summary": "An information disclosure vulnerability in the URL Filtering feature of Palo Alto Networks PAN-OS\u00ae software enables an unauthenticated user with network access to obtain sensitive information.\n\nPanorama is not impacted by this vulnerability.",
+      "published": "2026-08-13T03:16:46.097",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46688"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0301"
     },
     {
-      "id": "CVE-2026-46382",
-      "summary": "The Meeting Room Booking System (MRBS) is a PHP-based application for booking meeting rooms. Prior to version 1.12.2, a user-supplied private/local URI can be made to be fetched without checks. Version 1.12.2 contains a fix. No known workarounds are available.",
-      "published": "2026-08-13T00:17:32.090",
+      "id": "CVE-2026-0299",
+      "summary": "Local privilege escalation vulnerabilities in the Palo Alto Networks GlobalProtect\u2122 app enable a local user to escalate their privileges to NT AUTHORITY\\SYSTEM on Windows, and root on macOS and Linux. This enables a non-administrative user to execute arbitrary commands with administrative privileges.\n\nThe GlobalProtect app on iOS, Android, and Chrome OS is not affected.",
+      "published": "2026-08-13T03:16:45.793",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46382"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0299"
+    },
+    {
+      "id": "CVE-2026-0298",
+      "summary": "An improper input validation vulnerability exists in the Windows Pre-Logon Access Provider (PLAP) component of the Palo Alto Networks GlobalProtect\u2122 app on Windows devices which enables a man-in-the-middle (MitM) attacker to execute arbitrary code with SYSTEM privileges on an affected client.\n\nThe GlobalProtect app on Linux, macOS, iOS, Android, and Chrome OS  is not affected.",
+      "published": "2026-08-13T03:16:45.560",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0298"
+    },
+    {
+      "id": "CVE-2026-0297",
+      "summary": "A buffer overflow vulnerability exists in the Palo Alto Networks GlobalProtect\u2122 app that enables a man-in-the-middle (MitM) attacker or a rogue gateway to disrupt system processes and potentially execute arbitrary code with elevated privileges (SYSTEM privileges on Windows, and root privileges on macOS and Linux).",
+      "published": "2026-08-13T03:16:45.077",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0297"
+    },
+    {
+      "id": "CVE-2026-0296",
+      "summary": "Improper certificate validation vulnerabilities in Palo Alto Networks GlobalProtect\u2122 app enable an unauthenticated attacker with man-in-the-middle (MitM) access to intercept and modify application communications. VPN tunnel traffic is not impacted.\n\nThe GlobalProtect app on iOS, Android, and Chrome OS is not affected.",
+      "published": "2026-08-13T03:16:44.703",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0296"
     }
   ]
 }
