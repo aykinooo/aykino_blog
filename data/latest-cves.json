@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-13T18:05:08+00:00",
+  "generated_at": "2026-08-13T19:17:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73266",
-      "summary": "A flaw was found in the clusterclaims-controller component of Multicluster Engine (MCE). An authenticated tenant can exploit this vulnerability by manipulating ClusterClaim labels. This allows the tenant to force a cluster to join a ManagedClusterSet belonging to another tenant. Such unauthorized access could enable the injection of policies and workloads into other tenants' clusters.",
-      "published": "2026-08-13T17:17:35.713",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73266"
+      "id": "CVE-2026-18071",
+      "summary": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a local attacker to gain elevated privileges due to improper privilege management.",
+      "published": "2026-08-13T19:17:18.970",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18071"
     },
     {
-      "id": "CVE-2026-59765",
-      "summary": "SSRF via Migration Asset Downloads Bypasses hostmatcher \u2014 Reads Internal Files and Cloud Metadata",
-      "published": "2026-08-13T17:17:30.493",
+      "id": "CVE-2026-17220",
+      "summary": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to cause a denial of service and modify authentication metadata due to a buffer overflow.",
+      "published": "2026-08-13T19:17:18.810",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17220"
+    },
+    {
+      "id": "CVE-2026-17197",
+      "summary": "IBM i 7.6, 7.5, 7.4, and 7.3 could allow a remote attacker to bypass security restrictions due to improper validation of client-asserted identity.",
+      "published": "2026-08-13T19:17:18.640",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17197"
+    },
+    {
+      "id": "CVE-2026-73649",
+      "summary": "Velocity.js is a JavaScript implementation of the Apache Velocity template engine. Prior to 2.1.7, the earlier fix for CVE-2026-44966 filtered constructor, __proto__, and prototype only in the #set assignment handler in src/compile/set.ts, while property-read expressions in src/compile/references.ts remained unfiltered. The getReferences() flow called getAttributes(), whose property access allowed an attacker-controlled template to traverse constructor.constructor to the JavaScript Function constructor. The #set handler validated only the assignment target and did not inspect the right-hand property-read expression, allowing arbitrary shell commands, environment-variable access, cloud-credential access, and internal-network access in the server process. This issue is fixed in version 2.1.7.",
+      "published": "2026-08-13T18:18:20.793",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73649"
+    },
+    {
+      "id": "CVE-2026-73648",
+      "summary": "rails-html-sanitizer is responsible for sanitizing HTML fragments in Rails applications. From 1.0.3 until 1.7.1, Rails::HTML::PermitScrubber restricted SVG reference elements in SVG_ALLOW_LOCAL_HREF only when they used xlink:href, even though browsers also accept the plain href attribute. Applications with non-default allowed tags that included SVG use or feImage elements could therefore permit external references; a same-origin external SVG referenced by use could execute scripts in the sanitized document's context, while feImage could load external images for tracking. Applications using the default allowed tags are not affected. This issue is fixed in version 1.7.1.",
+      "published": "2026-08-13T18:18:20.620",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59765"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73648"
     },
     {
-      "id": "CVE-2026-59763",
-      "summary": "Unbounded Arch package file metadata can cause resource amplification in Gitea package uploads",
-      "published": "2026-08-13T17:17:30.360",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59763"
-    },
-    {
-      "id": "CVE-2026-59109",
-      "summary": "SQL injection in the Zalktis accounting application via\ntrading-partner-controlled text fields in received electronic invoices. When\nimporting a received e-invoice (UBL/PEPPOL) or an e-commerce export, Zalktis\nconcatenates partner-controlled values directly into SQL statement text using\nstring concatenation, with neither parameterised queries nor escaping. The\napplication's own escaping helper,\u00a0Dazadi.sql_txt(),\nis not invoked on these code paths, so a party that sends an invoice can break\nout of the string literal and alter the query logic.\n\n\n\n\n\n\n\n\n\nThis issue affects Zalktis: before 2026.1.586 and before 2026.2.592.",
-      "published": "2026-08-13T17:17:29.207",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59109"
-    },
-    {
-      "id": "CVE-2026-58511",
-      "summary": "Webhook Authorization Header Returned in Plaintext via API",
-      "published": "2026-08-13T17:17:28.973",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58511"
-    },
-    {
-      "id": "CVE-2026-58510",
-      "summary": "GHSA-8fwc-qjw5-rvgp ClearRepoWatches fix not applied to API EditRepo path \u2014 sister code path retains stale watches on public->private",
-      "published": "2026-08-13T17:17:28.860",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58510"
+      "id": "CVE-2026-73647",
+      "summary": "Quasar Framework is a framework for building high-performance Vue.js user interfaces. Prior to 2.22.0, the public extend() utility in ui/src/utils/extend/extend.js recursively copied attacker-controlled object keys during extend(true, target, source) deep merges without rejecting an own __proto__ property. The merge could descend into the prototype object and write attacker-controlled properties to Object.prototype in the same JavaScript process. Applications that passed user-controlled or partially user-controlled objects to extend() could experience logic bypass, unsafe default-option injection, denial of service, or other application-specific impact when polluted properties were later consumed. This issue is fixed in version 2.22.0.",
+      "published": "2026-08-13T18:18:20.450",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73647"
     }
   ]
 }
