@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-14T18:04:22+00:00",
+  "generated_at": "2026-08-14T19:11:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73846",
-      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, canonicalizeParams in src/utils/cache.ts serializes request parameters with unescaped ampersand, equals-sign, and vertical-bar delimiters, allowing different logical parameter sets used by buildCacheKey to collide and an attacker to prime a shared cache with a response for a victim's distinct query. This issue is fixed in version 0.4.112.",
-      "published": "2026-08-14T17:20:36.953",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73846"
-    },
-    {
-      "id": "CVE-2026-73845",
-      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, the ckan_get_mqa_quality and ckan_get_mqa_quality_details tools in src/tools/quality.ts use isValidMqaServer to validate the server_url parameter with a prefix-only regular expression for dati.gov.it, allowing suffix-host and URL-userinfo values to target an attacker-controlled host and return a spoofed response. This issue is fixed in version 0.4.112.",
-      "published": "2026-08-14T17:20:36.820",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73845"
-    },
-    {
-      "id": "CVE-2026-73844",
-      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, error paths reflect raw upstream response bodies and internal exception messages back to the caller instead of a sanitized, generic message. When the server is pointed at (or redirected/SSRF'd to) a host that returns a non-CKAN response, or when an internal exception occurs, the caller receives verbatim upstream content and internal detail (hostnames, internal IPs, DB errors, stack fragments). This vulnerability is fixed in 0.4.112.",
-      "published": "2026-08-14T17:20:36.683",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73844"
-    },
-    {
-      "id": "CVE-2026-49989",
-      "summary": "CrateDB is a distributed SQL database. Prior to versions 6.2.8 and 6.3.2, any authenticated user can read or delete any blob whose SHA-1 digest they know, and can plant new blobs unconditionally, in any blob table, regardless of `GRANT`s. CrateDB has two ways to access blob storage: SQL (`SELECT ... FROM blob.<table>` and friends) and the blob HTTP API (`GET|PUT|DELETE /_blobs/{table}/{digest}`). The SQL path goes through `AccessControl`, which is what enforces privilege grants; that's why `SELECT digest FROM blob.secret_blobs` fails for a user who has no grants on the table. The HTTP path authenticates the request but never asks `AccessControl` whether the authenticated user is allowed to touch the table. So a user with no grants gets `MissingPrivilegeException` from SQL and `200 OK` plus the blob bytes from `GET /_blobs/secret_blobs/<digest>`. Deployments that don't use `BLOB TABLE` are unaffected. Authentication itself still works; the bug is strictly that being authenticated as anyone is treated as sufficient for any blob op. Versions 6.2.8 and 6.3.2 fix the issue.",
-      "published": "2026-08-14T17:18:27.290",
+      "id": "CVE-2026-73850",
+      "summary": "Emlog is an open source website building system. In 2.6.20 and earlier, there is a SQL injection vulnerability in the queryDatabase function in ai.php.",
+      "published": "2026-08-14T18:19:10.137",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49989"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73850"
     },
     {
-      "id": "CVE-2026-49986",
-      "summary": "The Cortex MCP server (`neuro-cortex-memory`), a cross-platform persistent memory MCP, prior to version 3.17.1 treats the `CLAUDE_PROJECT_DIR` environment variable \u2014 automatically set by Claude Code to the currently open project directory \u2014 as a trusted Cortex developer checkout. When the `open_visualization` tool is invoked, `_find_dev_source()` resolves the user's active project directory as a candidate Cortex source root. The only validation performed by `_is_cortex_root()` is a check for the presence of an `mcp_server/` subdirectory and a `ui/unified-viz.html` file. An attacker who places these two marker files in a malicious repository can cause Cortex to execute an arbitrary `mcp_server/server/visualize_bootstrap.py` from that directory via `subprocess.run([sys.executable, ...])`, achieving code execution with the privileges of the victim's local user process. Version 3.17.1 fixes the issue.",
-      "published": "2026-08-14T17:18:27.147",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49986"
+      "id": "CVE-2026-73849",
+      "summary": "Emlog is an open source website building system. In 2.6.26 and earlier, install.php accepts action=reinstall without authentication and deliberately skips the already-installed check because the guard runs only when $act != 'reinstall'. A remote attacker can submit hostname, dbuser, dbpasswd, dbname, dbprefix, username, password, and email values to cause file_put_contents('config.php', $config) to overwrite the configuration with attacker-controlled database settings and create a new administrator account. No fixed version is available as of this review.",
+      "published": "2026-08-14T18:19:09.987",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73849"
     },
     {
-      "id": "CVE-2026-49826",
-      "summary": "Concourse is a container-based automation system written in Go. Prior to version 8.2.3, an attacker is able to craft and send a user a URL that will redirect the user from the Concourse web server to any other site. This could be used in a phishing attack to steal user's credentials. This has been fixed in 8.2.3. No known workarounds are available.",
-      "published": "2026-08-14T17:18:27.007",
+      "id": "CVE-2026-73847",
+      "summary": "Emlog is an open source website building system. In 2.6.26 and earlier, missing CSRF protection on the AI Assistant execute_tool action in admin/ai.php lets a remote unauthenticated attacker submit a forged cross-site request from an attacker-controlled page to a recently logged-in administrator. The authentication cookie set in include/lib/loginauth.php has no explicit SameSite attribute, enabling Chrome's temporary Lax+POST grace window. The query_database case passes attacker-controlled sql and confirm_code values to Ai::queryDatabase in include/service/ai.php; read queries need no confirmation, write queries accept the public confirm string, only the blog table is write-protected, and aliasing password as pwd_hash bypasses output redaction. A successful request can read every database table and write every table except blog, including changing the user table to take over an administrator account. No fixed version is available as of this review.",
+      "published": "2026-08-14T18:19:09.843",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73847"
+    },
+    {
+      "id": "CVE-2026-72970",
+      "summary": "Heap-based buffer overflow in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
+      "published": "2026-08-14T18:19:09.003",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72970"
+    },
+    {
+      "id": "CVE-2026-63361",
+      "summary": "LimeSurvey Community Edition 7.0.5 contains an authenticated reflected cross-site scripting vulnerability in the HTML editor popup endpoint. The text and name query parameters are passed through a blacklist sanitizer and then rendered without context-appropriate output encoding.",
+      "published": "2026-08-14T18:18:53.650",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49826"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63361"
+    },
+    {
+      "id": "CVE-2026-49282",
+      "summary": "Capstone is a disassembly framework. Prior to version 6.0.0-Alpha9, Capstone's public `cs_insn_name()` API forwards caller-supplied instruction IDs directly to the selected architecture backend. Most backends validate the ID before indexing instruction-name tables, but the M68K and RISCV backends have missing or incomplete bounds checks. On a Capstone handle opened for M68K or RISCV, a caller-controlled invalid instruction ID can trigger an out-of-bounds read and crash the process. The demonstrated impact is availability loss in applications or bindings that expose instruction-name lookup to untrusted IDs. No code execution or data disclosure was demonstrated. Version 6.0.0-Alpha9 patches the issue.",
+      "published": "2026-08-14T18:17:30.830",
+      "cvss": 5.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49282"
     }
   ]
 }
