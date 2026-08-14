@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-14T22:38:15+00:00",
+  "generated_at": "2026-08-14T23:34:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73683",
-      "summary": "Laravel Socialite's Facebook provider contains an authentication bypass vulnerability that allows unauthenticated attackers to replay captured OIDC id_tokens by exploiting the missing nonce claim validation in the getUserByOIDCToken() function within FacebookProvider.php. Attackers who obtain a valid, unexpired id_token issued for the same Facebook App ID can submit the captured token to the backend userFromToken() endpoint, bypassing authentication controls because signature, aud, and iss checks pass while no session-bound nonce comparison is performed, resulting in unauthorized access to victim accounts.",
-      "published": "2026-08-14T22:17:11.550",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73683"
+      "id": "CVE-2026-74250",
+      "summary": "In OpenStack Ironic before 38.0.1, the autodetect deploy interface may fail to run cleaning immediately after enrollment with, or changing to, the autodetect deploy interface.",
+      "published": "2026-08-14T23:16:34.853",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74250"
     },
     {
-      "id": "CVE-2026-69414",
-      "summary": "Microsoft is aware of an elevation of privilege in the Microsoft Malware Protection Engine in Microsoft Defender publicly referred to as &quot;ShieldBreak &quot;.\nWe are working to provide a high quality security update that addresses this vulnerability. We will provide information in this CVE when the update is available.",
-      "published": "2026-08-14T22:17:06.810",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69414"
+      "id": "CVE-2026-74247",
+      "summary": "A flaw was found in Red Hat Quay. A user with FEATURE_BUILD_SUPPORT enabled and repository write access can exploit a Server-Side Request Forgery (SSRF) vulnerability within the build API. This allows the user to provide a malicious URL, causing the Quay builder to make requests to internal network addresses. Such an action could lead to the disclosure of sensitive internal information.",
+      "published": "2026-08-14T23:16:34.730",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74247"
     },
     {
-      "id": "CVE-2026-74248",
-      "summary": "OpenStack Octavia through 18.0.0 mishandles quality of service (QoS) policy authorization. By associating another project's QoS policy with an amphora, an authenticated user may prevent deletion of that policy. All Octavia deployments are affected.",
-      "published": "2026-08-14T21:17:58.173",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74248"
+      "id": "CVE-2026-74245",
+      "summary": "A flaw was found in Red Hat Quay's exported logs feature. An unauthenticated attacker with a valid file ID could download exported action logs without proper authorization. While file IDs are complex, they can be intercepted from plaintext email or webhook callbacks. This vulnerability leads to information disclosure, potentially exposing sensitive data such as usernames, email addresses, IP addresses, and action-specific metadata.",
+      "published": "2026-08-14T23:16:34.600",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74245"
     },
     {
-      "id": "CVE-2026-73682",
-      "summary": "Semaphore versions prior to 2.18.20 contain an OS command injection (argument injection) vulnerability in the repository git_url handling that allows authenticated users holding the Manager or Owner role on any project to achieve remote code execution on the Semaphore server host. Attackers can craft a malicious git_url value using git's --upload-pack= option to inject and execute arbitrary shell commands when the server processes repository operations using the default cmd_git client.",
-      "published": "2026-08-14T21:17:58.033",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73682"
+      "id": "CVE-2026-74244",
+      "summary": "A flaw was found in Red Hat Quay's Stripe billing webhook handler. This vulnerability allows an unauthenticated attacker to forge billing events by sending crafted JSON requests to the `/webhooks/stripe` endpoint without validating the Stripe-Signature header. Successful exploitation can lead to the unauthorized resetting of a namespace's build quota to its maximum and trigger unsolicited billing emails to namespace administrators.",
+      "published": "2026-08-14T23:16:34.490",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74244"
     },
     {
-      "id": "CVE-2026-71570",
-      "summary": "Joomla Extension - icagenda.com - ACL bypass allowing arbitrary user enumeration < 2.0.0-4.0.11 - A backend operator granted access scoped to `com_icagenda` only could enumerate Joomla user profiles.",
-      "published": "2026-08-14T21:17:56.807",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71570"
+      "id": "CVE-2026-74243",
+      "summary": "A flaw was found in Red Hat Quay. When the SECURITY_SCANNER_V4_PSK (pre-shared key) is not set, a remote unauthenticated attacker can send POST requests to the security scanner notification endpoint. This allows the attacker to flood the notification queue and inject path traversal characters into Clair API URL paths. The primary consequence is worker resource exhaustion and blind path manipulation on the configured Clair host, potentially leading to a denial of service.",
+      "published": "2026-08-14T23:16:34.360",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74243"
     },
     {
-      "id": "CVE-2026-67366",
-      "summary": "Joomla Extension - icagenda.com - CSRF on frontend registration actions in iCagenda < 2.0.0-4.0.11 - Multiple state changing operations in the frontend are callable without a CSRF token check.",
-      "published": "2026-08-14T21:17:51.040",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67366"
+      "id": "CVE-2026-74242",
+      "summary": "A flaw was found in Red Hat Quay. An administrator of any repository, by knowing or guessing a target notification's Universally Unique Identifier (UUID), can read the notification configuration, including sensitive details like webhook URLs, Slack tokens, and email addresses. This vulnerability also allows them to trigger test notifications for another repository. This could lead to unauthorized information disclosure and potential misuse of notification services.",
+      "published": "2026-08-14T23:16:34.227",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74242"
     }
   ]
 }
