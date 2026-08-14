@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-14T21:37:33+00:00",
+  "generated_at": "2026-08-14T22:38:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-73683",
+      "summary": "Laravel Socialite's Facebook provider contains an authentication bypass vulnerability that allows unauthenticated attackers to replay captured OIDC id_tokens by exploiting the missing nonce claim validation in the getUserByOIDCToken() function within FacebookProvider.php. Attackers who obtain a valid, unexpired id_token issued for the same Facebook App ID can submit the captured token to the backend userFromToken() endpoint, bypassing authentication controls because signature, aud, and iss checks pass while no session-bound nonce comparison is performed, resulting in unauthorized access to victim accounts.",
+      "published": "2026-08-14T22:17:11.550",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73683"
+    },
+    {
+      "id": "CVE-2026-69414",
+      "summary": "Microsoft is aware of an elevation of privilege in the Microsoft Malware Protection Engine in Microsoft Defender publicly referred to as &quot;ShieldBreak &quot;.\nWe are working to provide a high quality security update that addresses this vulnerability. We will provide information in this CVE when the update is available.",
+      "published": "2026-08-14T22:17:06.810",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69414"
+    },
     {
       "id": "CVE-2026-74248",
       "summary": "OpenStack Octavia through 18.0.0 mishandles quality of service (QoS) policy authorization. By associating another project's QoS policy with an amphora, an authenticated user may prevent deletion of that policy. All Octavia deployments are affected.",
@@ -29,20 +43,6 @@
       "published": "2026-08-14T21:17:51.040",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67366"
-    },
-    {
-      "id": "CVE-2026-50523",
-      "summary": "Improper neutralization of special elements used in a command ('command injection') in Microsoft PowerShell allows an authorized attacker to execute code locally.",
-      "published": "2026-08-14T21:17:18.920",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50523"
-    },
-    {
-      "id": "CVE-2026-73680",
-      "summary": "Cockpit CMS 2.14.0 and prior contains a command injection vulnerability in the FFmpeg integration that allows authenticated users with only the assets/upload permission to execute arbitrary commands by uploading a video file with a shell metacharacter-laden filename. The unsanitized filename is interpolated into a shell command executed via Process::fromShellCommandline() before the slugify() sanitizer runs, enabling injected shell metacharacters such as backticks, $(), and semicolons to escape the FFmpeg command context and execute as the web-server user.",
-      "published": "2026-08-14T20:16:58.080",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73680"
     }
   ]
 }
