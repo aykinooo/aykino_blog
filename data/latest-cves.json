@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-14T19:11:12+00:00",
+  "generated_at": "2026-08-14T19:54:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73850",
-      "summary": "Emlog is an open source website building system. In 2.6.20 and earlier, there is a SQL injection vulnerability in the queryDatabase function in ai.php.",
-      "published": "2026-08-14T18:19:10.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73850"
+      "id": "CVE-2026-73679",
+      "summary": "ImpressCMS contains an authenticated remote code execution vulnerability in the custom tag module that allows authenticated administrators to execute arbitrary PHP code by storing a malicious payload in a custom tag with PHP type enabled. The application decodes HTML-encoded content via undoHtmlSpecialChars() before passing it to eval() in the renderWithPhp() method, bypassing HTML Purifier sanitization, and the payload is triggered on every frontend page load through the preload event system.",
+      "published": "2026-08-14T19:18:01.610",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73679"
     },
     {
-      "id": "CVE-2026-73849",
-      "summary": "Emlog is an open source website building system. In 2.6.26 and earlier, install.php accepts action=reinstall without authentication and deliberately skips the already-installed check because the guard runs only when $act != 'reinstall'. A remote attacker can submit hostname, dbuser, dbpasswd, dbname, dbprefix, username, password, and email values to cause file_put_contents('config.php', $config) to overwrite the configuration with attacker-controlled database settings and create a new administrator account. No fixed version is available as of this review.",
-      "published": "2026-08-14T18:19:09.987",
+      "id": "CVE-2026-73678",
+      "summary": "MindsDB Minds Platform version 26.1.0 and earlier contains an unauthenticated remote code execution vulnerability that allows unauthenticated attackers to execute arbitrary OS commands by submitting crafted prompts to the unprotected POST /api/v1/responses/ endpoint, which reaches the Anton agent's scratchpad tool that calls exec() on attacker-influenced Python source without sandboxing. Attackers can first configure their own LLM API key through the unauthenticated PUT /api/v1/settings/ endpoint, then POST a prompt directing the agent to invoke the scratchpad tool with arbitrary Python code, achieving full OS command execution as the user running the desktop application and enabling access to SSH keys, stored credentials, and environment secrets.",
+      "published": "2026-08-14T19:18:01.457",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73678"
+    },
+    {
+      "id": "CVE-2026-50029",
+      "summary": "js-toml is a TOML parser for JavaScript, Prior to version 1.1.2, the interpreter checks whether a key already exists in a parser-built container with `if (object[key])` instead of `if (key in object)`. When the prior value is a falsy primitive \u2014 `false`, `0`, `0n`, `0.0`, `-0`, or `\"\"` \u2014 the duplicate-key branch is skipped and the value is silently overwritten by a later sub-table, dotted-key sub-table, or array-of-tables sharing the same name. Per the TOML 1.0.0 spec (\"Defining a key multiple times is invalid\"; \"You cannot define any key or table more than once\"), this should be a parse error. The result is structural type confusion of attacker-named keys in the value returned by `load()`. A boolean-typed `false` (or numeric `0`) becomes a truthy object. Host applications that gate behavior on `if (config.flag)`, `if (!user.banned)`, `if (config.allowDelete)`, or `if (config.publicMode)` will silently take the truthy branch. This is distinct from GHSA-65fc-cr5f-v7r2 (the 1.0.2 prototype-pollution fix). `Object.prototype` is not polluted. The `Object.create(null)` mitigation from 1.0.2 is intact; the bug here is in the duplicate-key state machine, not in container construction. Version 1.1.2 patches the incorrect comparison.",
+      "published": "2026-08-14T19:17:18.980",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50029"
+    },
+    {
+      "id": "CVE-2026-50027",
+      "summary": "mcp-memory-service is a semantic memory layer for AI applications. Prior to 10.67.1, all HTTP routes under /api/documents/* in mcp-memory-service are served without any authentication dependency, even when the server is configured with an API key (MCP_API_KEY) or OAuth. An unauthenticated remote attacker can upload arbitrary content into the memory store (write), retrieve stored document content (read), and permanently delete memories belonging to authenticated users (delete) \u2014 all without supplying any credentials. The /api/memories counterpart correctly enforces authentication, making this an inconsistent and exploitable authentication boundary. This vulnerability is fixed in 10.67.1.",
+      "published": "2026-08-14T19:17:18.843",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73849"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50027"
     },
     {
-      "id": "CVE-2026-73847",
-      "summary": "Emlog is an open source website building system. In 2.6.26 and earlier, missing CSRF protection on the AI Assistant execute_tool action in admin/ai.php lets a remote unauthenticated attacker submit a forged cross-site request from an attacker-controlled page to a recently logged-in administrator. The authentication cookie set in include/lib/loginauth.php has no explicit SameSite attribute, enabling Chrome's temporary Lax+POST grace window. The query_database case passes attacker-controlled sql and confirm_code values to Ai::queryDatabase in include/service/ai.php; read queries need no confirmation, write queries accept the public confirm string, only the blog table is write-protected, and aliasing password as pwd_hash bypasses output redaction. A successful request can read every database table and write every table except blog, including changing the user table to take over an administrator account. No fixed version is available as of this review.",
-      "published": "2026-08-14T18:19:09.843",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73847"
+      "id": "CVE-2026-49457",
+      "summary": "erlang_quic is a pure Erlang QUIC implementation. Prior to version 1.4.4, the QUIC client did not authenticate the server during the TLS 1.3 handshake. The CertificateVerify signature was not checked, the certificate chain was not validated, and the hostname was not compared against the certificate, so `verify` was effectively a no-op on the client. A man-in-the-middle on the network path could present any certificate and impersonate any server, defeating the confidentiality and integrity of the connection. HTTP/3 uses the same client and was equally affected. Handshakes authenticated by a PSK (session resumption) are not affected, because the peer is authenticated by the PSK binder and no certificate is sent. This is fixed in 1.4.4. The client now verifies the CertificateVerify signature, validates the certificate chain against the trust store (`cacerts` option, the operating system store by default), and checks the hostname. Client `verify` now defaults to on; set `verify => false` to accept any certificate (for example a self-signed test server). No known workarounds are available before 1.4.4. `verify => true` had no effect, and inspecting the certificate after connecting does not help because without the signature check the peer is never proven to own the certificate it presents.",
+      "published": "2026-08-14T19:17:18.707",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49457"
     },
     {
-      "id": "CVE-2026-72970",
-      "summary": "Heap-based buffer overflow in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
-      "published": "2026-08-14T18:19:09.003",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72970"
-    },
-    {
-      "id": "CVE-2026-63361",
-      "summary": "LimeSurvey Community Edition 7.0.5 contains an authenticated reflected cross-site scripting vulnerability in the HTML editor popup endpoint. The text and name query parameters are passed through a blacklist sanitizer and then rendered without context-appropriate output encoding.",
-      "published": "2026-08-14T18:18:53.650",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63361"
-    },
-    {
-      "id": "CVE-2026-49282",
-      "summary": "Capstone is a disassembly framework. Prior to version 6.0.0-Alpha9, Capstone's public `cs_insn_name()` API forwards caller-supplied instruction IDs directly to the selected architecture backend. Most backends validate the ID before indexing instruction-name tables, but the M68K and RISCV backends have missing or incomplete bounds checks. On a Capstone handle opened for M68K or RISCV, a caller-controlled invalid instruction ID can trigger an out-of-bounds read and crash the process. The demonstrated impact is availability loss in applications or bindings that expose instruction-name lookup to untrusted IDs. No code execution or data disclosure was demonstrated. Version 6.0.0-Alpha9 patches the issue.",
-      "published": "2026-08-14T18:17:30.830",
-      "cvss": 5.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49282"
+      "id": "CVE-2026-45699",
+      "summary": "Netatalk is a Free and Open Source file server suite for Unix-like operating systems. In versions 3.1.19 through 4.4.2, a  stack-based buffer overflow exists in the copydir() function of Netatalk's afpd daemon due to an integer underflow in the calculation of the remaining buffer size used for path construction. copydir() is a utility function called when a file operation crosses a device boundary inside an AFP shared volume, which the standard library's renameat() cannot handle. The function attempts to track available buffer space using srem and drem for source and destination paths. Incorrect arithmetic causes both srem and drem to underflow to SIZE_MAX. Consequently, boundary checks against strlen(de->d_name) always pass, allowing strcpy() to append filenames into nearly full stack buffers. Version 4.4.3 patches the issue. As a workaround, configure each AFP shared volume to be structured as a single file system, in other words no subdirectory of a shared volume should be a mount point for a different file system.",
+      "published": "2026-08-14T19:17:18.267",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45699"
     }
   ]
 }
