@@ -1,12 +1,40 @@
 {
-  "generated_at": "2026-08-14T15:05:29+00:00",
+  "generated_at": "2026-08-14T16:03:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-69101",
+      "summary": "Datavane TIS v5.0.0 contains an XML external entity (XXE) injection vulnerability that allows authenticated attackers to perform server-side request forgery and out-of-band file exfiltration by supplying a crafted taskScript payload to the doEditWorkflow endpoint, which processes XML through an unhardened DocumentBuilderFactory with external entities and DTD loading enabled. Attackers can send a malicious XML document containing an external DTD reference to the edit_workflow action, causing the server to issue outbound HTTP requests to attacker-controlled infrastructure and exfiltrate local files readable by the TIS process user, including configuration files and Derby database credentials.",
+      "published": "2026-08-14T15:17:10.053",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69101"
+    },
+    {
+      "id": "CVE-2026-58224",
+      "summary": "A flaw was found in Samba's CTDB, the clustered database service used by Samba. Insufficient integrity validation of received CTDB protocol packets allows malformed packets containing invalid field lengths, improperly terminated strings, or inconsistent packet sizes to be processed without adequate bounds checking. A remote attacker with access to the CTDB private network may trigger a denial of service through process crashes or excessive memory consumption and, in limited cases, disclose adjacent memory contents.",
+      "published": "2026-08-14T15:17:09.870",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58224"
+    },
+    {
+      "id": "CVE-2026-19880",
+      "summary": "Path-traversal vulnerability in QOS.CH Sarl Logback-classic on Java (logback-classic module) allows path-traversal vulnerability. More specifically, an \nMDC-based discriminator value flows unsanitized into a nested \nFileAppender path, letting an attacker who influences that MDC value \n(e.g. via an HTTP header)\n create and append log files outside the intended directory. \n\n\nThis issue affects Logback-classic: from 0.9.14 through 1.6.2.",
+      "published": "2026-08-14T15:17:09.507",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19880"
+    },
+    {
+      "id": "CVE-2026-19879",
+      "summary": "A flaw was found in Undertow, an HTTP server, within its HTTP response header writing path. The `writeString()` method performs a silent narrowing cast from 16-bit Unicode characters to 8-bit bytes when writing HTTP response header values. A remote attacker can exploit this by supplying specific Unicode characters in user-controlled input that an application places into response headers. This can lead to the truncation of these characters into ASCII control characters or special symbols, potentially resulting in limited integrity impact or information disclosure if the application does not properly sanitize user input.",
+      "published": "2026-08-14T15:17:09.310",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19879"
+    },
     {
       "id": "CVE-2026-73633",
       "summary": "Uncontrolled resource consumption vulnerability in the JSON plugin of Apache Struts. When an application is configured to populate actions from a JSON request body, the plugin reads that body into memory without bounding how much it will accept, so a single request can exhaust the heap and deny service to other users. The plugin's configurable JSON input length limit does not bound this read. The JSON plugin is an optional component; applications that do not use it, or use it without enabling JSON request-body handling, are not affected.\n\nThis issue affects Apache Struts: from 2.1.8 through 2.3.37, from 2.5.0 through 2.5.33, from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
       "published": "2026-08-14T14:16:51.997",
-      "cvss": null,
+      "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73633"
     },
     {
@@ -15,34 +43,6 @@
       "published": "2026-08-14T14:16:51.753",
       "cvss": 6.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53472"
-    },
-    {
-      "id": "CVE-2026-1621",
-      "summary": "Authentication bypass by primary weakness vulnerability in Universal Software Inc. E-Municipality allows Exploitation of Trusted Identifiers.\n\nThis issue affects E-Municipality: from 20251127 before 20260204.",
-      "published": "2026-08-14T14:16:51.610",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-1621"
-    },
-    {
-      "id": "CVE-2026-19871",
-      "summary": "Use of Hard-coded Credentials in the human resources component in Roskus Prospero Flow CRM before 5.15.9 allows unauthenticated remote attackers to authenticate as any employee onboarded through the standard flow, knowing only their email address, because the employee save controller falls back to the literal password \"changeme\" and the onboarding form provides no password field.",
-      "published": "2026-08-14T14:16:51.493",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19871"
-    },
-    {
-      "id": "CVE-2026-19830",
-      "summary": "A vulnerability was found in TRENDnet TEW-816DRM GURNC4.OT182B-C-TN-R1B028-US.EN. This impacts an unknown function of the file /etc/bftpd.conf of the component bftpd. The manipulation of the argument USERLIMIT_GLOBAL results in allocation of resources. It is possible to launch the attack remotely. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-08-14T14:16:51.317",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19830"
-    },
-    {
-      "id": "CVE-2026-19829",
-      "summary": "A security flaw has been discovered in 648540858 wvp-GB28181-pro 2.7.4-20260107. This vulnerability affects unknown code of the file LogController.java of the component Log File Download Endpoint. The manipulation of the argument fileName results in path traversal. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-08-14T14:16:51.153",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19829"
     }
   ]
 }
