@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-14T17:08:37+00:00",
+  "generated_at": "2026-08-14T18:04:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66272",
-      "summary": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Missing Authentication for Critical Function vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Information disclosure.",
-      "published": "2026-08-14T16:16:59.143",
+      "id": "CVE-2026-73846",
+      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, canonicalizeParams in src/utils/cache.ts serializes request parameters with unescaped ampersand, equals-sign, and vertical-bar delimiters, allowing different logical parameter sets used by buildCacheKey to collide and an attacker to prime a shared cache with a response for a victim's distinct query. This issue is fixed in version 0.4.112.",
+      "published": "2026-08-14T17:20:36.953",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73846"
+    },
+    {
+      "id": "CVE-2026-73845",
+      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, the ckan_get_mqa_quality and ckan_get_mqa_quality_details tools in src/tools/quality.ts use isValidMqaServer to validate the server_url parameter with a prefix-only regular expression for dati.gov.it, allowing suffix-host and URL-userinfo values to target an attacker-controlled host and return a spoofed response. This issue is fixed in version 0.4.112.",
+      "published": "2026-08-14T17:20:36.820",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66272"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73845"
     },
     {
-      "id": "CVE-2026-66271",
-      "summary": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Unrestricted Upload of File with Dangerous Type vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote Code Execution.",
-      "published": "2026-08-14T16:16:59.030",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66271"
+      "id": "CVE-2026-73844",
+      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. Prior to 0.4.112, error paths reflect raw upstream response bodies and internal exception messages back to the caller instead of a sanitized, generic message. When the server is pointed at (or redirected/SSRF'd to) a host that returns a non-CKAN response, or when an internal exception occurs, the caller receives verbatim upstream content and internal detail (hostnames, internal IPs, DB errors, stack fragments). This vulnerability is fixed in 0.4.112.",
+      "published": "2026-08-14T17:20:36.683",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73844"
     },
     {
-      "id": "CVE-2026-66270",
-      "summary": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Unrestricted Upload of File with Dangerous Type vulnerability. A high privileged attacker with remote access could potentially exploit this vulnerability, leading to Remote Code Execution.",
-      "published": "2026-08-14T16:16:58.913",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66270"
+      "id": "CVE-2026-49989",
+      "summary": "CrateDB is a distributed SQL database. Prior to versions 6.2.8 and 6.3.2, any authenticated user can read or delete any blob whose SHA-1 digest they know, and can plant new blobs unconditionally, in any blob table, regardless of `GRANT`s. CrateDB has two ways to access blob storage: SQL (`SELECT ... FROM blob.<table>` and friends) and the blob HTTP API (`GET|PUT|DELETE /_blobs/{table}/{digest}`). The SQL path goes through `AccessControl`, which is what enforces privilege grants; that's why `SELECT digest FROM blob.secret_blobs` fails for a user who has no grants on the table. The HTTP path authenticates the request but never asks `AccessControl` whether the authenticated user is allowed to touch the table. So a user with no grants gets `MissingPrivilegeException` from SQL and `200 OK` plus the blob bytes from `GET /_blobs/secret_blobs/<digest>`. Deployments that don't use `BLOB TABLE` are unaffected. Authentication itself still works; the bug is strictly that being authenticated as anyone is treated as sufficient for any blob op. Versions 6.2.8 and 6.3.2 fix the issue.",
+      "published": "2026-08-14T17:18:27.290",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49989"
     },
     {
-      "id": "CVE-2026-63702",
-      "summary": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain a Use of Hard-coded Credentials vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Unauthorized access.",
-      "published": "2026-08-14T16:16:58.800",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63702"
+      "id": "CVE-2026-49986",
+      "summary": "The Cortex MCP server (`neuro-cortex-memory`), a cross-platform persistent memory MCP, prior to version 3.17.1 treats the `CLAUDE_PROJECT_DIR` environment variable \u2014 automatically set by Claude Code to the currently open project directory \u2014 as a trusted Cortex developer checkout. When the `open_visualization` tool is invoked, `_find_dev_source()` resolves the user's active project directory as a candidate Cortex source root. The only validation performed by `_is_cortex_root()` is a check for the presence of an `mcp_server/` subdirectory and a `ui/unified-viz.html` file. An attacker who places these two marker files in a malicious repository can cause Cortex to execute an arbitrary `mcp_server/server/visualize_bootstrap.py` from that directory via `subprocess.run([sys.executable, ...])`, achieving code execution with the privileges of the victim's local user process. Version 3.17.1 fixes the issue.",
+      "published": "2026-08-14T17:18:27.147",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49986"
     },
     {
-      "id": "CVE-2026-63701",
-      "summary": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Improper Deserialization of Untrusted Data vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
-      "published": "2026-08-14T16:16:58.683",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63701"
-    },
-    {
-      "id": "CVE-2026-63700",
-      "summary": "Dell Wyse Management Suite (WMS), versions prior to 2605.0.2, contain an Incorrect Default Permission vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Privilege Escalation.",
-      "published": "2026-08-14T16:16:58.553",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63700"
+      "id": "CVE-2026-49826",
+      "summary": "Concourse is a container-based automation system written in Go. Prior to version 8.2.3, an attacker is able to craft and send a user a URL that will redirect the user from the Concourse web server to any other site. This could be used in a phishing attack to steal user's credentials. This has been fixed in 8.2.3. No known workarounds are available.",
+      "published": "2026-08-14T17:18:27.007",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49826"
     }
   ]
 }
