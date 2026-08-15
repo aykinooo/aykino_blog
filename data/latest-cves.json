@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-15T05:38:04+00:00",
+  "generated_at": "2026-08-15T06:55:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-18387",
-      "summary": "The Groundhogg \u2014 CRM, Newsletters, and Marketing Automation plugin for WordPress is vulnerable to generic SQL Injection via the 'tag_query' parameter in all versions up to, and including, 4.5.14 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with vendor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Exploitation requires the attacker to trigger the vulnerable Legacy_Contact_Query code path by submitting an unknown filter type (e.g. filters[0][0][type]=force_fallback), which causes a FilterException that dispatches execution away from the modern query handler.",
-      "published": "2026-08-15T04:18:17.773",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18387"
+      "id": "CVE-2026-74439",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\niommu/vt-d: Clear Present bit before tearing down scalable-mode context entry\n\ndevice_pasid_table_teardown() zeroes the 128-bit scalable-mode context\nentry with context_clear_entry() while the Present bit is still set. This\ncreates a window where the hardware can fetch a torn entry, with some\nfields already zeroed while Present is still set, leading to unpredictable\nbehavior or spurious faults. The context-cache invalidation is issued only\nafter the entry has been zeroed, and intel_pasid_free_table() then frees\nthe PASID directory pages, so the IOMMU can keep walking a stale Present=1\nentry that points at freed memory.\n\nWhile x86 provides strong write ordering, the compiler may reorder the two\n64-bit writes to the entry, and the hardware fetch is not guaranteed to be\natomic with respect to multiple CPU writes.\n\nCommit c1e4f1dccbe9d (\"iommu/vt-d: Clear Present bit before tearing down\ncontext entry\") fixed this exact pattern in domain_context_clear_one() and\nthe copied-context path, but device_pasid_table_teardown() was not\nconverted.\n\nAlign it with the \"Guidance to Software for Invalidations\" in the VT-d\nspec, Section 6.5.3.3, using the same ownership handshake as the sibling\nfix: clear only the Present bit, flush it to the IOMMU, perform the\ncontext-cache invalidation, and only then zero the rest of the entry.",
+      "published": "2026-08-15T06:22:46.023",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74439"
     },
     {
-      "id": "CVE-2026-17090",
-      "summary": "The Beaver Builder Page Builder \u2013 Drag and Drop Website Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Button Module 'button' (Button Code) Setting in all versions up to, and including, 2.10.2.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Beaver Builder grants editor access to any WordPress role holding the edit_posts capability by default, meaning Author-level users and above can exploit this vulnerability.",
-      "published": "2026-08-15T04:18:15.940",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17090"
+      "id": "CVE-2026-74438",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: sun4i-ss - Remove insecure and unused rng_alg\n\nRemove sun4i_ss_rng, as it is insecure and unused:\n\n- It has multiple vulnerabilities.  sun4i_ss_prng_seed() is missing\n  locking and has a buffer overflow.  sun4i_ss_prng_generate() fails to\n  fill the entire buffer with cryptographic random bytes, because it\n  rounds the destination length down and also doesn't actually wait for\n  the hardware to be ready before pulling bytes from it.\n\n- No user of this code is known.  It's usable only theoretically via the\n  \"rng\" algorithm type of AF_ALG.  But userspace actually just uses the\n  actual Linux RNG (/dev/random etc) instead.  And rng_algs don't\n  contribute entropy to the actual Linux RNG either.  (This may have\n  been confused with hwrng, which does contribute entropy.)\n\nThe sun4i_ss_prng_seed() buffer overflow was reported by Tianchu Chen\nand discovered by Atuin - Automated Vulnerability Discovery Engine\n\nThere's no point in fixing all these vulnerabilities individually when\nthis is unused code, so let's just remove it.",
+      "published": "2026-08-15T06:22:45.903",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74438"
     },
     {
-      "id": "CVE-2026-16586",
-      "summary": "The Contest Gallery \u2013 Upload & Vote Photos, Media, Sell with PayPal & Stripe plugin for WordPress is vulnerable to Second-Order SQL Injection via MultipleFiles Second-Order Payload via 'cg_multiple_files_for_post' -> 'cgRealId' in all versions up to, and including, 30.0.7 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-08-15T04:18:10.607",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16586"
+      "id": "CVE-2026-74437",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: uvcvideo: Fix deadlock if uvc_status_stop is called from async_ctrl.work\n\nIf a UVC camera has an asynchronous control, uvc_status_stop may be\ncalled from async_ctrl.work:\n\nuvc_ctrl_status_event_work()\n    uvc_ctrl_status_event()\n        uvc_ctrl_clear_handle()\n\t    uvc_pm_put()\n\t        uvc_status_put()\n\t\t    uvc_status_stop()\n\t\t        cancel_work_sync()\n\nThis will cause a deadlock, since cancel_work_sync will wait for\nuvc_ctrl_status_event_work to complete before returning.\n\nFix this by returning early from uvc_status_stop if we are currently in\nthe work function. flush_status now remains false until uvc_status_start\nis called again, ensuring that uvc_ctrl_status_event_work won't resubmit\nthe URB.",
+      "published": "2026-08-15T06:22:45.810",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74437"
     },
     {
-      "id": "CVE-2026-16146",
-      "summary": "The Invisible Anti-Spam & CAPTCHA \u2014 reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to generic SQL Injection via Pattern JSON Keys/Values in all versions up to, and including, 5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-08-15T04:18:10.440",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16146"
+      "id": "CVE-2026-74436",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nrxrpc: serialize kernel accept preallocation with socket teardown\n\nrxrpc_kernel_charge_accept() reads rx->backlog without any\nsocket/backlog synchronization and passes that raw pointer into\nrxrpc_service_prealloc_one(). A concurrent rxrpc_discard_prealloc()\nsets rx->backlog = NULL and frees the backlog rings, so a kernel\npreallocation worker can keep using a freed struct rxrpc_backlog\nwhile updating *_backlog_head/tail and array slots.\n\nSerialize the state check and backlog lookup with the socket lock,\nand reject kernel preallocation once teardown has disabled\nlistening or discarded the service backlog.",
+      "published": "2026-08-15T06:22:45.710",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74436"
     },
     {
-      "id": "CVE-2026-16145",
-      "summary": "The Invisible Anti-Spam & CAPTCHA \u2014 reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'action' parameter in all versions up to, and including, 5.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The stored payload is written by any unauthenticated admin-ajax.php request whose action value matches an entry in the plugin's explicit-actions list, which is auto-populated for common form builders at activation and requires no authentication gate to reach the save path.",
-      "published": "2026-08-15T04:18:10.233",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16145"
+      "id": "CVE-2026-74435",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nrxrpc: rxrpc_verify_data ensure rx_dec_buffer alloc\n\nrxrpc_recvmsg_data() calls rxrpc_verify_data() whenever the\nrxrpc_call.rx_dec_buffer is unallocated and assumes that upon\nsuccessful return that rx_dec_buffer must be allocated.\nHowever, rxrpc_verify_data() does not request an allocation if\nthe rxrpc_skb_priv.len is zero.\n\nIn addition, failure to allocate rx_dec_buffer will result in a\ncall to skb_copy_bits() with a NULL destination which can\ntrigger a NULL pointer dereference.\n\nTo prevent these issues rxrpc_verify_data() is modified to\nalways attempt to allocate the rxrpc_call.rx_dec_buffer if it\nis NULL.\n\nThis issue was identified with assistance of a private\nsashiko instance.",
+      "published": "2026-08-15T06:22:45.607",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74435"
     },
     {
-      "id": "CVE-2026-16094",
-      "summary": "The Invisible Anti-Spam & CAPTCHA \u2014 reCAPTCHA Alternative for All Forms plugin for WordPress is vulnerable to generic SQL Injection via the 'key' parameter in all versions up to, and including, 5.1 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-08-15T04:18:09.987",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16094"
+      "id": "CVE-2026-74434",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nrxrpc: Don't move a peeked OOB message onto the pending queue\n\nrxrpc_recvmsg_oob() takes a received oob message off recvmsg_oobq and,\nif a response is needed, moves it onto the pending_oobq tree. However,\nonly the unlink from recvmsg_oobq is guarded by MSG_PEEK; the move onto\npending_oobq always runs.\n\nAs a result, reading a challenge with MSG_PEEK leaves the skb on\nrecvmsg_oobq while also adding it to pending_oobq. Since struct\nsk_buff's rbnode shares storage with its next and prev pointers,\nrb_insert_color() overwrites the list linkage, and the skb, which holds\na single reference, becomes reachable from both queues at once.\n\nWhen the socket is closed both queues are drained in turn. While\ndraining recvmsg_oobq, __skb_unlink() follows the next and prev\npointers that rbnode has overwritten and writes to a bad address. Also,\nas the skb holds a single reference but is freed from each queue, both\nthe skb and the connection reference it holds are released twice. This\nleads to memory corruption and to a use-after-free caused by the\nconnection refcount underflow.\n\nMSG_PEEK does not consume the message from the queue, so only unlink it\nfrom recvmsg_oobq and then move it onto pending_oobq or free it when\nthe message is actually consumed.",
+      "published": "2026-08-15T06:22:45.510",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74434"
     }
   ]
 }
