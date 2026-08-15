@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-15T15:33:03+00:00",
+  "generated_at": "2026-08-15T16:38:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19898",
+      "summary": "A vulnerability was found in VictoriaMetrics up to 1.146.0. Impacted is the function requestHandler of the file app/vmauth/main.go of the component VMAuth Authentication Endpoint. Performing a manipulation results in improper restriction of excessive authentication attempts. The attack is possible to be carried out remotely. The complexity of an attack is rather high. The exploitability is considered difficult. The exploit has been made public and could be used. Upgrading to version 1.147.0 is recommended to address this issue. The patch is named 119ba0fb5be8024d50c5ba946599b2e69e8803ea. Upgrading the affected component is recommended.",
+      "published": "2026-08-15T16:16:39.230",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19898"
+    },
+    {
+      "id": "CVE-2026-19897",
+      "summary": "A vulnerability has been found in mangroup dtale up to 3.22.0. This issue affects the function Login of the file dtale/auth.py of the component Login Endpoint. Such manipulation leads to improper restriction of excessive authentication attempts. The attack can be executed remotely. This attack is characterized by high complexity. The exploitability is assessed as difficult. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-15T16:16:38.680",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19897"
+    },
     {
       "id": "CVE-2026-19896",
       "summary": "A flaw has been found in mangroup dtale up to 3.22.0. This vulnerability affects the function build_secret_key of the file dtale/app.py of the component Flask Session Cookie. This manipulation causes insufficiently random values. Remote exploitation of the attack is possible. The attack's complexity is rated as high. It is stated that the exploitability is difficult. The exploit has been published and may be used. The pull request to fix this issue awaits acceptance.",
@@ -29,20 +43,6 @@
       "published": "2026-08-15T14:17:07.590",
       "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18549"
-    },
-    {
-      "id": "CVE-2026-18500",
-      "summary": "@fastify/jwt is a JSON Web Token plugin for Fastify. In versions before 10.2.2, a per-request verification key passed to request.jwtVerify({ key }) is silently overridden by the plugin's globally configured secret, because the option merge applies the global key last. Applications that use different keys for different authorization domains, for example separate user and admin keys, therefore accept a token signed with the global key on a route that explicitly requires another key. This lets an ordinary authenticated user cross a key-based trust boundary without knowing either secret. The issue is fixed in @fastify/jwt 10.2.2, where an explicit per-call key takes precedence over the global secret. Users should upgrade to 10.2.2.",
-      "published": "2026-08-15T14:17:07.473",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18500"
-    },
-    {
-      "id": "CVE-2026-18165",
-      "summary": "@fastify/oauth2 is an OAuth 2.0 plugin for Fastify. In versions from 7.2.0 up to but not including 8.3.0, the plugin validates the OAuth state, and with PKCE the code verifier, by comparing the callback query parameter against an unprefixed, predictable cookie, with no server-side binding to the browser that began the flow. Any party able to write a cookie for the application's host, such as a sibling subdomain under the same registrable domain, can plant matching state and verifier cookies and complete an attacker-owned OAuth flow inside a victim's browser, silently signing the victim in to the attacker's account (login CSRF). It does not expose the victim's own account, credentials, or tokens. The issue is fixed in @fastify/oauth2 8.3.0, which adds an opt-in hostPrefixedCookies option. Users should upgrade to 8.3.0 and enable it, or bind state to a server-side session.",
-      "published": "2026-08-15T14:17:07.290",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18165"
     }
   ]
 }
