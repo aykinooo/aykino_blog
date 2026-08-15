@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-15T21:33:18+00:00",
+  "generated_at": "2026-08-15T22:35:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-19906",
-      "summary": "A weakness has been identified in pkp pkp-lib 3.3.0/3.4.0/3.5.0. This vulnerability affects the function setData of the file classes/user/form/APIProfileForm.php of the component API Key Generation. Executing a manipulation of the argument apiKey can lead to insufficient entropy. The attack may be performed from remote. This attack is characterized by high complexity. It is stated that the exploitability is difficult. This patch is called 529b5df878e571ccc727647f7748eafc1466b041. It is best practice to apply a patch to resolve this issue.",
-      "published": "2026-08-15T19:16:32.470",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19906"
+      "id": "CVE-2026-74767",
+      "summary": "Pandora contains a denial-of-service vulnerability in its handling of DAA (Direct Access Archive) files. When extracting the internal ISO image from a DAA archive, compressed chunks were decompressed using zlib.decompress() without enforcing a limit on the resulting uncompressed data.\n\n\nAn attacker able to submit a crafted DAA file containing highly compressed data could cause Pandora to decompress a relatively small input into a very large amount of data in memory. Because the decompressed chunks are accumulated to construct the internal ISO image, this could result in excessive memory consumption and potentially CPU exhaustion, causing the extraction worker to become unresponsive, terminate, or affect the availability of the Pandora service.\n\n\nThe patch introduces bounded decompression using decompressobj().decompress() with max_extracted_filesize, verifies the cumulative size of decompressed chunks, and raises a dedicated ZipBomb exception when the configured limit is exceeded. Pandora then aborts extraction and reports the file as too large.",
+      "published": "2026-08-15T22:16:55.697",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74767"
     },
     {
-      "id": "CVE-2026-19905",
-      "summary": "A weakness has been identified in Jinher OA 1.0. Impacted is an unknown function of the file /C6/JHSoft.Web.HrmAttendance/attendance_out_approve.aspx. This manipulation of the argument httpOID causes sql injection. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-15T19:16:32.300",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19905"
+      "id": "CVE-2026-74764",
+      "summary": "Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted TAR archive, the extractor passed archive member names directly to Python's tarfile.TarFile.extract() without applying an extraction filter.\n\n\nAn attacker able to submit a specially crafted TAR archive containing malicious member paths, such as paths using ../ sequences or absolute paths, could cause extracted files to be written outside the intended extraction directory. This may allow the attacker to overwrite files accessible to the Pandora worker process and could potentially result in application compromise, arbitrary code execution, or denial of service depending on the files targeted and the privileges of the Pandora process.\n\n\nThe vulnerability is corrected by using Python's filter='data' extraction filter, which rejects or sanitizes dangerous TAR members, including paths that escape the destination directory and unsafe link targets. \n\n\nThe weakness corresponds to MITRE's general path traversal category, which includes archive extraction cases where attacker-controlled filenames cause files to be written outside the intended directory.",
+      "published": "2026-08-15T22:16:55.563",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74764"
     },
     {
-      "id": "CVE-2026-18855",
-      "summary": "The Link Library plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the ll_delete_link_fields function in all versions up to, and including, 7.9.4 This makes it possible for unauthenticated attackers to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). Exploitation requires the administrator to have enabled the 'Delete local file on link deletion' plugin option (disabled by default) and to subsequently permanently delete the attacker-submitted link, which is a routine moderation action.",
-      "published": "2026-08-15T19:16:32.160",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18855"
+      "id": "CVE-2026-73055",
+      "summary": "Shescape before 2.1.15 (and 3.0.0 before 3.0.2) fails to properly escape tilde (~) characters in assignment contexts on Unix systems where the shell is explicitly configured to \"sh\" or true and /bin/sh points to BusyBox. Using the escape and escapeAll APIs with untrusted input in an assignment prefixed to a command, an attacker can inject a tilde payload to disclose the user's home directory location and, depending on usage, alter the location on which a command operates.",
+      "published": "2026-08-15T22:16:55.427",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73055"
     },
     {
-      "id": "CVE-2026-19904",
-      "summary": "A vulnerability was found in SourceCodester Online Book Store System 1.0. This vulnerability affects unknown code of the file /admin/index.php?page=site_settings of the component System Settings Module. The manipulation results in cross site scripting. The attack can be executed remotely. The exploit has been made public and could be used.",
-      "published": "2026-08-15T18:16:25.183",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19904"
+      "id": "CVE-2026-73054",
+      "summary": "SiYuan versions before v3.7.4 contain an authentication bypass vulnerability in the WebSocket endpoint caused by differential parsing of query parameters between authentication exemption and session quarantine checks. Unauthenticated attackers can craft a malicious WebSocket URI with duplicated query parameters to bypass access auth code validation and receive the live kernel event stream including document identifiers, titles, and operation logs.",
+      "published": "2026-08-15T22:16:55.290",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73054"
     },
     {
-      "id": "CVE-2026-19903",
-      "summary": "A vulnerability has been found in SourceCodester Online Clothing Store 1.0. This affects an unknown part of the file /db/shopping.sql of the component SQL Database Backup. The manipulation leads to files or directories accessible. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-08-15T18:16:25.000",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19903"
+      "id": "CVE-2026-73053",
+      "summary": "SiYuan versions before v3.7.4 contain a cross-site scripting vulnerability in the unicode2Emoji function that fails to sanitize codepoint branch output. Attackers can craft document icons with hex-encoded markup that executes in the renderer with Node integration enabled, achieving arbitrary code execution on the host system.",
+      "published": "2026-08-15T22:16:55.157",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73053"
     },
     {
-      "id": "CVE-2026-19901",
-      "summary": "A security flaw has been discovered in LB-LINK X-PRO 1.0.22-20231206. This affects an unknown function of the file /etc/config/easycwmp. The manipulation results in hard-coded credentials. It is possible to launch the attack remotely. Attacks of this nature are highly complex. The exploitability is reported as difficult. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-15T18:16:24.830",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19901"
+      "id": "CVE-2026-73052",
+      "summary": "SiYuan before v3.7.4 stores attribute-view field names without HTML escaping and interpolates them directly into option elements via innerHTML in the sort menu. Attackers can inject markup by renaming a database field to execute arbitrary JavaScript when users open the sort menu, with Node integration enabled in the desktop client enabling code execution.",
+      "published": "2026-08-15T22:16:55.017",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73052"
     }
   ]
 }
