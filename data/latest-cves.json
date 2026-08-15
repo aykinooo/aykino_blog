@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-15T11:32:05+00:00",
+  "generated_at": "2026-08-15T12:56:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19893",
+      "summary": "A vulnerability was identified in D-Link DIR-842 2.01.B04. This impacts an unknown function of the file /etc/vsftpd.conf of the component vsftpd. Such manipulation leads to incorrect default permissions. It is possible to launch the attack remotely. A high complexity level is associated with this attack. The exploitability is said to be difficult.",
+      "published": "2026-08-15T12:16:32.543",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19893"
+    },
+    {
+      "id": "CVE-2026-12248",
+      "summary": "The WPML Multilingual CMS plugin for WordPress is vulnerable to SQL Injection via the 'sorting' parameter in all versions up to, and including, 4.9.5 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with translator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-08-15T12:16:31.713",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12248"
+    },
     {
       "id": "CVE-2026-73635",
       "summary": "Allocation of resources without limits or throttling vulnerability in Apache Struts. When no fixed locale is configured, the locale used for localized-text lookups is taken from the incoming request, allowing an unauthenticated remote client to cause the framework's internal localized-text caches to grow without bound and exhaust the Java heap, denying service to other users. Applications that configure a fixed locale are not affected.\n\nThis issue affects Apache Struts: from 2.0.0 through 2.3.37, from 2.5.0 through 2.5.33, from 6.0.0 through 6.10.0, from 7.0.0 through 7.2.1.\n\nUsers are recommended to upgrade to version 6.11.0 or 7.3.0, which fixes the issue.",
@@ -29,20 +43,6 @@
       "published": "2026-08-15T11:16:27.227",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73631"
-    },
-    {
-      "id": "CVE-2026-19891",
-      "summary": "A vulnerability was determined in TRENDnet TEW-WLC100 2.05b02. This affects an unknown function of the file /etc/racoon.conf of the component IKE Phase 1 Aggressive Mode. This manipulation of the argument exchange_mode causes missing encryption of sensitive data. It is possible to initiate the attack remotely. The complexity of an attack is rather high. The exploitability is reported as difficult. The vendor was contacted early about this disclosure.",
-      "published": "2026-08-15T11:16:26.340",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19891"
-    },
-    {
-      "id": "CVE-2026-18438",
-      "summary": "The Templately \u2013 Elementor & Gutenberg Template Library: 6500+ Free & Pro Ready Templates And Cloud! plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 3.7.1 via the fetch_remote_file function. This is due to a filename validation/destination mismatch in fetch_remote_file, where file type validation is performed against the attacker-controlled Content-Disposition filename rather than the URL-path-derived destination filename. This makes it possible for authenticated attackers, with contributor-level access and above, to execute code on the server. A GIF+PHP polyglot file passes wp_check_filetype_and_ext validation as image/gif via the Content-Disposition filename, while the actual destination path is written with a .php extension derived from the URL path, bypassing the unfiltered_upload capability gate entirely. The affected endpoints are reachable at this privilege level because Templately's entire REST API \u2014 including the cloud import endpoints used in this attack (/templately/v1/clouds/upload and /templately/v1/insert) \u2014 is authorized only by a current_user_can('delete_posts') check, with no administrator or manage_options capability requirement. The same permission gate also allows a contributor to overwrite the site's global Templately cloud connection via the /templately/v1/login endpoint with global_signin set to true. A complete remediation should both correct fetch_remote_file to validate the file type against the actual destination filename rather than the Content-Disposition header (and avoid deriving the write path from the request URL), and restrict state-changing Templately REST routes to an appropriate administrator-level capability.",
-      "published": "2026-08-15T10:16:29.413",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18438"
     }
   ]
 }
