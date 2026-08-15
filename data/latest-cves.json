@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-15T09:36:59+00:00",
+  "generated_at": "2026-08-15T10:36:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-18438",
+      "summary": "The Templately \u2013 Elementor & Gutenberg Template Library: 6500+ Free & Pro Ready Templates And Cloud! plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 3.7.1 via the fetch_remote_file function. This is due to a filename validation/destination mismatch in fetch_remote_file, where file type validation is performed against the attacker-controlled Content-Disposition filename rather than the URL-path-derived destination filename. This makes it possible for authenticated attackers, with contributor-level access and above, to execute code on the server. A GIF+PHP polyglot file passes wp_check_filetype_and_ext validation as image/gif via the Content-Disposition filename, while the actual destination path is written with a .php extension derived from the URL path, bypassing the unfiltered_upload capability gate entirely. The affected endpoints are reachable at this privilege level because Templately's entire REST API \u2014 including the cloud import endpoints used in this attack (/templately/v1/clouds/upload and /templately/v1/insert) \u2014 is authorized only by a current_user_can('delete_posts') check, with no administrator or manage_options capability requirement. The same permission gate also allows a contributor to overwrite the site's global Templately cloud connection via the /templately/v1/login endpoint with global_signin set to true. A complete remediation should both correct fetch_remote_file to validate the file type against the actual destination filename rather than the Content-Disposition header (and avoid deriving the write path from the request URL), and restrict state-changing Templately REST routes to an appropriate administrator-level capability.",
+      "published": "2026-08-15T10:16:29.413",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18438"
+    },
     {
       "id": "CVE-2026-16142",
       "summary": "The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This is due to the add_front_user_update() AJAX handler being registered for unauthenticated users and accepting an arbitrary truebooker_wp_user_id value, which is passed directly to wp_update_user() without verifying authentication or ownership. This makes it possible for unauthenticated attackers to change any WordPress user account email address, including an administrator, by submitting the target user ID and an attacker-controlled email address. An attacker can then use the native WordPress password reset flow to receive the reset link at the attacker-controlled email address and take over the account.",
@@ -36,13 +43,6 @@
       "published": "2026-08-15T06:22:46.023",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74439"
-    },
-    {
-      "id": "CVE-2026-74438",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: sun4i-ss - Remove insecure and unused rng_alg\n\nRemove sun4i_ss_rng, as it is insecure and unused:\n\n- It has multiple vulnerabilities.  sun4i_ss_prng_seed() is missing\n  locking and has a buffer overflow.  sun4i_ss_prng_generate() fails to\n  fill the entire buffer with cryptographic random bytes, because it\n  rounds the destination length down and also doesn't actually wait for\n  the hardware to be ready before pulling bytes from it.\n\n- No user of this code is known.  It's usable only theoretically via the\n  \"rng\" algorithm type of AF_ALG.  But userspace actually just uses the\n  actual Linux RNG (/dev/random etc) instead.  And rng_algs don't\n  contribute entropy to the actual Linux RNG either.  (This may have\n  been confused with hwrng, which does contribute entropy.)\n\nThe sun4i_ss_prng_seed() buffer overflow was reported by Tianchu Chen\nand discovered by Atuin - Automated Vulnerability Discovery Engine\n\nThere's no point in fixing all these vulnerabilities individually when\nthis is unused code, so let's just remove it.",
-      "published": "2026-08-15T06:22:45.903",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74438"
     }
   ]
 }
