@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-15T03:02:45+00:00",
+  "generated_at": "2026-08-15T03:51:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-74250",
-      "summary": "In OpenStack Ironic before 38.0.1, the autodetect deploy interface may fail to run cleaning immediately after enrollment with, or changing to, the autodetect deploy interface.",
-      "published": "2026-08-14T23:16:34.853",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74250"
-    },
-    {
-      "id": "CVE-2026-74247",
-      "summary": "A flaw was found in Red Hat Quay. A user with FEATURE_BUILD_SUPPORT enabled and repository write access can exploit a Server-Side Request Forgery (SSRF) vulnerability within the build API. This allows the user to provide a malicious URL, causing the Quay builder to make requests to internal network addresses. Such an action could lead to the disclosure of sensitive internal information.",
-      "published": "2026-08-14T23:16:34.730",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74247"
-    },
-    {
-      "id": "CVE-2026-74245",
-      "summary": "A flaw was found in Red Hat Quay's exported logs feature. An unauthenticated attacker with a valid file ID could download exported action logs without proper authorization. While file IDs are complex, they can be intercepted from plaintext email or webhook callbacks. This vulnerability leads to information disclosure, potentially exposing sensitive data such as usernames, email addresses, IP addresses, and action-specific metadata.",
-      "published": "2026-08-14T23:16:34.600",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74245"
-    },
-    {
-      "id": "CVE-2026-74244",
-      "summary": "A flaw was found in Red Hat Quay's Stripe billing webhook handler. This vulnerability allows an unauthenticated attacker to forge billing events by sending crafted JSON requests to the `/webhooks/stripe` endpoint without validating the Stripe-Signature header. Successful exploitation can lead to the unauthorized resetting of a namespace's build quota to its maximum and trigger unsolicited billing emails to namespace administrators.",
-      "published": "2026-08-14T23:16:34.490",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74244"
-    },
-    {
-      "id": "CVE-2026-74243",
-      "summary": "A flaw was found in Red Hat Quay. When the SECURITY_SCANNER_V4_PSK (pre-shared key) is not set, a remote unauthenticated attacker can send POST requests to the security scanner notification endpoint. This allows the attacker to flood the notification queue and inject path traversal characters into Clair API URL paths. The primary consequence is worker resource exhaustion and blind path manipulation on the configured Clair host, potentially leading to a denial of service.",
-      "published": "2026-08-14T23:16:34.360",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74243"
-    },
-    {
-      "id": "CVE-2026-74242",
-      "summary": "A flaw was found in Red Hat Quay. An administrator of any repository, by knowing or guessing a target notification's Universally Unique Identifier (UUID), can read the notification configuration, including sensitive details like webhook URLs, Slack tokens, and email addresses. This vulnerability also allows them to trigger test notifications for another repository. This could lead to unauthorized information disclosure and potential misuse of notification services.",
-      "published": "2026-08-14T23:16:34.227",
+      "id": "CVE-2026-8840",
+      "summary": "The Booking calendar, Appointment Booking System plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.2.36. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to mark arbitrary reservations as paid or completed, cancel legitimate payments, auto-approve reservations, and trigger transactional booking emails by writing attacker-supplied payment status and transaction data directly into the payments table. The auto-approval of reservations is only triggered when the 'enable_psuccess_approval' site option is enabled, but payment status manipulation and email dispatch are exploitable regardless of that setting.",
+      "published": "2026-08-15T03:16:48.357",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74242"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8840"
+    },
+    {
+      "id": "CVE-2026-16080",
+      "summary": "The Image Uploader for Welcart plugin for WordPress is vulnerable to generic SQL Injection via the 'post_title' parameter in all versions up to, and including, 1.4.6 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-08-15T03:16:48.207",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16080"
+    },
+    {
+      "id": "CVE-2026-15965",
+      "summary": "The MaxUpload \u2013 Big File Uploads \u2013 Increase Maximum File Upload Size plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.4.0 via the handle_upload function. This is due to a filename-validation mismatch in the handle_upload function where extension and MIME checks are applied to the uploaded chunk's filename but not to the final assembled filename derived from the resumableFilename parameter. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
+      "published": "2026-08-15T03:16:48.077",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15965"
+    },
+    {
+      "id": "CVE-2026-15341",
+      "summary": "The User Session Synchronizer plugin for WordPress is vulnerable to Authentication Bypass leading to Account Takeover in all versions up to, and including, 1.4.0. The `synchronize_session()` function, hooked on `init` and therefore executed on every request, performs no nonce, capability, or shared-secret validation against the attacker-supplied `ussync-key`, `ussync-token`, and `ussync-ref` parameters; when `ussync-key` references an unregistered slot, `get_option()` returns `false` for both the secret key and the domain list, causing the AES-256-CBC encryption key to degrade to the fully predictable `md5('')` and the referer allowlist to collapse to an empty-string match, while the AES IV is unconditionally hard-coded as `md5('another-secret')`. This makes it possible for unauthenticated attackers to supply a crafted request encrypting any known or guessable user email address in the `ussync-ref` parameter, causing the handler to call `wp_set_auth_cookie()` for the matched user and granting full authentication as that user \u2014 including administrators \u2014 with no prior knowledge of site secrets.",
+      "published": "2026-08-15T03:16:47.943",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15341"
+    },
+    {
+      "id": "CVE-2026-15312",
+      "summary": "The Propovoice: All-in-One Client Management System plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 1.7.8. This is due to the `create()` function's REST endpoint failing to validate the user-supplied `role` parameter against an allowlist of permitted WordPress roles and omitting any `promote_users` capability check before passing the sanitized value directly to `WP_User::set_role()`. This makes it possible for authenticated attackers with `ndpv_manager`-level access and above to create a new WordPress user account with the `administrator` role assigned, achieving full vertical privilege escalation. The `ndpv_manager` capability is a sub-administrator CRM team role granted by Propovoice itself, meaning the attack surface extends beyond site administrators to any user the plugin has elevated to a manager position.",
+      "published": "2026-08-15T03:16:47.817",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15312"
+    },
+    {
+      "id": "CVE-2026-15303",
+      "summary": "The 6Storage Rentals plugin for WordPress is vulnerable to authentication bypass in versions up to, and including, 2.27.0. This is due to the six_storage_create_wp_user() AJAX handler being registered on wp_ajax_nopriv_six_storage_create_wp_user without any nonce, capability, credential, or ownership verification, while calling wp_set_current_user() and wp_set_auth_cookie() for any WordPress user resolved by the attacker-supplied email address. This makes it possible for unauthenticated attackers to log in as any existing WordPress user, including administrators, by submitting that user's email address.",
+      "published": "2026-08-15T03:16:47.670",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15303"
     }
   ]
 }
