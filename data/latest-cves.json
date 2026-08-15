@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-15T14:36:29+00:00",
+  "generated_at": "2026-08-15T15:33:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19896",
+      "summary": "A flaw has been found in mangroup dtale up to 3.22.0. This vulnerability affects the function build_secret_key of the file dtale/app.py of the component Flask Session Cookie. This manipulation causes insufficiently random values. Remote exploitation of the attack is possible. The attack's complexity is rated as high. It is stated that the exploitability is difficult. The exploit has been published and may be used. The pull request to fix this issue awaits acceptance.",
+      "published": "2026-08-15T15:16:37.507",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19896"
+    },
     {
       "id": "CVE-2026-19895",
       "summary": "A vulnerability was detected in opensourcepos Open Source Point of Sale up to 3.4.2. This affects the function Login::index of the file app/Config/Filters.php of the component Login Endpoint. The manipulation results in improper restriction of excessive authentication attempts. The attack may be launched remotely. The attack requires a high level of complexity. It is indicated that the exploitability is difficult. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
@@ -36,13 +43,6 @@
       "published": "2026-08-15T14:17:07.290",
       "cvss": 4.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18165"
-    },
-    {
-      "id": "CVE-2026-15689",
-      "summary": "Dancer2::Plugin::Auth::Extensible versions through 0.713 for Perl allow password reset link poisoning via the request Host header in _default_email_password_reset and _default_welcome_send.\n\nBoth default emails emit a link of the form `$base/login/$code`, whose authority comes from the request Host header, or from X-Forwarded-Host under behind_proxy (obtained from Dancer2's request->base function). A POST to /login carrying submit_reset and a username needs no authentication: it stores a fresh reset code against that account and mails the account holder a link to a host of the sender's choosing. The welcome mail takes the same path when the application calls create_user with email_welcome set.\n\nThrough 0.711 the handlers read `request->uri_base` and `request->base` directly; Versions 0.712 and later provide an uri_base configuration key that defaults to the untrusted `request->uri_base` when unset.\n\nThe default configuration with reset_password_handler enabled and the default message text, a recipient who follows the link hands a working reset code to the sender's host, which is enough to take over the account.",
-      "published": "2026-08-15T14:17:06.480",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15689"
     }
   ]
 }
