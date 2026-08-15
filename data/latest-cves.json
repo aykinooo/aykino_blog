@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-15T22:35:32+00:00",
+  "generated_at": "2026-08-15T23:32:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19917",
+      "summary": "A flaw has been found in code-projects Online Food Order System 1.0. The impacted element is an unknown function of the file delete_food_items1.php. Executing a manipulation of the argument checkbox can lead to sql injection. The attack can be executed remotely. The exploit has been published and may be used.",
+      "published": "2026-08-15T23:16:20.913",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19917"
+    },
     {
       "id": "CVE-2026-74767",
       "summary": "Pandora contains a denial-of-service vulnerability in its handling of DAA (Direct Access Archive) files. When extracting the internal ISO image from a DAA archive, compressed chunks were decompressed using zlib.decompress() without enforcing a limit on the resulting uncompressed data.\n\n\nAn attacker able to submit a crafted DAA file containing highly compressed data could cause Pandora to decompress a relatively small input into a very large amount of data in memory. Because the decompressed chunks are accumulated to construct the internal ISO image, this could result in excessive memory consumption and potentially CPU exhaustion, causing the extraction worker to become unresponsive, terminate, or affect the availability of the Pandora service.\n\n\nThe patch introduces bounded decompression using decompressobj().decompress() with max_extracted_filesize, verifies the cumulative size of decompressed chunks, and raises a dedicated ZipBomb exception when the configured limit is exceeded. Pandora then aborts extraction and reports the file as too large.",
@@ -36,13 +43,6 @@
       "published": "2026-08-15T22:16:55.157",
       "cvss": 9.0,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73053"
-    },
-    {
-      "id": "CVE-2026-73052",
-      "summary": "SiYuan before v3.7.4 stores attribute-view field names without HTML escaping and interpolates them directly into option elements via innerHTML in the sort menu. Attackers can inject markup by renaming a database field to execute arbitrary JavaScript when users open the sort menu, with Node integration enabled in the desktop client enabling code execution.",
-      "published": "2026-08-15T22:16:55.017",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73052"
     }
   ]
 }
