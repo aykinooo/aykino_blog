@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-15T08:43:26+00:00",
+  "generated_at": "2026-08-15T09:36:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-16142",
+      "summary": "The TrueBooker plugin for WordPress is vulnerable to Account Takeover in all versions up to, and including, 1.2.6. This is due to the add_front_user_update() AJAX handler being registered for unauthenticated users and accepting an arbitrary truebooker_wp_user_id value, which is passed directly to wp_update_user() without verifying authentication or ownership. This makes it possible for unauthenticated attackers to change any WordPress user account email address, including an administrator, by submitting the target user ID and an attacker-controlled email address. An attacker can then use the native WordPress password reset flow to receive the reset link at the attacker-controlled email address and take over the account.",
+      "published": "2026-08-15T09:16:29.560",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16142"
+    },
+    {
+      "id": "CVE-2026-15142",
+      "summary": "The Real Estate Manager Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 12.8.6. This is due to improper capability handling in the allow_attachment_actions() function, which can treat a target user ID as a media attachment ID during user capability checks. This makes it possible for authenticated attackers, with Subscriber-level access and above, to edit an administrator account and escalate their privileges to Administrator when the targeted user ID matches the ID of an existing media attachment.",
+      "published": "2026-08-15T09:16:28.557",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15142"
+    },
     {
       "id": "CVE-2026-15826",
       "summary": "The User Profile Builder plugin for WordPress is vulnerable to Authentication Bypass via Type Confusion in versions up to, and including, 3.16.4. This is due to the wppb_log_in_user() function calling absint() on the return value of wp_insert_user() before performing an is_wp_error() check \u2014 when a registration is submitted with a 61\u201370 character username, WordPress core rejects it with a WP_Error object, but absint() coerces that object to the integer 1 before the error check can short-circuit execution, causing the plugin to bind and return a transient-backed autologin nonce tied to user ID 1. This makes it possible for unauthenticated attackers to log in as the site's Administrator account (user ID 1), resulting in full administrative takeover of the site.",
@@ -29,20 +43,6 @@
       "published": "2026-08-15T06:22:45.903",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74438"
-    },
-    {
-      "id": "CVE-2026-74437",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmedia: uvcvideo: Fix deadlock if uvc_status_stop is called from async_ctrl.work\n\nIf a UVC camera has an asynchronous control, uvc_status_stop may be\ncalled from async_ctrl.work:\n\nuvc_ctrl_status_event_work()\n    uvc_ctrl_status_event()\n        uvc_ctrl_clear_handle()\n\t    uvc_pm_put()\n\t        uvc_status_put()\n\t\t    uvc_status_stop()\n\t\t        cancel_work_sync()\n\nThis will cause a deadlock, since cancel_work_sync will wait for\nuvc_ctrl_status_event_work to complete before returning.\n\nFix this by returning early from uvc_status_stop if we are currently in\nthe work function. flush_status now remains false until uvc_status_start\nis called again, ensuring that uvc_ctrl_status_event_work won't resubmit\nthe URB.",
-      "published": "2026-08-15T06:22:45.810",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74437"
-    },
-    {
-      "id": "CVE-2026-74436",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nrxrpc: serialize kernel accept preallocation with socket teardown\n\nrxrpc_kernel_charge_accept() reads rx->backlog without any\nsocket/backlog synchronization and passes that raw pointer into\nrxrpc_service_prealloc_one(). A concurrent rxrpc_discard_prealloc()\nsets rx->backlog = NULL and frees the backlog rings, so a kernel\npreallocation worker can keep using a freed struct rxrpc_backlog\nwhile updating *_backlog_head/tail and array slots.\n\nSerialize the state check and backlog lookup with the socket lock,\nand reject kernel preallocation once teardown has disabled\nlistening or discarded the service backlog.",
-      "published": "2026-08-15T06:22:45.710",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74436"
     }
   ]
 }
