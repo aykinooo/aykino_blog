@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-15T23:32:35+00:00",
+  "generated_at": "2026-08-16T01:55:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-19917",
-      "summary": "A flaw has been found in code-projects Online Food Order System 1.0. The impacted element is an unknown function of the file delete_food_items1.php. Executing a manipulation of the argument checkbox can lead to sql injection. The attack can be executed remotely. The exploit has been published and may be used.",
-      "published": "2026-08-15T23:16:20.913",
+      "id": "CVE-2026-19923",
+      "summary": "A weakness has been identified in code-projects Online Shopping System 1.0. This affects an unknown part of the file /checkout_process.php. Executing a manipulation of the argument total_count can lead to sql injection. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-08-16T01:17:08.080",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19917"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19923"
     },
     {
-      "id": "CVE-2026-74767",
-      "summary": "Pandora contains a denial-of-service vulnerability in its handling of DAA (Direct Access Archive) files. When extracting the internal ISO image from a DAA archive, compressed chunks were decompressed using zlib.decompress() without enforcing a limit on the resulting uncompressed data.\n\n\nAn attacker able to submit a crafted DAA file containing highly compressed data could cause Pandora to decompress a relatively small input into a very large amount of data in memory. Because the decompressed chunks are accumulated to construct the internal ISO image, this could result in excessive memory consumption and potentially CPU exhaustion, causing the extraction worker to become unresponsive, terminate, or affect the availability of the Pandora service.\n\n\nThe patch introduces bounded decompression using decompressobj().decompress() with max_extracted_filesize, verifies the cumulative size of decompressed chunks, and raises a dedicated ZipBomb exception when the configured limit is exceeded. Pandora then aborts extraction and reports the file as too large.",
-      "published": "2026-08-15T22:16:55.697",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74767"
+      "id": "CVE-2026-19922",
+      "summary": "A security flaw has been discovered in code-projects Online Shopping System 1.0. Affected by this issue is some unknown functionality of the file /checkout.php. Performing a manipulation of the argument amount_1 results in cross site scripting. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
+      "published": "2026-08-16T01:17:07.840",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19922"
     },
     {
-      "id": "CVE-2026-74764",
-      "summary": "Pandora contains a path traversal vulnerability in its TAR archive extraction functionality. When processing a submitted TAR archive, the extractor passed archive member names directly to Python's tarfile.TarFile.extract() without applying an extraction filter.\n\n\nAn attacker able to submit a specially crafted TAR archive containing malicious member paths, such as paths using ../ sequences or absolute paths, could cause extracted files to be written outside the intended extraction directory. This may allow the attacker to overwrite files accessible to the Pandora worker process and could potentially result in application compromise, arbitrary code execution, or denial of service depending on the files targeted and the privileges of the Pandora process.\n\n\nThe vulnerability is corrected by using Python's filter='data' extraction filter, which rejects or sanitizes dangerous TAR members, including paths that escape the destination directory and unsafe link targets. \n\n\nThe weakness corresponds to MITRE's general path traversal category, which includes archive extraction cases where attacker-controlled filenames cause files to be written outside the intended directory.",
-      "published": "2026-08-15T22:16:55.563",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74764"
+      "id": "CVE-2026-19921",
+      "summary": "A vulnerability was identified in code-projects Online Shopping System 1.0. Affected by this vulnerability is an unknown functionality of the file /homeaction.php. Such manipulation of the argument cat_id leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
+      "published": "2026-08-16T00:16:50.687",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19921"
     },
     {
-      "id": "CVE-2026-73055",
-      "summary": "Shescape before 2.1.15 (and 3.0.0 before 3.0.2) fails to properly escape tilde (~) characters in assignment contexts on Unix systems where the shell is explicitly configured to \"sh\" or true and /bin/sh points to BusyBox. Using the escape and escapeAll APIs with untrusted input in an assignment prefixed to a command, an attacker can inject a tilde payload to disclose the user's home directory location and, depending on usage, alter the location on which a command operates.",
-      "published": "2026-08-15T22:16:55.427",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73055"
+      "id": "CVE-2026-19920",
+      "summary": "A vulnerability was determined in code-projects Online Shopping System 1.0. Affected is an unknown function of the file /action.php. This manipulation of the argument proId causes sql injection. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-08-16T00:16:50.530",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19920"
     },
     {
-      "id": "CVE-2026-73054",
-      "summary": "SiYuan versions before v3.7.4 contain an authentication bypass vulnerability in the WebSocket endpoint caused by differential parsing of query parameters between authentication exemption and session quarantine checks. Unauthenticated attackers can craft a malicious WebSocket URI with duplicated query parameters to bypass access auth code validation and receive the live kernel event stream including document identifiers, titles, and operation logs.",
-      "published": "2026-08-15T22:16:55.290",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73054"
+      "id": "CVE-2026-19919",
+      "summary": "A vulnerability was found in code-projects Online Shopping System 1.0. This impacts an unknown function of the file /login.php of the component Login. The manipulation of the argument email results in sql injection. The attack may be performed from remote. The exploit has been made public and could be used.",
+      "published": "2026-08-16T00:16:50.360",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19919"
     },
     {
-      "id": "CVE-2026-73053",
-      "summary": "SiYuan versions before v3.7.4 contain a cross-site scripting vulnerability in the unicode2Emoji function that fails to sanitize codepoint branch output. Attackers can craft document icons with hex-encoded markup that executes in the renderer with Node integration enabled, achieving arbitrary code execution on the host system.",
-      "published": "2026-08-15T22:16:55.157",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73053"
+      "id": "CVE-2026-19918",
+      "summary": "A vulnerability has been found in SpaceX Starlink Router Gen 3 2025.11.14.mr64708.3. This affects the function get_status of the component gRPC Management Interface. The manipulation leads to improper access controls. The attack can only be initiated within the local network. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-08-16T00:16:50.180",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19918"
     }
   ]
 }
