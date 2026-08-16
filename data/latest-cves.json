@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-16T08:44:37+00:00",
+  "generated_at": "2026-08-16T09:38:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-74578",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncrypto: algif_skcipher - force synchronous processing on trees without ctx->state\n\nThe AIO/async path in skcipher_recvmsg() passes the socket-wide ctx->iv\ndirectly into the skcipher request. After io_submit() the socket lock is\ndropped and the request is processed asynchronously, so a concurrent\nsendmsg(ALG_SET_IV) can overwrite ctx->iv and make the in-flight request\nrun under an attacker-controlled IV. For CTR/stream modes this is\nIV/keystream reuse and lets an unprivileged user recover the plaintext of\na concurrent operation.\n\nSnapshotting ctx->iv into per-request storage for the async path is not\nsufficient. For ciphers with statesize == 0 - which includes cbc and ctr -\nthe MSG_MORE inter-chunk IV chaining is carried solely by the in-place\nreq->iv writeback, which a snapshot redirects into per-request memory that\naf_alg_free_resources() releases on completion, silently producing wrong\noutput. Writing the IV back from the completion callback instead is not\npossible either: that would require lock_sock() there, but the callback can\nrun in softirq/atomic context, so it must not sleep.\n\nMake the operation synchronous instead, which removes both the IV race and\nany writeback race. This is equivalent to the upstream resolution, commit\nfcc77d33a34c (\"net: Remove support for AIO on sockets\"), which removed the\nAIO socket path across net/ entirely and so produces the same end state for\nthis file. This patch deviates from that commit deliberately: rather than\nremoving AIO socket support tree-wide, which would be far too invasive for\nstable, it removes only the AIO branch in crypto/algif_skcipher.c.\nio_submit() now completes synchronously; AF_ALG async is rarely used in\npractice.\n\nThe -EIOCBQUEUED check in skcipher_recvmsg() is now dead but harmless,\nand is left alone to keep the fix minimal.\n\nTested on 6.6.y: attacker IV injection dropped from 2296/200000 to 0/200000\nafter the change; MSG_MORE chunked CTR output bit-identical to single-shot.",
+      "published": "2026-08-16T09:16:21.653",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74578"
+    },
+    {
+      "id": "CVE-2024-13784",
+      "summary": "The Contact Form, Survey, Quiz & Popup Form Builder \u2013 ARForms plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 1.8.5 via deserialization of untrusted input from form submissions. This makes it possible for unauthenticated attackers to inject a PHP Object. No known POP chain is present in the vulnerable software, which means this vulnerability has no impact unless another plugin or theme containing a POP chain is installed on the site. If a POP chain is present via an additional plugin or theme installed on the target system, it may allow the attacker to perform actions like delete arbitrary files, retrieve sensitive data, or execute code depending on the POP chain present.",
+      "published": "2026-08-16T09:16:19.900",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-13784"
+    },
     {
       "id": "CVE-2026-2497",
       "summary": "The Gallery by BestWebSoft plugin for WordPress is vulnerable to SQL Injection via the '_gallery_order_{post_id}' parameter array keys in all versions up to, and including, 4.7.9. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. The `gllr_save_postdata()` function stores unsanitized array keys from `$_POST` directly into post meta, which are later used in SQL queries without prepared statements. This makes it possible for authenticated attackers, with Editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
@@ -29,20 +43,6 @@
       "published": "2026-08-16T07:16:30.663",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17608"
-    },
-    {
-      "id": "CVE-2026-17604",
-      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 6.1.1 via the 'data' parameter parameter. This makes it possible for authenticated attackers, with editor-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. The intended strpos()-based guard against leaving the uploads directory is bypassed by crafting a URL that includes the uploads base path as a substring while embedding directory traversal sequences, such as /wp-content/uploads/../../wp-config.php.",
-      "published": "2026-08-16T07:16:30.547",
-      "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17604"
-    },
-    {
-      "id": "CVE-2026-17087",
-      "summary": "The WP Travel Engine \u2013 Tour Booking Plugin \u2013 Tour Operator Software plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 6.8.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to view private booking billing details \u2014 including the victim customer's first name, last name, email address, street address, city, and phone number \u2014 rendered as default values in checkout form fields by binding an arbitrary booking ID to the attacker's session. The only access control on the endpoint is a frontend nonce that is publicly emitted to all visitors via the wteL10n global on trip pages, meaning it provides CSRF protection only and does not restrict unauthenticated access.",
-      "published": "2026-08-16T07:16:30.423",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17087"
     }
   ]
 }
