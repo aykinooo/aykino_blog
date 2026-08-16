@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-16T05:40:22+00:00",
+  "generated_at": "2026-08-16T06:56:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-19933",
-      "summary": "A weakness has been identified in DefaultFuction Customer-Relationship-Management-In-C-Project 2.0. Impacted is the function gets of the component Customer Search Module. This manipulation causes stack-based buffer overflow. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks. The project confirms, that \"it\u2019s being processed\".",
-      "published": "2026-08-16T05:16:48.623",
+      "id": "CVE-2026-9767",
+      "summary": "The The School Management \u2013 Education & Learning ERP plugin for WordPress is vulnerable to generic SQL Injection via 'order[0][dir]' Parameter in all versions up to, and including, 5.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This vulnerability is replicated across seven or more AJAX handlers including wlsm-fetch-staff-classes, wlsm-fetch-notices, wlsm-fetch-subjects, wlsm-fetch-inquiries, wlsm-fetch-staff-employee, and wlsm-fetch-payments, and the missing nonce verification on several of these handlers also enables CSRF-chained exploitation.",
+      "published": "2026-08-16T06:16:55.133",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9767"
+    },
+    {
+      "id": "CVE-2026-2283",
+      "summary": "The User Login History plugin for WordPress is vulnerable to SQL Injection via the 'blog_id' parameter in all versions up to, and including, 2.1.7. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This is only exploitable on multisite installations.",
+      "published": "2026-08-16T06:16:53.003",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2283"
+    },
+    {
+      "id": "CVE-2026-19934",
+      "summary": "A vulnerability has been found in itsourcecode Hospital Management System 1.0. This impacts an unknown function of the file /vieworder.php. The manipulation of the argument delid leads to sql injection. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-08-16T06:16:52.773",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19933"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19934"
     },
     {
-      "id": "CVE-2026-19932",
-      "summary": "A security flaw has been discovered in DefaultFuction Notice-System-Managent 2.0. This issue affects the function GroovyShell.evaluate of the file /execute of the component NoticeController. The manipulation results in code injection. The attack can be launched remotely. The exploit has been released to the public and may be used for attacks. The project confirms, that \"it\u2019s being processed\".",
-      "published": "2026-08-16T05:16:48.443",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19932"
+      "id": "CVE-2026-19728",
+      "summary": "The Extra Product Options Builder for WooCommerce WordPress plugin before 1.2.176 does not verify that the requester is entitled to a customer-uploaded file before serving it, allowing unauthenticated users who obtain a file's stored name to retrieve it.\n\nThe Extra Product Options Builder for WooCommerce WordPress plugin before 1.2.176 writes a deny-all rule into its upload directories, so the disclosure only crosses a boundary on web servers that honour it, such as Apache. Where it is ignored, as on a default nginx setup, the same files are already served at their direct URL and the endpoint exposes nothing further.",
+      "published": "2026-08-16T06:16:52.673",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19728"
     },
     {
-      "id": "CVE-2026-18432",
-      "summary": "The Frontend Admin by DynamiApps plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 3.29.9. The vulnerability exists because `ActionUser::conditions_logic()` gates the `current_user_can('edit_user', $user_id)` authorization check behind an `is_numeric()` test, causing the check to be skipped entirely when `$user_id` is a non-numeric string \u2014 a condition that can be induced by passing a crafted value such as `1one` through the unvalidated `item_id` parameter of the unauthenticated `wp_ajax_nopriv_frontend_admin/forms/change_form` AJAX endpoint. This makes it possible for attackers to escalate privileges to administrator by obtaining a server-signed `_acf_objects` payload carrying the non-numeric user ID, which WordPress subsequently coerces to integer 1 (the default administrator), allowing the attacker to overwrite that account's password or email address. Exploitation by unauthenticated users requires a public-facing frontend user form to be configured; in all other cases a subscriber-level account is sufficient.",
-      "published": "2026-08-16T05:16:48.307",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18432"
+      "id": "CVE-2026-19726",
+      "summary": "The Visualizer  WordPress plugin before 4.0.7 does not properly authorise access to the configuration of its charts, allowing users with the Contributor role and above to read the full configuration of any chart on the site, including charts the Visualizer  WordPress plugin before 4.0.7's own interface denies them, and to retrieve every chart's configuration in a single request. The disclosed configuration can include the credentials of a remote data source a chart reads from.",
+      "published": "2026-08-16T06:16:52.580",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19726"
     },
     {
-      "id": "CVE-2026-18385",
-      "summary": "The The Paid Membership Plugin, Ecommerce, User Registration Form, Login Form, User Profile & Restrict Content \u2013 ProfilePress plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 4.16.19. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for authenticated attackers, with subscriber-level access and above, to execute arbitrary shortcodes. The partial mitigation introduced via strip_shortcodes() on [profile-first-name] and [profile-last-name] can be bypassed through the [profile-display-name format=\"first_last_names\"] render path, the [profile-bio] render path (which re-fetches the raw description meta), and the double-bracket escape sequence [[tag]], all of which allow attacker-controlled shortcode text to reach the outer do_shortcode() call.",
-      "published": "2026-08-16T05:16:48.170",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18385"
-    },
-    {
-      "id": "CVE-2026-17123",
-      "summary": "The Royal Elementor Addons plugin for WordPress is vulnerable to Server-Side Request Forgery in versions up to, and including, 1.7.1064 via the Form Builder widget's 'webhook_url' setting. The widget's render() method persists the attacker-controlled URL into the wpr_webhook_url_{widget_id} option on every render (including a Contributor previewing their own draft), and the wpr_form_builder_webhook AJAX handler \u2014 registered for both authenticated and unauthenticated callers \u2014 reads that option and dispatches the outbound request via the non-safe wp_remote_post(), with no host allowlist, no scheme restriction, and no private/loopback IP filter (the plugin's existing wpr_is_blocked_remote_host / wpr_is_private_or_local_ip helpers are not called on this path). This makes it possible for authenticated attackers, with Contributor-level access and above, to make web requests to arbitrary locations originating from the web application and can be used to query and modify information from internal services.",
-      "published": "2026-08-16T05:16:48.033",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17123"
-    },
-    {
-      "id": "CVE-2026-16779",
-      "summary": "The Kubio AI Page Builder plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.8.5. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to overwrite front-page configuration options (show_on_front, page_on_front, and page_for_posts), rewrite primary navigation menu items, replace template parts, and overwrite the Kubio global-data post. Although a nonce check via check_ajax_referer() is present, the nonce is unconditionally emitted into window.kubioUtilsData for every user who can load the block editor, making it harvestable by any Contributor and therefore an ineffective authorization barrier.",
-      "published": "2026-08-16T05:16:47.910",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16779"
+      "id": "CVE-2026-19725",
+      "summary": "The WPvivid \u2014 Backup, Migration & Staging WordPress plugin before 0.9.131 does not sanitise a value taken from an unauthenticated request before using it to build a log file path, allowing an attacker holding a site to site transfer key to create a log file in any existing writable directory of the site, including the web root.\n\nThe file name always carries a fixed suffix and the contents are always the WPvivid \u2014 Backup, Migration & Staging WordPress plugin before 0.9.131's own log header, so only the location of the file is attacker controlled.",
+      "published": "2026-08-16T06:16:52.487",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19725"
     }
   ]
 }
