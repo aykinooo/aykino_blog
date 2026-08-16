@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-16T06:56:51+00:00",
+  "generated_at": "2026-08-16T07:43:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9767",
-      "summary": "The The School Management \u2013 Education & Learning ERP plugin for WordPress is vulnerable to generic SQL Injection via 'order[0][dir]' Parameter in all versions up to, and including, 5.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This vulnerability is replicated across seven or more AJAX handlers including wlsm-fetch-staff-classes, wlsm-fetch-notices, wlsm-fetch-subjects, wlsm-fetch-inquiries, wlsm-fetch-staff-employee, and wlsm-fetch-payments, and the missing nonce verification on several of these handlers also enables CSRF-chained exploitation.",
-      "published": "2026-08-16T06:16:55.133",
+      "id": "CVE-2026-2497",
+      "summary": "The Gallery by BestWebSoft plugin for WordPress is vulnerable to SQL Injection via the '_gallery_order_{post_id}' parameter array keys in all versions up to, and including, 4.7.9. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. The `gllr_save_postdata()` function stores unsanitized array keys from `$_POST` directly into post meta, which are later used in SQL queries without prepared statements. This makes it possible for authenticated attackers, with Editor-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-08-16T07:16:31.030",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2497"
+    },
+    {
+      "id": "CVE-2026-2357",
+      "summary": "The Bold Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'bt_bb_shortcode' shortcode in all versions up to, and including, 5.6.8 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-08-16T07:16:30.910",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2357"
+    },
+    {
+      "id": "CVE-2026-18347",
+      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 6.1.1. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to read arbitrary user metadata and sensitive user record fields \u2014 including email address, assigned roles, registration date, and any user_meta values \u2014 belonging to any WordPress user including administrators, by supplying a target user ID with a user-type context to the frontend collection endpoint.",
+      "published": "2026-08-16T07:16:30.787",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18347"
+    },
+    {
+      "id": "CVE-2026-17608",
+      "summary": "The WP Compress \u2013 Instant Performance & Speed Optimization plugin for WordPress is vulnerable to Cross-Site Request Forgery in all versions up to, and including, 7.10.09. This is due to missing or incorrect nonce validation on the (top-level template code) function. This makes it possible for unauthenticated attackers to delete arbitrary WordPress options, including critical ones such as siteurl, home, active_plugins, template, and stylesheet, causing site outage or a full plugin and theme reset via a forged request granted they can trick a site administrator into performing an action such as clicking on a link.",
+      "published": "2026-08-16T07:16:30.663",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9767"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17608"
     },
     {
-      "id": "CVE-2026-2283",
-      "summary": "The User Login History plugin for WordPress is vulnerable to SQL Injection via the 'blog_id' parameter in all versions up to, and including, 2.1.7. This is due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with Administrator-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. This is only exploitable on multisite installations.",
-      "published": "2026-08-16T06:16:53.003",
+      "id": "CVE-2026-17604",
+      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 6.1.1 via the 'data' parameter parameter. This makes it possible for authenticated attackers, with editor-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. The intended strpos()-based guard against leaving the uploads directory is bypassed by crafting a URL that includes the uploads base path as a substring while embedding directory traversal sequences, such as /wp-content/uploads/../../wp-config.php.",
+      "published": "2026-08-16T07:16:30.547",
       "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2283"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17604"
     },
     {
-      "id": "CVE-2026-19934",
-      "summary": "A vulnerability has been found in itsourcecode Hospital Management System 1.0. This impacts an unknown function of the file /vieworder.php. The manipulation of the argument delid leads to sql injection. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-08-16T06:16:52.773",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19934"
-    },
-    {
-      "id": "CVE-2026-19728",
-      "summary": "The Extra Product Options Builder for WooCommerce WordPress plugin before 1.2.176 does not verify that the requester is entitled to a customer-uploaded file before serving it, allowing unauthenticated users who obtain a file's stored name to retrieve it.\n\nThe Extra Product Options Builder for WooCommerce WordPress plugin before 1.2.176 writes a deny-all rule into its upload directories, so the disclosure only crosses a boundary on web servers that honour it, such as Apache. Where it is ignored, as on a default nginx setup, the same files are already served at their direct URL and the endpoint exposes nothing further.",
-      "published": "2026-08-16T06:16:52.673",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19728"
-    },
-    {
-      "id": "CVE-2026-19726",
-      "summary": "The Visualizer  WordPress plugin before 4.0.7 does not properly authorise access to the configuration of its charts, allowing users with the Contributor role and above to read the full configuration of any chart on the site, including charts the Visualizer  WordPress plugin before 4.0.7's own interface denies them, and to retrieve every chart's configuration in a single request. The disclosed configuration can include the credentials of a remote data source a chart reads from.",
-      "published": "2026-08-16T06:16:52.580",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19726"
-    },
-    {
-      "id": "CVE-2026-19725",
-      "summary": "The WPvivid \u2014 Backup, Migration & Staging WordPress plugin before 0.9.131 does not sanitise a value taken from an unauthenticated request before using it to build a log file path, allowing an attacker holding a site to site transfer key to create a log file in any existing writable directory of the site, including the web root.\n\nThe file name always carries a fixed suffix and the contents are always the WPvivid \u2014 Backup, Migration & Staging WordPress plugin before 0.9.131's own log header, so only the location of the file is attacker controlled.",
-      "published": "2026-08-16T06:16:52.487",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19725"
+      "id": "CVE-2026-17087",
+      "summary": "The WP Travel Engine \u2013 Tour Booking Plugin \u2013 Tour Operator Software plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 6.8.4. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to view private booking billing details \u2014 including the victim customer's first name, last name, email address, street address, city, and phone number \u2014 rendered as default values in checkout form fields by binding an arbitrary booking ID to the attacker's session. The only access control on the endpoint is a frontend nonce that is publicly emitted to all visitors via the wteL10n global on trip pages, meaning it provides CSRF protection only and does not restrict unauthenticated access.",
+      "published": "2026-08-16T07:16:30.423",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17087"
     }
   ]
 }
