@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-17T16:43:36+00:00",
+  "generated_at": "2026-08-17T17:41:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-75060",
-      "summary": "In JetBrains PyCharm before 2026.2.1 code execution was possible via unauthenticated Jupyter MCP tools",
-      "published": "2026-08-17T16:17:53.227",
-      "cvss": 8.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75060"
+      "id": "CVE-2026-9771",
+      "summary": "The flash_copy() system call is verified by z_vrfy_flash_copy() in drivers/flash/flash_util.c. On builds with CONFIG_USERSPACE enabled, this handler is the kernel-side trust boundary for a user-mode caller. Prior to the fix it validated only the output buffer (K_SYSCALL_MEMORY_WRITE) and passed the two struct device * arguments, src_dev and dst_dev, directly into the implementation without any object validation \u2014 unlike every sibling flash syscall, which guards its device pointer with K_SYSCALL_DRIVER_FLASH.\n\nA user-mode thread fully controls the values of src_dev/dst_dev and the contents of its own address space. The implementation z_impl_flash_copy() dereferences these pointers and calls through their driver-API function tables (e.g. api->get_parameters(dst_dev), flash_read(src_dev, ...), flash_write(dst_dev, ...)). By supplying a pointer to a forged struct device whose api table contains attacker-chosen function pointers, an unprivileged thread can cause the kernel to call arbitrary code in supervisor mode; passing any arbitrary or invalid address otherwise yields a kernel crash or out-of-bounds read.\n\nThe result is a local privilege escalation out of the userspace sandbox (with kernel denial-of-service and information disclosure as lesser outcomes). The fix adds K_SYSCALL_DRIVER_FLASH(src_dev, read) and K_SYSCALL_DRIVER_FLASH(dst_dev, write) to z_vrfy_flash_copy(), which verify each device is a registered flash-driver kernel object the calling thread is permitted to use before any dereference, closing the path completely.",
+      "published": "2026-08-17T17:16:57.720",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9771"
     },
     {
-      "id": "CVE-2026-75059",
-      "summary": "In JetBrains PyCharm before 2026.2.1 code execution via Quick Documentation was possible",
-      "published": "2026-08-17T16:17:53.110",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75059"
+      "id": "CVE-2026-68518",
+      "summary": "Glances is an open-source system cross-platform monitoring tool. Prior to 4.5.6, _sanitize_mustache_dict() in glances/actions.py sanitizes individual Mustache values before chevron.render(), allowing adjacent unescaped Mustache variables to reconstruct shell operators that secure_popen() executes when attacker-controlled process or container fields are rendered by an administrator-configured action template. This issue is fixed in 4.5.6.",
+      "published": "2026-08-17T17:16:40.353",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68518"
     },
     {
-      "id": "CVE-2026-75058",
-      "summary": "In JetBrains IntelliJ IDEA before 2026.2.1 xXE was possible in the Eclipse settings importers",
-      "published": "2026-08-17T16:17:52.977",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75058"
+      "id": "CVE-2026-68517",
+      "summary": "Glances is an open-source system cross-platform monitoring tool. Prior to 4.5.6, the cors_origins guard in glances/outputs/glances_restful_api.py uses exact list equality instead of wildcard membership, allowing a multi-origin list containing the wildcard to retain cors_credentials and expose authenticated REST API data to an untrusted website visited by a previously authenticated user. This issue is fixed in 4.5.6.",
+      "published": "2026-08-17T17:16:40.173",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68517"
     },
     {
-      "id": "CVE-2026-75057",
-      "summary": "In JetBrains IntelliJ IDEA before 2026.1.5 git credentials were written in plaintext to the IDE log",
-      "published": "2026-08-17T16:17:52.880",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75057"
+      "id": "CVE-2026-61666",
+      "summary": "websocket-driver is a WebSocket protocol handler with pluggable I/O. Prior to 0.8.2, WebSocket::Driver.server() passes a malformed Host header to URI.parse in lib/websocket/http/request.rb without catching URI::InvalidURIError, allowing a remote client to crash a TCP-backed WebSocket server when the application does not catch the error from parse(). This issue is fixed in version 0.8.2.",
+      "published": "2026-08-17T17:16:39.917",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61666"
     },
     {
-      "id": "CVE-2026-75056",
-      "summary": "In JetBrains IntelliJ IDEA before 2026.2.1 rCE via Markdown export tool was possible",
-      "published": "2026-08-17T16:17:52.770",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75056"
+      "id": "CVE-2026-40145",
+      "summary": "A vulnerability exists in the interaction between a Endpoint Privilege Management\u00a0(Windows\u00a0Deployment)\u00a0support\u00a0utility and the agent's tamper protection controls. Under certain conditions, the protections applied to the utility process may not be enforced as intended.",
+      "published": "2026-08-17T17:16:39.787",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40145"
     },
     {
-      "id": "CVE-2026-75055",
-      "summary": "In JetBrains IntelliJ IDEA before 2026.2.1 hadoop ResourceManager could read local files via XXE",
-      "published": "2026-08-17T16:17:52.657",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75055"
+      "id": "CVE-2026-12630",
+      "summary": "Zephyr's 6LoWPAN IP Header Compression (IPHC) uncompression code contains an out-of-bounds read in get_ihpc_inlined_size() (subsys/net/ip/6lo.c). The destination inline size is looked up in da_inline_size_table, which has 13 entries, using an index built from the M, DAC and DAM bits of the received IPHC dispatch word (iphc & NET_6LO_IPHC_DA_MASK, a 4-bit value of 0-15). The reserved combinations 13, 14 and 15 are not bounds-checked and read past the end of the table.\n\nThe iphc word is taken directly from the received frame, and get_ihpc_inlined_size() is reached on every inbound 6LoWPAN frame via net_6lo_uncompress() from the 802.15.4 receive path (subsys/net/l2/ieee802154/ieee802154_6lo.c and ieee802154_6lo_fragment.c). An unauthenticated attacker on the radio/adjacent link can therefore craft a frame whose destination addressing-mode nibble selects an out-of-range index, with no privileges or user interaction.\n\nThe out-of-bounds value becomes the computed inline_size, which then drives header reconstruction before the buffer-length check: it is used to dereference *(pkt->buffer->data + sizeof(iphc) + inline_size) and to compute a size_t diff that can underflow, leading to a further out-of-bounds read of the packet buffer and malformed uncompression. The practical impact is a radio-triggerable out-of-bounds read / denial-of-service on the receiver; the leaked byte is not returned to the attacker. The fix rejects any destination index beyond the table, aborting processing of the malformed frame.",
+      "published": "2026-08-17T17:16:39.130",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12630"
     }
   ]
 }
