@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-17T20:40:59+00:00",
+  "generated_at": "2026-08-17T21:37:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-75014",
-      "summary": "A flaw has been found in SourceCodester Pet Grooming Management Software 1.0. This vulnerability affects unknown code of the file /admin/get_barcode_data.php. This manipulation of the argument barcode causes sql injection. The attack may be initiated remotely. The exploit has been published and may be used.",
-      "published": "2026-08-17T20:16:47.647",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75014"
-    },
-    {
-      "id": "CVE-2026-75013",
-      "summary": "A vulnerability was detected in TOTOLINK EX1200L 9.3.5u.6146_B20201023. This affects the function setWizardCfg of the file /cgi-bin/cstecgi.cgi. The manipulation results in null pointer dereference. The attack can be launched remotely. The exploit is now public and may be used.",
-      "published": "2026-08-17T20:16:47.483",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75013"
-    },
-    {
-      "id": "CVE-2026-75012",
-      "summary": "A security vulnerability has been detected in TOTOLINK EX1200L 9.3.5u.6146_B20201023. Affected by this issue is the function setPasswordCfg of the file /cgi-bin/cstecgi.cgi of the component Password Configuration Handler. The manipulation leads to null pointer dereference. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-08-17T20:16:47.317",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75012"
-    },
-    {
-      "id": "CVE-2026-74234",
-      "summary": "Legora before 2026-08-14 contains a cross-site scripting vulnerability that allows attackers to achieve arbitrary JavaScript execution in a victim's browser by embedding a Mermaid block prefixed with a gray-matter JavaScript front-matter directive, causing the front-matter parser to invoke eval() before any SVG sanitization occurs. Attackers can exploit this flaw through influenced Mermaid diagram content to execute arbitrary JavaScript in the user's browser context, with elevated impact on Word and Outlook add-in surfaces where bearer session tokens are persisted in localStorage.",
-      "published": "2026-08-17T20:16:46.813",
-      "cvss": 7.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74234"
-    },
-    {
-      "id": "CVE-2026-71858",
-      "summary": "Notepad++ is a free and open-source source code editor. Prior to 8.9.7, macros loaded from an attacker-controlled shortcuts.xml bypass the HMAC validation applied to UserDefinedCommands and can invoke Scintilla actions and the internal Open in Default Viewer command in an elevated Notepad++ process, allowing protected file modification and conditional elevated command execution when a local attacker influences settingsDir and a user triggers the macro. This issue is fixed in version 8.9.7.",
-      "published": "2026-08-17T20:16:46.207",
+      "id": "CVE-2026-75531",
+      "summary": "Pandora contains a stored cross-site scripting (XSS) vulnerability in the rendering of URL observables. A URL extracted from or associated with an analyzed file was inserted directly into the inline JavaScript onclick handler used by the Submit to Lookyloo action.\n\n\nAlthough the value was subject to HTML escaping by the template engine, it was embedded inside a JavaScript string within an HTML attribute. An attacker-controlled URL containing specially crafted characters could therefore break out of the JavaScript string and inject arbitrary JavaScript code.\n\n\nThe malicious script would execute in the context of the Pandora web application when a victim interacts with the affected Submit to Lookyloo control. Successful exploitation could allow an attacker to access information available to the victim's browser or perform actions using the victim's authenticated Pandora session.\n\n\nThe patch removes the observable value from the inline JavaScript handler. The URL is instead stored in an HTML data-url attribute and retrieved through the DOM dataset API when needed. Additional uses of innerHTML were also replaced with textContent as defensive hardening.",
+      "published": "2026-08-17T21:16:59.067",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71858"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75531"
     },
     {
-      "id": "CVE-2026-71553",
-      "summary": "ApostropheCMS is an open-source Node.js content management system. In 4.32.0 and earlier, PATCH /api/v1/article/:id accepts the inherited path toString.call and passes it through the utility module to apos.util.set() and apos.util.get(), allowing an authenticated editor to overwrite the shared Object.prototype.toString function's call property and cause a persistent process-wide denial of service until restart.",
-      "published": "2026-08-17T20:16:46.073",
+      "id": "CVE-2026-75529",
+      "summary": "Pandora is affected by a stored cross-site scripting vulnerability in the PDF download functionality. The /task-download/<task_id>/.../pdf endpoint verifies that the submitted file is a PDF using Pandora's content-based file-type detection, but previously returned the file using send_file(task.file.path) without explicitly specifying the MIME type or forcing it to be downloaded as an attachment. \n\n\nBecause Flask determines the response MIME type from the filename when a path is supplied, an attacker could submit a file whose content is recognized by Pandora as a PDF while its filename or extension causes the download endpoint to return it with a different, potentially active MIME type. \n\n\nA specially crafted PDF/polyglot file could therefore be served inline and interpreted by a victim's browser as HTML or another executable web format. If a victim with access to the submitted analysis follows the PDF download link, attacker-controlled script could execute in the security context of the Pandora application, potentially allowing access to application data or actions using the victim's session.\n\n\nThe patch prevents the issue by explicitly returning PDF downloads with Content-Type: application/pdf, forcing Content-Disposition: attachment, and assigning a trusted .pdf filename based on the task UUID.",
+      "published": "2026-08-17T21:16:58.923",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71553"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75529"
+    },
+    {
+      "id": "CVE-2026-75483",
+      "summary": "powerlevel10k fails to neutralize control characters in the package.json version field when rendering the package prompt segment. Attackers can inject raw escape bytes in the version string to emit arbitrary terminal control sequences on each prompt render when the shell enters affected directories.",
+      "published": "2026-08-17T21:16:57.930",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75483"
+    },
+    {
+      "id": "CVE-2026-75482",
+      "summary": "SWE-agent's trajectory inspector (sweagent inspector), confirmed in v1.1.0, is an HTTP server that joins request paths to the trajectory directory in its /trajectory/ handler without rejecting parent-directory ('..') references, bypassing the built-in path sanitization. The server binds all interfaces (0.0.0.0), applies wildcard CORS, and requires no authentication. An unauthenticated network client (or a malicious web page via CORS) can use path traversal sequences to read files outside the intended directory. Because the read sink parses targets as trajectory JSON, disclosure is constrained to JSON files shaped like a trajectory, which can contain repository contents, command output, and secrets/API keys.",
+      "published": "2026-08-17T21:16:50.833",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75482"
+    },
+    {
+      "id": "CVE-2026-75481",
+      "summary": "SkyPilot fails to validate that authenticated users are entitled to grant administrator roles when updating service account permissions. Attackers can create a service account, escalate it to administrator role, and authenticate with its bearer token to gain administrative control over all users and workspaces.",
+      "published": "2026-08-17T21:16:50.647",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75481"
+    },
+    {
+      "id": "CVE-2026-75480",
+      "summary": "OpenViking debug vector scroll and count endpoints apply only account-level scoping without user-level access controls, allowing authenticated users to read all co-tenant records. Attackers can query these endpoints to retrieve private memories, resources, skills, and secret material belonging to other users in the same account without administrative privileges.",
+      "published": "2026-08-17T21:16:50.477",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75480"
     }
   ]
 }
