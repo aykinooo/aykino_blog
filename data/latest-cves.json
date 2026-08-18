@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-18T18:53:56+00:00",
+  "generated_at": "2026-08-18T19:38:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-75625",
-      "summary": "Kraken agents fail to verify peer-to-peer downloaded blobs against their requested SHA-256 digest before committing to the content-addressable cache, relying only on CRC32 checksums for piece validation. Attackers on the agent-to-agent path or malicious peers can supply substituted content with forged CRC32 corrections that passes per-piece checks, poisoning the cache with attacker-chosen container image layers or manifests that are re-seeded and executed by other hosts.",
-      "published": "2026-08-18T18:19:34.343",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75625"
+      "id": "CVE-2026-70667",
+      "summary": "Lemur manages TLS certificate creation. Prior to 1.9.3, _validate_revocation_url in lemur/certificates/verify.py checked the original CRL or OCSP URL but the later request could reach a different destination. The CRL requests.get call followed HTTP redirects without validating each Location target, so a public attacker-controlled URL could redirect to loopback, RFC1918, link-local, or instance-metadata addresses. Validation and connection also performed separate DNS resolutions, creating a time-of-check time-of-use window for DNS rebinding on both CRL and OCSP paths. An operator uploading a certificate through POST /api/1/certificates/upload could therefore induce blind internal requests despite the earlier mitigation. The fix disables redirects and pins validated addresses while preserving the correct Host value. This issue is fixed in version 1.9.3.",
+      "published": "2026-08-18T19:17:03.293",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70667"
     },
     {
-      "id": "CVE-2026-75130",
-      "summary": "Context7 through 2.1.2 contains a prompt injection vulnerability that allows attackers to execute malicious instructions in connected AI coding agents by injecting unsanitized content through the Custom AI Instructions feature served via the MCP server. Attackers can poison the custom instructions to exfiltrate credentials from environment files to an attacker-controlled service and perform destructive file deletion on the victim's machine when the agent makes a routine library documentation request.",
-      "published": "2026-08-18T18:19:34.197",
-      "cvss": 9.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75130"
+      "id": "CVE-2026-65959",
+      "summary": "Vitess is a database clustering system for horizontal scaling of MySQL. In 24.0.2 and earlier, the /debug/vrlog endpoint registered by addHttpEndpoint() in go/vt/vttablet/tabletmanager/vreplication/vrlog.go invokes vrlogStatsHandler() without acl.CheckAccessHTTP(r, acl.DEBUGGING), unlike comparable debug endpoints. A remote caller who can reach the vttablet debug HTTP port can bypass the configured security policy and stream VrLogStats data produced from NewVrLogStats().Send(), including literal SQL statements and bound application values from MoveTables, Reshard, Materialize, and vitess-strategy Online DDL workflows",
+      "published": "2026-08-18T19:17:00.223",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65959"
     },
     {
-      "id": "CVE-2026-74046",
-      "summary": "Wazuh 4.4.0 before 4.14.7 contains a denial of service vulnerability in the fdecompress_files() function within cluster.py that allows authenticated cluster peers to exhaust memory by supplying a malicious synchronization archive without decompressed size limits. Attackers holding a valid cluster Fernet key can upload a small, highly compressed zip bomb archive that forces wazuh-clusterd on the master node to decompress the full payload into memory, causing memory exhaustion and service disruption.",
-      "published": "2026-08-18T18:19:34.053",
+      "id": "CVE-2026-55166",
+      "summary": "Lemur manages TLS certificate creation. Prior to 1.9.2, authenticated users could influence an ACME authority acme_url without an effective server-side destination restriction and trigger AcmeHandler.setup_acme_client to make backend requests. An attacker could target cloud instance metadata or internal services from Lemur network context, potentially obtaining credentials available to the host. The advisory also identifies creator-equality authorization behavior that could preserve access to certificate key material after ownership or role changes, with insufficient export_private_key audit context to distinguish that access path. Together, the acme_url server-side request forgery and authorization weakness could expose cloud credentials and long-lived PKI private-key access. The fix adds ACME_DIRECTORY_HOST_ALLOWLIST validation and enriches key-export audit events with creator and current-owner context. This issue is fixed in version 1.9.2.",
+      "published": "2026-08-18T19:16:58.783",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55166"
+    },
+    {
+      "id": "CVE-2026-55165",
+      "summary": "Lemur manages TLS certificate creation. Prior to 1.9.2, the JWT verifier in lemur/auth/service.py:130-137 used fetch_token_header to read header_data[\"alg\"] from an unverified token and passed that attacker-controlled value to decode_with_multiple_secrets. PyJWT 2.x rejects alg=none with the configured key, so the flaw is a defense-in-depth gap rather than a direct authentication bypass in the shipped configuration. The unpinned algorithm can become exploitable after an asymmetric-signing migration through algorithm confusion, and it weakens algorithm-based anomaly detection because the token chooses the recorded value. A separate disclosure of LEMUR_TOKEN_SECRET would also permit forged HS256 tokens, although that disclosure is an independent prerequisite. The fix introduces the server-controlled LEMUR_TOKEN_ALGORITHMS allowlist and defaults it to HS256. This issue is fixed in version 1.9.2.",
+      "published": "2026-08-18T19:16:58.647",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55165"
+    },
+    {
+      "id": "CVE-2026-55164",
+      "summary": "Lemur manages TLS certificate creation. Prior to 1.9.2, lemur.users.service.update assigned a replacement password directly to users.password, while lemur/users/models.py registered User.hash_password only for the before_insert event. Because no before_update listener ran, administrator-initiated password changes through PUT /api/1/users/ were committed as plaintext. The affected user could no longer authenticate normally because bcrypt verification received an unhashed value. A database, backup, replica, query-log, or administrative read compromise exposed immediately usable credentials without offline cracking. The fix registers hashing for before_update and avoids rehashing values that already have a bcrypt prefix. This issue is fixed in version 1.9.2.",
+      "published": "2026-08-18T19:16:58.493",
       "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74046"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55164"
     },
     {
-      "id": "CVE-2026-74044",
-      "summary": "Wazuh 4.0.0 before 4.14.6 contains a path traversal vulnerability that allows authenticated cluster peers to delete arbitrary directory contents by supplying a traversal-shaped node name in the cluster hello payload without validation. Attackers holding a valid cluster Fernet key can craft a malicious node name and disconnect, triggering the master's peer cleanup routine to remove the contents of arbitrary directories within the Wazuh installation path writable by the wazuh user.",
-      "published": "2026-08-18T18:19:33.907",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74044"
-    },
-    {
-      "id": "CVE-2026-74039",
-      "summary": "Wazuh 4.0.0 before 4.14.7 and 5.0.0-beta2 contain a denial of service vulnerability that allows authenticated attackers with allow_run_as enabled to exhaust CPU resources by submitting arbitrarily deeply nested JSON structures to the POST /security/user/authenticate/run_as endpoint. Attackers can repeatedly submit malformed auth_context bodies with unlimited nesting depth to cause the API framework to consume excessive CPU, denying service to all other API consumers.",
-      "published": "2026-08-18T18:19:33.760",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74039"
-    },
-    {
-      "id": "CVE-2026-74038",
-      "summary": "Wazuh 4.0.0 before 4.14.6 contains a path traversal vulnerability that allows unauthenticated remote attackers to cause denial of service by enrolling an agent with a dot-sequence name such as \"..\" through the enrollment port. Attackers exploit insufficient validation in OS_IsValidName() and unsafe path concatenation in delete_diff() to resolve the traversal to the parent queue directory, causing its subdirectories to be removed and stopping all Wazuh services requiring manual recovery.",
-      "published": "2026-08-18T18:19:33.610",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74038"
+      "id": "CVE-2026-55163",
+      "summary": "Lemur manages TLS certificate creation. Prior to 1.9.2, PUT /api/1/roles/ in lemur/roles/views.py:298 authorized updates with RoleMemberPermission(role_id), which allowed either an administrator or any existing member of the target role. The handler passed data[\"users\"] and data[\"name\"] to service.update, allowing a non-admin member to add or remove other users and rename the role. This enabled lateral privilege grants within roles that control certificate and authority access and could deny access by removing legitimate members. The DELETE handler already required admin_permission, confirming that the weaker PUT authorization was inconsistent. The fix applies the same administrator-only requirement to the PUT handler. This issue is fixed in version 1.9.2.",
+      "published": "2026-08-18T19:16:58.357",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55163"
     }
   ]
 }
