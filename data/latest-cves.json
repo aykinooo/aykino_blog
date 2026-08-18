@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-18T16:46:18+00:00",
+  "generated_at": "2026-08-18T17:39:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-75926",
-      "summary": "Hugo 0.161.0 placed the Node asset pipelines behind the Node.js permission model so that code running through PostCSS, Babel, or TailwindCSS could not reach the file system outside the project directory. Hugo 0.162.0 added tailwindcss to the AllowChildProcess default in config/security/securityConfig.go, which makes nodePermissionArgs in common/hexec/exec.go append --allow-child-process whenever the tool being launched is named tailwindcss. TailwindCSS loads the site's tailwind.config.js through require at startup, so top-level code in that file executes inside the permitted Node process and can call child_process to spawn a shell. The spawned process is not a Node process and inherits none of the permission flags, so it runs with the full privileges of the account performing the build. Building a site whose theme, module, or starter template supplies the Tailwind configuration therefore yields arbitrary command execution rather than the confined file access the permission model was introduced to enforce. Hugo 0.165.0 removes tailwindcss from the default security.exec.allow list, so the tool is no longer launched under the default configuration.",
-      "published": "2026-08-18T16:18:24.443",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75926"
+      "id": "CVE-2026-75924",
+      "summary": "A flaw was found in managed-serviceaccount. A compromised addon-manager pod, due to its ClusterRole granting excessive permissions, can read any secret across all namespaces. Additionally, it can approve arbitrary Certificate Signing Requests (CSRs), which could lead to information disclosure and privilege escalation within the cluster.",
+      "published": "2026-08-18T17:17:03.457",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75924"
     },
     {
-      "id": "CVE-2026-75915",
-      "summary": "CodeWhale versions before 0.8.64 contain an environment variable exposure vulnerability in the js_execution tool that fails to scrub parent process environment variables before spawning Node.js. Attackers can craft malicious JavaScript code executed by the tool to read process.env and leak API keys, cloud credentials, and authentication tokens back to the model context.",
-      "published": "2026-08-18T16:18:23.970",
+      "id": "CVE-2026-75897",
+      "summary": "Improper input validation in the capabilities route handler in OpenSearch Dashboards - the size of the request payload is not bounded - might allow remote attackers to cause a denial of service via a crafted HTTP request.",
+      "published": "2026-08-18T17:17:03.310",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75915"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75897"
     },
     {
-      "id": "CVE-2026-75914",
-      "summary": "CodeWhale versions before 0.8.64 contain a path traversal vulnerability in the image_analyze tool that fails to canonicalize symlinks before reading files. Attackers can create workspace symlinks pointing to external files with image extensions to leak file bytes to the vision endpoint without user approval.",
-      "published": "2026-08-18T16:18:23.840",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75914"
+      "id": "CVE-2026-73372",
+      "summary": "Joomla! Core - [20260809] - Improper ACL checks when injection schema.org contact data in Joomla 5.1.0-5.4.7 and 6.0.0-6.1.2 - An improper access check injects contact information for unaccessible contact items into schema.org snippets.",
+      "published": "2026-08-18T17:17:03.067",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73372"
     },
     {
-      "id": "CVE-2026-75913",
-      "summary": "CodeWhale (codewhale / codewhale-tui) versions >= 0.8.41 and < 0.8.64 contain an argument injection vulnerability in the git_show tool. The model-supplied rev parameter is passed unvalidated into the git show argv without an --end-of-options sentinel, so a value beginning with --output= is interpreted as a git flag. Because the tool is registered as auto-approved and advertised as read-only, an attacker (via a malicious repository combined with prompt injection) can cause an unprompted arbitrary file write at the privilege of the invoking user, targeting sensitive files such as ~/.ssh/authorized_keys, ~/.bashrc, or ~/.gitconfig. Fixed in 0.8.64 by adding rev validation.",
-      "published": "2026-08-18T16:18:23.363",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75913"
+      "id": "CVE-2026-73336",
+      "summary": "Joomla! Core - [20260806] - XSS through schema.org outputs in Joomla 5.1.0-5.4.7, 6.0.0-6.1.2 - Improper escaping flags lead to an XSS vector in schema.org markup outputs.",
+      "published": "2026-08-18T17:17:02.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73336"
     },
     {
-      "id": "CVE-2026-75912",
-      "summary": "CodeWhale versions before 0.8.64 contain an argument injection vulnerability in the git_blame tool that allows attackers to read arbitrary files by injecting git options into the unvalidated rev parameter. Attackers can supply rev values like --contents=/path/to/file to exfiltrate sensitive files such as SSH keys and credentials through the tool output returned to the model.",
-      "published": "2026-08-18T16:18:23.220",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75912"
+      "id": "CVE-2026-72531",
+      "summary": "Joomla! Core - [20260804] - Improper ACL checks for custom fields webservice endpoints in Joomla 4.0.0-5.4.7, 6.0.0-6.1.2 - An improper access check allows unauthorized users to create fields for inaccessible components.",
+      "published": "2026-08-18T17:17:02.477",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72531"
     },
     {
-      "id": "CVE-2026-75911",
-      "summary": "CodeWhale versions before 0.8.64 fail to properly validate the allow_shell configuration parameter from project config files, allowing attackers to enable arbitrary shell command execution by committing a malicious .codewhale/config.toml file to a repository. When a user clones and opens the repository in CodeWhale, the AI model gains access to exec_shell and task_shell tools, enabling execution of arbitrary shell commands on the victim's machine without explicit user consent.",
-      "published": "2026-08-18T16:18:23.057",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75911"
+      "id": "CVE-2026-71573",
+      "summary": "Joomla! Core - [20260802] - Improper CORS origin validation in Joomla 4.0.0-5.4.7, 6.0.0-6.1.2 - An improper implementation prevented configured CORS origins from being properly validated in CORS requests.",
+      "published": "2026-08-18T17:17:02.243",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71573"
     }
   ]
 }
