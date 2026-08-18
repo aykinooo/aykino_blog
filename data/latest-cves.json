@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-18T20:37:48+00:00",
+  "generated_at": "2026-08-18T21:35:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76032",
-      "summary": "Pydio Cells 5.0.0 through 5.0.2 returns share-link details to any authenticated user. The REST handler for GET /a/share/link/{Uuid} in idm/share/rest/handler.go reads the workspace UUID from the path, calls LinkById, and writes the result with no authorization step, whereas the sibling handler for GET /a/share/cell/{Uuid} loads the workspace and requires MatchPolicies with ResourcePolicyAction_READ, returning a not-found error so that existence is not disclosed. Nothing compensates further down: GetLinkWorkspace reaches GetOrCreateWorkspace, which issues SearchWorkspace with a query carrying no ResourcePolicyQuery, and PrepareResourcePolicyQuery returns the query unmodified when that field is nil, so the workspace service applies no policy filter. The workspace UUID is not secret, because the unauthenticated public page served for a share link embeds it as START_REPOSITORY. Any account holding a standard user role can therefore submit the UUID and receive the link hash and URL, the owner's user identifier, the hidden share user login, the permission set, the download limit and count, the target users, the expiry, and the password-required flag, while a direct read of the shared node from the same account is refused.",
-      "published": "2026-08-18T20:17:34.503",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76032"
+      "id": "CVE-2026-76047",
+      "summary": "Type confusion in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-18T21:18:28.863",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76047"
     },
     {
-      "id": "CVE-2026-75936",
-      "summary": "Improper handling of highly compressed data in the GZIP auto-decompression handler in Amazon ion-java before 1.12.0 might allow remote actors to cause a denial of service via a crafted compressed Ion document that expands to an arbitrarily large size upon decompression.\n\n\n\nTo remediate this issue, users should upgrade to version 1.12.0 and configure withGzipDecompressionEnabled(false) and/or set an explicit withMaximumBufferSize() when parsing untrusted input.",
-      "published": "2026-08-18T20:17:34.317",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75936"
+      "id": "CVE-2026-76046",
+      "summary": "Buffer overflow in ANGLE in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-18T21:18:28.750",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76046"
     },
     {
-      "id": "CVE-2026-75935",
-      "summary": "Uncontrolled memory allocation in the binary Ion stream cursor in Amazon ion-java before 1.12.0 might allow remote actors to cause a denial of service via a crafted Ion binary document containing a declared-length field that causes excessive heap preallocation.\n\n\n\nTo remediate this issue, users should upgrade to version 1.12.0.",
-      "published": "2026-08-18T20:17:34.130",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75935"
+      "id": "CVE-2026-76045",
+      "summary": "Use after free in WebGL in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-18T21:18:28.643",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76045"
     },
     {
-      "id": "CVE-2026-75877",
-      "summary": "A flaw has been found in TRENDnet TV-IP751WIC 11.03.03. This vulnerability affects the function SystemNetworkChanged/SystemDDNSChanged/SystemEmailChanged/SystemFTPChanged/websCheckRealm/FUN_00432574/FUN_0043372C of the component alphapd. Executing a manipulation can lead to stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been published and may be used.",
-      "published": "2026-08-18T20:17:33.340",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75877"
+      "id": "CVE-2026-76044",
+      "summary": "Race condition in USB in Google Chrome prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-18T21:18:28.530",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76044"
     },
     {
-      "id": "CVE-2026-75876",
-      "summary": "A security vulnerability has been detected in xianrendzw EasyReport up to 2.0.17.0522_Beta. Affected by this issue is some unknown functionality of the file ModuleController.java of the component Move Operations. Such manipulation of the argument sourcePath leads to sql injection. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-18T20:17:33.093",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75876"
+      "id": "CVE-2026-76043",
+      "summary": "Incorrect calculation in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-18T21:18:28.407",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76043"
     },
     {
-      "id": "CVE-2026-73529",
-      "summary": "Plainpad through 1.1.1, fixed in commit d3823fc, contains a missing rate limiting vulnerability that allows unauthenticated attackers to send unbounded login requests to the POST /v1/sessions endpoint due to dead code in App\\Http\\Kernel.php that is never instantiated under the Laravel 11+ skeleton, leaving the API throttle configuration unattached to any route. Attackers can exploit this by sending unlimited credential attempts with no lockout or CAPTCHA enforcement, and additionally trigger CPU exhaustion by forcing repeated bcrypt comparisons on each request.",
-      "published": "2026-08-18T20:17:28.577",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73529"
+      "id": "CVE-2026-76042",
+      "summary": "Use of uninitialized resource in GPU in Google Chrome prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to read memory outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-18T21:18:28.283",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76042"
     }
   ]
 }
