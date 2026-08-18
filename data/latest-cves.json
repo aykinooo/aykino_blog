@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-18T13:05:06+00:00",
+  "generated_at": "2026-08-18T13:54:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-75855",
-      "summary": "ArcadeDB versions before 26.8.1 fail to sanitize database names in the POST /api/v1/server endpoint's create database and drop database commands, allowing authenticated root users to write and delete arbitrary files outside the configured database directory. Attackers can supply database names containing ../ sequences to create databases at arbitrary filesystem paths or recursively delete directories the server process can access.",
-      "published": "2026-08-18T12:19:35.997",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75855"
+      "id": "CVE-2026-75874",
+      "summary": "Sandbox escape in the Remote Settings Client component. This vulnerability was fixed in Firefox 154.",
+      "published": "2026-08-18T13:17:43.500",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75874"
     },
     {
-      "id": "CVE-2026-75854",
-      "summary": "ArcadeDB versions before 26.8.1 contain a missing authentication vulnerability in the Redis wire-protocol plugin that allows unauthenticated attackers to read, write, and delete data. Attackers can connect to the Redis port and execute arbitrary commands against any database on the server without providing credentials, bypassing all security gates.",
-      "published": "2026-08-18T12:19:35.860",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75854"
+      "id": "CVE-2026-75783",
+      "summary": "A security vulnerability has been detected in TRENDnet TEW-WLC100P 12.07b01. Affected by this vulnerability is an unknown functionality of the file /sbin/netifd of the component DHCP blobmsg Handler. The manipulation leads to stack-based buffer overflow. The attack must be carried out from within the local network. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-08-18T13:17:43.287",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75783"
     },
     {
-      "id": "CVE-2026-75853",
-      "summary": "ArcadeDB's Gremlin wire-protocol plugin (com.arcadedb:arcadedb-gremlin) in versions <= 26.7.3 enforces authentication (SASL PLAIN) but performs no authorization: it never checks database access permissions (canAccessToDatabase) and never binds the authenticated principal into the engine. As a result, any valid server credential \u2014 even one provisioned for zero or one unrelated database \u2014 can read, write, and drop data in any database on the server by selecting a target database via a traversal-source alias, completely bypassing the engine's per-type/read-only/UPDATE_SCHEMA ACLs. The issue is fixed in version 26.8.1.",
-      "published": "2026-08-18T12:19:35.727",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75853"
+      "id": "CVE-2026-75778",
+      "summary": "A vulnerability was identified in code-projects Task Management System 1.0. This affects the function Operation::select_with_multiple_condition of the file /index.php of the component Login Form. Such manipulation of the argument email leads to sql injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used.",
+      "published": "2026-08-18T13:17:43.097",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75778"
     },
     {
-      "id": "CVE-2026-75852",
-      "summary": "ArcadeDB versions before 26.8.1 fail to enforce SASL authentication on data commands in the MongoDB wire-protocol plugin. Unauthenticated attackers can issue insert, find, update, delete, and create commands against any database by connecting to port 27017 without credentials.",
-      "published": "2026-08-18T12:19:35.593",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75852"
+      "id": "CVE-2026-74990",
+      "summary": "Internally found bugs present in Firefox ESR 115.38, Firefox ESR 140.13, Firefox ESR 153.0 and Firefox 153. Some of these bugs showed evidence of memory corruption or another security-relevant defect and we presume that with enough effort some of these could have been exploited. This vulnerability was fixed in Firefox 154, Firefox ESR 115.39, Firefox ESR 140.14, and Firefox ESR 153.1.",
+      "published": "2026-08-18T13:17:40.930",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74990"
     },
     {
-      "id": "CVE-2026-75851",
-      "summary": "ArcadeDB server (com.arcadedb:arcadedb-server) in versions 26.7.3 and earlier fails to propagate the authenticated principal to asynchronous command worker threads. When an HTTP command is submitted with awaitResponse:false, it executes on an async worker whose DatabaseContext has no bound user, causing the scripting authorization gate to become a no-op. A user with only read access to a single database can submit an asynchronous JavaScript (language=js) command via the /api/v1/command endpoint to run code with unrestricted host access (e.g., database.getSecurity().createUser) and create a server-wide administrator, escalating to full administrative control. Fixed in 26.8.1.",
-      "published": "2026-08-18T12:19:35.457",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75851"
+      "id": "CVE-2026-74989",
+      "summary": "Internally found bugs present in Firefox 153. Some of these bugs showed evidence of memory corruption or another security-relevant defect and we presume that with enough effort some of these could have been exploited. This vulnerability was fixed in Firefox 154.",
+      "published": "2026-08-18T13:17:40.810",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74989"
     },
     {
-      "id": "CVE-2026-75850",
-      "summary": "ArcadeDB before 26.8.1 fails to bind the authenticated principal (setCurrentUser) on its batch and time-series HTTP handlers. Because no principal is bound on the worker thread, the engine's fine-grained per-type ACL layer (LocalBucket.checkPermissionsOnFile) does not execute for these handlers. In deployments that use per-type or per-group ACLs, a user with database access but only limited per-type permissions can read from and write to types they are not authorized to access by submitting requests to the batch/time-series endpoints. Deployments that rely solely on database-level access control are not affected.",
-      "published": "2026-08-18T12:19:35.310",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75850"
+      "id": "CVE-2026-74988",
+      "summary": "Internally found bugs present in Firefox ESR 153.0 and Firefox 153. Some of these bugs showed evidence of memory corruption or another security-relevant defect and we presume that with enough effort some of these could have been exploited. This vulnerability was fixed in Firefox 154 and Firefox ESR 153.1.",
+      "published": "2026-08-18T13:17:40.687",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74988"
     }
   ]
 }
