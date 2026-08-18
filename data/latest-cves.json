@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-08-18T22:39:10+00:00",
+  "generated_at": "2026-08-18T23:33:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-66591",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in David Lingren Media LIbrary Assistant allows Stored XSS.\n\nThis issue affects Media LIbrary Assistant: from n/a through 3.39.",
+      "published": "2026-08-18T23:17:04.917",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66591"
+    },
+    {
+      "id": "CVE-2026-66589",
+      "summary": "Missing Authorization vulnerability in Kings Plugins B2BKing allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects B2BKing: from n/a through 5.2.30.",
+      "published": "2026-08-18T23:17:04.787",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66589"
+    },
+    {
+      "id": "CVE-2026-27365",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in PublishPress PublishPress Series allows Stored XSS.\n\nThis issue affects PublishPress Series: from n/a through 2.17.0.",
+      "published": "2026-08-18T23:16:35.803",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27365"
+    },
     {
       "id": "CVE-2026-73974",
       "summary": "linuxfabrik-lib provides Python modules for database access, caching, shell execution, and API integrations, and Linuxfabrik Monitoring Plugins uses its shared testing helper across check plugins. Prior to linuxfabrik-lib 6.1.0 and Linuxfabrik Monitoring Plugins 7.0.0, lib.lftest.test() treated the first or second element of a --test CSV argument as a filesystem path and returned the file contents as simulated standard output or standard error without path confinement. The hidden but production-accessible --test argument was accepted by sudo-authorized plugins, so an attacker controlling the nagios or icinga account could use check-plugins/deb-updates/deb-updates with its default QUERY=1 to disclose every line of a root-readable file. Approximately 22 other plugins exposed filtered content or a root file existence and readability oracle through the same helper, while check-plugins/network-bonding/network-bonding and check-plugins/openstack-swift-stat/openstack-swift-stat had direct read paths that bypassed the helper. The library fix confines fixture reads to the invoking plugin's unit-test directory and refuses unsafe anchors, and the plugin fix routes the two bypasses through that helper. These issues are fixed in linuxfabrik-lib 6.1.0 and Linuxfabrik Monitoring Plugins 7.0.0.",
@@ -22,27 +43,6 @@
       "published": "2026-08-18T22:17:25.313",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66603"
-    },
-    {
-      "id": "CVE-2026-66602",
-      "summary": "Cross-Site Request Forgery (CSRF) vulnerability in DevItems HashBar \u2013 WordPress Notification Bar allows Cross Site Request Forgery.\n\nThis issue affects HashBar \u2013 WordPress Notification Bar: from n/a through 2.0.0.",
-      "published": "2026-08-18T22:17:25.173",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66602"
-    },
-    {
-      "id": "CVE-2026-62377",
-      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. In 1.23.0 and earlier, a crafted HEIF sequence accepted by heif_context_read_from_memory() can leave the context with no registered sequence tracks and crash when heif_context_get_track(ctx, 0) is called. HeifContext::get_track() in libheif/context.cc executes assert(has_sequence()) before its normal error handling, so assert-enabled builds abort instead of allowing the public wrapper in libheif/api/libheif/heif_sequences.cc to return null. In release builds, removing the assertion lets the track_id zero path dereference m_tracks.begin()->second on an empty map, which is undefined behavior and typically crashes. The issue is reachable through documented public APIs after parsing attacker-controlled bytes. This issue is fixed in version 1.23.1.",
-      "published": "2026-08-18T22:17:03.167",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62377"
-    },
-    {
-      "id": "CVE-2026-62292",
-      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. From 1.19.0 until 1.23.1, a crafted uncompressed HEIF image using generic zlib unci full-item compression can crash an application that decodes an advertised tile with heif_image_handle_decode_image_tile(). In libheif/codecs/uncompressed/unc_decoder.cc, unc_decoder::fetch_tile_data() computes a large tile offset and unc_decoder::get_compressed_image_data_uncompressed() validates it with range_start_offset plus range_size. For the last advertised tile (4095, 4095), the addition can wrap to zero, bypass the bounds check, and pass an invalid source pointer and a one-terabyte length to memcpy. The observed result is an out-of-bounds read and process crash; opening the file alone does not trigger the issue because tile decoding is required. This issue is fixed in version 1.23.1.",
-      "published": "2026-08-18T22:17:03.023",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62292"
     }
   ]
 }
