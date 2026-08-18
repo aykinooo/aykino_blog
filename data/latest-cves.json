@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-18T09:46:39+00:00",
+  "generated_at": "2026-08-18T10:44:07+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-18929",
+      "summary": "Carbone is vulnerable to Denial of Service due to lack of protection against zip bombs when processing .docx files. The library uses yazl for zip decompression without validating entry sizes, allowing an attacker to supply a malicious .docx file containing a zip bomb that decompresses to a significantly larger size, causing excessive memory consumption and crashing the application server.\n\n\n\n\nThe issue was fixed in versions: 3.8.2, 4.26.3 and 5.4.4.\u00a0\u00a0The fix is available across all distribution types.",
+      "published": "2026-08-18T10:16:46.023",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18929"
+    },
     {
       "id": "CVE-2026-43971",
       "summary": "Improper Encoding or Escaping of Output vulnerability in ninenines cowlib allows Link header directive smuggling via unescaped special characters in cow_link:link/1.\n\ncow_link:do_link/1 in cowlib interpolates the target URI, rel value, and attribute keys directly into the serialized Link: header value without escaping or token-grammar validation. A > byte in target prematurely closes the URI slot, allowing an attacker to append additional link entries with attacker-chosen rel directives. A \" or \\ in rel escapes the quoted string and opens new parameters. Any byte \u2014 including whitespace, =, and \" \u2014 in an attribute key is emitted verbatim. Because browsers act on Link: directives such as rel=\"preconnect\", rel=\"preload\", and rel=\"prerender\", an attacker who can influence these fields in an application that round-trips parsed Link headers through cow_link:link/1 can force victim browsers to make out-of-band connections to attacker-controlled origins.\n\nThis issue affects cowlib: from 2.9.0 onward.",
@@ -36,13 +43,6 @@
       "published": "2026-08-18T06:16:44.227",
       "cvss": 7.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75091"
-    },
-    {
-      "id": "CVE-2026-15748",
-      "summary": "The Forminator Forms plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 1.56.1 via the handle_file_upload function. This is due to insufficient file type validation in handle_file_upload, where the dangerous-extension blocklist performs exact-key matching that is bypassed by pipe-alternative MIME type keys, combined with a public submission handler that trusts attacker-controlled upload field configuration injected via a forged Select field value. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible.",
-      "published": "2026-08-18T06:16:40.670",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15748"
     }
   ]
 }
