@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-18T21:35:37+00:00",
+  "generated_at": "2026-08-18T22:39:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76047",
-      "summary": "Type confusion in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-08-18T21:18:28.863",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76047"
+      "id": "CVE-2026-73974",
+      "summary": "linuxfabrik-lib provides Python modules for database access, caching, shell execution, and API integrations, and Linuxfabrik Monitoring Plugins uses its shared testing helper across check plugins. Prior to linuxfabrik-lib 6.1.0 and Linuxfabrik Monitoring Plugins 7.0.0, lib.lftest.test() treated the first or second element of a --test CSV argument as a filesystem path and returned the file contents as simulated standard output or standard error without path confinement. The hidden but production-accessible --test argument was accepted by sudo-authorized plugins, so an attacker controlling the nagios or icinga account could use check-plugins/deb-updates/deb-updates with its default QUERY=1 to disclose every line of a root-readable file. Approximately 22 other plugins exposed filtered content or a root file existence and readability oracle through the same helper, while check-plugins/network-bonding/network-bonding and check-plugins/openstack-swift-stat/openstack-swift-stat had direct read paths that bypassed the helper. The library fix confines fixture reads to the invoking plugin's unit-test directory and refuses unsafe anchors, and the plugin fix routes the two bypasses through that helper. These issues are fixed in linuxfabrik-lib 6.1.0 and Linuxfabrik Monitoring Plugins 7.0.0.",
+      "published": "2026-08-18T22:17:33.840",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73974"
     },
     {
-      "id": "CVE-2026-76046",
-      "summary": "Buffer overflow in ANGLE in Google Chrome on on Android prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-08-18T21:18:28.750",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76046"
+      "id": "CVE-2026-73973",
+      "summary": "Linuxfabrik Monitoring Plugins provides monitoring plugins for Icinga, Nagios, and related systems. Prior to version 7.0.0, check-plugins/logfile/logfile accepted a free-form --filename path and opened it as root when invoked through the shipped nagios or icinga sudoers allowlist, without confining the resolved path to /var/log. An attacker who controls the monitoring account can select a root-readable file such as /etc/shadow and use --warning-regex . while leaving SUPPRESS_OUTPUT false, causing each nonempty line to be collected in warn_matches and returned through lib.base.oao(). The vulnerable flow passes the expanded scan_path directly to open(), and neither real-path containment nor an allowlist protects the sink. The same fix also confines mysql-logfile and openvpn-client-list paths, allows only documented log roots, and resolves symlinks and parent-directory traversal before checking containment. This issue is fixed in version 7.0.0.",
+      "published": "2026-08-18T22:17:33.667",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73973"
     },
     {
-      "id": "CVE-2026-76045",
-      "summary": "Use after free in WebGL in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-08-18T21:18:28.643",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76045"
+      "id": "CVE-2026-66603",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in David Artiss Draft List simple-draft-list allows Stored XSS.\n\nThis issue affects Draft List: from n/a through 2.6.4.",
+      "published": "2026-08-18T22:17:25.313",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66603"
     },
     {
-      "id": "CVE-2026-76044",
-      "summary": "Race condition in USB in Google Chrome prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-08-18T21:18:28.530",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76044"
+      "id": "CVE-2026-66602",
+      "summary": "Cross-Site Request Forgery (CSRF) vulnerability in DevItems HashBar \u2013 WordPress Notification Bar allows Cross Site Request Forgery.\n\nThis issue affects HashBar \u2013 WordPress Notification Bar: from n/a through 2.0.0.",
+      "published": "2026-08-18T22:17:25.173",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66602"
     },
     {
-      "id": "CVE-2026-76043",
-      "summary": "Incorrect calculation in V8 in Google Chrome prior to 151.0.7922.169 allowed a remote attacker to execute arbitrary code inside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-08-18T21:18:28.407",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76043"
+      "id": "CVE-2026-62377",
+      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. In 1.23.0 and earlier, a crafted HEIF sequence accepted by heif_context_read_from_memory() can leave the context with no registered sequence tracks and crash when heif_context_get_track(ctx, 0) is called. HeifContext::get_track() in libheif/context.cc executes assert(has_sequence()) before its normal error handling, so assert-enabled builds abort instead of allowing the public wrapper in libheif/api/libheif/heif_sequences.cc to return null. In release builds, removing the assertion lets the track_id zero path dereference m_tracks.begin()->second on an empty map, which is undefined behavior and typically crashes. The issue is reachable through documented public APIs after parsing attacker-controlled bytes. This issue is fixed in version 1.23.1.",
+      "published": "2026-08-18T22:17:03.167",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62377"
     },
     {
-      "id": "CVE-2026-76042",
-      "summary": "Use of uninitialized resource in GPU in Google Chrome prior to 151.0.7922.169 allowed a remote attacker who had compromised the renderer process to read memory outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-08-18T21:18:28.283",
+      "id": "CVE-2026-62292",
+      "summary": "libheif is a HEIF and AVIF file format decoder and encoder. From 1.19.0 until 1.23.1, a crafted uncompressed HEIF image using generic zlib unci full-item compression can crash an application that decodes an advertised tile with heif_image_handle_decode_image_tile(). In libheif/codecs/uncompressed/unc_decoder.cc, unc_decoder::fetch_tile_data() computes a large tile offset and unc_decoder::get_compressed_image_data_uncompressed() validates it with range_start_offset plus range_size. For the last advertised tile (4095, 4095), the addition can wrap to zero, bypass the bounds check, and pass an invalid source pointer and a one-terabyte length to memcpy. The observed result is an out-of-bounds read and process crash; opening the file alone does not trigger the issue because tile decoding is required. This issue is fixed in version 1.23.1.",
+      "published": "2026-08-18T22:17:03.023",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76042"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62292"
     }
   ]
 }
