@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-19T19:36:01+00:00",
+  "generated_at": "2026-08-19T20:43:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-75619",
-      "summary": "Tapo\nC100/C101 V5 contains a heap-based buffer overflow vulnerability in the RTSP\nservice. An authenticated attacker on the local network can send specially\ncrafted RTSP frame data containing oversized length values, resulting in\nout-of-bounds heap writes. \n\n\n\n\n\nSuccessful\nexploitation can crash the RTSP service and trigger a device reboot, resulting\nin a temporary denial-of-service condition.",
-      "published": "2026-08-19T19:17:24.760",
+      "id": "CVE-2026-76647",
+      "summary": "Leantime JSON-RPC API through version 3.9.0 contains a missing authorization vulnerability in the JSON-RPC dispatcher in app/Domain/Api/Controllers/Jsonrpc.php. The dispatcher does not enforce authorization before invoking service-layer methods, allowing an authenticated user to call methods or act on resources outside their intended permissions. For example, the editOwn method accepts a user-supplied user ID without verifying that it belongs to the caller, allowing an attacker to modify another user's account and set a new password, resulting in account takeover. This vulnerability is distinct from CVE-2026-59712 and CVE-2026-15509 because the root cause is the lack of centralized authorization enforcement in the JSON-RPC dispatcher rather than the behavior of an individual exposed method.",
+      "published": "2026-08-19T20:17:24.013",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75619"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76647"
     },
     {
-      "id": "CVE-2026-75618",
-      "summary": "Tapo C100/C101 V5 contains a null pointer dereference vulnerability in the RTSP service. An attacker on the local network can send specially crafted requests that cause the service to dereference an invalid pointer, resulting in a service crash and device reboot. Successful exploitation can disrupt live video streaming functionality and cause a temporary denial-of-service condition.",
-      "published": "2026-08-19T19:17:24.630",
+      "id": "CVE-2026-76574",
+      "summary": "A flaw has been found in code-projects Hospital Information System 1.0. The impacted element is the function User::login of the file includes/users/UsersController.php of the component User Login Handler. This manipulation of the argument email causes sql injection. The attack is possible to be carried out remotely. The exploit has been published and may be used.",
+      "published": "2026-08-19T20:17:23.830",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76574"
+    },
+    {
+      "id": "CVE-2026-76572",
+      "summary": "A vulnerability was detected in pkp pkp-lib up to 3.3.0-22/3.4.0-10/3.5.0-4. The affected element is the function _transformPHP of the file classes/xslt/XSLTransformer.php. The manipulation results in xml external entity reference. The attack can be executed remotely. Upgrading to version 3.3.0-23, 3.4.0-11 and 3.5.0-5 is sufficient to fix this issue. The patch is identified as 78c699370ea43ae2784e1c4ace7c947d207f2b47. Upgrading the affected component is advised.",
+      "published": "2026-08-19T20:17:23.627",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76572"
+    },
+    {
+      "id": "CVE-2026-75593",
+      "summary": "BuildKit is a toolkit for converting source code to build artifacts in an efficient, expressive and repeatable manner. Prior to 0.31.2, a custom client can produce such an upload request to the BuildKit daemon that files can escape from the BuildKit-controlled state directory. The client needs to have valid permissions to access BuildKit control API to issue builds, eg., bypass authentication, etc. This issue is fixed in version 0.31.2.",
+      "published": "2026-08-19T20:17:23.203",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75618"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75593"
     },
     {
-      "id": "CVE-2026-70496",
-      "summary": "A flaw was found in search-v2-operator. The operator's ClusterRole has permissions equivalent to a cluster administrator, allowing it to impersonate other entities, write Role-Based Access Control (RBAC) configurations, approve Certificate Signing Requests (CSRs), and manage ManifestWork. This grants excessive privileges beyond what is necessary for the operator's intended function, potentially leading to privilege escalation within the cluster.",
-      "published": "2026-08-19T19:17:23.230",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70496"
-    },
-    {
-      "id": "CVE-2026-61807",
-      "summary": "Snipe-IT is an IT asset/license management system. Prior to 8.6.2, a stored manufacturer or supplier name passed as the table component $name becomes data-selected-count-id in resources/views/partials/bootstrap-table.blade.php. Client-side code reads the browser-decoded countId, uses it as a selector, concatenates countId.substring(1) into an HTML string, and passes the string to jQuery .after(). A crafted name can therefore execute JavaScript when an authenticated user views the manufacturer detail page or supplier detail page, potentially exposing data or actions available to that session. This issue is fixed in version 8.6.2.",
-      "published": "2026-08-19T19:17:21.433",
+      "id": "CVE-2026-75112",
+      "summary": "A security issue exists within OTTO\u00ae Fleet Manager. The vulnerability stems from the use of an insufficient work factor in the bcrypt password hashing implementation, which could reduce the computational cost required for an attacker to perform offline brute-force attacks against stored password hashes. If an attacker gains access to an unencrypted system backup, the weakly hashed credentials could be more easily compromised.",
+      "published": "2026-08-19T20:17:23.037",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61807"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75112"
     },
     {
-      "id": "CVE-2026-55703",
-      "summary": "Snipe-IT is an IT asset/license management system. Prior to 8.6.3, any activated account can request /maintenances/{id} and read maintenance records for assets in the same company without asset or maintenance permission. app/Http/Controllers/MaintenancesController.php show() renders the record without authorize(), while company-scoped route-model binding only prevents access to other companies. Disclosed fields include asset tags, suppliers, purchase costs, notes, and dates. This issue is fixed in version 8.6.3.",
-      "published": "2026-08-19T19:17:20.813",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55703"
-    },
-    {
-      "id": "CVE-2026-55694",
-      "summary": "Snipe-IT is an IT asset/license management system. Prior to 8.6.3, a restricted user can request /api/v1/users/{target_id}/eulas to obtain another user's randomized EULA filename and then download the signed file through /account/stored-eula-file/{filename}. The primary /stored-eula-file/{filename} route correctly denies access, but app/Http/Controllers/ProfileController.php and app/Http/Controllers/Api/UsersController.php do not consistently enforce ownership and target-user authorization. This issue is fixed in version 8.6.3.",
-      "published": "2026-08-19T19:17:20.680",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55694"
+      "id": "CVE-2026-68901",
+      "summary": "Wekan is open source kanban built with Meteor. Prior to 10.38, the /api/boards/:boardId/export, /api/boards/:boardId/attachments/:attachmentId/export, /api/boards/:boardId/export/csv, and /api/boards/:boardId/exportExcel handlers in models/export.js and models/exportExcel.js looked up a user from the attacker-controlled authToken query parameter and immediately called user._id.toString() without checking whether ReactiveCache.getUser() returned undefined. A request for a private board with an unknown token therefore threw a TypeError from an asynchronous route, producing an unhandled rejection that could terminate the Wekan process and deny service to all users. Version 10.38 adds a 401 guard after every export token lookup and wraps export handlers with safeRoute() so unexpected exceptions become controlled responses. This issue is fixed in version 10.38.",
+      "published": "2026-08-19T20:17:21.900",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68901"
     }
   ]
 }
