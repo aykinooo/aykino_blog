@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-19T15:43:39+00:00",
+  "generated_at": "2026-08-19T16:44:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76614",
-      "summary": "OpenEMR before 8.3.0 contains a path traversal vulnerability in the EDI archive restore function. The archrestore_sel POST parameter is passed to the archive restore handler without sanitization for path traversal sequences. The handler checks whether the supplied path exists on the filesystem, and the differing response messages leak whether the target path exists. An authenticated user with EOB Data Entry permissions can probe arbitrary filesystem paths on the server to determine file existence.",
-      "published": "2026-08-19T15:18:11.353",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76614"
+      "id": "CVE-2026-64852",
+      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content. Prior to 1.0.8, the Grav API plugin intercepts the apiKeyGenerate and apiKeyRevoke admin tasks in user/plugins/api/api.php and authorizes the caller with only admin.login. A basic panel user can select another account from the route, create a persistent ApiKeyManager credential bound to that target, and inherit the target's API permissions, including api.super or administrative write access when present. This issue is fixed in version 1.0.8.",
+      "published": "2026-08-19T16:18:40.040",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64852"
     },
     {
-      "id": "CVE-2026-76203",
-      "summary": "Incorrect Behavior Order: Validate Before Canonicalize in the report theme CSS sanitizer\nin maalfer Pentestify 1.2.0 through 2.3.2 allows an authenticated user to force outbound\nHTTP requests from other users' browsers, disclosing their IP address and User-Agent, via\nCSS hex escapes that reconstruct the url() function and evade the sanitizer blocklist",
-      "published": "2026-08-19T15:18:10.450",
+      "id": "CVE-2026-64851",
+      "summary": "Grav Shortcode Core Plugin allows for the development shortcode plugins that utilize the common format utilized by WordPress and BBCode. Prior to 6.2.2, Grav Shortcode Core passes shortcode syntax through Security::detectXss() because it contains no literal less-than character, then ColorShortcode.php and related attribute handlers concatenate an attacker-controlled parameter into HTML without encoding. An account with admin.pages permission can close the generated attribute and add an event handler, creating stored cross-site scripting that executes for visitors or administrators who view the page. This issue is fixed in version 6.2.2.",
+      "published": "2026-08-19T16:18:39.897",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76203"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64851"
     },
     {
-      "id": "CVE-2026-75956",
-      "summary": "Joomla Extension - cmsjunkie.com - DOS vector in pagination parameter handling in J-BusinessDirectory < 6.2.3 - Pagination values were not strictly typed. Array/non-numeric values (for example limitstart[]) could trigger PHP type errors in arithmetic, and limit was not validated before use in list queries.",
-      "published": "2026-08-19T15:18:10.313",
+      "id": "CVE-2026-64850",
+      "summary": "Grav is a file-based Web platform. Prior to 2.0.7, Grav Blueprint::dynamicData() in system/src/Grav/Common/Data/Blueprint.php sends an editor-controlled Class::method provider and arguments to call_user_func_array() without rejecting dangerous callback parameters. An account with admin.pages or api.pages.write can use Grav\\Common\\Utils::arrayFilterRecursive() as a trampoline with system as the callback, place a command in page frontmatter, and execute that command as the web server user when the page is viewed. This issue is fixed in version 2.0.7.",
+      "published": "2026-08-19T16:18:39.760",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75956"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64850"
     },
     {
-      "id": "CVE-2026-75955",
-      "summary": "Joomla Extension - cmsjunkie.com - Reflected XSS / XML injection in J-BusinessDirectory < 6.2.3 - companyName from the request was written unescaped into an XML attribute.",
-      "published": "2026-08-19T15:18:10.183",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75955"
+      "id": "CVE-2026-63408",
+      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content.  Prior to 1.0.0-rc.16, the Grav API plugin JwtAuthenticator::extractBearerToken() accepts a JWT from the token URL query parameter on every /api/v1 route, including state-changing endpoints. Request URLs consequently expose valid access tokens through Apache, proxy, and CDN logs, browser history, and Referer headers, allowing a party with access to those records to reuse the token with the owner's API privileges. This issue is fixed in version 1.0.0-rc.16.",
+      "published": "2026-08-19T16:18:38.013",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63408"
     },
     {
-      "id": "CVE-2026-75954",
-      "summary": "Joomla Extension - cmsjunkie.com -  SQL injection in trips search in J-BusinessDirectory < 6.2.3 - Search keywords and ORDER BY were concatenated into SQL. 6.2.3 quotes keywords and allow-lists the sort clause.",
-      "published": "2026-08-19T15:18:10.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75954"
+      "id": "CVE-2026-63407",
+      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content. Prior to 1.0.0-rc.16, the Grav API plugin CorsMiddleware returns Access-Control-Allow-Origin: * and permissive OPTIONS responses for authenticated /api/v1 endpoints. JavaScript from any origin can submit an attacker-obtained JWT through the Authorization or X-API-Token header, read the authenticated response, and perform write operations with the token owner's privileges, enabling data exfiltration and account modification. This issue is fixed in version 1.0.0-rc.16.",
+      "published": "2026-08-19T16:18:37.863",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63407"
     },
     {
-      "id": "CVE-2026-75953",
-      "summary": "Joomla Extension - cmsjunkie.com -  Open mail relay in J-BusinessDirectory < 6.2.3 - Recipient address was taken from the request (contact_id_offer / contact_id_event) instead of the server-side offer/event record, so mail could be sent to an arbitrary address.",
-      "published": "2026-08-19T15:18:09.940",
+      "id": "CVE-2026-62673",
+      "summary": "Grav is a file-based Web platform. Prior to 2.0.4, the Grav .htaccess and webserver-configs/htaccess.txt security rules omit the Apache [NC] flag and therefore compare sensitive directory and file-extension patterns case-sensitively. On a case-insensitive filesystem, an unauthenticated requester can use uppercase directory or extension variants to bypass the rules and retrieve files under user/accounts or user/config, including password hashes and security configuration. This issue is fixed in version 2.0.4.",
+      "published": "2026-08-19T16:18:20.353",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75953"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62673"
     }
   ]
 }
