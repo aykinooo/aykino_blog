@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-19T14:50:56+00:00",
+  "generated_at": "2026-08-19T15:43:39+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76245",
-      "summary": "stigmem (pip package stigmem-node) version 0.9.0a1 contains a timestamp-handling mismatch in federation peer-token validation that can cause valid peer tokens to be incorrectly treated as expired. This affects the availability and reliability of authenticated federation flows on nodes using federation peer authentication paths. The issue is fixed in 0.9.0a2, which uses the canonical millisecond-based validation path.",
-      "published": "2026-08-19T14:17:56.957",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76245"
+      "id": "CVE-2026-76614",
+      "summary": "OpenEMR before 8.3.0 contains a path traversal vulnerability in the EDI archive restore function. The archrestore_sel POST parameter is passed to the archive restore handler without sanitization for path traversal sequences. The handler checks whether the supplied path exists on the filesystem, and the differing response messages leak whether the target path exists. An authenticated user with EOB Data Entry permissions can probe arbitrary filesystem paths on the server to determine file existence.",
+      "published": "2026-08-19T15:18:11.353",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76614"
     },
     {
-      "id": "CVE-2026-76244",
-      "summary": "stigmem-node contains an insecure default configuration vulnerability that allows federation traffic to traverse networks without mTLS protection when non-loopback endpoints are enabled. Operators who explicitly disabled mTLS while binding federation to non-loopback addresses expose federation traffic to cleartext interception and man-in-the-middle attacks.",
-      "published": "2026-08-19T14:17:56.827",
+      "id": "CVE-2026-76203",
+      "summary": "Incorrect Behavior Order: Validate Before Canonicalize in the report theme CSS sanitizer\nin maalfer Pentestify 1.2.0 through 2.3.2 allows an authenticated user to force outbound\nHTTP requests from other users' browsers, disclosing their IP address and User-Agent, via\nCSS hex escapes that reconstruct the url() function and evade the sanitizer blocklist",
+      "published": "2026-08-19T15:18:10.450",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76244"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76203"
     },
     {
-      "id": "CVE-2026-76243",
-      "summary": "stigmem versions before 0.9.0a2 allow unauthenticated access when authentication is disabled on non-loopback deployments. Attackers can perform read, write, and federation operations with anonymous identity when nodes are exposed outside local development environments.",
-      "published": "2026-08-19T14:17:56.693",
+      "id": "CVE-2026-75956",
+      "summary": "Joomla Extension - cmsjunkie.com - DOS vector in pagination parameter handling in J-BusinessDirectory < 6.2.3 - Pagination values were not strictly typed. Array/non-numeric values (for example limitstart[]) could trigger PHP type errors in arithmetic, and limit was not validated before use in list queries.",
+      "published": "2026-08-19T15:18:10.313",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76243"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75956"
     },
     {
-      "id": "CVE-2026-76242",
-      "summary": "stigmem-node 0.9.0a1 accepts federation peer key material during peer registration without a separate administrator out-of-band fingerprint approval step. On nodes that accept federation peer registration over a network where initial registration can be intercepted or misdirected, an attacker can register a malicious peer and gain access to or tamper with federation traffic. Fixed in 0.9.0a2, which introduces a pending approval flow requiring administrator fingerprint verification before peer tokens are accepted.",
-      "published": "2026-08-19T14:17:56.567",
+      "id": "CVE-2026-75955",
+      "summary": "Joomla Extension - cmsjunkie.com - Reflected XSS / XML injection in J-BusinessDirectory < 6.2.3 - companyName from the request was written unescaped into an XML attribute.",
+      "published": "2026-08-19T15:18:10.183",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76242"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75955"
     },
     {
-      "id": "CVE-2026-76241",
-      "summary": "stigmem-node 0.9.0a1 allows plugin signature enforcement to be disabled via a single configuration flag without a second explicit acknowledgment. If that setting is carried into an environment where plugin directories are writable by less-trusted users, unsigned (potentially malicious) plugin code could be loaded and executed, resulting in arbitrary code execution. Fixed in 0.9.0a2, which requires a second explicit acknowledgment to disable signature enforcement.",
-      "published": "2026-08-19T14:17:56.430",
+      "id": "CVE-2026-75954",
+      "summary": "Joomla Extension - cmsjunkie.com -  SQL injection in trips search in J-BusinessDirectory < 6.2.3 - Search keywords and ORDER BY were concatenated into SQL. 6.2.3 quotes keywords and allow-lists the sort clause.",
+      "published": "2026-08-19T15:18:10.053",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76241"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75954"
     },
     {
-      "id": "CVE-2026-76240",
-      "summary": "stigmem-node 0.9.0a1 interpolates Postgres backend schema identifiers into SQL strings without defensive quoting. In the affected code path the schema value is operator-controlled, but the unsafe pattern could allow SQL injection if a schema name were derived from tenant, request, or user input. Fixed in 0.9.0a2, which adds identifier quoting and validation. As a workaround, only configure schema names from trusted deployment configuration.",
-      "published": "2026-08-19T14:17:56.300",
+      "id": "CVE-2026-75953",
+      "summary": "Joomla Extension - cmsjunkie.com -  Open mail relay in J-BusinessDirectory < 6.2.3 - Recipient address was taken from the request (contact_id_offer / contact_id_event) instead of the server-side offer/event record, so mail could be sent to an arbitrary address.",
+      "published": "2026-08-19T15:18:09.940",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76240"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75953"
     }
   ]
 }
