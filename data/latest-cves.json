@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-19T10:44:12+00:00",
+  "generated_at": "2026-08-19T11:36:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-16440",
+      "summary": "In Eclipse OpenJ9 versions up to 0.60, a crafted .class file with deeply nested annotations causes a segmentation fault.",
+      "published": "2026-08-19T11:16:46.183",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16440"
+    },
     {
       "id": "CVE-2026-76166",
       "summary": "A flaw was found in mod_cluster's AdvertiseListenerImpl (org.jboss.modcluster core module). A single crafted UDP multicast datagram with a valid HTTP status line and a \"Server:\" header but without the \"Date:\", \"Digest:\", and \"Sequence:\" headers triggers a NullPointerException in verifyDigest() that is not caught by the worker thread's exception handler. This causes the advertise listener thread to terminate permanently. The failure is silent (isListening() continues to return true) and persists until the node is restarted. The crash occurs before the AdvertiseSecurityKey comparison, so deployments with a configured security key are still affected.",
@@ -36,13 +43,6 @@
       "published": "2026-08-19T08:17:13.833",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72889"
-    },
-    {
-      "id": "CVE-2026-58088",
-      "summary": "The ELF core dump code counted the number of dumpable VM map entries, allocated a buffer for the corresponding program headers, then iterated over the map a second time to populate them.  A process sharing the address space via rfork(2) can mutate the map between the two passes, causing the second pass to write program headers past the end of the buffer.\n\nAn unprivileged local user sharing an address space with a process that dumps core can trigger an out-of-bounds write on the kernel heap, potentially leading to privilege escalation.",
-      "published": "2026-08-19T08:17:12.983",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58088"
     }
   ]
 }
