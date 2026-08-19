@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-19T13:55:16+00:00",
+  "generated_at": "2026-08-19T14:50:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76235",
-      "summary": "A memory leak flaw was found in cockpit-ws. The login page handler leaks a heap allocation on every unauthenticated request that carries a CockpitLang cookie, allowing a remote unauthenticated attacker to exhaust memory on the host and cause a denial of service.",
-      "published": "2026-08-19T13:18:11.637",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76235"
+      "id": "CVE-2026-76245",
+      "summary": "stigmem (pip package stigmem-node) version 0.9.0a1 contains a timestamp-handling mismatch in federation peer-token validation that can cause valid peer tokens to be incorrectly treated as expired. This affects the availability and reliability of authenticated federation flows on nodes using federation peer authentication paths. The issue is fixed in 0.9.0a2, which uses the canonical millisecond-based validation path.",
+      "published": "2026-08-19T14:17:56.957",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76245"
     },
     {
-      "id": "CVE-2026-73394",
-      "summary": "Unauthenticated Broken Access Control in Stitch Express <= 1.9.0 versions.",
-      "published": "2026-08-19T13:18:08.670",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73394"
+      "id": "CVE-2026-76244",
+      "summary": "stigmem-node contains an insecure default configuration vulnerability that allows federation traffic to traverse networks without mTLS protection when non-loopback endpoints are enabled. Operators who explicitly disabled mTLS while binding federation to non-loopback addresses expose federation traffic to cleartext interception and man-in-the-middle attacks.",
+      "published": "2026-08-19T14:17:56.827",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76244"
     },
     {
-      "id": "CVE-2026-73391",
-      "summary": "Unauthenticated SQL Injection in Total Donations <= 2.0.5 versions.",
-      "published": "2026-08-19T13:18:08.547",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73391"
+      "id": "CVE-2026-76243",
+      "summary": "stigmem versions before 0.9.0a2 allow unauthenticated access when authentication is disabled on non-loopback deployments. Attackers can perform read, write, and federation operations with anonymous identity when nodes are exposed outside local development environments.",
+      "published": "2026-08-19T14:17:56.693",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76243"
     },
     {
-      "id": "CVE-2026-73390",
-      "summary": "Unauthenticated Privilege Escalation in Total Donations <= 2.0.5 versions.",
-      "published": "2026-08-19T13:18:08.417",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73390"
+      "id": "CVE-2026-76242",
+      "summary": "stigmem-node 0.9.0a1 accepts federation peer key material during peer registration without a separate administrator out-of-band fingerprint approval step. On nodes that accept federation peer registration over a network where initial registration can be intercepted or misdirected, an attacker can register a malicious peer and gain access to or tamper with federation traffic. Fixed in 0.9.0a2, which introduces a pending approval flow requiring administrator fingerprint verification before peer tokens are accepted.",
+      "published": "2026-08-19T14:17:56.567",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76242"
     },
     {
-      "id": "CVE-2026-73389",
-      "summary": "Unauthenticated PHP Object Injection in Kalles Addons <= 1.0.6 versions.",
-      "published": "2026-08-19T13:18:08.283",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73389"
+      "id": "CVE-2026-76241",
+      "summary": "stigmem-node 0.9.0a1 allows plugin signature enforcement to be disabled via a single configuration flag without a second explicit acknowledgment. If that setting is carried into an environment where plugin directories are writable by less-trusted users, unsigned (potentially malicious) plugin code could be loaded and executed, resulting in arbitrary code execution. Fixed in 0.9.0a2, which requires a second explicit acknowledgment to disable signature enforcement.",
+      "published": "2026-08-19T14:17:56.430",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76241"
     },
     {
-      "id": "CVE-2026-73388",
-      "summary": "Unauthenticated SQL Injection in Nikstore Core <= 1.5 versions.",
-      "published": "2026-08-19T13:18:08.160",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73388"
+      "id": "CVE-2026-76240",
+      "summary": "stigmem-node 0.9.0a1 interpolates Postgres backend schema identifiers into SQL strings without defensive quoting. In the affected code path the schema value is operator-controlled, but the unsafe pattern could allow SQL injection if a schema name were derived from tenant, request, or user input. Fixed in 0.9.0a2, which adds identifier quoting and validation. As a workaround, only configure schema names from trusted deployment configuration.",
+      "published": "2026-08-19T14:17:56.300",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76240"
     }
   ]
 }
