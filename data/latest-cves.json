@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-19T16:44:28+00:00",
+  "generated_at": "2026-08-19T17:37:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-64852",
-      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content. Prior to 1.0.8, the Grav API plugin intercepts the apiKeyGenerate and apiKeyRevoke admin tasks in user/plugins/api/api.php and authorizes the caller with only admin.login. A basic panel user can select another account from the route, create a persistent ApiKeyManager credential bound to that target, and inherit the target's API permissions, including api.super or administrative write access when present. This issue is fixed in version 1.0.8.",
-      "published": "2026-08-19T16:18:40.040",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64852"
+      "id": "CVE-2026-75583",
+      "summary": "keeper.sh's calendar module version prior to 2.18.14 contains a server-side request forgery (SSRF) guard bypass vulnerability that allows authenticated attackers to reach private network addresses by exploiting a DNS rebinding attack against the two-phase URL validation and connection flow. The SSRF guard validates a hostname's resolved IP addresses but discards them before the actual HTTP connection is opened, allowing an attacker who controls authoritative DNS to return a public address during validation and a private address during the subsequent independent socket-level DNS resolution, causing the guard to pass while the outbound connection reaches internal infrastructure such as cloud instance metadata endpoints.",
+      "published": "2026-08-19T17:21:13.430",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75583"
     },
     {
-      "id": "CVE-2026-64851",
-      "summary": "Grav Shortcode Core Plugin allows for the development shortcode plugins that utilize the common format utilized by WordPress and BBCode. Prior to 6.2.2, Grav Shortcode Core passes shortcode syntax through Security::detectXss() because it contains no literal less-than character, then ColorShortcode.php and related attribute handlers concatenate an attacker-controlled parameter into HTML without encoding. An account with admin.pages permission can close the generated attribute and add an event handler, creating stored cross-site scripting that executes for visitors or administrators who view the page. This issue is fixed in version 6.2.2.",
-      "published": "2026-08-19T16:18:39.897",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64851"
+      "id": "CVE-2026-75147",
+      "summary": "FFmpeg before commit 983dae9 contains an out-of-bounds read in the AV1 RTP packetizer (libavformat/rtpenc_av1.c). The keyframe detection loop that searches for a sequence header OBU advanced its pointer and remaining-size counter by the encoded header length plus the OBU payload size without first bounding the OBU size against the remaining data. A crafted OBU size causes the remaining-size counter to wrap to a positive value, causing the next loop iteration to dereference a pointer beyond the end of the packet buffer. A crafted AV1 input packet muxed to RTP triggers the out-of-bounds read.",
+      "published": "2026-08-19T17:21:13.290",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75147"
     },
     {
-      "id": "CVE-2026-64850",
-      "summary": "Grav is a file-based Web platform. Prior to 2.0.7, Grav Blueprint::dynamicData() in system/src/Grav/Common/Data/Blueprint.php sends an editor-controlled Class::method provider and arguments to call_user_func_array() without rejecting dangerous callback parameters. An account with admin.pages or api.pages.write can use Grav\\Common\\Utils::arrayFilterRecursive() as a trampoline with system as the callback, place a command in page frontmatter, and execute that command as the web server user when the page is viewed. This issue is fixed in version 2.0.7.",
-      "published": "2026-08-19T16:18:39.760",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64850"
+      "id": "CVE-2026-75146",
+      "summary": "FFmpeg before commit 65b0dab contains an out-of-bounds read in the DASH demuxer (libavformat/dashdec.c). When a live DASH manifest is refreshed with a startNumber that is lower than the previous value, the current sequence number is driven negative. The fragment retrieval function checked only the upper bound before indexing the fragments array, allowing a negative index to be used and causing an out-of-bounds read. A malicious or misconfigured DASH server can trigger this by serving a live manifest with a decreasing startNumber across a manifest refresh.",
+      "published": "2026-08-19T17:21:13.057",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75146"
     },
     {
-      "id": "CVE-2026-63408",
-      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content.  Prior to 1.0.0-rc.16, the Grav API plugin JwtAuthenticator::extractBearerToken() accepts a JWT from the token URL query parameter on every /api/v1 route, including state-changing endpoints. Request URLs consequently expose valid access tokens through Apache, proxy, and CDN logs, browser history, and Referer headers, allowing a party with access to those records to reuse the token with the owner's API privileges. This issue is fixed in version 1.0.0-rc.16.",
-      "published": "2026-08-19T16:18:38.013",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63408"
+      "id": "CVE-2026-75145",
+      "summary": "FFmpeg before commit b4c199c contains an incorrect integer narrowing conversion in the AV1 RTP packetizer (libavformat/rtpenc_av1.c). The OBU size is cast to long before comparison against the remaining frame size. On targets where long is 32 bits, including 64-bit Windows, sufficiently large OBU size values are sign-flipped by the narrowing cast, producing a negative value that passes the payload size check. This allows an oversized OBU to bypass the safety bound on affected platforms, leading to out-of-bounds memory access when the oversized value is subsequently used as a copy length.",
+      "published": "2026-08-19T17:21:12.863",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75145"
     },
     {
-      "id": "CVE-2026-63407",
-      "summary": "Grav API Plugin is a RESTful API for Grav CMS that provides full headless access to your site's content. Prior to 1.0.0-rc.16, the Grav API plugin CorsMiddleware returns Access-Control-Allow-Origin: * and permissive OPTIONS responses for authenticated /api/v1 endpoints. JavaScript from any origin can submit an attacker-obtained JWT through the Authorization or X-API-Token header, read the authenticated response, and perform write operations with the token owner's privileges, enabling data exfiltration and account modification. This issue is fixed in version 1.0.0-rc.16.",
-      "published": "2026-08-19T16:18:37.863",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63407"
+      "id": "CVE-2026-75144",
+      "summary": "FFmpeg before commit 1cdeb3c contains a heap buffer overflow vulnerability in the VC-2/Dirac RTP packetizer (libavformat/rtpenc_vc2hq.c) that allows attackers to trigger memory corruption by supplying a crafted Dirac data unit. The packetizer copies an input-derived data unit or fragment size into a fixed-size buffer without an upper bound check, causing a heap buffer overflow when the crafted input is packetized for RTP output.",
+      "published": "2026-08-19T17:21:12.720",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75144"
     },
     {
-      "id": "CVE-2026-62673",
-      "summary": "Grav is a file-based Web platform. Prior to 2.0.4, the Grav .htaccess and webserver-configs/htaccess.txt security rules omit the Apache [NC] flag and therefore compare sensitive directory and file-extension patterns case-sensitively. On a case-insensitive filesystem, an unauthenticated requester can use uppercase directory or extension variants to bypass the rules and retrieve files under user/accounts or user/config, including password hashes and security configuration. This issue is fixed in version 2.0.4.",
-      "published": "2026-08-19T16:18:20.353",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62673"
+      "id": "CVE-2026-75143",
+      "summary": "FFmpeg before commit 1c10bcc contains a heap buffer overflow in the RIST protocol reader (libavformat/librist.c). librist_read() ignored its size argument and copied the full received payload length into the caller-provided destination buffer, overflowing it when the payload exceeds the destination size. This is reachable via the async:rist:// URL scheme, where the async wrapper supplies a smaller buffer than the received payload. A remote RIST sender can trigger the overflow by sending a packet whose payload exceeds the caller buffer size.",
+      "published": "2026-08-19T17:21:12.577",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75143"
     }
   ]
 }
