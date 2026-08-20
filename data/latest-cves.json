@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-20T20:43:45+00:00",
+  "generated_at": "2026-08-20T21:41:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77151",
-      "summary": "A security flaw has been discovered in lin-snow Ech0 up to 5.4.1. Affected by this issue is the function MD5Encrypt of the file internal/util/crypto/crypto.go. Performing a manipulation results in risky cryptographic algorithm. Remote exploitation of the attack is possible. The complexity of an attack is rather high. The exploitation is known to be difficult. Upgrading to version 5.4.2 can resolve this issue. The patch is named 9ce19a3b0d0765086a655f45d3a706ec1810404f. It is recommended to upgrade the affected component.",
-      "published": "2026-08-20T20:17:47.253",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77151"
-    },
-    {
-      "id": "CVE-2026-75910",
-      "summary": "Incorrect privilege assignment in the ClickHouse connector deployment template in Amazon Athena Federated Query prior to v2026.17.1 could allow an authenticated remote user to read arbitrary AWS Secrets Manager secrets in the deploying account by pointing the connector's connection string at an unrelated secret and at a database endpoint under the user's control, causing the connector to transmit the secret to that endpoint. To remediate this issue, users should upgrade to aws-athena-query-federation connectors version v2026.17.1 or later and ensure that any forked or derivative code is patched to incorporate the new fixes. Alternatively, to remediate this issue, users should redeploy the connector with the current template and supply a non-empty SecretNamePrefix value.",
-      "published": "2026-08-20T20:17:46.937",
+      "id": "CVE-2026-77641",
+      "summary": "tor before 0.4.9.9 was prone to a\u00a0NULL write after free when sending a CONFLUX_SWITCH cell fails. The return value of relay_send_command_from_edge() was   ignored, so a send failure (which calls circuit_mark_for_close()  and removes the leg via cfx_del_leg()) would go undetected, causing the caller to write to the now-freed current leg and resulting in a crash. This is TROVE-2026-017.",
+      "published": "2026-08-20T21:17:11.517",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75910"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77641"
     },
     {
-      "id": "CVE-2026-72861",
-      "summary": "The github-issue-bot templates in appwrite/templates verify the GitHub webhook signature with an inverted condition. verifyWebhook in node/github-issue-bot/src/github.js and in node-typescript/github-issue-bot/src/github.ts returns \"typeof signature !== 'string' || (await verify(...))\", so when the X-Hub-Signature-256 header is absent the first operand is true, the logical OR short-circuits, and the function reports success without performing any HMAC verification. main.js rejects a request only when verifyWebhook returns false, so an unauthenticated request carrying no signature passes the check. Processing then continues to postComment, which takes the repository and issue objects directly from the request body, letting the caller direct the deployed function to post a comment on a repository and issue of their choosing using the configured GITHUB_TOKEN, with the issue author login from the body interpolated into the comment text.",
-      "published": "2026-08-20T20:17:46.190",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72861"
+      "id": "CVE-2026-77640",
+      "summary": "tor before 0.4.9.9 was prone to an infinite loop when decompressing a truncated zlib/gzip  stream with done=1. A truncated stream never reaches Z_STREAM_END,  causing zlib to return Z_BUF_ERROR with no input remaining, which  buf_add_compress() mistook for a full output buffer and retried forever. Fixed by returning TOR_COMPRESS_ERROR in that case so the caller can abort cleanly. This is TROVE-2026-021.",
+      "published": "2026-08-20T21:17:11.373",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77640"
     },
     {
-      "id": "CVE-2026-9033",
-      "summary": "An unauthenticated attacker with network access to the captive portal service of an affected device can terminate active captive portal sessions, including forcing logout of specific users or clearing all active sessions. Affected users must re-authenticate to regain access.\u00a0\n\n\n\nSuccessful exploitation may allow termination of individual or all active captive portal sessions, causing temporary service disruption and requiring users to re-authenticate.",
-      "published": "2026-08-20T19:17:04.950",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9033"
+      "id": "CVE-2026-77639",
+      "summary": "Tor before 0.4.9.9 was prone to a\u00a0compression bomb bypass where an attacker could concatenate many gzip or zlib sub-streams, each just under the per-stream detection threshold, to avoid the compression bomb check entirely. This is TROVE-2026-022.",
+      "published": "2026-08-20T21:17:11.233",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77639"
     },
     {
-      "id": "CVE-2026-77148",
-      "summary": "A vulnerability was found in Comfast CF-N1-S 2.6.0.1. This impacts the function sub_44B50C of the file /cgi-bin/mbox-config?method=SET&section=ptest_channel of the component Web Management. The manipulation results in stack-based buffer overflow. The attack can be launched remotely. The exploit has been made public and could be used.",
-      "published": "2026-08-20T19:17:04.710",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77148"
+      "id": "CVE-2026-77638",
+      "summary": "Tor before 0.4.9.11 is prone to a race condition where in just the right circumstances a rendezvous point could man-in-the-middle (impersonate) the onion service that the client was trying to reach.",
+      "published": "2026-08-20T21:17:11.097",
+      "cvss": 8.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77638"
     },
     {
-      "id": "CVE-2026-75526",
-      "summary": "django CMS is an easy-to-use and developer-friendly enterprise content management system powered by Django. From 5.0.8 until 5.0.9, ContentRenderer.render_placeholder in cms/plugin_rendering.py can pass stored, attacker-controlled values to ContentRenderer.render_exception when plugin rendering fails in edit mode. Values from get_short_description(), the exception message, the placeholder, or placeholder.source are interpolated into a cms-rendering-exception heading and later returned through mark_safe. Because the heading is not escaped, stored HTML executes in an editor\u2019s browser, and settings.DEBUG does not prevent the custom heading from rendering. The fix uses format_html to escape the message before safe placeholder output is returned. This issue is fixed in versions 5.0.9.",
-      "published": "2026-08-20T19:17:03.787",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75526"
+      "id": "CVE-2026-77587",
+      "summary": "Tor before 0.4.9.11 is prone to a use-after-free (and potential double free) of a conflux object when a recovery leg revives a conflux set whose last linked leg has already been closed. A malicious exit node could use this to crash a client. This is TROVE-2026-026.",
+      "published": "2026-08-20T21:17:10.957",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77587"
+    },
+    {
+      "id": "CVE-2026-77584",
+      "summary": "Tor before 0.4.9.10 did not reject a CONFLUX_LINK cell that arrives on a circuit which already has attached streams. A malicious client could send a RELAY_COMMAND_BEGIN before the CONFLUX_LINK on the same circuit, attaching an exit stream that would later end up orphan leaving a dangling circuit back-pointer and a use-after-free (UAF) when the circuit is freed. This is TROVE-2026-025.",
+      "published": "2026-08-20T21:17:10.810",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77584"
     }
   ]
 }
