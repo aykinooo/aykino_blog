@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-20T11:39:35+00:00",
+  "generated_at": "2026-08-20T13:08:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77067",
-      "summary": "The setWebhookResolver in packages/api/src/resolvers/webhooks/index.ts stores the caller-supplied url without any address validation, and the file imports no validation helper. When a subscribed event fires, callWebhook in packages/api/src/jobs/call_webhook.ts issues axios.request with that url, the method and Content-Type recorded on the webhook, and a JSON body carrying the event data, so an authenticated user can make the server send repeated attacker-shaped requests to internal endpoints, including link-local metadata addresses. The request is blind: callWebhook discards the result and writes only a success line or the axios error to the server log, so the response is not returned through the API.",
-      "published": "2026-08-20T11:16:22.240",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77067"
-    },
-    {
-      "id": "CVE-2026-77066",
-      "summary": "The scanFeedsResolver in packages/api/src/resolvers/subscriptions/index.ts passes the caller-supplied url straight to axios.get(url, rssParserConfig()) with no address validation. The same file guards the subscribe path with validateUrl(), which rejects private and reserved ranges through the private-ip library, and createPageSaveRequest applies the same check, so the omission is specific to this resolver. An authenticated user can direct the server to request arbitrary internal endpoints. The response is parsed as a feed or as HTML and the resolver returns the resulting url, title, description and type fields, so disclosure is limited to feed-shaped metadata and to link elements advertising RSS or Atom feeds; requests that do not parse still distinguish reachable ports from unreachable ones through the resulting error.",
-      "published": "2026-08-20T11:16:22.100",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77066"
-    },
-    {
-      "id": "CVE-2026-77026",
-      "summary": "Joomla Extension - tassos.gr - Client-controlled validation bypass in Convert Forms extension < 5.2.5 - The front-end Submissions view did not enforce access control. An unauthenticated visitor could therefore list a form's submissions.",
-      "published": "2026-08-20T11:16:21.947",
+      "id": "CVE-2026-77085",
+      "summary": "n8n before 2.34.1 and 2.33.x before 2.33.4 contains an SSRF protection bypass in the SearXNG Agent tool. The tool sent requests to the user-supplied API URL using a raw HTTP client that did not route through n8n's centralized SSRF protection. On instances with N8N_SSRF_PROTECTION_ENABLED=true, an authenticated user with permission to create SearXNG credentials and configure a personal agent could set the API URL to an internal host, causing the n8n server to connect to that host and return the response content through the Agent chat output.",
+      "published": "2026-08-20T12:16:40.110",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77026"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77085"
     },
     {
-      "id": "CVE-2026-73199",
-      "summary": "A flaw was found in the `ipa-enrollment` SLAPI plugin. A remote authenticated client can exploit a null pointer dereference vulnerability by sending a malformed Lightweight Directory Access Protocol (LDAP) extended operation. By omitting the request value for the `JOIN_OID` in the `ipa-enrollment` extended operation, an attacker can trigger a server crash, potentially causing a denial of service.",
-      "published": "2026-08-20T11:16:21.813",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73199"
+      "id": "CVE-2026-77084",
+      "summary": "n8n before 1.123.69 (and 2.x before 2.33.4 / 2.34.1) contains a code execution vulnerability in the Git node. The Git node executed certain repository-local git configuration values without neutralizing them, so any subsequent Git node operation against a repository containing a malicious value would execute it as the n8n process user. This is not reachable through the Git node's own configuration controls and requires a separate file-write vulnerability elsewhere to plant the malicious value.",
+      "published": "2026-08-20T12:16:39.970",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77084"
     },
     {
-      "id": "CVE-2026-73198",
-      "summary": "A flaw was found in FreeIPA. A remote, unauthenticated attacker can exploit a vulnerability in the `/ipa/i18n_messages` endpoint by sending an arbitrarily large request body. This can cause the service to consume excessive memory, leading to memory exhaustion, degraded responsiveness, and a denial of service (DoS) condition.",
-      "published": "2026-08-20T11:16:21.687",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73198"
+      "id": "CVE-2026-77083",
+      "summary": "n8n is a workflow automation platform. In versions prior to 1.123.69, 2.33.4, and 2.34.1, the JavaScript Code node's VM sandbox did not freeze the sandbox's Function.prototype, allowing an authenticated user with the ability to create and execute workflows to pollute it from within a Code node execution and recover a reference to the host's globalThis, resulting in a sandbox escape. The full exploit chain additionally depends on specific modules being available as allowlisted imports in the deployment's configuration. The issue is fixed in versions 1.123.69, 2.33.4, and 2.34.1.",
+      "published": "2026-08-20T12:16:39.840",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77083"
     },
     {
-      "id": "CVE-2026-73197",
-      "summary": "A flaw was found in FreeIPA. A remote, unauthenticated attacker can exploit this vulnerability by sending oversized form POST requests to the `/ipa/migration/migration.py` endpoint. This can force the migration handler to read attacker-controlled request bodies fully into memory, leading to increased memory usage, slower request handling, and potential service disruption or denial of service.",
-      "published": "2026-08-20T11:16:21.553",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73197"
+      "id": "CVE-2026-77082",
+      "summary": "n8n before 1.123.69, 2.x before 2.33.4, and 2.34.x before 2.34.1 contains a regular expression denial of service (ReDoS) vulnerability in the Filter and Switch nodes, which compile user-supplied regex patterns with new RegExp() and execute them synchronously on the worker thread without complexity validation or execution timeout. A crafted regex pattern can block the worker for an extended period per data item processed, delaying other workflow executions on the same worker.",
+      "published": "2026-08-20T12:16:39.717",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77082"
+    },
+    {
+      "id": "CVE-2026-77081",
+      "summary": "n8n before 1.123.69, 2.x before 2.33.4, and 2.x before 2.34.1 contain an allowed-domains bypass in the GraphQL node. When the node's Authentication parameter is set to expression mode, every authentication-gated credential selector is treated as active; if two credentials of different types are attached, the node enforces the allowed-domains policy of only the first credential while still attaching material from both. An authenticated user with workflow-authoring rights can thereby send a domain-restricted credential to an attacker-controlled endpoint, exfiltrating it with the leaked credential's permissions.",
+      "published": "2026-08-20T12:16:39.590",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77081"
+    },
+    {
+      "id": "CVE-2026-77080",
+      "summary": "n8n before 1.123.69, 2.x before 2.33.4, and 2.34.x before 2.34.1 contain an arbitrary file read and write vulnerability in the Snowflake node, which passes free-form Execute Query input, including client-side commands, directly to the Snowflake SDK without applying n8n's file-access restrictions. An authenticated user with usable Snowflake credentials can upload a local file from the n8n host or overwrite an existing file with a staged one.",
+      "published": "2026-08-20T12:16:39.430",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77080"
     }
   ]
 }
