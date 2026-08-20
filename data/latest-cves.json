@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-08-20T19:43:20+00:00",
+  "generated_at": "2026-08-20T20:43:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-77151",
+      "summary": "A security flaw has been discovered in lin-snow Ech0 up to 5.4.1. Affected by this issue is the function MD5Encrypt of the file internal/util/crypto/crypto.go. Performing a manipulation results in risky cryptographic algorithm. Remote exploitation of the attack is possible. The complexity of an attack is rather high. The exploitation is known to be difficult. Upgrading to version 5.4.2 can resolve this issue. The patch is named 9ce19a3b0d0765086a655f45d3a706ec1810404f. It is recommended to upgrade the affected component.",
+      "published": "2026-08-20T20:17:47.253",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77151"
+    },
+    {
+      "id": "CVE-2026-75910",
+      "summary": "Incorrect privilege assignment in the ClickHouse connector deployment template in Amazon Athena Federated Query prior to v2026.17.1 could allow an authenticated remote user to read arbitrary AWS Secrets Manager secrets in the deploying account by pointing the connector's connection string at an unrelated secret and at a database endpoint under the user's control, causing the connector to transmit the secret to that endpoint. To remediate this issue, users should upgrade to aws-athena-query-federation connectors version v2026.17.1 or later and ensure that any forked or derivative code is patched to incorporate the new fixes. Alternatively, to remediate this issue, users should redeploy the connector with the current template and supply a non-empty SecretNamePrefix value.",
+      "published": "2026-08-20T20:17:46.937",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75910"
+    },
+    {
+      "id": "CVE-2026-72861",
+      "summary": "The github-issue-bot templates in appwrite/templates verify the GitHub webhook signature with an inverted condition. verifyWebhook in node/github-issue-bot/src/github.js and in node-typescript/github-issue-bot/src/github.ts returns \"typeof signature !== 'string' || (await verify(...))\", so when the X-Hub-Signature-256 header is absent the first operand is true, the logical OR short-circuits, and the function reports success without performing any HMAC verification. main.js rejects a request only when verifyWebhook returns false, so an unauthenticated request carrying no signature passes the check. Processing then continues to postComment, which takes the repository and issue objects directly from the request body, letting the caller direct the deployed function to post a comment on a repository and issue of their choosing using the configured GITHUB_TOKEN, with the issue author login from the body interpolated into the comment text.",
+      "published": "2026-08-20T20:17:46.190",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72861"
+    },
     {
       "id": "CVE-2026-9033",
       "summary": "An unauthenticated attacker with network access to the captive portal service of an affected device can terminate active captive portal sessions, including forcing logout of specific users or clearing all active sessions. Affected users must re-authenticate to regain access.\u00a0\n\n\n\nSuccessful exploitation may allow termination of individual or all active captive portal sessions, causing temporary service disruption and requiring users to re-authenticate.",
@@ -22,27 +43,6 @@
       "published": "2026-08-20T19:17:03.787",
       "cvss": 4.4,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75526"
-    },
-    {
-      "id": "CVE-2026-75514",
-      "summary": "BunkerWeb is an open-source, next-generation Web Application Firewall. Prior to 1.6.13, the blacklist, greylist, and antibot modules in src/common/core/blacklist/blacklist.lua, src/common/core/greylist/greylist.lua, and src/common/core/antibot/antibot.lua trust PTR suffix matches in IGNORE_RDNS, GREYLIST_RDNS, and ANTIBOT_IGNORE_RDNS without using get_ips to confirm that the hostname resolves to the client address. An unauthenticated remote attacker who controls a PTR record can spoof a trusted suffix to bypass rDNS-based blacklisting, gain greylist treatment, or skip an antibot challenge. This issue is fixed in version 1.6.13.",
-      "published": "2026-08-20T19:17:03.637",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75514"
-    },
-    {
-      "id": "CVE-2026-72854",
-      "summary": "msgpack_unpacker_expand_buffer in src/unpack.c, reached through the public msgpack_unpacker_reserve_buffer API, computes its new buffer size using an unchecked size_t addition of the requested size and the amount already used. The doubling loop guards its own multiplication against overflow, but the addition in the loop condition is unguarded, so a request near SIZE_MAX wraps: the loop condition is already satisfied, the allocation is performed at the small pre-wrap size, and the function returns true. The caller is told the requested capacity was reserved when it was not, so a subsequent write of the requested length overflows the heap buffer. The library's own example/lib_buffer_unpack.c demonstrates the reserve-then-write pattern, and its defensive assert comparing capacity against the request is compiled out under NDEBUG. msgpack-c's own decode entry points do not derive the reservation size from untrusted input, so reaching this requires an integration that passes an attacker-influenced length to the reservation API, such as a length-prefixed streaming transport.",
-      "published": "2026-08-20T19:17:01.040",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72854"
-    },
-    {
-      "id": "CVE-2026-72852",
-      "summary": "hank-ai/darknet sizes a convolutional layer's weight and output heap buffers by multiplying configuration fields taken from a .cfg file in unchecked 32-bit int arithmetic. In src-lib/convolutional_layer.cpp, l.nweights is computed as (c / groups) * n * size * size and l.outputs as l.out_h * l.out_w * l.out_c, and both feed xcalloc directly. A .cfg whose true dimension product exceeds INT_MAX wraps to a small or zero value, so the allocation is undersized; for example width and height of 256 with filters of 65536 gives 2^32, which wraps to 0. forward_convolutional_layer then re-derives the GEMM dimensions with a different operand order, computing k as l.size*l.size*l.c / l.groups where the allocation divided before multiplying, and reads and writes through the undersized buffer. Loading the crafted .cfg for inference or training is sufficient and no valid .weights file is required. The reported proof of concept observed a heap buffer overflow read in gemm_nn_fast under AddressSanitizer and glibc allocator metadata corruption in a release build of the same input, indicating an out-of-bounds write.",
-      "published": "2026-08-20T19:17:00.830",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-72852"
     }
   ]
 }
