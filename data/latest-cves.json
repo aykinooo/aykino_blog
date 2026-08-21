@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T19:35:12+00:00",
+  "generated_at": "2026-08-21T20:38:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77795",
-      "summary": "A vulnerability was identified in Dromara RuoYi-Vue-Plus up to 5.6.2. This issue affects the function FlwInstanceController/FlwDefinitionController/FlwCategoryController/FlwSpelController/TestLeaveController of the component Workflow Endpoint. Such manipulation leads to improper authorization. The attack can be launched remotely.",
-      "published": "2026-08-21T19:17:51.393",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77795"
+      "id": "CVE-2026-77810",
+      "summary": "In the Neptune connector, a user with access to Neptune through Athena Federated Query could gain access to properties in the Lambda supplying the compute for the connector. To remediate this issue, users should upgrade to aws-athena-query-federation v2026.30.1 or later.",
+      "published": "2026-08-21T20:16:45.530",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77810"
     },
     {
-      "id": "CVE-2026-63466",
-      "summary": "Unleash is an open-source feature management platform. Prior to 8.0.3, FeatureEventFormatterMd.format in src/lib/addons/feature-event-formatter-md.ts assigns Mustache.escape to an identity function before rendering action and path templates. Because Mustache.escape is process-wide, the assignment disables escaping for subsequent Mustache.render calls in email-service.ts, webhook.ts, datadog.ts, and new-relic.ts. An editor-level user can place Slack or Microsoft Teams link syntax in an unrestricted username, trigger a feature event, and inject an attacker-labeled link into a trusted outbound notification channel, while other Mustache sinks remain unescaped until restart. This issue is fixed in version 8.0.3.",
-      "published": "2026-08-21T19:17:32.117",
-      "cvss": 4.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63466"
+      "id": "CVE-2026-76876",
+      "summary": "Craftplan before 0.5.1 contains a broken access control vulnerability that allows unauthenticated attackers to read sensitive credentials by exploiting an unconditional authorization policy on the Settings resource. Attackers can send a GET request to the settings API endpoint with a valid record ID to retrieve decrypted SMTP passwords, email API keys, and email API secrets due to the read policy using an always-allow authorization check that bypasses all identity verification.",
+      "published": "2026-08-21T20:16:44.680",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76876"
     },
     {
-      "id": "CVE-2026-63462",
-      "summary": "Unleash is an open-source feature management platform. Prior to 7.5.2, 7.6.5, and 8.0.2, the shared OpenAPI validation error path in src/lib/error/bad-data-error.ts passes a raw request value from lodash.get to JSON.stringify in genericErrorMessage and fromOpenApiValidationErrors without guarding stack exhaustion. An unauthenticated attacker can send a roughly 10 KB JSON value nested thousands of levels deep to POST /edge/validate, POST /edge/issue-token, or another OpenAPI-validated endpoint, causing RangeError: Maximum call stack size exceeded in openAPIValidationMiddleware and terminating the Node process because no uncaughtException handler recovers it. Replaying the request can sustain a complete service outage. This issue is fixed in versions 7.5.2, 7.6.5, and 8.0.2.",
-      "published": "2026-08-21T19:17:31.927",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63462"
-    },
-    {
-      "id": "CVE-2026-63004",
-      "summary": "Unleash is an open-source feature management platform. Prior to 7.5.2, 7.6.5, and 8.0.2, the addon and integration subsystem passes the operator-controlled parameters.url value from src/lib/addons/webhook.ts and the Slack, Microsoft Teams, Datadog, and New Relic integrations to Addon.fetchRetry in src/lib/addons/addon.ts without restricting loopback, link-local, private, or cloud metadata addresses. An authenticated actor with the root CREATE_ADDON or UPDATE_ADDON permission can cause the server to send requests from inside its network boundary, use integration event status as a blind probing oracle, forward Authorization, customHeaders, or DD-API-KEY values to an attacker-observed host, and deliver the feature-event JSON body to internal services. This issue is fixed in versions 7.5.2, 7.6.5, and 8.0.2.",
-      "published": "2026-08-21T19:17:30.550",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63004"
-    },
-    {
-      "id": "CVE-2026-55850",
-      "summary": "Element Web is a Matrix web client built using the Matrix React SDK. Prior to 1.12.22, EmbeddedPage in apps/web/src/components/structures/EmbeddedPage.tsx renders homeserver-supplied homepage content through dangerouslySetInnerHTML without passing it through sanitizedHtmlNode. A malicious homeserver can provide crafted HTML that Element Web renders on the homepage; the content security policy prevents JavaScript but not phishing HTML. This issue is fixed in version 1.12.22.",
-      "published": "2026-08-21T19:17:04.230",
+      "id": "CVE-2026-74252",
+      "summary": "Joomla Extension - j2commerce.com - Stored XSS in Guest checkout in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - J2Commerce 4.1.5 is vulnerable to Stored Cross-Site Scripting (XSS) through the guest checkout billing address fields. An unauthenticated attacker exploits a filter bypass in Joomla's Input::getArray() combined with PHP's variables_order=EGPCS (Cookie overrides POST in $_REQUEST ) to store unsanitized HTML in fields such as billing_first_name.",
+      "published": "2026-08-21T20:16:41.000",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55850"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74252"
     },
     {
-      "id": "CVE-2026-54682",
-      "summary": "DiscordChatExporter saves Discord chat logs to a file. Prior to 2.47.2, HTML exports generated with markdown formatting disabled pass attacker-controlled content through FormatMarkdownAsync and FormatEmbedMarkdownAsync in DiscordChatExporter.Core/Exporting/MessageGroupTemplate.cshtml and render it without HTML entity encoding. The affected fields include message.Content, message.ForwardedMessage.Content, message.ReferencedMessage.Content, embed.Title, embed.Description, field.Name, and field.Value. A Discord webhook or bot can store a script payload in these fields, and the payload executes when a user exports the channel with markdown formatting disabled and opens the resulting HTML, allowing the script to read the export or alter its displayed content. This issue is fixed in version 2.47.2.",
-      "published": "2026-08-21T19:17:03.610",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54682"
+      "id": "CVE-2026-67362",
+      "summary": "Joomla Extension - j2commerce.com - Open redirect in cart controller in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - Four task handlers accepted a base64-encoded URL from user input and redirected to it without validating the destination host, enabling phishing using the shop's trusted domain. No authentication required.",
+      "published": "2026-08-21T20:16:39.960",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67362"
+    },
+    {
+      "id": "CVE-2026-67361",
+      "summary": "Joomla Extension - j2commerce.com - Unauthenticated file upload with missing directory protection in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - The file upload endpoint accepted POST requests from unauthenticated visitors with no CSRF token. Compounding this, the installer manifest omitted the upload and invoices directories, causing fresh installs to deploy those directories without .htaccess/web.config protection, making uploaded files directly web-accessible.",
+      "published": "2026-08-21T20:16:39.827",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67361"
+    },
+    {
+      "id": "CVE-2026-67360",
+      "summary": "Joomla Extension - j2commerce.com - Cross-customer order replication in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - An authenticated user could supply another customer's order_id to copy their cart contents and address data into the attacker's session. The CSRF token was validated but ownership was not checked.",
+      "published": "2026-08-21T20:16:39.700",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67360"
     }
   ]
 }
