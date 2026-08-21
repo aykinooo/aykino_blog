@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T11:38:27+00:00",
+  "generated_at": "2026-08-21T13:08:12+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77769",
-      "summary": "The report.list procedure in packages/trpc/src/routers/report.ts accepted a projectId and a dashboardId and returned getReportsByDashboardId(dashboardId). The enforceAccess middleware in packages/trpc/src/trpc.ts verified membership for the supplied projectId, but nothing verified that the supplied dashboardId belonged to that project, and getReportsByDashboardId in packages/db/src/services/reports.service.ts selects reports by dashboardId alone with no project scoping. An authenticated user could therefore pair a projectId from their own organization, which satisfies the middleware, with a dashboardId belonging to another organization and receive every report in that dashboard. A correctly scoped helper, listReportsCore, already existed in the same service file and resolves the dashboard through getDashboardById(dashboardId, projectId) before returning reports, but the router did not use it.",
-      "published": "2026-08-21T11:17:07.430",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77769"
+      "id": "CVE-2026-77776",
+      "summary": "Headroom's LLM proxy derives the memory owner from the x-headroom-user-id request header. The header is read directly at several points in headroom/proxy/handlers/openai.py, including the chat completion and websocket paths, and nothing binds the value to the caller. A client can therefore name another user's identifier and read or write that user's stored LLM memory. The fix introduces a single resolve_memory_identity seam in headroom/proxy/identity.py that honors the header only for loopback or allowlisted callers and otherwise binds the identity to the proxy-token fingerprint or the operating system user. The pip console script binds 127.0.0.1 by default, but the reference docker-compose.yml ships --host 0.0.0.0 with published ports and no required HEADROOM_PROXY_TOKEN, which the server itself warns about at startup, so a deployment following the shipped compose exposes the affected data-plane routes to the network without authentication.",
+      "published": "2026-08-21T12:16:36.967",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77776"
     },
     {
-      "id": "CVE-2026-77768",
-      "summary": "The report.get procedure in packages/trpc/src/routers/report.ts accepted only a reportId and returned getReportById(reportId) directly. The enforceAccess middleware in packages/trpc/src/trpc.ts evaluates membership only when the input carries a projectId or organizationId key, so an input consisting of a reportId alone passed through unchecked, and getReportById in packages/db/src/services/reports.service.ts performs a findUnique on the report id with no project scoping. Any authenticated user could therefore read the full configuration of any saved report on the instance, including the owning projectId, event series, filters, breakdowns and formulas, by supplying its identifier. The adjacent update, delete and duplicate procedures resolve the report first and check getProjectAccess against the report's own projectId, so the omission was specific to this procedure.",
-      "published": "2026-08-21T11:17:07.283",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77768"
+      "id": "CVE-2026-77775",
+      "summary": "Headroom's LLM proxy lets a client choose the upstream destination with the x-headroom-base-url request header. _resolve_openai_upstream_base in headroom/proxy/handlers/openai.py accepts the header value, requires only that it parse with an http or https scheme and a hostname, and returns it for use as the upstream base; _select_passthrough_base_url in headroom/providers/proxy_routes.py reads the same header for the passthrough routes. No check rejects loopback, link-local, or RFC 1918 destinations, and because the component is a proxy the upstream response is returned to the caller, so the request reaches internal services and cloud metadata addresses and their responses are disclosed. The Authorization header accompanying the request is forwarded unchanged to the caller-designated host. The pip console script binds 127.0.0.1 by default, but the reference docker-compose.yml ships --host 0.0.0.0 with published ports and no required HEADROOM_PROXY_TOKEN, which the server itself warns about at startup, so a deployment following the shipped compose exposes the affected data-plane routes to the network without authentication.",
+      "published": "2026-08-21T12:16:36.813",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77775"
     },
     {
-      "id": "CVE-2026-77767",
-      "summary": "Reconmap's API applies a fallback authorization policy in apps/api/app/Program.cs that requires an authenticated user holding the administrator role, so controllers without their own attribute reject anonymous callers. The report preview action in apps/api/app/Controllers/ReportsController.cs carries [AllowAnonymous] and therefore opts out of that policy. PreviewReport loads the Project row named by the id path segment, loads the linked Organisation through the project's ClientId, and renders both into default-report-template.html, which prints the project name and description together with the client organisation's name, address and URL. No authentication, project membership or role check is performed. Because the id is the auto-increment primary key of the project table, an unauthenticated remote caller can walk sequential ids to retrieve the engagement details and client organisation of every project on the instance, and the 404 returned for a missing id reveals which project ids exist. Reconmap stores penetration-testing engagements, so the disclosed descriptions and client records are sensitive by nature.",
-      "published": "2026-08-21T11:17:07.107",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77767"
-    },
-    {
-      "id": "CVE-2026-77763",
-      "summary": "The filestore backend in pkg/object/file.go, used for file:// stores and as a common juicefs sync destination, derived every operation's target from path(key), which returned either filepath.Join(d.root, key) or filepath.Clean(d.root + key) with no check that the result stayed beneath the root. Put, Get, Head, Delete, Chmod, Chown, Symlink and Readlink all consumed that value directly. Object keys enumerated from a source object store during a sync are not constrained the way local filesystem names are, so a key containing traversal segments causes juicefs to write attacker-supplied content to a path outside the intended local destination, and no error is returned. An operator syncing from a bucket whose contents they do not fully control, such as a shared or public bucket or one an attacker can write to, is therefore exposed to a file write at an attacker-influenced location. The fix changes path() to return an error and rejects any key whose resolved path escapes the root.",
-      "published": "2026-08-21T11:17:06.937",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77763"
-    },
-    {
-      "id": "CVE-2026-77761",
-      "summary": "A parser state isolation vulnerability in misp-stix could cause data from a previously processed STIX document to be retained and incorporated into the MISP event generated from a subsequent document when the same parser instance is reused.\n\nSeveral STIX 1 and STIX 2 parser components maintained per-document state that was not completely cleared between conversions. In the STIX 2 parser, galaxy and galaxy-cluster information, including custom galaxy clusters, could survive a parser reset and subsequently be associated with objects from another bundle.\n\nThe STIX 1 parsers were affected by the same underlying state-management issue. Depending on the parser type, retained information could include galaxies, references, passive DNS bookkeeping, package titles, dates, and timestamps. As a result, parsing a second STIX package with an already-used parser could produce a MISP event containing information that was present only in the previously processed package. For example, a generated event could inherit passive DNS records from an earlier document, reference unrelated galaxy information, combine titles from different packages, or use timestamps originating from another conversion.\n\nThe issue primarily affects applications using the misp-stix API directly and reusing parser instances across independent STIX documents. Normal conversion entry points that instantiate a new parser for each file are not affected by this particular reuse scenario.\n\nAn attacker able to influence documents processed by such a long-lived parser could potentially cause information from one conversion to contaminate a subsequent MISP event. This can affect the integrity of generated threat intelligence, resulting in incorrect associations, misleading contextual information, or unrelated indicators being attributed to an event. In environments where consecutive documents have different access controls or distribution scopes, the retained state could additionally result in limited disclosure of information from a previously processed document.\n\nSuccessful exploitation depends on the consuming application reusing the same parser instance and on the ordering of processed documents, which increases attack complexity. No direct availability impact or code execution is involved.",
-      "published": "2026-08-21T11:17:06.787",
+      "id": "CVE-2026-77759",
+      "summary": "Authorization Bypass Through User-Controlled Key in the transaction API in Roskus Prospero\nFlow CRM 5.0.0 through 5.3.5 allows an authenticated user to read the transactions of other\ncompanies on the same instance via an incremented identifier in GET /api/transaction/{id},\nwhich is resolved without company scoping and without any permission check.",
+      "published": "2026-08-21T12:16:36.533",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77761"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77759"
     },
     {
-      "id": "CVE-2026-77686",
-      "summary": "A weakness has been identified in Dolibarr up to 23.0.4. This affects an unknown part of the file htdocs/user/card.php of the component Account Handler. This manipulation of the argument ID causes improper authorization. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 24.0.0 is able to mitigate this issue. Patch name: b2a2c995537cb6282383b5e903cb5ffa29b823e6. The affected component should be upgraded.",
-      "published": "2026-08-21T11:17:06.620",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77686"
+      "id": "CVE-2026-77029",
+      "summary": "Joomla Extension - yootheme.com - Missing CSRF tokens on front-end state changes in Zoo < 4.1.66",
+      "published": "2026-08-21T12:16:34.097",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77029"
+    },
+    {
+      "id": "CVE-2026-59318",
+      "summary": "In Spring AI's tool calling support, the per-request tool list is advertised to the model as a boundary but is not fully enforced when a tool call is dispatched. Under certain conditions, a tool that was not made available to the current request could be invoked, potentially leading to privilege escalation.\nAffected versions:\nSpring AI: 2.0.0\nSpring AI: 1.1.0 through 1.1.8\nSpring AI: 1.0.0 through 1.0.9",
+      "published": "2026-08-21T12:16:30.390",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59318"
+    },
+    {
+      "id": "CVE-2026-59308",
+      "summary": "In Spring AI's Semantic Cache support, the context hash used to isolate cached responses between different system prompts could allow cached responses to be shared across unrelated contexts.\nAffected versions:\nSpring AI: 2.0.0",
+      "published": "2026-08-21T12:16:30.270",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59308"
     }
   ]
 }
