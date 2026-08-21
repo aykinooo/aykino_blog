@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T13:08:12+00:00",
+  "generated_at": "2026-08-21T13:56:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77776",
-      "summary": "Headroom's LLM proxy derives the memory owner from the x-headroom-user-id request header. The header is read directly at several points in headroom/proxy/handlers/openai.py, including the chat completion and websocket paths, and nothing binds the value to the caller. A client can therefore name another user's identifier and read or write that user's stored LLM memory. The fix introduces a single resolve_memory_identity seam in headroom/proxy/identity.py that honors the header only for loopback or allowlisted callers and otherwise binds the identity to the proxy-token fingerprint or the operating system user. The pip console script binds 127.0.0.1 by default, but the reference docker-compose.yml ships --host 0.0.0.0 with published ports and no required HEADROOM_PROXY_TOKEN, which the server itself warns about at startup, so a deployment following the shipped compose exposes the affected data-plane routes to the network without authentication.",
-      "published": "2026-08-21T12:16:36.967",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77776"
-    },
-    {
-      "id": "CVE-2026-77775",
-      "summary": "Headroom's LLM proxy lets a client choose the upstream destination with the x-headroom-base-url request header. _resolve_openai_upstream_base in headroom/proxy/handlers/openai.py accepts the header value, requires only that it parse with an http or https scheme and a hostname, and returns it for use as the upstream base; _select_passthrough_base_url in headroom/providers/proxy_routes.py reads the same header for the passthrough routes. No check rejects loopback, link-local, or RFC 1918 destinations, and because the component is a proxy the upstream response is returned to the caller, so the request reaches internal services and cloud metadata addresses and their responses are disclosed. The Authorization header accompanying the request is forwarded unchanged to the caller-designated host. The pip console script binds 127.0.0.1 by default, but the reference docker-compose.yml ships --host 0.0.0.0 with published ports and no required HEADROOM_PROXY_TOKEN, which the server itself warns about at startup, so a deployment following the shipped compose exposes the affected data-plane routes to the network without authentication.",
-      "published": "2026-08-21T12:16:36.813",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77775"
-    },
-    {
-      "id": "CVE-2026-77759",
-      "summary": "Authorization Bypass Through User-Controlled Key in the transaction API in Roskus Prospero\nFlow CRM 5.0.0 through 5.3.5 allows an authenticated user to read the transactions of other\ncompanies on the same instance via an incremented identifier in GET /api/transaction/{id},\nwhich is resolved without company scoping and without any permission check.",
-      "published": "2026-08-21T12:16:36.533",
+      "id": "CVE-2026-77780",
+      "summary": "Authorization Bypass Through User-Controlled Key in the transaction save endpoint in Roskus\nProspero Flow CRM 4.9.1 through 5.14.0 allows a user with transaction and accounting\ncreation permissions to disclose another company's bank account name, bank name and card\nlast four digits via a bank_account_id or bank_card_id belonging to that company in POST\n/transaction/save, which is persisted and rendered without any company ownership check.",
+      "published": "2026-08-21T13:18:20.423",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77759"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77780"
     },
     {
-      "id": "CVE-2026-77029",
-      "summary": "Joomla Extension - yootheme.com - Missing CSRF tokens on front-end state changes in Zoo < 4.1.66",
-      "published": "2026-08-21T12:16:34.097",
+      "id": "CVE-2026-77028",
+      "summary": "Joomla Extension - yootheme.com - Reflected XSS and open redirect via the submission redirect parameter in Zoo < 4.1.66",
+      "published": "2026-08-21T13:18:20.280",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77029"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77028"
     },
     {
-      "id": "CVE-2026-59318",
-      "summary": "In Spring AI's tool calling support, the per-request tool list is advertised to the model as a boundary but is not fully enforced when a tool call is dispatched. Under certain conditions, a tool that was not made available to the current request could be invoked, potentially leading to privilege escalation.\nAffected versions:\nSpring AI: 2.0.0\nSpring AI: 1.1.0 through 1.1.8\nSpring AI: 1.0.0 through 1.0.9",
-      "published": "2026-08-21T12:16:30.390",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59318"
+      "id": "CVE-2026-76613",
+      "summary": "Joomla Extension - yootheme.com - Authenticated, privileged SQL injection in YOOtheme Pro 1.0.0-5.0.40 - An SQL injection allowed any contributor-level user to inject own content into SQL queries.",
+      "published": "2026-08-21T13:18:20.140",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76613"
     },
     {
-      "id": "CVE-2026-59308",
-      "summary": "In Spring AI's Semantic Cache support, the context hash used to isolate cached responses between different system prompts could allow cached responses to be shared across unrelated contexts.\nAffected versions:\nSpring AI: 2.0.0",
-      "published": "2026-08-21T12:16:30.270",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59308"
+      "id": "CVE-2026-76612",
+      "summary": "Joomla Extension - yootheme.com - Unauthenticated stored XSS via user-controlled fields in Zoo < 4.1.66 - User supplied input in comments and user supplied field elements weren't escaped, leading to a stored XSS vector.",
+      "published": "2026-08-21T13:18:19.990",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76612"
+    },
+    {
+      "id": "CVE-2026-76611",
+      "summary": "Joomla Extension - yootheme.com - Unauthenticated arbitrary directory listing via the Gallery element in Zoo < 4.1.66.",
+      "published": "2026-08-21T13:18:19.850",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76611"
+    },
+    {
+      "id": "CVE-2026-75115",
+      "summary": "Joomla Extension - yootheme.com - Authenticated, privileged arbitrary file read in YOOtheme Pro 2.3.0-5.0.40 - The Filesystem source's path filter is vulnerable to glob-based pattern attacks, allowing authorized users to read arbitrary files.",
+      "published": "2026-08-21T13:18:19.140",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75115"
     }
   ]
 }
