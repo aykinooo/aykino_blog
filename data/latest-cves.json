@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T20:38:25+00:00",
+  "generated_at": "2026-08-21T21:36:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77810",
-      "summary": "In the Neptune connector, a user with access to Neptune through Athena Federated Query could gain access to properties in the Lambda supplying the compute for the connector. To remediate this issue, users should upgrade to aws-athena-query-federation v2026.30.1 or later.",
-      "published": "2026-08-21T20:16:45.530",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77810"
+      "id": "CVE-2026-77811",
+      "summary": "Improper input validation in the dashboards-observability plugin in OpenSearch Dashboards allows a remote authenticated user with write permissions to OpenSearch Dashboards saved objects to execute arbitrary JavaScript in the context of other users' browser sessions by uploading a saved asset with arbitrary web content.",
+      "published": "2026-08-21T21:17:08.903",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77811"
     },
     {
-      "id": "CVE-2026-76876",
-      "summary": "Craftplan before 0.5.1 contains a broken access control vulnerability that allows unauthenticated attackers to read sensitive credentials by exploiting an unconditional authorization policy on the Settings resource. Attackers can send a GET request to the settings API endpoint with a valid record ID to retrieve decrypted SMTP passwords, email API keys, and email API secrets due to the read policy using an always-allow authorization check that bypasses all identity verification.",
-      "published": "2026-08-21T20:16:44.680",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76876"
-    },
-    {
-      "id": "CVE-2026-74252",
-      "summary": "Joomla Extension - j2commerce.com - Stored XSS in Guest checkout in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - J2Commerce 4.1.5 is vulnerable to Stored Cross-Site Scripting (XSS) through the guest checkout billing address fields. An unauthenticated attacker exploits a filter bypass in Joomla's Input::getArray() combined with PHP's variables_order=EGPCS (Cookie overrides POST in $_REQUEST ) to store unsanitized HTML in fields such as billing_first_name.",
-      "published": "2026-08-21T20:16:41.000",
+      "id": "CVE-2026-77415",
+      "summary": "JSONata is a JSON query and transformation language. Prior to 1.8.8 and 2.2.1, crafted JSONata expressions could chain several object-integrity weaknesses to execute arbitrary code. The chain could overwrite $clone to mutate objects through evaluateTransformExpression, expose and deconstruct JSONata functions or lambdas through $merge.*, replace proc.arguments.forEach used by applyProcedure, and forge internal lambda state. These primitives allowed an attacker to reach prototype getters, prototype and constructor access, and process.getBuiltinModule with child_process, executing code with the privileges of the host process. This issue is fixed in versions 1.8.8 and 2.2.1.",
+      "published": "2026-08-21T21:17:07.553",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74252"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77415"
     },
     {
-      "id": "CVE-2026-67362",
-      "summary": "Joomla Extension - j2commerce.com - Open redirect in cart controller in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - Four task handlers accepted a base64-encoded URL from user input and redirected to it without validating the destination host, enabling phishing using the shop's trusted domain. No authentication required.",
-      "published": "2026-08-21T20:16:39.960",
+      "id": "CVE-2026-77414",
+      "summary": "JSONata is a JSON query and transformation language. Prior to 1.8.8 and 2.2.1, the src/jsonata.js environment.lookup function used a bypassable hasOwnProperty check. Crafted expressions could use $hasOwnProperty, $spread, $string, prototype access, and $constructor to reach the object prototype and invoke process.getBuiltinModule with child_process, executing arbitrary code with the privileges of the host process. This issue is fixed in versions 1.8.8 and 2.2.1.",
+      "published": "2026-08-21T21:17:07.410",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67362"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77414"
     },
     {
-      "id": "CVE-2026-67361",
-      "summary": "Joomla Extension - j2commerce.com - Unauthenticated file upload with missing directory protection in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - The file upload endpoint accepted POST requests from unauthenticated visitors with no CSRF token. Compounding this, the installer manifest omitted the upload and invoices directories, causing fresh installs to deploy those directories without .htaccess/web.config protection, making uploaded files directly web-accessible.",
-      "published": "2026-08-21T20:16:39.827",
+      "id": "CVE-2026-77413",
+      "summary": "JSONata is a JSON query and transformation language. Prior to 1.8.8 and 2.2.0, the src/functions.js lookup function lacked an Object.prototype.hasOwnProperty check and allowed crafted expressions to access inherited prototype members. An attacker able to supply an expression could use inherited prototype setters and getters, constructor access, valueOf, and process.getBuiltinModule to reach the child_process module and execute arbitrary code with the privileges of the host process. This issue is fixed in versions 1.8.8 and 2.2.0.",
+      "published": "2026-08-21T21:17:07.267",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67361"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77413"
     },
     {
-      "id": "CVE-2026-67360",
-      "summary": "Joomla Extension - j2commerce.com - Cross-customer order replication in J2Store 1.0.0-3.3.20, 4.0.0-4.0.20, 4.1.0-4.1.5 - An authenticated user could supply another customer's order_id to copy their cart contents and address data into the attacker's session. The CSRF token was validated but ownership was not checked.",
-      "published": "2026-08-21T20:16:39.700",
+      "id": "CVE-2026-77354",
+      "summary": "kin-openapi is a Go project for handling OpenAPI files. From 0.124.0 until 0.142.0, openapi3filter.sliceMapToSlice in openapi3filter/req_resp_decoder.go converts attacker-controlled sparse indexes from a deepObject query parameter into a dense slice by allocating entries from zero through the largest supplied index, after which buildResObj creates another slice of the same length. This allocation occurs before schema validation, so maxItems does not prevent it. An unauthenticated client can send a small query such as param[items][50000000]=x to an endpoint whose deepObject schema contains an array, forcing multi-gigabyte heap allocation and causing an OOM kill or restart loop. Other request-body encodings and styled parameters that do not produce bracketed integer indexes are not affected. This issue is fixed in version 0.142.0.",
+      "published": "2026-08-21T21:17:07.130",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67360"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77354"
+    },
+    {
+      "id": "CVE-2026-77220",
+      "summary": "PDFio before 1.6.5 contains a dangling pointer vulnerability in the dictionary string-formatting function that stores a pointer to a stack-local buffer in the document dictionary without copying the string value. In multi-threaded or pooled-request environments, attackers or concurrent users can trigger stack memory reuse across requests, causing cross-tenant document content corruption by silently overwriting one caller's dictionary string values with another caller's data.",
+      "published": "2026-08-21T21:17:06.737",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77220"
     }
   ]
 }
