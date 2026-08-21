@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T15:46:03+00:00",
+  "generated_at": "2026-08-21T16:49:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77815",
-      "summary": "to_abs_path in scripts/iib/tool.py normalised the requested path with os.path.normpath, which collapses dot segments but does not resolve symbolic links. A symlink placed inside a scanned directory therefore satisfies the containment comparison performed by is_path_trusted in scripts/iib/api.py while pointing outside that directory, and FileResponse follows the link when serving the response, so a link created in an image directory and targeting a file such as /etc/passwd discloses that file. Whether the check applies depends on get_enable_access_control in scripts/iib/tool.py: it returns true when IIB_ACCESS_CONTROL is set to enable, false when set to disable, and otherwise true when the host Stable Diffusion WebUI was started with share, ngrok, listen or server_name, falling back to false. Confinement is therefore active in the network-exposed WebUI deployments that rely on it, while a standalone run with no such option serves every readable file regardless of this flaw. The fix resolves the path with os.path.realpath.",
-      "published": "2026-08-21T15:16:47.883",
+      "id": "CVE-2026-75933",
+      "summary": "Jet Admin allows an authenticated attacker to inject JavaScript via the sign-in page's scripts and styles option. Injected script is executed in the context of any visiting user's domain.",
+      "published": "2026-08-21T16:18:17.873",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75933"
+    },
+    {
+      "id": "CVE-2026-75932",
+      "summary": "Jet Admin allows an attacker to create a malicious app and connect it to a target user's custom domain, edit the authentication configuration, and reroute traffic to the attacker-controlled app. Once connected to the target domain, the attacker's workspace is populated with the victim's OAuth Client ID and Client Secret if the victim is using an OAuth provider.",
+      "published": "2026-08-21T16:18:17.717",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75932"
+    },
+    {
+      "id": "CVE-2026-75928",
+      "summary": "The Brushfire platform's video content streaming application (https://online.brushfire.com) exposes database path in requests to users, allowing a remote, unauthenticated attacker to read information about other users. Fixed February 2026.",
+      "published": "2026-08-21T16:18:17.567",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75928"
+    },
+    {
+      "id": "CVE-2026-69502",
+      "summary": "Server-side request forgery (ssrf) in Azure SQL Database allows an unauthorized attacker to elevate privileges over a network.",
+      "published": "2026-08-21T16:18:07.090",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69502"
+    },
+    {
+      "id": "CVE-2026-54789",
+      "summary": "mod_auth_openidc is an OpenID Certified authentication and authorization module for the Apache 2.x HTTP server that implements the OpenID Connect Relying Party functionality. Prior to 2.4.19.4, an out-of-bounds read and a one-byte out-of-bounds write exist in the state-cookie parser of `mod_auth_openidc`. The issue is fixed in version 2.4.19.4 by stopping the scan at the string terminator so a value-less token is rejected. No in-product workarounds are available. As a stop-gap, an upstream reverse proxy or WAF that rejects or normalizes malformed `Cookie` headers (tokens lacking `=`) can reduce exposure, but upgrading is the recommended remediation.",
+      "published": "2026-08-21T16:17:19.000",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77815"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54789"
     },
     {
-      "id": "CVE-2026-77814",
-      "summary": "is_path_trusted in scripts/iib/api.py compares the requested path against each allowed parent directory with path.startswith(parent_path), without appending a path separator. A directory whose name merely begins with an allowed path therefore satisfies the comparison, so where /data/images is allowed a request for /data/images_private/secret.txt is treated as trusted and served by FileResponse, disclosing files the confinement was meant to exclude. Whether the check applies depends on get_enable_access_control in scripts/iib/tool.py: it returns true when IIB_ACCESS_CONTROL is set to enable, false when set to disable, and otherwise true when the host Stable Diffusion WebUI was started with share, ngrok, listen or server_name, falling back to false. Confinement is therefore active in the network-exposed WebUI deployments that rely on it, while a standalone run with no such option serves every readable file regardless of this flaw. The fix compares against parent_path joined with os.sep.",
-      "published": "2026-08-21T15:16:47.733",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77814"
-    },
-    {
-      "id": "CVE-2026-77812",
-      "summary": "DJI drones transmit DUML (DJI Universal Markup Language) protocol messages over BLE (Bluetooth Low Energy) without encryption. When a client attempts to connect to the drone over Wi-Fi, or when the drone is switched to QuickTransfer mode, the DJI Fly application exchanges DUML messages with the drone over BLE, including the Wi-Fi credentials. An attacker within BLE range can passively sniff this traffic and recover the credentials in cleartext, including the drone's Wi-Fi PSK, SSID, and trusted identifier UUID. Obtaining these credentials allows the attacker to join the drone's internal Wi-Fi network, interact with network services exposed by the drone, and decrypt Wi-Fi traffic exchanged between the drone and the legitimate user.\n\n* An attacker within BLE range recovers the Wi-Fi SSID and PSK in cleartext, and can then join the drone's network \n* The same capture also exposes the session UUID identifier, which is the only thing the drone uses to tell a trusted client from an unknown one, so the attacker can replay it and skip the physical confirmation of new connected devices.\n* The credentials do not change between sessions unless the operator manually resets the Wi-Fi settings, so one capture stays valid indefinitely\n* The attack is fully passive, with nothing transmitted and no connection made, so neither the operator nor the drone has any indication the session was observed\n* A BLE sniffer and presence during one normal DJI Fly connection are needed\n\nAffected models are DJI Neo until 01.00.0400, DJI Neo 2 until 01.00.0500, DJI Flip until 01.00.1200, DJI Air 3 until 01.00.1600, DJI Air 3S until 01.00.1400, DJI Avata 2 until 01.00.0400, DJI Avata 360 until 01.00.0300, DJI Mavic 3 until 01.00.1400, DJI Mavic 3 Classic until 01.00.0800, DJI Mavic 3 Pro until 01.01.0700, DJI Mavic 4 Pro until 01.00.0500, DJI Mini 2 until 01.07.0200, DJI Mini 3 until 01.00.0500, DJI Mini 3 Pro until 01.00.0900, DJI Mini 4 Pro until 01.00.1100, and DJI Mini 5 Pro until 01.00.0600.\n\nRemediation requires a firmware update from the vendor. There is no user-side mitigation that fully addresses the vulnerability without upgrading.",
-      "published": "2026-08-21T15:16:47.557",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77812"
-    },
-    {
-      "id": "CVE-2026-77087",
-      "summary": "Paperclip before 0.3.1 in default local_trusted mode fails to validate Host headers, allowing attackers to execute arbitrary commands via DNS rebinding. An attacker can craft a malicious webpage that, when visited by a developer running Paperclip locally, uses DNS rebinding to make authenticated API requests and execute commands through the process adapter.",
-      "published": "2026-08-21T15:16:47.290",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77087"
-    },
-    {
-      "id": "CVE-2026-75501",
-      "summary": "A vulnerability in the Calix EXOS firmware for the GS7 XGS (GS5239XG) residential router allows unauthenticated remote attackers to modify NAT port\u2011forwarding rules via the UPnP WANIPConnection service. The device exposes the MiniUPnPd control endpoint on the WAN interface on TCP port 5000 without access controls. A remote attacker can send crafted SOAP requests to add, delete, or enumerate port mappings, or to query the external IP address, without authentication. Successful exploitation may enable bypass of the firewall/NAT boundary and exposure of internal LAN services to the public internet.",
-      "published": "2026-08-21T15:16:47.070",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75501"
-    },
-    {
-      "id": "CVE-2026-63343",
-      "summary": "Incus is a system container and virtual machine manager. Prior to version 7.3.0, a malicious image containing a `metadata.yaml` symlink pointing to an arbitrary host path allows an authenticated Incus user to read or overwrite any file on the host as root via the instance metadata API. The `exec-output` and `templates/` paths were patched in a prior release using `Lstat` rejection and `os.OpenRoot` confinement; `metadata.yaml` was not included in either patch and remains exploitable. Version 7.3.0 patches the issue.",
-      "published": "2026-08-21T15:16:46.577",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63343"
+      "id": "CVE-2026-49114",
+      "summary": "In ONNX before 1.21.0, the 'save_external_data' function builds the external-data file path from the model's external_data location field and opens it for writing without 'O_NOFOLLOW/O_EXCL', after a non-atomic 'os.path.isfile()' check. A local attacker with write access to the directory where a victim serializes external data can deterministically pre-plant a symlink that is being followed, causing the victim's write to append to any file the victim can write, e.g. ~/.ssh/authorized_keys, cron files, or application configs. Fixed in 1.21.0.",
+      "published": "2026-08-21T16:17:17.863",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49114"
     }
   ]
 }
