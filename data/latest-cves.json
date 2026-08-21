@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T22:38:41+00:00",
+  "generated_at": "2026-08-21T23:35:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-53531",
-      "summary": "RaTeX is a KaTeX-compatible math rendering engine written in Rust. Prior to version 0.1.11, RaTeX\u2019s recursive-descent parser recurses one (or more) native stack frame per nesting level at `{`, `\\left`, `\\sqrt{`, `^{`, etc, with no maximum depth limit. A short, ~10 KB input of nested groups overflows the 8 MB main-thread stack and aborts the process. With `panic = \"abort\"` (`Cargo.toml:48`), and because a Rust stack overflow is always a fatal `SIGABRT` regardless of panic strategy this is an unrecoverable, whole-process denial of service reachable from a single untrusted LaTeX string. Version 0.1.11 fixes the issue.",
-      "published": "2026-08-21T22:16:39.737",
+      "id": "CVE-2026-53541",
+      "summary": "OliveTin gives access to predefined shell commands from a web interface. The `filterToDefinedArgumentsOnly` function in the executor is intended to discard any arguments not explicitly defined in the action's configuration. However, prior to commit ebffd9f040f791208aee1db2e5a8aecd1e3e603d, a special case allows any argument whose name starts with `ot_` to bypass this filter. While two system arguments (`ot_executionTrackingId` and `ot_username`) are injected by OliveTin and overridden, all other `ot_`-prefixed arguments supplied by the user pass through unmodified. These bypassed arguments are not type-checked \u2014 the validation loop only iterates over the action's defined arguments, so `ot_`-prefixed arguments skip all type safety checks entirely; set as environment variables \u2014 via `buildEnv()`, with completely unvalidated values, and passed to the executed command; and included in the template context \u2014 available as `.Arguments.ot_*` in template rendering. Commit ebffd9f040f791208aee1db2e5a8aecd1e3e603d contains a patch.",
+      "published": "2026-08-21T23:16:26.500",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53541"
+    },
+    {
+      "id": "CVE-2026-53525",
+      "summary": "WeeChat (Wee Enhanced Environment for Chat) is a free chat client. In versions 0.3.1 through 4.9.0, the WeeChat relay authentication uses non-constant-time string comparison functions (weechat_strcasecmp and strcmp) to verify password hashes and plaintext passwords. An attacker can exploit timing differences to extract the server-computed hash character by character, then authenticate using the correct hash without knowing the password. Version 4.9.1 fixes the issue.",
+      "published": "2026-08-21T23:16:26.363",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53525"
+    },
+    {
+      "id": "CVE-2026-53524",
+      "summary": "WeeChat (Wee Enhanced Environment for Chat) is a free chat client. In versions 4.3.0 through 4.9.0, the WeeChat relay module's WebSocket permessage-deflate decompression function relay_websocket_inflate() has no upper bound on output size. An authenticated relay user can send a small compressed WebSocket frame (~100 bytes) that decompresses to gigabytes, exhausting all server memory and crashing the entire WeeChat process. The api protocol enables permessage-deflate and requires authentication before WebSocket upgrade. Version 4.9.1 patches the issue.",
+      "published": "2026-08-21T23:16:26.213",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53524"
+    },
+    {
+      "id": "CVE-2026-53499",
+      "summary": "FORT Validator is a Resource Public Key Infrastructure (RPKI) relying-party validator that produces validated route-origin data. FORT Validator versions through 1.6.7 contain an origin-validation error in their RRDP processing: a delegated CA under the same Trust Anchor Locator (TAL) can reference a victim CA\u2019s public RRDP notification and snapshot URLs, causing FORT\u2019s URL-based download cache to report success after deleting the victim\u2019s local snapshot. Following a routine victim publication, this can silently remove the victim\u2019s VRPs and other signed objects from FORT\u2019s output, potentially enabling route hijacking or loss of reachability. Version 1.6.8 contains a patch that rejects cross-origin RRDP snapshot and delta URLs; as a workaround, administrators can disable HTTP/RRDP with \u00a0--http.enabled=false\u00a0 while keeping rsync enabled, although this can leave data unavailable or stale where rsync is not supported.",
+      "published": "2026-08-21T23:16:26.070",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53531"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53499"
     },
     {
-      "id": "CVE-2026-53530",
-      "summary": "RaTeX is a KaTeX-compatible math rendering engine written in Rust. Prior to version 0.1.11, the public parser entrypoint `ratex_parser::parse(&str)` panics on the 9-byte input `\\verb\u00e9x\u00e9` (i.e. `\\verb` followed by the non-ASCII delimiter `\u00e9`). When handling a `\\verb` command, the parser slices the verbatim argument with byte indices (`arg[1..arg.len() - 1]`); if the delimiter character is multibyte UTF-8, index `1` lands inside that character and Rust panics with *\u201cbyte index 1 is not a char boundary\u201d*. Because RaTeX\u2019s release profile sets `panic = \"abort\"` (`Cargo.toml:48`), the panic aborts the entire process \u2014 not just the current request/thread \u2014 making this a hard denial of service for any service that renders untrusted LaTeX. Version 0.1.11 fixes the issue.",
-      "published": "2026-08-21T22:16:39.590",
+      "id": "CVE-2026-49360",
+      "summary": "Recce is a data-validation toolkit for enhanced dbt (data build tool) PR review. Prior to version 1.50.0, OSS server deployments that expose the server to an untrusted network without authentication are vulnerable to unauthenticated SQL execution through the query run API. When Recce is configured with a DuckDB-backed project, an attacker can use DuckDB filesystem primitives to read and write files accessible to the Recce server process. The impact depends on how Recce is deployed, but may include disclosure of local files, tampering with Recce/dbt artifacts, modification of browser-served static files leading to stored XSS, and modification of application files if those paths are writable. If Recce is run as root, file access occurs with root privileges inside that host or container. This issue has been patched in Recce `v1.50.0`. Users should upgrade to Recce `v1.50.0` or later. The patch restricts unsafe file read/write behavior for DuckDB-backed query execution and hardens the affected query path. Other warehouse adapters have also been reviewed for similar exposure. Users who cannot upgrade immediately should avoid exposing `recce server` to the public internet or any untrusted network. Recommended mitigations include enabling authentication or placing Recce behind an authenticated reverse proxy/VPN, running Recce as a non-root user, using a read-only application filesystem where possible, and ensuring that sensitive files or credentials are not available to the Recce process.",
+      "published": "2026-08-21T23:16:25.617",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53530"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49360"
     },
     {
-      "id": "CVE-2026-53529",
-      "summary": "LeafWiki is a self-hosted wiki. Prior to version 0.10.2, page titles returned by the search API could be rendered as raw HTML in the frontend. A user with editor or administrator permissions could create or modify a page title containing an HTML/JavaScript payload. When another user searched for a matching term, the payload could execute in the victim\u2019s browser. The impact depends on deployment configuration. With `--public-access` enabled, unauthenticated visitors could be affected. In authenticated-only deployments, the issue could be used for cross-user XSS against logged-in users who can access search results. The issue has been fixed in version 0.10.2 by ensuring that author-controlled page titles in search results are not interpreted as raw HTML by the browser while preserving search result highlighting.",
-      "published": "2026-08-21T22:16:39.430",
+      "id": "CVE-2026-48106",
+      "summary": "Arc is an open, SQL-native time-series database for telemetry. Prior to version 26.06.1, Arc Enterprise's cluster replication receiver at `internal/cluster/replication/receiver.go` validates only the wire-format envelope (length, opcode) of inbound messages. The `MsgReplicateSync` payload itself is accepted without any application-layer authentication \u2014 no HMAC, no signature, no per-message nonce. The replication stream is protected at the transport layer by TLS / mTLS, but there is no protection against application-layer message tampering or replay once a peer is on the cluster network. This is fixed in 2026.06.1. Some workarounds are available. Restrict cluster network access to known-trusted peers via strict firewall rules, audit replication logs for unexpected `MsgReplicateSync` traffic, and/or disable cluster mode until the fix is available.",
+      "published": "2026-08-21T23:16:25.360",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53529"
-    },
-    {
-      "id": "CVE-2026-53528",
-      "summary": "LeafWiki is a self-hosted wiki. Versions 0.3.0 through 0.10.0 have a path traversal vulnerability in LeafWiki\u2019s asset rename functionality. An authenticated user with editor permissions could move files that are accessible to the LeafWiki server process into a page\u2019s asset directory. This could allow sensitive local files, such as the application database, to become downloadable as page assets. Users should update to version 0.10.1 or greater. As an additional mitigation, operators should ensure that the LeafWiki process runs with the least privileges necessary and does not have filesystem access to sensitive files outside the application\u2019s required directories. Until a patch is applied, operators may reduce risk by restricting editor access to trusted users only and by limiting the filesystem permissions of the LeafWiki process.",
-      "published": "2026-08-21T22:16:39.290",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53528"
-    },
-    {
-      "id": "CVE-2026-53527",
-      "summary": "LeafWiki is a self-hosted wiki. Versions 0.1.0 through 0.10.0 have a privilege escalation vulnerability in the user update API. An authenticated user could update their own account role and escalate privileges from a regular user, such as `viewer`, to `admin`. Exploitation requires a valid authenticated LeafWiki user account. Instances without public registration and with only trusted users are at lower practical risk. Users should update to version 0.10.1 or greater. Until a patch is available, operators should restrict account creation and ensure that only trusted users have accounts on affected LeafWiki instances. If possible, access to the user update API should be restricted to trusted users or administrators only.",
-      "published": "2026-08-21T22:16:39.147",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53527"
-    },
-    {
-      "id": "CVE-2026-53509",
-      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. A known vulnerability CVE-2026-33060 indicated tools including ckan_package_search and sparql_query that accept a base_url parameter had the risk of making HTTP requests to arbitrary endpoints without restriction. A fix was applied to filter out ip addresses. However, a method to bypass exists prior to version 0.4.106. CKAN MCP Server validates caller-supplied CKAN server URLs by inspecting only the parsed hostname string before issuing outbound HTTP requests. In `src/utils/http.ts`, hostname aliases such as `ip6-localhost` are not equal to `localhost`, are not dotted IPv4 literals, and are not bracketed IPv6 literals, so they pass the SSRF filter but can resolve to loopback when the server performs the request. A remote MCP caller that can invoke CKAN tools with a `server_url` can therefore make the server connect to local or private addresses and, for CKAN-shaped responses, receive response-derived data. The updated fix in version 0.4.106 replaced the single `hostname === 'localhost'` check with a blocked-hostname `Set` covering `ip6-localhost` and `ip6-loopback`.",
-      "published": "2026-08-21T22:16:38.993",
-      "cvss": 5.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53509"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48106"
     }
   ]
 }
