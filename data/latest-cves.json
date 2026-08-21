@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T16:49:27+00:00",
+  "generated_at": "2026-08-21T17:42:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-74583",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: cls_route: fix fastmap use-after-free on filter\n\nThe route4 classifier maintains a 16-slot fastmap cache that stores raw\nstruct route4_filter pointers indexed by (id, iif). The reader\n(route4_classify) populates this cache via route4_set_fastmap() for every\nclassified packet that hits a filter. The writer (route4_delete,\nroute4_change) clears the cache via route4_reset_fastmap() before\nRCU-deferred kfree of the filter.\n\nThis creates a UAF race:\n 1. Reader walks the RCU-protected bucket chain, finds filter f\n 2. Writer unlinks f, calls route4_reset_fastmap(), then tcf_queue_work()\n 3. Reader calls route4_set_fastmap() and writes f into the cache\n    *after* the writer's reset, caching a pointer about to be freed\n 4. After the RCU grace period, kfree(f) executes\n 5. Next classified packet on the same (id, iif) tuple hits the stale\n    fastmap entry and reads f->res from freed memory\n\nReproduced with an mdelay(100) accelerator in route4_set_fastmap() and a\nconcurrent add/delete stress test (provided by both zdi and Santosh).\nBoth triggered KASAN slab-use-after-free reports in the route4 fastmap\npaths.\n\nFix:\nIntroduce a per-filter boolean dying flag to suppress stale fastmap\nrepublishing by in-flight readers.",
+      "published": "2026-08-21T17:16:44.643",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74583"
+    },
+    {
+      "id": "CVE-2026-74582",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\npacket: use consistent hard_header_len in non-ring send paths\n\npacket_snd() reads dev->hard_header_len multiple times while allocating\nand constructing an skb. Device reconfiguration can change this value\nconcurrently, for example through bonding device type changes.\n\nFor SOCK_RAW, packet_snd() can save a larger value in reserve and later\nallocate headroom using a smaller value. Moving skb->data back by reserve\nthen places it before skb->head, and the following copy from userspace can\nattempt an out-of-bounds write.\n\npacket_sendmsg_spkt() has the same issue because it calculates its\nreservation and header offset from separate reads before dropping the RCU\nread lock to allocate the skb.\n\nAdd LL_RESERVED_SPACE_EX() for callers that already saved a header length.\nRead hard_header_len once in packet_snd() and use it for allocation and\nconstruction. In packet_sendmsg_spkt(), preserve the allocation-time value\nthrough the device lookup retry.\n\nThe separate SOCK_DGRAM consistency problem between hard_header_len and\nheader_ops->create is not addressed here.",
+      "published": "2026-08-21T17:16:44.507",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74582"
+    },
+    {
+      "id": "CVE-2026-74581",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ipv6: clear suppressed fib6 rule result\n\nfib6_rule_suppress() drops a suppressed route with ip6_rt_put_flags(),\nbut leaves res->rt6 pointing at the released rt6_info.\n\nIf no later rule supplies a replacement, fib6_rule_lookup() still sees\nres.rt6 and returns that stale dst to its caller. A suppressing rule can\ntherefore leak a released route back to rt6_lookup(), and the next put\nhits rcuref_put_slowpath() from dst_release().\n\nClear res->rt6 when suppressing the route so suppressed lookups fall\nthrough to the null dst instead of reusing the released one.",
+      "published": "2026-08-21T17:16:44.363",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74581"
+    },
+    {
+      "id": "CVE-2026-74580",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nvhost: reset the vring metadata cache on vring reconfiguration\n\nvq->meta_iotlb[] caches the vhost_iotlb_map that backs each vring\nmetadata region, and iotlb_access_ok() returns early on a cache hit,\ntaking the hit as proof that the region has already been validated:\n\n\tif (vhost_vq_meta_fetch(vq, addr, len, type))\n\t\treturn true;\n\nThe cache is reset on VHOST_IOTLB_UPDATE and VHOST_IOTLB_INVALIDATE, on\ndevice IOTLB (re)initialisation and on vq reset, but not when\nVHOST_SET_VRING_ADDR replaces vq->desc, vq->avail and vq->used, nor when\nVHOST_SET_VRING_NUM changes the region sizes.\n\nWith a device IOTLB attached both ioctls are accepted while the vq is\nlive, and neither validates the addresses at ioctl time: vq_access_ok()\nand vq_log_used_access_ok() return true early because the addresses are\nGIOVAs, deferring validation to prefetch time.  Once the cache has been\npopulated that deferred validation no longer runs -- vq_meta_prefetch()\nhits the stale entry and returns true -- and vhost_vq_meta_fetch() keeps\ntranslating through the old mapping as\n\n\tmap->addr + addr - map->start\n\nfor an address the mapping no longer covers.  vhost_copy_to_user() and\nvhost_copy_from_user() consume the result with __copy_to_user() and\n__copy_from_user(), which do not check it either, so a subsequent used\nring update or descriptor fetch accesses memory outside the region the\nIOTLB actually maps.\n\nReset the metadata cache whenever the vring is reconfigured, so the new\naddresses are pushed back through iotlb_access_ok()'s slow path.",
+      "published": "2026-08-21T17:16:44.210",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74580"
+    },
+    {
+      "id": "CVE-2026-39909",
+      "summary": "llama.cpp before b8585 contains a use-after-free vulnerability in the RPC server's GRAPH_RECOMPUTE handler that allows unauthenticated remote attackers to achieve arbitrary read and write access by storing a computation graph, freeing referenced buffers, and reclaiming freed memory with attacker-controlled content. Attackers can send RPC requests to trigger re-execution of stored graphs with dangling pointers, enabling full remote code execution without requiring authentication or user interaction.",
+      "published": "2026-08-21T17:16:30.810",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39909"
+    },
     {
       "id": "CVE-2026-75933",
       "summary": "Jet Admin allows an authenticated attacker to inject JavaScript via the sign-in page's scripts and styles option. Injected script is executed in the context of any visiting user's domain.",
       "published": "2026-08-21T16:18:17.873",
       "cvss": 7.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75933"
-    },
-    {
-      "id": "CVE-2026-75932",
-      "summary": "Jet Admin allows an attacker to create a malicious app and connect it to a target user's custom domain, edit the authentication configuration, and reroute traffic to the attacker-controlled app. Once connected to the target domain, the attacker's workspace is populated with the victim's OAuth Client ID and Client Secret if the victim is using an OAuth provider.",
-      "published": "2026-08-21T16:18:17.717",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75932"
-    },
-    {
-      "id": "CVE-2026-75928",
-      "summary": "The Brushfire platform's video content streaming application (https://online.brushfire.com) exposes database path in requests to users, allowing a remote, unauthenticated attacker to read information about other users. Fixed February 2026.",
-      "published": "2026-08-21T16:18:17.567",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75928"
-    },
-    {
-      "id": "CVE-2026-69502",
-      "summary": "Server-side request forgery (ssrf) in Azure SQL Database allows an unauthorized attacker to elevate privileges over a network.",
-      "published": "2026-08-21T16:18:07.090",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69502"
-    },
-    {
-      "id": "CVE-2026-54789",
-      "summary": "mod_auth_openidc is an OpenID Certified authentication and authorization module for the Apache 2.x HTTP server that implements the OpenID Connect Relying Party functionality. Prior to 2.4.19.4, an out-of-bounds read and a one-byte out-of-bounds write exist in the state-cookie parser of `mod_auth_openidc`. The issue is fixed in version 2.4.19.4 by stopping the scan at the string terminator so a value-less token is rejected. No in-product workarounds are available. As a stop-gap, an upstream reverse proxy or WAF that rejects or normalizes malformed `Cookie` headers (tokens lacking `=`) can reduce exposure, but upgrading is the recommended remediation.",
-      "published": "2026-08-21T16:17:19.000",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54789"
-    },
-    {
-      "id": "CVE-2026-49114",
-      "summary": "In ONNX before 1.21.0, the 'save_external_data' function builds the external-data file path from the model's external_data location field and opens it for writing without 'O_NOFOLLOW/O_EXCL', after a non-atomic 'os.path.isfile()' check. A local attacker with write access to the directory where a victim serializes external data can deterministically pre-plant a symlink that is being followed, causing the victim's write to append to any file the victim can write, e.g. ~/.ssh/authorized_keys, cron files, or application configs. Fixed in 1.21.0.",
-      "published": "2026-08-21T16:17:17.863",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49114"
     }
   ]
 }
