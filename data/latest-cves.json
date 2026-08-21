@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T21:36:02+00:00",
+  "generated_at": "2026-08-21T22:38:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77811",
-      "summary": "Improper input validation in the dashboards-observability plugin in OpenSearch Dashboards allows a remote authenticated user with write permissions to OpenSearch Dashboards saved objects to execute arbitrary JavaScript in the context of other users' browser sessions by uploading a saved asset with arbitrary web content.",
-      "published": "2026-08-21T21:17:08.903",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77811"
-    },
-    {
-      "id": "CVE-2026-77415",
-      "summary": "JSONata is a JSON query and transformation language. Prior to 1.8.8 and 2.2.1, crafted JSONata expressions could chain several object-integrity weaknesses to execute arbitrary code. The chain could overwrite $clone to mutate objects through evaluateTransformExpression, expose and deconstruct JSONata functions or lambdas through $merge.*, replace proc.arguments.forEach used by applyProcedure, and forge internal lambda state. These primitives allowed an attacker to reach prototype getters, prototype and constructor access, and process.getBuiltinModule with child_process, executing code with the privileges of the host process. This issue is fixed in versions 1.8.8 and 2.2.1.",
-      "published": "2026-08-21T21:17:07.553",
+      "id": "CVE-2026-53531",
+      "summary": "RaTeX is a KaTeX-compatible math rendering engine written in Rust. Prior to version 0.1.11, RaTeX\u2019s recursive-descent parser recurses one (or more) native stack frame per nesting level at `{`, `\\left`, `\\sqrt{`, `^{`, etc, with no maximum depth limit. A short, ~10 KB input of nested groups overflows the 8 MB main-thread stack and aborts the process. With `panic = \"abort\"` (`Cargo.toml:48`), and because a Rust stack overflow is always a fatal `SIGABRT` regardless of panic strategy this is an unrecoverable, whole-process denial of service reachable from a single untrusted LaTeX string. Version 0.1.11 fixes the issue.",
+      "published": "2026-08-21T22:16:39.737",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77415"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53531"
     },
     {
-      "id": "CVE-2026-77414",
-      "summary": "JSONata is a JSON query and transformation language. Prior to 1.8.8 and 2.2.1, the src/jsonata.js environment.lookup function used a bypassable hasOwnProperty check. Crafted expressions could use $hasOwnProperty, $spread, $string, prototype access, and $constructor to reach the object prototype and invoke process.getBuiltinModule with child_process, executing arbitrary code with the privileges of the host process. This issue is fixed in versions 1.8.8 and 2.2.1.",
-      "published": "2026-08-21T21:17:07.410",
+      "id": "CVE-2026-53530",
+      "summary": "RaTeX is a KaTeX-compatible math rendering engine written in Rust. Prior to version 0.1.11, the public parser entrypoint `ratex_parser::parse(&str)` panics on the 9-byte input `\\verb\u00e9x\u00e9` (i.e. `\\verb` followed by the non-ASCII delimiter `\u00e9`). When handling a `\\verb` command, the parser slices the verbatim argument with byte indices (`arg[1..arg.len() - 1]`); if the delimiter character is multibyte UTF-8, index `1` lands inside that character and Rust panics with *\u201cbyte index 1 is not a char boundary\u201d*. Because RaTeX\u2019s release profile sets `panic = \"abort\"` (`Cargo.toml:48`), the panic aborts the entire process \u2014 not just the current request/thread \u2014 making this a hard denial of service for any service that renders untrusted LaTeX. Version 0.1.11 fixes the issue.",
+      "published": "2026-08-21T22:16:39.590",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77414"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53530"
     },
     {
-      "id": "CVE-2026-77413",
-      "summary": "JSONata is a JSON query and transformation language. Prior to 1.8.8 and 2.2.0, the src/functions.js lookup function lacked an Object.prototype.hasOwnProperty check and allowed crafted expressions to access inherited prototype members. An attacker able to supply an expression could use inherited prototype setters and getters, constructor access, valueOf, and process.getBuiltinModule to reach the child_process module and execute arbitrary code with the privileges of the host process. This issue is fixed in versions 1.8.8 and 2.2.0.",
-      "published": "2026-08-21T21:17:07.267",
+      "id": "CVE-2026-53529",
+      "summary": "LeafWiki is a self-hosted wiki. Prior to version 0.10.2, page titles returned by the search API could be rendered as raw HTML in the frontend. A user with editor or administrator permissions could create or modify a page title containing an HTML/JavaScript payload. When another user searched for a matching term, the payload could execute in the victim\u2019s browser. The impact depends on deployment configuration. With `--public-access` enabled, unauthenticated visitors could be affected. In authenticated-only deployments, the issue could be used for cross-user XSS against logged-in users who can access search results. The issue has been fixed in version 0.10.2 by ensuring that author-controlled page titles in search results are not interpreted as raw HTML by the browser while preserving search result highlighting.",
+      "published": "2026-08-21T22:16:39.430",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77413"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53529"
     },
     {
-      "id": "CVE-2026-77354",
-      "summary": "kin-openapi is a Go project for handling OpenAPI files. From 0.124.0 until 0.142.0, openapi3filter.sliceMapToSlice in openapi3filter/req_resp_decoder.go converts attacker-controlled sparse indexes from a deepObject query parameter into a dense slice by allocating entries from zero through the largest supplied index, after which buildResObj creates another slice of the same length. This allocation occurs before schema validation, so maxItems does not prevent it. An unauthenticated client can send a small query such as param[items][50000000]=x to an endpoint whose deepObject schema contains an array, forcing multi-gigabyte heap allocation and causing an OOM kill or restart loop. Other request-body encodings and styled parameters that do not produce bracketed integer indexes are not affected. This issue is fixed in version 0.142.0.",
-      "published": "2026-08-21T21:17:07.130",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77354"
+      "id": "CVE-2026-53528",
+      "summary": "LeafWiki is a self-hosted wiki. Versions 0.3.0 through 0.10.0 have a path traversal vulnerability in LeafWiki\u2019s asset rename functionality. An authenticated user with editor permissions could move files that are accessible to the LeafWiki server process into a page\u2019s asset directory. This could allow sensitive local files, such as the application database, to become downloadable as page assets. Users should update to version 0.10.1 or greater. As an additional mitigation, operators should ensure that the LeafWiki process runs with the least privileges necessary and does not have filesystem access to sensitive files outside the application\u2019s required directories. Until a patch is applied, operators may reduce risk by restricting editor access to trusted users only and by limiting the filesystem permissions of the LeafWiki process.",
+      "published": "2026-08-21T22:16:39.290",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53528"
     },
     {
-      "id": "CVE-2026-77220",
-      "summary": "PDFio before 1.6.5 contains a dangling pointer vulnerability in the dictionary string-formatting function that stores a pointer to a stack-local buffer in the document dictionary without copying the string value. In multi-threaded or pooled-request environments, attackers or concurrent users can trigger stack memory reuse across requests, causing cross-tenant document content corruption by silently overwriting one caller's dictionary string values with another caller's data.",
-      "published": "2026-08-21T21:17:06.737",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77220"
+      "id": "CVE-2026-53527",
+      "summary": "LeafWiki is a self-hosted wiki. Versions 0.1.0 through 0.10.0 have a privilege escalation vulnerability in the user update API. An authenticated user could update their own account role and escalate privileges from a regular user, such as `viewer`, to `admin`. Exploitation requires a valid authenticated LeafWiki user account. Instances without public registration and with only trusted users are at lower practical risk. Users should update to version 0.10.1 or greater. Until a patch is available, operators should restrict account creation and ensure that only trusted users have accounts on affected LeafWiki instances. If possible, access to the user update API should be restricted to trusted users or administrators only.",
+      "published": "2026-08-21T22:16:39.147",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53527"
+    },
+    {
+      "id": "CVE-2026-53509",
+      "summary": "CKAN MCP Server is a tool for querying CKAN open data portals. A known vulnerability CVE-2026-33060 indicated tools including ckan_package_search and sparql_query that accept a base_url parameter had the risk of making HTTP requests to arbitrary endpoints without restriction. A fix was applied to filter out ip addresses. However, a method to bypass exists prior to version 0.4.106. CKAN MCP Server validates caller-supplied CKAN server URLs by inspecting only the parsed hostname string before issuing outbound HTTP requests. In `src/utils/http.ts`, hostname aliases such as `ip6-localhost` are not equal to `localhost`, are not dotted IPv4 literals, and are not bracketed IPv6 literals, so they pass the SSRF filter but can resolve to loopback when the server performs the request. A remote MCP caller that can invoke CKAN tools with a `server_url` can therefore make the server connect to local or private addresses and, for CKAN-shaped responses, receive response-derived data. The updated fix in version 0.4.106 replaced the single `hostname === 'localhost'` check with a blocked-hostname `Set` covering `ip6-localhost` and `ip6-loopback`.",
+      "published": "2026-08-21T22:16:38.993",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53509"
     }
   ]
 }
