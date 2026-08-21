@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T08:55:24+00:00",
+  "generated_at": "2026-08-21T09:50:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77264",
-      "summary": "The Automation Web Platform \u2013 Notifications and OTP for WooCommerce, Advanced Country Code plugin for WordPress is vulnerable to Authentication Bypass in versions up to, and including, 4.8.6. This is due to the handle_email_otp_return() function returning the secret magic login token in the response to a publicly accessible OTP request, rather than only delivering it to the user's email address. This makes it possible for unauthenticated attackers to log in as any user on the site, including administrators, if they know that user's email address.",
-      "published": "2026-08-21T08:16:44.160",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77264"
-    },
-    {
-      "id": "CVE-2026-73537",
-      "summary": "Cross-site scripting vulnerability exists in Miraikan Assist App. If this vulnerability is exploited, an arbitrary script may be executed in the browser component (WebView) running on the affected product, resulting in the displayed content being altered.",
-      "published": "2026-08-21T08:16:44.003",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73537"
-    },
-    {
-      "id": "CVE-2026-19441",
-      "summary": "Missing authentication for critical function vulnerability in IKAS Technology Inc. Rush allows Fake the Source of Data.\n\nThis issue affects Rush: through 21082026.",
-      "published": "2026-08-21T08:16:43.837",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19441"
-    },
-    {
-      "id": "CVE-2026-16323",
-      "summary": "Execution after redirect (EAR) vulnerability in FuyaWeb Internet and Informatics Services ArchitectPanel Web Admin Panel allows Authentication Bypass.\n\nThis issue affects ArchitectPanel Web Admin Panel: through 28072026.",
-      "published": "2026-08-21T08:16:42.667",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16323"
-    },
-    {
-      "id": "CVE-2026-75796",
-      "summary": "The AI Engine  WordPress plugin before 3.6.1 does not verify that the requesting user is authorized to act on the targeted account before performing privileged user management operations, allowing users with the Administrator role on a Multisite sub-site to take over any account on the network, including the Network Administrator's.",
-      "published": "2026-08-21T07:16:25.453",
+      "id": "CVE-2026-77710",
+      "summary": "A vulnerability in misp-stix could allow a crafted STIX document to influence security-sensitive MISP attribute metadata during import.\n\nThe STIX import logic automatically selected between the internal MISP parser and the external STIX parser based on metadata contained in the STIX document itself. For STIX2, the presence of MISP-specific tool labels could cause a document to be classified as originating from MISP; similarly, STIX1 relied on the document title. These classification indicators are fully controlled by the STIX producer and therefore cannot constitute a trusted indication of the document's origin. The accompanying fix explicitly notes that the parser choice was previously based solely on labels or header titles that any producer could write, and introduces an explicit classification parameter allowing callers to override this detection.\n\nWhen STIX2 content was handled as an internal MISP export, attributes contained in an x-misp-object were converted by copying the complete x_misp_attributes dictionary and passing it directly to misp_object.add_attribute(). Consequently, a crafted STIX bundle could supply fields that were not part of the expected STIX-to-MISP round-trip format, including security-sensitive properties such as distribution, sharing_group_id, tags, or other MISP attribute fields.\n\nAn attacker able to provide a STIX document for import could therefore spoof the markers used to identify MISP-generated content and inject additional attribute properties. This could alter the distribution, sharing restrictions, classification, or semantic metadata of imported attributes, potentially causing information to be shared contrary to the importing organization's policy or influencing downstream processing and automation based on attacker-controlled tags or metadata.\n\nThe vulnerability results from dynamically assigning externally supplied object properties without restricting them to an expected set of attributes, matching CWE-915. MITRE specifically describes this weakness as accepting externally influenced fields without controlling which object attributes may be modified and recommends an allow-list, which is the approach implemented by the patch. The parser-selection issue additionally corresponds to CWE-807, because an untrusted value was used to make a security-relevant trust/classification decision.\n\nThe attack is also consistent with CAPEC-153 (Input Data Manipulation), in which an attacker controls the structure or flags of supplied data so that the target selects a different processing path or interprets the content differently than intended.",
+      "published": "2026-08-21T09:16:41.027",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75796"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77710"
     },
     {
-      "id": "CVE-2026-19435",
-      "summary": "The Duplicate Post WordPress plugin before 1.5.6 does not check the user's capabilities before returning post data, allowing users with a delegated role to read the content, metadata and passwords of posts they are not allowed to access, including other users' private and draft content.",
-      "published": "2026-08-21T07:16:25.340",
+      "id": "CVE-2026-74866",
+      "summary": "@fastify/busboy is a multipart form-data parser for Node.js. Its multipart part-header parser splits header lines only on the two-byte carriage-return line-feed sequence, so a lone carriage return or line feed embedded in a part header is not treated as a line break and is carried verbatim into the parsed Content-Disposition filename and field name handed to the application. An attacker who uploads a file whose filename or field name contains a bare carriage return or line feed can inject control characters into consumers that trust the parser to return clean values, enabling filesystem filename pollution, log forging, or header injection when the value is forwarded to a carriage-return-sensitive sink. All versions of @fastify/busboy up to and including 3.2.1 are affected. The issue is fixed in version 3.2.2, which rejects any header line that still contains a bare carriage return or line feed. Users should upgrade to 3.2.2, and consumers such as @fastify/multipart should bump their @fastify/busboy dependency to pull in the fix.",
+      "published": "2026-08-21T09:16:40.890",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74866"
+    },
+    {
+      "id": "CVE-2026-68745",
+      "summary": "Certificate validation failures in SAML authentication in Apache CloudStack 4.20.3.0 and 4.22.1.0 on all platforms allow a malicious agent to forge a SAML response to the management server. The agent will have to spoof the ip address of the IdP or get an url of its own choosing registered in the management server, after which it can allow logging on with forged signatures.\n\nUsers are recommended to upgrade to versions 4.20.3.1 or 4.22.1.1 and above, which fix this issue.",
+      "published": "2026-08-21T09:16:40.697",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19435"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68745"
+    },
+    {
+      "id": "CVE-2026-66797",
+      "summary": "Improper access control in CloudStack's annotation functionality allows unauthorized\u00a0comment creation and disclosure.\n\n\n\n\nThe addAnnotation and listAnnotation APIs perform an ownership check when an entity's UUID is specified, but fail to honor its result correctly. This lets any authenticated user write annotations to, and disclose existing annotations/comments on, an entity they don't own by simply supplying its UUID.\n\n\n\n\nThis issue affects Apache CloudStack: from 4.15.0.0 through 4.20.3.0 and from 4.21.0.0 through 4.22.1.0.\n\n\n\n\n\nUsers are recommended to upgrade to version 4.20.3.1 or 4.22.1.1 or later, which fixes the issue.",
+      "published": "2026-08-21T09:16:40.577",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66797"
+    },
+    {
+      "id": "CVE-2026-66722",
+      "summary": "Improper authorization for CRUD operations on Project Roles and Project Role permissions for domain admins in CloudStack.\n\n\n\n\nA Domain Admin can create, update, delete, and list project roles and project role permissions for projects in any domain, not just their own. The check only confirms the caller is a Domain Admin, without verifying whether the target project belongs to their domain or subdomain. This allows a malicious Domain Admin to tamper with project roles and permissions across unrelated domains.\n\n\n\n\nThis issue affects Apache CloudStack: from 4.15.0.0 through 4.20.3.0 and from 4.21.0.0 through 4.22.1.0.\n\n\n\n\n\nUsers are recommended to upgrade to version 4.20.3.1 or 4.22.1.1 or later, which fixes the issue.",
+      "published": "2026-08-21T09:16:40.460",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66722"
+    },
+    {
+      "id": "CVE-2026-66721",
+      "summary": "Missing authorization issue for domain admins in CloudStack's host tags listing functionality.\n\n\n\n\nDomain Admins, by default, have permission to call the listHostTags API, but the API returns host tags for every host in the environment without domain scoping. It should instead be restricted to only the hosts dedicated to that admin's domain.\n\n\n\n\nThis issue affects Apache CloudStack: from 4.12.0.0 through 4.20.3.0 and from 4.21.0.0 through 4.22.1.0.\n\n\n\n\nUsers are recommended to upgrade to version 4.20.3.1 or 4.22.1.1 or later, which fixes the issue.",
+      "published": "2026-08-21T09:16:40.327",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66721"
     }
   ]
 }
