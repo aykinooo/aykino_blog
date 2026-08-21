@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-21T17:42:25+00:00",
+  "generated_at": "2026-08-21T18:53:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-74583",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: cls_route: fix fastmap use-after-free on filter\n\nThe route4 classifier maintains a 16-slot fastmap cache that stores raw\nstruct route4_filter pointers indexed by (id, iif). The reader\n(route4_classify) populates this cache via route4_set_fastmap() for every\nclassified packet that hits a filter. The writer (route4_delete,\nroute4_change) clears the cache via route4_reset_fastmap() before\nRCU-deferred kfree of the filter.\n\nThis creates a UAF race:\n 1. Reader walks the RCU-protected bucket chain, finds filter f\n 2. Writer unlinks f, calls route4_reset_fastmap(), then tcf_queue_work()\n 3. Reader calls route4_set_fastmap() and writes f into the cache\n    *after* the writer's reset, caching a pointer about to be freed\n 4. After the RCU grace period, kfree(f) executes\n 5. Next classified packet on the same (id, iif) tuple hits the stale\n    fastmap entry and reads f->res from freed memory\n\nReproduced with an mdelay(100) accelerator in route4_set_fastmap() and a\nconcurrent add/delete stress test (provided by both zdi and Santosh).\nBoth triggered KASAN slab-use-after-free reports in the route4 fastmap\npaths.\n\nFix:\nIntroduce a per-filter boolean dying flag to suppress stale fastmap\nrepublishing by in-flight readers.",
-      "published": "2026-08-21T17:16:44.643",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74583"
+      "id": "CVE-2026-77237",
+      "summary": "Missing queue-set type validation in xQueueAddToSet() in the FreeRTOS-Kernel before 11.3.1 might allow an unprivileged task on MPU-enabled ports with configUSE_QUEUE_SETS=1 to read privileged kernel memory.\u00a0To remediate this issue, users should upgrade to version\u00a011.3.1 or later.",
+      "published": "2026-08-21T18:16:51.950",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77237"
     },
     {
-      "id": "CVE-2026-74582",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\npacket: use consistent hard_header_len in non-ring send paths\n\npacket_snd() reads dev->hard_header_len multiple times while allocating\nand constructing an skb. Device reconfiguration can change this value\nconcurrently, for example through bonding device type changes.\n\nFor SOCK_RAW, packet_snd() can save a larger value in reserve and later\nallocate headroom using a smaller value. Moving skb->data back by reserve\nthen places it before skb->head, and the following copy from userspace can\nattempt an out-of-bounds write.\n\npacket_sendmsg_spkt() has the same issue because it calculates its\nreservation and header offset from separate reads before dropping the RCU\nread lock to allocate the skb.\n\nAdd LL_RESERVED_SPACE_EX() for callers that already saved a header length.\nRead hard_header_len once in packet_snd() and use it for allocation and\nconstruction. In packet_sendmsg_spkt(), preserve the allocation-time value\nthrough the device lookup retry.\n\nThe separate SOCK_DGRAM consistency problem between hard_header_len and\nheader_ops->create is not addressed here.",
-      "published": "2026-08-21T17:16:44.507",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74582"
-    },
-    {
-      "id": "CVE-2026-74581",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: ipv6: clear suppressed fib6 rule result\n\nfib6_rule_suppress() drops a suppressed route with ip6_rt_put_flags(),\nbut leaves res->rt6 pointing at the released rt6_info.\n\nIf no later rule supplies a replacement, fib6_rule_lookup() still sees\nres.rt6 and returns that stale dst to its caller. A suppressing rule can\ntherefore leak a released route back to rt6_lookup(), and the next put\nhits rcuref_put_slowpath() from dst_release().\n\nClear res->rt6 when suppressing the route so suppressed lookups fall\nthrough to the null dst instead of reusing the released one.",
-      "published": "2026-08-21T17:16:44.363",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74581"
-    },
-    {
-      "id": "CVE-2026-74580",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nvhost: reset the vring metadata cache on vring reconfiguration\n\nvq->meta_iotlb[] caches the vhost_iotlb_map that backs each vring\nmetadata region, and iotlb_access_ok() returns early on a cache hit,\ntaking the hit as proof that the region has already been validated:\n\n\tif (vhost_vq_meta_fetch(vq, addr, len, type))\n\t\treturn true;\n\nThe cache is reset on VHOST_IOTLB_UPDATE and VHOST_IOTLB_INVALIDATE, on\ndevice IOTLB (re)initialisation and on vq reset, but not when\nVHOST_SET_VRING_ADDR replaces vq->desc, vq->avail and vq->used, nor when\nVHOST_SET_VRING_NUM changes the region sizes.\n\nWith a device IOTLB attached both ioctls are accepted while the vq is\nlive, and neither validates the addresses at ioctl time: vq_access_ok()\nand vq_log_used_access_ok() return true early because the addresses are\nGIOVAs, deferring validation to prefetch time.  Once the cache has been\npopulated that deferred validation no longer runs -- vq_meta_prefetch()\nhits the stale entry and returns true -- and vhost_vq_meta_fetch() keeps\ntranslating through the old mapping as\n\n\tmap->addr + addr - map->start\n\nfor an address the mapping no longer covers.  vhost_copy_to_user() and\nvhost_copy_from_user() consume the result with __copy_to_user() and\n__copy_from_user(), which do not check it either, so a subsequent used\nring update or descriptor fetch accesses memory outside the region the\nIOTLB actually maps.\n\nReset the metadata cache whenever the vring is reconfigured, so the new\naddresses are pushed back through iotlb_access_ok()'s slow path.",
-      "published": "2026-08-21T17:16:44.210",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74580"
-    },
-    {
-      "id": "CVE-2026-39909",
-      "summary": "llama.cpp before b8585 contains a use-after-free vulnerability in the RPC server's GRAPH_RECOMPUTE handler that allows unauthenticated remote attackers to achieve arbitrary read and write access by storing a computation graph, freeing referenced buffers, and reclaiming freed memory with attacker-controlled content. Attackers can send RPC requests to trigger re-execution of stored graphs with dangling pointers, enabling full remote code execution without requiring authentication or user interaction.",
-      "published": "2026-08-21T17:16:30.810",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39909"
-    },
-    {
-      "id": "CVE-2026-75933",
-      "summary": "Jet Admin allows an authenticated attacker to inject JavaScript via the sign-in page's scripts and styles option. Injected script is executed in the context of any visiting user's domain.",
-      "published": "2026-08-21T16:18:17.873",
+      "id": "CVE-2026-77236",
+      "summary": "Missing minimum size validation in secure context allocation in FreeRTOS-Kernel before 11.3.1 might allow local users to corrupt secure-world heap metadata via an out-of-bounds write with an undersized stack size parameter.\u00a0To remediate this issue, users should upgrade to version\u00a011.3.1 or later.",
+      "published": "2026-08-21T18:16:51.800",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75933"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77236"
+    },
+    {
+      "id": "CVE-2026-77235",
+      "summary": "Missing privilege verification in the secure context cleanup handler in FreeRTOS-Kernel before 11.3.1 might allow local users to cause a use-after-free condition in secure-world memory via the SVC handler for secure context deallocation.\u00a0To remediate this issue, users should upgrade to version\u00a011.3.1 or later.",
+      "published": "2026-08-21T18:16:51.657",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77235"
+    },
+    {
+      "id": "CVE-2026-77234",
+      "summary": "Improper input validation in FreeRTOS-Kernel before 11.3.1 might allow an unprivileged task on MPU-enabled ports to execute code in privileged kernel context. To remediate this issue, users should upgrade to version\u00a011.3.1 or later.",
+      "published": "2026-08-21T18:16:51.507",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77234"
+    },
+    {
+      "id": "CVE-2026-71862",
+      "summary": "Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. From 3.3.0 until 3.9.2, enabling the global showURL setting causes the unauthenticated GET /api/v1/status-page/:url endpoint to return complete monitor objects from server/src/controllers/statusPageController.ts. The response includes the secret field used by HttpProvider.ts as an HTTP Authorization credential, even though BaseStatusPage.tsx does not display that value, allowing visitors to extract credentials from the JSON response and use them against monitored services. This issue is fixed in version 3.9.2.",
+      "published": "2026-08-21T18:16:50.730",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71862"
+    },
+    {
+      "id": "CVE-2026-71494",
+      "summary": "Infracost provides cloud cost intelligence for engineers, AI coding agents, and CI/CD. Prior to 0.10.45, internal/hcl/remote_variables_loader.go and related Terraform Cloud, remote-plan, and Terragrunt registry request paths can attach a configured Terraform Cloud or registry token to a destination hostname derived from untrusted Terraform input without confirming that it is the configured trusted host. When a CI run provides a token while scanning attacker-controlled Terraform, including pull_request_target or a same-repository pull request, an attacker can direct the request to an attacker-controlled host and disclose the token. Standard fork pull_request workflows without secrets are not exposed. This issue is fixed in version 0.10.45.",
+      "published": "2026-08-21T18:16:50.590",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71494"
     }
   ]
 }
