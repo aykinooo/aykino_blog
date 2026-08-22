@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-22T08:45:18+00:00",
+  "generated_at": "2026-08-22T09:39:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-78003",
+      "summary": "The Mailgun for WordPress plugin for WordPress is vulnerable to Server-Side Request Forgery (SSRF) via path traversal in versions up to and including 2.2.0. This is due to insufficient input validation in the add_list() function, which accepts user-controlled array keys from $_POST['addresses'], passes them through sanitize_text_field(). This makes it possible for unauthenticated attackers to make authenticated POST requests to any Mailgun API endpoint using the WordPress site's API key, including creating inbound email-forwarding routes that can intercept password reset emails, leading to administrator account takeover.",
+      "published": "2026-08-22T09:16:53.543",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78003"
+    },
+    {
+      "id": "CVE-2026-12710",
+      "summary": "A Missing Authorization vulnerability in the QueryEngineTask of Google Cloud Application Integration (versions from 2025-04-28 to 2026-04-04) allows an external attacker to access sensitive internal data.\n\n\n\n\nThe issue was patched on April 4, 2026; no customer action is required.",
+      "published": "2026-08-22T09:16:53.340",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12710"
+    },
     {
       "id": "CVE-2026-77002",
       "summary": "The SmilePass Selfie Login WordPress plugin through 1.0.2 does not perform any server-side verification of the identity it is asked to authenticate, allowing unauthenticated users to log in as any registered account, including administrators.",
@@ -29,20 +43,6 @@
       "published": "2026-08-22T06:16:16.900",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76793"
-    },
-    {
-      "id": "CVE-2026-76789",
-      "summary": "The Slider Hero with Video Background, Animation WordPress plugin before 9.1.3 does not have authorisation and nonce checks on two of its request handlers, and does not escape a stored setting before outputting it, allowing unauthenticated users to store malicious JavaScript which will be executed in the context of an administrator viewing the Slider Hero with Video Background, Animation WordPress plugin before 9.1.3's admin area, as well as any visitor of a page embedding a slider.",
-      "published": "2026-08-22T06:16:16.643",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76789"
-    },
-    {
-      "id": "CVE-2026-19222",
-      "summary": "The Forminator Forms  WordPress plugin before 1.57.0.7 does not consistently enforce the role restriction it applies to registration forms, allowing users who are permitted to build forms to configure one that assigns the administrator role to any visitor who registers through it.",
-      "published": "2026-08-22T06:16:16.383",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19222"
     }
   ]
 }
