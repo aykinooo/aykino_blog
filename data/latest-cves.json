@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-22T03:05:45+00:00",
+  "generated_at": "2026-08-22T03:53:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-19883",
+      "summary": "The WPeMatico RSS Feed Fetcher plugin for WordPress is vulnerable to unauthorized modification of data that can lead to privilege escalation due to a missing capability check on the wpematico_import_settings function in all versions up to, and including, 2.8.24. This makes it possible for authenticated attackers, with subscriber-level access and above, to update arbitrary options on the WordPress site. This can be leveraged to update the default role for registration to administrator and enable user registration for attackers to gain administrative user access.",
+      "published": "2026-08-22T03:16:20.833",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19883"
+    },
     {
       "id": "CVE-2026-77781",
       "summary": "Tie::Hash::Regex versions before 2.0.0 for Perl will throw an exception on unparseable lookup keys.\n\nThe FETCH, EXISTS and DELETE methods throw an exception when on malformed regular expressions.\n\nEach method falls back to a regex match when the key is not already stored in the hash, compiling the caller's key with a bare qr// and no eval guard. A key that is not a valid regular expression pattern, such as a single unmatched bracket, dies.\n\nAn application that looks up externally supplied strings in a tied hash will die on an invalid key.",
@@ -36,13 +43,6 @@
       "published": "2026-08-21T23:16:26.070",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53499"
-    },
-    {
-      "id": "CVE-2026-49360",
-      "summary": "Recce is a data-validation toolkit for enhanced dbt (data build tool) PR review. Prior to version 1.50.0, OSS server deployments that expose the server to an untrusted network without authentication are vulnerable to unauthenticated SQL execution through the query run API. When Recce is configured with a DuckDB-backed project, an attacker can use DuckDB filesystem primitives to read and write files accessible to the Recce server process. The impact depends on how Recce is deployed, but may include disclosure of local files, tampering with Recce/dbt artifacts, modification of browser-served static files leading to stored XSS, and modification of application files if those paths are writable. If Recce is run as root, file access occurs with root privileges inside that host or container. This issue has been patched in Recce `v1.50.0`. Users should upgrade to Recce `v1.50.0` or later. The patch restricts unsafe file read/write behavior for DuckDB-backed query execution and hardens the affected query path. Other warehouse adapters have also been reviewed for similar exposure. Users who cannot upgrade immediately should avoid exposing `recce server` to the public internet or any untrusted network. Recommended mitigations include enabling authentication or placing Recce behind an authenticated reverse proxy/VPN, running Recce as a non-root user, using a read-only application filesystem where possible, and ensuring that sensitive files or credentials are not available to the Recce process.",
-      "published": "2026-08-21T23:16:25.617",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49360"
     }
   ]
 }
