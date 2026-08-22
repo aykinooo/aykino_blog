@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-22T21:33:48+00:00",
+  "generated_at": "2026-08-22T22:35:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-47895",
+      "summary": "In strongSwan before 6.0.7, identity parsing/cloning is mishandled. Parsed EAP-Identities that result in an empty but non-NULL encoding are not correctly cloned and trigger a double-free once the duplicates are destroyed.",
+      "published": "2026-08-22T22:16:28.153",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47895"
+    },
     {
       "id": "CVE-2026-12999",
       "summary": "The Infineon Airoc Wi-Fi driver's transmit callback airoc_mgmt_send() in drivers/wifi/infineon/airoc_wifi.c allocates a net_buf from the fixed airoc_pool for every outbound packet. When whd_network_send_ethernet_data() returns a synchronous failure, the underlying WHD library does not take ownership of the buffer, but the pre-fix driver returned -EIO without releasing it. Each failed transmit therefore permanently leaks one buffer from the pool.\n\nairoc_pool is small and fixed (AIROC_WIFI_TX_PACKET_POOL_COUNT + AIROC_WIFI_RX_PACKET_POOL_COUNT, default 20 buffers) and is shared by WHD's whd_host_buffer_get callback for both transmit and receive. Once enough send failures have leaked the pool dry, airoc_wifi_host_buffer_get() returns WHD_BUFFER_ALLOC_FAIL for all subsequent allocations, so both transmit and the WHD-driven receive path fail and Wi-Fi connectivity is lost until the device is rebooted.\n\nThe leak occurs only on the transmit error path. A Wi-Fi-adjacent attacker can influence the conditions that cause synchronous send failures (for example by deauthenticating/disassociating the station while the local stack continues to attempt transmits), and ordinary transient failures over the device's lifetime accumulate toward the same state. Reliable on-demand triggering is of high complexity and the impact is availability-only, but the resulting denial of service is permanent and non-recoverable without a reboot.\n\nThe fix releases the buffer with airoc_wifi_buffer_release() on the failure branch, returning it to the pool. The commit also removes a redundant k_sem_give() in airoc_mgmt_disconnect(); because data->sema_common is a binary semaphore (limit 1) the duplicate give merely saturated at 1 and had no security impact.",
@@ -36,13 +43,6 @@
       "published": "2026-08-22T16:16:48.137",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74730"
-    },
-    {
-      "id": "CVE-2026-74729",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nsoc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read\n\nput_fifo_with_discard() acts as both producer and consumer on the kfifo:\nit calls kfifo_skip() (advances out) and kfifo_put() (advances in) from\nthe IRQ handler without synchronizing with snoop_file_read(), which also\nconsumes via kfifo_to_user(). On SMP systems this concurrent access can\nleave (in - out) larger than the ring buffer, so __kfifo_to_user()'s clamp\nto (in - out) is ineffective and kfifo_copy_to_user() can attempt a\ncopy_to_user() past the kmalloc-2k backing store:\n\n  usercopy: Kernel memory exposure attempt detected from SLUB object\n  'kmalloc-2k' (offset 0, size 2049)!\n  kernel BUG at mm/usercopy.c!\n  Call trace:\n   usercopy_abort\n   __check_heap_object\n   __check_object_size\n   kfifo_copy_to_user\n   __kfifo_to_user\n   snoop_file_read\n   vfs_read\n\nSerialize kfifo access with a per-channel spinlock shared between the\nIRQ handler (producer) and the file reader (consumer).  Annotate @fifo\nwith __guarded_by(&lock) and opt the driver into context analysis so the\ncompiler enforces that all fifo access holds the lock.",
-      "published": "2026-08-22T16:16:48.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74729"
     }
   ]
 }
