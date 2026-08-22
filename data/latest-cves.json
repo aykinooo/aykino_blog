@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-21T23:35:40+00:00",
+  "generated_at": "2026-08-22T01:47:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-77781",
+      "summary": "Tie::Hash::Regex versions before 2.0.0 for Perl will throw an exception on unparseable lookup keys.\n\nThe FETCH, EXISTS and DELETE methods throw an exception when on malformed regular expressions.\n\nEach method falls back to a regex match when the key is not already stored in the hash, compiling the caller's key with a bare qr// and no eval guard. A key that is not a valid regular expression pattern, such as a single unmatched bracket, dies.\n\nAn application that looks up externally supplied strings in a tied hash will die on an invalid key.",
+      "published": "2026-08-22T00:16:46.710",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77781"
+    },
     {
       "id": "CVE-2026-53541",
       "summary": "OliveTin gives access to predefined shell commands from a web interface. The `filterToDefinedArgumentsOnly` function in the executor is intended to discard any arguments not explicitly defined in the action's configuration. However, prior to commit ebffd9f040f791208aee1db2e5a8aecd1e3e603d, a special case allows any argument whose name starts with `ot_` to bypass this filter. While two system arguments (`ot_executionTrackingId` and `ot_username`) are injected by OliveTin and overridden, all other `ot_`-prefixed arguments supplied by the user pass through unmodified. These bypassed arguments are not type-checked \u2014 the validation loop only iterates over the action's defined arguments, so `ot_`-prefixed arguments skip all type safety checks entirely; set as environment variables \u2014 via `buildEnv()`, with completely unvalidated values, and passed to the executed command; and included in the template context \u2014 available as `.Arguments.ot_*` in template rendering. Commit ebffd9f040f791208aee1db2e5a8aecd1e3e603d contains a patch.",
@@ -36,13 +43,6 @@
       "published": "2026-08-21T23:16:25.617",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49360"
-    },
-    {
-      "id": "CVE-2026-48106",
-      "summary": "Arc is an open, SQL-native time-series database for telemetry. Prior to version 26.06.1, Arc Enterprise's cluster replication receiver at `internal/cluster/replication/receiver.go` validates only the wire-format envelope (length, opcode) of inbound messages. The `MsgReplicateSync` payload itself is accepted without any application-layer authentication \u2014 no HMAC, no signature, no per-message nonce. The replication stream is protected at the transport layer by TLS / mTLS, but there is no protection against application-layer message tampering or replay once a peer is on the cluster network. This is fixed in 2026.06.1. Some workarounds are available. Restrict cluster network access to known-trusted peers via strict firewall rules, audit replication logs for unexpected `MsgReplicateSync` traffic, and/or disable cluster mode until the fix is available.",
-      "published": "2026-08-21T23:16:25.360",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48106"
     }
   ]
 }
