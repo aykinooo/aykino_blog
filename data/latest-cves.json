@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-22T20:36:55+00:00",
+  "generated_at": "2026-08-22T21:33:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-12999",
+      "summary": "The Infineon Airoc Wi-Fi driver's transmit callback airoc_mgmt_send() in drivers/wifi/infineon/airoc_wifi.c allocates a net_buf from the fixed airoc_pool for every outbound packet. When whd_network_send_ethernet_data() returns a synchronous failure, the underlying WHD library does not take ownership of the buffer, but the pre-fix driver returned -EIO without releasing it. Each failed transmit therefore permanently leaks one buffer from the pool.\n\nairoc_pool is small and fixed (AIROC_WIFI_TX_PACKET_POOL_COUNT + AIROC_WIFI_RX_PACKET_POOL_COUNT, default 20 buffers) and is shared by WHD's whd_host_buffer_get callback for both transmit and receive. Once enough send failures have leaked the pool dry, airoc_wifi_host_buffer_get() returns WHD_BUFFER_ALLOC_FAIL for all subsequent allocations, so both transmit and the WHD-driven receive path fail and Wi-Fi connectivity is lost until the device is rebooted.\n\nThe leak occurs only on the transmit error path. A Wi-Fi-adjacent attacker can influence the conditions that cause synchronous send failures (for example by deauthenticating/disassociating the station while the local stack continues to attempt transmits), and ordinary transient failures over the device's lifetime accumulate toward the same state. Reliable on-demand triggering is of high complexity and the impact is availability-only, but the resulting denial of service is permanent and non-recoverable without a reboot.\n\nThe fix releases the buffer with airoc_wifi_buffer_release() on the failure branch, returning it to the pool. The commit also removes a redundant k_sem_give() in airoc_mgmt_disconnect(); because data->sema_common is a binary semaphore (limit 1) the duplicate give merely saturated at 1 and had no security impact.",
+      "published": "2026-08-22T21:16:48.747",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12999"
+    },
     {
       "id": "CVE-2026-74733",
       "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpio: pca953x: fix pca953x_irq_bus_sync_unlock regmap lock\n\nLocking is disabled in the regmap config as this driver uses its own\nlock. This means that all calls to regmap functions (read or write) must\nhold the i2c_lock. The function pca953x_irq_bus_sync_unlock() did not do\nthis, and it was therefore possible that multiple threads could cause an\nincorrect register to be read/written.\n\nA previous patch partly fixed this, but only protected the write to the\ninterrupt mask register, and not the read from the direction register.",
@@ -36,13 +43,6 @@
       "published": "2026-08-22T16:16:48.033",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74729"
-    },
-    {
-      "id": "CVE-2026-74728",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nxfs: handle NULL b_addr in xfs_buf_free\n\nWhen xfs_buf_alloc_backing_mem() fails, xfs_buf_free() is called with\nbp->b_addr still NULL.  The code falls through to the folio_put path\nwhich calls virt_to_folio(NULL), dereferencing an invalid address and\ncausing a kernel crash.\n\n Call Trace:\n  xfs_buf_free+0x25f/0x510\n  xfs_buf_alloc+0xc98/0x19b0\n  xfs_buf_find_insert+0x55/0x14d0\n  xfs_buf_get_map+0x122b/0x17c0\n  xfbtree_init_leaf_block+0x11c/0x4a0\n  xfbtree_init+0x1bb/0x460\n  xrep_rmap_setup_scan+0x100/0x1f0\n  xrep_rmapbt+0x41/0xc0\n\nFix this by skipping folio_put() when bp->b_addr is NULL.",
-      "published": "2026-08-22T16:16:47.930",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74728"
     }
   ]
 }
