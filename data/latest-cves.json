@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-08-22T22:35:57+00:00",
+  "generated_at": "2026-08-22T23:33:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-78122",
+      "summary": "docker-socket-proxy fails to properly gate read endpoints in the /containers Docker API namespace when the CONTAINERS environment variable is set. Attackers can use GET requests to /containers/{id}/archive, /containers/{id}/export, /containers/{id}/logs, and /containers/{id}/top to read arbitrary files and download entire container filesystems as tar archives.",
+      "published": "2026-08-22T23:16:22.923",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78122"
+    },
+    {
+      "id": "CVE-2026-78049",
+      "summary": "A vulnerability has been found in Systerel S2OPC up to 1.7.3. Impacted is the function SOPC_NodeMgtHelperInternal_AddVariableNodeAttributes of the file src/ClientServer/address_space/internal/sopc_node_mgt_helper_internal.c of the component AddNodes Service. The manipulation of the argument UserAccessLevel leads to out-of-bounds read. It is possible to initiate the attack remotely. A high degree of complexity is needed for the attack. The exploitability is considered difficult. The exploit has been disclosed to the public and may be used. The identifier of the patch is aafbd37d381b618312ebdf5ddf57027f62c14fdd. It is suggested to install a patch to address this issue.",
+      "published": "2026-08-22T23:16:22.723",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78049"
+    },
     {
       "id": "CVE-2026-47895",
       "summary": "In strongSwan before 6.0.7, identity parsing/cloning is mishandled. Parsed EAP-Identities that result in an empty but non-NULL encoding are not correctly cloned and trigger a double-free once the duplicates are destroyed.",
@@ -29,20 +43,6 @@
       "published": "2026-08-22T16:16:48.360",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74732"
-    },
-    {
-      "id": "CVE-2026-74731",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nsched_ext: Skip sub-disable teardown for never-linked sub-schedulers\n\nA sub-scheduler enable can fail before scx_link_sched() links the sched into\nthe hierarchy, e.g. when the parent is already being disabled, and cleanup\nstill runs the full scx_sub_disable().\n\nThat is racy against root disable: drain_descendants() is the only ordering\nbetween a sub's disable-time task walk and root disable's all-task teardown,\nand an unlinked sub is invisible to it. Root's teardown can thus run between\nthe never-linked sub's drain and its walk, exiting every task to no\nscheduler.\n\nThe walk then trips the membership WARN and re-homes the exited tasks onto\nthe dying hierarchy, a use-after-free.\n\nSkip the cgroup ownership reset and the task walk if @sch was never linked,\nindicated by the empty ->sibling as unlinking only happens later in the same\nfunction. The membership WARN remains valid: a linked sub is always waited\non by an ancestor's drain.",
-      "published": "2026-08-22T16:16:48.257",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74731"
-    },
-    {
-      "id": "CVE-2026-74730",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nNFS: Pin the 'struct nfs_server' during a FREE_STATEID call\n\nDan Aloni reports that he was able to hit a use-after-free bug if a\nFREE_STATEID operation gets delayed for whatever reason. Fix this by\nbumping the refcount of the 'struct nfs_server' object for the duration\nof the FREE_STATEID so it doesn't get cleaned up from underneath us\nwhile operations are still in flight.",
-      "published": "2026-08-22T16:16:48.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74730"
     }
   ]
 }
