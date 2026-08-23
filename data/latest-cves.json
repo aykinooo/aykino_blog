@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-08-23T01:57:57+00:00",
+  "generated_at": "2026-08-23T03:13:26+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-78055",
+      "summary": "A security vulnerability has been detected in SourceCodester Class and Exam Timetabling System 1.0. Affected by this vulnerability is an unknown functionality of the file /BSIT2.php. The manipulation of the argument course leads to cross site scripting. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-08-23T02:17:00.243",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78055"
+    },
     {
       "id": "CVE-2026-78136",
       "summary": "chirpmyradio CHIRP before 39178db allows eval injection via crafted CSV data. This occurs in _clean_tmode in drivers/kenwood_itm.py.",
@@ -36,13 +43,6 @@
       "published": "2026-08-23T00:16:50.370",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18027"
-    },
-    {
-      "id": "CVE-2026-16149",
-      "summary": "The Security Hardener plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 2.4.4. The vulnerability exists because the plugin's user-enumeration protection, which is enabled by default, hooks the rest_endpoints filter via secure_user_endpoints() and overwrites every registered handler's permission_callback on both the /wp/v2/users and /wp/v2/users/(?P<id>[\\d]+) routes \u2014 including POST, PUT, PATCH, and DELETE handlers \u2014 with a bare closure that returns only is_user_logged_in(), completely stripping WordPress Core's original capability checks such as create_users, promote_user, edit_users, and delete_users that WP_REST_Users_Controller normally enforces. This makes it possible for authenticated attackers with Subscriber-level access and above to create new Administrator accounts by sending POST request to /wp/v2/users with administrator role, or to reset an existing Administrator's password by issuing a PUT/POST request to /wp/v2/users/<id>. Because the block_user_enum option defaults to enabled, no special plugin configuration is required \u2014 the overwrite is active on every request as soon as the plugin is installed.",
-      "published": "2026-08-23T00:16:50.233",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16149"
     }
   ]
 }
