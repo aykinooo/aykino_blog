@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-23T13:44:06+00:00",
+  "generated_at": "2026-08-23T14:36:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78155",
-      "summary": "privilege escalation in StackGres operator allows a low-privilege tenant who owns a database to gain administrator privileges",
-      "published": "2026-08-23T10:16:28.757",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78155"
+      "id": "CVE-2026-9769",
+      "summary": "justhtml through 1.9.1 (fixed in 1.10.0) is vulnerable to uncontrolled recursion leading to denial of service. During JustHTML() construction, TreeBuilder.finish() unconditionally calls _populate_selectedcontent(), which recursively traverses the DOM tree via _find_elements()/_find_element() without a depth bound. An attacker who can supply HTML for parsing can provide deeply nested elements (e.g., ~1000 nested <div> tags, roughly 11 KB) to exceed CPython's default recursion limit and trigger an unhandled RecursionError, which may abort parsing, fail requests, or terminate a worker/process depending on the host application's exception handling.",
+      "published": "2026-08-23T14:16:55.277",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9769"
     },
     {
-      "id": "CVE-2026-78115",
-      "summary": "A vulnerability has been found in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of the file /admin/edit_user_account.php of the component User Account Update. Such manipulation of the argument id/username leads to improper authorization. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-08-23T10:16:28.573",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78115"
+      "id": "CVE-2026-8630",
+      "summary": "justhtml before 1.12.0 (versions <= 1.11.0) contains a mutation cross-site scripting (mXSS) vulnerability in the serialization of raw-text elements such as <style> and <script>. When a DOM tree is processed by sanitize_dom() using a custom policy that keeps these elements, text nodes inside them are serialized literally without escaping, allowing attacker-controlled text containing the matching closing tag sequence to break out of the raw-text context and inject arbitrary HTML into the serialized output. The default sanitization policy is not affected because it drops the contents of style and script.",
+      "published": "2026-08-23T14:16:55.127",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8630"
     },
     {
-      "id": "CVE-2026-78112",
-      "summary": "A flaw has been found in itsourcecode Hospital Management System Project in PHP 1.0. This impacts an unknown function of the file /viewservicetype.php. This manipulation of the argument delid causes sql injection. The attack may be initiated remotely. The exploit has been published and may be used.",
-      "published": "2026-08-23T10:16:28.333",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78112"
+      "id": "CVE-2026-8445",
+      "summary": "justhtml versions <= 1.11.0 (fixed in 1.12.0) do not sufficiently escape HTML-significant characters (angle brackets) in text nodes when converting a parsed document to Markdown via to_markdown(). While a small set of Markdown metacharacters are escaped, characters such as < and > are preserved, so untrusted input that is safe in to_html() \u2014 including entity-decoded text (e.g. &lt;script&gt;) or text from RCDATA/RAWTEXT-parsed elements like <title>, <textarea>, <noscript>, and <plaintext> \u2014 can be emitted as raw HTML in the Markdown output, enabling a sanitizer bypass and potential cross-site scripting when that output is rendered.",
+      "published": "2026-08-23T14:16:54.957",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8445"
     },
     {
-      "id": "CVE-2026-10053",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.8 before 19.0.6, 19.1 before 19.1.4, and 19.2 before 19.2.2 that under certain conditions could have allowed an authenticated user to achieve remote code execution due to a path traversal vulnerability in the package registry.",
-      "published": "2026-08-23T10:16:27.140",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10053"
+      "id": "CVE-2026-7808",
+      "summary": "justhtml before 1.16.0 contains multiple HTML sanitization bypass issues that can allow active/dangerous content (e.g., script or style) to survive sanitization, potentially leading to cross-site scripting. The issues primarily affect advanced usage rather than the default JustHTML(..., sanitize=True) path for ordinary parsed HTML: mutating or reusing sanitization policy objects (including exported defaults) could weaken later sanitization; programmatic DOM input to sanitize()/sanitize_dom() could miss mixed-case tag names (e.g., ScRiPt, StYlE); crafted programmatic doctype names could serialize into active markup; and custom policies preserving SVG or MathML could allow animation elements, presentation attributes with external url(...) references, or DOM trees mislabeled as namespace=\"html\" to bypass foreign-content checks. Fixed in 1.16.0.",
+      "published": "2026-08-23T14:16:54.810",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7808"
     },
     {
-      "id": "CVE-2026-77116",
-      "summary": "Brave Popup Builder (slug: brave-popup-builder) has a broken access control issue in versions through 0.8.5. Any logged-in user - Subscriber or WooCommerce Customer is enough \u2014 can read popup content they shouldn't have access to by passing a post ID in the URL.",
-      "published": "2026-08-23T06:17:27.833",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77116"
+      "id": "CVE-2026-77088",
+      "summary": "justhtml versions 0.9.0 through 1.21.0 contain a cross-site scripting vulnerability in to_markdown() where inline code spans fail to account for blank lines as block boundaries. Attackers can inject blank lines into code or pre element text to break the inline span, causing sanitized HTML to be emitted unescaped and re-parsed as live Markdown by compliant renderers.",
+      "published": "2026-08-23T14:16:54.433",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77088"
     },
     {
-      "id": "CVE-2026-77115",
-      "summary": "Brave Popup Builder (brave-popup-builder) up to version 0.8.5 reflects UTM query parameters into popup form HTML without escaping them.",
-      "published": "2026-08-23T06:17:27.730",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77115"
+      "id": "CVE-2026-74793",
+      "summary": "justhtml before 3.11.0 contains a cross-site scripting vulnerability where the default sanitizer bypasses event handler removal in selectedcontent projections. Attackers can inject SVG or MathML elements with event handlers that are cloned and reinserted into output without sanitization, enabling stored or reflected XSS attacks.",
+      "published": "2026-08-23T14:16:54.127",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74793"
     }
   ]
 }
