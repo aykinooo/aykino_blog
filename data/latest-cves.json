@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-22T23:33:03+00:00",
+  "generated_at": "2026-08-23T01:57:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78122",
-      "summary": "docker-socket-proxy fails to properly gate read endpoints in the /containers Docker API namespace when the CONTAINERS environment variable is set. Attackers can use GET requests to /containers/{id}/archive, /containers/{id}/export, /containers/{id}/logs, and /containers/{id}/top to read arbitrary files and download entire container filesystems as tar archives.",
-      "published": "2026-08-22T23:16:22.923",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78122"
+      "id": "CVE-2026-78136",
+      "summary": "chirpmyradio CHIRP before 39178db allows eval injection via crafted CSV data. This occurs in _clean_tmode in drivers/kenwood_itm.py.",
+      "published": "2026-08-23T01:17:20.143",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78136"
     },
     {
-      "id": "CVE-2026-78049",
-      "summary": "A vulnerability has been found in Systerel S2OPC up to 1.7.3. Impacted is the function SOPC_NodeMgtHelperInternal_AddVariableNodeAttributes of the file src/ClientServer/address_space/internal/sopc_node_mgt_helper_internal.c of the component AddNodes Service. The manipulation of the argument UserAccessLevel leads to out-of-bounds read. It is possible to initiate the attack remotely. A high degree of complexity is needed for the attack. The exploitability is considered difficult. The exploit has been disclosed to the public and may be used. The identifier of the patch is aafbd37d381b618312ebdf5ddf57027f62c14fdd. It is suggested to install a patch to address this issue.",
-      "published": "2026-08-22T23:16:22.723",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78049"
+      "id": "CVE-2026-78054",
+      "summary": "A weakness has been identified in SourceCodester Class and Exam Timetabling System 1.0. Affected is an unknown function of the file /BSIS1.php. Executing a manipulation of the argument course can lead to cross site scripting. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-08-23T01:17:19.963",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78054"
     },
     {
-      "id": "CVE-2026-47895",
-      "summary": "In strongSwan before 6.0.7, identity parsing/cloning is mishandled. Parsed EAP-Identities that result in an empty but non-NULL encoding are not correctly cloned and trigger a double-free once the duplicates are destroyed.",
-      "published": "2026-08-22T22:16:28.153",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47895"
-    },
-    {
-      "id": "CVE-2026-12999",
-      "summary": "The Infineon Airoc Wi-Fi driver's transmit callback airoc_mgmt_send() in drivers/wifi/infineon/airoc_wifi.c allocates a net_buf from the fixed airoc_pool for every outbound packet. When whd_network_send_ethernet_data() returns a synchronous failure, the underlying WHD library does not take ownership of the buffer, but the pre-fix driver returned -EIO without releasing it. Each failed transmit therefore permanently leaks one buffer from the pool.\n\nairoc_pool is small and fixed (AIROC_WIFI_TX_PACKET_POOL_COUNT + AIROC_WIFI_RX_PACKET_POOL_COUNT, default 20 buffers) and is shared by WHD's whd_host_buffer_get callback for both transmit and receive. Once enough send failures have leaked the pool dry, airoc_wifi_host_buffer_get() returns WHD_BUFFER_ALLOC_FAIL for all subsequent allocations, so both transmit and the WHD-driven receive path fail and Wi-Fi connectivity is lost until the device is rebooted.\n\nThe leak occurs only on the transmit error path. A Wi-Fi-adjacent attacker can influence the conditions that cause synchronous send failures (for example by deauthenticating/disassociating the station while the local stack continues to attempt transmits), and ordinary transient failures over the device's lifetime accumulate toward the same state. Reliable on-demand triggering is of high complexity and the impact is availability-only, but the resulting denial of service is permanent and non-recoverable without a reboot.\n\nThe fix releases the buffer with airoc_wifi_buffer_release() on the failure branch, returning it to the pool. The commit also removes a redundant k_sem_give() in airoc_mgmt_disconnect(); because data->sema_common is a binary semaphore (limit 1) the duplicate give merely saturated at 1 and had no security impact.",
-      "published": "2026-08-22T21:16:48.747",
+      "id": "CVE-2026-78051",
+      "summary": "A vulnerability was determined in alexta69 MeTube up to 2026.06.10. The impacted element is an unknown function of the file /download/.metube/cookies.txt of the component Cookie File Handler. This manipulation causes files or directories accessible. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 2026.06.20 is sufficient to resolve this issue. Patch name: ce897ee00903bf7ded406f0d7852d95dd4164add. You should upgrade the affected component.",
+      "published": "2026-08-23T00:16:50.763",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12999"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78051"
     },
     {
-      "id": "CVE-2026-74733",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ngpio: pca953x: fix pca953x_irq_bus_sync_unlock regmap lock\n\nLocking is disabled in the regmap config as this driver uses its own\nlock. This means that all calls to regmap functions (read or write) must\nhold the i2c_lock. The function pca953x_irq_bus_sync_unlock() did not do\nthis, and it was therefore possible that multiple threads could cause an\nincorrect register to be read/written.\n\nA previous patch partly fixed this, but only protected the write to the\ninterrupt mask register, and not the read from the direction register.",
-      "published": "2026-08-22T16:16:48.463",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74733"
+      "id": "CVE-2026-78050",
+      "summary": "A vulnerability was found in Comfast CF-N1-S 2.6.0.1. The affected element is the function sub_41AD7C of the file /cgi-bin/mbox-config?method=SET&section=ntp_timezone of the component Web Management. The manipulation of the argument timestr/ntp_client_enabled results in stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been made public and could be used.",
+      "published": "2026-08-23T00:16:50.590",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78050"
     },
     {
-      "id": "CVE-2026-74732",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/amd/display: Check for tg ops in dce110_set_avmute\n\nSome older DCE timing generators do not implement is_tg_enabled in\ntheir ops table. Calling it unconditionally when waiting for AV mute\nframes causes a NULL pointer dereference on Southern Islands dGPUs\nwhen turning the display off over HDMI.\n\nCheck that tg and the required ops exist before waiting for frames.\n\n(cherry picked from commit 2686a0c0aaa07bec2e24131835cf27b5fd4935a5)",
-      "published": "2026-08-22T16:16:48.360",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74732"
+      "id": "CVE-2026-18027",
+      "summary": "The WebToffee WooCommerce PDF Invoices, Packing Slips, Delivery Notes & Shipping Labels plugin for WordPress is vulnerable to Directory Traversal in all versions up to, and including, 4.9.8 via the get_image_src_in_base64 function. This makes it possible for authenticated attackers, with subscriber-level access and above, to read the contents of arbitrary files on the server, which can contain sensitive information. The base64-encoded file contents are embedded into the cached invoice HTML and served directly to the attacker via the plugin's own Print/Download invoice endpoints, which require only a valid nonce and access key.",
+      "published": "2026-08-23T00:16:50.370",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18027"
+    },
+    {
+      "id": "CVE-2026-16149",
+      "summary": "The Security Hardener plugin for WordPress is vulnerable to Missing Authorization in all versions up to, and including, 2.4.4. The vulnerability exists because the plugin's user-enumeration protection, which is enabled by default, hooks the rest_endpoints filter via secure_user_endpoints() and overwrites every registered handler's permission_callback on both the /wp/v2/users and /wp/v2/users/(?P<id>[\\d]+) routes \u2014 including POST, PUT, PATCH, and DELETE handlers \u2014 with a bare closure that returns only is_user_logged_in(), completely stripping WordPress Core's original capability checks such as create_users, promote_user, edit_users, and delete_users that WP_REST_Users_Controller normally enforces. This makes it possible for authenticated attackers with Subscriber-level access and above to create new Administrator accounts by sending POST request to /wp/v2/users with administrator role, or to reset an existing Administrator's password by issuing a PUT/POST request to /wp/v2/users/<id>. Because the block_user_enum option defaults to enabled, no special plugin configuration is required \u2014 the overwrite is active on every request as soon as the plugin is installed.",
+      "published": "2026-08-23T00:16:50.233",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16149"
     }
   ]
 }
