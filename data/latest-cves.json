@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T19:42:04+00:00",
+  "generated_at": "2026-08-24T20:45:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78541",
-      "summary": "A stored OS\ncommand injection vulnerability exists in the parent-control module of TP-Link\nArcher BE3600 V1. An authenticated adjacent attacker with administrative access\nmay store a crafted profile name containing shell metacharacters, which is\nlater processed unsafely during daily cloud report generation and may result in\narbitrary command execution.\n\n\n\n\n\nSuccessful\nexploitation may allow command execution on the affected device with potential\nimpact to device confidentiality, integrity, and availability.",
-      "published": "2026-08-24T19:17:04.553",
+      "id": "CVE-2026-78555",
+      "summary": "RansomLook exposed complete API keys in the HTML source of the authenticated /admin/apikeys administration page. Although the interface displayed only a shortened representation of each key, the full token was embedded in hidden form fields used by the enable/disable, private-access, and delete actions.\n\n\nAs a result, API credentials could be recovered by inspecting the page source or DOM. The credentials could also be unintentionally exposed through components that retain or inspect HTTP response bodies, such as debugging proxies, browser caches, monitoring systems, or other intermediaries. An attacker obtaining one of these tokens could subsequently authenticate using the privileges assigned to that key, including access to private data where the key was granted such permissions.\n\n\nThe patch removes API keys from subsequent page rendering and replaces them with SHA-256-derived opaque handles. Administrative actions submit only these handles, which are resolved back to the corresponding token on the server. The full API key is therefore disclosed only once, when it is initially created.",
+      "published": "2026-08-24T20:17:24.850",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78541"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78555"
     },
     {
-      "id": "CVE-2026-78417",
-      "summary": "Insufficient verification of data authenticity in the IronVNC client in Devolutions Remote Desktop Manager 2026.2.17.0 and earlier, 2026.1.24.0 and earlier, allows an on-path attacker to intercept and tamper with VNC sessions via automatic acceptance of the server's RSA key during RSA-AES authentication.",
-      "published": "2026-08-24T19:17:04.420",
+      "id": "CVE-2026-78553",
+      "summary": "RansomLook created its Flask session-signing key without explicitly restricting the file permissions. The secret_key file was created using the process's default permissions and umask, resulting in permissions such as 0644 under a common 022 umask. Consequently, other local users able to access the RansomLook home directory could read the application's cryptographic secret.\n\n\nThe exposed key is security-critical because it is used to sign Flask session cookies and is also involved in the legacy API-key key derivation. An attacker who obtains the key can generate valid session cookies and impersonate an authenticated user, including an administrator. In LDAP configurations, exploitation may be particularly straightforward because the session user loader does not require the supplied username to correspond to an existing local user.\n\n\nSuccessful exploitation requires local access sufficient to read the improperly protected file, but can result in complete compromise of RansomLook's authentication and authorization controls.\n\n\nThe patch creates new secret-key files atomically with permissions 0600 and also restricts permissions on existing key files during application startup.",
+      "published": "2026-08-24T20:17:24.383",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78417"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78553"
     },
     {
-      "id": "CVE-2026-75371",
-      "summary": "An integer handling flaw in the cobs_decode function of SpaceDot AcubeSAT OBC software commit eaf90ec allows physically-proximate attackers with UART access to cause a Denial of Service (DoS) via a crafted input.",
-      "published": "2026-08-24T19:16:58.310",
+      "id": "CVE-2026-78551",
+      "summary": "RansomLook contains multiple weaknesses in its authentication endpoint that allow an unauthenticated remote attacker to enumerate valid usernames, perform unrestricted password-guessing attacks, and potentially exhaust application worker resources.\n\nFor local authentication, the login implementation previously checked whether a submitted username existed before invoking the password hash verification function. Requests containing a nonexistent username therefore returned significantly faster than requests for valid accounts, for which the computationally expensive password verification routine was executed. A remote attacker could measure these response-time differences to determine which usernames correspond to valid RansomLook accounts.\n\nIn addition, the /login endpoint did not restrict the number or frequency of failed authentication attempts. An attacker could consequently perform password brute-force, dictionary, password-spraying, or credential-stuffing attacks against known accounts without server-side throttling. For valid usernames, each authentication attempt also invokes the password key-derivation function, which consumes a significant amount of CPU time. A sufficiently high rate of login attempts could therefore occupy the application's synchronous Gunicorn workers and cause a denial of service affecting the entire application.\n\nThe issue has been addressed by always performing password verification using a randomly generated dummy password hash when the supplied username does not exist, eliminating the username-dependent timing discrepancy. Failed authentication attempts are additionally rate-limited per client IP address using Valkey/Redis, with five failed attempts within five minutes resulting in a one-hour block. The reverse-proxy configuration was also updated so that the application derives the client address from a trusted X-Forwarded-For value that cannot be overridden by a client-supplied header.",
+      "published": "2026-08-24T20:17:23.927",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75371"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78551"
     },
     {
-      "id": "CVE-2026-75370",
-      "summary": "An out-of-bounds read/write vulnerability in the MessageParser::parseECSSTCHeader component of SpaceDot AcubeSAT OBC software commit eaf90ec allows attackers to cause a Denial of Service (DoS) via supplying a crafted CAN message.",
-      "published": "2026-08-24T19:16:58.183",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75370"
+      "id": "CVE-2026-78430",
+      "summary": "A vulnerability was detected in sworddut mcp-ffmpeg-helper 0.1.0/0.1.1/0.2.1. This affects the function handleToolCall of the file src/tools/handlers.ts of the component Tool Handler. The manipulation of the argument format results in os command injection. Attacking locally is a requirement. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-24T20:17:22.560",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78430"
     },
     {
-      "id": "CVE-2026-71832",
-      "summary": "Aria2 version 1.37.0 and below is affected by a Divide By Zero issue in src/bittorrent_helper.cc, which allows a remote malicious user to cause a Denial of Service",
-      "published": "2026-08-24T19:16:50.543",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71832"
+      "id": "CVE-2026-77923",
+      "summary": "Dolibarr 21.0.0 before 24.0.0 contains an authorization bypass vulnerability caused by an inverted boolean condition in the private-project membership check within the clonetasks mass action handler in htdocs/core/actions_massactions.inc.php. Authenticated users with project creation permission but without access to a target private project can exploit the flawed !in_array() check to clone tasks into unauthorized private projects.",
+      "published": "2026-08-24T20:17:21.560",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77923"
     },
     {
-      "id": "CVE-2026-71509",
-      "summary": "Dolibarr before 24.0.0 contains an improper authorization vulnerability in the expense report REST API update endpoint that allows authenticated attackers with expense-creation rights to bypass the approval workflow by directly setting approval status and approver identity fields. Attackers can manipulate workflow state fields through the REST API to advance expense reports to approved or closed status without possessing the dedicated approval right, while also creating forensic inconsistencies in audit records due to missing approval timestamps.",
-      "published": "2026-08-24T19:16:50.403",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71509"
+      "id": "CVE-2026-77310",
+      "summary": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. Prior to versions 2.18.9, 2.21.5, 2.22.1, 3.1.5, and 3.2.1 on their respective release lines, the java.net.InetAddress branch of FromStringDeserializer.Std._deserialize() calls InetAddress.getByName() on attacker-controlled input, causing eager DNS resolution during deserialization and enabling DNS-based server-side request forgery and internal-host enumeration. This issue is fixed in versions 2.18.9, 2.21.5, 2.22.1, 3.1.5, and 3.2.1.",
+      "published": "2026-08-24T20:17:20.977",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77310"
     }
   ]
 }
