@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T14:00:32+00:00",
+  "generated_at": "2026-08-24T14:57:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78365",
-      "summary": "Authorization Bypass Through User-Controlled Key in the supplier API in Roskus Prospero Flow CRM 4.0.0 through 5.3.1 allows any authenticated user to read and modify another company's supplier record, and to reassign it to their own company, via a PUT request to /api/supplier/{id} setting company_id in the body.",
-      "published": "2026-08-24T13:19:19.247",
+      "id": "CVE-2026-78386",
+      "summary": "RansomLook exposed sensitive operator-side scraping configuration through multiple unauthenticated API responses. Location records associated with ransomware groups and markets were returned largely verbatim to unauthenticated callers whenever the location itself was not marked as private.\n\n\nThese records could contain internal fields such as header, which may include authentication headers, session cookies, or other credentials used to access monitored websites; init_script, which may contain logic used to bypass CAPTCHA, anti-bot protections, or paywalls; and browser, which discloses details about the scraping environment.\n\n\nAn unauthenticated remote attacker could query the affected API endpoints and obtain these values. Leaked authentication material could potentially be replayed against the monitored service, while disclosure of scraping and bypass logic could allow site operators or other attackers to identify and defeat RansomLook's collection mechanisms.\n\n\nThe patch introduces an explicit allowlist of fields permitted in public location records and strips all operator-side fields before returning data to unauthenticated users.\n\n\nThe accompanying change from <string:postname> to <path:postname> appears to be a functional correction allowing legitimate post titles containing / and does not, based on this patch alone, represent the security issue.",
+      "published": "2026-08-24T14:17:06.090",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78365"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78386"
     },
     {
-      "id": "CVE-2026-78247",
-      "summary": "A vulnerability was found in SourceCodester Simple Online Food Ordering System 1.0. This issue affects some unknown processing of the file /fos/admin/ajax.php?action=confirm_order. The manipulation of the argument ID results in sql injection. The attack can be executed remotely. The exploit has been made public and could be used.",
-      "published": "2026-08-24T13:19:17.867",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78247"
+      "id": "CVE-2026-78385",
+      "summary": "RansomLook contains insufficient resource validation in the analysis PDF generation functionality. Analysis documents are converted from Markdown to HTML and passed to WeasyPrint for PDF rendering. Prior to the fix, WeasyPrint used its default URL fetcher, allowing resource references contained in an analysis to be resolved without restrictions.\n\nAn authenticated attacker able to create or modify an analysis could embed crafted resource references using schemes such as file:// or http://. When the analysis was subsequently rendered as PDF, WeasyPrint would process these references with the privileges and network access of the RansomLook server.\n\nA malicious file:// reference could cause the renderer to access arbitrary files readable by the RansomLook process, potentially exposing sensitive configuration, credentials, or other local data through rendered resources. Network URLs could cause the server to initiate requests to localhost, internal network services, or external systems, resulting in server-side request forgery (SSRF) and potentially bypassing network-level access restrictions.\n\nThe patch introduces a dedicated WeasyPrint URL fetcher that permits only data: resources, the RansomLook report logo, and files contained within the analysis asset directory. Network resources and filesystem paths outside these explicitly permitted locations are rejected.",
+      "published": "2026-08-24T14:17:05.940",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78385"
     },
     {
-      "id": "CVE-2026-21759",
-      "summary": "HCL Hive is affected by an information exposure vulnerability where Swagger documentation was found exposed publicly.\u00a0 Although no sensitive information (e.g., credentials, PII) was discovered, exposing API documentation to unauthenticated users can increase the overall attack surface.",
-      "published": "2026-08-24T13:17:32.703",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21759"
+      "id": "CVE-2026-78381",
+      "summary": "RansomLook contains a path traversal vulnerability in the handling of the screen field associated with group posts. The GroupPost.get API handler concatenates the database-controlled screen value directly with the application's source/ directory and opens the resulting path without verifying that the resolved file remains within the intended directory.\n\nBecause the screen field is free-form and can be populated either through the administrative post editor or through data imported from a remote RansomLook instance, a malicious upstream instance can provide traversal sequences such as ../config/generic.json. When the affected post is subsequently retrieved through the API, RansomLook resolves and reads the attacker-controlled path and returns the contents of the referenced file Base64-encoded in the API response.\n\nThis can allow an attacker (being admin) controlling imported post data to read arbitrary files accessible to the RansomLook process, potentially exposing sensitive configuration data, API credentials, password hashes, or other application secrets. The attack does not require the malicious upstream to possess an account on the affected RansomLook instance.\n\nThe vulnerability is addressed by resolving screen paths with os.path.realpath() and verifying that the resolved path remains beneath the application's source/ directory. Validation is performed both when values are written and immediately before files are read. Using canonical paths also prevents traversal through symbolic links that would bypass purely lexical path normalization checks.",
+      "published": "2026-08-24T14:17:05.807",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78381"
     },
     {
-      "id": "CVE-2026-21756",
-      "summary": "HCL Hive is affected by a broken access control vulnerability which could allow an attacker or unauthorized user to introduce unverified, malicious, or broken code directly into production environments.",
-      "published": "2026-08-24T13:17:32.477",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21756"
+      "id": "CVE-2026-78380",
+      "summary": "RansomLook fails to enforce the privacy status of ransomware groups and markets when distributing newly collected victim posts to external notification channels. The post-processing logic checks whether an individual post is marked private but does not verify whether the group or market to which the post belongs is configured as private.\n\nAs a result, newly parsed victim information associated with a private group or market may be automatically published through enabled Rocket.Chat, Mastodon, Bluesky, and e-mail notification channels despite the entity being explicitly configured to prevent public disclosure.\n\nA similar issue affects the public MISP feed. The feed previously determined privacy using groupinfo(), which only queries the group database. Consequently, victim information associated with private markets could be added to the public MISP feed because the corresponding market privacy flag was not evaluated.\n\nAn attacker or other unauthorized party able to access these public notification channels or the MISP feed may obtain victim information that was intended to remain private. Depending on the collected data, this may disclose victim names, ransomware activity, incident information, or other information associated with privately monitored groups and markets.\n\nThe fix introduces a common is_private_entity() check covering both groups and markets and prevents private entity posts from being distributed through external notification channels or the public MISP feed. Internal storage and dashboard alerting remain unaffected.",
+      "published": "2026-08-24T14:17:05.667",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78380"
     },
     {
-      "id": "CVE-2026-78323",
-      "summary": "A flaw was found in JSS (Java Security Services). The JSSTrustManager class does not verify NSS trust flags when validating CA certificates, allowing certificates present in the NSS database without TRUSTED_CA flags to be accepted as trust anchors for TLS connections. In non-default configurations where certificate revocation checking is disabled, this could allow a man-in-the-middle attacker to forge certificates accepted by PKI client connections.",
-      "published": "2026-08-24T12:16:56.250",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78323"
+      "id": "CVE-2026-78378",
+      "summary": "Ransomlook contains a Redis glob pattern injection vulnerability caused by insufficient neutralization of user-controlled input before it is incorporated into Redis SCAN MATCH patterns.\n\n\nThe /api/health/<name> endpoint attempted to resolve the supplied name to a known group or market, but when resolution failed it fell back to using the attacker-controlled value directly in a Redis key pattern. An unauthenticated attacker could therefore supply Redis glob metacharacters such as *, ?, [ or ] to broaden the SCAN operation beyond the intended group. For example, requesting /api/health/* could enumerate health information, mirror slugs, and uptime series belonging to all groups and markets, including entities marked as private.\n\n\nSimilar unsafe interpolation was present in /api/crypto/chain/<chain> and in the delete_manual_torrent() function. The latter represents a potentially destructive sink because a crafted infohash containing glob metacharacters could cause the scan to match torrent-health keys belonging to other torrents if attacker-controlled input can reach that function.\n\n\nThe patch removes the unsafe fallback from the health endpoint and introduces glob escaping for user-controlled values before they are incorporated into Redis SCAN MATCH expressions.",
+      "published": "2026-08-24T14:17:05.533",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78378"
     },
     {
-      "id": "CVE-2026-78291",
-      "summary": "Unauthenticated Broken Access Control in RepairBuddy <= 4.1223 versions.",
-      "published": "2026-08-24T12:16:56.110",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78291"
+      "id": "CVE-2026-78376",
+      "summary": "A flaw was found in WebKitGTK. Processing malicious web content can cause a use-after-free issue due to improper memory handling and result in memory corruption.",
+      "published": "2026-08-24T14:17:05.390",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78376"
     }
   ]
 }
