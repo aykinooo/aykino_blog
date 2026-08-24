@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T15:53:34+00:00",
+  "generated_at": "2026-08-24T16:53:10+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9728",
-      "summary": "The userspace syscall verifier z_vrfy_mbox_send() in drivers/mbox/mbox_handlers.c validated the nested msg->data/msg->size fields by reading them directly out of live userspace memory, and then forwarded the original, still-mutable userspace struct mbox_msg * pointer to z_impl_mbox_send() and the underlying driver. Between the access check and the driver's use of msg->data, the validated pointer could be replaced, leaving a time-of-check/time-of-use window.\n\nOn a system built with CONFIG_USERSPACE, any unprivileged userspace thread may invoke the mbox_send() system call. A second thread sharing the caller's address space can race to overwrite msg->data with a supervisor (kernel) address after the verifier's bounds check has passed but before the driver dereferences it. The driver then reads from the attacker-chosen address in supervisor context (for example memcpy(&data32, msg->data, msg->size) in the NXP mailbox driver, whose bytes are subsequently emitted to the peer mailbox endpoint).\n\nThe impact is a userspace-to-supervisor access-control bypass: disclosure of kernel memory contents (high confidentiality impact), or, for an invalid/unmapped target address, a faulting kernel read causing denial of service. The fix snapshots the entire struct mbox_msg into a kernel-stack copy with k_usermode_from_copy() and validates and forwards that immutable copy, closing the race.",
-      "published": "2026-08-24T15:16:49.010",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9728"
-    },
-    {
-      "id": "CVE-2026-78414",
-      "summary": "Cross-site scripting in the Web Administration interface of Network Optix Nx Witness VMS before version 6.1.3 on Linux, Windows and MacOS allows an adjacent-network attacker to execute arbitrary JavaScript in the browser of an authenticated administrator and steal the administrator's session token, resulting in Administrator Account Takeover. An attacker who controls an Nx server on the same network segment can set that server's site name to a script payload, which executes when an administrator opens the \"Merge with Another Site\" dialog and the site selection list is displayed.Solution:\n\nUpdate to Nx Witness VMS version 6.1.3 or later.",
-      "published": "2026-08-24T15:16:48.873",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78414"
-    },
-    {
-      "id": "CVE-2026-78391",
-      "summary": "RansomLook contains a stored cross-site scripting (XSS) vulnerability in the cryptocurrency wallet detail view. Cryptocurrency addresses and blockchain names originating from external sources, including the public crowd-sourced ransomwhe.re feed, were stored without sufficient validation and later embedded directly into an inline JavaScript onclick handler.\n\n\nAlthough Jinja HTML autoescaping was applied, it does not provide adequate protection when untrusted data is inserted into a JavaScript string inside an HTML attribute. HTML entities such as &#39; are decoded by the browser's HTML parser before the resulting attribute is interpreted as JavaScript. Consequently, a specially crafted cryptocurrency address containing quote characters and JavaScript syntax could escape the intended string literal and execute arbitrary JavaScript when a user clicked the affected wallet's CSV export button.\n\n\nBecause cryptocurrency information imported from an untrusted upstream could reach the vulnerable rendering path, exploitation may not require an authenticated RansomLook account if an attacker can introduce a malicious wallet record into a consumed external data source. Successful exploitation could allow attacker-controlled JavaScript to execute in the security context of the RansomLook web application, potentially exposing information accessible to the victim or performing actions with the victim's privileges.\n\n\nThe patch mitigates the issue by validating cryptocurrency addresses and blockchain identifiers before storage, restricting them to a safe character set, and replacing the inline JavaScript handler with data-* attributes and an external event listener so wallet values are treated strictly as data rather than executable JavaScript.",
-      "published": "2026-08-24T15:16:48.717",
+      "id": "CVE-2026-78416",
+      "summary": "Craft CMS versions from 4.0.0-RC1 before 4.18.2 and from 5.0.0-RC1 before 5.10.6 contain an authenticated remote code execution vulnerability in control panel element-search condition handling. A JSON cleanse bypass in condition.config allows Yii behavior/event configuration keys to be interpreted after decoding, enabling command execution as the PHP/web user.",
+      "published": "2026-08-24T16:17:24.250",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78391"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78416"
     },
     {
-      "id": "CVE-2026-78387",
-      "summary": "RansomLook contains an authorization weakness in the web-based configuration editor exposed through the /admin/config endpoint. The endpoint requires an authenticated session but does not perform an explicit privilege or administrator authorization check before allowing access to configuration-management functionality.\n\nAn authenticated low-privileged user able to access the endpoint can submit crafted configuration values that are written directly to the application's config/generic.json file. The affected functionality permits modification of configuration sections including notification, LDAP, SMTP, and general application settings. Successful exploitation could therefore allow an attacker to alter security-sensitive application behavior, redirect integrations or notifications, modify authentication-related configuration, disrupt external services, or render the RansomLook installation unavailable.\n\nThe configuration editor also operated on a configuration file containing sensitive values such as passwords, tokens, secrets, and API keys. Although the affected version contains logic intended to prevent recognized secret values from being returned to the browser, exposing configuration management through insufficiently authorized web functionality significantly increases the impact of a compromised or low-privileged account.\n\nThe patch resolves the issue by completely removing the /admin/config route and associated configuration-editing interface, preventing application configuration from being modified through the web UI.",
-      "published": "2026-08-24T15:16:48.577",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78387"
+      "id": "CVE-2026-76071",
+      "summary": "Netis NC63 firmware through V3.0.0.3327 contains a stack-based buffer overflow vulnerability that allows unauthenticated remote attackers to overwrite saved stack state by supplying an oversized destHost parameter to the ipFilterList=mod action in netis.cgi. Attackers can exploit widthless sscanf conversions that copy user-supplied input into fixed-size stack buffers before authentication is verified, achieving remote code execution as root due to the Boa web server executing the CGI environment with root privileges.",
+      "published": "2026-08-24T16:17:23.117",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76071"
     },
     {
-      "id": "CVE-2026-76055",
-      "summary": "Improper Neutralization of Special Elements used in an OS Command in the package manager component of Black Duck blackduck-c-cpp before 3.0.7 allows an actor able to create a file within the scanned build directory to execute operating system commands as the account running the scan.\n\n\n\nFilesystem paths encountered while traversing the scanned directory are interpolated into command strings that are executed through a shell without quoting or escaping, so shell metacharacters within those paths are interpreted rather than treated as literal text. No control over the build command or the tool's configuration is required.",
-      "published": "2026-08-24T15:16:46.860",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76055"
+      "id": "CVE-2026-76070",
+      "summary": "Netis NC63 firmware through V3.0.0.3327 contains a stack-based buffer overflow vulnerability that allows unauthenticated remote attackers to overwrite saved stack state by submitting an oversized Base64-encoded password to the login handler in /bin/netis.cgi. Attackers can exploit the custom Base64 decoder's lack of output length validation against the fixed-size stack buffer to achieve remote code execution with root privileges, as the Boa web server executes the CGI environment as root.",
+      "published": "2026-08-24T16:17:22.963",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76070"
     },
     {
-      "id": "CVE-2026-76054",
-      "summary": "Invocation of Process Using Visible Sensitive Information in Black Duck blackduck-c-cpp 1.0.17 through 3.0.6 allows an actor able to execute code within the scanned project's build to obtain the Black Duck API token via the ambient process environment, which is inherited by subprocesses launched during build capture and signature scanning. This applies only where the token is supplied through the BLACKDUCK_API_TOKEN or BD_HUB_TOKEN environment variable.\n\n\n\nUpgrading does not remediate prior disclosure; any token supplied to an affected version through an environment variable should be rotated.",
-      "published": "2026-08-24T15:16:46.650",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76054"
+      "id": "CVE-2026-71366",
+      "summary": "A server-side request forgery (SSRF) vulnerability was found in multiple AWX notification backends. The webhook, Mattermost, Rocket.Chat, and Grafana notification backends use notification template URLs as direct HTTP request targets without validating the target address against private, loopback, or reserved IP ranges. An organization notification administrator can create notification templates pointing to internal or loopback addresses, causing the AWX control node to issue HTTP requests to services that are not externally accessible. Additionally, the webhook notification backend follows HTTP redirects and resends configured Basic Authentication credentials to redirect targets regardless of host change, allowing an attacker to exfiltrate notification credentials by redirecting to an attacker-controlled host. The Grafana backend sends its API key in the Authorization header to the configured target URL.",
+      "published": "2026-08-24T16:17:22.820",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71366"
+    },
+    {
+      "id": "CVE-2026-71364",
+      "summary": "A path traversal vulnerability was found in AWX's project archive extraction. The project_archive action plugin extracts zip and tar archive members by joining the project directory path with the member filename without performing path normalization, boundary validation, or rejecting directory traversal sequences. A malicious archive containing members with path traversal components can write files to arbitrary locations on the execution node's filesystem outside the intended project directory. An attacker who controls the archive content, either through a compromised upstream source, a malicious archive URL, or a man-in-the-middle attack on a plain HTTP connection, can achieve arbitrary file writes as the user performing the extraction, potentially leading to remote code execution through mechanisms such as cron files, SSH authorized keys, or playbook content injection.",
+      "published": "2026-08-24T16:17:22.663",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71364"
+    },
+    {
+      "id": "CVE-2026-67204",
+      "summary": "BookStack before 26.05.4 contains a broken access control vulnerability that allows authenticated API users with image-update or image-delete permissions to manipulate other users' avatars by exploiting missing content-type restrictions in the Image Gallery API endpoints. Attackers can supply a user avatar's ID to the API controller, which loads any image type without the web controller's gallery and drawio restrictions, and when the avatar's uploaded_to field matches a page ID accessible to the attacker, the authorization check passes allowing the attacker to rename, replace, or delete the target user's avatar without requiring user-management permission.",
+      "published": "2026-08-24T16:17:17.790",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67204"
     }
   ]
 }
