@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T11:41:40+00:00",
+  "generated_at": "2026-08-24T13:10:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78337",
-      "summary": "Unrestricted Upload of File with Dangerous Type in the company logo upload in Roskus Prospero Flow CRM before 5.15.13 allows an authenticated user holding the create company and update company permissions to execute arbitrary JavaScript in the application origin via an SVG document containing an embedded script element.",
-      "published": "2026-08-24T11:16:41.203",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78337"
+      "id": "CVE-2026-78323",
+      "summary": "A flaw was found in JSS (Java Security Services). The JSSTrustManager class does not verify NSS trust flags when validating CA certificates, allowing certificates present in the NSS database without TRUSTED_CA flags to be accepted as trust anchors for TLS connections. In non-default configurations where certificate revocation checking is disabled, this could allow a man-in-the-middle attacker to forge certificates accepted by PKI client connections.",
+      "published": "2026-08-24T12:16:56.250",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78323"
     },
     {
-      "id": "CVE-2026-78245",
-      "summary": "A flaw has been found in itsourcecode Online Pharmacy System 1.0. This affects the function move_uploaded_file of the file all_users/register.php of the component User Registration. Executing a manipulation of the argument photo can lead to unrestricted upload. The attack may be launched remotely. The exploit has been published and may be used.",
-      "published": "2026-08-24T11:16:41.040",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78245"
+      "id": "CVE-2026-78291",
+      "summary": "Unauthenticated Broken Access Control in RepairBuddy <= 4.1223 versions.",
+      "published": "2026-08-24T12:16:56.110",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78291"
     },
     {
-      "id": "CVE-2026-78244",
-      "summary": "A vulnerability was detected in itsourcecode Real Estate Management System 1.0. Affected by this issue is some unknown functionality of the file search.php. Performing a manipulation of the argument search/delivery_type/search_price/property_type results in sql injection. The attack may be initiated remotely. The exploit is now public and may be used.",
-      "published": "2026-08-24T11:16:40.850",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78244"
+      "id": "CVE-2026-78290",
+      "summary": "Contributor Cross Site Scripting (XSS) in Magazine Blocks <= 1.8.6 versions.",
+      "published": "2026-08-24T12:16:55.960",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78290"
     },
     {
-      "id": "CVE-2026-76172",
-      "summary": "fast-uri is a URI parser for Node.js. During parsing it runs a legacy decoding pass over the scheme component and never re-escapes the result, and serialization writes the scheme back out verbatim, unlike the host component which is re-escaped. As a result an input whose scheme carries percent-encoded slashes parses as a scheme with no authority, so the parsed host and error are both undefined, yet resolving or normalizing that same input emits a network-path reference whose authority is attacker-chosen and re-parses to that host. An application that allowlists on the parsed host, or treats a reference with no authority as safe to resolve against its base, gets the opposite of what it checked, giving an off-site redirect, server-side request forgery, or address-policy bypass. The legacy decoder also expands non-standard escape forms, widening the issue past upstream filters, and control characters in the scheme can reach the output as raw carriage return and line feed. The affected versions are 2.3.1 up to but not including 2.4.5, 3.0.0 up to but not including 3.1.6, and 4.0.0 up to but not including 4.1.3. The issue is fixed in 2.4.5, 3.1.6, and 4.1.3, which reject a scheme that is not valid after decoding. Users should upgrade to a patched version.",
-      "published": "2026-08-24T11:16:40.723",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76172"
+      "id": "CVE-2026-78280",
+      "summary": "Unauthenticated Cross Site Request Forgery (CSRF) in Hash Form <= 1.4.0 versions.",
+      "published": "2026-08-24T12:16:55.813",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78280"
     },
     {
-      "id": "CVE-2026-59295",
-      "summary": "Micrometer-instrumented Apache HttpAsyncClient (4.x or 5.x) usage via MicrometerHttpClientInterceptor can leak memory unboundedly when asynchronous requests fail before receiving a response (e.g. connection resets or timeouts). Tracking state for these requests remains in memory indefinitely, and sustained failures lead to heap exhaustion and OutOfMemoryError crashes.",
-      "published": "2026-08-24T11:16:39.780",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59295"
-    },
-    {
-      "id": "CVE-2026-10618",
-      "summary": "Hugo's default fenced-code-block renderer writes attribute values taken from the code-fence info string into the rendered HTML without escaping them. New in markup/internal/attributes/attributes.go converts every attribute value from a byte slice to a string as it is stored, deliberately dropping the escaping that used to happen there, and RenderAttributes in the same file escapes only values that are still byte slices, so its escaping branch is never reached and every value is written verbatim. The function's documentation states that it performs HTML escaping of string attributes, which it does not. A quote inside an attribute value in the info string therefore terminates the attribute and allows a further attribute, including an event handler, to be placed on the wrapper element, and the script runs for every visitor who loads the page. This path is reached under the default configuration, with code fences enabled and without goldmark's unsafe setting or any custom render hook. Attribute names beginning with on are filtered when the attributes are parsed, so injection is achieved through the value rather than the name.",
-      "published": "2026-08-24T11:16:38.403",
+      "id": "CVE-2026-78279",
+      "summary": "Unauthenticated Cross Site Request Forgery (CSRF) in Fluent Support Pro <= 2.3.1 versions.",
+      "published": "2026-08-24T12:16:55.657",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10618"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78279"
+    },
+    {
+      "id": "CVE-2026-78278",
+      "summary": "Subscriber Insecure Direct Object References (IDOR) in Fluent Boards Pro <= 2.0.11 versions.",
+      "published": "2026-08-24T12:16:55.507",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78278"
     }
   ]
 }
