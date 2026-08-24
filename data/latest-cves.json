@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T18:56:59+00:00",
+  "generated_at": "2026-08-24T19:42:04+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9254",
-      "summary": "An unauthenticated OS command injection vulnerability exists in the parental control functionality of Archer BE800 V1, BE3600 V1, and AX75 V1 due to improper filtering and neutralization of special characters in certain parameters. A LAN-based attacker can inject arbitrary commands and execute them with root privileges.\n\n\n\n\n\n\nSuccessful exploitation may result in complete device compromise and impact the confidentiality, integrity, and availability of the affected device and network traffic.",
-      "published": "2026-08-24T18:17:34.973",
+      "id": "CVE-2026-78541",
+      "summary": "A stored OS\ncommand injection vulnerability exists in the parent-control module of TP-Link\nArcher BE3600 V1. An authenticated adjacent attacker with administrative access\nmay store a crafted profile name containing shell metacharacters, which is\nlater processed unsafely during daily cloud report generation and may result in\narbitrary command execution.\n\n\n\n\n\nSuccessful\nexploitation may allow command execution on the affected device with potential\nimpact to device confidentiality, integrity, and availability.",
+      "published": "2026-08-24T19:17:04.553",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9254"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78541"
     },
     {
-      "id": "CVE-2026-78475",
-      "summary": "A flaw was found in the file-pix (ESM) plugin in GIMP. When processing a specially crafted PIX image file, the plugin allocates a Variable-Length Array (VLA) on the stack without proper bounds checking, causing an unbounded stack allocation followed by a 21-byte stack over-read. This can result in a denial of service due to stack exhaustion and a limited information disclosure of stack memory contents into an intermediate file.",
-      "published": "2026-08-24T18:17:34.807",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78475"
+      "id": "CVE-2026-78417",
+      "summary": "Insufficient verification of data authenticity in the IronVNC client in Devolutions Remote Desktop Manager 2026.2.17.0 and earlier, 2026.1.24.0 and earlier, allows an on-path attacker to intercept and tamper with VNC sessions via automatic acceptance of the server's RSA key during RSA-AES authentication.",
+      "published": "2026-08-24T19:17:04.420",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78417"
     },
     {
-      "id": "CVE-2026-76838",
-      "summary": "Hi.Events validates a webhook destination only when it is registered, never when it is used. NoInternalUrlRule in backend/app/Validators/Rules/NoInternalUrlRule.php resolves the hostname with gethostbyname() and rejects private and reserved ranges, which any public hostname passes. At dispatch, WebhookDispatchService takes the stored URL and calls it through spatie/laravel-webhook-server without repeating the check, and backend/config/webhook-server.php sets no Guzzle options, so redirect following remains enabled by default. A destination that answers with a redirect to a loopback, private or cloud metadata address therefore causes the server to issue that request, and changing the hostname's DNS record after registration reaches the same result because no resolution is repeated. The response is not discarded: WebhookResponseHandlerService stores the body on the webhook log and WebhookLogResource returns it from the webhook logs endpoint, so the requester reads what the internal service replied rather than inferring it. Both event and organizer webhooks share the rule and the dispatch path. Version 1.11.1-beta revalidates at dispatch, pins the validated address, checks every redirect hop, and decodes IPv6 transition addresses that previously bypassed the filter.",
-      "published": "2026-08-24T18:17:22.363",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76838"
+      "id": "CVE-2026-75371",
+      "summary": "An integer handling flaw in the cobs_decode function of SpaceDot AcubeSAT OBC software commit eaf90ec allows physically-proximate attackers with UART access to cause a Denial of Service (DoS) via a crafted input.",
+      "published": "2026-08-24T19:16:58.310",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75371"
     },
     {
-      "id": "CVE-2026-76837",
-      "summary": "Baserow interpolates a user's display name into the rich-text mention markup without HTML encoding. PATCH /api/user/account/ stores the first_name value verbatim, and the mention renderer in web-frontend/modules/core/editor/mention.js builds its element with a template literal that places the name into a data-label attribute and the element body unescaped. A name containing a double quote closes that attribute and the opening tag, so following markup lands in the element content. The result is rendered through v-html by the rich-text field components, so any rich-text cell mentioning the account executes the stored script for every workspace member who views the table, without a click. Any workspace member, at the lowest permission level, can set the name and reach every other member of the workspace, and the payload persists until the name is changed or the mentioning row is removed. Version 2.3.0 escapes the value before interpolation.",
-      "published": "2026-08-24T18:17:21.887",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76837"
+      "id": "CVE-2026-75370",
+      "summary": "An out-of-bounds read/write vulnerability in the MessageParser::parseECSSTCHeader component of SpaceDot AcubeSAT OBC software commit eaf90ec allows attackers to cause a Denial of Service (DoS) via supplying a crafted CAN message.",
+      "published": "2026-08-24T19:16:58.183",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75370"
     },
     {
-      "id": "CVE-2026-76836",
-      "summary": "AzuraCast exposes the Liquidsoap custom configuration fields through an endpoint that does not require the permission guarding them. The backend_config property in backend/src/Entity/Station.php is annotated with GROUP_GENERAL, and PUT /api/station/{station_id}/profile/edit in backend/src/Controller/Api/Stations/ProfileEditController.php deserializes with that group while requiring only StationPermissions::Profile. AbstractArrayEntity::fromArray() then assigns every public property with no field-level permission check, so custom_config_top, custom_config, custom_config_pre_playlists, custom_config_pre_live, custom_config_pre_fade and custom_config_bottom are writable through it. ConfigWriter::writeCustomConfigurationSection() emits those values verbatim into the generated Liquidsoap .liq script, where the process.run() and process.exec() built-ins execute operating system commands when the backend restarts, which the built-in sync task triggers automatically once needs_restart is set. The dedicated endpoint for the same data, PUT /api/station/{id}/liquidsoap-config, requires StationPermissions::Broadcasting, so a station manager holding only the profile permission reaches configuration that the intended boundary reserves for broadcasting operators.",
-      "published": "2026-08-24T18:17:21.733",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76836"
+      "id": "CVE-2026-71832",
+      "summary": "Aria2 version 1.37.0 and below is affected by a Divide By Zero issue in src/bittorrent_helper.cc, which allows a remote malicious user to cause a Denial of Service",
+      "published": "2026-08-24T19:16:50.543",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71832"
     },
     {
-      "id": "CVE-2026-76835",
-      "summary": "OAuth2 Proxy honours a client-supplied X-Forwarded-Uri header when deciding whether a request may skip authentication, because the guard added for CVE-2026-40575 is inert in the default reverse-proxy configuration. GetRequestURI in pkg/requests/util/util.go prefers that header over the real request URI whenever CanTrustForwardedHeaders returns true, and isAllowedPath in oauthproxy.go matches the skip_auth_routes and skip_auth_regex allow list against the resulting path. CanTrustForwardedHeaders in pkg/apis/middleware/scope.go grants that trust when the caller's address is in the trusted proxy set, and buildTrustedProxyNetSet falls back to defaultTrustedProxyIPs, which is 0.0.0.0/0 and ::/0, whenever reverse proxy mode is enabled without trusted_proxy_ip configured. Every client is therefore treated as a trusted proxy. An unauthenticated attacker can request a protected upstream path while setting X-Forwarded-Uri to a value matching an allow-listed route, so the skip-auth decision is made against the spoofed value while the upstream receives the protected path unchanged.",
-      "published": "2026-08-24T18:17:21.570",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76835"
+      "id": "CVE-2026-71509",
+      "summary": "Dolibarr before 24.0.0 contains an improper authorization vulnerability in the expense report REST API update endpoint that allows authenticated attackers with expense-creation rights to bypass the approval workflow by directly setting approval status and approver identity fields. Attackers can manipulate workflow state fields through the REST API to advance expense reports to approved or closed status without possessing the dedicated approval right, while also creating forensic inconsistencies in audit records due to missing approval timestamps.",
+      "published": "2026-08-24T19:16:50.403",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71509"
     }
   ]
 }
