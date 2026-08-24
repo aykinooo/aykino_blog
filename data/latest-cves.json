@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T01:55:34+00:00",
+  "generated_at": "2026-08-24T03:14:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-78170",
+      "summary": "A flaw has been found in UTT HiPER 1200GW up to 2.5.3-170306. Affected is the function strcpy of the file /goform/formConfigFastDirectionW. Executing a manipulation of the argument ssid can lead to buffer overflow. The attack may be performed from remote. The exploit has been published and may be used.",
+      "published": "2026-08-24T02:17:04.817",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78170"
+    },
+    {
+      "id": "CVE-2026-78169",
+      "summary": "A vulnerability was detected in UTT HiPER 1250GW up to 3.2.7-210907-180535. This impacts the function strcpy of the file /goform/aspRemoteApConfTempSend of the component HTTP Request Handler. Performing a manipulation of the argument Profile results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit is now public and may be used.",
+      "published": "2026-08-24T02:17:04.650",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78169"
+    },
+    {
+      "id": "CVE-2026-78168",
+      "summary": "A security vulnerability has been detected in EFM ipTIME T24000M up to 14.20.0. This affects the function httpcon_check_session_url of the component Session Validation Handler. Such manipulation leads to improper authentication. The attack can be executed remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-08-24T02:17:04.480",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78168"
+    },
+    {
+      "id": "CVE-2026-78167",
+      "summary": "A weakness has been identified in EFM ipTIME T16000M 14.20.2. The impacted element is the function httpcon_check_session_url of the component Session Validation Handler. This manipulation causes improper authentication. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-08-24T02:17:04.300",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78167"
+    },
+    {
+      "id": "CVE-2026-78166",
+      "summary": "A security flaw has been discovered in provectus kafka-ui up to 0.7.2. The affected element is the function executeSmartFilterTest of the file kafka-ui-api/src/main/java/com/provectus/kafka/ui/controller/MessagesController.java of the component Groovy Code Handler. The manipulation results in code injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-24T02:17:04.120",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78166"
+    },
     {
       "id": "CVE-2026-78209",
       "summary": "exceljs-hardened versions before 5.0.0 fail to neutralize leading equals, plus, minus, or at signs in cell values written to CSV output. Attackers who can influence exported cell values can inject formulas that execute when the CSV file is opened in a spreadsheet application, potentially exfiltrating data or performing other malicious actions.",
       "published": "2026-08-24T01:16:58.423",
       "cvss": 8.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78209"
-    },
-    {
-      "id": "CVE-2026-78208",
-      "summary": "exceljs-hardened before 5.0.0 contains a path traversal vulnerability in the Workbook.addImage() function that fails to validate file paths. Attackers can supply arbitrary file paths to read any file accessible to the Node.js process and embed it in the generated workbook.",
-      "published": "2026-08-24T01:16:58.280",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78208"
-    },
-    {
-      "id": "CVE-2026-78207",
-      "summary": "exceljs-hardened before 5.0.0 contains a prototype pollution vulnerability in the deepMerge helper that fails to reject __proto__, constructor, or prototype keys when merging note objects. Attackers can assign parsed JSON with a malicious __proto__ property to cell notes, modifying Object.prototype and affecting all plain objects created in the process.",
-      "published": "2026-08-24T01:16:58.137",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78207"
-    },
-    {
-      "id": "CVE-2026-78206",
-      "summary": "exceljs-hardened before 5.0.0 decompresses all entries from supplied xlsx archives into memory without limits on entry size, total size, or compression ratio. Attackers can upload highly compressed workbooks that expand to gigabytes in memory, exhausting available resources and causing denial of service.",
-      "published": "2026-08-24T01:16:57.973",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78206"
-    },
-    {
-      "id": "CVE-2026-78205",
-      "summary": "BentoML's outbound connection safeguard (make_safe_connect in _internal/utils/uri.py) blocks private, loopback, and link-local IP addresses but fails to reject the RFC 6598 shared address space (100.64.0.0/10, CGNAT). In versions 1.4.19 through 1.4.39, an unauthenticated attacker can supply URLs pointing to that range via multipart file handling (MultipartSerde.ensure_file) or JSON request parsing (JSONSerde.parse_request), causing the server to make outbound requests to internal hosts on CGNAT networks (Server-Side Request Forgery). This is an incomplete fix for CVE-2025-54381.",
-      "published": "2026-08-24T01:16:57.823",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78205"
-    },
-    {
-      "id": "CVE-2026-78204",
-      "summary": "Ghostwriter through 7.2.6 does not apply per-object authorization on its report template lint endpoints. RoleBasedAccessControlMixin.test_func returns only request.user.is_active unless a view overrides it, and neither the endpoint that lints a report template nor the endpoint that returns stored lint results provides an override, so each resolves a ReportTemplate from a caller-supplied primary key with no ownership or client-scope check. Any authenticated account can therefore lint an arbitrary template, which overwrites that template's stored lint result, and can read the returned findings, which enumerate the template's variable names and template-engine errors and so disclose its structure. This is distinct from the template swap path: that endpoint authorizes the report but omits the per-template check, whereas these endpoints omit authorization entirely and remain unfixed.",
-      "published": "2026-08-24T01:16:57.677",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78204"
     }
   ]
 }
