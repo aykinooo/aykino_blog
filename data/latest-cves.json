@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-24T20:45:56+00:00",
+  "generated_at": "2026-08-24T21:41:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78555",
-      "summary": "RansomLook exposed complete API keys in the HTML source of the authenticated /admin/apikeys administration page. Although the interface displayed only a shortened representation of each key, the full token was embedded in hidden form fields used by the enable/disable, private-access, and delete actions.\n\n\nAs a result, API credentials could be recovered by inspecting the page source or DOM. The credentials could also be unintentionally exposed through components that retain or inspect HTTP response bodies, such as debugging proxies, browser caches, monitoring systems, or other intermediaries. An attacker obtaining one of these tokens could subsequently authenticate using the privileges assigned to that key, including access to private data where the key was granted such permissions.\n\n\nThe patch removes API keys from subsequent page rendering and replaces them with SHA-256-derived opaque handles. Administrative actions submit only these handles, which are resolved back to the corresponding token on the server. The full API key is therefore disclosed only once, when it is initially created.",
-      "published": "2026-08-24T20:17:24.850",
+      "id": "CVE-2026-7455",
+      "summary": "A maliciously crafted FLT file, when parsed through Autodesk 3ds Max, can force an Out-of-Bounds Write vulnerability. A malicious actor may leverage this vulnerability to cause a crash, cause data corruption, or execute arbitrary code in the context of the current process.",
+      "published": "2026-08-24T21:17:49.040",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7455"
+    },
+    {
+      "id": "CVE-2026-77635",
+      "summary": "CakePHP is a rapid development framework for PHP. Prior to versions 5.1.10, 5.2.15, and 5.3.7 on their respective release lines, FunctionsBuilder::jsonValue() with PostgresDriver is vulnerable to SQL injection when user-controlled data is supplied to the jsonPath parameter. This issue is fixed in versions 5.1.10, 5.2.15, and 5.3.7.",
+      "published": "2026-08-24T21:17:48.457",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78555"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77635"
     },
     {
-      "id": "CVE-2026-78553",
-      "summary": "RansomLook created its Flask session-signing key without explicitly restricting the file permissions. The secret_key file was created using the process's default permissions and umask, resulting in permissions such as 0644 under a common 022 umask. Consequently, other local users able to access the RansomLook home directory could read the application's cryptographic secret.\n\n\nThe exposed key is security-critical because it is used to sign Flask session cookies and is also involved in the legacy API-key key derivation. An attacker who obtains the key can generate valid session cookies and impersonate an authenticated user, including an administrator. In LDAP configurations, exploitation may be particularly straightforward because the session user loader does not require the supplied username to correspond to an existing local user.\n\n\nSuccessful exploitation requires local access sufficient to read the improperly protected file, but can result in complete compromise of RansomLook's authentication and authorization controls.\n\n\nThe patch creates new secret-key files atomically with permissions 0600 and also restricts permissions on existing key files during application startup.",
-      "published": "2026-08-24T20:17:24.383",
+      "id": "CVE-2026-77634",
+      "summary": "CakePHP is a rapid development framework for PHP. Prior to versions 4.5.12, 4.6.5, 5.1.8, 5.2.14, and 5.3.7 on their respective release lines, custom mail headers added with Message::setHeaders() or Message::addHeaders() do not have CRLF bytes removed, allowing header injection when user-controlled data is used in message headers. This issue is fixed in versions 4.5.12, 4.6.5, 5.1.8, 5.2.14, and 5.3.7.",
+      "published": "2026-08-24T21:17:48.307",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78553"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77634"
     },
     {
-      "id": "CVE-2026-78551",
-      "summary": "RansomLook contains multiple weaknesses in its authentication endpoint that allow an unauthenticated remote attacker to enumerate valid usernames, perform unrestricted password-guessing attacks, and potentially exhaust application worker resources.\n\nFor local authentication, the login implementation previously checked whether a submitted username existed before invoking the password hash verification function. Requests containing a nonexistent username therefore returned significantly faster than requests for valid accounts, for which the computationally expensive password verification routine was executed. A remote attacker could measure these response-time differences to determine which usernames correspond to valid RansomLook accounts.\n\nIn addition, the /login endpoint did not restrict the number or frequency of failed authentication attempts. An attacker could consequently perform password brute-force, dictionary, password-spraying, or credential-stuffing attacks against known accounts without server-side throttling. For valid usernames, each authentication attempt also invokes the password key-derivation function, which consumes a significant amount of CPU time. A sufficiently high rate of login attempts could therefore occupy the application's synchronous Gunicorn workers and cause a denial of service affecting the entire application.\n\nThe issue has been addressed by always performing password verification using a randomly generated dummy password hash when the supplied username does not exist, eliminating the username-dependent timing discrepancy. Failed authentication attempts are additionally rate-limited per client IP address using Valkey/Redis, with five failed attempts within five minutes resulting in a one-hour block. The reverse-proxy configuration was also updated so that the application derives the client address from a trusted X-Forwarded-For value that cannot be overridden by a client-supplied header.",
-      "published": "2026-08-24T20:17:23.927",
+      "id": "CVE-2026-77567",
+      "summary": "Filament is a collection of full-stack components for accelerated Laravel development. Prior to versions 4.12.0 and 5.7.0, incorrect challenge-form required-field handling allows app-based multi-factor authentication to be bypassed when recovery codes are enabled. Email-based multi-factor authentication is not affected. This issue is fixed in versions 4.12.0 and 5.7.0.",
+      "published": "2026-08-24T21:17:48.150",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77567"
+    },
+    {
+      "id": "CVE-2026-75554",
+      "summary": "Insufficient Session Expiration vulnerability in the OAuth token refresh grant in hexpm hexpm allows a user removed from an organization to keep reading its private packages.\n\nexpand_repositories_scope/3 in lib/hexpm/permissions.ex only rewrites the literal repositories scope, so an explicitly granted repository:<org> or docs:<org> scope passes through it untouched. The refresh grant re-derives a new token from the stored granted_scopes, which holds that expanded form, so every refresh reproduces the organization scope without revisiting membership. Because both CDN edges authorize repository access from the token claim without querying the database, an account removed from an organization retains read access for as long as it keeps refreshing, bounded by the 30 day refresh token lifetime rather than the 30 minute access token lifetime.\n\nThis issue affects hex.pm: from 2025-10-10 before 2026-08-24.",
+      "published": "2026-08-24T21:17:47.557",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78551"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75554"
     },
     {
-      "id": "CVE-2026-78430",
-      "summary": "A vulnerability was detected in sworddut mcp-ffmpeg-helper 0.1.0/0.1.1/0.2.1. This affects the function handleToolCall of the file src/tools/handlers.ts of the component Tool Handler. The manipulation of the argument format results in os command injection. Attacking locally is a requirement. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-24T20:17:22.560",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78430"
-    },
-    {
-      "id": "CVE-2026-77923",
-      "summary": "Dolibarr 21.0.0 before 24.0.0 contains an authorization bypass vulnerability caused by an inverted boolean condition in the private-project membership check within the clonetasks mass action handler in htdocs/core/actions_massactions.inc.php. Authenticated users with project creation permission but without access to a target private project can exploit the flawed !in_array() check to clone tasks into unauthorized private projects.",
-      "published": "2026-08-24T20:17:21.560",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77923"
-    },
-    {
-      "id": "CVE-2026-77310",
-      "summary": "jackson-databind contains the general-purpose data-binding functionality and tree-model for Jackson Data Processor. Prior to versions 2.18.9, 2.21.5, 2.22.1, 3.1.5, and 3.2.1 on their respective release lines, the java.net.InetAddress branch of FromStringDeserializer.Std._deserialize() calls InetAddress.getByName() on attacker-controlled input, causing eager DNS resolution during deserialization and enabling DNS-based server-side request forgery and internal-host enumeration. This issue is fixed in versions 2.18.9, 2.21.5, 2.22.1, 3.1.5, and 3.2.1.",
-      "published": "2026-08-24T20:17:20.977",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77310"
+      "id": "CVE-2026-75542",
+      "summary": "Incorrect Authorization vulnerability in the OAuth token endpoint in hexpm hexpm allows an API key holding the repositories permission to read another organization's private packages.\n\nWhen an API key is exchanged for a token through the OAuth client_credentials grant, validate_scopes_against_key/2 in lib/hexpm_web/controllers/api/oauth_controller.ex admits a requested scope whenever the key carries the repositories permission and the scope string begins with repository:. The organization name is never resolved against the principal, and expand_repositories_scope/3 only rewrites the literal repositories scope, so an explicit repository:<name> passes through untouched. Both CDN edges authorize repository access from the token claim without querying the database, so the minted token is read access to that organization's private packages until it expires.\n\nThis issue affects hex.pm: from 2025-10-18 before 2026-08-24.",
+      "published": "2026-08-24T21:17:47.373",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75542"
     }
   ]
 }
