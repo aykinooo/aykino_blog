@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T15:02:05+00:00",
+  "generated_at": "2026-08-25T15:57:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-79655",
-      "summary": "A flaw was found in sos clean, a utility within the sos package. This vulnerability allows a local attacker to perform arbitrary file creation or overwrite. By crafting a malicious tar archive, an attacker can exploit a path traversal issue during tar extraction, where symlink and hardlink targets are not properly validated. This enables the attacker to write files to arbitrary locations on the system with the privileges of the sos clean process, which often runs as root.",
-      "published": "2026-08-25T14:16:58.010",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79655"
+      "id": "CVE-2026-79717",
+      "summary": "A server-side request forgery (SSRF) vulnerability was found in galaxy_ng, the Ansible Galaxy server plugin for Pulp. An authenticated user with namespace management permissions can set a namespace avatar URL to an arbitrary address, including internal networks, loopback, or cloud instance metadata endpoints. A background worker fetches that URL without checking the destination, which lets the attacker probe internal services and enumerate reachable IP addresses. The HTTP client is also configured without an overall timeout, so a slow or non-responsive target can pin workers and cause a denial of service.",
+      "published": "2026-08-25T15:16:45.860",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79717"
     },
     {
-      "id": "CVE-2026-79623",
-      "summary": "A security vulnerability has been detected in FishCodeTech Muteki up to 0.2.5. The affected element is an unknown function of the file .claude/settings.json of the component Default Local Worker Backend. The manipulation leads to os command injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. The issue was closed with the comment (translated from Chinese): \"The project will be refactored and shut down.\"",
-      "published": "2026-08-25T14:16:57.620",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79623"
+      "id": "CVE-2026-70551",
+      "summary": "A user who can read an existing remote VCS repository can replace its configured origin or supply an absolute VCS data URL.",
+      "published": "2026-08-25T15:16:38.060",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70551"
     },
     {
-      "id": "CVE-2026-79622",
-      "summary": "A weakness has been identified in dekdee adobe-xd-mcp 1.0.0. Impacted is an unknown function of the file src/parsers/xd-parser.ts of the component file-access-from-request Endpoint. Executing a manipulation of the argument outputFile/outputDir can lead to path traversal. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-08-25T14:16:57.420",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79622"
+      "id": "CVE-2026-69104",
+      "summary": "An authenticated user may initiate repository migration operations without required repository permissions, potentially causing information disclosure, unauthorized state changes, and service disruption. Fixed versions address the issue.",
+      "published": "2026-08-25T15:16:37.750",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69104"
     },
     {
-      "id": "CVE-2026-55525",
-      "summary": "PraisonAI is a multi-agent teams system. Prior to praisonaiagents 1.6.58, the web_crawl function validates only the initial URL before _crawl_with_httpx uses httpx.Client(follow_redirects=True). Redirect targets are not revalidated, so an attacker who influences a crawl target can redirect a public URL to loopback, private network, or cloud metadata services while ALLOW_LOCAL_CRAWL remains disabled. The fetched internal response is returned to the agent context. This issue is fixed in version 1.6.58.",
-      "published": "2026-08-25T14:16:52.417",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55525"
+      "id": "CVE-2026-55624",
+      "summary": "MintyItanium Lost-Auction is an auction plugin for Minecraft. Prior to commit 88c920b05042929db334ba06d57f052b42d6b3f8, players can take items like barrier blocks or duplicate items from the GUI. Commit 88c920b05042929db334ba06d57f052b42d6b3f8 fixes the issue.",
+      "published": "2026-08-25T15:16:35.033",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55624"
     },
     {
-      "id": "CVE-2026-79406",
-      "summary": "A security vulnerability has been detected in macrozheng mall up to 1.0.3. Affected is the function OmsCartItemServiceImpl.updateQuantity of the file /cart/update/quantity. The manipulation of the argument quantity leads to business logic errors. The attack may be initiated remotely. The vendor deleted the GitHub issue for this vulnerability without any explanation.",
-      "published": "2026-08-25T13:19:32.433",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79406"
+      "id": "CVE-2026-55541",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, praisonai serve agents and praisonai serve unified parse --api-key but _create_agents_app() and _create_unified_app() do not install a credential check. Unauthenticated callers can reach POST /agents and POST /api/v1/agents/{id}/invoke. This issue is fixed in version 4.6.58.",
+      "published": "2026-08-25T15:16:34.887",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55541"
     },
     {
-      "id": "CVE-2026-78887",
-      "summary": "A weakness has been identified in liketrek TREK up to 3.0.22. This impacts the function validateShareTokenForAsset of the component Journey Photo Proxy. Executing a manipulation can lead to incorrect authorization. The attack can be launched remotely. This attack is characterized by high complexity. The exploitability is said to be difficult. Upgrading to version 3.1.0 will fix this issue. You should upgrade the affected component.",
-      "published": "2026-08-25T13:19:32.233",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78887"
+      "id": "CVE-2026-55540",
+      "summary": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.51, is_path_within_directory() uses os.path.abspath() rather than os.path.realpath() for the workspace boundary. A symlink inside workspace can point outside and still pass the check, allowing read_file and other code tools to access files outside the configured workspace. This issue is fixed in version 4.6.58.",
+      "published": "2026-08-25T15:16:34.740",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55540"
     }
   ]
 }
