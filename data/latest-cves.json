@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T16:52:35+00:00",
+  "generated_at": "2026-08-25T17:43:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-79785",
-      "summary": "X-AnyLabeling's model downloader disabled TLS certificate verification. download_with_retry in anylabeling/services/auto_labeling/model.py built a context with ssl._create_unverified_context() and passed it to urllib.request.urlopen, so neither the certificate chain nor the hostname was checked on any model download, and models are fetched over HTTPS from the project's release host. Any party positioned to intercept that connection could therefore answer it with content of their own choosing. The response is written to a .part file and moved into place with os.replace, and the only post-download check, safe_check_model, validates the file's format rather than its provenance: no hash or signature is compared against an expected value. For an ONNX target the substituted file passes onnx.checker.check_model and is then used for inference, so the attacker chooses the model that produces the application's annotations. For a .pth or .pt target, which the shipped SAM2 video, YOLOE, UPN and open_vision configurations use, the check worker calls torch.load without weights_only, so a substituted file is unpickled and executes code of the attacker's choosing on PyTorch releases predating the weights_only default.",
-      "published": "2026-08-25T16:17:30.690",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79785"
-    },
-    {
-      "id": "CVE-2026-79784",
-      "summary": "Vocos instantiates a class named by a configuration file without restricting which class may be named. instantiate_class in vocos/pretrained.py takes the class_path value from the configuration, splits it into a module and an attribute, imports the module with __import__, resolves the attribute with getattr, and calls the result as args_class(*args, **kwargs) where kwargs is the config's own init_args mapping. No allowlist constrains the dotted path, so a configuration may name any importable callable and supply the arguments it is called with. Vocos.from_hparams reaches this for each of the feature_extractor, backbone and head entries, and Vocos.from_pretrained reaches it with a remote file: it downloads config.yaml from a caller-named Hugging Face repository and passes it straight to from_hparams. Loading a model from a repository the user does not control therefore executes code of the repository owner's choosing in the loading process. The neighbouring torch.load of the downloaded weights is a separate matter and is constrained on PyTorch releases that default weights_only to true, which leaves this path as the reachable one.",
-      "published": "2026-08-25T16:17:30.547",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79784"
-    },
-    {
-      "id": "CVE-2026-79783",
-      "summary": "rclone before 1.74.4 fails to mask special permission bits when applying source-supplied mode metadata in the local backend, allowing attackers to set setuid/setgid bits on attacker-controlled files. When copying with metadata preservation from an untrusted remote, attackers can plant a setuid binary that escalates privileges to root if rclone runs as root, or to the service account user otherwise.",
-      "published": "2026-08-25T16:17:30.383",
-      "cvss": 3.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79783"
-    },
-    {
-      "id": "CVE-2026-79782",
-      "summary": "rclone before 1.74.4 fails to strip the X-Amz-Security-Token header when an S3 redirect changes scheme from HTTPS to HTTP on the same host. Attackers can intercept plaintext HTTP traffic to capture AWS STS session tokens sent in request headers.",
-      "published": "2026-08-25T16:17:30.217",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79782"
-    },
-    {
-      "id": "CVE-2026-79781",
-      "summary": "rclone serve s3 before 1.74.4 contains a path traversal vulnerability that allows attackers to read and overwrite root-level files by using dot-dot segments in S3 object keys. Attackers can send requests with object keys like ../root-secret.txt to escape the bucket namespace and access files in the serve root directory.",
-      "published": "2026-08-25T16:17:30.080",
+      "id": "CVE-2026-78468",
+      "summary": "The FluentCRM Pro \u2013 Email Newsletter, Automation, Email Marketing, Email Campaigns, Optins, Leads, and CRM Solution plugin for WordPress is vulnerable to SQL Injection in all versions up to, and including, 3.1.12 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query.  This makes it possible for authenticated attackers, with Author-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-08-25T17:18:17.500",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79781"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78468"
     },
     {
-      "id": "CVE-2026-79780",
-      "summary": "rclone before v1.75.0 fails to sanitize IBM IAM bearer tokens and SSE-C encryption keys during S3 redirect callbacks, allowing credentials to be preserved across scheme or host changes. Attackers observing network traffic from a trusted endpoint can capture reusable IBM IAM tokens on same-host HTTPS-to-HTTP downgrades or SSE-C keys on cross-origin redirects to access protected S3 objects.",
-      "published": "2026-08-25T16:17:29.947",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79780"
+      "id": "CVE-2026-75498",
+      "summary": "Webkul QloApps does not validate request parameters before a database query. A remote, authenticated attacker with administrative privileges could send a crafted SQL query to the 'bo_query' parameter in the 'Address.php' file. Fixed in 123c97c.",
+      "published": "2026-08-25T17:18:16.330",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75498"
+    },
+    {
+      "id": "CVE-2026-75497",
+      "summary": "Webkul QloApps does not validate request parameters before a database query. A remote, authenticated attacker with administrative privileges could send a crafted SQL query to the 'bo_query' parameter in the 'CustomerMessage.php' file. Fixed in 123c97c.",
+      "published": "2026-08-25T17:18:16.187",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75497"
+    },
+    {
+      "id": "CVE-2026-75496",
+      "summary": "Webkul QloApps does not perform proper validation on uploaded file extensions or MIME types before moving the file to a publicly accessible directory. A remote, authenticated attacker with administrative privileges could upload executable files and achieve remote code execution. Fixed in 153ec1c.",
+      "published": "2026-08-25T17:18:16.030",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75496"
+    },
+    {
+      "id": "CVE-2026-64204",
+      "summary": "There is a memory corruption vulnerability recently\ndiscovered in NI LabVIEW that may result in information disclosure or arbitrary\ncode execution.\u00a0 Successful exploitation requires an attacker to get a\nuser to open a specially crafted VI.\u00a0 This vulnerability affects NI\nLabVIEW 2026 Q3 (26.3.0) and prior versions.",
+      "published": "2026-08-25T17:17:59.727",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64204"
+    },
+    {
+      "id": "CVE-2026-64203",
+      "summary": "There is a memory corruption vulnerability recently\ndiscovered in NI LabVIEW that may result in information disclosure or arbitrary\ncode execution.\u00a0 Successful exploitation requires an attacker to get a\nuser to open a specially crafted VI.\u00a0 This vulnerability affects NI\nLabVIEW 2026 Q3 (26.3.0) and prior versions.",
+      "published": "2026-08-25T17:17:59.587",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64203"
     }
   ]
 }
