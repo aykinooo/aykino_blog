@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T20:43:38+00:00",
+  "generated_at": "2026-08-25T21:41:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-77585",
-      "summary": "The Okta Privileged Access client does not reject a leading hyphen in the username portion of an SSH target. As a result, the value may be interpreted as a command-line option by the underlying SSH process.",
-      "published": "2026-08-25T20:17:06.477",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77585"
+      "id": "CVE-2026-80104",
+      "summary": "DB-GPT builds the destination path for an uploaded skill from the multipart filename without constraining it to the upload directory. skill_upload in packages/dbgpt-app/src/dbgpt_app/openapi/api_v1/agentic_data_api.py takes file.filename as given and writes the request body to upload_dir / filename. A path composed with that operator discards the left operand when the right one is absolute and follows parent references otherwise, so a filename such as ../../../tmp/x or /tmp/x resolves outside the intended directory; nothing canonicalises the result, checks that it remains under the upload root, or prevents a .py suffix. The route's only dependency is get_user_from_headers in dbgpt_serve/utils/auth.py, which returns a request carrying the admin role whether or not a user_id header is supplied, so the endpoint is reachable without credentials. A remote attacker holding no account can therefore write attacker-controlled bytes to any path the server process can write, place a new Python module inside the application package or replace one the application already imports, and obtain code execution in the server process when that module is next imported.",
+      "published": "2026-08-25T21:18:24.163",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80104"
     },
     {
-      "id": "CVE-2026-74932",
-      "summary": "The WP Fastest Cache WordPress plugin before 1.5.1 does not validate the Host header before using it to build the URLs of the asset files it embeds in the pages it caches, and does not include that header in the cache key, allowing unauthenticated attackers to poison cached pages with references to a server they control and have arbitrary JavaScript run for every subsequent visitor.",
-      "published": "2026-08-25T20:17:03.250",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74932"
+      "id": "CVE-2026-80101",
+      "summary": "A flaw was found in the file-xwd plugin in GIMP. When processing a specially crafted XWD image file, the plugin validates the image width and bytes-per-line parameters independently rather than ensuring their combined values are consistent with the allocated buffer size. This incorrect validation leads to improper bounds checking, causing a heap out-of-bounds read. This issue can result in an application crash, leading to a denial of service, or a limited information disclosure of heap memory contents into the produced image.",
+      "published": "2026-08-25T21:18:24.023",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80101"
     },
     {
-      "id": "CVE-2026-68515",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions before 3.2.11, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, exrmultiview can write past a heap allocation when it combines two attacker-supplied, individually valid scanline EXR files whose union dataWindow is not aligned to one view's channel subsampling. The utility allocates sampled channel storage using a truncated union_width / xSampling, then reads the sampled input through a Slice based on the misaligned union window, producing a heap out-of-bounds write. The trigger is normal public-tool processing, such as exrmultiview left A.exr right B.exr out.exr with crafted but valid inputs, so this is not solely an API or caller-precondition issue. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
-      "published": "2026-08-25T20:17:02.780",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68515"
+      "id": "CVE-2026-79793",
+      "summary": "A vulnerability has been found in code-projects Online Shopping System 1.0. Affected by this vulnerability is an unknown functionality of the file /admin/sumit_form.php. Such manipulation of the argument Success leads to cross site scripting. The attack may be launched remotely. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-08-25T21:18:23.847",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79793"
     },
     {
-      "id": "CVE-2026-68514",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image file format, widely used in the motion picture industry. In versions 3.3.0 through 3.3.12 and 3.4.0 through 3.4.13, the PyOpenEXR Python bindings contain a heap out-of-bounds write triggered when reading a crafted deep scanline EXR file. When a deep file declares a literal channel named left alongside layer-prefixed RGB channels left.R, left.G, and left.B, the wrapper processes the literal left channel first and allocates a scalar deep sample array for it, then reuses that same array as the coalesced destination for the prefixed RGB group. The deep reader registers sample slices with an RGB stride (three lanes) into storage that was allocated with scalar shape, so decoding the deep samples writes past the allocation. Opening such a file through the default public Python API, OpenEXR.File(path), causes a heap buffer overflow during normal deep sample decode, leading to memory corruption and a crash. This issue is fixed in versions 3.3.13 and 3.4.14.",
-      "published": "2026-08-25T20:17:02.613",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68514"
+      "id": "CVE-2026-79792",
+      "summary": "A flaw has been found in zackees transcribe-anything up to 4.1.0. Affected is the function ytdlp_download of the file src/transcribe_anything/ytldp_download.py of the component Yt-dlp Download. This manipulation of the argument url causes os command injection. The attack may be initiated remotely. The attack's complexity is rated as high. The exploitability is told to be difficult. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-25T21:18:23.660",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79792"
     },
     {
-      "id": "CVE-2026-68513",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. Versions 3.3.0 through 3.3.12 and 3.4.0 through 3.4.13 contain a heap buffer overflow in PyOpenEXR triggered by a channel-name key collision between literal and prefixed RGB channels. When separate_channels=false, PyOpenEXR maps each physical channel name through channelNameToRGBA() and coalesces the results into a shared RGB array. A crafted flat scanline EXR that contains both a literal channel such as left and prefixed channels such as left.R, left.G, and left.B causes these names to collide, so the wrapper reuses an undersized two-dimensional NumPy array for the coalesced RGB slices and writes out of bounds when OpenEXR.File(path) decodes the pixels. This issue is fixed in versions 3.3.13 and 3.4.14.",
-      "published": "2026-08-25T20:17:02.463",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68513"
-    },
-    {
-      "id": "CVE-2026-66153",
-      "summary": "The NEService auto-upgrade process insecurely handles temporary files in SonicWall NetExtender Linux client which allows an attacker to manipulate file paths.",
-      "published": "2026-08-25T20:17:01.270",
+      "id": "CVE-2026-79293",
+      "summary": "Information leak in Animation in Google Chrome prior to 152.0.7977.65 allowed a remote attacker to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
+      "published": "2026-08-25T21:18:23.530",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66153"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79293"
+    },
+    {
+      "id": "CVE-2026-79292",
+      "summary": "Integer overflow in Chromecast in Google Chrome prior to 152.0.7977.65 allowed a remote attacker who had compromised the renderer process to potentially execute arbitrary code outside the sandbox via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-08-25T21:18:23.417",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79292"
     }
   ]
 }
