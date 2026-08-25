@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T18:54:54+00:00",
+  "generated_at": "2026-08-25T19:43:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-80051",
-      "summary": "github.com/graphql-go/graphql (GraphQL for Go) through 0.8.1 does not validate that a scalar variable value matches its declared type. The built-in coerceString and coerceBool functions (scalars.go) accept input whose type does not match the declared String, ID, or Boolean scalar instead of raising the request error that the GraphQL specification mandates. In some cases (but not any typical case of JSON sent to a website), a deeply nested value leads to an unrecoverable \"fatal error: stack overflow\" condition.",
-      "published": "2026-08-25T18:18:07.120",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80051"
+      "id": "CVE-2026-80050",
+      "summary": "ContiNew Admin fails to apply file-upload permission checks or file-type allowlist validation to multipart upload endpoints, allowing authenticated users to store files with arbitrary extensions. Attackers can initialize chunked uploads, send file parts, and complete uploads to leave arbitrary files in the storage backend accessible via web server URLs.",
+      "published": "2026-08-25T19:16:55.503",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80050"
     },
     {
-      "id": "CVE-2026-79992",
-      "summary": "A flaw was found in Emacs TRAMP. A local attacker could exploit this vulnerability by processing maliciously crafted filenames. This occurs because TRAMP concatenates login arguments without proper sanitization, which are then passed to a local shell. Successful exploitation could lead to arbitrary code execution.",
-      "published": "2026-08-25T18:18:06.973",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79992"
+      "id": "CVE-2026-80049",
+      "summary": "Airbyte Platform resolves the workspace used for its authorization decision from a field the caller supplies. AuthorizationServerHandler copies recognised identifiers out of the raw JSON request body into X-Airbyte-* headers, and AuthenticationHeaderResolver.resolveWorkspace consults X-Airbyte-Workspace-Id ahead of every resource-derived header, including those for connection, source and destination identifiers. Endpoints whose declared request bodies carry only a resource identifier are nonetheless reached with an added workspaceId field, because the extractor reads the body rather than the endpoint's schema, so the permission check is performed against the workspace the caller nominated while the handler acts on the resource identifier the caller supplied. Nothing afterwards compares the resource's owning workspace with the one that was authorized. A member of any workspace can therefore read source and destination configuration, trigger and cancel syncs, and delete connections, sources and destinations that belong to workspaces they have no access to, at whatever privilege level their own workspace membership grants them.",
+      "published": "2026-08-25T19:16:55.340",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80049"
     },
     {
-      "id": "CVE-2026-76198",
-      "summary": "CAI Content Credentials is affected by an Improper Input Validation vulnerability that could lead to arbitrary file system read. An attacker could exploit this vulnerability to access sensitive files and directories outside the intended access scope. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
-      "published": "2026-08-25T18:18:05.253",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76198"
+      "id": "CVE-2026-79788",
+      "summary": "In Dradis Community Edition, the ProvidersController and AgentsController gate their admin_required before_action on `defined?(Dradis::Pro)`, a constant that is never defined in CE, so the authorization check is never applied. As a result, any authenticated (non-admin) user can create an AI provider pointing to an arbitrary HTTP/HTTPS address (including internal/link-local hosts such as http://169.254.169.254) and reassign the built-in Roslin agent to use it. When an AI interaction is triggered, the server issues a request to the attacker-supplied URL (server-side request forgery). For non-2xx responses, the target's response body is reflected verbatim to the attacker's browser via ActionCable/Turbo Stream error messages, making the SSRF readable.",
+      "published": "2026-08-25T19:16:55.080",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79788"
     },
     {
-      "id": "CVE-2026-76197",
-      "summary": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed.",
-      "published": "2026-08-25T18:18:05.110",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76197"
+      "id": "CVE-2026-79787",
+      "summary": "Alluxio's S3 REST proxy fails to verify AWS Signature Version 4 signatures in its default configuration, allowing unauthenticated attackers to spoof user identity. Attackers can extract usernames from unsigned Authorization headers and impersonate any user, including service accounts, to read, write, and delete arbitrary data.",
+      "published": "2026-08-25T19:16:54.907",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79787"
     },
     {
-      "id": "CVE-2026-76195",
-      "summary": "Adobe Campaign Classic (ACC) is affected by an Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed.",
-      "published": "2026-08-25T18:18:04.967",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76195"
+      "id": "CVE-2026-79786",
+      "summary": "Coroot's unauthenticated MCP OAuth dynamic client registration endpoint accepts any syntactically valid redirect URI without validation, allowing attackers to register clients pointing to attacker-controlled hosts. Attackers can send authorization URLs to signed-in users, capture their authorization codes upon consent approval, and exchange them for access tokens to hijack MCP sessions.",
+      "published": "2026-08-25T19:16:54.750",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79786"
     },
     {
-      "id": "CVE-2026-76193",
-      "summary": "Adobe Campaign Classic (ACC) is affected by a Server-Side Request Forgery (SSRF) vulnerability that could result in arbitrary code execution in the context of the current user. An attacker could exploit this vulnerability to execute arbitrary code. Exploitation of this issue does not require user interaction. Scope is changed.",
-      "published": "2026-08-25T18:18:04.813",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76193"
+      "id": "CVE-2026-78379",
+      "summary": "Improper neutralization of input used for LLM prompting in the python_repl tool in Amazon Strands Agents Tools before 0.8.5 might allow remote actors to execute arbitrary Python code on the agent's host by bypassing the human consent gate, via a crafted prompt that forwards non_interactive_mode as a keyword argument through the batch tool.\u00a0To remediate this issue, users should upgrade to version 0.8.5 or later.",
+      "published": "2026-08-25T19:16:54.467",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78379"
     }
   ]
 }
