@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T03:11:05+00:00",
+  "generated_at": "2026-08-25T03:57:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-78685",
+      "summary": "Medical Practice Management System developed by Le-yan has a Remote Code Execution vulnerability. Unauthenticated remote attackers can execute arbitrary OS commamnds via a crafted HTML page.",
+      "published": "2026-08-25T03:16:58.740",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78685"
+    },
+    {
+      "id": "CVE-2026-75982",
+      "summary": "The LearnPress plugin for WordPress is vulnerable to unauthorized modification of arbitrary WordPress options in versions up to, and including, 4.4.4 via the learnpress_create_page AJAX action. The LP_Admin_Ajax::create_page() handler only checks the edit_pages capability and a wp_rest nonce (both available to Editors), then reads the field_name parameter from the request without restricting it to a learn_press_* allow-list before passing it as the option key to LP_Helper::create_page(), which calls update_option($key_option, $page_id). This makes it possible for authenticated attackers, with Editor-level access and above, to update arbitrary WordPress options to a positive integer (a newly created page ID), enabling actions such as flipping users_can_register to a truthy value to open public registration, corrupting active_plugins to break the site, or otherwise tampering with site-wide settings normally reserved for administrators.",
+      "published": "2026-08-25T03:16:57.063",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75982"
+    },
+    {
+      "id": "CVE-2026-75019",
+      "summary": "The Cozy Blocks \u2013 Page Builder for Gutenberg Editor & FSE with 700+ Patterns, 58 Blocks & Templates plugin for WordPress is vulnerable to Stored Cross-Site Scripting via cozyHoverEffect Block Attribute in all versions up to, and including, 2.2.16 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload survives wp_kses_post on save because it contains no angle brackets \u2014 only a double-quote breakout of the cozyHoverEffect.boxShadow.color attribute value \u2014 allowing event-handler injection at the render stage.",
+      "published": "2026-08-25T03:16:56.507",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75019"
+    },
+    {
+      "id": "CVE-2026-10627",
+      "summary": "The Events Manager \u2013 Calendar, Bookings, Tickets, and more! plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 7.4.0. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to view the titles, dates, descriptions, and location details of events and locations that administrators have marked as draft, pending, trashed, or private.",
+      "published": "2026-08-25T03:16:54.687",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-10627"
+    },
+    {
+      "id": "CVE-2025-9878",
+      "summary": "The PPWP \u2013 Password Protect WordPress | #1 Most-Reviewed Password Plugin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's 'ppwp' shortcode in all versions up to, and including, 1.9.21 due to insufficient input sanitization and output escaping on user supplied attributes. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-08-25T03:16:54.540",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-9878"
+    },
     {
       "id": "CVE-2026-78683",
       "summary": "NLTK before 3.10.0 (affected versions <=3.9.4) contains an unsafe pickle deserialization vulnerability in the TransitionParser.parse() method (nltk/parse/transitionparser.py). The method calls pickle_load() with the default restricted=False, routing deserialization through WarningUnpickler, which does not override find_class() and therefore permits arbitrary class resolution. When an application loads an attacker-crafted model file, embedded pickle gadget chains execute arbitrary Python code with the privileges of the user running the application. NLTK provides a RestrictedUnpickler for safe deserialization, but it is not used by production code paths. Fixed in 3.10.0.",
       "published": "2026-08-25T02:16:53.033",
       "cvss": 9.6,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78683"
-    },
-    {
-      "id": "CVE-2026-78682",
-      "summary": "NLTK before 3.10.3 contains a server-side request forgery vulnerability in nltk.pathsec.urlopen (and callers nltk.data.load, nltk.downloader.Downloader.index/download) when an HTTP proxy is configured. pathsec.urlopen validates the requested hostname locally, but proxy-handler inheritance disables the safe HTTP/HTTPS handlers so the actual fetch is performed by the proxy against a destination that is never re-validated. An attacker can supply a validated public URL that the proxy forwards to an internal loopback-only service, allowing disclosure of internal HTTP resources, loading of forged downloader indexes, and installation of attacker-chosen package content.",
-      "published": "2026-08-25T02:16:52.890",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78682"
-    },
-    {
-      "id": "CVE-2026-78681",
-      "summary": "NLTK versions before 3.10.3 use xml.etree.ElementTree to parse XML in multiple modules, which honors entity declarations in document DTDs. Attackers can craft XML payloads with nested entity declarations that expand from hundreds of bytes to megabytes in memory, causing denial of service.",
-      "published": "2026-08-25T02:16:52.750",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78681"
-    },
-    {
-      "id": "CVE-2026-78680",
-      "summary": "NLTK versions before 3.10.3 fail to use validated absolute paths when invoking the Graphviz dot binary in dependencygraph.dot2img and AlignedSent._repr_svg_, allowing attackers to execute arbitrary code by placing a malicious dot binary in the search path or current working directory. Attackers can exploit bare-name binary resolution on Windows via the current working directory or on Unix-like systems via relative PATH entries to execute their binary instead of the legitimate Graphviz tool.",
-      "published": "2026-08-25T02:16:52.607",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78680"
-    },
-    {
-      "id": "CVE-2026-78679",
-      "summary": "GitPython before 3.1.59 contains an arbitrary file read vulnerability in TagReference.create() where a positional reference parameter bypasses the unsafe option guard. Attackers can supply a reference value like --file=<path> to read arbitrary files, with contents returned in the annotated tag message.",
-      "published": "2026-08-25T02:16:52.470",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78679"
-    },
-    {
-      "id": "CVE-2026-78678",
-      "summary": "GitPython versions before 3.1.59 contain an incomplete denylist in the unsafe_git_revision_options guard that omits --contents and -S options, allowing attackers to read arbitrary files by passing these options to Repo.blame(). Attackers can supply revision values like --contents=/etc/passwd to leak file contents through the blame result returned to the caller.",
-      "published": "2026-08-25T02:16:52.313",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78678"
     }
   ]
 }
