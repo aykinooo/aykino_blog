@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T01:49:58+00:00",
+  "generated_at": "2026-08-25T03:11:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-66766",
-      "summary": "SAP S/4HANA (Private Cloud) uses a third-party component that contains a Regular Expression Denial of Service (ReDoS) vulnerability. An unauthenticated attacker could supply specially crafted input that triggers excessive processing within the affected functionality. Successful exploitation could exhaust system resources and make the service unavailable, resulting in a high impact on availability. There is no impact on confidentiality and integrity.",
-      "published": "2026-08-25T01:16:37.230",
+      "id": "CVE-2026-78683",
+      "summary": "NLTK before 3.10.0 (affected versions <=3.9.4) contains an unsafe pickle deserialization vulnerability in the TransitionParser.parse() method (nltk/parse/transitionparser.py). The method calls pickle_load() with the default restricted=False, routing deserialization through WarningUnpickler, which does not override find_class() and therefore permits arbitrary class resolution. When an application loads an attacker-crafted model file, embedded pickle gadget chains execute arbitrary Python code with the privileges of the user running the application. NLTK provides a RestrictedUnpickler for safe deserialization, but it is not used by production code paths. Fixed in 3.10.0.",
+      "published": "2026-08-25T02:16:53.033",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78683"
+    },
+    {
+      "id": "CVE-2026-78682",
+      "summary": "NLTK before 3.10.3 contains a server-side request forgery vulnerability in nltk.pathsec.urlopen (and callers nltk.data.load, nltk.downloader.Downloader.index/download) when an HTTP proxy is configured. pathsec.urlopen validates the requested hostname locally, but proxy-handler inheritance disables the safe HTTP/HTTPS handlers so the actual fetch is performed by the proxy against a destination that is never re-validated. An attacker can supply a validated public URL that the proxy forwards to an internal loopback-only service, allowing disclosure of internal HTTP resources, loading of forged downloader indexes, and installation of attacker-chosen package content.",
+      "published": "2026-08-25T02:16:52.890",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66766"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78682"
     },
     {
-      "id": "CVE-2026-59183",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions 3.1.0 through 3.2.10, 3.3.0 through 3.3.12, and 3.4.0 through 3.4.13, an int32_t multiplication in OpenEXRCore's unpack_sample_table() can overflow while decoding a crafted deep tiled EXR file, producing an invalid pointer that leads to a read from an unmapped memory address and a crash. Because the overflow occurs in the standard decoding path (exr_decoding_run), any application that decodes deep tiled EXR files is affected. This issue is fixed in versions 3.2.11, 3.3.13, and 3.4.14.",
-      "published": "2026-08-25T01:16:37.087",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59183"
+      "id": "CVE-2026-78681",
+      "summary": "NLTK versions before 3.10.3 use xml.etree.ElementTree to parse XML in multiple modules, which honors entity declarations in document DTDs. Attackers can craft XML payloads with nested entity declarations that expand from hundreds of bytes to megabytes in memory, causing denial of service.",
+      "published": "2026-08-25T02:16:52.750",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78681"
     },
     {
-      "id": "CVE-2026-55373",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. Versions prior to 3.2.10, 3.3.12, and 3.4.13 contain an infinite-loop vulnerability in SampleCountChannel. The helper roundListSizeUp() rounds a sample-list size up to the next power of two using repeated unsigned left shifts, which terminates for normal values but fails for UINT_MAX: the sequence reaches 0x80000000, and the next left shift wraps the 32-bit value to 0. Because 0 remains less than UINT_MAX, the loop never progresses and never exits. The bug is reachable through public OpenEXRUtil APIs, either by editing the sample-count buffer through SampleCountChannel::Edit (whose destructor calls endEdit()) or by calling SampleCountChannel::set(x, y, UINT_MAX) on a valid pixel. This issue has been fixed in versions 3.2.10, 3.3.12, and 3.4.13.",
-      "published": "2026-08-25T01:16:36.947",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55373"
+      "id": "CVE-2026-78680",
+      "summary": "NLTK versions before 3.10.3 fail to use validated absolute paths when invoking the Graphviz dot binary in dependencygraph.dot2img and AlignedSent._repr_svg_, allowing attackers to execute arbitrary code by placing a malicious dot binary in the search path or current working directory. Attackers can exploit bare-name binary resolution on Windows via the current working directory or on Unix-like systems via relative PATH entries to execute their binary instead of the legitimate Graphviz tool.",
+      "published": "2026-08-25T02:16:52.607",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78680"
     },
     {
-      "id": "CVE-2026-55371",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR high-dynamic-range image file format, widely used in the motion picture industry. Versions 3.4.0 through 3.4.12 contain a NULL pointer dereference in the OpenEXRCore function exr_attr_set_bytes(). The public setter validates the top-level exr_attr_bytes_t value pointer but does not verify that the nested type_hint pointer is non-NULL when hint_length is greater than zero. When a caller supplies a positive hint_length together with a NULL type_hint, exr_attr_bytes_create() allocates a destination type-hint buffer and then copies from the NULL source pointer, causing a deterministic crash. The flaw is reachable through the public OpenEXRCore C API and results in a denial of service. The issue is fixed in version 3.4.13.",
-      "published": "2026-08-25T01:16:36.810",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55371"
+      "id": "CVE-2026-78679",
+      "summary": "GitPython before 3.1.59 contains an arbitrary file read vulnerability in TagReference.create() where a positional reference parameter bypasses the unsafe option guard. Attackers can supply a reference value like --file=<path> to read arbitrary files, with contents returned in the annotated tag message.",
+      "published": "2026-08-25T02:16:52.470",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78679"
     },
     {
-      "id": "CVE-2026-55059",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. Versions prior to 3.2.10, 3.3.12 and 3.4.13 contain a heap out-of-bounds write in Imf_4_0::SampleCountChannel::set(int r, unsigned int newNumSamples[]). The row-based sample-count setter computes the target Y coordinate with dataWindow.min.x instead of dataWindow.min.y. For a valid deep image data window where min.x != min.y, a valid row index can be translated into an invalid Y coordinate, causing writes before the allocated _numSamples buffer. The vulnerability is reachable through the public OpenEXRUtil DeepImage API and can lead to heap corruption and process crashes. This issue has been fixed in versions 3.2.10, 3.3.12 and 3.4.13.",
-      "published": "2026-08-25T01:16:36.667",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55059"
-    },
-    {
-      "id": "CVE-2026-54920",
-      "summary": "OpenEXR is the reference implementation and specification for the EXR image format, widely used in the motion picture industry. In versions 3.4.0 through 3.4.12, a reachable assertion failure in the HTJ2K decode path allows a crafted HTJ2K-compressed EXR file to cause an unconditional process abort in any application that calls exr_start_read() on untrusted input, resulting in denial of service. The crash is triggered by a QCD marker whose lower five bits are zero, which OpenEXR passes into the vendored OpenJPH library while constructing the codestream and evaluating its quantization delta parameters. OpenJPH uses an assertion rather than a recoverable error to validate those bits, so any invalid value calls abort() directly and cannot be intercepted by surrounding error handling, a problem compounded by OpenEXR wrapping only its internal HT header parser in error handling while leaving the later codestream read and construction calls unprotected. This issue has been resolved in version 3.4.13.",
-      "published": "2026-08-25T01:16:36.290",
-      "cvss": 0.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54920"
+      "id": "CVE-2026-78678",
+      "summary": "GitPython versions before 3.1.59 contain an incomplete denylist in the unsafe_git_revision_options guard that omits --contents and -S options, allowing attackers to read arbitrary files by passing these options to Repo.blame(). Attackers can supply revision values like --contents=/etc/passwd to leak file contents through the blame result returned to the caller.",
+      "published": "2026-08-25T02:16:52.313",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78678"
     }
   ]
 }
