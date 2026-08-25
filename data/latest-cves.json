@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-25T15:57:33+00:00",
+  "generated_at": "2026-08-25T16:52:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-79717",
-      "summary": "A server-side request forgery (SSRF) vulnerability was found in galaxy_ng, the Ansible Galaxy server plugin for Pulp. An authenticated user with namespace management permissions can set a namespace avatar URL to an arbitrary address, including internal networks, loopback, or cloud instance metadata endpoints. A background worker fetches that URL without checking the destination, which lets the attacker probe internal services and enumerate reachable IP addresses. The HTTP client is also configured without an overall timeout, so a slow or non-responsive target can pin workers and cause a denial of service.",
-      "published": "2026-08-25T15:16:45.860",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79717"
+      "id": "CVE-2026-79785",
+      "summary": "X-AnyLabeling's model downloader disabled TLS certificate verification. download_with_retry in anylabeling/services/auto_labeling/model.py built a context with ssl._create_unverified_context() and passed it to urllib.request.urlopen, so neither the certificate chain nor the hostname was checked on any model download, and models are fetched over HTTPS from the project's release host. Any party positioned to intercept that connection could therefore answer it with content of their own choosing. The response is written to a .part file and moved into place with os.replace, and the only post-download check, safe_check_model, validates the file's format rather than its provenance: no hash or signature is compared against an expected value. For an ONNX target the substituted file passes onnx.checker.check_model and is then used for inference, so the attacker chooses the model that produces the application's annotations. For a .pth or .pt target, which the shipped SAM2 video, YOLOE, UPN and open_vision configurations use, the check worker calls torch.load without weights_only, so a substituted file is unpickled and executes code of the attacker's choosing on PyTorch releases predating the weights_only default.",
+      "published": "2026-08-25T16:17:30.690",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79785"
     },
     {
-      "id": "CVE-2026-70551",
-      "summary": "A user who can read an existing remote VCS repository can replace its configured origin or supply an absolute VCS data URL.",
-      "published": "2026-08-25T15:16:38.060",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70551"
+      "id": "CVE-2026-79784",
+      "summary": "Vocos instantiates a class named by a configuration file without restricting which class may be named. instantiate_class in vocos/pretrained.py takes the class_path value from the configuration, splits it into a module and an attribute, imports the module with __import__, resolves the attribute with getattr, and calls the result as args_class(*args, **kwargs) where kwargs is the config's own init_args mapping. No allowlist constrains the dotted path, so a configuration may name any importable callable and supply the arguments it is called with. Vocos.from_hparams reaches this for each of the feature_extractor, backbone and head entries, and Vocos.from_pretrained reaches it with a remote file: it downloads config.yaml from a caller-named Hugging Face repository and passes it straight to from_hparams. Loading a model from a repository the user does not control therefore executes code of the repository owner's choosing in the loading process. The neighbouring torch.load of the downloaded weights is a separate matter and is constrained on PyTorch releases that default weights_only to true, which leaves this path as the reachable one.",
+      "published": "2026-08-25T16:17:30.547",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79784"
     },
     {
-      "id": "CVE-2026-69104",
-      "summary": "An authenticated user may initiate repository migration operations without required repository permissions, potentially causing information disclosure, unauthorized state changes, and service disruption. Fixed versions address the issue.",
-      "published": "2026-08-25T15:16:37.750",
-      "cvss": 7.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69104"
+      "id": "CVE-2026-79783",
+      "summary": "rclone before 1.74.4 fails to mask special permission bits when applying source-supplied mode metadata in the local backend, allowing attackers to set setuid/setgid bits on attacker-controlled files. When copying with metadata preservation from an untrusted remote, attackers can plant a setuid binary that escalates privileges to root if rclone runs as root, or to the service account user otherwise.",
+      "published": "2026-08-25T16:17:30.383",
+      "cvss": 3.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79783"
     },
     {
-      "id": "CVE-2026-55624",
-      "summary": "MintyItanium Lost-Auction is an auction plugin for Minecraft. Prior to commit 88c920b05042929db334ba06d57f052b42d6b3f8, players can take items like barrier blocks or duplicate items from the GUI. Commit 88c920b05042929db334ba06d57f052b42d6b3f8 fixes the issue.",
-      "published": "2026-08-25T15:16:35.033",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55624"
+      "id": "CVE-2026-79782",
+      "summary": "rclone before 1.74.4 fails to strip the X-Amz-Security-Token header when an S3 redirect changes scheme from HTTPS to HTTP on the same host. Attackers can intercept plaintext HTTP traffic to capture AWS STS session tokens sent in request headers.",
+      "published": "2026-08-25T16:17:30.217",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79782"
     },
     {
-      "id": "CVE-2026-55541",
-      "summary": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.58, praisonai serve agents and praisonai serve unified parse --api-key but _create_agents_app() and _create_unified_app() do not install a credential check. Unauthenticated callers can reach POST /agents and POST /api/v1/agents/{id}/invoke. This issue is fixed in version 4.6.58.",
-      "published": "2026-08-25T15:16:34.887",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55541"
+      "id": "CVE-2026-79781",
+      "summary": "rclone serve s3 before 1.74.4 contains a path traversal vulnerability that allows attackers to read and overwrite root-level files by using dot-dot segments in S3 object keys. Attackers can send requests with object keys like ../root-secret.txt to escape the bucket namespace and access files in the serve root directory.",
+      "published": "2026-08-25T16:17:30.080",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79781"
     },
     {
-      "id": "CVE-2026-55540",
-      "summary": "PraisonAI is a multi-agent teams system. Prior to praisonai 4.6.51, is_path_within_directory() uses os.path.abspath() rather than os.path.realpath() for the workspace boundary. A symlink inside workspace can point outside and still pass the check, allowing read_file and other code tools to access files outside the configured workspace. This issue is fixed in version 4.6.58.",
-      "published": "2026-08-25T15:16:34.740",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55540"
+      "id": "CVE-2026-79780",
+      "summary": "rclone before v1.75.0 fails to sanitize IBM IAM bearer tokens and SSE-C encryption keys during S3 redirect callbacks, allowing credentials to be preserved across scheme or host changes. Attackers observing network traffic from a trusted endpoint can capture reusable IBM IAM tokens on same-host HTTPS-to-HTTP downgrades or SSE-C keys on cross-origin redirects to access protected S3 objects.",
+      "published": "2026-08-25T16:17:29.947",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79780"
     }
   ]
 }
