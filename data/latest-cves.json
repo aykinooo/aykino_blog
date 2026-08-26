@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-26T16:57:08+00:00",
+  "generated_at": "2026-08-26T19:15:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-81036",
-      "summary": "Stalwart Mail Server does not compare an OAuth redirect target against any registered destination in its default configuration. The validation routine in crates/http/src/auth/oauth/registration.rs returns success immediately when the client-authentication requirement is disabled, and that requirement is false in the shipped settings, so the supplied redirect value is neither matched against a registered client nor otherwise constrained. The value is stored with the authorization code, and the login page reads it back and sends the browser to it with the code attached. A request naming a destination the attacker controls therefore delivers a valid authorization code there once the account holder authenticates, and because the token endpoint checks only that the redirect presented at exchange matches the one recorded with the code, the same party can exchange it for access and refresh tokens and read the account's mail.",
-      "published": "2026-08-26T16:16:46.607",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81036"
+      "id": "CVE-2026-76784",
+      "summary": "Multiple\nTP-Link Kasa smart home devices contain insufficient cryptographic protections\nin the local device communication protocol. An adjacent network attacker may\nintercept, replay or forge locally exchanged control messages, potentially\nresulting in unauthorized device control. \n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation could allow an attacker to manipulate the operational state of an\naffected device, resulting in unauthorized state changes, disruption of normal\ndevice functionality or a denial-of-service condition.",
+      "published": "2026-08-26T18:17:01.903",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76784"
     },
     {
-      "id": "CVE-2026-81035",
-      "summary": "Midday allows any member of a team to delete it. The delete procedure in apps/api/src/trpc/routers/team.ts authorises the caller with the team-access helper, which returns true for every row in the team-membership table irrespective of the role it records, and the data-layer function it calls re-checks the same helper and nothing else. The neighbouring procedures that remove or update a member in the same router each resolve the caller's role and refuse the request unless it is owner, so the check exists in the file and is not applied to deletion. Member is the role an invited user receives, so any invitee can remove the team and every record scoped to it, and the deletion enqueues the cleanup job with the stored bank-connection tokens, which the job then uses against the connected providers. The update procedure in the same router carries no role check either.",
-      "published": "2026-08-26T16:16:46.463",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81035"
+      "id": "CVE-2026-58474",
+      "summary": "whichllm before 0.5.16 contains a code injection vulnerability in the run and snippet commands that allows a remote attacker who controls a HuggingFace repository to achieve arbitrary code execution by crafting a malicious GGUF filename containing double quotes or other special characters. The script generation function in cli.py interpolates HuggingFace-derived values, including GGUF variant filenames from the Hub API siblings rfilename field, directly into Python source code without escaping, allowing the crafted filename to break out of the generated string literal and execute injected code on the user's machine before any model download occurs.",
+      "published": "2026-08-26T18:16:42.760",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58474"
     },
     {
-      "id": "CVE-2026-81034",
-      "summary": "Netmaker disables certificate verification on the connection to the configured mail server. The sender in pro/email/smtp.go assigns a TLS configuration whose skip-verify field is set to true unconditionally, directly beneath a comment stating that the setting should be false in production. No configuration value governs it and no code path restores verification, so the client accepts any certificate the mail server presents, including one an interposing party supplies. Mail that Netmaker sends over that connection includes password-reset messages carrying single-use tokens and user invitations carrying enrolment links, so a party positioned on the path between the server and its mail relay can read those messages in transit and use a captured reset token before the intended recipient does. The setting is absent from the development branch but present in the latest release.",
-      "published": "2026-08-26T16:16:46.310",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81034"
+      "id": "CVE-2026-54256",
+      "summary": "Winter CMS is a content management system built on the Laravel PHP framework. In versions up to and including 1.2.12, the backend FileUpload form widget trusted an attacker-controlled file_id POST parameter when resolving the attachment it operates on, allowing an authenticated backend user to read and modify attachment records belonging to other users or records. The widget's getFileRecord() lookup resolved the posted id against the global system_files table without verifying that the file belonged to the widget's own relation, parent record, or deferred-binding session. Because all attachments share a single File model and table and attachment ids are sequential integers that are easily enumerated, a user reaching any form with a fileupload field, including the built-in My Account avatar field that requires no specific permission, could target arbitrary attachments to modify their title and description via onSaveAttachmentConfig and change their sort order via onSortAttachments, which passed posted ids straight to an unscoped update. CSRF tokens remain enforced, so exploitation requires a valid authenticated backend session with any level of access. This issue is fixed in version 1.2.13.",
+      "published": "2026-08-26T18:16:40.780",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54256"
     },
     {
-      "id": "CVE-2026-81033",
-      "summary": "Automatisch reveals whether an address is registered through the response to its forgot-password request. The controller at packages/backend/src/controllers/internal/api/v1/users/forgot-password.js looks the address up and chains a not-found throw onto the query, so an address with no account raises an error that the global handler renders as a not-found status, while a registered address proceeds to send the reset message and returns no-content. The route is mounted without authentication. Submitting candidate addresses and comparing the two status codes therefore establishes which addresses hold accounts, with no credential and no rate limiting in the path.",
-      "published": "2026-08-26T16:16:46.163",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81033"
+      "id": "CVE-2026-47841",
+      "summary": "An application using Spring Security's WebAuthn support may be vulnerable to user verification bypass when using a distributed HTTP session store.\nSpring Security 7.1.0\nSpring Security 7.0.0 - 7.0.6\nSpring Security 6.5.0 - 6.5.11\nSpring Security 6.4.0 - 6.4.18",
+      "published": "2026-08-26T18:16:33.303",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47841"
     },
     {
-      "id": "CVE-2026-81032",
-      "summary": "NebulaGraph exposes its runtime configuration over an unauthenticated HTTP service. Each daemon starts the web service defined in src/webservice/WebService.cpp, whose bind address defaults to all interfaces, and registers routes for reading and writing gflags alongside status and statistics. Neither the service nor its router carries any authentication, token check or address restriction. The read route returns the daemon's full set of runtime flag values, which includes the configured certificate, key and certificate-authority paths, the password file path, data directories and the transport-security enable flags. The write route parses a supplied map and applies each entry through the gflags runtime setter, so a caller able to reach the port can change the daemon's behaviour without restarting it, including disabling the transport-security flags, redirecting log files and altering flags such as failed_login_attempts and password_lock_time_in_secs. Public reports of this endpoint describe a single name, enable_authorize, being refused by the handler; at release 3.8.0 that refusal is not present and the handler applies every name it is given.",
-      "published": "2026-08-26T16:16:46.013",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81032"
+      "id": "CVE-2026-47837",
+      "summary": "Missing Authentication for Critical Function vulnerability in Spring Spring Cloud Config allows Webhook requests to Spring Cloud Config Server's /monitor endpoint are not validated.\n\nThis issue affects Spring Cloud Config: from 5.0.0 through 5.0.4, from 4.3.0 through 4.3.4, from 4.0.0 through 4.2.8, and through 3.1.14.",
+      "published": "2026-08-26T18:16:33.177",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47837"
     },
     {
-      "id": "CVE-2026-81031",
-      "summary": "IDURAR ERP CRM changes the password of whichever account a request names rather than the account making the request. The update handler in backend/src/controllers/middlewaresControllers/createUserController/updatePassword.js resolves the authenticated user from the request that the token middleware populated, then issues its update against a filter built from the identifier in the URL path, and never compares the two. The route is mounted behind the administrator token check only, so any valid administrator session is sufficient, and the sole ownership-like guard in the handler rejects a single hardcoded demo address. A caller can therefore set an arbitrary password on any other administrator account and sign in as it. The read handler in the same controller directory accepts an identifier the same way, which supplies the identifiers needed to pick a target.",
-      "published": "2026-08-26T16:16:45.860",
+      "id": "CVE-2026-47836",
+      "summary": "The base directory (spring.cloud.config.server.svn.basedir) used by the Spring Cloud Config Server to clone SVN repositories to is susceptible to time-of-check-time-of-use (TOCTOU) attacks.\nSpring Cloud Config 5.0.0 - 5.0.4\nSpring Cloud Config 4.3.0 - 4.3.4\nSpring Cloud Config 4.0.0 - 4.2.8\nSpring Cloud Config 3.1.14 and earlier",
+      "published": "2026-08-26T18:16:33.050",
       "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81031"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47836"
     }
   ]
 }
