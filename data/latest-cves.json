@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-26T19:15:56+00:00",
+  "generated_at": "2026-08-26T23:29:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76784",
-      "summary": "Multiple\nTP-Link Kasa smart home devices contain insufficient cryptographic protections\nin the local device communication protocol. An adjacent network attacker may\nintercept, replay or forge locally exchanged control messages, potentially\nresulting in unauthorized device control. \n\n\n\n\n\n\n\n\n\nSuccessful\nexploitation could allow an attacker to manipulate the operational state of an\naffected device, resulting in unauthorized state changes, disruption of normal\ndevice functionality or a denial-of-service condition.",
-      "published": "2026-08-26T18:17:01.903",
+      "id": "CVE-2026-81203",
+      "summary": "A vulnerability has been found in SourceCodester Simple Online Food Ordering System 1.0. This affects an unknown function of the file /admin/ajax.php?action=login2. The manipulation of the argument email leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-08-26T23:17:20.797",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81203"
+    },
+    {
+      "id": "CVE-2026-80158",
+      "summary": "A flaw was found in the ipa_getkeytab module of the community.general\nAnsible collection. The module's bind_pw parameter, used to supply the LDAP simple-bind password when retrieving a Kerberos keytab, is not declared with no_log, unlike the sibling password parameter in the same module. As a consequence, the supplied IPA/LDAP bind password is recorded in cleartext in the managed host's system journal/syslog (the module's \"Invoked with\" record), is included in the module's return values and verbose (-v) output, and is displayed in Automation Controller / AWX job output. The password is additionally passed on the command line to the ipa-getkeytab helper (as --bindpw <value>), exposing it in the process list to local users while the command runs. An attacker able to read these logs, job output, or the process table can obtain the directory bind credential, potentially compromising the accounts and objects that credential can access.",
+      "published": "2026-08-26T23:17:20.657",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80158"
+    },
+    {
+      "id": "CVE-2026-75340",
+      "summary": "The device metadata import interface /device/instance/{productId}/property-metadata/import of jetlinks community 2.11 is vulnerable to Server-side request forgery (SSRF).",
+      "published": "2026-08-26T23:17:19.033",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76784"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75340"
     },
     {
-      "id": "CVE-2026-58474",
-      "summary": "whichllm before 0.5.16 contains a code injection vulnerability in the run and snippet commands that allows a remote attacker who controls a HuggingFace repository to achieve arbitrary code execution by crafting a malicious GGUF filename containing double quotes or other special characters. The script generation function in cli.py interpolates HuggingFace-derived values, including GGUF variant filenames from the Hub API siblings rfilename field, directly into Python source code without escaping, allowing the crafted filename to break out of the generated string literal and execute injected code on the user's machine before any model download occurs.",
-      "published": "2026-08-26T18:16:42.760",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58474"
+      "id": "CVE-2026-75338",
+      "summary": "disconf (Distributed Configuration Management Platform) 2.6.36 is vulnerable to Incorrect Access Control. The config-fetching APIs /api/config/item, /api/config/file, /api/config/list and /api/config/simple/list are exposed without authentication. The LoginInterceptor explicitly whitelists these four paths, so any anonymous attacker can read every configuration item and configuration file managed by the config center.",
+      "published": "2026-08-26T23:17:18.903",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75338"
     },
     {
-      "id": "CVE-2026-54256",
-      "summary": "Winter CMS is a content management system built on the Laravel PHP framework. In versions up to and including 1.2.12, the backend FileUpload form widget trusted an attacker-controlled file_id POST parameter when resolving the attachment it operates on, allowing an authenticated backend user to read and modify attachment records belonging to other users or records. The widget's getFileRecord() lookup resolved the posted id against the global system_files table without verifying that the file belonged to the widget's own relation, parent record, or deferred-binding session. Because all attachments share a single File model and table and attachment ids are sequential integers that are easily enumerated, a user reaching any form with a fileupload field, including the built-in My Account avatar field that requires no specific permission, could target arbitrary attachments to modify their title and description via onSaveAttachmentConfig and change their sort order via onSortAttachments, which passed posted ids straight to an unscoped update. CSRF tokens remain enforced, so exploitation requires a valid authenticated backend session with any level of access. This issue is fixed in version 1.2.13.",
-      "published": "2026-08-26T18:16:40.780",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54256"
+      "id": "CVE-2026-75336",
+      "summary": "Funiture 1.0.0 is vulnerable to SQL Injection in the backend tool interfaces /sys/tool/select.json and /sys/tool/update.json.",
+      "published": "2026-08-26T23:17:18.787",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75336"
     },
     {
-      "id": "CVE-2026-47841",
-      "summary": "An application using Spring Security's WebAuthn support may be vulnerable to user verification bypass when using a distributed HTTP session store.\nSpring Security 7.1.0\nSpring Security 7.0.0 - 7.0.6\nSpring Security 6.5.0 - 6.5.11\nSpring Security 6.4.0 - 6.4.18",
-      "published": "2026-08-26T18:16:33.303",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47841"
-    },
-    {
-      "id": "CVE-2026-47837",
-      "summary": "Missing Authentication for Critical Function vulnerability in Spring Spring Cloud Config allows Webhook requests to Spring Cloud Config Server's /monitor endpoint are not validated.\n\nThis issue affects Spring Cloud Config: from 5.0.0 through 5.0.4, from 4.3.0 through 4.3.4, from 4.0.0 through 4.2.8, and through 3.1.14.",
-      "published": "2026-08-26T18:16:33.177",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47837"
-    },
-    {
-      "id": "CVE-2026-47836",
-      "summary": "The base directory (spring.cloud.config.server.svn.basedir) used by the Spring Cloud Config Server to clone SVN repositories to is susceptible to time-of-check-time-of-use (TOCTOU) attacks.\nSpring Cloud Config 5.0.0 - 5.0.4\nSpring Cloud Config 4.3.0 - 4.3.4\nSpring Cloud Config 4.0.0 - 4.2.8\nSpring Cloud Config 3.1.14 and earlier",
-      "published": "2026-08-26T18:16:33.050",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47836"
+      "id": "CVE-2026-75332",
+      "summary": "Zyplayer-Doc <=1.0.0 is vulnerable to Server-Side Request Forgery (SSRF) via WikiPageWebService.download().",
+      "published": "2026-08-26T23:17:18.657",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75332"
     }
   ]
 }
