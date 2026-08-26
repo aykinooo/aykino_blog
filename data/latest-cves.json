@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-26T14:03:56+00:00",
+  "generated_at": "2026-08-26T15:50:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-80138",
-      "summary": "ClipBucket V5's web installer fails to properly validate or escape the php_cli_filepath parameter before passing it to shell execution. Unauthenticated attackers can submit a crafted POST request to the installer with a malicious php_cli_filepath value to execute arbitrary commands as the web server user.",
-      "published": "2026-08-25T23:17:59.860",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80138"
-    },
-    {
-      "id": "CVE-2026-79912",
-      "summary": "A vulnerability was detected in TOTOLINK N600R 4.3.0cu.7647_B20210106. The impacted element is the function getCurrentTime of the file /cgi-bin/cstecgi.cgi. Performing a manipulation of the argument ntp_server results in command injection. The attack can be initiated remotely. The exploit is now public and may be used.",
-      "published": "2026-08-25T23:17:59.663",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79912"
-    },
-    {
-      "id": "CVE-2026-79911",
-      "summary": "A security vulnerability has been detected in TOTOLINK N600R 4.3.0cu.7647_B20210106. The affected element is the function setSystemConfig of the file /cgi-bin/cstecgi.cgi of the component CGI Handler. Such manipulation of the argument Hostname leads to stack-based buffer overflow. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-08-25T23:17:59.490",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79911"
-    },
-    {
-      "id": "CVE-2026-70665",
-      "summary": "Doorkeeper OpenID Connect implements an OpenID Connect authentication provider for Rails applications on top of Doorkeeper. Prior to 1.10.4, the Dynamic Client Registration (DCR) endpoint persists client-supplied scopes without validating them against the server's configured scope set. Under certain conditions, this allows a self-registered client to obtain scopes beyond what the server intended to grant. In DynamicClientRegistrationController#application_params, the scopes attribute is assigned directly from params[:scope] with no validation against Doorkeeper.configuration.scopes or optional_scopes. Combined with enforce_configured_scopes being off by default and Doorkeeper's ScopeChecker prioritizing application-level scopes over server-level scopes, this creates a privilege escalation path. This issue is fixed in version 1.10.4.",
-      "published": "2026-08-25T23:17:58.933",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-70665"
-    },
-    {
-      "id": "CVE-2026-55805",
-      "summary": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Drupal core allows Stored XSS. This issue affects Drupal core versions: from 0.0.0 to 10.6.13, from 11.3.0 to 11.3.14, from 11.4.0 to 11.4.4, from 0.0.0 to 11.0.*, from 0.0.0 to 11.1.*, from 0.0.0 to 11.2.*.",
-      "published": "2026-08-25T23:17:19.740",
+      "id": "CVE-2026-80589",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nblock: stop the timeout timer when releasing a never added disk\n\ndisk_release() undoes blk_mq_init_allocated_queue() for a disk whose\nprobe failed before add_disk(), but it only calls blk_mq_exit_queue().\nNothing there stops q->timeout, and that timer rolls forward: it stays\npending until it next expires, not until the last request completes.\nSo if the driver issued any I/O before adding the disk, the\nrequest_queue is freed while still linked into a timer wheel bucket.\n\nCommit 6f8191fdf41d (\"block: simplify disk shutdown\") dropped the\nblk_cleanup_queue() call that used to stop it.  __del_gendisk() and\nblk_mq_destroy_queue() still do; only the probe failure path lost it.\n\nnvme gets there because nvme_update_ns_info() submits Report Zones or\nFDP io-mgmt-recv on ns->queue before the disk is added, so a later\nfailure - a concurrent reset setting NVME_CTRL_FROZEN, or\ndevice_add_disk() failing - lands in put_disk() with the timer armed:\n\n  BUG: KASAN: slab-use-after-free in detach_if_pending+0x30c/0x340\n  Write of size 8 at addr ffff888004d71310 by task kworker/u8:2/37\n   __timer_delete_sync+0x156/0x240 kernel/time/timer.c:1621\n   blk_sync_queue+0x22/0x40 block/blk-core.c:222\n   nvme_sync_queues+0x100/0x150 drivers/nvme/host/core.c:5362\n   nvme_reset_work+0x138/0x930 drivers/nvme/host/pci.c:3264\n\n  Allocated by task 34:\n   __blk_mq_alloc_disk+0x33/0x100 block/blk-mq.c:4462\n   nvme_alloc_ns+0x290/0x3870 drivers/nvme/host/core.c:4146\n\n  Freed by task 0:\n   blk_free_queue_rcu+0x3a/0x50 block/blk-core.c:254\n   rcu_core+0xc10/0x1730 kernel/rcu/tree.c:2857\n\nThe queue being synced there is ctrl->admin_q, only a victim sharing a\ntimer wheel bucket with the freed queue's dangling entry; other runs\ntripped in enqueue_timer(), __run_timers() or blk_mq_timeout_work().\nFailing nvme_alloc_ns() with a debug patch makes it deterministic: one\nleaked timer trips KASAN within seconds, while 1987 patched releases\nproduced no splat.\n\nStop the timer and the queue work items before blk_mq_exit_queue(), like\nblk_mq_destroy_queue() does.\n\nFound by FuzzNvme.",
+      "published": "2026-08-26T15:17:15.283",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55805"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80589"
     },
     {
-      "id": "CVE-2026-54757",
-      "summary": "Compliance-trestle (Trestle) is a Python SDK and command-line tool for managing OSCAL compliance documents. In versions before 3.12.4 and versions 4.0.0 through 4.0.3, Trestle is vulnerable to server-side template injection that can lead to remote code execution. This occurs because the MDCleanInclude and MDSectionInclude Jinja2 tags re-parse untrusted Markdown content as template source code using a non-sandboxed jinja2.Environment. An attacker who controls content that Trestle renders, such as a crafted workspace Markdown file, a third-party SSP document, or a YAML lookup-table value, can inject a Jinja2 expression that traverses Python object internals to execute arbitrary operating system commands in the context of the Trestle process. This issue is fixed in versions 3.12.4 and 4.1.0.",
-      "published": "2026-08-25T23:17:19.277",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54757"
+      "id": "CVE-2026-80588",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmptcp: reclaim forward-allocated memory on RX path errors\n\nAfter commit 9db5b3cec4ec (\"mptcp: borrow forward memory from subflow\"),\nerrors in the receive path prior to queueing skbs into the receive\nqueue do not trigger forward-allocated memory reclaiming.\n\nPrevent forward memory from growing unboundedly in pathological drop\nscenarios by explicitly reclaiming memory when skbs are dropped.",
+      "published": "2026-08-26T15:17:15.180",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80588"
+    },
+    {
+      "id": "CVE-2026-80587",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmptcp: avoid combining some incoming suboptions\n\nSome MPTCP suboptions are mutually exclusive according to the RFC8684,\nbut also because in different places, the code doesn't expect some\ncombinations to be present. That's specially true for suboptions that\nwould be present twice, but with different attributes.\n\nThe new restrictions are the same as the ones applied on the output\nside, with mptcp_write_options. The same rules can be reused with a\nsmall fix: an MP_FASTCLOSE can be used with a DSS when the sender picks\nthis option [1], which is not the case on Linux. Here are the rules:\n\n  Which options can be used together?\n\n  X: mutually exclusive\n  O: often used together\n  C: can be used together in some cases\n  P: could be used together but we prefer not to (optimisations)\n\n  | Opt: | MPC  | MPJ  | DSS  | ADD  |  RM  | PRIO | FAIL |  FC  |\n  |------|------|------|------|------|------|------|------|------|\n  | MPC  |------|------|------|------|------|------|------|------|\n  | MPJ  |  X   |------|------|------|------|------|------|------|\n  | DSS  |  X   |  X   |------|------|------|------|------|------|\n  | ADD  |  X   |  X   |  P   |------|------|------|------|------|\n  | RM   |  C   |  C   |  C   |  P   |------|------|------|------|\n  | PRIO |  X   |  C   |  C   |  C   |  C   |------|------|------|\n  | FAIL |  X   |  X   |  C   |  X   |  X   |  X   |------|------|\n  | FC   |  X   |  X   |  P   |  X   |  X   |  X   |  X   |------|\n  | RST  |  X   |  X   |  X   |  X   |  X   |  X   |  O   |  O   |\n  |------|------|------|------|------|------|------|------|------|\n\nThe only difference is with the 'P': another stack could send and\nADD_ADDR with other suboptions (DSS, RM_ADDR), and this should be\nallowed.\n\nA few points of attention:\n\n - In theory, an MP_CAPABLE could be used with a RM_ADDR, but there is\n   no reason to add it with a SYN. Note that even with a 4th ACK, it\n   doesn't seem to be useful, except when IDs are known in advance via\n   another channel. Better not to break that.\n\n - Now, combining both an MP_CAPABLE and an MP_JOIN will no longer\n   result to a reject of the two options, but only the second suboption\n   is ignored. That seems OK to do that for this unexpected error. At\n   least now all inconsistent combinations are handled the same way.\n   This could change later in next. This also means the explicit checks\n   for having both MPC + MPJ in subflow.c will now be unreachable.\n   That's fine, they will be removed in a follow-up patch.\n\n - In case of conflicting combinations, the extra suboption(s) is/are\n   ignored: having such combinations either means the remote peer is\n   buggy, or is evil. The simplest action is then taken in this case:\n   stop processing the current suboption.\n\n - In mp_opt->suboptions, there is also a bit reserved to the checksum,\n   which can be used in an MP_CAPABLE and a DSS. Each time a DSS option\n   can be used in parallel with another option, the checksum can be set,\n   so the verification is combined into a new OPTIONS_MPTCP_DSS macro.\n\n - An MP_CAPABLE ACK can carry a Data-Level Length, and an optional\n   Checksum: they are the same as the ones found in a DSS, because a DSS\n   cannot be used in parallel to an MP_CAPABLE. Similarly, even if there\n   is room, a DSS cannot be used with an MP_JOIN.",
+      "published": "2026-08-26T15:17:15.017",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80587"
+    },
+    {
+      "id": "CVE-2026-80586",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmptcp: options: reset DSS fields in case of unexpected size\n\nA remote peer could send a malformed DSS with a wrong size, followed by\nanother DSS or MPC + Data. In this case, the first suboption will be\nignored, but leaving some fields written, which could lead to\ninconsistency or access uninitialized data.\n\nExplicitly reset the fields that could have been modified in case of\nunexpected size.",
+      "published": "2026-08-26T15:17:14.873",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80586"
+    },
+    {
+      "id": "CVE-2026-80585",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmptcp: fastopen: only mark MPTFO subflows with SYN data\n\nPassive TCP Fast Open accepts a valid-cookie SYN even when it carries\nno data. In that case the child socket's receive queue is intentionally\nleft empty.\n\nmptcp_fastopen_subflow_synack_set_params() set is_mptfo before checking\nfor queued SYN data. That made data-less TFO SYNs hit a WARN and, if\nthe warning was non-fatal, left stale MPTFO state behind. The stale\nflag could later trigger a state-confusion bug in\ncheck_fully_established().\n\nOnly mark the subflow as MPTFO after confirming that an SKB was queued.\nReturn quietly when the receive queue is empty.\n\nNote that mptcp_subflow_context's is_mptfo field is now not just about\nsubflows where the TFO was present, but about MPTFO subflow that\nconsumed SYN data. Only having a valid cookie but not carrying data is\nnot really \"doing TFO\".",
+      "published": "2026-08-26T15:17:14.750",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80585"
+    },
+    {
+      "id": "CVE-2026-80584",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ns390/qeth: validate user buffer length in SNMP and ARP query ioctls\n\nqeth_snmp_command() and qeth_l3_arp_query() allocate a buffer sized by\na user-supplied length (udata_len) without checking a lower bound, then\nset udata_offset to a fixed non-zero value and pass both to a reply\ncallback. The callback bounds-checks the copy with\n\n        if ((udata_len - udata_offset) < len)\n\nBoth fields are u32, so a udata_len smaller than udata_offset makes the\nsubtraction wrap and the check pass, and the following memcpy() writes\npast the allocation. A udata_len of 0 also yields ZERO_SIZE_PTR from\nkzalloc(), which the existing NULL check does not catch.\n\nReject buffers smaller than udata_offset before allocating, so the\ncallback subtraction can no longer underflow.",
+      "published": "2026-08-26T15:17:14.577",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80584"
     }
   ]
 }
