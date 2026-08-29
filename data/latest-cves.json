@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-29T14:26:42+00:00",
+  "generated_at": "2026-08-29T18:26:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-82457",
-      "summary": "su-exec through 0.3 fails to validate numeric user and group identifiers parsed with strtol before assigning to uid_t and gid_t, allowing truncation of out-of-range values to zero. Attackers can supply large numeric identifiers that truncate to root's identifier, causing su-exec to execute target programs with root privileges instead of intended unprivileged accounts.",
-      "published": "2026-08-29T14:16:38.910",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82457"
-    },
-    {
-      "id": "CVE-2026-82456",
-      "summary": "argocd-mcp 0.8.0 binds its HTTP transport to every network interface and accepts MCP sessions without requiring caller credentials when ARGOCD_API_TOKEN is configured. Attackers who can reach the listener can invoke the full tool surface using the operator's stored token to create applications, request syncs, and modify Argo CD resources.",
-      "published": "2026-08-29T14:16:38.767",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82456"
-    },
-    {
-      "id": "CVE-2026-82455",
-      "summary": "RubyGems fails to re-validate path containment after filesystem symlink resolution during gem extraction. When a pre-existing symlink inside the destination directory points outside the extraction root, extracted files that appear to be written under the destination directory can instead be written outside of it, breaking the extraction safety boundary. The fix resolves the real path of the parent directory before writing and raises Gem::Package::PathError if it escapes the destination directory.",
-      "published": "2026-08-29T14:16:38.623",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82455"
-    },
-    {
-      "id": "CVE-2026-82454",
-      "summary": "The Omnivore API (packages/api) before the fix in commit abf53d6 contains an authentication bypass in Apple sign-in token verification. The decodeAppleToken function extracted the 'alg' field from the attacker-supplied JWT header and passed it as the sole allowed algorithm to jwt.verify(). Using jsonwebtoken v8 (which does not validate key/algorithm compatibility), an attacker can set alg=HS256 and sign a forged token using Apple's publicly available RSA public key as the HMAC secret, bypassing signature verification and impersonating any Apple-linked account.",
-      "published": "2026-08-29T14:16:38.480",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82454"
-    },
-    {
-      "id": "CVE-2026-82453",
-      "summary": "rust-iot-platform through commit 5df942ab stores user passwords in cleartext without hashing in the user model. Attackers can read API responses from user retrieval and listing routes to obtain plaintext credentials for all accounts.",
-      "published": "2026-08-29T14:16:38.347",
+      "id": "CVE-2026-75807",
+      "summary": "The SAML Single Sign On \u2013 SSO Login plugin for WordPress is vulnerable to Authentication Bypass in versions up to, and including, 5.4.6. This is due to the mo_saml_login_validate() ACS handler persisting the X.509 certificate extracted from an incoming SAMLResponse into the mo_saml_required_certificate option before the signature-validation verdict is enforced, because mo_saml_find_certificate() returns false on a fingerprint mismatch rather than halting execution. This makes it possible for unauthenticated attackers to overwrite the plugin's stored IdP signing certificate with an attacker-controlled value, and subsequently forge SAML assertions for any WordPress account \u2014 including administrators \u2014 to obtain a fully privileged session. Note: The exploit requires the administrator to perform a repair after receiving the test_config_error_wpsamlerr004 error message during the test configuration.",
+      "published": "2026-08-29T18:16:36.313",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82453"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75807"
     },
     {
-      "id": "CVE-2026-82452",
-      "summary": "rust-iot-platform through commit 5df942ab contains an authentication bypass vulnerability where most REST API routes lack authentication guards in their handler signatures. Unauthenticated attackers can create, update, list, retrieve, and delete user accounts by directly accessing unprotected endpoints without providing valid credentials.",
-      "published": "2026-08-29T14:16:38.210",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82452"
+      "id": "CVE-2026-82476",
+      "summary": "Memos through 0.30.0 omits the 100.64.0.0/10 carrier-grade NAT address range from SSRF protection in its link-metadata fetcher, allowing unauthenticated attackers to bypass IP validation. Attackers can make the server request internal hosts in that range including cloud metadata services and read page titles and descriptions back.",
+      "published": "2026-08-29T17:18:00.197",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82476"
+    },
+    {
+      "id": "CVE-2026-82475",
+      "summary": "iFlytek astron-agent through 1.1.1 contains an authorization bypass vulnerability in the copyFlow endpoint that fails to validate workflow ownership. Authenticated attackers can enumerate workflow identifiers and overwrite other tenants' workflows or copy private workflows to read their definitions.",
+      "published": "2026-08-29T17:18:00.057",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82475"
+    },
+    {
+      "id": "CVE-2026-82474",
+      "summary": "Sudo through 1.9.17p2 fails to apply intercept policy checks to the execveat system call in ptrace-based intercept mode. Users permitted to run specific commands can execute denied programs by calling execveat directly or through fexecve, bypassing policy enforcement and logging.",
+      "published": "2026-08-29T17:17:59.910",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82474"
+    },
+    {
+      "id": "CVE-2026-82473",
+      "summary": "KubeEdge CloudCore through 1.23.1 accepts node task status reports on its HTTPS server without authentication verification. Attackers can reach CloudCore on port 10002 to mark upgrade jobs as succeeded or failed, deceiving the control plane about node upgrade status and blocking further upgrade scheduling.",
+      "published": "2026-08-29T17:17:59.770",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82473"
+    },
+    {
+      "id": "CVE-2026-82472",
+      "summary": "Documenso before 2.13.0 accepts PDF file uploads on the /api/files/upload-pdf endpoint without requiring authentication, session tokens, or API credentials. Unauthenticated attackers can upload arbitrary PDF files indefinitely to exhaust storage resources or fill the database with unlinked document records.",
+      "published": "2026-08-29T17:17:59.623",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82472"
     }
   ]
 }
