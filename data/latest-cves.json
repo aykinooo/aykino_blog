@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-29T02:09:09+00:00",
+  "generated_at": "2026-08-29T08:59:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-55867",
-      "summary": "Graylog is a free and open log management platform. From 6.2.0 until 6.3.12, 7.0.7, and 7.1.2, the DELETE /users/{userId}/tokens/{idOrToken} endpoint implemented by UsersResource.revokeToken() in graylog2-server/src/main/java/org/graylog2/rest/resources/users/UsersResource.java checks USERS_TOKENREMOVE permission against the attacker-controlled userId path parameter before resolving the token selected by idOrToken. An authenticated user can provide an authorized userId while accessTokenService.loadById() or accessTokenService.load() resolves a token belonging to another user, including a service account or administrator, after which accessTokenService.destroy() deletes that token without checking AccessToken.getUserName(). The issue does not expose token contents, but unauthorized deletion causes integrity impact and can disrupt access-token-based integrations. This issue is fixed in versions 6.3.12, 7.0.7, and 7.1.2.",
-      "published": "2026-08-28T23:17:09.300",
+      "id": "CVE-2026-80725",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: gro: properly validate BIG TCP aggregation criteria\n\nWhen GRO attempts to aggregate packets beyond GRO_LEGACY_MAX_SIZE (64KB),\nBIG TCP should only be permitted for plain IPv4 TCP and plain IPv6 TCP\n(with sufficient MAC header room to insert the temporary HBH jumbo header).\n\nHowever, commit b1a78b9b9886 (\"net: add support for ipv4 big tcp\")\nloosened the check in skb_gro_receive(), leading to several issues:\n\n1. skb_gro_receive() checked skb_headroom(p) instead of the actual space\n   before the MAC header (p->mac_header). Because skb_headroom(p) includes\n   mac_len, crafted frames (e.g. injected via AF_PACKET) can pass the check\n   with p->mac_header < 8 bytes. When ipv6_gro_complete() inserts the\n   temporary HBH jumbo header, the memmove() starts before skb->head,\n   causing an out-of-bounds write and wrapping skb->mac_header.\n2. It allowed non-IP protocols such as software VLAN (ETH_P_8021Q /\n   ETH_P_8021AD) to aggregate beyond 64KB because\n   p->protocol != ETH_P_IPV6 was true.\n3. It checked p->encapsulation instead of NAPI_GRO_CB(skb)->encap_mark,\n   allowing encapsulated flows (e.g. SIT / IPv6-in-IPv4) to aggregate\n   beyond 64KB.\n\nFix skb_gro_receive() to strictly enforce:\n- NAPI_GRO_CB(skb)->proto == IPPROTO_TCP\n- Not encapsulated (!NAPI_GRO_CB(skb)->encap_mark && !p->encapsulation)\n- Protocol must be either ETH_P_IP or ETH_P_IPV6\n- If ETH_P_IPV6, p->mac_header must be at least\n  sizeof(struct hop_jumbo_hdr)\n\nReturning -E2BIG from skb_gro_receive() ensures that packets which cannot\nbecome BIG TCP are cleanly flushed at <= 64KB and delivered intact without\ndropping.\n\nThis issue does not exist in mainline (7.0+) because the subsystem was\nrewritten in commit 81be30c1f5f2 (\"net/ipv6: Drop HBH for BIG TCP on RX\nside\"), making this fix relevant only for older stable branches like\n6.18.y.",
+      "published": "2026-08-29T07:16:54.573",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55867"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80725"
     },
     {
-      "id": "CVE-2026-55860",
-      "summary": "MariaDB Connector/R2DBC is a non-blocking MariaDB and MySQL client implemented in Java. Prior to 1.4.1, org.mariadb:r2dbc-mariadb does not gate clear-text password authentication plugins on transport encryption because the AuthenticationPlugin interface has no capability for a plugin to require a secure connection. A hostile or man-in-the-middle MariaDB server can send an AuthSwitchRequest naming mysql_clear_password or dialog (PAM) over a plain-TCP unencrypted connection, and AuthenticationFlow permits ClearPasswordPluginFlow or PamPluginFlow to return the user's password as cleartext bytes on the wire. The disclosed credentials can subsequently be used to authenticate directly to the database server. This issue is fixed in version 1.4.1.",
-      "published": "2026-08-28T23:17:09.153",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55860"
+      "id": "CVE-2026-81346",
+      "summary": "The Frontend Admin by DynamiApps WordPress plugin before 3.29.11 does not perform a capability check on one of its AJAX actions, allowing any authenticated user, such as a subscriber, to delete arbitrary membership plans.",
+      "published": "2026-08-29T06:18:02.633",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81346"
     },
     {
-      "id": "CVE-2026-55859",
-      "summary": "MariaDB Connector/R2DBC is a non-blocking MariaDB and MySQL client implemented in Java. Prior to 1.4.1, org.mariadb:r2dbc-mariadb encodes and decodes all character data under the assumption that the connection character set is UTF-8. A server can announce a mid-session change to character_set_client through the OK-packet session-state-tracking mechanism, including through SET NAMES executed by a stored routine or trigger, server configuration, or a hostile or man-in-the-middle server. If the new character set is not UTF-8, the driver continues to exchange UTF-8 while the server interprets the same bytes under a different encoding, causing silent data corruption and a client/server charset-confusion mismatch that can defeat byte-wise quoting or escaping. The fix accepts only utf8, utf8mb3, or utf8mb4 after initialization; any other value raises R2dbcNonTransientResourceException with SQLState 08000 and closes the connection. This issue is fixed in version 1.4.1.",
-      "published": "2026-08-28T23:17:09.007",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55859"
+      "id": "CVE-2026-81342",
+      "summary": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.43 does not validate a redirect parameter supplied during user registration before using it, allowing unauthenticated attackers to redirect users to arbitrary external URLs.",
+      "published": "2026-08-29T06:17:58.700",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81342"
     },
     {
-      "id": "CVE-2026-55858",
-      "summary": "MariaDB Connector/J is used to connect applications developed in Java to MariaDB and MySQL databases. Prior to 2.7.14, 3.3.5, 3.4.3, and 3.5.9, the connector encodes and decodes protocol text and performs client-side escaping under the assumption that the connection character set is UTF-8. The server can report a mid-session change to character_set_client through OK-packet session-state tracking, including a change caused by SET NAMES, a stored routine or trigger, server configuration, or a hostile server. If character_set_client changes to a non-UTF-8 value, the driver continues to read and write UTF-8 while the server interprets the same bytes under another encoding, causing silent data corruption and a client/server charset-confusion mismatch that can defeat byte-wise quoting or escaping. The fix accepts only utf8, utf8mb3, or utf8mb4 after initialization; any other value causes SQLException with SQLState 08000 and closes the connection. This issue is fixed in versions 2.7.14, 3.3.5, 3.4.3, and 3.5.9.",
-      "published": "2026-08-28T23:17:08.827",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55858"
+      "id": "CVE-2026-81200",
+      "summary": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.42 does not correctly restrict access to order information, allowing any user with the instructor role to read other users' order billing details, including name, email address, phone number and postal address, by enumerating order IDs.",
+      "published": "2026-08-29T06:17:58.587",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81200"
     },
     {
-      "id": "CVE-2026-55857",
-      "summary": "MariaDB Connector/J is used to connect applications developed in Java to MariaDB and MySQL databases. Prior to 2.7.14, 3.3.5, 3.4.3, and 3.5.9, PAM dialog authentication can be coerced into transmitting the account password over an insecure connection. The mysql_clear_password plugin is gated behind a secure transport, but the sibling PAM handler SendPamAuthPacketFactory, named dialog by the server, does not declare that requirement and inherits the default secure-required value false; older branches implement the same affected behavior in SendPamAuthPacket. A hostile or man-in-the-middle server can send an Authentication Switch Request for dialog over plain TCP, causing the driver to return the user's password in cleartext when sslMode=DISABLE and restrictedAuth=null, which is the default configuration. Properly verified TLS and local Unix sockets are not exposed to this transport vector. This issue is fixed in versions 2.7.14, 3.3.5, 3.4.3, and 3.5.9.",
-      "published": "2026-08-28T23:17:08.680",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55857"
+      "id": "CVE-2026-81026",
+      "summary": "The MasterStudy LMS WordPress Plugin  WordPress plugin before 3.7.40 does not verify the amount, receiver, currency or status of a payment notification before marking the corresponding order completed, allowing unauthenticated users to complete full-price orders and gain access to paid content by paying only a token amount.",
+      "published": "2026-08-29T06:17:55.990",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81026"
     },
     {
-      "id": "CVE-2026-55856",
-      "summary": "MariaDB Connector/J is used to connect applications developed in Java to MariaDB and MySQL databases. Prior to 2.7.14, 3.3.5, 3.4.3, and 3.5.9, when a Java application connects with sslMode=verify-full or sslMode=verify-ca, supplies a password, and does not configure serverSslCert or trustStore, Connector/J can accept an untrusted self-signed certificate through the fallbackToSystemTrustStore=true ephemeral trust manager and record its certFingerprint for later identity binding. The OK-packet and authentication-switch paths enforce the certificate fingerprint, but the initial-handshake path does not. HandshakeResponse.encode() can therefore build and send a mysql_clear_password response before checking certFingerprint != null && !isMitMProof(), sslMode, or whether the authentication plugin is resistant to a man-in-the-middle, and the initial path also bypasses restrictedAuth. An active man-in-the-middle or hostile server can present a self-signed certificate, claim to be MariaDB, select mysql_clear_password as the initial authentication plugin, and receive the full database password before the connection is rejected. This issue is fixed in versions 2.7.14, 3.3.5, 3.4.3, and 3.5.9.",
-      "published": "2026-08-28T23:17:08.513",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55856"
+      "id": "CVE-2026-80488",
+      "summary": "The WP Ultimate CSV Importer  WordPress plugin before 9.0 does not properly sanitise and escape imported field values before using them in a SQL statement, which could allow high privilege users such as admin to perform SQL injection attacks.",
+      "published": "2026-08-29T06:17:49.663",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80488"
     }
   ]
 }
