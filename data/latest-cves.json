@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-30T12:51:16+00:00",
+  "generated_at": "2026-08-30T17:26:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-82541",
-      "summary": "A security flaw has been discovered in itsourcecode Sales and Inventory System 1.0. Affected by this vulnerability is an unknown functionality of the file /pages/sup_edit.php. The manipulation of the argument ID results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-08-30T12:17:19.390",
+      "id": "CVE-2026-82553",
+      "summary": "A vulnerability was detected in sambitraj Student Management System up to 56ba287f2e9031523ccb4244cb6e3fe530e4e5d5. Affected by this issue is the function mysqli_query of the file student_dashboard.php of the component Student Dashboard. The manipulation of the argument roll_no results in improper authorization. The attack may be performed from remote. The exploit is now public and may be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-30T17:16:39.547",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82541"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82553"
     },
     {
-      "id": "CVE-2026-82540",
-      "summary": "A vulnerability was identified in itsourcecode Sales and Inventory System 1.0. Affected is an unknown function of the file /pages/cust_searchfrm.php. The manipulation of the argument ID leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used.",
-      "published": "2026-08-30T12:17:19.190",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82540"
+      "id": "CVE-2026-82552",
+      "summary": "A security vulnerability has been detected in Linux Foundation Magma 1.9.0. Affected by this vulnerability is an unknown functionality of the file tasks/ngap/ngap_amf.c of the component gNB Termination Handler. The manipulation leads to denial of service. The attack is possible to be carried out remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-08-30T17:16:39.370",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82552"
     },
     {
-      "id": "CVE-2026-81318",
-      "summary": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller in a schema-based multitenant application to receive aggregate values computed from another tenant's rows.\n\nWhen an aggregate is computed over a distinct query, AshSql.AggregateQuery.add_single_aggs/5 rebuilds the outer query from query.from.source alone, which is only the {table, schema} tuple and does not carry query.prefix or query.from.prefix. For strategy(:context) multitenancy those hold the tenant schema, so the rebuilt outer query reads the repo's default schema while the inner correlated subquery still reads the tenant schema, and the two are joined only on primary key. The aggregate, and any relationship join added off the prefix-less binding, is then computed against the wrong tenant's rows. The neighbouring limit and exists branches instead wrap the query with subquery/1, which preserves the prefix.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
-      "published": "2026-08-30T12:17:19.030",
+      "id": "CVE-2026-82551",
+      "summary": "A weakness has been identified in Linux Foundation Magma 1.9.0. Affected is an unknown function of the file ngap_amf_handlers.c of the component NGSetup Handler. Executing a manipulation can lead to state issue. The attack can be executed remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-08-30T17:16:38.687",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82551"
+    },
+    {
+      "id": "CVE-2026-82550",
+      "summary": "A security flaw has been discovered in Linux Foundation Magma 1.9.0. This impacts an unknown function of the component NGSetupRequest Handler. Performing a manipulation of the argument NG-IoT-DefaultPagingDRX results in improper input validation. Remote exploitation of the attack is possible. The exploit has been released to the public and may be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-08-30T16:16:43.847",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82550"
+    },
+    {
+      "id": "CVE-2026-82549",
+      "summary": "A vulnerability was identified in Linux Foundation Magma 1.9.0. This affects an unknown function of the component SecurityModeComplete Handler. Such manipulation leads to improper validation of integrity check value. The attack may be launched remotely. The exploit is publicly available and might be used.",
+      "published": "2026-08-30T16:16:43.667",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82549"
+    },
+    {
+      "id": "CVE-2026-78699",
+      "summary": "Unchecked Return Value vulnerability in ash-project ash_postgres allows a user who can drive a tenant rename to a name that collides with an existing tenant's schema to have their tenant record repointed at that other tenant's live schema, gaining access to its data.\n\nAshPostgres.MultiTenancy.rename_tenant/3 issues the ALTER SCHEMA ... RENAME TO ... with the non-raising Ecto.Adapters.SQL.query/2, discards its {:ok, _} | {:error, _} result, and unconditionally returns :ok. PostgreSQL rejects the rename when the target schema already exists (and on insufficient privilege or lock timeout), but that failure never reaches the caller. The calling manage_tenant update action therefore sees success and commits the tenant row with the new name, which is the schema of a different existing tenant, so subsequent reads and writes for that tenant run against the other tenant's data.\n\nThis issue affects ash_postgres: from 0.25.0 before 2.13.0.",
+      "published": "2026-08-30T16:16:42.623",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81318"
-    },
-    {
-      "id": "CVE-2026-81316",
-      "summary": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller to receive an aggregate value computed over rows a more restrictive filter should have excluded, disclosing counts, sums, or lists across an authorization or tenancy boundary.\n\nAshSql.Aggregate.different_queries?/2 reports two aggregate queries as different only when their filter and their sort both differ. Aggregate queries rarely carry a sort, so two aggregates that share a name but carry entirely different filters compare as identical. The colliding aggregate keeps its name and is treated as already computed, and select_aggregates returns the first-registered variant's value. The same name reaches the builder twice with different filters when actor or tenant context is stamped into each aggregate's query, so a narrowly filtered aggregate can be served the value of a previously registered broad one.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
-      "published": "2026-08-30T12:17:18.870",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81316"
-    },
-    {
-      "id": "CVE-2026-80227",
-      "summary": "Incorrect Comparison vulnerability in ash-project ash_sql allows a user to pad a string field with tab, newline, carriage-return, or form-feed characters and pass a trimmed uniqueness or equality check in the database that the same expression would fail in memory (or the reverse).\n\nstring_trim/1 compiles to REGEXP_REPLACE patterns built from an Elixir string in which \\s is the escape for a single space (codepoint 32), not a regex whitespace class. The generated SQL therefore removes only literal spaces and leaves tabs, newlines, carriage returns, and form feeds in place, whereas String.trim/1 in Elixir removes them all. Any Ash filter, validation, or identity that relies on string_trim/1 then behaves differently depending on whether Ash pushes the expression down to SQL or evaluates it in memory, so padded input can register a near-duplicate value or slip past a trimmed comparison.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
-      "published": "2026-08-30T12:17:18.710",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80227"
-    },
-    {
-      "id": "CVE-2026-78691",
-      "summary": "Improper Neutralization of Special Elements in Data Query Logic vulnerability in ash-project ash_sql allows a user who supplies a search term to contains/2, string_starts_with/2, or string_ends_with/2 to inject live SQL LIKE wildcards, turning a literal substring search into an attacker-controlled pattern match.\n\nThe escape helpers in AshSql.Expr prefix % and _ with a backslash but never escape a backslash already present in the input. Because backslash is the default LIKE escape character, the escaping defeats itself: the input \\% becomes the pattern fragment \\\\%, where \\\\ is a literal backslash and the attacker's % remains a live wildcard. The search value stays parameterized, so this is confined to the LIKE pattern grammar rather than full SQL. An attacker can widen matches to probe values, slip past a negated contains(...) guard, or crash the query with a trailing lone backslash.\n\nThis issue affects ash_sql: from 0.1.1-rc.10 before 0.7.1.",
-      "published": "2026-08-30T12:17:18.550",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78691"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78699"
     }
   ]
 }
