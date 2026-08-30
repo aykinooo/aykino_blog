@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-08-30T06:36:58+00:00",
+  "generated_at": "2026-08-30T12:51:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-82480",
-      "summary": "A security flaw has been discovered in NASA cFS up to 7.0.1. The affected element is the function CFE_SB_GetUserDataLength of the file src/cFS/cfe/modules/sb/fsw/src/cfe_sb_util.c of the component cFE Software Bus. Performing a manipulation of the argument TotalMsgSize/HdrSize results in integer underflow. It is possible to initiate the attack remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-30T06:16:56.730",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82480"
-    },
-    {
-      "id": "CVE-2026-82479",
-      "summary": "A vulnerability was identified in NASA cFS up to 7.0.1. Impacted is the function OS_read of the file modules/protocol/tcp/fsw/src/sbn_tcp_if.c of the component SBN TCP Module. Such manipulation of the argument MsgSz leads to buffer overflow. The attack must be carried out from within the local network. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-30T06:16:55.450",
+      "id": "CVE-2026-82541",
+      "summary": "A security flaw has been discovered in itsourcecode Sales and Inventory System 1.0. Affected by this vulnerability is an unknown functionality of the file /pages/sup_edit.php. The manipulation of the argument ID results in sql injection. The attack can be executed remotely. The exploit has been released to the public and may be used for attacks.",
+      "published": "2026-08-30T12:17:19.390",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82479"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82541"
     },
     {
-      "id": "CVE-2026-82478",
-      "summary": "A vulnerability was determined in NASA Trick 19.6.0. This issue affects the function JSONVariableServerThread::parse_request of the file trick_source/sim_services/JSONVariableServer/JSONVariableServerThread.cpp of the component TCP Socket Handler. This manipulation causes stack-based buffer overflow. The attack is possible to be carried out remotely. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-08-30T05:16:59.380",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82478"
+      "id": "CVE-2026-82540",
+      "summary": "A vulnerability was identified in itsourcecode Sales and Inventory System 1.0. Affected is an unknown function of the file /pages/cust_searchfrm.php. The manipulation of the argument ID leads to sql injection. Remote exploitation of the attack is possible. The exploit is publicly available and might be used.",
+      "published": "2026-08-30T12:17:19.190",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82540"
     },
     {
-      "id": "CVE-2026-15980",
-      "summary": "The MyHome Core plugin for WordPress is vulnerable to Authentication Bypass in all versions up to, and including, 4.4.5. This is due to missing authorization in the send_link() AJAX handler and improper token validation in the activate() function. This makes it possible for unauthenticated attackers to generate an activation token for an unconfirmed user account and obtain a valid authentication cookie for that account, including administrators. Successful exploitation requires the MyHome theme to be configured in legacy/WPBakery mode with frontend registration and confirmation email enabled, and the target account must not already have the myhome_agent_confirmed user meta set.",
-      "published": "2026-08-30T05:16:58.407",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15980"
-    },
-    {
-      "id": "CVE-2026-77846",
-      "summary": "Improper Neutralization of Special Elements in Data Query Logic vulnerability in ash-project ash_sqlite allows an attacker who controls a get_path/2 segment to traverse into nested JSON the application never exposed, disclosing private or sensitive? embedded fields.\n\nAshSqlite.SqlImplementation builds the SQLite json_extract path with \"$.\" <> Enum.join(right, \".\"), so a single segment containing ., [, ], or $ re-interprets the JSON path (for example \"private.secret\" descends two levels instead of naming one key). The path is bound as a parameter, so this is confined to the JSON-path grammar rather than SQL. Any endpoint that lets user input reach a get_path segment (a common pick-a-field pattern) can read nested values it never meant to expose.\n\nThis issue affects ash_sqlite: from 0.1.2-rc.0 before 0.2.18.",
-      "published": "2026-08-30T03:16:32.530",
+      "id": "CVE-2026-81318",
+      "summary": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller in a schema-based multitenant application to receive aggregate values computed from another tenant's rows.\n\nWhen an aggregate is computed over a distinct query, AshSql.AggregateQuery.add_single_aggs/5 rebuilds the outer query from query.from.source alone, which is only the {table, schema} tuple and does not carry query.prefix or query.from.prefix. For strategy(:context) multitenancy those hold the tenant schema, so the rebuilt outer query reads the repo's default schema while the inner correlated subquery still reads the tenant schema, and the two are joined only on primary key. The aggregate, and any relationship join added off the prefix-less binding, is then computed against the wrong tenant's rows. The neighbouring limit and exists branches instead wrap the query with subquery/1, which preserves the prefix.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
+      "published": "2026-08-30T12:17:19.030",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77846"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81318"
     },
     {
-      "id": "CVE-2026-75759",
-      "summary": "Improper Verification of Cryptographic Signature vulnerability in erlef oidcc allows an unauthenticated attacker to impersonate an arbitrary user via an encrypted ID token or JARM response carrying no nested signature. OpenID Connect Core 1.0 section 2 requires that an encrypted ID token be signed then encrypted, with the result being a Nested JWT, and JARM processing rule 5 requires the client to check the signature unconditionally. oidcc instead accepted a JWE wrapping unsigned claims as fully validated, so anyone holding the relying party's public encryption key could mint a token with an arbitrary sub, iss, and aud without possessing the provider's signing key.\n\nIn oidcc_jwt_util:verify_decrypted_token/4, a decrypted payload that is not a signed JWS fell back to parsing the plaintext claims and returning them with no verifying key. oidcc_token:int_validate_jwt/4 then matched on the JOSE structure type rather than on whether a signature had been verified, and returned success. The JARM path in oidcc_token:validate_jarm/3 is reachable through the browser front channel. UserInfo responses are not affected, because OpenID Connect Core 1.0 section 5.3.2 permits them to be encrypted without also being signed.\n\nThis issue affects oidcc: from 3.2.0-beta.1 before 3.9.0.",
-      "published": "2026-08-30T02:18:30.110",
+      "id": "CVE-2026-81316",
+      "summary": "Incorrect Authorization vulnerability in ash-project ash_sql allows a caller to receive an aggregate value computed over rows a more restrictive filter should have excluded, disclosing counts, sums, or lists across an authorization or tenancy boundary.\n\nAshSql.Aggregate.different_queries?/2 reports two aggregate queries as different only when their filter and their sort both differ. Aggregate queries rarely carry a sort, so two aggregates that share a name but carry entirely different filters compare as identical. The colliding aggregate keeps its name and is treated as already computed, and select_aggregates returns the first-registered variant's value. The same name reaches the builder twice with different filters when actor or tenant context is stamped into each aggregate's query, so a narrowly filtered aggregate can be served the value of a previously registered broad one.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
+      "published": "2026-08-30T12:17:18.870",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75759"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81316"
+    },
+    {
+      "id": "CVE-2026-80227",
+      "summary": "Incorrect Comparison vulnerability in ash-project ash_sql allows a user to pad a string field with tab, newline, carriage-return, or form-feed characters and pass a trimmed uniqueness or equality check in the database that the same expression would fail in memory (or the reverse).\n\nstring_trim/1 compiles to REGEXP_REPLACE patterns built from an Elixir string in which \\s is the escape for a single space (codepoint 32), not a regex whitespace class. The generated SQL therefore removes only literal spaces and leaves tabs, newlines, carriage returns, and form feeds in place, whereas String.trim/1 in Elixir removes them all. Any Ash filter, validation, or identity that relies on string_trim/1 then behaves differently depending on whether Ash pushes the expression down to SQL or evaluates it in memory, so padded input can register a near-duplicate value or slip past a trimmed comparison.\n\nThis issue affects ash_sql: from 0.1.0 before 0.7.1.",
+      "published": "2026-08-30T12:17:18.710",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80227"
+    },
+    {
+      "id": "CVE-2026-78691",
+      "summary": "Improper Neutralization of Special Elements in Data Query Logic vulnerability in ash-project ash_sql allows a user who supplies a search term to contains/2, string_starts_with/2, or string_ends_with/2 to inject live SQL LIKE wildcards, turning a literal substring search into an attacker-controlled pattern match.\n\nThe escape helpers in AshSql.Expr prefix % and _ with a backslash but never escape a backslash already present in the input. Because backslash is the default LIKE escape character, the escaping defeats itself: the input \\% becomes the pattern fragment \\\\%, where \\\\ is a literal backslash and the attacker's % remains a live wildcard. The search value stays parameterized, so this is confined to the LIKE pattern grammar rather than full SQL. An attacker can widen matches to probe values, slip past a negated contains(...) guard, or crash the query with a trailing lone backslash.\n\nThis issue affects ash_sql: from 0.1.1-rc.10 before 0.7.1.",
+      "published": "2026-08-30T12:17:18.550",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78691"
     }
   ]
 }
