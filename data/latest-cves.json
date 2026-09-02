@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-01T21:44:50+00:00",
+  "generated_at": "2026-09-02T00:10:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-84470",
-      "summary": "A flaw was found in Ansible Automation Platform's automation-controller (AWX).\nThe Bulk Job Launch API (POST /api/v2/bulk/job_launch/) authorizes the\nrequested instance_groups with only a read-level permission check, whereas the\nstandard single-job launch path requires use-level permission on the same\nfield. A principal that holds read (but not use) permission on an instance\ngroup -- for example the built-in read-only System Auditor role -- together\nwith execute permission on a job template can launch bulk jobs onto instance\ngroups they are not authorized to use, bypassing execution-placement\nisolation.",
-      "published": "2026-09-01T21:18:48.503",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84470"
+      "id": "CVE-2026-84483",
+      "summary": "WWBN AVideo through commit 9c39d8c8 contains an incomplete authentication bypass in encryptPass.json.php that allows unauthenticated attackers to compute valid HMAC tokens using the public site URL and current time. Attackers can forge authentication tokens by computing hash_hmac with the site's base URL as the key and submit arbitrary passwords to receive encrypted hashes, enabling offline precomputation attacks against stolen password databases.",
+      "published": "2026-09-01T23:17:22.617",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84483"
     },
     {
-      "id": "CVE-2026-84371",
-      "summary": "ApostropheCMS is an open-source Node.js content management system, and sanitize-html provides a simple HTML sanitizer with a clear API. From version 1.9.0 until version 2.17.7, packages/sanitize-html/index.js validates an animation value attribute as one flat URL and does not recognize that attributeName selecting href or xlink:href gives the sibling values, from, to, or by attribute SVG SMIL URL semantics. In configurations that allow the animate, animateColor, animateMotion, animateTransform, or set elements, a values list can begin with a safe fragment and contain a later executable destination that survives allowedSchemesAppliedToAttributes checking. When the sanitized SVG is rendered, the browser can copy that later destination into the live link, and a victim who activates the link can execute script in the application's origin. This issue is fixed in version 2.17.7.",
-      "published": "2026-09-01T21:18:48.357",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84371"
+      "id": "CVE-2026-84482",
+      "summary": "WWBN AVideo through commit 9c39d8c8 contains a cross-site request forgery vulnerability in the get_domain() and isSameDomain() functions that fail to properly validate referer origins. Attackers can forge requests from sibling subdomains or unparseable long-gTLD origins to perform administrative ObjectYPT writes including live server configuration changes.",
+      "published": "2026-09-01T23:17:22.477",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84482"
     },
     {
-      "id": "CVE-2026-84370",
-      "summary": "SVGO, short for SVG Optimizer, is a Node.js library and command-line application for optimizing SVG files. From version 1.0.0 until versions 2.8.4, 3.3.5, and 4.1.0, the opt-in removeScripts plugin, named removeScriptElement in versions 2 and 3, incompletely filters executable links in plugins/removeScripts.js and lib/svgo/tools.js. The plugin does not recognize namespace-prefixed SVG anchor elements such as svg:a with href or namespaced *:href values, and it does not remove ASCII tab, line-feed, or carriage-return characters before checking URL schemes. Browsers remove those characters before parsing a scheme, allowing an executable link to pass the plugin's check. When an application processes attacker-controlled SVG input and serves the result in an active browser context, a victim who activates the surviving link can execute script in the SVG's origin, expose data, modify content, or perform actions as the victim. This issue is fixed in versions 2.8.4, 3.3.5, and 4.1.0.",
-      "published": "2026-09-01T21:18:48.217",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84370"
+      "id": "CVE-2026-84481",
+      "summary": "WWBN AVideo through 30.0 contains an information disclosure vulnerability in the MobileManager plugin getConfiguration endpoint that returns sensitive configuration data to unauthenticated visitors. Attackers can send an unauthenticated GET request to plugin/MobileManager/getConfiguration.json.php to obtain TLS private key file paths, socket configuration details, platform version, and debug flags enabling further targeted attacks.",
+      "published": "2026-09-01T23:17:22.350",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84481"
     },
     {
-      "id": "CVE-2026-84369",
-      "summary": "SVGO, short for SVG Optimizer, is a Node.js library and command-line application for optimizing SVG files. From version 1.0.0 until versions 2.8.4, 3.3.5, and 4.1.0, the opt-in removeScripts plugin, named removeScriptElement in versions 2 and 3 and implemented in plugins/removeScripts.js, removes SVG and XHTML script elements but does not inspect executable HTML content inside SVG foreignObject elements. Event-handler attributes such as onload and onbeforetoggle, srcdoc documents, and executable URLs in the action, data, formaction, href, and src attributes can remain in attacker-controlled SVG input. When an application uses the plugin as its only protection and serves the optimized SVG in an active browser context, the payload can execute script in the viewer's origin, expose data, modify content, or perform actions as the victim. This issue is fixed in versions 2.8.4, 3.3.5, and 4.1.0.",
-      "published": "2026-09-01T21:18:48.037",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84369"
+      "id": "CVE-2026-84480",
+      "summary": "WWBN AVideo fails to validate password recovery token expiration in userRecoverPassSave.json.php, allowing attackers to use expired tokens to reset account passwords indefinitely. Attackers who obtain a recovery token can use it at any time to change the target account's password and gain full account access.",
+      "published": "2026-09-01T23:17:22.220",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84480"
     },
     {
-      "id": "CVE-2026-84368",
-      "summary": "joi is a schema description language and data validator for JavaScript. From 16.0.0 until 17.13.6 and 18.2.5, the @hapi/joi package through 17.1.1 and the successor joi package contain prototype pollution in lib/messages.js, where exports.compile() and exports.merge() reuse inherited objects for attacker-controlled language keys supplied through messages(), message(), prefs({ messages }), Joi.extend({ messages }), or rule({ message }). A language key named __proto__ writes properties onto Object.prototype, and constructor writes to the Object function's static properties. A consuming application that gates on the presence of an inherited property can take the wrong branch for every inspected object. The flaw is not reachable from data that joi validates and requires an application to feed untrusted input directly into schema-construction configuration. This issue is fixed in joi versions 17.13.6 and 18.2.5; no fixed @hapi/joi version is available.",
-      "published": "2026-09-01T21:18:47.887",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84368"
+      "id": "CVE-2026-84479",
+      "summary": "WWBN AVideo (current e01e41ecc and earlier) makes three login-time security controls depend solely on the client-supplied User-Agent header. The isAVideoEncoder()/isAVideoMobileApp() checks match HTTP_USER_AGENT against a hardcoded literal (\"AVideoEncoder\"/\"AVideoMobileApp\") with no IP check or shared secret. An attacker who submits valid credentials and sets User-Agent: AVideoEncoder bypasses two-factor authentication, skips brute-force captcha escalation, and avoids being recorded in the login/device audit history. No patch is available at the time of publication.",
+      "published": "2026-09-01T23:17:22.083",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84479"
     },
     {
-      "id": "CVE-2026-84367",
-      "summary": "joi is a schema description language and data validator for JavaScript. From 16.0.0 until 17.13.5 and 18.2.4, joi's lib/types/keys.js internals.rename() implementation used by object().rename() permits a schema that renames keys with a regular-expression source and a Joi.expression() or Joi.x() target that interpolates the pattern's own match data, combined with { multiple: true }, to derive a target from an attacker-controlled input key. An attacker can send x-__proto__ with an object value, causing the target to render as __proto__ and set the prototype of the object returned by validate() instead of creating an own key. The global Object.prototype is not modified, so the effect is confined to the object returned by that validation call. Static-string targets and schemas using the default { multiple: false } are not affected. This issue is fixed in versions 17.13.5 and 18.2.4.",
-      "published": "2026-09-01T21:18:47.737",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84367"
+      "id": "CVE-2026-84478",
+      "summary": "WWBN AVideo contains a path traversal vulnerability in the API get_api_login_code endpoint that allows unauthenticated attackers to delete arbitrary .log files by supplying directory traversal sequences in the code parameter. Attackers can exploit this to destroy audit logs and probe for file existence on the server, with the vulnerability enabling both file deletion and information disclosure about the filesystem.",
+      "published": "2026-09-01T23:17:21.947",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84478"
     }
   ]
 }
