@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-02T00:10:58+00:00",
+  "generated_at": "2026-09-02T04:30:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-84483",
-      "summary": "WWBN AVideo through commit 9c39d8c8 contains an incomplete authentication bypass in encryptPass.json.php that allows unauthenticated attackers to compute valid HMAC tokens using the public site URL and current time. Attackers can forge authentication tokens by computing hash_hmac with the site's base URL as the key and submit arbitrary passwords to receive encrypted hashes, enabling offline precomputation attacks against stolen password databases.",
-      "published": "2026-09-01T23:17:22.617",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84483"
+      "id": "CVE-2026-3851",
+      "summary": "The Divi theme for WordPress is vulnerable to Stored Cross-Site Scripting via the Dynamic Content feature's legacy JSON format in all versions up to, and including, 4.27.6. This is due to two compounding flaws: (1) the save-time sanitization filter `et_builder_sanitize_dynamic_content_fields()` only searches for dynamic content markers in the `@ET-DC@...@` format, but the rendering engine also supports a legacy JSON format that is silently converted at render time, completely bypassing the save-time filter, and (2) the `post_meta_key` resolver in `et_builder_filter_resolve_default_dynamic_content()` does not apply `wp_kses_post()` to the resolved meta value when `enable_html` is set to `on`, passing raw `get_post_meta()` output directly to the page. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-09-02T04:17:52.860",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3851"
     },
     {
-      "id": "CVE-2026-84482",
-      "summary": "WWBN AVideo through commit 9c39d8c8 contains a cross-site request forgery vulnerability in the get_domain() and isSameDomain() functions that fail to properly validate referer origins. Attackers can forge requests from sibling subdomains or unparseable long-gTLD origins to perform administrative ObjectYPT writes including live server configuration changes.",
-      "published": "2026-09-01T23:17:22.477",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84482"
-    },
-    {
-      "id": "CVE-2026-84481",
-      "summary": "WWBN AVideo through 30.0 contains an information disclosure vulnerability in the MobileManager plugin getConfiguration endpoint that returns sensitive configuration data to unauthenticated visitors. Attackers can send an unauthenticated GET request to plugin/MobileManager/getConfiguration.json.php to obtain TLS private key file paths, socket configuration details, platform version, and debug flags enabling further targeted attacks.",
-      "published": "2026-09-01T23:17:22.350",
+      "id": "CVE-2026-19754",
+      "summary": "Baserow 2.3.3 contains a SQL injection vulnerability in the index() formula function. A low-privileged authenticated user who can create or modify formula fields can provide an undocumented fourth argument that is treated as a SQL template and interpolated directly into a PostgreSQL expression.\n\n\n\nThe vulnerable expression is executed when Baserow recalculates formula field values. Because the generated SQL runs through Baserow's database connection, the injected SQL executes with the privileges of the Baserow PostgreSQL role rather than the permissions of the authenticated application user.\n\n\n\nThis issue affects Baserow: 2.3.3.",
+      "published": "2026-09-02T04:17:51.537",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84481"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19754"
     },
     {
-      "id": "CVE-2026-84480",
-      "summary": "WWBN AVideo fails to validate password recovery token expiration in userRecoverPassSave.json.php, allowing attackers to use expired tokens to reset account passwords indefinitely. Attackers who obtain a recovery token can use it at any time to change the target account's password and gain full account access.",
-      "published": "2026-09-01T23:17:22.220",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84480"
+      "id": "CVE-2026-84442",
+      "summary": "A vulnerability was identified in MapQuest Get Directions App 10.16.1 on Android. This vulnerability affects the function getDataColumn of the file ExpoShareIntentModule.kt of the component com.mapquest.android.ace. The manipulation leads to path traversal. An attack has to be approached locally. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-02T03:16:48.173",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84442"
     },
     {
-      "id": "CVE-2026-84479",
-      "summary": "WWBN AVideo (current e01e41ecc and earlier) makes three login-time security controls depend solely on the client-supplied User-Agent header. The isAVideoEncoder()/isAVideoMobileApp() checks match HTTP_USER_AGENT against a hardcoded literal (\"AVideoEncoder\"/\"AVideoMobileApp\") with no IP check or shared secret. An attacker who submits valid credentials and sets User-Agent: AVideoEncoder bypasses two-factor authentication, skips brute-force captcha escalation, and avoids being recorded in the login/device audit history. No patch is available at the time of publication.",
-      "published": "2026-09-01T23:17:22.083",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84479"
-    },
-    {
-      "id": "CVE-2026-84478",
-      "summary": "WWBN AVideo contains a path traversal vulnerability in the API get_api_login_code endpoint that allows unauthenticated attackers to delete arbitrary .log files by supplying directory traversal sequences in the code parameter. Attackers can exploit this to destroy audit logs and probe for file existence on the server, with the vulnerability enabling both file deletion and information disclosure about the filesystem.",
-      "published": "2026-09-01T23:17:21.947",
+      "id": "CVE-2026-84441",
+      "summary": "A security vulnerability has been detected in Piwigo up to 16.3.0. Affected by this issue is some unknown functionality of the file i.php of the component Image Derivative Handler. The manipulation leads to path traversal. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-09-02T03:16:47.980",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84478"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84441"
+    },
+    {
+      "id": "CVE-2026-14982",
+      "summary": "The WP File Download plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the delete function in all versions. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The two-stage exploit requires a first request to the file.save task to persist the path-traversal string into file metadata, followed by a second request to the file.delete task to trigger the unlink call \u2014 both endpoints lack capability checks and nonce enforcement.",
+      "published": "2026-09-02T03:16:47.663",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14982"
+    },
+    {
+      "id": "CVE-2026-14957",
+      "summary": "In FIPS mode, Libreswan's add_decoded_cert() function calls CERT_ExtractPublicKey() and asserts that the result is not NULL. However, CERT_ExtractPublicKey() returns NULL when public key extraction fails, for example if the RSA exponent is set to 0. A remote attacker can send a malformed X.509 certificate in a CERT payload to trigger the assertion, causing the pluto daemon to abort and restart. Continued exploitation causes a denial of service. No remote code execution is possible. Both IKEv1 and IKEv2 are affected. The vulnerability is only exploitable when both the OS and libreswan are running in FIPS mode and at least one CA certificate is loaded. The CERT payload is processed before peer authentication, so no credentials are needed to exploit this. Configurations using only PreSharedKey (PSK) authentication with no CA certificates loaded in the NSS database are not vulnerable.",
+      "published": "2026-09-02T03:16:47.490",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14957"
     }
   ]
 }
