@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-02T04:30:42+00:00",
+  "generated_at": "2026-09-02T09:34:45+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-3851",
-      "summary": "The Divi theme for WordPress is vulnerable to Stored Cross-Site Scripting via the Dynamic Content feature's legacy JSON format in all versions up to, and including, 4.27.6. This is due to two compounding flaws: (1) the save-time sanitization filter `et_builder_sanitize_dynamic_content_fields()` only searches for dynamic content markers in the `@ET-DC@...@` format, but the rendering engine also supports a legacy JSON format that is silently converted at render time, completely bypassing the save-time filter, and (2) the `post_meta_key` resolver in `et_builder_filter_resolve_default_dynamic_content()` does not apply `wp_kses_post()` to the resolved meta value when `enable_html` is set to `on`, passing raw `get_post_meta()` output directly to the page. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-09-02T04:17:52.860",
+      "id": "CVE-2026-53683",
+      "summary": "reset_password.html parses query string parameters and uses the 'url' parameter as a redirection target (window.location = url) after password reset, optionally delayed by a 'delay' parameter. No validation or allowlisting is performed on url, enabling an attacker to redirect users to an arbitrary external site after completion of the password-reset workflow.",
+      "published": "2026-09-02T09:16:38.247",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53683"
+    },
+    {
+      "id": "CVE-2026-75528",
+      "summary": "The Broken Link Checker plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Author URL / Link Log in all versions up to, and including, 2.4.13 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires an administrator to perform the plugin's standard dismiss-and-recheck workflow on a link submitted by the attacker via the WordPress comment author URL field, after which the attacker's HTTP server issues a redirect to a URL containing an HTML/JavaScript payload that is stored verbatim in the link log.",
+      "published": "2026-09-02T08:16:45.193",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75528"
+    },
+    {
+      "id": "CVE-2026-14828",
+      "summary": "Zohocorp ManageEngine Password Manager Pro versions before 13235, PAM360 versions before 8561, and Access Manager Plus versions before 4405 are vulnerable to an authenticated SQL Injection vulnerability.",
+      "published": "2026-09-02T08:16:42.833",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14828"
+    },
+    {
+      "id": "CVE-2025-7963",
+      "summary": "The Easy Waveform Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the shortcode_easywaveformplayer() function in all versions up to, and including, 1.2.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-09-02T08:16:41.730",
       "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3851"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7963"
     },
     {
-      "id": "CVE-2026-19754",
-      "summary": "Baserow 2.3.3 contains a SQL injection vulnerability in the index() formula function. A low-privileged authenticated user who can create or modify formula fields can provide an undocumented fourth argument that is treated as a SQL template and interpolated directly into a PostgreSQL expression.\n\n\n\nThe vulnerable expression is executed when Baserow recalculates formula field values. Because the generated SQL runs through Baserow's database connection, the injected SQL executes with the privileges of the Baserow PostgreSQL role rather than the permissions of the authenticated application user.\n\n\n\nThis issue affects Baserow: 2.3.3.",
-      "published": "2026-09-02T04:17:51.537",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19754"
+      "id": "CVE-2026-82883",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Marcus Login With Ajax allows Reflected XSS.\n\nThis issue affects Login With Ajax: from n/a through 4.5.1.",
+      "published": "2026-09-02T07:16:37.883",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82883"
     },
     {
-      "id": "CVE-2026-84442",
-      "summary": "A vulnerability was identified in MapQuest Get Directions App 10.16.1 on Android. This vulnerability affects the function getDataColumn of the file ExpoShareIntentModule.kt of the component com.mapquest.android.ace. The manipulation leads to path traversal. An attack has to be approached locally. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-02T03:16:48.173",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84442"
-    },
-    {
-      "id": "CVE-2026-84441",
-      "summary": "A security vulnerability has been detected in Piwigo up to 16.3.0. Affected by this issue is some unknown functionality of the file i.php of the component Image Derivative Handler. The manipulation leads to path traversal. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-09-02T03:16:47.980",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84441"
-    },
-    {
-      "id": "CVE-2026-14982",
-      "summary": "The WP File Download plugin for WordPress is vulnerable to arbitrary file deletion due to insufficient file path validation in the delete function in all versions. This makes it possible for authenticated attackers, with subscriber-level access and above, to delete arbitrary files on the server, which can easily lead to remote code execution when the right file is deleted (such as wp-config.php). The two-stage exploit requires a first request to the file.save task to persist the path-traversal string into file metadata, followed by a second request to the file.delete task to trigger the unlink call \u2014 both endpoints lack capability checks and nonce enforcement.",
-      "published": "2026-09-02T03:16:47.663",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14982"
-    },
-    {
-      "id": "CVE-2026-14957",
-      "summary": "In FIPS mode, Libreswan's add_decoded_cert() function calls CERT_ExtractPublicKey() and asserts that the result is not NULL. However, CERT_ExtractPublicKey() returns NULL when public key extraction fails, for example if the RSA exponent is set to 0. A remote attacker can send a malformed X.509 certificate in a CERT payload to trigger the assertion, causing the pluto daemon to abort and restart. Continued exploitation causes a denial of service. No remote code execution is possible. Both IKEv1 and IKEv2 are affected. The vulnerability is only exploitable when both the OS and libreswan are running in FIPS mode and at least one CA certificate is loaded. The CERT payload is processed before peer authentication, so no credentials are needed to exploit this. Configurations using only PreSharedKey (PSK) authentication with no CA certificates loaded in the NSS database are not vulnerable.",
-      "published": "2026-09-02T03:16:47.490",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14957"
+      "id": "CVE-2026-3850",
+      "summary": "The Divi theme for WordPress is vulnerable to Stored Cross-Site Scripting via the `redirect_url` parameter of the `et_pb_contact_form` shortcode in all versions up to, and including, 4.27.6. This is due to the `redirect_url` attribute being sanitized with `esc_attr()` instead of `esc_url()` before being rendered into the `data-redirect_url` HTML data attribute. Additionally, `redirect_url` is absent from the hardcoded `$url_options` array in `class-et-builder-element.php`, so it does not receive `esc_url_raw()` sanitization during shortcode parsing. After a successful form submission, client-side JavaScript reads this data attribute and passes it directly to `window.location.href`, executing arbitrary JavaScript from a `javascript:` URI. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that execute whenever a user submits the contact form.",
+      "published": "2026-09-02T07:16:36.830",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3850"
     }
   ]
 }
