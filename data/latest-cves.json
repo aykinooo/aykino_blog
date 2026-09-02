@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-02T14:27:09+00:00",
+  "generated_at": "2026-09-02T18:39:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-81269",
-      "summary": "Missing Authorization vulnerability in Drupal Data field allows Forceful Browsing. This issue affects Data field versions: from 0.0.0 to 2.0.13.",
-      "published": "2026-09-02T13:18:12.917",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81269"
+      "id": "CVE-2026-84833",
+      "summary": "A vulnerability was found in ntegrals openbrowser up to 067fc45d649baa961750da8e2f4a75d87c5c75c8. Affected by this vulnerability is an unknown functionality of the file packages/core/src/agent/agent.ts of the component Browser Agent Message Construction. Performing a manipulation results in resource consumption. It is possible to initiate the attack remotely. The exploit has been made public and could be used. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-02T18:21:33.370",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84833"
     },
     {
-      "id": "CVE-2026-81205",
-      "summary": "Improper Neutralization of Special Elements used in an LDAP Query ('LDAP Injection') vulnerability in Drupal LDAP / Active Directory Integration allows LDAP Injection. This issue affects LDAP / Active Directory Integration versions: from 0.0.0 to 2.2.1.",
-      "published": "2026-09-02T13:18:12.803",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81205"
+      "id": "CVE-2026-84380",
+      "summary": "HTTPX2 is a next generation HTTP client for Python. Prior to 2.11.0, Request._prepare() in src/httpx2/httpx2/_models.py can add a body-derived Content-Length header to a request that already contains a caller-supplied Transfer-Encoding header because its setdefault() processing checks each default header independently rather than treating the two framing headers as mutually exclusive. Fixed-size byte, JSON, form, and known-length multipart bodies can therefore be serialized over HTTP/1.1 with both headers, allowing request smuggling or connection desynchronization when downstream intermediaries disagree about which framing header takes precedence. This issue is fixed in version 2.11.0.",
+      "published": "2026-09-02T18:21:29.513",
+      "cvss": 5.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84380"
     },
     {
-      "id": "CVE-2026-81201",
-      "summary": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Monster Menus allows Stored XSS. This issue affects Monster Menus versions: from 0.0.0 to 9.5.3.",
-      "published": "2026-09-02T13:18:12.700",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81201"
+      "id": "CVE-2026-84379",
+      "summary": "HTTPX2 is a next generation HTTP client for Python. Prior to 2.11.0, FileField.render_headers() in src/httpx2/httpx2/_multipart.py directly interpolates attacker-controlled content_type values and custom headers from the files= three-element (filename, content, content_type) tuple and the files= four-element (filename, content, content_type, headers) tuple into multipart/form-data part headers without validating header names or values. CR or LF characters can terminate a part header, inject additional part headers, or end the part header block early, allowing a downstream multipart parser to treat attacker-supplied lines as genuine headers and potentially alter part semantics or bypass header-based checks. This issue is fixed in version 2.11.0.",
+      "published": "2026-09-02T18:21:29.300",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84379"
     },
     {
-      "id": "CVE-2026-81168",
-      "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Drupal CAPTCHA Protected Page allows Functionality Bypass. This issue affects CAPTCHA Protected Page versions: from 0.0.0 to 1.0.2.",
-      "published": "2026-09-02T13:18:12.580",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81168"
+      "id": "CVE-2026-84378",
+      "summary": "HTTPX2 is a next generation HTTP client for Python. From 2.5.0 until 2.10.0, the HTTPX2 Server-Sent Events parser in src/httpx2/httpx2/_sse.py repeatedly copies and rescans buffered text in _SSELineDecoder.decode() when an attacker-controlled or compromised SSE endpoint splits one unterminated line across many response chunks. The behavior affects httpx2.Client.sse() and httpx2.AsyncClient.sse(), and the total processing work grows quadratically with the line length, allowing a crafted stream to consume excessive CPU and block a synchronous worker or asynchronous event loop. This issue is fixed in version 2.10.0.",
+      "published": "2026-09-02T18:21:29.153",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84378"
     },
     {
-      "id": "CVE-2026-81167",
-      "summary": "Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\") vulnerability in Drupal Address Suggestion allows Cross-Site Scripting (XSS). This issue affects Address Suggestion versions: from 0.0.0 to 1.0.25.",
-      "published": "2026-09-02T13:18:12.467",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81167"
+      "id": "CVE-2026-84377",
+      "summary": "LiteLLM is a proxy server (AI Gateway) to call LLM APIs in OpenAI (or native) format. Prior to versions 1.88.6 and 1.96.2, any authenticated LiteLLM proxy user could redirect an outbound provider call to a destination the user controls and cause the proxy to send its configured provider credentials to that destination. Request validation in litellm/proxy/auth/auth_utils.py, litellm/proxy/common_request_processing.py, litellm/proxy/health_endpoints/_health_endpoints.py, litellm/proxy/image_endpoints/endpoints.py, and litellm/proxy/litellm_pre_call_utils.py used incomplete checks that did not cover every sensitive parameter or inspect equivalent values across nested request fields, path values, and bracket-notation form data. Routing and credential parameters including api_base, base_url, model_list, fallbacks, and litellm_credential_name could therefore be applied without clearing the operator's stored key, exposing upstream provider credentials and other configured secrets and permitting server-side requests to internal services reachable by the proxy. This issue is fixed in versions 1.88.6 and 1.96.2.",
+      "published": "2026-09-02T18:21:28.997",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84377"
     },
     {
-      "id": "CVE-2026-81166",
-      "summary": "Missing Authorization vulnerability in Drupal Digital Signage Framework allows Forceful Browsing. This issue affects Digital Signage Framework versions: from 0.0.0 to 2.6.1.",
-      "published": "2026-09-02T13:18:12.357",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81166"
+      "id": "CVE-2026-82522",
+      "summary": "libjxl before 0.12 contains an integer underflow vulnerability in the container box parser that allows remote attackers to inject arbitrary metadata by exploiting 64-bit box size truncation to size_t on 32-bit platforms. Attackers can supply a crafted JPEG XL file causing the decoder to parse attacker-controlled codestream bytes as phantom box headers, enabling injection of arbitrary metadata (Exif, XMP, IPTC, JUMBF) and potential out-of-bounds reads.",
+      "published": "2026-09-02T18:21:27.587",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82522"
     }
   ]
 }
