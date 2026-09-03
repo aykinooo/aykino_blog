@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-03T04:33:59+00:00",
+  "generated_at": "2026-09-03T09:45:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-84857",
-      "summary": "A flaw has been found in sigoden aichat up to 0.30.4. This affects an unknown function of the file src/serve.rs of the component API Endpoint. This manipulation causes uncontrolled memory allocation. The attack can be initiated remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-02T20:17:42.753",
+      "id": "CVE-2026-84888",
+      "summary": "A weakness has been identified in RightNow-AI OpenFang up to 0.6.9. This vulnerability affects the function shell_exec of the file crates/openfang-runtime/src/tool_runner.rs. This manipulation causes uncontrolled memory allocation. The attack is possible to be carried out remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-03T05:16:47.493",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84888"
+    },
+    {
+      "id": "CVE-2026-84887",
+      "summary": "A vulnerability was identified in simular-ai Agent-S up to 0.3.2. Affected by this issue is some unknown functionality of the file grounding.py of the component Model-generated GUI Action Execution Workflow. The manipulation leads to denial of service. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-03T05:16:47.333",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84887"
+    },
+    {
+      "id": "CVE-2026-84886",
+      "summary": "A vulnerability was determined in simular-ai Agent-S up to 0.3.2. Affected by this vulnerability is the function ImageData of the file gui_agents/s1/utils/ocr_server.py of the component OCR HTTP API. Executing a manipulation of the argument img_bytes can lead to resource consumption. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-03T05:16:47.167",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84857"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84886"
     },
     {
-      "id": "CVE-2026-84856",
-      "summary": "A vulnerability was detected in rowboatlabs rowboat up to 0.9.1. The impacted element is the function request.text/req.json of the file apps/rowboat/app/api/composio/webhook/route.ts of the component Composio Webhook Endpoint. The manipulation results in denial of service. It is possible to launch the attack remotely. The exploit is now public and may be used. Upgrading to version 0.9.2 is sufficient to resolve this issue. Upgrading the affected component is recommended. The legacy Next.js app was deleted at 0.9.2 rather than patched, leaving no security control behind.",
-      "published": "2026-09-02T20:17:42.563",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84856"
+      "id": "CVE-2026-84885",
+      "summary": "A vulnerability has been found in simular-ai Agent-S 0.3.1/0.3.2. This impacts an unknown function of the file code_agent.py of the component CodeAgent. Such manipulation leads to denial of service. The attack can be launched remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-03T05:16:47.010",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84885"
     },
     {
-      "id": "CVE-2026-84852",
-      "summary": "A security vulnerability has been detected in Reader Tools PDF Reader App 98.8 on Android. The affected element is the function ActSplashNew.handleDeeplink of the component File Handler. The manipulation of the argument _display_name leads to path traversal. An attack has to be approached locally. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-02T20:17:42.050",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84852"
-    },
-    {
-      "id": "CVE-2026-84452",
-      "summary": "Windows ML CLI is a command line tool for building portable, performant, and high-quality AI models for Windows ML. Prior to 0.4.0, the src/winml/modelkit/serve/cli_api.py component exposes WinML CLI commands through a localhost HTTP API without authentication and configures the allow_origins setting as a wildcard in both src/winml/modelkit/serve/cli_api.py and src/winml/modelkit/serve/app.py. A malicious website loaded by a user can send cross-origin requests to /v1/cli/build or /v1/cli/config and set the trust_remote_code parameter to true, which is converted to the --trust-remote-code command-line flag without validation. This reaches AutoConfig.from_pretrained with trust_remote_code=True in src/winml/modelkit/loader/_autoconfig.py and imports Python code from an attacker-controlled model repository, resulting in arbitrary code execution as the server user. This issue is fixed in version 0.4.0.",
-      "published": "2026-09-02T20:17:41.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84452"
-    },
-    {
-      "id": "CVE-2026-84292",
-      "summary": "fast-uri serializes the port component of a URI without validating it. When recomposing the authority, the userinfo and host components are escaped but the port is concatenated verbatim, so a port value that is not a sequence of digits can inject authority delimiters, demoting the intended host to userinfo and pointing the authority at an attacker-controlled host. Both fast-uri and Node's URL read the result back as the attacker's host with no error, so re-validating the built URI does not catch it. This affects applications that build URIs from parts and assign untrusted data to the port component through the serialize, normalize, or equal functions in their object forms. The issue affects fast-uri versions before 2.4.6, from 3.0.0 before 3.1.7, and from 4.0.0 before 4.1.4. It is fixed in 2.4.6, 3.1.7, and 4.1.4, where recomposeAuthority rejects any port that is not a digit sequence per RFC 3986.",
-      "published": "2026-09-02T20:17:39.543",
+      "id": "CVE-2026-84851",
+      "summary": "An uncontrolled recursion issue exists in Amazon Ion-C versions before 1.1.6 that might allow a remote unauthenticated actor to craft Ion data that exhausts the native call stack and crashes the application using the library, resulting in a denial of service.",
+      "published": "2026-09-03T05:16:46.640",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84292"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84851"
     },
     {
-      "id": "CVE-2026-82524",
-      "summary": "UnoPim before 2.1.5 contains an authenticated file upload vulnerability that allows authenticated administrators to upload arbitrary PHP files through the TinyMCE image upload endpoint due to missing file extension and MIME type validation. Attackers can upload a PHP web shell to the public storage disk and execute arbitrary operating system commands on the server by accessing the uploaded file at the URL returned in the server response.",
-      "published": "2026-09-02T20:17:39.210",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82524"
+      "id": "CVE-2026-84394",
+      "summary": "fast-uri accepts a host that contains an unbalanced or misplaced authority bracket without reporting an error. A host that starts with an opening bracket but does not end with a closing bracket is neither validated as an IP literal nor canonicalized as a domain name, so parse() returns it as the host with error undefined, while Node's URL and the HTTP clients built on it resolve the same string to a different host. An application that reads the parsed host to make a host decision, such as an SSRF denylist, a redirect allowlist, or proxy routing, and then passes the original URL to an HTTP client evaluates its policy against a string that is not the host the request reaches. The same host is carried through normalize, equal, and resolve. This affects fast-uri versions 2.4.5, 3.1.6, and 4.1.3, and is fixed in 2.4.6, 3.1.7, and 4.1.4, where parse() reports a malformed host for any host that contains a bracket but is not a valid IPv6 literal.",
+      "published": "2026-09-03T05:16:38.680",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84394"
     }
   ]
 }
