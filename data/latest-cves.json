@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-03T14:32:08+00:00",
+  "generated_at": "2026-09-03T18:36:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85110",
-      "summary": "A vulnerability was identified in Tenda HG10 300001138. Impacted is the function formWlanSetup of the file /boaform/formWlanSetup of the component Boa Web Server. The manipulation of the argument ssid leads to buffer overflow. Remote exploitation of the attack is possible. The exploit is publicly available and might be used.",
-      "published": "2026-09-03T14:17:05.493",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85110"
+      "id": "CVE-2026-85187",
+      "summary": "A security vulnerability has been detected in itsourcecode Online Medicine Delivery System 1.0. Affected by this issue is the function Order::pupdate of the file /rider/orders/controller.php?action=edit&actions=confirm of the component Order Status Update. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-09-03T18:17:33.707",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85187"
     },
     {
-      "id": "CVE-2026-85109",
-      "summary": "A vulnerability was determined in Tenda HG10 300001138. This issue affects the function formLogin of the file /boaform/formLogin of the component Boa Web Server. Executing a manipulation of the argument Username can lead to buffer overflow. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-09-03T14:17:04.663",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85109"
+      "id": "CVE-2026-85012",
+      "summary": "Improper neutralization of special elements used in an OS command (CWE-78) in the blueprint resynthesis framework in Amazon Web Services codecatalyst-blueprints before 0.3.156 might allow a user with permission to commit to a repository in the project to execute arbitrary commands in the blueprint resynthesis environment via shell metacharacters in the owner field of a [local] merge strategy entry in a crafted .ownership-file.\n\n\n\nVersion 0.3.156 removes shell interpretation of the owner field, running the command directly rather than through a shell, and rejects values outside an allowlisted command form. This eliminates shell metacharacter command injection. To remediate this issue, users should upgrade to version 0.3.156 or later.\n\n\n\nNo action is required for use of the Amazon CodeCatalyst service. Resynthesis runs in an isolated per-project environment with scoped credentials, and the service applies server-side validation there that rejects [local] merge strategy commands outside a restricted allowlisted form, including for blueprint versions published before 0.3.156.",
+      "published": "2026-09-03T18:17:33.190",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85012"
     },
     {
-      "id": "CVE-2026-84815",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Kriesi Enfold allows Reflected XSS.\n\nThis issue affects Enfold: from n/a through 8.0.",
-      "published": "2026-09-03T14:17:03.530",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84815"
+      "id": "CVE-2026-84968",
+      "summary": "An out-of-bounds read in the BSON decoding component of the MongoDB PHP driver may allow an unauthenticated party who supplies specially formed input to have a small amount of adjacent process memory copied into an error message that is returned to application code. This may result in unintended disclosure of limited memory contents.",
+      "published": "2026-09-03T18:17:33.010",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84968"
     },
     {
-      "id": "CVE-2026-82180",
-      "summary": "In Eclipse Arrowhead versions from 5.0.0 to 5.2.1 when the MQTT API is enabled with the certificate authentication policy, CertificateMqttFilter parses an X.509 certificate that the client sends inside the MQTT message payload (the authentication field of MqttRequestTemplate) and treats its Subject DN as the authenticated identity. The certificate is decoded with CertificateFactory.generateCertificate() but its signature is never verified and its issuer chain is never validated against any trust store. Authorisation is reduced to two string comparisons on attacker-supplied data: the DN-qualifier must equal \"sy\" or \"op\", and the cloud-name part of the CN must match the server's. Both values are public (the cloud name is in the server's own TLS certificate). An attacker who can publish to the MQTT broker can therefore mint a self-signed certificate with CN=Sysop.<cloud>.<org>.arrowhead.eu, dnQualifier=op, send it as the authentication field, and be authenticated as the cloud's system operator with isSysOp == true. This passes the downstream ManagementServiceMqttFilter (request.isSysOp() \u2192 allowed) and gives full management access over MQTT. The HTTP CertificateFilter is not affected \u2014 it reads the certificate from jakarta.servlet.request.X509Certificate, which Tomcat populates only after a successful mTLS handshake against the configured trust store.",
-      "published": "2026-09-03T14:17:02.110",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82180"
+      "id": "CVE-2026-83959",
+      "summary": "Substance3D - Sampler is affected by a Heap-based Buffer Overflow vulnerability that could result in arbitrary code execution in the context of the current user. Exploitation of this issue requires user interaction in that a victim must open a malicious file.",
+      "published": "2026-09-03T18:17:24.733",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83959"
     },
     {
-      "id": "CVE-2026-80515",
-      "summary": "In Eclipse Arrowhead versions from 5.0.0 to 5.2.1 the management-authorization gate that protects every /\u2026/mgmt/\u2026 REST endpoint decides whether to apply its check by calling request.getRequestURL().toString().contains(\"/mgmt/\"). Tomcat returns getRequestURL() un-decoded, while Spring MVC's DispatcherServlet routes on the decoded path. Requesting /serviceregistry/%6Dgmt/systems (%6D == m) therefore fails the substring check \u2014 the filter falls through without authorising \u2014 yet is decoded to /serviceregistry/mgmt/systems and dispatched to the management controller. Spring Security's StrictHttpFirewall (active via spring-boot-starter-security in arrowhead-common) only rejects encoded / \\ . % ; and null bytes, so percent-encoded ASCII letters pass through. Any authenticated system \u2014 regardless of privilege \u2014 can reach every management operation, including POST /authentication/mgmt/identities which creates new sysop accounts, yielding full administrative takeover of the local cloud.",
-      "published": "2026-09-03T14:17:01.830",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80515"
+      "id": "CVE-2026-82024",
+      "summary": "LearnPress WordPress Plugin before 4.4.6 contains a stored cross-site scripting vulnerability that allows authenticated attackers with the Instructor role to inject persistent malicious payloads by submitting unsanitized input into quiz question answer title fields. Attackers can store arbitrary JavaScript through the answer title parameter, which is rendered through an unescaped HTML sink to execute in the browsers of any user who views the affected quiz question, including students, other instructors, and administrators.",
+      "published": "2026-09-03T18:17:24.410",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82024"
     },
     {
-      "id": "CVE-2026-6071",
-      "summary": "A remote code execution security issue exists in the affected products when parsing DOE files that could allow a remote attacker to write past the end of an allocated object and execute code within the context of the current process. To exploit this vulnerability, a legitimate user must visit a malicious page or open a malicious file.",
-      "published": "2026-09-03T14:17:00.540",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6071"
+      "id": "CVE-2026-82023",
+      "summary": "LearnPress WordPress Plugin before 4.4.6 contains a broken object-level authorization vulnerability that allows authenticated attackers with the Instructor role to add answers to quiz questions owned by other instructors by exploiting a missing ownership check on the question answer insert path. Attackers can supply arbitrary question identifiers during answer insertion, bypassing instructor-boundary restrictions to persistently modify quiz content across courses they do not own.",
+      "published": "2026-09-03T18:17:24.260",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82023"
     }
   ]
 }
