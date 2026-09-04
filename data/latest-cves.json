@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-04T04:27:57+00:00",
+  "generated_at": "2026-09-04T09:36:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85406",
-      "summary": "A vulnerability has been found in Eleveo Quality Management 9.7.0. This vulnerability affects unknown code of the component Conversation Review. The manipulation leads to cross site scripting. Remote exploitation of the attack is possible. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-04T04:18:08.617",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85406"
+      "id": "CVE-2026-85538",
+      "summary": "An incorrect authorization vulnerability in MISP allowed authenticated users to delete attributes from events despite lacking the required perm_modify or perm_modify_org permissions.\n\nThe affected attribute deletion paths relied on organization membership checks performed by MispAttribute::deleteAttribute() but did not consistently enforce MISP's event modification authorization rules. Consequently, a user belonging to the organization associated with an event could potentially delete individual attributes or perform bulk attribute deletion even when their assigned role was not authorized to modify the event.\n\nThis created an inconsistency between attribute editing and deletion: editing an attribute correctly used MISP's ACL::canModifyEvent() authorization logic, whereas the affected deletion operations could bypass these permission checks.\n\nAn authenticated attacker with access to an affected MISP instance and membership in the organization owning an event could exploit this flaw to remove attributes from that event, potentially causing unauthorized modification or loss of threat intelligence data.\n\nThe patch introduces a common authorization check for all affected deletion paths. Before deletion, MISP now resolves the associated events and verifies that the current user is authorized to modify each event using the same authorization mechanism used by normal event and attribute modification operations.",
+      "published": "2026-09-04T09:17:11.997",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85538"
     },
     {
-      "id": "CVE-2026-85405",
-      "summary": "A flaw has been found in Eleveo Call Recording Software 9.7.0. This affects an unknown part of the file /callrec/roleAddAction.do. Executing a manipulation of the argument name/username can lead to cross site scripting. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-04T04:18:08.410",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85405"
+      "id": "CVE-2026-85533",
+      "summary": "An authorization flaw in MISP allowed an authenticated user to submit a sharing_group_id without verifying that the user was authorized to use the referenced Sharing Group.\n\nIn several attribute and Galaxy Cluster creation and editing workflows, validation of the submitted Sharing Group was performed only when the request explicitly set the distribution field to 4 (\"Sharing Group\"). An attacker could therefore craft a request containing a sharing_group_id while omitting the distribution parameter, or otherwise avoiding the distribution == 4 condition, causing the Sharing Group authorization check to be skipped.\n\nThis could allow a user with permission to create or modify the affected MISP objects to associate data with a Sharing Group that they are not authorized to use. Depending on the affected object's existing distribution settings and subsequent processing, this could bypass intended information-sharing boundaries and result in unauthorized placement or distribution of data to members of another Sharing Group.\n\nThe issue affected attribute attachment and editing operations as well as Galaxy Cluster creation and editing. The fix ensures that authorization is performed whenever a non-empty sharing_group_id is submitted, independently of the distribution parameter. It also centralizes the authorization decision in SharingGroup::canUse() and explicitly rejects empty Sharing Group identifiers rather than allowing them to be interpreted as an unrestricted query.",
+      "published": "2026-09-04T09:17:11.857",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85533"
     },
     {
-      "id": "CVE-2026-85403",
-      "summary": "A flaw has been found in code-projects Doctor Appointment System 1.0. This issue affects some unknown processing of the file /contactus.php. This manipulation of the argument firstname causes sql injection. Remote exploitation of the attack is possible. The exploit has been published and may be used.",
-      "published": "2026-09-04T04:18:08.163",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85403"
+      "id": "CVE-2026-85528",
+      "summary": "Improper input validation of the auto-configuration account identifier in Snowflake JDBC Driver versions 4.2.0 through 4.3.3 allowed a credential-bearing login request to be redirected to an attacker-selected HTTPS endpoint. An attacker able to control the account value could cause the driver to transmit a reusable login credential to a host of their choosing and replay it to obtain the privileges granted to that credential. Successful exploitation requires an application using jdbc:snowflake:auto with a connections.toml section that omits an explicit host and a lower-trust principal able to set the account value; ordinary JDBC URLs are unaffected. The fix is available in Snowflake JDBC Driver version 4.3.4. Users must manually upgrade.",
+      "published": "2026-09-04T09:17:11.733",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85528"
     },
     {
-      "id": "CVE-2026-85402",
-      "summary": "A vulnerability was detected in code-projects Doctor Appointment System 1.0. This vulnerability affects unknown code of the file /patient/booking.php. The manipulation of the argument doc_id results in sql injection. The attack may be launched remotely. The exploit is now public and may be used.",
-      "published": "2026-09-04T03:17:46.863",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85402"
+      "id": "CVE-2026-85525",
+      "summary": "Improper OCSP response validation in the Snowflake Python, Go, JDBC, and Node.js drivers allowed a revoked TLS certificate to be accepted as valid, because OCSP responses were not reliably bound to the certificate being validated and definitive verification failures were treated as transient. A man-in-the-middle attacker holding a revoked certificate and its private key for a Snowflake or stage hostname could cause the driver to establish a TLS session to the attacker-controlled endpoint anyway, allowing the attacker to read and modify data transmitted within that connection. Successful exploitation requires that on-path position and the corresponding private key, and impact is limited to data carried within the intercepted connection. The fix is available in the patched versions listed above. Users must manually upgrade.",
+      "published": "2026-09-04T09:17:11.610",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85525"
     },
     {
-      "id": "CVE-2026-85401",
-      "summary": "A weakness has been identified in Dolibarr up to 21.0.4/22.0.5/23.0.3. Affected by this issue is some unknown functionality of the file htdocs/core/filemanagerdol/connectors/php/config.inc.php of the component Legacy File Manager. Executing a manipulation can lead to improper access controls. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 23.0.4 can resolve this issue. This patch is called ef6631e9bd5ec4b8cec0e88f1796d3d10dad02ec. It is suggested to upgrade the affected component.",
-      "published": "2026-09-04T03:17:46.677",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85401"
+      "id": "CVE-2026-85311",
+      "summary": "Missing Authorization vulnerability in Kings Plugins MarketKing allows Exploiting Incorrectly Configured Access Control Security Levels.\n\nThis issue affects MarketKing: from n/a through 2.1.60.",
+      "published": "2026-09-04T09:17:11.490",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85311"
     },
     {
-      "id": "CVE-2026-85399",
-      "summary": "A security flaw has been discovered in code-projects Hospital Information System 1.0. Affected by this vulnerability is the function getSinglePresp of the file includes/presp/PrespController.php. Performing a manipulation of the argument ID results in sql injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-09-04T03:17:46.500",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85399"
+      "id": "CVE-2026-81665",
+      "summary": "A heap-based buffer overflow was found in Corosync's Totem Process Group (totempg) message reassembly. When processing fragmented multicast messages, the buffer used to reassemble fragments lacks a runtime bounds check in release builds. A network-adjacent attacker able to send crafted multicast protocol messages to the cluster could cause a heap buffer overflow with attacker-controlled data. This can crash the Corosync daemon, causing a denial of service to the entire cluster, and may potentially allow further exploitation given sufficient heap-corruption control.",
+      "published": "2026-09-04T09:17:11.357",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81665"
     }
   ]
 }
