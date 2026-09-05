@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-05T18:15:27+00:00",
+  "generated_at": "2026-09-05T21:12:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-86197",
-      "summary": "Grav before 2.0.20 contains a cross-site scripting vulnerability in the Twig sandbox policy that allowlists addJs and addCss methods on Grav\\Common\\Assets without proper output escaping. Page editors can inject arbitrary script by registering malicious assets or injecting attributes, which are rendered unescaped into document head tags and executed for all visitors including administrators.",
-      "published": "2026-09-05T13:18:15.110",
+      "id": "CVE-2026-86206",
+      "summary": "A vulnerability in the N-central internal API access control filter allows unauthorised access to internal APIs. This is fixed in N-central 2026.3 HF3 and 2026.4",
+      "published": "2026-09-05T20:17:18.833",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86197"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86206"
     },
     {
-      "id": "CVE-2026-86196",
-      "summary": "Grav API plugin versions before 1.0.20 build password reset links from the untrusted Host header in the forgot-password endpoint, allowing unauthenticated attackers to redirect reset tokens to attacker-controlled domains. Attackers can send password reset requests for any account with a malicious Host header, intercept the reset token from victim emails, and complete account takeover including super-admin accounts.",
-      "published": "2026-09-05T13:18:14.980",
+      "id": "CVE-2026-86060",
+      "summary": "RouterOS contains an argument-handling flaw in the SSH login\npath involving usernames that begin with a prohibited character, allowing for the trusted RouterOS policy mask\u00a0to be changed, leading to privilege escalation. Exploitation requires an unauthenticated SSH session to reach the RouterOS login helper.This issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "published": "2026-09-05T20:17:18.703",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86196"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86060"
     },
     {
-      "id": "CVE-2026-86195",
-      "summary": "grav-plugin-api versions before 1.0.20 contain a privilege escalation vulnerability in the InvitationsController where the stripSuperFlags() method only removes nested super flags but fails to strip dot-keyed equivalents like api.super. A non-super user manager with api.access and api.users.write permissions can create an invitation with a dot-keyed super flag in the access payload that bypasses the guard and persists to the new account. Attackers can accept the invitation through the public endpoint without real invitee interaction to create a super-admin account and immediately receive a valid JWT for full site control.",
-      "published": "2026-09-05T13:18:14.853",
+      "id": "CVE-2026-67281",
+      "summary": "RouterOS WebFig contains an unauthenticated file-read vulnerability in the /jsproxy path where a newly allocated session retains a stale uninitialized principal pointer used for file authorization. An unauthenticated attacker can prepare the allocator so that the file-serving path dereferences this pointer with sufficient rights, then supply parent-directory components in an encrypted URI to escape the WebFig file namespace and disclose root-owned files, including configuration stores containing credentials.This issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "published": "2026-09-05T20:17:18.547",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86195"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67281"
     },
     {
-      "id": "CVE-2026-86194",
-      "summary": "Grav Form Plugin before 9.1.22 fails to verify page authorization when resolving forms by name across pages, allowing anonymous visitors to execute form actions defined on login-restricted or unpublished pages. Attackers can POST to any public page with a restricted form's name to trigger save, upload, email, or call actions without authentication.",
-      "published": "2026-09-05T13:18:14.727",
+      "id": "CVE-2026-67279",
+      "summary": "RouterOS SSH enters the connection protocol after a client-requested rekey even though user authentication was never attempted, allowing an unauthenticated client to open a session channel and send an exec request. On affected builds the server dispatches the command, enabling unauthenticated creation, overwrite, and reconstruction of files in the RouterOS managed file namespace, including support files containing configuration and diagnostic data.This issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "published": "2026-09-05T20:17:18.390",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86194"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67279"
     },
     {
-      "id": "CVE-2026-86193",
-      "summary": "grav-plugin-api before 1.0.20 fails to validate group-inherited super permissions in user-management guards, allowing non-super user managers to modify super-admin accounts. Attackers with api.access and api.users.write can patch password fields on group-super accounts to gain full administrative control.",
-      "published": "2026-09-05T13:18:14.593",
+      "id": "CVE-2026-67278",
+      "summary": "MikroTik RouterOS accepts malformed RSA/PKCS#1 v1.5 signatures during X.509 validation. Because its trust store includes an e=3 root CA, an attacker controlling or redirecting an outbound RouterOS TLS connection can use the root\u2019s public certificate - without its private key - to forge a trusted intermediate and issue certificates for arbitrary hostnames, enabling TLS server impersonation.\n\nThis issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "published": "2026-09-05T20:17:18.257",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86193"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67278"
     },
     {
-      "id": "CVE-2026-86192",
-      "summary": "SiYuan versions before v3.8.2 fail to properly filter private attribute-view cell values in the getAttributeViewKeys endpoint. Publish readers can retrieve hidden KeyValues payloads from rows bound to inaccessible documents, exposing private database contents without authorization.",
-      "published": "2026-09-05T13:18:14.443",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86192"
+      "id": "CVE-2026-67277",
+      "summary": "RouterOS accepts a \"related\" btest connection before the corresponding primary session has completed authentication. An unauthenticated client can use this state to start an IPv4 UDP test. With \"random-data=false\", the sender transmits an uninitialized tail from a kernel packet buffer. A separate unchecked, inverted packet-size interval causes unsigned integer underflow, anomalously large fragmented output, and can restart the RouterOS kernel.\n\n\n\nThis issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "published": "2026-09-05T20:17:18.120",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67277"
     }
   ]
 }
