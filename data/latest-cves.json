@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-04T21:26:13+00:00",
+  "generated_at": "2026-09-05T00:01:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85787",
-      "summary": "An incomplete list of disallowed inputs in the SQL validation component in Amazon awslabs postgres-mcp-server before  version 1.1.7 might allow an unauthenticated actor to modify data beyond the read-only scope by placing crafted SQL into the content that is submitted when an authenticated user interacts with the MCP server.\n\n\n\nTo remediate this issue, users should upgrade to version 1.1.7 or above.",
-      "published": "2026-09-04T21:17:27.057",
+      "id": "CVE-2026-86098",
+      "summary": "ntop nDPI versions before 6.0 contain a heap buffer overflow vulnerability in the ndpi_json_string_escape function that writes beyond caller-supplied buffer boundaries. Attackers can trigger the overflow by supplying crafted network packet data including TLS SNI, HTTP headers, or DNS names that reach the vulnerable function, causing heap corruption.",
+      "published": "2026-09-04T23:18:03.687",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86098"
+    },
+    {
+      "id": "CVE-2026-86097",
+      "summary": "PX4 Autopilot through 1.17.0 contains a null pointer dereference vulnerability in param_set_default_file() and param_set_backup_file() functions that allows attackers to crash the autopilot process. Attackers can invoke 'param select' or 'param select-backup' commands with no path argument from any PX4 shell to trigger the crash.",
+      "published": "2026-09-04T23:18:03.547",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85787"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86097"
     },
     {
-      "id": "CVE-2026-85704",
-      "summary": "A security flaw has been discovered in ramon-victor freegpt-webui up to 098db3dfeb41555c2ca9269df0f13e10ec1c35dc. This issue affects the function getJailbreak of the file server/config.py of the component Jailbreak Mode. The manipulation results in race condition. It is possible to launch the attack remotely. The attack requires a high level of complexity. The exploitability is assessed as difficult. The exploit has been released to the public and may be used for attacks. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-09-04T21:17:26.863",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85704"
+      "id": "CVE-2026-86096",
+      "summary": "PX4 Autopilot through 1.17.0 contains a use-after-free vulnerability in TemperatureCalibration::start() due to a race condition between task spawning and object deletion. Attackers can trigger the calibration process via shell commands to write to freed heap memory, corrupting unrelated objects or allocator metadata and destabilizing heap operations.",
+      "published": "2026-09-04T23:18:03.377",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86096"
     },
     {
-      "id": "CVE-2026-85703",
-      "summary": "A flaw has been found in ramon-victor freegpt-webui up to 098db3dfeb41555c2ca9269df0f13e10ec1c35dc. Affected by this issue is the function getJailbreak of the file server/backend.py of the component Jailbreak Mode. Executing a manipulation can lead to allocation of resources. The attack can be executed remotely. The exploit has been published and may be used. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-09-04T21:17:26.667",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85703"
+      "id": "CVE-2026-86095",
+      "summary": "Unidata netcdf-c through 4.10.1 contains an out-of-bounds write vulnerability in NC4_HDF5_inq_attname() that copies HDF5 attribute names into a fixed 256-byte buffer without length validation. Attackers can craft HDF5 files with oversized attribute names to overflow the destination buffer, causing memory corruption and crashes when applications enumerate attribute names.",
+      "published": "2026-09-04T23:18:03.220",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86095"
     },
     {
-      "id": "CVE-2026-85702",
-      "summary": "A security vulnerability has been detected in ramon-victor freegpt-webui up to 098db3dfeb41555c2ca9269df0f13e10ec1c35dc. Affected is the function _conversation of the file server/backend.py of the component Backend Conversation API. Such manipulation of the argument model leads to missing authentication. The attack may be launched remotely. The exploit has been disclosed publicly and may be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-09-04T21:17:26.480",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85702"
+      "id": "CVE-2026-48019",
+      "summary": "Laravel is a web application framework. Prior to versions 12.60.0 and 13.10.0, a CRLF injection vulnerability in Laravel's email validation, in combination with how Symfony Mailer and Symfony Mime handle certain character sequences, may allow an unauthenticated attacker to interfere with outbound email processing in applications that send mail to user-supplied addresses. This issue has been patched in versions 12.60.0 and 13.10.0.",
+      "published": "2026-09-04T23:17:09.143",
+      "cvss": 8.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48019"
     },
     {
-      "id": "CVE-2026-85701",
-      "summary": "A vulnerability has been found in ramon-victor freegpt-webui up to 098db3dfeb41555c2ca9269df0f13e10ec1c35dc. This issue affects the function ChatCompletion.create of the file g4f/__init__.py of the component Authentication Check. Such manipulation leads to missing authentication. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. This vulnerability only affects products that are no longer supported by the maintainer.",
-      "published": "2026-09-04T21:17:26.260",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85701"
-    },
-    {
-      "id": "CVE-2026-82712",
-      "summary": "Tycon Systems TPDIN-Monitor-WEB3 versions 2.2.9 and prior are vulnerable to a cross-site request forgery vulnerability. This could allow an attacker to perform state changing operations on the device.",
-      "published": "2026-09-04T21:17:26.100",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82712"
+      "id": "CVE-2026-86091",
+      "summary": "ntopng before 6.7.260717 fails to check user privileges in the pools bulk-delete endpoint, allowing authenticated non-administrators to delete all host pools and member bindings. Attackers can issue POST requests to the delete pools endpoint to irreversibly destroy every host pool, removing traffic policy bindings and visibility restrictions that may bypass security policies.",
+      "published": "2026-09-04T22:17:18.990",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86091"
     }
   ]
 }
