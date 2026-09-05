@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-09-05T21:12:28+00:00",
+  "generated_at": "2026-09-05T22:54:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-86149",
+      "summary": "A weakness has been identified in Tenda CP3 27.5.57.101. This issue affects some unknown processing of the file Net/NetCheckPing.cpp. This manipulation of the argument interface_name/host causes os command injection. The attack can be initiated remotely.",
+      "published": "2026-09-05T22:17:18.943",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86149"
+    },
+    {
+      "id": "CVE-2026-86148",
+      "summary": "A security flaw has been discovered in Tenda CP3 27.5.57.101. This vulnerability affects the function SystemAsh of the file Apis/system.c of the component Kylin. The manipulation of the argument AlarmVoiceURL results in os command injection. It is possible to launch the attack remotely.",
+      "published": "2026-09-05T22:17:18.743",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86148"
+    },
     {
       "id": "CVE-2026-86206",
       "summary": "A vulnerability in the N-central internal API access control filter allows unauthorised access to internal APIs. This is fixed in N-central 2026.3 HF3 and 2026.4",
@@ -11,38 +25,24 @@
     },
     {
       "id": "CVE-2026-86060",
-      "summary": "RouterOS contains an argument-handling flaw in the SSH login\npath involving usernames that begin with a prohibited character, allowing for the trusted RouterOS policy mask\u00a0to be changed, leading to privilege escalation. Exploitation requires an unauthenticated SSH session to reach the RouterOS login helper.This issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "summary": "RouterOS contains an argument-handling flaw in the SSH login\npath involving usernames that begin with a prohibited character, allowing for the trusted RouterOS policy mask\u00a0to be changed, leading to privilege escalation. Exploitation requires an unauthenticated SSH session to reach the RouterOS login helper.This issue was fixed in versions:\u00a06.49.21 (Long-term),\u00a07.23.4 (Long-term)\u00a0and\u00a07.24.2 (Stable)",
       "published": "2026-09-05T20:17:18.703",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86060"
     },
     {
       "id": "CVE-2026-67281",
-      "summary": "RouterOS WebFig contains an unauthenticated file-read vulnerability in the /jsproxy path where a newly allocated session retains a stale uninitialized principal pointer used for file authorization. An unauthenticated attacker can prepare the allocator so that the file-serving path dereferences this pointer with sufficient rights, then supply parent-directory components in an encrypted URI to escape the WebFig file namespace and disclose root-owned files, including configuration stores containing credentials.This issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "summary": "RouterOS WebFig contains an unauthenticated file-read vulnerability in the /jsproxy path where a newly allocated session retains a stale uninitialized principal pointer used for file authorization. An unauthenticated attacker can prepare the allocator so that the file-serving path dereferences this pointer with sufficient rights, then supply parent-directory components in an encrypted URI to escape the WebFig file namespace and disclose root-owned files, including configuration stores containing credentials.This issue was fixed in versions:\u00a06.49.21 (Long-term),\u00a07.23.4 (Long-term)\u00a0and\u00a07.24.2 (Stable)",
       "published": "2026-09-05T20:17:18.547",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67281"
     },
     {
       "id": "CVE-2026-67279",
-      "summary": "RouterOS SSH enters the connection protocol after a client-requested rekey even though user authentication was never attempted, allowing an unauthenticated client to open a session channel and send an exec request. On affected builds the server dispatches the command, enabling unauthenticated creation, overwrite, and reconstruction of files in the RouterOS managed file namespace, including support files containing configuration and diagnostic data.This issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
+      "summary": "RouterOS SSH enters the connection protocol after a client-requested rekey even though user authentication was never attempted, allowing an unauthenticated client to open a session channel and send an exec request. On affected builds the server dispatches the command, enabling unauthenticated creation, overwrite, and reconstruction of files in the RouterOS managed file namespace, including support files containing configuration and diagnostic data.This issue was fixed in versions:\u00a06.49.21 (Long-term),\u00a07.23.4 (Long-term)\u00a0and\u00a07.24.2 (Stable)",
       "published": "2026-09-05T20:17:18.390",
       "cvss": null,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67279"
-    },
-    {
-      "id": "CVE-2026-67278",
-      "summary": "MikroTik RouterOS accepts malformed RSA/PKCS#1 v1.5 signatures during X.509 validation. Because its trust store includes an e=3 root CA, an attacker controlling or redirecting an outbound RouterOS TLS connection can use the root\u2019s public certificate - without its private key - to forge a trusted intermediate and issue certificates for arbitrary hostnames, enabling TLS server impersonation.\n\nThis issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
-      "published": "2026-09-05T20:17:18.257",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67278"
-    },
-    {
-      "id": "CVE-2026-67277",
-      "summary": "RouterOS accepts a \"related\" btest connection before the corresponding primary session has completed authentication. An unauthenticated client can use this state to start an IPv4 UDP test. With \"random-data=false\", the sender transmits an uninitialized tail from a kernel packet buffer. A separate unchecked, inverted packet-size interval causes unsigned integer underflow, anomalously large fragmented output, and can restart the RouterOS kernel.\n\n\n\nThis issue was fixed in versions:\u00a06.49.21 (Lont-term),\u00a07.23.4 (Lont-term)\u00a0and\u00a07.24.2 (Stable)",
-      "published": "2026-09-05T20:17:18.120",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-67277"
     }
   ]
 }
