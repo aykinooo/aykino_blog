@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-07T04:35:33+00:00",
+  "generated_at": "2026-09-07T10:13:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-86315",
-      "summary": "An out-of-bounds write caused by numeric truncation  Samsung Open Source Escargot on Linux x86-64 allows an attacker who can supply JavaScript for execution to corrupt native memory and crash the host process via a crafted class definition whose instance initialization entry count exceeds UINT16_MAX.\n\n\n\nThis issue affects Escargot: 5dc93606abd42b859045add05d704a038e197359.",
-      "published": "2026-09-07T04:17:55.650",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86315"
+      "id": "CVE-2026-86342",
+      "summary": "Affected versions of MISP contain improper authorization checks in the freetext feed preview functionality. The preview performed correlation lookups against attributes from events without applying the requesting user's ACL, allowing restricted event correlations and associated event information to be exposed to users who could not otherwise access those events. The vulnerable queries were scoped only by attribute values and deletion status rather than MISP's event, organization, sharing-group, attribute, and object-level access controls.\n\n\nThe same preview functionality also returned cross-feed correlation information without properly restricting the feed list to feeds visible to the caller. This exposed metadata for feeds that were not marked lookup_visible; one affected response additionally included the configured feed URL even though that value was not required by the feature.\n\nThe fixes apply the caller's ACL to attribute correlation searches, remove feed URLs from correlation results, restrict cross-feed results according to feed visibility, and correct host-organization ID comparison so the authorization rules are applied consistently.\n\nVersion affected:\u00a0\u22642.5.45",
+      "published": "2026-09-07T09:17:17.943",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86342"
     },
     {
-      "id": "CVE-2026-86269",
-      "summary": "A flaw has been found in itsourcecode Sales and Inventory System 1.0. The affected element is an unknown function of the file /pages/emp_edit1.php. This manipulation of the argument ID causes sql injection. The attack is possible to be carried out remotely. The exploit has been published and may be used.",
-      "published": "2026-09-07T04:17:55.467",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86269"
+      "id": "CVE-2026-86332",
+      "summary": "A flaw was found in odh-dashboard in Red Hat OpenShift AI. The backend-for-frontend route GET /api/nim-serving/:nimResource reads Kubernetes Secrets using the dashboard service account and returns the full Secret object, including .data, without an authorization check. Any authenticated dashboard user can retrieve the cluster NVIDIA NGC API key Secret (apiKeySecret) and the NIM image pull secret (nimPullSecret). Create and delete of the same NIM credential are admin-gated; the read path is not. This is missing authorization (CWE-862) and insufficiently protected credentials (CWE-522). It is distinct from CVE-2026-5483 (service-account token leak in the Kubernetes client response wrapper on the same route) and CVE-2026-16456 (odh-model-controller cross-namespace confused deputy).",
+      "published": "2026-09-07T09:17:17.807",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86332"
     },
     {
-      "id": "CVE-2026-86268",
-      "summary": "A vulnerability was detected in itsourcecode School Management System 1.0. Impacted is an unknown function of the file User_Login.php. The manipulation of the argument email results in sql injection. The attack can be executed remotely. The exploit is now public and may be used.",
-      "published": "2026-09-07T04:17:55.277",
+      "id": "CVE-2026-86290",
+      "summary": "A weakness has been identified in SourceCodester Online Voting System 1.0. This affects an unknown function of the file /voting/ajax.php?action=save_category. This manipulation of the argument Category causes sql injection. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks.",
+      "published": "2026-09-07T09:17:17.650",
       "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86268"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86290"
     },
     {
-      "id": "CVE-2026-86267",
-      "summary": "A security vulnerability has been detected in itsourcecode Information System Society Membership System 1.0. This issue affects some unknown processing of the file /society/check_student.php. The manipulation of the argument student_id leads to sql injection. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-09-07T04:17:55.087",
+      "id": "CVE-2026-86289",
+      "summary": "A vulnerability was found in Ollama up to 0.31.1. This issue affects the function readGGUFV1String of the file fs/ggml/gguf.go of the component GGUF Decoder. Performing a manipulation results in integer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used. Upgrading to version 0.31.2-rc1 is capable of addressing this issue. The patch is named 67b6a1c2d45321e0cb3c04a18073f9818de7724b. It is recommended to upgrade the affected component.",
+      "published": "2026-09-07T09:17:17.470",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86289"
+    },
+    {
+      "id": "CVE-2026-86288",
+      "summary": "A vulnerability has been found in ModelCloud GPTQModel up to 7.2.0. This vulnerability affects unknown code of the file gptqmodel/nn_modules/qlinear/tritonv2.py of the component Triton dequantization kernel. Such manipulation of the argument g_idx leads to out-of-bounds read. The attack can be executed remotely. The exploit has been disclosed to the public and may be used. Upgrading to version 7.3.0 is able to resolve this issue. The name of the patch is 877c732f7d7dccd56a729844c6a5bd20f3aa8bb1. Upgrading the affected component is recommended.",
+      "published": "2026-09-07T09:17:17.297",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86267"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86288"
     },
     {
-      "id": "CVE-2026-86265",
-      "summary": "A vulnerability has been found in itsourcecode Sales and Inventory System 1.0. Affected by this vulnerability is an unknown functionality of the file /pages/us_transac.php. Such manipulation of the argument Username leads to sql injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-09-07T04:17:50.427",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86265"
-    },
-    {
-      "id": "CVE-2026-86314",
-      "summary": "Integer overflow in the source-bounds check in Memory::init() (src/runtime/Memory.cpp) in Samsung walrus on all platforms allows a remote attacker to cause an out-of-bounds heap read and denial of service via a crafted WebAssembly module in which a 32-bit unsigned addition wraps around and bypasses the bounds check.\n\n\n\nThis issue affects Walrus: ff3bf5ff5c4878f8e5572c9593d303f6bc997443.",
-      "published": "2026-09-07T03:17:19.530",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86314"
+      "id": "CVE-2026-86285",
+      "summary": "A vulnerability was detected in BookStack up to 26.05.2. Affected by this issue is the function AttachmentController::getUpdateForm of the file app/Uploads/Controllers/AttachmentController.php of the component Attachment Edit Endpoint. The manipulation of the argument ID results in improper access controls. The attack may be launched remotely. The exploit is now public and may be used. The patch is identified as 4e406c41c4c8060a5795e74c66fb96362e54f400. It is advisable to implement a patch to correct this issue.",
+      "published": "2026-09-07T09:17:17.127",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86285"
     }
   ]
 }
