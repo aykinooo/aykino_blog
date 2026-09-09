@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-09T09:42:07+00:00",
+  "generated_at": "2026-09-09T14:33:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-87766",
-      "summary": "A flaw was found in bubblewrap. During sandbox setup, creating files or directories under the new root can follow a parent symlink onto the host via /oldroot, writing attacker-chosen paths outside the sandbox as the launching user. This happens before the sandboxed process starts. This issue is GHSA-pxhw-h44j-8pfx. It is fixed in bubblewrap 0.12.0.",
-      "published": "2026-09-09T09:17:12.540",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87766"
+      "id": "CVE-2026-86775",
+      "summary": "knowns (npm package) versions <= 0.29.1 contain a path traversal vulnerability in the Document API. The HTTP handler in internal/server/routes/docs.go normalizes the user-supplied document path with cleanDocPath(), which strips leading/trailing slashes and the .md suffix but does not neutralize ../ traversal sequences, and internal/storage/doc_store.go then builds the target path with filepath.Join(ds.docsDir(), filepath.FromSlash(doc.Path)+\".md\") without verifying that the resolved path remains inside the documents directory. In the default deployment, where the Management API is unauthenticated and bound to all interfaces, a remote unauthenticated attacker can supply a traversal payload (for example {\"path\": \"../../../../tmp/knowns_pwn_marker\"} to POST /api/docs, or an encoded path to GET /api/docs/...) to read, create, overwrite, or delete arbitrary files with a .md extension anywhere on the host filesystem and to create arbitrary directories via os.MkdirAll. This can expose sensitive data stored in other projects' documentation, corrupt or destroy files, and provide an arbitrary-write primitive that may be chained toward code execution. The issue is fixed in version 0.30.0.",
+      "published": "2026-09-09T14:17:28.533",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86775"
     },
     {
-      "id": "CVE-2026-80175",
-      "summary": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Insertion of Sensitive Information into Externally-Accessible File or Directory vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to information exposure.",
-      "published": "2026-09-09T09:17:12.420",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80175"
-    },
-    {
-      "id": "CVE-2026-80122",
-      "summary": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Certificate Validation vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
-      "published": "2026-09-09T09:17:12.303",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80122"
-    },
-    {
-      "id": "CVE-2026-80099",
-      "summary": "Several Newfold plugins are vulnerable to Authentication Bypass. The vulnerability exists because the plugins bundle the wp-module-data module. In the module, the `authenticate()` method \u2014 registered on the `rest_authentication_errors` filter and therefore evaluated for every unauthenticated REST API request \u2014 performs an HMAC-style Bearer token comparison that degenerates when `HiiveConnection::get_auth_token()` returns `false`: PHP coerces `strrev(false)` to `strrev('')`, collapsing the secret salt to the publicly known constant `hash('sha256', '') = e3b0c44...`, while all remaining hash inputs (HTTP method, request URL, raw request body, and the `X-Timestamp` header) remain fully attacker-controlled. This makes it possible for unauthenticated attackers to compute a valid Bearer token entirely offline, pass the token equality check, and have `wp_set_current_user()` invoked against the first administrator returned by `get_users(['role' => 'administrator'])`, granting full administrator-level access and enabling arbitrary REST API operations such as creating new administrator accounts and achieving complete site takeover. Vulnerable versions are WP Plugin Crazy Domains (<= 2.5.2), WP Plugin Web (<= 2.3.4), WP Plugin Hostgator (<= 3.1.0), WP Plugin Bluehost (<= 4.17.1). The affected module is vulnerable in versions up to, and including, 2.9.4.",
-      "published": "2026-09-09T09:17:12.157",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80099"
-    },
-    {
-      "id": "CVE-2026-79974",
-      "summary": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Improper Authentication vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to unauthorized access.",
-      "published": "2026-09-09T09:17:11.590",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79974"
-    },
-    {
-      "id": "CVE-2026-79973",
-      "summary": "Dell SCG 5.0 Appliance versions prior to 5.36.00.16 and Dell SCG 5.0 Application versions prior to 5.36.00.00, contains an Unsynchronized Access to Shared Data in a Multithreaded Context vulnerability. A low privileged attacker with remote access could potentially exploit this vulnerability, leading to denial of service.",
-      "published": "2026-09-09T09:17:11.473",
+      "id": "CVE-2026-86774",
+      "summary": "Snipe-IT versions before 8.7.0 contain a broken access control vulnerability in AssetModelPolicy where the files() method cascades from assets.files permission, allowing authenticated users to upload and delete file attachments on Asset Model records without the required models.files permission. Attackers with only assets.files permission can mutate shared model file attachments across company boundaries and bypass the dedicated models.files permission intended to restrict file management on the shared Asset Model catalog.",
+      "published": "2026-09-09T14:17:28.363",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79973"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86774"
+    },
+    {
+      "id": "CVE-2026-86773",
+      "summary": "Snipe-IT through version 8.6.3 fails to perform object-level authorization in the updateLicense, updateConsumable, updateAccessory, and updateModel endpoints and in the storeModel endpoint for Predefined Kits. The existing check authorizes only the parent Predefined Kit (update on PredefinedKit) and not the child object being attached. As a result, an authenticated user holding only the kits.edit permission can attach a License, Consumable, Accessory, or Asset Model that they are otherwise denied (HTTP 403) from reading directly to a Predefined Kit, and the kit relation index then discloses the attached object's name back to that low-privilege user. This is the update-path and storeModel counterpart to CVE-2026-55478, which fixed only the storeLicense, storeConsumable, and storeAccessory methods in 8.6.2. Note that updateModel was code-vulnerable in 8.6.3 but not reachable in practice because a route-name typo bound the route to a nonexistent controller method, causing HTTP 500 responses. The issue is fixed in Snipe-IT 8.7.0.",
+      "published": "2026-09-09T14:17:28.040",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86773"
+    },
+    {
+      "id": "CVE-2026-86772",
+      "summary": "Snipe-IT versions before 8.7.0 contain a stored cross-site scripting vulnerability in DepartmentPresenter::formattedNameLink() where department names are rendered unescaped in the fallback branch for users without departments.view permission. Users with departments.edit permission can inject malicious scripts into department names that execute in the browsers of all department members when they load their My Assets page.",
+      "published": "2026-09-09T14:17:27.890",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86772"
+    },
+    {
+      "id": "CVE-2026-86771",
+      "summary": "Snipe-IT versions before 8.7.0 fail to HTML-escape the employee_num field in the acceptance PDF generator, allowing attackers with users.edit permission to inject img tags into TCPDF's writeHTML() function. Attackers can craft a malicious employee_num value containing an img tag with an arbitrary HTTP(S) URL to trigger server-side requests to internal services, cloud metadata endpoints, or external targets when a victim signs an asset acceptance.",
+      "published": "2026-09-09T14:17:27.740",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86771"
+    },
+    {
+      "id": "CVE-2026-86770",
+      "summary": "Snipe-IT before 8.7.0 fails to validate username case sensitivity during SAML authentication, allowing attackers to authenticate as different users by registering IdP accounts with accent or case variants of victim usernames. Attackers can exploit the default utf8mb4_unicode_ci database collation to bypass username matching and achieve account takeover through federated login paths including SAML, LDAP, and OAuth.",
+      "published": "2026-09-09T14:17:27.593",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86770"
     }
   ]
 }
