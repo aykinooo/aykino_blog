@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-10T09:40:47+00:00",
+  "generated_at": "2026-09-10T14:24:13+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-8323",
-      "summary": "URL redirection to untrusted site ('open redirect') vulnerability in Armiya Information Technologies Ltd. Co. Access Control System allows Fake the Source of Data.\n\nThis issue affects Access Control System: before Versiyon 2.",
-      "published": "2026-09-10T09:17:06.250",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-8323"
+      "id": "CVE-2026-88921",
+      "summary": "MISP contains an HTML injection vulnerability in the MISPElementHTMLFormatterTool component, which is responsible for rendering MISP element references (attributes, objects, and tags) into inline HTML during PDF report export via the convert_markdown_to_pdf module. The attribute(), objectAttribute(), object(), and tag() methods interpolated user-controlled fields (attribute type, attribute value, object name, object relation, tag name, tag colour, and tag text colour) directly into HTML templates without applying HTML entity encoding. An authenticated user with the ability to create or modify MISP attributes, objects, or tags could embed arbitrary HTML markup in these fields. When a report containing such elements was exported to PDF, the unescaped content was rendered as live HTML rather than inert text, potentially injecting script tags, breaking the document structure, or altering the visual content of the exported report. Additionally, the attribute() method contained a template with hardcoded sample values (\"domain-ip\" and \"google.com\") instead of format placeholders, meaning every plain attribute reference in a PDF displayed the sample text rather than the actual indicator value, constituting a data-integrity defect in the exported document. The vulnerability requires an authenticated actor with write access to MISP elements and a subsequent PDF export of a report referencing those elements. The security impact is primarily to the integrity of the exported document and, depending on the HTML-to-PDF rendering engine, potential execution of injected markup during the conversion step.\n\nVersion affected: \u22642.5.45",
+      "published": "2026-09-10T14:17:19.333",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88921"
     },
     {
-      "id": "CVE-2026-88290",
-      "summary": "GeoVision GV-LPC2211 V1.14 (260903) allows unauthenticated clients to declare unbounded VLSVR frame lengths and indefinitely delay blocking receives, allowing remote exhaustion of memory, connection, and worker resources.",
-      "published": "2026-09-10T09:17:06.133",
+      "id": "CVE-2026-88915",
+      "summary": "Affected versions of MISP do not consistently enforce the acting user's authorization when instantiating event templates.\n\n\nFor templates using distribution = 4, the template can specify a sharing_group_id. The instantiation path passed that value into event creation without verifying that the user instantiating the template was actually permitted to use the selected sharing group. The commit notes that Event::_add() only performed its own sharing-group authorization in another code path, leaving template instantiation able to write the identifier directly.\n\n\nThe same instantiation path also attached template-specified tags without checking the user's normal tagging permissions. In addition, it hardcoded local => 0, meaning tags marked local_only could be attached globally and consequently propagate through synchronization or export, contrary to their intended restriction.\n\n\nThe fix adds explicit SharingGroup::canUse() authorization for the acting user, applies the same tag-modification checks used by normal event tagging, and ensures local_only tags are attached locally.\n\nVersion affected: \u22642.5.45",
+      "published": "2026-09-10T14:17:19.193",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88915"
+    },
+    {
+      "id": "CVE-2026-88896",
+      "summary": "EspoCRM before 10.0.4 is vulnerable to server-side request forgery. HostCheck::ipAddressIsNotInternal(), which validates outbound URLs to block requests to internal/private IP addresses, strips ::ffff: (IPv4-mapped IPv6) prefixes but does not recognize IPv6 transition addresses that embed private IPv4 addresses: NAT64 (64:ff9b::), 6to4 (2002::), and Teredo (2001:0000::). An attacker who controls a domain with AAAA records pointing to such transition addresses can bypass both the internal-host validation and the CURLOPT_RESOLVE IP-pinning check, causing EspoCRM to issue outbound requests to internal network services. Affected paths include POST /Attachment/fromImageUrl, reachable by any authenticated user with attachment access, and outbound webhook delivery, which requires an admin or API user.",
+      "published": "2026-09-10T14:17:19.050",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88896"
+    },
+    {
+      "id": "CVE-2026-88895",
+      "summary": "CyberPanel before 3.0.5 fails to enforce two-factor authentication on API endpoints, allowing attackers to bypass TOTP requirements using password-derived tokens. Attackers who obtain an administrator's password can derive API tokens and perform administrative operations or create authenticated sessions without the second factor.",
+      "published": "2026-09-10T14:17:18.907",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88895"
+    },
+    {
+      "id": "CVE-2026-88894",
+      "summary": "Snipe-IT's predefined kit checkout path does not enforce Full Multiple Company Support (FMCS) tenant isolation on the checkout target. Unlike the single, bulk, API, accessory, license and consumable checkout paths, App\\Services\\PredefinedKitCheckoutService never calls $item->canCheckoutTo($target); it only performs the actor-vs-item policy check and an availability check before persisting the checkout. With FMCS enabled, a non-superuser who belongs to at least two companies and holds the assets.checkout permission can POST to /kits/{kit}/checkout with a user_id belonging only to company B and have a company-A asset (and likewise kit licenses, consumables and accessories) assigned to that user, bypassing the company-mismatch check that blocks the same operation on every other checkout path. The issue is fixed in Snipe-IT 8.7.2; it was runtime-verified on v8.6.3 and code-inspected on v8.7.1, and the affected service has lacked the check since 2019, so earlier FMCS deployments are likely also affected.",
+      "published": "2026-09-10T14:17:18.760",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88894"
+    },
+    {
+      "id": "CVE-2026-88893",
+      "summary": "OpenPanel share lookup procedures fail to validate access controls and return password hashes and protected report definitions to unauthenticated callers. Attackers with a share link can retrieve argon2id password hashes and full report configurations including event names, filters, and breakdown dimensions for offline password cracking and business intelligence theft.",
+      "published": "2026-09-10T14:17:18.620",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88290"
-    },
-    {
-      "id": "CVE-2026-88289",
-      "summary": "GeoVision GV-LPC2211 V1.14 (260903) fails to validate attacker-controlled variable-length fields before copying them into fixed-size stack buffers in multiple VLSVR request handlers, allowing an unauthenticated remote attacker to crash the VLSVR service.",
-      "published": "2026-09-10T09:17:06.017",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88289"
-    },
-    {
-      "id": "CVE-2026-88288",
-      "summary": "GeoVision GV-LPC2211 V1.13 fails to restrict the filename supplied to BKDownloadLink.cgi, allowing a remote user with valid web credentials to read arbitrary files accessible to the root-run web service.",
-      "published": "2026-09-10T09:17:05.893",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88288"
-    },
-    {
-      "id": "CVE-2026-88287",
-      "summary": "GeoVision GV-LPC2211 V1.13 fails to bound the number of Scopes tokens in unauthenticated ONVIF WS-Discovery Probe requests, allowing a remote attacker to corrupt stack control state and crash the discovery process.",
-      "published": "2026-09-10T09:17:05.787",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88287"
-    },
-    {
-      "id": "CVE-2026-88286",
-      "summary": "GeoVision GV-LPC2211 V1.13 improperly manages PTZ connection state, allowing an unauthenticated remote client to block the accept loop and prevent new PTZ connections.",
-      "published": "2026-09-10T09:17:05.673",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88286"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88893"
     }
   ]
 }
