@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-10T18:24:56+00:00",
+  "generated_at": "2026-09-11T00:07:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-89046",
-      "summary": "zstd-jni versions 1.5.5-6 through 1.5.7-13 contain an out-of-bounds read vulnerability in Zstd.getFrameContentSize that fails to validate negative srcPosition arguments. Attackers can supply negative offset values that bypass bounds checks and reach the native frame-header parser, causing out-of-bounds memory reads that lead to information disclosure or JVM crashes.",
-      "published": "2026-09-10T18:18:16.560",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89046"
+      "id": "CVE-2026-16174",
+      "summary": "Netskope was notified about a potential gap in Netskope Endpoint DLP (EPDLP) running on Windows systems. Successful exploitation of the gap could potentially allow a privileged user to send a crafted message to the EPDLP process port to trigger an integer overflow, leading to memory corruption. Successful exploitation would require the EPDLP module to be enabled in the client configuration, and that Memory Integrity is disabled. A successful exploit could potentially result in a denial-of-service, arbitrary code execution, or privilege escalation on the local machine.",
+      "published": "2026-09-10T23:16:37.470",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16174"
     },
     {
-      "id": "CVE-2026-89045",
-      "summary": "zstd-jni versions 1.4.8-4 through 1.5.7-13 fail to validate negative length parameters in ZstdInputStreamNoFinalizer.read(), allowing attackers to trigger infinite loops. Attackers can pass negative length values to cause the read method to spin indefinitely while holding the stream monitor, blocking all other threads from accessing the stream.",
-      "published": "2026-09-10T18:18:16.410",
-      "cvss": 4.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89045"
+      "id": "CVE-2026-16172",
+      "summary": "Netskope was notified of an out-of-bounds heap read affecting the Endpoint DLP (EPDLP) service of the Netskope Client. A local standard user could potentially send a specially crafted message that is not properly validated with a bounds check, likely crashing the kernel driver handler. Successful exploitation could potentially crash the EPDLP service, temporarily interrupting DLP enforcement. A successful exploit could potentially also reveal per-boot memory layout information to unauthorized users.",
+      "published": "2026-09-10T23:16:36.380",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16172"
     },
     {
-      "id": "CVE-2026-89044",
-      "summary": "Netty versions 4.1.133.Final through 4.1.137.Final and 4.2.13.Final through 4.2.17.Final fail to properly validate the final transfer coding in the Transfer-Encoding header, allowing attackers to smuggle requests by using malformed encoding declarations. Attackers can split Transfer-Encoding headers across multiple lines or use values like 'chunked, xchunked' to bypass validation and decode messages as chunked when the final coding is not chunked, enabling request smuggling attacks.",
-      "published": "2026-09-10T18:18:16.243",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89044"
+      "id": "CVE-2026-87958",
+      "summary": "IBM Db2 11.5.0 through 11.5.9, and 12.1.0 through 12.1.5 is vulnerable to a denial of service where a specific functionality on a Db2 server can be disabled by a privileged user under certain conditions.",
+      "published": "2026-09-10T22:17:04.760",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87958"
     },
     {
-      "id": "CVE-2026-89043",
-      "summary": "passport-saml-encrypted through 0.1.13 contains an XML signature wrapping vulnerability where signature verification and assertion extraction use independent XPath lookups with no cross-validation. Attackers holding any validly signed SAML message can prepend a forged unsigned assertion that gets accepted as the verified identity while the genuine signature validates against the original assertion.",
-      "published": "2026-09-10T18:18:16.073",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89043"
+      "id": "CVE-2026-86093",
+      "summary": "IBM Db2 11.5.0 through 11.5.9, and 12.1.0 through 12.1.5 could allow an attacker with the ability to control or impersonate a DRDA server endpoint to execute arbitrary commands on Db2 clients due to a stack-based buffer overflow that improperly copies user-controlled data into a fixed-size stack buffer without bounds checking.",
+      "published": "2026-09-10T22:17:04.620",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86093"
     },
     {
-      "id": "CVE-2026-89042",
-      "summary": "passport-saml-encrypted through 0.1.13 makes SAML signature verification conditional on an optional cert option, allowing attackers to bypass authentication by submitting unsigned SAML responses. Attackers can post forged SAML responses with arbitrary NameID and attributes to the assertion consumer service endpoint to receive authenticated profiles without valid signatures.",
-      "published": "2026-09-10T18:18:15.910",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89042"
+      "id": "CVE-2026-86087",
+      "summary": "IBM Db2 11.5.0 through 11.5.9, and 12.1.0 through 12.1.5 could allow an authenticated user to send a specially crafted request to write arbitrary files on the system.",
+      "published": "2026-09-10T22:17:04.477",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86087"
     },
     {
-      "id": "CVE-2026-88055",
-      "summary": "AnythingLLM is an application that turns pieces of content into context that any LLM can use as references during chatting. In 1.16.1 and earlier, the manager role can store meta_page_title or meta_page_favicon through /api/admin/system-preferences, and MetaGenerator inserts those values into production homepage HTML without escaping attribute values or text content. The values pass unchanged through server/models/systemSettings.js and reach MetaGenerator.generate() in server/index.js. #assembleMeta() in server/utils/boot/MetaGenerator.js concatenates the stored values into HTML. When an administrator visits the homepage /, injected JavaScript can read the administrator JWT and use it to create API keys, access or modify workspace and chat data, delete users, and perform other administrator actions. server/endpoints/admin.js accepts the manager-controlled settings before server/models/systemSettings.js returns them unchanged. No fixed version is available as of this review.",
-      "published": "2026-09-10T18:18:14.743",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88055"
+      "id": "CVE-2026-84889",
+      "summary": "IBM Langflow OSS 1.0.0 through 1.10.3 could allow a remote authenticated attacker to execute arbitrary code due to improper limitation of a pathname to a restricted directory.",
+      "published": "2026-09-10T22:17:04.347",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84889"
     }
   ]
 }
