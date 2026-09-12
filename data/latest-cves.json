@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-12T17:07:10+00:00",
+  "generated_at": "2026-09-12T19:18:07+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-90560",
+      "summary": "zstd-jni versions 1.2.0 through 1.5.7-13 contain an out-of-bounds read vulnerability in the ZstdDictDecompress constructor because offset and length arguments are never validated against the dictionary array bounds. Attackers can supply arbitrary offset or length values to read memory past the end of the supplied array, potentially causing JVM termination.",
+      "published": "2026-09-12T18:16:44.890",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90560"
+    },
+    {
+      "id": "CVE-2026-90559",
+      "summary": "snappy-java through 1.1.10.8 contains an out-of-bounds write vulnerability in Snappy.uncompress(ByteBuffer, ByteBuffer) because destination buffer capacity is never validated against decompressed size. Attackers can supply valid compressed data that decompresses larger than the destination buffer, causing writes past buffer boundaries and JVM termination.",
+      "published": "2026-09-12T18:16:44.743",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90559"
+    },
+    {
+      "id": "CVE-2026-90558",
+      "summary": "sngrep through 1.8.4 contains stack buffer overflow vulnerabilities in SIP attribute formatting routines when header values exceed the 255-byte buffer limit. Attackers can craft malicious SIP packets with oversized Call-ID, X-Call-ID, or other header fields to overflow stack buffers and cause crashes or execute arbitrary code during packet parsing and rendering.",
+      "published": "2026-09-12T18:16:44.587",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90558"
+    },
+    {
+      "id": "CVE-2026-90557",
+      "summary": "Freeciv versions 3.1.0 through 3.2.5 contain an out-of-bounds read vulnerability in sg_load_player_unit() when processing savegame files with invalid unit activity indices. An attacker can craft a malicious savegame file with an out-of-range activity index that bypasses bounds checking and causes a crash or limited heap memory exposure when loaded.",
+      "published": "2026-09-12T18:16:44.343",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90557"
+    },
+    {
+      "id": "CVE-2026-90556",
+      "summary": "Freeciv versions before 3.2.6 contain a heap buffer overflow in worklist_load() when processing savegame files with declared worklist lengths exceeding the fixed array bound of 64 elements. Attackers can craft malicious savegame files that write past the entries array into adjacent heap-allocated struct fields, potentially corrupting memory when a user or server operator loads the file.",
+      "published": "2026-09-12T18:16:44.193",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90556"
+    },
     {
       "id": "CVE-2026-90555",
       "summary": "vLLM versions before 0.28.0 fail to validate audio sample rate headers in the transcription endpoint, allowing authenticated clients to bypass duration checks. Attackers can submit forged FLAC headers with inflated sample rates to trigger excessive memory allocation and crash the API server process affecting all tenants.",
       "published": "2026-09-12T13:16:54.180",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90555"
-    },
-    {
-      "id": "CVE-2026-90554",
-      "summary": "vLLM versions >=0.10.2 and <0.28.0 do not apply any audio decode-size or duration limit when extracting audio from video input for NanoNemotronVL models. In nano_nemotron_vl.py, _extract_audio_from_videos calls load_audio_pyav(BytesIO(video_bytes)) without the max_duration_s or max_decode_bytes parameters, so neither VLLM_MAX_AUDIO_DECODE_DURATION_S nor VLLM_MAX_AUDIO_DECODE_BYTES is enforced (unlike the direct audio upload path in AudioMediaIO). When a NanoNemotronVL model is served with use_audio_in_video=True, an attacker who supplies a small, highly compressed video as multimodal input can force the server to allocate gigabytes of memory during audio decoding, resulting in a denial of service. Fixed in vLLM 0.28.0.",
-      "published": "2026-09-12T13:16:54.040",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90554"
-    },
-    {
-      "id": "CVE-2026-90553",
-      "summary": "vLLM before 0.28.0 contains a remote code execution vulnerability in the LlavaOnevision2 processor loader that ignores the trust_remote_code parameter when loading remote processor classes. Attackers can craft a malicious model with arbitrary code in processing_llava_onevision2.py that executes with vLLM process authority even when trust_remote_code is set to False.",
-      "published": "2026-09-12T13:16:53.887",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90553"
-    },
-    {
-      "id": "CVE-2026-90552",
-      "summary": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate playlist ownership in the Playlists_schedules/list.json.php and Live/calendar.json.php endpoints, allowing authenticated and unauthenticated users to read private playlist schedule metadata. Attackers with canStream privileges or no authentication can retrieve schedule names, descriptions, timestamps, and playlist identifiers by querying these endpoints without ownership checks.",
-      "published": "2026-09-12T13:16:53.747",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90552"
-    },
-    {
-      "id": "CVE-2026-90551",
-      "summary": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to validate playlist ownership in the video_from_program API endpoint, allowing unauthenticated access to private playlist contents. Attackers can query the API without authentication to enumerate private playlist names, owner information, and video titles including password-protected content.",
-      "published": "2026-09-12T13:16:53.603",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90551"
-    },
-    {
-      "id": "CVE-2026-90550",
-      "summary": "WWBN AVideo through commit c3edcc274c389816d434acadac07ee78eaf330c1 fails to check user authorization in the PlayerSkins mediaSession.json.php endpoint before returning video metadata. Unauthenticated attackers can request the endpoint with a video ID parameter to retrieve password-protected video titles and owner email addresses without authentication.",
-      "published": "2026-09-12T13:16:53.467",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90550"
     }
   ]
 }
