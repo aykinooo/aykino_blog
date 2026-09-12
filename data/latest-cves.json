@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-11T21:41:56+00:00",
+  "generated_at": "2026-09-12T00:15:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-81918",
-      "summary": "Concrete CMS below 9.5.3 is vulnerable to Stored XSS via the Date Format field in the Page Attribute Display block. A user with edit_page_contents permissions could store a payload which executes in the browser of any visitor who viewed a page where the block was configured to display a date-type attribute.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 4.8 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:P/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N. Thanks Oriol Ortiz for reporting.",
-      "published": "2026-09-11T21:17:21.063",
+      "id": "CVE-2026-90461",
+      "summary": "OpenStack Ironic through 38.0.0 may send a username and password to an unexpected remote host when Image Service is configured for HTTP(S) Basic Authentication.",
+      "published": "2026-09-11T22:16:48.403",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90461"
+    },
+    {
+      "id": "CVE-2026-90460",
+      "summary": "An issue was discovered in OpenStack Keystone before 29.0.3. Tokens obtained via delegated authentication methods (EC2 credentials, application credentials, OAuth1 access tokens, and trusts) are not blocked from creating, modifying, or deleting credentials via the /v3/credentials API. EC2-derived tokens can additionally read credential blobs, exposing TOTP MFA seeds and other secrets. Also, PATCH /v3/credentials does not validate the requested post-update project_id, allowing any delegated token to move a credential to an unauthorized project. All Keystone deployments using delegated authentication are affected.",
+      "published": "2026-09-11T22:16:48.243",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81918"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90460"
     },
     {
-      "id": "CVE-2026-81917",
-      "summary": "Concrete CMS below 9.5.3 does not apply HTML output escaping to the file description and tags fields when rendering the Document Library block, so a user with permission to edit file properties could store a script payload that executed in the browser of any visitor to a page displaying the block with the description or tags column enabled, including unauthenticated visitors. Successful exploitation could allow theft of session data or actions performed in the visitor's context. The block controller returned the description and tags values without the h() escaping already applied to the title column, and the block view template wrote the returned value directly into the results table\u00a0The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.1 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:H/UI:N/VC:L/VI:L/VA:N/SC:H/SI:H/SA:N. Thanks Nguyen Manh Thuan for reporting.",
-      "published": "2026-09-11T21:17:20.747",
+      "id": "CVE-2026-90457",
+      "summary": "The administrative password is hashed using a comparatively weak, fast algorithm for the credential store backing one authentication path, and the file containing that hash is written with permissions allowing it to be read by any local user. This is inconsistent with a separate, stronger hashing algorithm used for the same password on another authentication path. A party able to read this file, including a local user or a party with access to a configuration backup, could feasibly recover the underlying password through offline computation, compromising the administrative credential across every path that accepts it.",
+      "published": "2026-09-11T22:16:48.110",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81917"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90457"
     },
     {
-      "id": "CVE-2026-81907",
-      "summary": "Concrete CMS 9.5.2 and below is vulnerable to Cross-Site Request Forgery (CSRF) in the Express \"Clear Entries\" function (POST /index.php/dashboard/system/express/entities/delete_entries) because the controller records but does not enforce a failed CSRF token check, allowing the destructive operation to proceed when the token is missing or invalid. A remote unauthenticated attacker can force an authenticated administrator who visits an attacker-controlled page to permanently delete all entries belonging to an attacker-selected Express entity on a web application to which the administrator is currently authenticated. Because the default Contact Express object ships with a fixed entity UUID, the target identifier can be obtained without dashboard access.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 6.1 with vector CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:H/VA:H/SC:N/SI:N/SA:N. Thanks Pratik Zanjurne for reporting.",
-      "published": "2026-09-11T21:17:20.433",
+      "id": "CVE-2026-90456",
+      "summary": "An example environment-configuration file for a bundled inventory-management component ships with a fixed, publicly-known administrative password. A deployment that copies this example file into active configuration without running the setup routine that regenerates credentials will expose that component's administrative interface to anyone aware of the default value.",
+      "published": "2026-09-11T22:16:47.993",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81907"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90456"
     },
     {
-      "id": "CVE-2026-68535",
-      "summary": "Concrete CMS Area API's block-create endpoint in versions 9.2.0 to 9.5.2 did not invoke the block type controller's validate() method on submitted data, which, for file-referencing blocks such as hero_image and gallery, is where the referenced file is authorized against the user's file-manager visibility. As a result, an authenticated user holding the block-add scope could store, and cause the page to render, a reference to a file that the file-manager authorization policy would otherwise reject, disclosing that file's URL and preview to the editor and to visitors of the affected page. Under public file storage, the URL and thumbnail are exposed directly; under private storage, the disclosure is limited by the permission-checked download URL.\u00a0The Concrete CMS security team gave this vulnerability a CVSS v4.0 score of 5.1 with vector CVSS:4.0/AV:N/AC:L/AT:N/PR:H/UI:N/VC:N/VI:L/VA:L/SC:N/SI:N/SA:N. Thanks riodrwn for reporting.",
-      "published": "2026-09-11T21:17:13.443",
+      "id": "CVE-2026-90455",
+      "summary": "A prior update that raised a bundled HTTP client library to a version remediating known vulnerabilities was later reverted, reintroducing the earlier, vulnerable version into a log-processing component. The only code path in that component using the library issues a request to a single fixed, trusted vendor URL at initialization and does not process attacker-controlled input through the library, limiting practical exploitability of the reintroduced version in this context.",
+      "published": "2026-09-11T22:16:47.873",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68535"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90455"
     },
     {
-      "id": "CVE-2026-54174",
-      "summary": "melange allows users to build apk packages using declarative pipelines. Apko prior to version 1.2.9, corresponding to melange prior to version 0.50.4, verified the control section hash (`.PKGINFO` etc.) against the signed `APKINDEX`, but never verified the data section hash (the actual package files that get installed). An attacker who could compromise a mirror, poison a cache, or MITM a package fetch could substitute arbitrary file contents while the control hash check still passed. Apko version 1.2.9 and melange version 0.50.4 contain a fix.",
-      "published": "2026-09-11T21:17:11.403",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54174"
-    },
-    {
-      "id": "CVE-2026-54166",
-      "summary": "Shelf is a platform for tracking physical assets. Prior to version 1.20.3, authenticated users with the `asset:import` permission can trigger server-side HTTP requests to attacker-controlled URLs through the Asset CSV Content Import feature. The `imageUrl` validation logic can be bypassed through multiple techniques, including image-extension suffixes, image-related path keywords, domain substring matching, and redirect chains. After validation, the server performs an unrestricted `fetch()` request to the supplied URL. This results in a Server-Side Request Forgery (SSRF) vulnerability that allows attackers to reach internal network services, cloud metadata endpoints, and arbitrary external hosts from the application's network context. Additionally, response bodies are fully buffered before size validation, creating a potential memory exhaustion vector. Version 1.20.3 patches the issue.",
-      "published": "2026-09-11T21:17:11.247",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54166"
+      "id": "CVE-2026-90454",
+      "summary": "A deployment mode intended to expose only read access to a bundled packet-analysis component's interface denies a list of write-capable routes by pattern, but the pattern omits routes that modify tags attached to stored session records, and the proxy configuration otherwise permits the request method those routes use. This allows an authenticated user on a deployment intended to be read-only to add or remove tags on stored session records.",
+      "published": "2026-09-11T22:16:47.750",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90454"
     }
   ]
 }
