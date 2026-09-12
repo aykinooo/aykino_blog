@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-12T00:15:53+00:00",
+  "generated_at": "2026-09-12T05:45:13+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-90461",
-      "summary": "OpenStack Ironic through 38.0.0 may send a username and password to an unexpected remote host when Image Service is configured for HTTP(S) Basic Authentication.",
-      "published": "2026-09-11T22:16:48.403",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90461"
+      "id": "CVE-2026-87719",
+      "summary": "GitLab has remediated an issue in GitLab EE affecting all versions from 18.3 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that under certain conditions could allow an authenticated user with Duo Chat access to obtain Advanced Search instance configurations and sensitive credentials using a specially crafted GraphQL subscription argument to bypass serialization and perform server object lookup.",
+      "published": "2026-09-12T03:16:31.477",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87719"
     },
     {
-      "id": "CVE-2026-90460",
-      "summary": "An issue was discovered in OpenStack Keystone before 29.0.3. Tokens obtained via delegated authentication methods (EC2 credentials, application credentials, OAuth1 access tokens, and trusts) are not blocked from creating, modifying, or deleting credentials via the /v3/credentials API. EC2-derived tokens can additionally read credential blobs, exposing TOTP MFA seeds and other secrets. Also, PATCH /v3/credentials does not validate the requested post-update project_id, allowing any delegated token to move a credential to an unauthorized project. All Keystone deployments using delegated authentication are affected.",
-      "published": "2026-09-11T22:16:48.243",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90460"
+      "id": "CVE-2026-85706",
+      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.7 before 19.1.8, 19.2 before 19.2.6, and 19.3 before 19.3.2 that, under certain conditions, an unauthenticated user could have read arbitrary files from the GitLab server due to improper path confinement and missing authentication enforcement in the repository commits API.",
+      "published": "2026-09-12T03:16:30.473",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85706"
     },
     {
-      "id": "CVE-2026-90457",
-      "summary": "The administrative password is hashed using a comparatively weak, fast algorithm for the credential store backing one authentication path, and the file containing that hash is written with permissions allowing it to be read by any local user. This is inconsistent with a separate, stronger hashing algorithm used for the same password on another authentication path. A party able to read this file, including a local user or a party with access to a configuration backup, could feasibly recover the underlying password through offline computation, compromising the administrative credential across every path that accepts it.",
-      "published": "2026-09-11T22:16:48.110",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90457"
+      "id": "CVE-2026-90467",
+      "summary": "aiosmtplib before 5.1.3 fails to properly validate email addresses supplied by callers, allowing attackers to inject ESMTP parameters into MAIL FROM and RCPT TO command lines. Attackers can craft malicious addresses containing spaces and angle brackets to append parameters like AUTH, NOTIFY, or ORCPT to envelope commands, forging authenticated identities or forcing delivery notifications to third parties.",
+      "published": "2026-09-12T02:16:24.770",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90467"
     },
     {
-      "id": "CVE-2026-90456",
-      "summary": "An example environment-configuration file for a bundled inventory-management component ships with a fixed, publicly-known administrative password. A deployment that copies this example file into active configuration without running the setup routine that regenerates credentials will expose that component's administrative interface to anyone aware of the default value.",
-      "published": "2026-09-11T22:16:47.993",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90456"
+      "id": "CVE-2026-89268",
+      "summary": "QloApps through 1.7.0 renders back-office list filter POST parameters into HTML input value attributes without escaping them in the list helper template. Attackers can induce authenticated users to submit crafted POST requests with malicious payloads to list controllers, executing arbitrary JavaScript in the victim's session to read administrative data and perform actions.",
+      "published": "2026-09-12T02:16:24.623",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89268"
     },
     {
-      "id": "CVE-2026-90455",
-      "summary": "A prior update that raised a bundled HTTP client library to a version remediating known vulnerabilities was later reverted, reintroducing the earlier, vulnerable version into a log-processing component. The only code path in that component using the library issues a request to a single fixed, trusted vendor URL at initialization and does not process attacker-controlled input through the library, limiting practical exploitability of the reintroduced version in this context.",
-      "published": "2026-09-11T22:16:47.873",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90455"
+      "id": "CVE-2026-89267",
+      "summary": "starlette-admin versions 0.16.1 through 0.17.1 fail to enforce the searchable_fields allowlist when configured as an empty list, allowing authenticated users to filter on non-searchable fields. Attackers can submit structured filter queries via the list API's where parameter to perform equality and comparison operations on excluded columns.",
+      "published": "2026-09-12T02:16:23.580",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89267"
     },
     {
-      "id": "CVE-2026-90454",
-      "summary": "A deployment mode intended to expose only read access to a bundled packet-analysis component's interface denies a list of write-capable routes by pattern, but the pattern omits routes that modify tags attached to stored session records, and the proxy configuration otherwise permits the request method those routes use. This allows an authenticated user on a deployment intended to be read-only to add or remove tags on stored session records.",
-      "published": "2026-09-11T22:16:47.750",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90454"
+      "id": "CVE-2026-89266",
+      "summary": "stb_vorbis through 1.22 contains a heap buffer overflow in start_decoder() where the codebook multiplicands allocation size is truncated from size_t to int. Attackers can craft a malicious Ogg Vorbis file with large entries and dimensions values to trigger out-of-bounds writes, causing process crashes or heap corruption.",
+      "published": "2026-09-12T00:17:06.440",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89266"
     }
   ]
 }
