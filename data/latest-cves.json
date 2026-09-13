@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-12T22:14:50+00:00",
+  "generated_at": "2026-09-13T00:00:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-90647",
+      "summary": "ASE/Kalkitech ASE2000 V2 Communication Test Set 2.35 through 2.37 on Windows contains an improper certificate validation vulnerability in the IEC 60870-5-104 TLS client (Task Mode). This allows a network-positioned attacker to bypass certificate validation via a certificate with multiple simultaneous faults, enabling a Man-in-the-Middle attack on protected communications.",
+      "published": "2026-09-12T23:17:01.490",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90647"
+    },
+    {
+      "id": "CVE-2026-90487",
+      "summary": "A vulnerability was found in Xuxueli xxl-job up to 3.4.2. Affected by this issue is some unknown functionality of the file xxl-job-admin/src/main/java/com/xxl/job/admin/business/controller/JobGroupController.java. The manipulation results in improper privilege management. The attack may be launched remotely. The exploit has been made public and could be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-12T23:17:01.307",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90487"
+    },
+    {
+      "id": "CVE-2026-90486",
+      "summary": "A vulnerability has been found in openstatusHQ openstatus up to f04c827112f30a11d571ebdad3892826034d6265. Affected by this vulnerability is an unknown functionality of the file apps/status-page/src/lib/proxy/resolve-custom-domain-rewrite.ts. The manipulation leads to server-side request forgery. The attack may be initiated remotely. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The identifier of the patch is 86f370c9c20074c3c3fdec53a359874b8e670fd4. It is suggested to install a patch to address this issue. This issue got fixed with a silent patch.",
+      "published": "2026-09-12T23:17:01.073",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90486"
+    },
+    {
+      "id": "CVE-2026-79300",
+      "summary": "SEP sesam before 5.2.0.24 mishandles User Authorization with MFA. If AD authentication is configured and MFA is enforced, an attacker can create a second OTP access capability. SEP sesam and Active Directory handle username capitalization differently, which may allow multiple SEP sesam user accounts to be created for the same Active Directory (AD) account. Active Directory treats usernames as case-insensitive, while SEP sesam distinguishes between different letter casing. As a result, the same AD user can be represented by multiple SEP sesam user accounts that differ only in username capitalization. When Active Directory authentication is configured and multi-factor authentication (MFA) is enforced, this behavior may allow an additional OTP Authenticator to be registered for the same AD account, reducing the effectiveness of MFA protection.",
+      "published": "2026-09-12T23:17:00.893",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79300"
+    },
+    {
+      "id": "CVE-2026-90485",
+      "summary": "A flaw has been found in IOBit Uninstaller 15.5.0.11. Affected by this issue is the function sub_11838 of the file IURegistryFilter.sys of the component IOCTL Dispatch Handler. This manipulation causes null pointer dereference. The attack requires local access. The exploit has been published and may be used. Identical IURegistryFilter.sys ships across multiple IObit families. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-12T22:16:30.783",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90485"
+    },
     {
       "id": "CVE-2026-90616",
       "summary": "In Flatpak before 1.18.1, a malicious sandboxed app can obtain arbitrary read and write access to files on the host, which can be escalated to arbitrary code execution on the host, a different vulnerability than CVE-2026-76925. Flatpak creates a few app data directories (e.g., /var/cache, /var/data, /var/config, and /var/tmp) in every sandbox on every app launch where, in some cases, components of the path are attacker-controlled. Missing symlink protection can redirect the directories. Some of these directories are bind-mounted by Flatpak by passing the path (e.g., /home/user/.var/app/APP_ID/cache/tmp), which contains attacker-controlled directories (tmp) to bwrap --bind SRC DST. bwrap passes the path on to the kernel, which then follows symlinks. A malicious symlink can point to arbitrary locations on the host and it will become mounted inside the sandbox.",
       "published": "2026-09-12T20:16:30.957",
       "cvss": 7.4,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90616"
-    },
-    {
-      "id": "CVE-2026-90560",
-      "summary": "zstd-jni versions 1.2.0 through 1.5.7-13 contain an out-of-bounds read vulnerability in the ZstdDictDecompress constructor because offset and length arguments are never validated against the dictionary array bounds. Attackers can supply arbitrary offset or length values to read memory past the end of the supplied array, potentially causing JVM termination.",
-      "published": "2026-09-12T18:16:44.890",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90560"
-    },
-    {
-      "id": "CVE-2026-90559",
-      "summary": "snappy-java through 1.1.10.8 contains an out-of-bounds write vulnerability in Snappy.uncompress(ByteBuffer, ByteBuffer) because destination buffer capacity is never validated against decompressed size. Attackers can supply valid compressed data that decompresses larger than the destination buffer, causing writes past buffer boundaries and JVM termination.",
-      "published": "2026-09-12T18:16:44.743",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90559"
-    },
-    {
-      "id": "CVE-2026-90558",
-      "summary": "sngrep through 1.8.4 contains stack buffer overflow vulnerabilities in SIP attribute formatting routines when header values exceed the 255-byte buffer limit. Attackers can craft malicious SIP packets with oversized Call-ID, X-Call-ID, or other header fields to overflow stack buffers and cause crashes or execute arbitrary code during packet parsing and rendering.",
-      "published": "2026-09-12T18:16:44.587",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90558"
-    },
-    {
-      "id": "CVE-2026-90557",
-      "summary": "Freeciv versions 3.1.0 through 3.2.5 contain an out-of-bounds read vulnerability in sg_load_player_unit() when processing savegame files with invalid unit activity indices. An attacker can craft a malicious savegame file with an out-of-range activity index that bypasses bounds checking and causes a crash or limited heap memory exposure when loaded.",
-      "published": "2026-09-12T18:16:44.343",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90557"
-    },
-    {
-      "id": "CVE-2026-90556",
-      "summary": "Freeciv versions before 3.2.6 contain a heap buffer overflow in worklist_load() when processing savegame files with declared worklist lengths exceeding the fixed array bound of 64 elements. Attackers can craft malicious savegame files that write past the entries array into adjacent heap-allocated struct fields, potentially corrupting memory when a user or server operator loads the file.",
-      "published": "2026-09-12T18:16:44.193",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90556"
     }
   ]
 }
