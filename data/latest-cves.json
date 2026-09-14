@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-14T12:52:38+00:00",
+  "generated_at": "2026-09-14T18:35:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-90919",
-      "summary": "LightLLM through 1.2.0 contains a remote code execution vulnerability in the Config Server's unauthenticated /visual_register WebSocket endpoint that passes the first client frame directly to pickle.loads(). Attackers can reach the Config Server port and send a malicious serialized payload with a __reduce__ method to execute arbitrary code with Config Server process privileges.",
-      "published": "2026-09-14T12:17:51.807",
+      "id": "CVE-2026-91081",
+      "summary": "Docs through 5.6.1 contains a server-side request forgery vulnerability in the cors-proxy endpoint that allows anonymous attackers to make outbound requests by providing a public document UUID. Attackers can exploit DNS time-of-check-time-of-use race conditions and shared address space bypasses to access internal network resources and exfiltrate image content.",
+      "published": "2026-09-14T18:20:29.920",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91081"
+    },
+    {
+      "id": "CVE-2026-91080",
+      "summary": "webhook through 2.8.3 reads the entire request body into memory before evaluating trigger rules, allowing unauthenticated attackers to exhaust memory by sending oversized bodies. Attackers can send multi-gigabyte request bodies with invalid signatures to trigger out-of-memory conditions and crash the service.",
+      "published": "2026-09-14T18:20:29.760",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91080"
+    },
+    {
+      "id": "CVE-2026-91079",
+      "summary": "Huly Platform through 0.7.426 contains a server-side request forgery vulnerability in the print service due to missing hostname allowlist validation. Authenticated workspace members can supply arbitrary URLs to the print endpoint, which Puppeteer renders and returns as downloadable PDFs or images, enabling access to internal metadata services and network hosts.",
+      "published": "2026-09-14T18:20:29.583",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91079"
+    },
+    {
+      "id": "CVE-2026-91021",
+      "summary": "Trilium Notes, version v0.103.0 and earlier, contains a stored cross-site scripting (XSS) vulnerability in the share renderer for webView notes due to improper HTML escaping of user-controlled #webViewSrc values. This vulnerability allows attackers with note-authoring privileges to inject arbitrary JavaScript that executes for any user who opens the shared note, including administrators.",
+      "published": "2026-09-14T18:20:29.467",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91021"
+    },
+    {
+      "id": "CVE-2026-90946",
+      "summary": "DeepWiki-Open through commit d92819a contains an arbitrary file read vulnerability in the unauthenticated /ws/chat WebSocket endpoint that accepts repo_url as a filesystem path with no containment. Attackers can supply arbitrary directory paths to read all files with supported extensions including Python, JavaScript, YAML, and JSON files containing hardcoded secrets and credentials.",
+      "published": "2026-09-14T18:20:29.180",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90946"
+    },
+    {
+      "id": "CVE-2026-90945",
+      "summary": "Crawlab through 0.6.3 uses a hard-coded HMAC-SHA256 secret for JWT token signing that cannot be overridden via configuration or environment variables. Unauthenticated attackers can forge valid administrator tokens to access administrative APIs and execute code on worker nodes.",
+      "published": "2026-09-14T18:20:29.030",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90919"
-    },
-    {
-      "id": "CVE-2026-90712",
-      "summary": "A vulnerability was identified in Gitlawb openclaude up to 0.30.0. Impacted is the function waitForCallback of the file src/services/api/xaiOAuthCallback.ts of the component xAI OAuth Callback Handler. The manipulation of the argument Error leads to denial of service. Remote exploitation of the attack is possible. The exploit is publicly available and might be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-09-14T12:17:51.223",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90712"
-    },
-    {
-      "id": "CVE-2026-90710",
-      "summary": "A vulnerability was determined in taisan tarzan-cms 1.0.0. This issue affects the function openConnection of the file com/tarzan/cms/modules/admin/service/biz/ThemeService.java of the component Theme Download Function. Executing a manipulation of the argument httpUrl can lead to server-side request forgery. The attack may be launched remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-09-14T12:17:51.043",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90710"
-    },
-    {
-      "id": "CVE-2026-90709",
-      "summary": "A security vulnerability has been detected in Yot CMS up to 3.3.1. Affected by this issue is the function eval of the file modsys/console/admin.php of the component Admin Console. Such manipulation of the argument text leads to code injection. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-09-14T12:17:50.830",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90709"
-    },
-    {
-      "id": "CVE-2026-79701",
-      "summary": "Joomla Extension - joomshaper.com - Unauthenticated CAPTCHA Bypass in Module Context in the Contact, Opt-in and Form Builder Addons in SP Page Builder Pro 3.2.6 - 6.9.0 - In the ajax_contact, optin_form and form_builder addons, the result returned by the CAPTCHA plugin's onCheckAnswer event was discarded and replaced with a test for a non-empty string whenever the request-supplied view_type parameter equalled module. Submitting view_type=module together with any arbitrary token value therefore passed verification. This affected every instance of these addons placed inside an SP Page Builder module, irrespective of the CAPTCHA type configured for the site, and the view_type parameter was never validated against the context in which the form was actually rendered.",
-      "published": "2026-09-14T12:17:46.137",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79701"
-    },
-    {
-      "id": "CVE-2026-21391",
-      "summary": "An improper validation vulnerability exists within PingAM where a well-crafted request allows arbitrary or protected ID Token claims to be set or overridden. In certain configurations this could allow an attacker to bypass authentication controls via spoofing leading to privilege escalation or impersonation.",
-      "published": "2026-09-14T12:17:38.810",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21391"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90945"
     }
   ]
 }
