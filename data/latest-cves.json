@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-16T11:27:41+00:00",
+  "generated_at": "2026-09-16T16:51:00+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-92357",
-      "summary": "A vulnerability was identified in a2ui-project a2ui 0.8/0.9/1.0. Impacted is an unknown function of the file model-processor.ts of the component Model Processor. The manipulation of the argument current[segment] leads to information disclosure. The attack may be initiated remotely. The identifier of the patch is 1b3bff234661ce922cbc3771be642b23ec9fd0fa. To fix this issue, it is recommended to deploy a patch.",
-      "published": "2026-09-16T11:17:25.740",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92357"
-    },
-    {
-      "id": "CVE-2026-92356",
-      "summary": "A vulnerability was determined in a2ui-project a2ui 0.9/0.9.1. This issue affects the function updateComponents of the file basic_functions.ts of the component Update Components. Executing a manipulation can lead to resource consumption. The attack can be launched remotely. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-09-16T11:17:25.553",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92356"
-    },
-    {
-      "id": "CVE-2026-90049",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet: skbuff: don't skb_tx_error() the source skb in skb_zerocopy()\n\nskb_zerocopy() copies frags from @from into @to. On an\nskb_orphan_frags() failure it calls skb_tx_error(@from), a destructive\noperation on the source skb the copy helper does not own. That completes\n@from's zerocopy uarg and clears SKBFL_ALL_ZEROCOPY, including the\nSKBFL_SHARED_FRAG page-ownership marker.\n\nBoth callers already report the failure on their own drop path.\nnfnetlink_queue does it at nla_put_failure, and Open vSwitch does it in\nthe flow-miss drop arm of ovs_dp_process_packet(), so nothing is lost by\ndropping it here.\n\nOn Open vSwitch's OVS_ACTION_ATTR_USERSPACE path the skb is not freed on\nthis error: do_execute_actions() ignores output_userspace()'s return\nvalue and, unless the upcall was the last action, keeps forwarding the\nsame skb through the flow's remaining actions. The uarg is completed\nwhile that skb is still in flight, telling the producer its buffers are\nfree, and SKBFL_SHARED_FRAG is cleared on an skb the rest of the stack\nstill handles. That flag is what makes esp_input() call skb_cow_data()\ninstead of decrypting in place, so a later local ESP delivery can\ndecrypt over frags the skb does not own privately.\n\nLeave error reporting to the callers.",
-      "published": "2026-09-16T11:17:18.263",
+      "id": "CVE-2026-92627",
+      "summary": "A heap-use-after-free vulnerability exists in H5T__conv_f_f() in src/H5Tconv.c in HDF5 before 1.14.2.\u00a0When converting a compound datatype containing floating-point members during a dataset read, a temporary buffer allocated with calloc() is freed and subsequently read from within the same conversion routine. An attacker who can supply a crafted HDF5 file containing a specially constructed compound datatype can trigger the use-after-free when the file is parsed by an application that reads the affected dataset, such as h5dump.\u00a0This can result in a crash and, depending on heap layout and allocator behavior, may be exploitable for further memory corruption up to remote code execution.",
+      "published": "2026-09-16T16:17:23.993",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90049"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92627"
     },
     {
-      "id": "CVE-2026-90048",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nfs/ntfs3: fix slab-out-of-bounds write in ni_create_attr_list()\n\nni_create_attr_list() allocates a fixed buffer of al_aligned(record_size)\n(== record_size) bytes and then walks every attribute of the primary MFT\nrecord, writing one ATTR_LIST_ENTRY per attribute and advancing the cursor\nby le_size(name_len), with no check against the end of the buffer; the\ntotal size is only computed after the loop.\n\nA minimum-size resident attribute occupies SIZEOF_RESIDENT (0x18 = 24)\nbytes on disk, but an unnamed attribute expands to le_size(0) (0x20 = 32)\nbytes in the list.  Because the number of attributes in a record is not\nbounded (mi_enum_attr() accepts arbitrarily many equal-type, nameless\nminimum-size attributes), a crafted record packed with such attributes\nproduces a list larger than record_size and overflows the heap buffer.\n\nThis is reachable from a crafted, loop-mounted NTFS image: opening the file\nand adding an attribute (e.g. via setxattr) drives ntfs_set_ea() ->\nni_insert_resident() -> ni_insert_attr() -> ni_ins_attr_ext() ->\nni_create_attr_list().\n\n  BUG: KASAN: slab-out-of-bounds in ni_create_attr_list+0xc48/0x1058\n  Write of size 4 at addr ffff000008984c00 by task setfattr/345\n   ni_create_attr_list+0xc48/0x1058\n   ni_ins_attr_ext+0x510/0x7c0\n   ni_insert_attr+0x3f8/0x70c\n   ni_insert_resident+0xc8/0x3b0\n   ntfs_set_ea+0x66c/0xd28\n   ntfs_setxattr+0x4d8/0x5b0\n   __arm64_sys_setxattr+0xa4/0x124\n  Allocated by task 345:\n   ni_create_attr_list+0x188/0x1058\n  The buggy address belongs to the cache kmalloc-1k of size 1024\n  (the write lands at object+1024).\n\nSize the buffer from the actual attributes instead of assuming a single\nrecord_size is always enough.",
-      "published": "2026-09-16T11:17:18.140",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90048"
+      "id": "CVE-2026-92626",
+      "summary": "Control iD iDSecure versions prior to\u00a04.8.3.0 are affected by an unauthenticated\u00a0Denial of Service.\n\n\nThe /api/dguardintegration/dguardVersion endpoint dereferences DGuard integration login state that may be unset, raising an unhandled null reference exception. The exception is thrown from an asynchronous method that returns void, so it is not observed by a caller and can terminate the iDSecure process.",
+      "published": "2026-09-16T16:17:23.877",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92626"
     },
     {
-      "id": "CVE-2026-90047",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndrm/xe: Don't hand out the flat CCS storage as usable VRAM\n\nget_flat_ccs_offset() reads the base of the flat CCS storage from the\nhardware, scales it by the number of enabled L3 nodes, and rounds the\nresult up to 128K.  Everything below that offset is then handed to the\nVRAM allocator as usable memory.\n\nRounding a limit that means \"usable memory ends here\" upwards publishes\nwhatever lies between the real base and the rounded one as free memory,\nand that memory belongs to the compression hardware.  The scaled value\nhas no reason to be 128K aligned, and on a Battlemage G21 with 16 GiB it\nis not:\n\n\tflat CCS base: raw 0x3fafff800, rounded 0x3fb000000\n\nso the last 2 KiB of page 0x3fafff000 is CCS storage, in the allocator's\npool.  Whatever is allocated there gets that tail overwritten by the\ncompression hardware, which needs no page-table entry, no buffer object\nand no GPU submission to do it, and does it before userspace exists.\n\nOn this machine a Mesa VM's level-3 page table landed on that page on\nevery cold boot.  It lost the entry covering the compositor's\nbatch-buffer heap, so the compositor's first submission faulted fetching\nits batch and gdm restarted it forever: a black screen on an otherwise\nworking machine.  Restarting gdm cleared it because the next VM's page\ntables were allocated somewhere else.\n\nRound down instead, to the page size the allocator works in.  On this\nmachine that excludes exactly one page.\n\nReading the reserved page afterwards shows what had been writing it:\n\n\t[369] 0xcccc000000000000\n\t[371] 0xcc77000000000000\n\t[373] 0xcccc000000000000\n\t[375] 0xcc77000000000000\n\ncompression metadata, two bytes per sixteen, sitting where the driver\nused to hand out memory.\n\nThe assertion that should have caught this compares the offset against\nGSMBASE - ccs_size for equality.  That value is 128K aligned, so it\nagrees with the rounded-up offset precisely when the base is not\naligned - the check cannot fail in the case it exists to catch, and is\ncompiled out unless CONFIG_DRM_XE_DEBUG is set.  Replace it with one\nthat can fail: CCS storage must not run into GSM.\n\n[ And this was a debug session from hell, enormously helped by an AI\n  doing much of the grunt-work.\n\n  I'd like to call it my tireless helper, but the AI several times\n  stated flat out that this was impossible and unsolvable and that we\n  should just write a report about it.\n\n  I suspect those things have been trained by people who may not be\n  quite as stubborn as I am.\n\n  But while the AI was ready to give up several times, it did keep\n  adding debug code and analyzing it faithfully when I pushed. So credit\n  where credit is due and I let the AI write the commit message above.\n\n  This is basically a one-liner fixing a bogus \"round_up()\" to a\n  \"round_down()\", but there were 24 patches adding more and more debug\n  information to this, and 18 kernel boot to finally narrow it down to\n  this.   - Linus ]",
-      "published": "2026-09-16T11:17:17.973",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90047"
+      "id": "CVE-2026-92625",
+      "summary": "Control iD iDSecure versions prior to\u00a04.8.3.0 are affected by an unauthenticated\u00a0Denial of Service.\n\n\nThe /api/license/restartService endpoint is reachable without authentication and invokes an internal routine that terminates the iDSecure service process and relaunches it by way of a generated batch script. An unauthenticated remote attacker can call this endpoint repeatedly to hold the service in a continuous restart cycle, rendering it unavailable.",
+      "published": "2026-09-16T16:17:23.760",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92625"
     },
     {
-      "id": "CVE-2026-90046",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nmm/page_alloc: don't spin_trylock() in NMI on UP\n\nPatch series \"mm/page_alloc: fixes for free_pages_nolock() on RT/UP\".\n\nPre-existing bugs found by Sashiko during review of this other series:\nhttps://lore.kernel.org/all/20260703-alloc-trylock-v5-0-c87b714e19d3@google.com/\n\nI have not reproduced these bugs, and I suspect there is no real-world\nuser that is affected by them.\n\n\nThis patch (of 2):\n\nAs noted in can_spin_trylock(), using this is unsafe in this context. \ncommit 620b46ed6ae17 (\"mm/page_alloc: return NULL early from\nalloc_frozen_pages_nolock() in NMI on UP\") fixed this on the alloc side\nbut missed the free side.\n\nImpact: If BPF programs using these features in NMI (probably tracing) are\npresent on non-SMP builds this might crash the kernel and is probably\nexploitable by local attackers for privilege escalation.",
-      "published": "2026-09-16T11:17:17.867",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90046"
+      "id": "CVE-2026-92615",
+      "summary": "A flaw was found in flightctl. The configureRepoHTTPSClient() function in the device-render worker builds a per-repository tls.Config (which may include InsecureSkipVerify, a custom CA bundle, or tenant-supplied mTLS client certificates) and installs it into go-git's process-global client.Protocols map via gitclient.InstallProtocol(\"https\", ...). Because the worker renders devices for multiple organizations concurrently from a shared goroutine pool, whichever tenant's repository configuration is written last wins for all in-flight git.Clone calls. \nThis race condition can cause one tenant's TLS settings, including InsecureSkipVerify or mTLS client credentials, to leak into another tenant's git operations.",
+      "published": "2026-09-16T16:17:23.513",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92615"
+    },
+    {
+      "id": "CVE-2026-92397",
+      "summary": "A vulnerability has been found in Ruijie RG-EW3000GX EW_3.0(1)B11P380. Affected by this vulnerability is the function cc_set of the file unifyframe-sgi.elf of the component configChange. Such manipulation of the argument data.url leads to os command injection. The attack may be performed from remote. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-09-16T16:17:22.960",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92397"
+    },
+    {
+      "id": "CVE-2026-92385",
+      "summary": "A vulnerability has been found in SourceCodester Online Food Ordering System 1.0. The affected element is an unknown function of the file /admin/update_category.php of the component Category Update. The manipulation leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
+      "published": "2026-09-16T16:17:22.767",
+      "cvss": 2.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92385"
     }
   ]
 }
