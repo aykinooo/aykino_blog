@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-16T16:51:00+00:00",
+  "generated_at": "2026-09-16T20:05:32+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-92627",
-      "summary": "A heap-use-after-free vulnerability exists in H5T__conv_f_f() in src/H5Tconv.c in HDF5 before 1.14.2.\u00a0When converting a compound datatype containing floating-point members during a dataset read, a temporary buffer allocated with calloc() is freed and subsequently read from within the same conversion routine. An attacker who can supply a crafted HDF5 file containing a specially constructed compound datatype can trigger the use-after-free when the file is parsed by an application that reads the affected dataset, such as h5dump.\u00a0This can result in a crash and, depending on heap layout and allocator behavior, may be exploitable for further memory corruption up to remote code execution.",
-      "published": "2026-09-16T16:17:23.993",
+      "id": "CVE-2026-92729",
+      "summary": "SigNoz versions 0.88.0 through 0.141.0 fail to apply authorization wrappers to trace-funnel analytics endpoints in the HTTP handler. Unauthenticated attackers can submit arbitrary funnel definitions to retrieve trace analytics including identifiers, durations, span counts, service topology, and error activity without credentials.",
+      "published": "2026-09-16T19:18:06.833",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92729"
+    },
+    {
+      "id": "CVE-2026-92473",
+      "summary": "A vulnerability was identified in GPAC 26.08-DEV. The impacted element is the function gf_sg_command_del of the file src/scenegraph/commands.c of the component BIFS Handler. The manipulation leads to use after free. The attack needs to be performed locally. The exploit is publicly available and might be used. Upgrading to version abi-16.24 is sufficient to resolve this issue. The identifier of the patch is e34f4ba349d55cd1849f0bcf4cf46552732e2db7. It is suggested to upgrade the affected component.",
+      "published": "2026-09-16T19:18:06.583",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92473"
+    },
+    {
+      "id": "CVE-2026-92472",
+      "summary": "A vulnerability was determined in GPAC 26.08-DEV. The affected element is the function gf_node_deactivate_ex of the file src/scenegraph/base_scenegraph.c of the component MP4Box. Executing a manipulation can lead to use after free. The attack needs to be launched locally. The exploit has been publicly disclosed and may be utilized. Upgrading to version abi-16.24 is sufficient to fix this issue. This patch is called e34f4ba349d55cd1849f0bcf4cf46552732e2db7. The affected component should be upgraded. This issue is distinct from CVE-2026-90827.",
+      "published": "2026-09-16T19:18:06.377",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92472"
+    },
+    {
+      "id": "CVE-2026-92418",
+      "summary": "A vulnerability was determined in ChangeWeDer crm up to c07bd4c97141521af6475034bc58523beed51bbd. This vulnerability affects unknown code of the file src/main/resources/public/js/customerServe/customer.serve.js of the component Save Endpoint. This manipulation of the argument customerName causes cross site scripting. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-09-16T19:18:06.170",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92418"
+    },
+    {
+      "id": "CVE-2026-92417",
+      "summary": "A vulnerability was found in Open5GS up to 2.8.0. This affects the function ogs_pfcp_parse_volume_measurement in the library lib/pfcp/types.c of the component PFCP Handler. The manipulation results in null pointer dereference. The attack may be launched remotely. The patch is identified as 8f07b507b78ff94776f2cd49276eb116ed93d7f2. A patch should be applied to remediate this issue.",
+      "published": "2026-09-16T19:18:05.933",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92417"
+    },
+    {
+      "id": "CVE-2026-91106",
+      "summary": "HP has identified and remediated multiple externally reported vulnerabilities within HPLIP. The findings affect several software components that could potentially enable remote code execution, privilege escalation, denial of service, information disclosure, or unauthorized file modification under certain conditions.",
+      "published": "2026-09-16T19:18:03.587",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92627"
-    },
-    {
-      "id": "CVE-2026-92626",
-      "summary": "Control iD iDSecure versions prior to\u00a04.8.3.0 are affected by an unauthenticated\u00a0Denial of Service.\n\n\nThe /api/dguardintegration/dguardVersion endpoint dereferences DGuard integration login state that may be unset, raising an unhandled null reference exception. The exception is thrown from an asynchronous method that returns void, so it is not observed by a caller and can terminate the iDSecure process.",
-      "published": "2026-09-16T16:17:23.877",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92626"
-    },
-    {
-      "id": "CVE-2026-92625",
-      "summary": "Control iD iDSecure versions prior to\u00a04.8.3.0 are affected by an unauthenticated\u00a0Denial of Service.\n\n\nThe /api/license/restartService endpoint is reachable without authentication and invokes an internal routine that terminates the iDSecure service process and relaunches it by way of a generated batch script. An unauthenticated remote attacker can call this endpoint repeatedly to hold the service in a continuous restart cycle, rendering it unavailable.",
-      "published": "2026-09-16T16:17:23.760",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92625"
-    },
-    {
-      "id": "CVE-2026-92615",
-      "summary": "A flaw was found in flightctl. The configureRepoHTTPSClient() function in the device-render worker builds a per-repository tls.Config (which may include InsecureSkipVerify, a custom CA bundle, or tenant-supplied mTLS client certificates) and installs it into go-git's process-global client.Protocols map via gitclient.InstallProtocol(\"https\", ...). Because the worker renders devices for multiple organizations concurrently from a shared goroutine pool, whichever tenant's repository configuration is written last wins for all in-flight git.Clone calls. \nThis race condition can cause one tenant's TLS settings, including InsecureSkipVerify or mTLS client credentials, to leak into another tenant's git operations.",
-      "published": "2026-09-16T16:17:23.513",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92615"
-    },
-    {
-      "id": "CVE-2026-92397",
-      "summary": "A vulnerability has been found in Ruijie RG-EW3000GX EW_3.0(1)B11P380. Affected by this vulnerability is the function cc_set of the file unifyframe-sgi.elf of the component configChange. Such manipulation of the argument data.url leads to os command injection. The attack may be performed from remote. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-09-16T16:17:22.960",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92397"
-    },
-    {
-      "id": "CVE-2026-92385",
-      "summary": "A vulnerability has been found in SourceCodester Online Food Ordering System 1.0. The affected element is an unknown function of the file /admin/update_category.php of the component Category Update. The manipulation leads to cross site scripting. The attack can be initiated remotely. The exploit has been disclosed to the public and may be used.",
-      "published": "2026-09-16T16:17:22.767",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92385"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91106"
     }
   ]
 }
