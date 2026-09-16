@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-16T00:16:38+00:00",
+  "generated_at": "2026-09-16T05:58:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85893",
-      "summary": "Use after free in Microsoft Edge (Chromium-based) allows an unauthorized attacker to elevate privileges over a network.",
-      "published": "2026-09-15T23:19:12.110",
+      "id": "CVE-2026-89063",
+      "summary": "The Online Scheduling and Appointment Booking System \u2013 Bookly plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 28.1 via the 'conversation_id' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to read the full AI booking conversation transcript of any customer \u2014 leaking names, email addresses, phone numbers, and appointment details echoed by the assistant \u2014 and inject arbitrary messages into any victim conversation that are subsequently replayed to the Cloud AI worker along with the full private history. Because AI conversations are stored with no owner, user, or session identifier and conversation IDs are sequential integers, an unauthenticated attacker can enumerate all customer conversations simply by incrementing the conversation_id parameter.",
+      "published": "2026-09-16T05:16:47.313",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89063"
+    },
+    {
+      "id": "CVE-2026-5920",
+      "summary": "The Bold Page Builder plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'shortcode_content' parameter of the bt_bb_shortcode shortcode in all versions up to, and including, 5.9.6. This is due to a bypassable security filter (bt_bb_save_pre) that can be circumvented via null byte injection, combined with insufficient output sanitization of base64-decoded content in the bt_bb_raw_content shortcode handler. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-09-16T05:16:46.913",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-5920"
+    },
+    {
+      "id": "CVE-2026-18555",
+      "summary": "The Better Messages \u2013 Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'icn' parameter in all versions up to, and including, 2.15.22 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link.",
+      "published": "2026-09-16T05:16:45.217",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18555"
+    },
+    {
+      "id": "CVE-2026-78088",
+      "summary": "The Contest Gallery \u2013 Upload & Vote Photos, Media, Sell with PayPal & Stripe plugin for WordPress is vulnerable to Unauthenticated Arbitrary File Overwrite in all versions up to, and including, 32.0.1 due to insufficient file path validation in the 'baseUrlForFacebook' parameter. This makes it possible for authenticated attackers, with subscriber-level access and above, to overwrite known files which may lead to remote code execution when certain preconditions are met.",
+      "published": "2026-09-16T04:18:41.503",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85893"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78088"
     },
     {
-      "id": "CVE-2026-69486",
-      "summary": "Heap-based buffer overflow in Microsoft Edge (Chromium-based) allows an unauthorized attacker to execute code over a network.",
-      "published": "2026-09-15T23:17:41.633",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69486"
+      "id": "CVE-2026-18595",
+      "summary": "The WP-Lister Lite for eBay plugin for WordPress is vulnerable to Stored Cross-Site Scripting via AJAX Cron Handler Request Parameter in all versions up to, and including, 3.8.9 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-09-16T04:18:00.970",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18595"
     },
     {
-      "id": "CVE-2025-11395",
-      "summary": "A flaw was found in Podman. If an attacker can pass a crafted tar archive to the `podman load` command, they can create files on the host machine with the privileges of the user running Podman.",
-      "published": "2026-09-15T23:16:59.933",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-11395"
-    },
-    {
-      "id": "CVE-2026-92259",
-      "summary": "Integer overflow or wraparound vulnerability in Samsung Opensource Escargot allows attackers with write access to the bytecode-cache directory to cause a heap-based buffer overflow and denial of service via a crafted cache file.\n\nThis issue affects Escargot: ac94df78493ee6fede286620d94f724e46b4d238.",
-      "published": "2026-09-15T22:17:04.917",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92259"
-    },
-    {
-      "id": "CVE-2026-92257",
-      "summary": "Netcore NR255-V version 1.5.130703 contains a stored cross-site scripting vulnerability in L7 content management pages that use eval() sinks, affecting the call board text and policy group handling components. Attackers can inject persistent script payloads through these pages to have malicious code executed in the context of other users viewing the affected content.",
-      "published": "2026-09-15T22:17:04.740",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92257"
-    },
-    {
-      "id": "CVE-2026-92256",
-      "summary": "NR255-V version 1.5.130703 contains a sensitive information disclosure vulnerability in l2tpd_config_show_cgi.c, ipsec_show_cgi.c, and mod_vpn_remote/plan.json read handlers. Attackers can query l2tpd_config_show.cgi to expose stored IPsec PSK and RSA key material.",
-      "published": "2026-09-15T22:17:04.530",
+      "id": "CVE-2026-16588",
+      "summary": "The WP Directory Kit plugin for WordPress is vulnerable to blind SQL Injection via the 'order_by' parameter in all versions up to, and including, 1.5.4 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for authenticated attackers, with custom-level access and above, to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-09-16T04:17:59.377",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92256"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16588"
     }
   ]
 }
