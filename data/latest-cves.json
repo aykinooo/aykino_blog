@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-16T20:05:32+00:00",
+  "generated_at": "2026-09-16T22:54:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-92729",
-      "summary": "SigNoz versions 0.88.0 through 0.141.0 fail to apply authorization wrappers to trace-funnel analytics endpoints in the HTTP handler. Unauthenticated attackers can submit arbitrary funnel definitions to retrieve trace analytics including identifiers, durations, span counts, service topology, and error activity without credentials.",
-      "published": "2026-09-16T19:18:06.833",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92729"
+      "id": "CVE-2026-92599",
+      "summary": "joi (npm package `joi`, hapi.js) versions >=17.2.0 <17.13.7 and >=18.0.0 <18.2.6 are vulnerable to regular expression denial of service in the `Joi.string().isoDate()` validation rule. One of the regular expressions the rule applies to the input is unanchored, so a valid ISO date followed by a long run of fractional-second digits causes the regex engine to restart its search from every position in the string, yielding time proportional to the square of the input length (about 1.4 s for 64 KB of digits and about 22 s for 256 KB). A remote attacker who can supply a string to an isoDate validation can stall the application with a single request. Fixed in 17.13.7 and 18.2.6; as a workaround, cap the length of the string before it reaches joi.",
+      "published": "2026-09-16T22:18:30.980",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92599"
     },
     {
-      "id": "CVE-2026-92473",
-      "summary": "A vulnerability was identified in GPAC 26.08-DEV. The impacted element is the function gf_sg_command_del of the file src/scenegraph/commands.c of the component BIFS Handler. The manipulation leads to use after free. The attack needs to be performed locally. The exploit is publicly available and might be used. Upgrading to version abi-16.24 is sufficient to resolve this issue. The identifier of the patch is e34f4ba349d55cd1849f0bcf4cf46552732e2db7. It is suggested to upgrade the affected component.",
-      "published": "2026-09-16T19:18:06.583",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92473"
-    },
-    {
-      "id": "CVE-2026-92472",
-      "summary": "A vulnerability was determined in GPAC 26.08-DEV. The affected element is the function gf_node_deactivate_ex of the file src/scenegraph/base_scenegraph.c of the component MP4Box. Executing a manipulation can lead to use after free. The attack needs to be launched locally. The exploit has been publicly disclosed and may be utilized. Upgrading to version abi-16.24 is sufficient to fix this issue. This patch is called e34f4ba349d55cd1849f0bcf4cf46552732e2db7. The affected component should be upgraded. This issue is distinct from CVE-2026-90827.",
-      "published": "2026-09-16T19:18:06.377",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92472"
-    },
-    {
-      "id": "CVE-2026-92418",
-      "summary": "A vulnerability was determined in ChangeWeDer crm up to c07bd4c97141521af6475034bc58523beed51bbd. This vulnerability affects unknown code of the file src/main/resources/public/js/customerServe/customer.serve.js of the component Save Endpoint. This manipulation of the argument customerName causes cross site scripting. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-09-16T19:18:06.170",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92418"
-    },
-    {
-      "id": "CVE-2026-92417",
-      "summary": "A vulnerability was found in Open5GS up to 2.8.0. This affects the function ogs_pfcp_parse_volume_measurement in the library lib/pfcp/types.c of the component PFCP Handler. The manipulation results in null pointer dereference. The attack may be launched remotely. The patch is identified as 8f07b507b78ff94776f2cd49276eb116ed93d7f2. A patch should be applied to remediate this issue.",
-      "published": "2026-09-16T19:18:05.933",
+      "id": "CVE-2026-92598",
+      "summary": "Nodemailer before 9.1.0 fails to apply UTS-46 normalization when encoding international domain names, causing the domain resolver to compute a different Punycode A-label than standards-compliant parsers. Attackers can craft recipient addresses with invisible characters or compatibility mappings that pass domain allow-list checks but are delivered to attacker-controlled domains via SMTP.",
+      "published": "2026-09-16T22:18:30.840",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92417"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92598"
     },
     {
-      "id": "CVE-2026-91106",
-      "summary": "HP has identified and remediated multiple externally reported vulnerabilities within HPLIP. The findings affect several software components that could potentially enable remote code execution, privilege escalation, denial of service, information disclosure, or unauthorized file modification under certain conditions.",
-      "published": "2026-09-16T19:18:03.587",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91106"
+      "id": "CVE-2026-92597",
+      "summary": "Nodemailer versions >= 6.9.16 and < 9.1.0 mis-parse RFC 5322 comments in email addresses: in lib/addressparser, a comment closed immediately before a non-break character causes the tokenizer to concatenate the atoms surrounding the comment instead of treating the comment as folding whitespace that terminates the domain. A recipient address such as user@good-corp.com(x)evil.com is therefore read by Nodemailer as the single domain good-corp.comevil.com (registrable domain comevil.com, which an attacker can register) and used for both the SMTP envelope (RCPT TO) and the emitted To:/From: headers, while a conformant RFC 5322 parser terminates the domain at the comment and reads good-corp.com. An application that validates the recipient domain with a strict RFC 5322 parser (without inspecting parse defects) or a naive prefix/substring allow-list and then hands the raw address to Nodemailer can be induced to deliver mail to a domain the attacker controls. Fixed in 9.1.0.",
+      "published": "2026-09-16T22:18:30.700",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92597"
+    },
+    {
+      "id": "CVE-2026-92596",
+      "summary": "Nodemailer before 9.1.0 contains a quadratic time complexity vulnerability in the addressparser component that allows remote attackers to cause denial of service by supplying a crafted comma-separated address list. Attackers can send a single email with a large number of addresses to block the Node.js event loop for extended periods, consuming 100% CPU and freezing the process.",
+      "published": "2026-09-16T22:18:30.557",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92596"
+    },
+    {
+      "id": "CVE-2026-92595",
+      "summary": "Nodemailer (npm package `nodemailer`) versions 9.1.0 and earlier do not honor the `disableFileAccess` and `disableUrlAccess` sandbox options when message content is resolved through the public plugin API `MailMessage.resolveContent()` using the documented legacy three-argument signature `resolveContent(data, key, callback)`. Because `shared.resolveContent()` normalizes the missing `options` argument to an empty object, the message-level flags copied into `mail.data` by the MailMessage constructor are discarded, and `resolveContentValue()` skips both access-control checks, reaching `nmfetch(url)` or `fs.createReadStream(path)`. As a result, plugin or application code that resolves untrusted message content (html, text, attachment `path` or `href`) via this API can be induced to read arbitrary local files or issue outbound HTTP(S) requests (server-side request forgery), bypassing the sandbox the application enabled. The internal paths used by `transporter.sendMail()` (`resolveAll()`, `_convertDataImages()`, and the MIME streaming path) are not affected. Fixed in version 9.1.1.",
+      "published": "2026-09-16T22:18:30.417",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92595"
+    },
+    {
+      "id": "CVE-2026-92594",
+      "summary": "Craft CMS 5.0.0-RC1 through versions before 5.11.0 incorrectly authorize the GraphQL draftCreator and revisionCreator fields: instead of requiring the user-data scope enforced by Gql::canQueryUsers() (usergroups.*:read), these fields are gated only on the elements.drafts:read / elements.revisions:read scopes, and their resolver returns a raw User element whose email, username, fullName, and addresses fields have no per-field authorization. A client holding only the drafts or revisions scope \u2014 including an unauthenticated client when the operator has enabled the public GraphQL schema with those scopes \u2014 can therefore harvest the email addresses, usernames, full names, and postal addresses of all draft/revision creators (typically site editors and administrators). The issue is fixed in 5.11.0.",
+      "published": "2026-09-16T22:18:30.283",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92594"
     }
   ]
 }
