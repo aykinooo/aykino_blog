@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-17T18:10:42+00:00",
+  "generated_at": "2026-09-17T21:19:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93296",
-      "summary": "MISP contains a stored cross-site scripting (XSS) vulnerability in the Overmind theme's statistics views. The event General card (event_general.ctp) and the server/feed preview card (preview_general.ctp) constructed donut chart legend labels by directly concatenating object name or category keys into an innerHTML string without HTML-encoding. Because MISP object names (e.g., attribute names, event names, or server/feed identifiers) are user-controllable by any authenticated user with sufficient permissions to create or modify such objects, an attacker could craft a name containing malicious markup (for example, a script tag or event-handler attribute). When any other user viewed the affected Overmind dashboard, the injected markup would be interpreted as live HTML/JavaScript in the victim's browser, executing in the context of the MISP application origin. This could allow session hijacking, data exfiltration, or arbitrary actions performed on behalf of the victim. The vulnerability requires the attacker to have low-level authenticated access to create or rename an object whose name is rendered in the legend, and the victim to view the Overmind event or server preview page. No special browser conditions or race conditions are required.",
-      "published": "2026-09-17T17:18:17.280",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93296"
+      "id": "CVE-2026-93395",
+      "summary": "A missing lower-bound validation in the bson_new_from_buffer() function of libbson allows an integer underflow when processing BSON data with a zero-length prefix. The function reads a 32-bit document length from the input buffer but does not verify that the value is at least 5 (the minimum valid BSON document size) before using it in an array index calculation. When the length field is zero, the expression used to check the document's null terminator wraps to UINT32_MAX, causing a heap out-of-bounds read that crashes the process. An unauthorized party who can supply crafted BSON input to an application using this API can cause a denial of service.",
+      "published": "2026-09-17T21:17:56.443",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93395"
     },
     {
-      "id": "CVE-2026-93295",
-      "summary": "MISP contains a vulnerability in its background job dispatch mechanism that allows remote code execution as the web user. Background job arguments are passed directly as the argv of the CakePHP console process. CakePHP's ShellDispatcher::_parsePaths() scans the entire argv for path switches (-app, --app, -working, --working, -root, --root, -webroot, --webroot) and uses the following element as the application root. The events/contact endpoint passes user-controlled fields (message and person) into job arguments without validation. An attacker who can submit the contact form can set the person field to a reserved switch (e.g., -app) and the message field to a phar:// URI pointing to a malicious archive. The CakePHP bootstrap then includes Config/core.php from within that archive, executing attacker-controlled PHP code with the privileges of the web user. The vulnerability requires the ability to submit the events/contact form (or any other endpoint that forwards user input into background job arguments). No special timing or race condition is required; the attack is deterministic once the crafted parameters are accepted. The impact is full remote code execution in the context of the MISP web server process, allowing data exfiltration, persistence, and lateral movement within the host.",
-      "published": "2026-09-17T17:18:17.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93295"
+      "id": "CVE-2026-93394",
+      "summary": "A flaw in libmongoc's SCRAM authentication implementation caused the client to continue the authentication handshake and transmit the client proof even when a nonce mismatch was detected in the server's first message. An unauthorized party with a man-in-the-middle position could exploit this by injecting a crafted server-first-message containing a controlled salt and low iteration count, then capturing the resulting client proof to perform offline password cracking. This vulnerability is mitigated by TLS, which is standard in production deployments.",
+      "published": "2026-09-17T21:17:56.307",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93394"
     },
     {
-      "id": "CVE-2026-93292",
-      "summary": "SigNoz versions from 0.88.0 before 0.142.1 contain a SQL injection vulnerability in trace-funnel analytics endpoints that interpolate service_name and span_name fields into ClickHouse string literals without escaping. Authenticated attackers can inject SQL through funnel step definitions to execute arbitrary queries and read results in HTTP responses.",
-      "published": "2026-09-17T17:18:16.903",
-      "cvss": 8.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93292"
+      "id": "CVE-2026-93393",
+      "summary": "A heap-based buffer overflow exists in the TLS transport layer of the MongoDB C Driver when built with the Windows platform TLS backend. A remote endpoint that the client connects to, or an attacker able to impersonate or redirect the client's connection, can cause the driver to write attacker-supplied data outside the bounds of a heap allocation while processing incoming encrypted traffic. No authentication or user interaction is required, because the affected processing occurs before any application-level authentication completes. Successful exploitation may lead to memory corruption in the client process, disclosure of adjacent heap memory, or termination of the process.",
+      "published": "2026-09-17T21:17:56.163",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93393"
     },
     {
-      "id": "CVE-2026-93204",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbatman-adv: dat: atomically update mac addresses\n\nWhen a MAC address is updated in batadv_dat_entry_add(), it is done using a\nsimple copy function. A parallel reader might only see parts of this\nupdate. In worst case, the reader is transporting the half updated MAC\naddress over the network or is creating an ARP response using it -\npoisoning the ARP cache.\n\natomic64_t can be used to store the 48 bit of a mac address. A reader will\nthen either see the old mac address or the new one - never a mixture of\nboth.",
-      "published": "2026-09-17T17:18:16.773",
+      "id": "CVE-2026-93387",
+      "summary": "Improper state validation in Skia in Google Chrome prior to 153.0.8010.52 allowed a remote attacker to obtain cross-origin data via a crafted HTML page. (Chromium security severity: High)",
+      "published": "2026-09-17T21:17:56.060",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93204"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93387"
     },
     {
-      "id": "CVE-2026-93203",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbatman-adv: bla: avoid CRC corruption due to parallel claim add\n\nbatadv_bla_add_claim() is used to add claims and modify the backbone of\nclaims for CLAIM frames from remote backbones and local packets. When it\nhandles a claim, it needs to either\n\n* add the new claim's CRC to the backbone CRC\n* remove the already existing claim's CRC from the old backbone and add it\n  to the new backbone\n\nBut when the \"new\" claim code was running in parallel to the \"change\nbackbone\" code, it can happen that the CRC was invalid because the\nbackbone_gw of the claim was changed twice in the \"new\" claim code path:\n\n* CPU0 creates the claim for gateway A and publishes it in the claim\n  hash. The crc16 of the address has not yet been added to A's crc at\n  this point.\n\n* CPU1 processes a claim frame of gateway B for the same client, finds\n  the just published claim, and performs the ownership change: it\n  switches the pointer to B, removes the crc16 from A's crc - which\n  never contained it - and adds it to B's crc.\n\n* CPU0 continues behind the creation branch, unconditionally switches\n  the pointer back to A without compensating B's crc (its remove_crc\n  is false for the creation path), and finally adds the crc16 to A's\n  crc\n\nThe CRC is then wrong for both:\n\n* claim belongs to A: but CRC is not part of backbone A's CRC\n* claim doesn't belong to B: CRC is still part of backbone B's CRC\n\nThis wrong CRC is never recomputated from the stored claims. For local\nbackbone claims, this can also not recovered using syncs.\n\nTo avoid this, split the functionality in clear separate parts:\n\n* new claim which always adds claim CRC to the backbone CRC (but never\n  changes the already set backbone_gw of the claim back)\n\n* update of existing claim which automatically changes the backbone_gw\n  entry and only updates both backbone CRCs when there was an actual change",
-      "published": "2026-09-17T17:18:16.627",
+      "id": "CVE-2026-93386",
+      "summary": "UI misrepresentation in WebAppInstalls in Google Chrome prior to 153.0.8010.52 allowed a remote attacker leveraging social engineering to spoof UI elements via a crafted HTML page. (Chromium security severity: Low)",
+      "published": "2026-09-17T21:17:55.953",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93203"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93386"
     },
     {
-      "id": "CVE-2026-93202",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ni3c: master: Fix recursive locking during device registration\n\ni3c_master_register_new_i3c_devs() registers newly discovered devices\nwhile holding i3c_bus_normaluse_lock(), a down_read().  device_register()\ncan immediately probe the device, and probe callbacks typically invoke\nI3C helpers that take i3c_bus_normaluse_lock() again, leading to a\nrecursive acquisition of the same rwsem.  rwsems do not support recursive\nread locking and can deadlock when a writer is waiting.  See the\n\"Recursive read locks\" section of Documentation/locking/lockdep-design.rst.\n\nFor example, with Intel LPSS I3C, LOCKDEP generates a WARNING like:\n  # echo intel-lpss-i3c.0 > /sys/bus/platform/drivers/mipi-i3c-hci/unbind\n  # echo intel-lpss-i3c.0 > /sys/bus/platform/drivers/mipi-i3c-hci/bind\n  WARNING: possible recursive locking detected\n  kworker/5:1/94 is trying to acquire lock:\n  ffff88811c810d78 (&i3cbus->lock){++++}-{4:4}, at: i3c_device_match_id+0x45/0x370\n  but task is already holding lock:\n  ffff88811c810d78 (&i3cbus->lock){++++}-{4:4}, at: i3c_master_reg_work_fn+0x21/0x5f0\n\nFix this by separating device creation from device registration.\nPopulate desc->dev under the maintenance lock, collect the devices that\nstill need registration into a local list, then release the lock before\ncalling device_register().  Finally retake the lock and clean up any\ndevices that failed to register.\n\nUse the maintenance lock rather than the normal-use lock while adding\ndevice objects.  A write-side maintenance lock prevents readers from\nobserving a partially initialized desc->dev during initial device\npopulation, or desc->dev disappearing if registration fails.\n\nThe local list requires a list node, so add a list node member to struct\ni3c_device.",
-      "published": "2026-09-17T17:18:16.510",
+      "id": "CVE-2026-93385",
+      "summary": "Information leak in Paint in Google Chrome prior to 153.0.8010.52 allowed a remote attacker to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
+      "published": "2026-09-17T21:17:55.847",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93202"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93385"
     }
   ]
 }
