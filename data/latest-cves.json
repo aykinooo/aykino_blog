@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-17T07:36:16+00:00",
+  "generated_at": "2026-09-17T13:24:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-91017",
-      "summary": "The Robokassa payment gateway for Woocommerce WordPress plugin before 1.8.9 does not verify the authenticity of incoming payment notifications when its non-default deferred-payment feature is enabled, allowing unauthenticated attackers to forge a notification and mark arbitrary WooCommerce orders as paid or on-hold without payment or a valid signature.",
-      "published": "2026-09-17T07:16:28.773",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91017"
-    },
-    {
-      "id": "CVE-2026-90982",
-      "summary": "@fastify/static is a Fastify plugin that serves static files from a configured root directory. In versions before 10.1.4, on a case-insensitive filesystem such as Windows or the default macOS volume, a route guard or allowedPath restriction can be bypassed by altering the letter case of a path segment. The route matcher is case-sensitive while the filesystem is not, so a request that changes the case of a protected segment does not match the guarded route and falls through to the static handler, yet the filesystem resolves it to the same protected file. As a result, an unauthenticated request can read a file that a route guard or allowedPath was configured to protect. The issue does not affect case-sensitive filesystems and is not a directory traversal, since nothing is served from outside the configured root. The issue is fixed in @fastify/static 10.1.4, which validates the requested path against its actual on-disk spelling and rejects case-aliased paths before authorization. As a workaround, serve static files from a case-sensitive filesystem, or ensure route guards and allowedPath rules account for every letter-case variant of the protected paths.",
-      "published": "2026-09-17T07:16:28.647",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90982"
-    },
-    {
-      "id": "CVE-2026-87963",
-      "summary": "The Yo WordPress plugin from 1.1 through 1.3.1 does not sanitize or parameterize the username request parameter before using it in a SQL query, and reads it before WordPress applies its request escaping, allowing unauthenticated attackers to perform SQL injection and read arbitrary database contents including administrator password hashes.",
-      "published": "2026-09-17T07:16:28.533",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87963"
-    },
-    {
-      "id": "CVE-2026-86801",
-      "summary": "The To Do List Member WordPress plugin from 1.4 through 1.6 ships a file upload endpoint that does not load WordPress and therefore applies no authentication, capability or nonce check of any kind, and validates only the name of an uploaded file rather than its content, allowing unauthenticated users to store active content served from the site's own origin, and to list and delete the files already staged there.",
-      "published": "2026-09-17T07:16:28.413",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86801"
-    },
-    {
-      "id": "CVE-2026-44940",
-      "summary": "The rancher-extension-stackstate extension in SUSE Observability exposes service tokens in plain configuration or insecure locations rather than managing them securely. An attacker with minimal access could obtain the token to gain unauthorized access or escalate privileges within the observability environment.",
-      "published": "2026-09-17T07:16:28.167",
-      "cvss": 5.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44940"
-    },
-    {
-      "id": "CVE-2026-91019",
-      "summary": "The Event Booking Manager for WooCommerce  WordPress plugin before 5.6.0 does not restrict who can view its stored payment gateway configuration, allowing users with Contributor-level access and above to read the site's PayPal and Stripe credentials, including their secret keys.",
-      "published": "2026-09-17T06:16:53.310",
+      "id": "CVE-2026-92932",
+      "summary": "In the MISP sachertortephp library, the Xml::build() static method in lib/Cake/Utility/Xml.php contains a logic error in the conditional that gates network-based XML fetching. The original condition was written as: $options['readFile'] && strpos($input, 'http://') === 0 || strpos($input, 'https://') === 0. Because PHP's && operator has higher precedence than ||, the expression is evaluated as ($options['readFile'] && strpos($input, 'http://') === 0) || strpos($input, 'https://') === 0. As a result, when a caller explicitly sets the readFile option to false to disable file and URL reading, an input string beginning with https:// still satisfies the condition and triggers a network fetch via HttpSocket (configured to follow up to 10 redirects). The http:// branch is correctly gated by the readFile flag, but the https:// branch is not. An attacker who can influence the $input parameter passed to Xml::build() can therefore force the application to issue an outbound HTTPS request to an attacker-controlled or internal URL, even though the caller intended to suppress all remote reads. The fetched response is parsed as XML and may be returned to the caller, enabling information disclosure from internal services or external targets. This constitutes a Server-Side Request Forgery (SSRF) weakness with an information-disclosure impact. The vulnerability requires that the code path in Xml::build() be reachable with attacker-controlled input and that the readFile option be set to false (or the caller expects it to be false).",
+      "published": "2026-09-17T13:17:01.610",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91019"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92932"
+    },
+    {
+      "id": "CVE-2026-92921",
+      "summary": "admin3 through 3.0.0 stores account passwords using single-round MD5 with only the username as salt and no key derivation function. Attackers with database access can recover plaintext passwords through offline dictionary or brute-force attacks due to negligible computational effort.",
+      "published": "2026-09-17T13:17:01.467",
+      "cvss": 4.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92921"
+    },
+    {
+      "id": "CVE-2026-92920",
+      "summary": "admin3 through 3.0.0 fails to invalidate existing sessions when disabling a user account, allowing attackers to retain authenticated access with original permissions. Attackers can continue using bearer tokens issued before account disablement to authenticate requests, as the AuthInterceptor never re-validates the user's locked status and session expiry resets on each request.",
+      "published": "2026-09-17T13:17:01.320",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92920"
+    },
+    {
+      "id": "CVE-2026-92919",
+      "summary": "admin3 through 3.0.0 fails to sanitize client-supplied filenames in the upload handler, allowing authenticated users to write files outside the storage root on Windows deployments. Attackers can use dot-dot path segments in filenames to escape the configured storage directory and overwrite arbitrary files accessible to the server process.",
+      "published": "2026-09-17T13:17:01.173",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92919"
+    },
+    {
+      "id": "CVE-2026-92918",
+      "summary": "admin3 through 3.0.0 persists user session tokens in the audit log event body when publishing UserLoggedIn domain events. Attackers with log:view permission can read the JSON response from the GET /logs endpoint to harvest session tokens and replay them as bearer credentials for full user access.",
+      "published": "2026-09-17T13:17:01.013",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92918"
+    },
+    {
+      "id": "CVE-2026-92904",
+      "summary": "A flaw was found in the foreman_remote_execution plugin's template invocations controller. The show_template_invocation_by_host action resolves the job invocation by ID without evaluating the caller's view_job_invocations permission filter against the record. An authenticated user whose job invocation visibility is restricted by a permission filter can enumerate job invocation IDs and read the live output, rendered script, and input values for other users' job invocations within their own organizations.",
+      "published": "2026-09-17T13:17:00.877",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92904"
     }
   ]
 }
