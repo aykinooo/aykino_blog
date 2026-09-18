@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-18T09:43:13+00:00",
+  "generated_at": "2026-09-18T14:29:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85410",
-      "summary": "The Master Addons for Elementor \u2013 Elementor Addons, Widgets, Mega Menu Builder, Popup Builder, Widget Builder & Template Kits plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.2.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with contributor-level access and above, to modify the title and metadata of arbitrary WordPress posts or permanently delete arbitrary WordPress posts by supplying an attacker-controlled popup_id. The required nonce is emitted on the edit-jltma_popup admin screen, which is accessible to Contributors because the jltma_popup custom post type is registered with capability_type='post'.",
-      "published": "2026-09-18T09:16:42.500",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85410"
+      "id": "CVE-2026-93606",
+      "summary": "vm2 (npm) versions 3.12.0 and earlier contain a sandbox escape in `VM` and `NodeVM`. When an embedder exposes a host API that returns a host-realm Promise, the bridge's rejection sanitizer (hostPromiseSanitizeReject / makeSanitizedPromiseCallback / normalizeHostPromiseCallbacks in lib/bridge.js) only wraps `then`/`catch` rejection slots that hold a function, and the sandbox-side `Symbol.species`/`.then` neutralization is installed only on the sandbox intrinsic `Promise.prototype`, so it never applies to a host Promise. Code running inside the sandbox can overwrite `p.constructor[Symbol.species]` on the host Promise and then call `p.then()` with no `onRejected` handler; V8 substitutes its internal Thrower, which re-throws the raw host rejection value into a resolve/reject closure captured by the attacker. This delivers an unsanitized, fully functional bridge proxy of the host object to sandboxed code, bypassing handleException and hostPromiseSanitizeReject. If the rejection value is host-pivotable (for example a host `process` object), this results in arbitrary code execution on the host. Fixed in 3.12.1.",
+      "published": "2026-09-18T14:19:12.500",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93606"
     },
     {
-      "id": "CVE-2026-83561",
-      "summary": "The Complianz GDPR/CCPA Cookie Consent Banner plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via Elementor Cookie Blocker Regex in all versions up to, and including, 7.5.4 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Successful exploitation requires an administrator to approve the attacker's comment, and the site must have both the Elementor plugin installed and Complianz configured with the Twitter or Facebook cookie/script blocker enabled.",
-      "published": "2026-09-18T09:16:42.357",
+      "id": "CVE-2026-93605",
+      "summary": "vm2 NodeVM versions before 3.12.1 contain a sandbox escape vulnerability where the DANGEROUS_BUILTINS denylist omits child_process despite blocking other host-spawning modules. Attackers can require child_process and execute arbitrary commands on the host system when NodeVM is configured with builtin:['*'] or explicit child_process allowance.",
+      "published": "2026-09-18T14:19:12.340",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93605"
+    },
+    {
+      "id": "CVE-2026-93604",
+      "summary": "vm2 through 3.12.0 exposes Node.js's crypto.setFips() function to untrusted guest code when an embedder explicitly allowlists the crypto builtin for a NodeVM (require.builtin: ['crypto']). The builtin sanitizer (sanitizeCryptoModule in lib/builtin.js) replaces crypto.setEngine but leaves crypto.setFips callable, and the readonly wrapper used to expose the host module does not localize side effects of forwarded host functions. Guest code can therefore call crypto.setFips() to change the FIPS mode of the entire host process; the modified mode is subsequently observed by trusted host code (crypto.getFips() changed from 0 to 1 in the reported test), crossing the NodeVM isolation boundary. Fixed in vm2 3.12.1.",
+      "published": "2026-09-18T14:19:12.167",
       "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83561"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93604"
     },
     {
-      "id": "CVE-2026-6205",
-      "summary": "An external control of file name or path vulnerability in Upload API in Synology DiskStation Manager (DSM) before 7.2.1-69057-12, 7.2.2-72806-9, 7.3.2-86009-4 and 7.4-90075 allows remote authenticated users to write arbitrary files and conduct denial-of-service attacks.",
-      "published": "2026-09-18T09:16:42.133",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6205"
+      "id": "CVE-2026-93603",
+      "summary": "vm2 through 3.12.0 (fixed in 3.12.1) does not correctly handle a nullish `this` receiver in the apply trap of its bridge (lib/bridge.js): when sandboxed code calls a host-provided non-strict (sloppy-mode) function without a receiver \u2014 e.g. `fn()`, a detached method, `fn.call()`, `fn.apply(undefined)`, `Reflect.apply(fn, undefined, [])`, or `fn.bind()()` \u2014 the undefined receiver is passed straight through to the host call, and V8 substitutes the host realm's global object for `this`. vm2 then wraps and returns that object to the sandbox, giving sandboxed script a live proxy of the host global. This allows a complete sandbox escape: untrusted script can reach `process` and execute arbitrary code/commands on the host (for example via `process.getBuiltinModule('child_process').execSync`). Exploitation requires that the embedding application expose at least one non-strict host function to the sandbox; strict-mode and ES module host functions are not affected.",
+      "published": "2026-09-18T14:19:12.003",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93603"
     },
     {
-      "id": "CVE-2026-56597",
-      "summary": "HCL BigFix Service Management is affected by a Sensitive Information Leakage vulnerability, which could allow an unauthenticated attacker to extract internal IP addresses from the application's responses, enabling them to map the underlying network topology and identify potential internal targets.",
-      "published": "2026-09-18T09:16:42.017",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56597"
+      "id": "CVE-2026-93602",
+      "summary": "rustls-webpki versions before 0.103.10 and 0.104.0-alpha.5 contain faulty CRL authority-matching logic that compares only the first distributionPoint against each CRL's IssuingDistributionPoint, ignoring additional distributionPoints. Attackers with a compromised trusted issuing authority can present revoked certificates that pass revocation checks under UnknownStatusPolicy::Allow, or cause incorrect errors under the default deny policy.",
+      "published": "2026-09-18T14:19:11.850",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93602"
     },
     {
-      "id": "CVE-2026-56595",
-      "summary": "HCL BigFix Service Management is affected by a CORS Misconfiguration vulnerability due to improperly validated origin headers, which could allow an attacker to craft a malicious web page that interacts with the vulnerable application, enabling unauthorized access to protected resources and restricted APIs on behalf of a victim.",
-      "published": "2026-09-18T09:16:41.900",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56595"
-    },
-    {
-      "id": "CVE-2026-56592",
-      "summary": "HCL BigFix Service Management is affected by an Improper Authentication validation vulnerability related to inadequate account lockouts, which could allow an unauthenticated attacker to execute sustained brute-force attacks against the login interface, resulting in unauthorized system access.",
-      "published": "2026-09-18T09:16:41.783",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56592"
+      "id": "CVE-2026-93601",
+      "summary": "rustls-webpki (the Rust webpki fork used by rustls) versions >= 0.101.0 and prior to 0.103.12 and 0.104.0-alpha.6 incorrectly accepted permitted-subtree DNS name constraints for certificates asserting a wildcard name. For example, a name constraint of accept.example.com was treated as satisfied by a certificate for *.example.com, which could feasibly assert reject.example.com \u2014 a name outside the permitted subtree. Because name constraints are restrictions applied to otherwise properly issued certificates, the issue is only reachable after signature verification succeeds and requires a misissued wildcard certificate to exploit.",
+      "published": "2026-09-18T14:19:11.707",
+      "cvss": 2.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93601"
     }
   ]
 }
