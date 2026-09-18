@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-18T14:29:34+00:00",
+  "generated_at": "2026-09-18T18:26:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93606",
-      "summary": "vm2 (npm) versions 3.12.0 and earlier contain a sandbox escape in `VM` and `NodeVM`. When an embedder exposes a host API that returns a host-realm Promise, the bridge's rejection sanitizer (hostPromiseSanitizeReject / makeSanitizedPromiseCallback / normalizeHostPromiseCallbacks in lib/bridge.js) only wraps `then`/`catch` rejection slots that hold a function, and the sandbox-side `Symbol.species`/`.then` neutralization is installed only on the sandbox intrinsic `Promise.prototype`, so it never applies to a host Promise. Code running inside the sandbox can overwrite `p.constructor[Symbol.species]` on the host Promise and then call `p.then()` with no `onRejected` handler; V8 substitutes its internal Thrower, which re-throws the raw host rejection value into a resolve/reject closure captured by the attacker. This delivers an unsanitized, fully functional bridge proxy of the host object to sandboxed code, bypassing handleException and hostPromiseSanitizeReject. If the rejection value is host-pivotable (for example a host `process` object), this results in arbitrary code execution on the host. Fixed in 3.12.1.",
-      "published": "2026-09-18T14:19:12.500",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93606"
+      "id": "CVE-2026-93764",
+      "summary": "Mongoid may omit encryption rules for fields declared on embedded models when generating the client-side field-level encryption schema. Applications that enable this feature can therefore store values intended to be encrypted in readable form, with no error or warning. A party with routine read access to the database, a backup, or the underlying data files may then see data that was meant to remain unreadable outside the application.",
+      "published": "2026-09-18T18:18:35.330",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93764"
     },
     {
-      "id": "CVE-2026-93605",
-      "summary": "vm2 NodeVM versions before 3.12.1 contain a sandbox escape vulnerability where the DANGEROUS_BUILTINS denylist omits child_process despite blocking other host-spawning modules. Attackers can require child_process and execute arbitrary commands on the host system when NodeVM is configured with builtin:['*'] or explicit child_process allowance.",
-      "published": "2026-09-18T14:19:12.340",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93605"
+      "id": "CVE-2026-93763",
+      "summary": "A protection mechanism failure in the object-document mapper's encryption configuration generation can cause fields that an application declared for client-side field-level encryption to be written and kept in cleartext, without any error or warning. A party holding ordinary read access to the database can then read values that were intended to be protected from that party. This may result in unintended disclosure of sensitive information.",
+      "published": "2026-09-18T18:18:35.193",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93763"
     },
     {
-      "id": "CVE-2026-93604",
-      "summary": "vm2 through 3.12.0 exposes Node.js's crypto.setFips() function to untrusted guest code when an embedder explicitly allowlists the crypto builtin for a NodeVM (require.builtin: ['crypto']). The builtin sanitizer (sanitizeCryptoModule in lib/builtin.js) replaces crypto.setEngine but leaves crypto.setFips callable, and the readonly wrapper used to expose the host module does not localize side effects of forwarded host functions. Guest code can therefore call crypto.setFips() to change the FIPS mode of the entire host process; the modified mode is subsequently observed by trusted host code (crypto.getFips() changed from 0 to 1 in the reported test), crossing the NodeVM isolation boundary. Fixed in vm2 3.12.1.",
-      "published": "2026-09-18T14:19:12.167",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93604"
+      "id": "CVE-2026-93762",
+      "summary": "Mongoid contains an unsafe reflection weakness in the query path used for embedded documents. An application that passes an externally supplied field name to certain in-memory query methods may allow an unauthenticated party to obtain unintended disclosure of stored document data and to permanently remove stored records.",
+      "published": "2026-09-18T18:18:35.053",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93762"
     },
     {
-      "id": "CVE-2026-93603",
-      "summary": "vm2 through 3.12.0 (fixed in 3.12.1) does not correctly handle a nullish `this` receiver in the apply trap of its bridge (lib/bridge.js): when sandboxed code calls a host-provided non-strict (sloppy-mode) function without a receiver \u2014 e.g. `fn()`, a detached method, `fn.call()`, `fn.apply(undefined)`, `Reflect.apply(fn, undefined, [])`, or `fn.bind()()` \u2014 the undefined receiver is passed straight through to the host call, and V8 substitutes the host realm's global object for `this`. vm2 then wraps and returns that object to the sandbox, giving sandboxed script a live proxy of the host global. This allows a complete sandbox escape: untrusted script can reach `process` and execute arbitrary code/commands on the host (for example via `process.getBuiltinModule('child_process').execSync`). Exploitation requires that the embedding application expose at least one non-strict host function to the sandbox; strict-mode and ES module host functions are not affected.",
-      "published": "2026-09-18T14:19:12.003",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93603"
+      "id": "CVE-2026-93761",
+      "summary": "An inefficient regular expression complexity issue in the in-memory query evaluation component of the Mongoid library may allow an unauthenticated party to cause excessive processing within an embedding application process. Applications that place user-supplied text into a pattern-matching query condition on an embedded association may become unresponsive.",
+      "published": "2026-09-18T18:18:34.917",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93761"
     },
     {
-      "id": "CVE-2026-93602",
-      "summary": "rustls-webpki versions before 0.103.10 and 0.104.0-alpha.5 contain faulty CRL authority-matching logic that compares only the first distributionPoint against each CRL's IssuingDistributionPoint, ignoring additional distributionPoints. Attackers with a compromised trusted issuing authority can present revoked certificates that pass revocation checks under UnknownStatusPolicy::Allow, or cause incorrect errors under the default deny policy.",
-      "published": "2026-09-18T14:19:11.850",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93602"
+      "id": "CVE-2026-93760",
+      "summary": "Mongoid does not restrict which query operators may come from caller-supplied filter data when an application hands that data to its query-building methods. In an application that forwards externally supplied filter parameters in this way, a party with no credentials may influence how the database evaluates the query. This may result in unintended disclosure of stored field values and in reduced database performance.",
+      "published": "2026-09-18T18:18:34.780",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93760"
     },
     {
-      "id": "CVE-2026-93601",
-      "summary": "rustls-webpki (the Rust webpki fork used by rustls) versions >= 0.101.0 and prior to 0.103.12 and 0.104.0-alpha.6 incorrectly accepted permitted-subtree DNS name constraints for certificates asserting a wildcard name. For example, a name constraint of accept.example.com was treated as satisfied by a certificate for *.example.com, which could feasibly assert reject.example.com \u2014 a name outside the permitted subtree. Because name constraints are restrictions applied to otherwise properly issued certificates, the issue is only reachable after signature verification succeeds and requires a misissued wildcard certificate to exploit.",
-      "published": "2026-09-18T14:19:11.707",
-      "cvss": 2.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93601"
+      "id": "CVE-2026-93759",
+      "summary": "Mongoid does not neutralize a string-typed query criterion supplied to its query builder, and instead passes it to the database as a server-side JavaScript expression. An unauthenticated party able to influence the value an application supplies as a query argument may cause code of their choosing to be evaluated by the database engine. This may result in unintended disclosure of stored field values, unintended selection of documents for application-initiated writes, and reduced database performance.",
+      "published": "2026-09-18T18:18:34.640",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93759"
     }
   ]
 }
