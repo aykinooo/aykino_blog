@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-17T21:19:51+00:00",
+  "generated_at": "2026-09-18T00:14:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93395",
-      "summary": "A missing lower-bound validation in the bson_new_from_buffer() function of libbson allows an integer underflow when processing BSON data with a zero-length prefix. The function reads a 32-bit document length from the input buffer but does not verify that the value is at least 5 (the minimum valid BSON document size) before using it in an array index calculation. When the length field is zero, the expression used to check the document's null terminator wraps to UINT32_MAX, causing a heap out-of-bounds read that crashes the process. An unauthorized party who can supply crafted BSON input to an application using this API can cause a denial of service.",
-      "published": "2026-09-17T21:17:56.443",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93395"
+      "id": "CVE-2026-93436",
+      "summary": "vLLM through 0.29.0 fails to properly clean up decode-side metadata for rejected inference requests in prefill/decode disaggregated deployments. Remote attackers can submit requests with max_tokens=0 to exhaust decode-worker memory without bound until the worker restarts.",
+      "published": "2026-09-17T23:18:54.710",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93436"
     },
     {
-      "id": "CVE-2026-93394",
-      "summary": "A flaw in libmongoc's SCRAM authentication implementation caused the client to continue the authentication handshake and transmit the client proof even when a nonce mismatch was detected in the server's first message. An unauthorized party with a man-in-the-middle position could exploit this by injecting a crafted server-first-message containing a controlled salt and low iteration count, then capturing the resulting client proof to perform offline password cracking. This vulnerability is mitigated by TLS, which is standard in production deployments.",
-      "published": "2026-09-17T21:17:56.307",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93394"
+      "id": "CVE-2026-93435",
+      "summary": "redis-parser through 3.0.0 contains a denial of service vulnerability in the RESP protocol parser that allows malicious Redis endpoints to crash the client process through unbounded recursion on nested arrays. Attackers can send crafted RESP byte streams with repeated array headers that exhaust the V8 call stack, causing an uncaught RangeError that terminates the Node.js process without triggering error handling callbacks.",
+      "published": "2026-09-17T23:18:54.553",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93435"
     },
     {
-      "id": "CVE-2026-93393",
-      "summary": "A heap-based buffer overflow exists in the TLS transport layer of the MongoDB C Driver when built with the Windows platform TLS backend. A remote endpoint that the client connects to, or an attacker able to impersonate or redirect the client's connection, can cause the driver to write attacker-supplied data outside the bounds of a heap allocation while processing incoming encrypted traffic. No authentication or user interaction is required, because the affected processing occurs before any application-level authentication completes. Successful exploitation may lead to memory corruption in the client process, disclosure of adjacent heap memory, or termination of the process.",
-      "published": "2026-09-17T21:17:56.163",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93393"
+      "id": "CVE-2026-87886",
+      "summary": "Local privilege escalation due to insecure file permissions. The following products are affected: Acronis Backup plugin for cPanel & WHM (Linux) before build 1.9.3.1021, Acronis Backup extension for Plesk (Linux) before build 1.8.11.638, Acronis Backup plugin for DirectAdmin (Linux) before build 1.2.4.238.",
+      "published": "2026-09-17T23:18:53.763",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87886"
     },
     {
-      "id": "CVE-2026-93387",
-      "summary": "Improper state validation in Skia in Google Chrome prior to 153.0.8010.52 allowed a remote attacker to obtain cross-origin data via a crafted HTML page. (Chromium security severity: High)",
-      "published": "2026-09-17T21:17:56.060",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93387"
+      "id": "CVE-2026-87701",
+      "summary": "Improper neutralization of special elements in output used by a downstream component ('injection') in Azure Cosmos DB allows an authorized attacker to elevate privileges over a network.",
+      "published": "2026-09-17T23:18:53.623",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87701"
     },
     {
-      "id": "CVE-2026-93386",
-      "summary": "UI misrepresentation in WebAppInstalls in Google Chrome prior to 153.0.8010.52 allowed a remote attacker leveraging social engineering to spoof UI elements via a crafted HTML page. (Chromium security severity: Low)",
-      "published": "2026-09-17T21:17:55.953",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93386"
+      "id": "CVE-2026-85917",
+      "summary": "Server-side request forgery (ssrf) in Azure AI Foundry allows an unauthorized attacker to elevate privileges over a network.",
+      "published": "2026-09-17T23:18:53.417",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85917"
     },
     {
-      "id": "CVE-2026-93385",
-      "summary": "Information leak in Paint in Google Chrome prior to 153.0.8010.52 allowed a remote attacker to obtain sensitive information via a crafted HTML page. (Chromium security severity: Medium)",
-      "published": "2026-09-17T21:17:55.847",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93385"
+      "id": "CVE-2026-85889",
+      "summary": "Missing authentication for critical function in Azure AI Foundry allows an unauthorized attacker to elevate privileges over a network.",
+      "published": "2026-09-17T23:18:53.217",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85889"
     }
   ]
 }
