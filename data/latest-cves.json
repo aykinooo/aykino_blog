@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-18T18:26:08+00:00",
+  "generated_at": "2026-09-18T21:39:22+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93764",
-      "summary": "Mongoid may omit encryption rules for fields declared on embedded models when generating the client-side field-level encryption schema. Applications that enable this feature can therefore store values intended to be encrypted in readable form, with no error or warning. A party with routine read access to the database, a backup, or the underlying data files may then see data that was meant to remain unreadable outside the application.",
-      "published": "2026-09-18T18:18:35.330",
+      "id": "CVE-2026-93894",
+      "summary": "In Vinyl Cache before 9.0,2, workspace buffer overflow vulnerability was found in the .upper() and .lower() string type methods of VCL. This can be used as a remote denial of service (DoS) vector to make the child process segfault or assert, and then restart. Effectively exploiting this vulnerability requires prior knowledge about the VCL in use and the ability to craft a request that contains a string that is long enough to fill the remaining workspace at the call site while staying under the different request size limits (http_req_size, http_req_hdr_len, etc.).",
+      "published": "2026-09-18T21:18:49.297",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93894"
+    },
+    {
+      "id": "CVE-2026-93738",
+      "summary": "A vulnerability was found in Totolink A3002MU Hh-B20211125.1046. This affects the function formSchedule of the file /boafrm/formSchedule. Performing a manipulation of the argument webpage results in buffer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used.",
+      "published": "2026-09-18T21:18:48.660",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93738"
+    },
+    {
+      "id": "CVE-2026-93574",
+      "summary": "A flaw was found in Netty's `netty-codec-http` component. A remote attacker could exploit this vulnerability by sending a specially crafted HTTP/1.1 chunk-size token that includes post-digit whitespace. This incorrect parsing of the chunk size can lead to HTTP request smuggling. This allows an attacker to bypass security controls or access unauthorized resources in proxy/backend deployments.",
+      "published": "2026-09-18T21:18:48.277",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93764"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93574"
     },
     {
-      "id": "CVE-2026-93763",
-      "summary": "A protection mechanism failure in the object-document mapper's encryption configuration generation can cause fields that an application declared for client-side field-level encryption to be written and kept in cleartext, without any error or warning. A party holding ordinary read access to the database can then read values that were intended to be protected from that party. This may result in unintended disclosure of sensitive information.",
-      "published": "2026-09-18T18:18:35.193",
+      "id": "CVE-2026-93562",
+      "summary": "A flaw was found in Netty's HTTP/1 decoder. Incomplete validation of malformed Transfer-Encoding headers allows a remote attacker to perform HTTP request smuggling. By sending specially crafted HTTP requests, an attacker can inject arbitrary HTTP requests, potentially bypassing security controls or accessing unauthorized resources.",
+      "published": "2026-09-18T21:18:46.977",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93763"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93562"
     },
     {
-      "id": "CVE-2026-93762",
-      "summary": "Mongoid contains an unsafe reflection weakness in the query path used for embedded documents. An application that passes an externally supplied field name to certain in-memory query methods may allow an unauthenticated party to obtain unintended disclosure of stored document data and to permanently remove stored records.",
-      "published": "2026-09-18T18:18:35.053",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93762"
+      "id": "CVE-2026-88097",
+      "summary": "Use after free in Microsoft Edge (Chromium-based) allows an unauthorized attacker to elevate privileges locally.",
+      "published": "2026-09-18T21:18:45.913",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88097"
     },
     {
-      "id": "CVE-2026-93761",
-      "summary": "An inefficient regular expression complexity issue in the in-memory query evaluation component of the Mongoid library may allow an unauthenticated party to cause excessive processing within an embedding application process. Applications that place user-supplied text into a pattern-matching query condition on an embedded association may become unresponsive.",
-      "published": "2026-09-18T18:18:34.917",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93761"
-    },
-    {
-      "id": "CVE-2026-93760",
-      "summary": "Mongoid does not restrict which query operators may come from caller-supplied filter data when an application hands that data to its query-building methods. In an application that forwards externally supplied filter parameters in this way, a party with no credentials may influence how the database evaluates the query. This may result in unintended disclosure of stored field values and in reduced database performance.",
-      "published": "2026-09-18T18:18:34.780",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93760"
-    },
-    {
-      "id": "CVE-2026-93759",
-      "summary": "Mongoid does not neutralize a string-typed query criterion supplied to its query builder, and instead passes it to the database as a server-side JavaScript expression. An unauthenticated party able to influence the value an application supplies as a query argument may cause code of their choosing to be evaluated by the database engine. This may result in unintended disclosure of stored field values, unintended selection of documents for application-initiated writes, and reduced database performance.",
-      "published": "2026-09-18T18:18:34.640",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93759"
+      "id": "CVE-2026-85272",
+      "summary": "Open edX Platform enables the authoring and delivery of online learning at any scale. From Aspen.1 until Ulmo and Verawood.1, openedx/core/lib/extract_archive.py uses _is_bad_path to validate safe_extractall targets by comparing resolved path strings with startswith instead of comparing path components. A course author or staff user with course import permission can submit a crafted .tar.gz archive through the import_olx flow initiated by cms.djangoapps.contentstore.views.import_export.import_handler. An archive member can therefore escape into a sibling course staging directory whose name shares the attacker's base64 directory prefix, causing limited cross-tenant file corruption. Zip archives are not practically affected because ZipFile.extractall strips parent traversal segments, and the advisory does not establish arbitrary filesystem writes, file reads, or direct code execution. This issue is fixed in Ulmo and Verawood.1.",
+      "published": "2026-09-18T21:18:44.793",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85272"
     }
   ]
 }
