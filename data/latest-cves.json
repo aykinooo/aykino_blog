@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-19T00:19:02+00:00",
+  "generated_at": "2026-09-19T05:50:33+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93923",
-      "summary": "SiYuan through 3.8.4 fails to escape heading style attributes when rendering outline and bookmark dock HTML, allowing stored cross-site scripting. Attackers can supply crafted notebooks or call administrative endpoints to inject malicious style values that execute in the Electron renderer with full system access.",
-      "published": "2026-09-19T00:16:57.963",
+      "id": "CVE-2026-92967",
+      "summary": "The Pochipp plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'keyword' parameter in versions up to, and including, 1.20.2. This is due to insufficient output escaping , which reads $_GET['keyword'], applies only sanitize_text_field() (which strips tags but leaves double quotes intact) and interpolates the value directly into the value attribute of the search input via a PHP heredoc, without esc_attr(). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user with upload_files capability (Author or above) into performing an action such as clicking on a specially crafted link to /wp-admin/media-upload.",
+      "published": "2026-09-19T03:17:18.717",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92967"
+    },
+    {
+      "id": "CVE-2026-92807",
+      "summary": "The Save as PDF Plugin by PDFCrowd plugin for WordPress is vulnerable to Arbitrary Function Invocation in all versions up to, and including, 4.6.1 via the `pdf_created_callback` shortcode attribute. The `eval_shortcode()` function copies any non-`button_`/non-`email_` shortcode attribute verbatim into a custom options array without sanitization, allowlist enforcement, or capability checks, and `create_button()` AES-encrypts that array \u2014 including the attacker-supplied callback value \u2014 and embeds the resulting blob in the rendered button HTML; when the blob is later POSTed to the unauthenticated `wp_ajax_nopriv_save_as_pdf_pdfcrowd` endpoint, `save_as_pdf_pdfcrowd()` decrypts it and invokes `$options['pdf_created_callback']` as a PHP callable at line 1722 with no `is_callable()` guard, no allowlist, and no capability check. This makes it possible for authenticated attackers, with Contributor-level access and above, to invoke arbitrary PHP functions or static class methods with plugin option data as the sole argument, enabling disclosure of the site's stored PDFCrowd API key and username or further server-side abuse. Note that the encryption boundary does not mitigate this vector because the server itself encrypts the attacker-chosen callback during shortcode rendering, supplying any authenticated Contributor with a cryptographically valid blob that any unauthenticated visitor can subsequently replay to trigger invocation.",
+      "published": "2026-09-19T03:17:17.723",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93923"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92807"
     },
     {
-      "id": "CVE-2026-93922",
-      "summary": "SiYuan through 3.8.4 renders notebook names as raw HTML in the Daily Note picker dialog without escaping, allowing stored cross-site scripting in the Electron renderer. Attackers can create notebooks with HTML payloads in names that execute JavaScript with Node.js access when the picker opens, enabling operating system command execution.",
-      "published": "2026-09-19T00:16:57.783",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93922"
+      "id": "CVE-2026-92229",
+      "summary": "The The Forminator Forms \u2013 Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 1.57.2. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes.",
+      "published": "2026-09-19T03:17:17.040",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92229"
     },
     {
-      "id": "CVE-2026-93921",
-      "summary": "SiYuan versions through 3.8.4 fail to enforce publish access control in the getDynamicIcon endpoint, allowing read-only token holders to access document metadata. Attackers can call the endpoint with type=8 and crafted content to read block titles, names, aliases, and hierarchical paths of restricted documents via template injection.",
-      "published": "2026-09-19T00:16:57.553",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93921"
+      "id": "CVE-2026-89334",
+      "summary": "The Better Messages \u2013 Chat Rooms, Group Chat, Private Messages & AI Chat Bots plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 2.15.33. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with custom-level access and above, to access the full message transcript, thread metadata, and user data of any chat-room thread without authentication. This is only exploitable when the chat room's only_joined_can_read setting retains its default value of '0'.",
+      "published": "2026-09-19T03:17:16.893",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89334"
     },
     {
-      "id": "CVE-2026-77875",
-      "summary": "The application protects access through its calculator-style vault passcode, but the stored data is not bound to that authentication boundary. A local actor who can access shared external storage, such as through an authorized non-root ADB shell or another local file-reading context with suitable storage access, can copy the SQLite database and media files directly without entering the vault passcode.",
-      "published": "2026-09-19T00:16:57.193",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77875"
+      "id": "CVE-2026-89333",
+      "summary": "The Tutor LMS \u2013 eLearning and online course solution plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 4.0.8 via the 'student_id' parameter due to missing validation on a user controlled key. This makes it possible for authenticated attackers, with subscriber-level access and above, to disclose the email address and Tutor profile phone number of arbitrary WordPress users, including Administrators, by iterating over user IDs via the student_id parameter.",
+      "published": "2026-09-19T03:17:16.743",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89333"
     },
     {
-      "id": "CVE-2026-93740",
-      "summary": "A vulnerability was identified in Totolink A3002MU Hh-B20211125.1046. Affected is the function formWlEncrypt of the file /boafrm/formWlEncrypt. The manipulation of the argument submit-url leads to buffer overflow. It is possible to initiate the attack remotely. The exploit is publicly available and might be used.",
-      "published": "2026-09-18T22:17:10.890",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93740"
-    },
-    {
-      "id": "CVE-2026-93739",
-      "summary": "A vulnerability was determined in Totolink A3002MU Hh-B20211125.1046. This impacts the function formWlAc of the file /boafrm/formWlAc. Executing a manipulation of the argument submit-url can lead to buffer overflow. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-09-18T22:17:10.710",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93739"
+      "id": "CVE-2026-89274",
+      "summary": "The WP Recipe Maker plugin for WordPress is vulnerable to Arbitrary Shortcode Execution in all versions up to, and including, 10.8.1. The vulnerability exists because `WPRM_Metadata::sanitize_metadata()` recursively calls `do_shortcode()` on every scalar field of the recipe's structured metadata array \u2014 including the `reviewBody` field, which is populated verbatim from the `comment_content` of approved `wprm-comment-rating` comments \u2014 without sanitizing or stripping shortcode tokens before execution; the subsequent `wp_strip_all_tags()` and `strip_shortcodes()` calls operate only on the output string after execution has already fully occurred, providing no protection against server-side shortcode invocation. This makes it possible for unauthenticated attackers to execute arbitrary registered WordPress shortcodes server-side on every recipe page render, causing shortcode output \u2014 such as attachment captions, private post fields, or other data exposed by installed shortcodes \u2014 to be embedded in the page's JSON-LD `reviewBody` metadata and disclosed to all visitors who load the recipe page. Successful exploitation requires the attacker's rated comment to pass the site's comment approval threshold, either via auto-approval or moderator action, before the injected shortcode begins executing on page loads.",
+      "published": "2026-09-19T03:17:16.587",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89274"
     }
   ]
 }
