@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-18T21:39:22+00:00",
+  "generated_at": "2026-09-19T00:19:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93894",
-      "summary": "In Vinyl Cache before 9.0,2, workspace buffer overflow vulnerability was found in the .upper() and .lower() string type methods of VCL. This can be used as a remote denial of service (DoS) vector to make the child process segfault or assert, and then restart. Effectively exploiting this vulnerability requires prior knowledge about the VCL in use and the ability to craft a request that contains a string that is long enough to fill the remaining workspace at the call site while staying under the different request size limits (http_req_size, http_req_hdr_len, etc.).",
-      "published": "2026-09-18T21:18:49.297",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93894"
+      "id": "CVE-2026-93923",
+      "summary": "SiYuan through 3.8.4 fails to escape heading style attributes when rendering outline and bookmark dock HTML, allowing stored cross-site scripting. Attackers can supply crafted notebooks or call administrative endpoints to inject malicious style values that execute in the Electron renderer with full system access.",
+      "published": "2026-09-19T00:16:57.963",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93923"
     },
     {
-      "id": "CVE-2026-93738",
-      "summary": "A vulnerability was found in Totolink A3002MU Hh-B20211125.1046. This affects the function formSchedule of the file /boafrm/formSchedule. Performing a manipulation of the argument webpage results in buffer overflow. The attack is possible to be carried out remotely. The exploit has been made public and could be used.",
-      "published": "2026-09-18T21:18:48.660",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93738"
+      "id": "CVE-2026-93922",
+      "summary": "SiYuan through 3.8.4 renders notebook names as raw HTML in the Daily Note picker dialog without escaping, allowing stored cross-site scripting in the Electron renderer. Attackers can create notebooks with HTML payloads in names that execute JavaScript with Node.js access when the picker opens, enabling operating system command execution.",
+      "published": "2026-09-19T00:16:57.783",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93922"
     },
     {
-      "id": "CVE-2026-93574",
-      "summary": "A flaw was found in Netty's `netty-codec-http` component. A remote attacker could exploit this vulnerability by sending a specially crafted HTTP/1.1 chunk-size token that includes post-digit whitespace. This incorrect parsing of the chunk size can lead to HTTP request smuggling. This allows an attacker to bypass security controls or access unauthorized resources in proxy/backend deployments.",
-      "published": "2026-09-18T21:18:48.277",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93574"
-    },
-    {
-      "id": "CVE-2026-93562",
-      "summary": "A flaw was found in Netty's HTTP/1 decoder. Incomplete validation of malformed Transfer-Encoding headers allows a remote attacker to perform HTTP request smuggling. By sending specially crafted HTTP requests, an attacker can inject arbitrary HTTP requests, potentially bypassing security controls or accessing unauthorized resources.",
-      "published": "2026-09-18T21:18:46.977",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93562"
-    },
-    {
-      "id": "CVE-2026-88097",
-      "summary": "Use after free in Microsoft Edge (Chromium-based) allows an unauthorized attacker to elevate privileges locally.",
-      "published": "2026-09-18T21:18:45.913",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88097"
-    },
-    {
-      "id": "CVE-2026-85272",
-      "summary": "Open edX Platform enables the authoring and delivery of online learning at any scale. From Aspen.1 until Ulmo and Verawood.1, openedx/core/lib/extract_archive.py uses _is_bad_path to validate safe_extractall targets by comparing resolved path strings with startswith instead of comparing path components. A course author or staff user with course import permission can submit a crafted .tar.gz archive through the import_olx flow initiated by cms.djangoapps.contentstore.views.import_export.import_handler. An archive member can therefore escape into a sibling course staging directory whose name shares the attacker's base64 directory prefix, causing limited cross-tenant file corruption. Zip archives are not practically affected because ZipFile.extractall strips parent traversal segments, and the advisory does not establish arbitrary filesystem writes, file reads, or direct code execution. This issue is fixed in Ulmo and Verawood.1.",
-      "published": "2026-09-18T21:18:44.793",
+      "id": "CVE-2026-93921",
+      "summary": "SiYuan versions through 3.8.4 fail to enforce publish access control in the getDynamicIcon endpoint, allowing read-only token holders to access document metadata. Attackers can call the endpoint with type=8 and crafted content to read block titles, names, aliases, and hierarchical paths of restricted documents via template injection.",
+      "published": "2026-09-19T00:16:57.553",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85272"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93921"
+    },
+    {
+      "id": "CVE-2026-77875",
+      "summary": "The application protects access through its calculator-style vault passcode, but the stored data is not bound to that authentication boundary. A local actor who can access shared external storage, such as through an authorized non-root ADB shell or another local file-reading context with suitable storage access, can copy the SQLite database and media files directly without entering the vault passcode.",
+      "published": "2026-09-19T00:16:57.193",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77875"
+    },
+    {
+      "id": "CVE-2026-93740",
+      "summary": "A vulnerability was identified in Totolink A3002MU Hh-B20211125.1046. Affected is the function formWlEncrypt of the file /boafrm/formWlEncrypt. The manipulation of the argument submit-url leads to buffer overflow. It is possible to initiate the attack remotely. The exploit is publicly available and might be used.",
+      "published": "2026-09-18T22:17:10.890",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93740"
+    },
+    {
+      "id": "CVE-2026-93739",
+      "summary": "A vulnerability was determined in Totolink A3002MU Hh-B20211125.1046. This impacts the function formWlAc of the file /boafrm/formWlAc. Executing a manipulation of the argument submit-url can lead to buffer overflow. The attack may be performed from remote. The exploit has been publicly disclosed and may be utilized.",
+      "published": "2026-09-18T22:17:10.710",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93739"
     }
   ]
 }
