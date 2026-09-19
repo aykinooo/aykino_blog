@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-09-19T20:36:31+00:00",
+  "generated_at": "2026-09-19T23:00:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-93954",
+      "summary": "A security vulnerability has been detected in grimmory-tools grimmory up to 3.3.3/3.4.1. Affected is the function AppSettingController.getAppSettings of the file backend/src/main/java/org/booklore/controller/AppSettingController.java of the component Settings API Endpoint. Such manipulation leads to incorrect authorization. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The name of the patch is 2b66ca6df8110f6b512e030b54c16b9fbe318f17. Applying a patch is advised to resolve this issue. PR #2558, merged as 53abc8b, moved the OIDC secret into a dedicated setting, but did not by itself restrict GET /api/v1/settings.",
+      "published": "2026-09-19T22:16:28.453",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93954"
+    },
     {
       "id": "CVE-2026-82672",
       "summary": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in elixir-mint mint allows a malicious HTTP/1 server to desynchronize a strict intermediary and the Mint client on a pooled connection, enabling response-queue poisoning against subsequent requests that share the connection.\n\nMint.HTTP1.Parse.chunk_size/1 in lib/mint/http1/parse.ex stops at the first non-hexadecimal byte of a chunked response's chunk-size line and returns the remainder unexamined. Mint.HTTP1.decode_body/5 in lib/mint/http1.ex then discards every byte up to the CRLF with Parse.ignore_until_crlf/1, so the accepted grammar is a run of hex digits followed by arbitrary bytes, where RFC 9112 permits only a ;-introduced chunk extension. Lines such as 5ZZZZZ and 5 9 are accepted as chunk size 5, and 0ZZZZ is accepted as the terminating chunk that ends the message body. An RFC-strict intermediary rejects such a line while Mint accepts it, so the two disagree on chunk boundaries and on where the response ends.\n\nThis issue affects mint: from 0.1.0 before 1.10.1.",
@@ -36,13 +43,6 @@
       "published": "2026-09-19T15:17:08.627",
       "cvss": 4.2,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93999"
-    },
-    {
-      "id": "CVE-2026-93987",
-      "summary": "rclone versions 1.56.0 through 1.75.0 contain a path traversal vulnerability in the `rclone serve docker` volume plugin. newVolume() in cmd/serve/docker/volume.go computes a volume's mountpoint as filepath.Join(drv.root, name) from the attacker-supplied `name` field of a Docker VolumeDriver.Create request without verifying that the result stays within drv.root (default /var/lib/docker-volumes/rclone), and checkMountpoint() then creates that directory with file.MkdirAll before mounting. A volume name containing enough `..` components (e.g. \"../../../../../../etc\") therefore resolves outside the base directory, allowing anyone able to submit a VolumeDriver.Create request to the plugin socket \u2014 normally the Docker daemon, or a workload that can request named volumes in a multi-tenant orchestration setup \u2014 to make the privileged rclone plugin process create a directory and mount a remote filesystem specified in the same request at an arbitrary host path, shadowing or disrupting system directories. The advisory notes Volume.restoreState() had the same missing validation when reloading persisted volume state. Fixed in 1.75.1.",
-      "published": "2026-09-19T12:16:42.187",
-      "cvss": 3.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93987"
     }
   ]
 }
