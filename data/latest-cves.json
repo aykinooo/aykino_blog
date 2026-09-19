@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-19T14:22:47+00:00",
+  "generated_at": "2026-09-19T17:59:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-82672",
+      "summary": "Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling') vulnerability in elixir-mint mint allows a malicious HTTP/1 server to desynchronize a strict intermediary and the Mint client on a pooled connection, enabling response-queue poisoning against subsequent requests that share the connection.\n\nMint.HTTP1.Parse.chunk_size/1 in lib/mint/http1/parse.ex stops at the first non-hexadecimal byte of a chunked response's chunk-size line and returns the remainder unexamined. Mint.HTTP1.decode_body/5 in lib/mint/http1.ex then discards every byte up to the CRLF with Parse.ignore_until_crlf/1, so the accepted grammar is a run of hex digits followed by arbitrary bytes, where RFC 9112 permits only a ;-introduced chunk extension. Lines such as 5ZZZZZ and 5 9 are accepted as chunk size 5, and 0ZZZZ is accepted as the terminating chunk that ends the message body. An RFC-strict intermediary rejects such a line while Mint accepts it, so the two disagree on chunk boundaries and on where the response ends.\n\nThis issue affects mint: from 0.1.0 before 1.10.1.",
+      "published": "2026-09-19T17:16:35.710",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82672"
+    },
+    {
+      "id": "CVE-2026-82560",
+      "summary": "Pod::Text versions before 6.1.1 for Perl allow CPU and memory exhaustion formatting a POD document whose =over nesting drives the margin to the output width.\n\nEach =over adds its indent to the margin, which wrap() subtracts from the output width to get the space available for text. When that space reaches zero, the line-splitting substitution matches the empty string, and the loop consumes no input while appending the margin padding on every pass.\n\nFormatting an attacker-supplied POD document never returns, and the output grows until memory is exhausted.",
+      "published": "2026-09-19T16:16:32.140",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82560"
+    },
+    {
+      "id": "CVE-2026-94001",
+      "summary": "A flaw was found in the Admin REST API of Keycloak, an open-source identity and access management solution. The endpoint used for deleting user credentials does not correctly check for fine-grained reset-password permissions. This allows a delegated administrator, who should be restricted from resetting passwords, to delete a user's password credentials, resulting in the user being unable to log in.",
+      "published": "2026-09-19T15:17:08.903",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94001"
+    },
+    {
+      "id": "CVE-2026-94000",
+      "summary": "A flaw was found in the Admin REST API of Keycloak, an open-source identity and access management solution. The issue occurs in the group-membership endpoints where the system fails to check if a group grants administrative privileges before allowing a user to be added. This allows a delegated administrator with limited permissions to add themselves to a high-privilege group, potentially gaining full control over the entire realm.",
+      "published": "2026-09-19T15:17:08.763",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94000"
+    },
+    {
+      "id": "CVE-2026-93999",
+      "summary": "A flaw was found in the OIDC protocol implementation of Keycloak, an open-source identity and access management solution. The issue occurs during the token refresh process when the server restores requested audiences from stored client IDs. Keycloak fails to verify if the target audience client is still enabled before issuing a new access token. This allows an application with an existing refresh token to continue obtaining valid access tokens for a disabled client, potentially bypassing administrative access controls for resource servers that rely on offline JWT validation.",
+      "published": "2026-09-19T15:17:08.627",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93999"
+    },
     {
       "id": "CVE-2026-93987",
       "summary": "rclone versions 1.56.0 through 1.75.0 contain a path traversal vulnerability in the `rclone serve docker` volume plugin. newVolume() in cmd/serve/docker/volume.go computes a volume's mountpoint as filepath.Join(drv.root, name) from the attacker-supplied `name` field of a Docker VolumeDriver.Create request without verifying that the result stays within drv.root (default /var/lib/docker-volumes/rclone), and checkMountpoint() then creates that directory with file.MkdirAll before mounting. A volume name containing enough `..` components (e.g. \"../../../../../../etc\") therefore resolves outside the base directory, allowing anyone able to submit a VolumeDriver.Create request to the plugin socket \u2014 normally the Docker daemon, or a workload that can request named volumes in a multi-tenant orchestration setup \u2014 to make the privileged rclone plugin process create a directory and mount a remote filesystem specified in the same request at an arbitrary host path, shadowing or disrupting system directories. The advisory notes Volume.restoreState() had the same missing validation when reloading persisted volume state. Fixed in 1.75.1.",
       "published": "2026-09-19T12:16:42.187",
       "cvss": 3.4,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93987"
-    },
-    {
-      "id": "CVE-2026-93986",
-      "summary": "rclone before 1.75.1 fails to confine names from server and third-party listing responses to the listed directory, allowing path traversal sequences in object names. Attackers can craft special names containing forward slashes and parent directory references to potentially write outside the destination root, though downstream protections in the local backend currently block actual file escape.",
-      "published": "2026-09-19T12:16:42.027",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93986"
-    },
-    {
-      "id": "CVE-2026-93985",
-      "summary": "OpenPanel js-runtime through commit bad75bdd contains a sandbox escape vulnerability in the JavaScript webhook template validator that fails to block computed member access to constructor chains. Attackers with project write access can create webhook templates using computed property notation to access Function constructor and execute arbitrary code in the worker process.",
-      "published": "2026-09-19T12:16:41.873",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93985"
-    },
-    {
-      "id": "CVE-2026-93984",
-      "summary": "OpenPanel tracking API through commit bad75bddc74d12d36cfb843f4531d3b830a8d994 fails to verify client secret cryptographic hash before authorizing revenue events and bot filtering. Attackers with only a public client ID can supply arbitrary dummy secrets to inject forged revenue metrics and bypass bot detection filters.",
-      "published": "2026-09-19T12:16:41.723",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93984"
-    },
-    {
-      "id": "CVE-2026-93983",
-      "summary": "OpenPanel through commit bad75bdd fails to escape property keys in ClickHouse SQL queries, allowing authenticated users to inject boolean SQL terms. Attackers can supply crafted filter names to bypass project isolation and access metrics from other projects.",
-      "published": "2026-09-19T12:16:41.493",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93983"
-    },
-    {
-      "id": "CVE-2026-93982",
-      "summary": "OpenPanel through commit bad75bdd writes Model Context Protocol authentication tokens from URL query parameters to plaintext application logs without redaction. Attackers with access to application stdout or centralized logging systems can capture base64-encoded credentials to replay MCP requests and access project analytics.",
-      "published": "2026-09-19T12:16:41.310",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93982"
     }
   ]
 }
