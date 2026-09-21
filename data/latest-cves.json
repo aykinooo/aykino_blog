@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-21T10:40:15+00:00",
+  "generated_at": "2026-09-21T17:01:07+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-94277",
-      "summary": "MISP's galaxy matrix statistics view (app/View/Users/statistics_galaxymatrix.ctp) renders the galaxy name directly into HTML output via sprintf() without any HTML encoding. An authenticated user holding the perm_galaxy_editor permission can create or modify a galaxy whose name contains arbitrary HTML or JavaScript markup. Because the value is interpolated verbatim into the page, any user who subsequently opens the galaxy matrix statistics page will have the embedded script executed in their browser context. This enables session hijacking, credential theft, data exfiltration, or the performance of arbitrary actions on behalf of the victim within the MISP application.\n\nVersion affected: <2.5.47",
-      "published": "2026-09-21T10:17:17.570",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94277"
-    },
-    {
-      "id": "CVE-2026-92574",
-      "summary": "A vulnerability in CRI-O checkpoint restore allows a user who can create a pod from a malicious checkpointed container to bypass the destination Kubernetes security context. The restored process may retain credentials, Linux capabilities, no_new_privs, and seccomp state from the checkpoint instead of enforcing the destination configuration. This can allow execution with elevated privileges across the container security boundary.\nAffected upstream supported versions are CRI-O 1.34 and later. Downstream Red Hat products are affected from OCP 4.17 onward. Fixes have been applied to supported branches but are not yet released.\nExploitation requires permission to create a pod from a malicious checkpoint image and checkpoint restore functionality to be available.",
-      "published": "2026-09-21T10:17:17.360",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92574"
-    },
-    {
-      "id": "CVE-2026-91921",
-      "summary": "Cross-Site Scripting (XSS) vulnerability due to inadequate input sanitisation in the client-side rendering engine of the 1millionbot AI Chat Platform. An unauthenticated remote user could cause external hyperlinks to be rendered in the web interface by sending messages containing Markdown syntax and certain unsanitised content blocks. The impact is limited to the user\u2019s own interactive session; no compromise of internal infrastructure, access to third-party data or impact on administrative panels has been identified.",
-      "published": "2026-09-21T10:17:15.873",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91921"
-    },
-    {
-      "id": "CVE-2026-94152",
-      "summary": "A security vulnerability has been detected in Omega Solution FBP Fulfillment by People 2025. This impacts an unknown function of the file /user/ of the component User Profile API. The manipulation of the argument ID leads to authorization bypass. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-21T09:17:06.747",
+      "id": "CVE-2026-88978",
+      "summary": "Hatchet is a platform for orchestrating background tasks, AI agents, and durable workflows at scale. Prior to 0.106.1, the WorkerStatus gRPC polling path in pkg/repository/durable_events.go passes caller-supplied durable task, node, and branch identifiers to ListSatisfiedEntries without a tenant filter, allowing an authenticated tenant worker that knows another tenant's durable-task UUID to retrieve matching durable event-log records. The UUIDv4 requirement makes exploitation unlikely, and single-tenant deployments are unaffected in practice. This issue is fixed in version 0.106.1.",
+      "published": "2026-09-21T16:17:26.010",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94152"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88978"
     },
     {
-      "id": "CVE-2026-94151",
-      "summary": "A weakness has been identified in Omega Solution HRM OS up to 20260717. This affects an unknown function of the file /role-permission/permission of the component Role Permission API. Executing a manipulation of the argument roleId can lead to missing authentication. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-21T09:17:06.567",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94151"
+      "id": "CVE-2026-85751",
+      "summary": "Mailu is a mail server distributed as a set of Docker images. From Mailu 2.0 until 2024.06.55 and prior to Mailu helm-charts 2.7.3, deployments with PROXY_AUTH_WHITELIST configured but REAL_IP_HEADER unset trusted a client-controlled X-Forwarded-By header for header-based proxy authentication. The proxy_hide_header directive in the nginx template at core/nginx/conf/proxy.conf hid the header from upstream responses but did not overwrite the incoming request value in this configuration. An unauthenticated remote attacker could therefore spoof the trusted proxy identity and bypass authentication. This issue is fixed in Mailu 2024.06.55 and Mailu helm-charts 2.7.3.",
+      "published": "2026-09-21T16:17:25.070",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85751"
     },
     {
-      "id": "CVE-2026-94150",
-      "summary": "A security flaw has been discovered in Omega Solution HRM OS up to 20260717. The impacted element is an unknown function of the file /media/view/ of the component SVG File Upload. Performing a manipulation results in cross site scripting. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-21T09:17:06.387",
+      "id": "CVE-2026-84298",
+      "summary": "Hatchet is a platform for orchestrating background tasks, AI agents, and durable workflows at scale. Prior to 0.95.3, the V1 DurableTask stream handler stores worker-supplied task_external_id values in the durableInvocations routing map before tenant ownership is verified, and callback delivery resolves that map by task UUID without tenant identity. An authenticated tenant worker that knows another tenant's durable task UUID and keeps a stream open on the same dispatcher process can receive that task's durable callback result payload. UUIDv4 values are not enumerable, and single-tenant deployments are unaffected in practice. This issue is fixed in version 0.95.3.",
+      "published": "2026-09-21T16:17:24.803",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84298"
+    },
+    {
+      "id": "CVE-2026-82412",
+      "summary": "ntopng is a web-based network traffic monitoring application. Prior to 6.7.260717, the vulnerability-scan endpoints scripts/lua/rest/v2/add/host/to_scan.lua and scripts/lua/rest/v2/exec/host/schedule_vulnerability_scan.lua accept the scan_ports parameter without an administrator gate and pass it through validateSingleWord, which permits shell metacharacters. scripts/lua/modules/vulnerability_scan/vs_utils.lua then concatenates scan_ports into an nmap command in nmap_scan_host and executes the command through ntop.execCmd or ntop.execCmdAsync and popen. Any authenticated non-admin user can execute operating-system commands as the ntopng process account when nmap is available. Because the endpoints accept GET requests while ntopng's CSRF validation applies to POST request bodies, an attacker can also trigger the command through a logged-in user's browser without possessing ntopng credentials. This issue is fixed in version 6.7.260717.",
+      "published": "2026-09-21T16:17:24.503",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82412"
+    },
+    {
+      "id": "CVE-2026-77166",
+      "summary": "The emoji field in the page emoji update endpoint does not properly validate user input. By injecting long text and line breaks, the sidebar layout becomes broken and can hide other items.",
+      "published": "2026-09-21T16:17:24.013",
       "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94150"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77166"
+    },
+    {
+      "id": "CVE-2026-77165",
+      "summary": "File owners were unable to unlock TYPE_TOKEN locks placed by other users, leaving files permanently locked with no recovery path outside of the database.",
+      "published": "2026-09-21T16:17:23.863",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77165"
     }
   ]
 }
