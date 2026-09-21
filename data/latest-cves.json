@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-21T17:01:07+00:00",
+  "generated_at": "2026-09-21T21:02:01+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-88978",
-      "summary": "Hatchet is a platform for orchestrating background tasks, AI agents, and durable workflows at scale. Prior to 0.106.1, the WorkerStatus gRPC polling path in pkg/repository/durable_events.go passes caller-supplied durable task, node, and branch identifiers to ListSatisfiedEntries without a tenant filter, allowing an authenticated tenant worker that knows another tenant's durable-task UUID to retrieve matching durable event-log records. The UUIDv4 requirement makes exploitation unlikely, and single-tenant deployments are unaffected in practice. This issue is fixed in version 0.106.1.",
-      "published": "2026-09-21T16:17:26.010",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88978"
+      "id": "CVE-2026-85219",
+      "summary": "Denial-of-Service in Redis module in Thinkst Canary's OpenCanary 0.9.9 allows an unauthenticated remote attacker cause unconstrained memory usage.",
+      "published": "2026-09-21T20:17:36.807",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85219"
     },
     {
-      "id": "CVE-2026-85751",
-      "summary": "Mailu is a mail server distributed as a set of Docker images. From Mailu 2.0 until 2024.06.55 and prior to Mailu helm-charts 2.7.3, deployments with PROXY_AUTH_WHITELIST configured but REAL_IP_HEADER unset trusted a client-controlled X-Forwarded-By header for header-based proxy authentication. The proxy_hide_header directive in the nginx template at core/nginx/conf/proxy.conf hid the header from upstream responses but did not overwrite the incoming request value in this configuration. An unauthenticated remote attacker could therefore spoof the trusted proxy identity and bypass authentication. This issue is fixed in Mailu 2024.06.55 and Mailu helm-charts 2.7.3.",
-      "published": "2026-09-21T16:17:25.070",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85751"
+      "id": "CVE-2026-81469",
+      "summary": "Dell Inventory Collector Client, versions prior to 15.0.0, contain an Unquoted Search Path or Element vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Code execution and Elevation of Privileges",
+      "published": "2026-09-21T20:17:33.130",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81469"
     },
     {
-      "id": "CVE-2026-84298",
-      "summary": "Hatchet is a platform for orchestrating background tasks, AI agents, and durable workflows at scale. Prior to 0.95.3, the V1 DurableTask stream handler stores worker-supplied task_external_id values in the durableInvocations routing map before tenant ownership is verified, and callback delivery resolves that map by task UUID without tenant identity. An authenticated tenant worker that knows another tenant's durable task UUID and keeps a stream open on the same dispatcher process can receive that task's durable callback result payload. UUIDv4 values are not enumerable, and single-tenant deployments are unaffected in practice. This issue is fixed in version 0.95.3.",
-      "published": "2026-09-21T16:17:24.803",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84298"
+      "id": "CVE-2026-79320",
+      "summary": "Stencil core 4.43.5 contains a DOM-based cross-site scripting (XSS) vulnerability in the component runtime. When a downstream application enables the experimental slot fixes option and uses scoped components, assigning a string to the textContent property of such a component's host element causes the value to be parsed as HTML instead of being inserted as text. If an application writes attacker-controlled data to these host elements, the data can be interpreted as markup and script can execute in the context of the application's origin.",
+      "published": "2026-09-21T20:17:32.823",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79320"
     },
     {
-      "id": "CVE-2026-82412",
-      "summary": "ntopng is a web-based network traffic monitoring application. Prior to 6.7.260717, the vulnerability-scan endpoints scripts/lua/rest/v2/add/host/to_scan.lua and scripts/lua/rest/v2/exec/host/schedule_vulnerability_scan.lua accept the scan_ports parameter without an administrator gate and pass it through validateSingleWord, which permits shell metacharacters. scripts/lua/modules/vulnerability_scan/vs_utils.lua then concatenates scan_ports into an nmap command in nmap_scan_host and executes the command through ntop.execCmd or ntop.execCmdAsync and popen. Any authenticated non-admin user can execute operating-system commands as the ntopng process account when nmap is available. Because the endpoints accept GET requests while ntopng's CSRF validation applies to POST request bodies, an attacker can also trigger the command through a logged-in user's browser without possessing ntopng credentials. This issue is fixed in version 6.7.260717.",
-      "published": "2026-09-21T16:17:24.503",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82412"
+      "id": "CVE-2026-79319",
+      "summary": "Stencil core 4.43.5 is vulnerable to Incorrect Access Control.",
+      "published": "2026-09-21T20:17:32.673",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79319"
     },
     {
-      "id": "CVE-2026-77166",
-      "summary": "The emoji field in the page emoji update endpoint does not properly validate user input. By injecting long text and line breaks, the sidebar layout becomes broken and can hide other items.",
-      "published": "2026-09-21T16:17:24.013",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77166"
+      "id": "CVE-2026-79318",
+      "summary": "web2py 3.2.2-stable (commit a7330a2bf21219fa77860b6665de927dd4f98e6d) is vulnerable to Directory Traversal in read_file()/write_file() (applications/admin/controllers/webservices.py).",
+      "published": "2026-09-21T20:17:32.510",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79318"
     },
     {
-      "id": "CVE-2026-77165",
-      "summary": "File owners were unable to unlock TYPE_TOKEN locks placed by other users, leaving files permanently locked with no recovery path outside of the database.",
-      "published": "2026-09-21T16:17:23.863",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77165"
+      "id": "CVE-2026-73552",
+      "summary": "Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to 1.36.10, 1.37.6, 1.38.4, and 1.39.1, Envoy HTTP RBAC accepts RFC-valid opaque header bytes but evaluates safe_regex values with RE2's UTF-8 subject semantics. A downstream client can preserve a prohibited marker and add an unrelated obs-text octet, causing RE2::FullMatch to return false and a negative RBAC policy to treat the invalid subject as an ordinary no-match. A byte-oriented route matcher can still observe the marker, allowing the request to reach a route intended to be denied. The relevant scope boundary is that plain positive ALLOW regexes normally fail closed, and exact, prefix, suffix, and contains matchers are not shown to have this subject-domain failure. This issue is fixed in versions 1.36.10, 1.37.6, 1.38.4, and 1.39.1.",
+      "published": "2026-09-21T20:17:28.900",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73552"
     }
   ]
 }
