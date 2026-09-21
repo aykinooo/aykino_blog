@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-21T04:59:08+00:00",
+  "generated_at": "2026-09-21T10:40:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-94138",
-      "summary": "A security flaw has been discovered in Chengdu Feiyuxing Technology Feiyu Star Router B-MB5E202-210322-r11656. This impacts an unknown function of the file /send_order.cgi?parameter=del_expmac. The manipulation of the argument mac results in command injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-21T04:17:37.083",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94138"
+      "id": "CVE-2026-94277",
+      "summary": "MISP's galaxy matrix statistics view (app/View/Users/statistics_galaxymatrix.ctp) renders the galaxy name directly into HTML output via sprintf() without any HTML encoding. An authenticated user holding the perm_galaxy_editor permission can create or modify a galaxy whose name contains arbitrary HTML or JavaScript markup. Because the value is interpolated verbatim into the page, any user who subsequently opens the galaxy matrix statistics page will have the embedded script executed in their browser context. This enables session hijacking, credential theft, data exfiltration, or the performance of arbitrary actions on behalf of the victim within the MISP application.\n\nVersion affected: <2.5.47",
+      "published": "2026-09-21T10:17:17.570",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94277"
     },
     {
-      "id": "CVE-2026-94137",
-      "summary": "A vulnerability was identified in Hangzhou Shunwang Technology shzh 10.7.2.693. This affects the function sub_180004AC0 of the file shdrv_x64.sys of the component IRP_MJ_DEVICE_CONTROL Handler. The manipulation of the argument PID leads to denial of service. The attack must be carried out locally.",
-      "published": "2026-09-21T04:17:36.393",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94137"
-    },
-    {
-      "id": "CVE-2026-94185",
-      "summary": "nvm resolves a requested version or alias by treating it as a filename under $NVM_DIR/alias. Before 0.40.8, nvm_alias() concatenated the requested name onto that directory and read the result with no containment check, so a name containing a `..` component escaped the alias directory; under the default layout an alias such as `../../.npmrc` resolves to a file in the user's home directory. nvm_print_alias_file() then emits every non-comment, non-empty line of whatever was opened. A version string taken from an untrusted .nvmrc reaches this path, so a developer who runs `nvm use`, `nvm install`, or `nvm which` inside an attacker-supplied repository discloses the first non-comment line of an arbitrary file readable by that user, in the resulting \"is not yet installed\" error message. A user-supplied `nvm alias <traversing-name>` discloses every non-comment line of the target file. There is no integrity or availability impact, and no command execution on this path.",
-      "published": "2026-09-21T03:16:34.243",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94185"
-    },
-    {
-      "id": "CVE-2026-94129",
-      "summary": "A vulnerability was detected in BioStar VALKYRIE AURORA 2.10.2411.0800. This vulnerability affects the function sub_1105C of the file BS_RVSIO64.sys of the component IOCTL Handler. The manipulation of the argument PhysicalAddress results in write-what-where condition. The attack needs to be approached locally. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-21T02:16:54.213",
+      "id": "CVE-2026-92574",
+      "summary": "A vulnerability in CRI-O checkpoint restore allows a user who can create a pod from a malicious checkpointed container to bypass the destination Kubernetes security context. The restored process may retain credentials, Linux capabilities, no_new_privs, and seccomp state from the checkpoint instead of enforcing the destination configuration. This can allow execution with elevated privileges across the container security boundary.\nAffected upstream supported versions are CRI-O 1.34 and later. Downstream Red Hat products are affected from OCP 4.17 onward. Fixes have been applied to supported branches but are not yet released.\nExploitation requires permission to create a pod from a malicious checkpoint image and checkpoint restore functionality to be available.",
+      "published": "2026-09-21T10:17:17.360",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94129"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92574"
     },
     {
-      "id": "CVE-2026-94128",
-      "summary": "A security vulnerability has been detected in BioStar VIVID LED DJ 4.0.2411.1500. This affects the function sub_1105C of the file BS_LED64.sys of the component IOCTL Handler. The manipulation of the argument AssociatedIrp leads to write-what-where condition. Local access is required to approach this attack. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-21T02:16:54.037",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94128"
+      "id": "CVE-2026-91921",
+      "summary": "Cross-Site Scripting (XSS) vulnerability due to inadequate input sanitisation in the client-side rendering engine of the 1millionbot AI Chat Platform. An unauthenticated remote user could cause external hyperlinks to be rendered in the web interface by sending messages containing Markdown syntax and certain unsanitised content blocks. The impact is limited to the user\u2019s own interactive session; no compromise of internal infrastructure, access to third-party data or impact on administrative panels has been identified.",
+      "published": "2026-09-21T10:17:15.873",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91921"
     },
     {
-      "id": "CVE-2026-94110",
-      "summary": "A security vulnerability has been detected in QCMS up to 6.0.6. This issue affects the function self_Tmp in the library Lib/Config/Controllers.php of the component Content Detail Page. Such manipulation of the argument ID leads to sql injection. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. Router uses raw REQUEST_URI without URL decoding, so payloads must contain literal spaces - %20 never decodes before route parsing. The support team of the vendor was contacted early about this disclosure. Unfortunately, they responded just with profanity.",
-      "published": "2026-09-21T02:16:53.853",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94110"
+      "id": "CVE-2026-94152",
+      "summary": "A security vulnerability has been detected in Omega Solution FBP Fulfillment by People 2025. This impacts an unknown function of the file /user/ of the component User Profile API. The manipulation of the argument ID leads to authorization bypass. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-21T09:17:06.747",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94152"
+    },
+    {
+      "id": "CVE-2026-94151",
+      "summary": "A weakness has been identified in Omega Solution HRM OS up to 20260717. This affects an unknown function of the file /role-permission/permission of the component Role Permission API. Executing a manipulation of the argument roleId can lead to missing authentication. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-21T09:17:06.567",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94151"
+    },
+    {
+      "id": "CVE-2026-94150",
+      "summary": "A security flaw has been discovered in Omega Solution HRM OS up to 20260717. The impacted element is an unknown function of the file /media/view/ of the component SVG File Upload. Performing a manipulation results in cross site scripting. The attack may be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-21T09:17:06.387",
+      "cvss": 2.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94150"
     }
   ]
 }
