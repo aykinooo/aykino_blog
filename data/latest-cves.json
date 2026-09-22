@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-21T21:02:01+00:00",
+  "generated_at": "2026-09-22T00:04:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85219",
-      "summary": "Denial-of-Service in Redis module in Thinkst Canary's OpenCanary 0.9.9 allows an unauthenticated remote attacker cause unconstrained memory usage.",
-      "published": "2026-09-21T20:17:36.807",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85219"
+      "id": "CVE-2026-94426",
+      "summary": "A vulnerability was determined in xuxueli xxl-job up to 3.5.0. The impacted element is an unknown function of the file /jobgroup/insert. This manipulation of the argument Name causes cross site scripting. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-21T23:16:57.917",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94426"
     },
     {
-      "id": "CVE-2026-81469",
-      "summary": "Dell Inventory Collector Client, versions prior to 15.0.0, contain an Unquoted Search Path or Element vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Code execution and Elevation of Privileges",
-      "published": "2026-09-21T20:17:33.130",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81469"
+      "id": "CVE-2026-94425",
+      "summary": "A vulnerability was found in Moore Threads MTT S80 Driver Package 340.150. The affected element is the function sub_140006F0C in the library mtdispkm64.sys of the component IOCTL Handler. The manipulation results in improper privilege management. Attacking locally is a requirement. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-21T23:16:56.697",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94425"
     },
     {
-      "id": "CVE-2026-79320",
-      "summary": "Stencil core 4.43.5 contains a DOM-based cross-site scripting (XSS) vulnerability in the component runtime. When a downstream application enables the experimental slot fixes option and uses scoped components, assigning a string to the textContent property of such a component's host element causes the value to be parsed as HTML instead of being inserted as text. If an application writes attacker-controlled data to these host elements, the data can be interpreted as markup and script can execute in the context of the application's origin.",
-      "published": "2026-09-21T20:17:32.823",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79320"
-    },
-    {
-      "id": "CVE-2026-79319",
-      "summary": "Stencil core 4.43.5 is vulnerable to Incorrect Access Control.",
-      "published": "2026-09-21T20:17:32.673",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79319"
-    },
-    {
-      "id": "CVE-2026-79318",
-      "summary": "web2py 3.2.2-stable (commit a7330a2bf21219fa77860b6665de927dd4f98e6d) is vulnerable to Directory Traversal in read_file()/write_file() (applications/admin/controllers/webservices.py).",
-      "published": "2026-09-21T20:17:32.510",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79318"
-    },
-    {
-      "id": "CVE-2026-73552",
-      "summary": "Envoy is an open source edge and service proxy designed for cloud-native applications. Prior to 1.36.10, 1.37.6, 1.38.4, and 1.39.1, Envoy HTTP RBAC accepts RFC-valid opaque header bytes but evaluates safe_regex values with RE2's UTF-8 subject semantics. A downstream client can preserve a prohibited marker and add an unrelated obs-text octet, causing RE2::FullMatch to return false and a negative RBAC policy to treat the invalid subject as an ordinary no-match. A byte-oriented route matcher can still observe the marker, allowing the request to reach a route intended to be denied. The relevant scope boundary is that plain positive ALLOW regexes normally fail closed, and exact, prefix, suffix, and contains matchers are not shown to have this subject-domain failure. This issue is fixed in versions 1.36.10, 1.37.6, 1.38.4, and 1.39.1.",
-      "published": "2026-09-21T20:17:28.900",
+      "id": "CVE-2026-94627",
+      "summary": "vLLM Mooncake connector through 0.29.0 fails to properly manage GPU KV cache block ownership when concurrent child requests share a single transfer ID in prefill/decode disaggregated deployments. Attackers can trigger GPU memory exhaustion by submitting completion requests with multiple prompts, causing orphaned KV cache blocks to accumulate until process restart and eventually preventing legitimate requests from executing.",
+      "published": "2026-09-21T22:17:01.740",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73552"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94627"
+    },
+    {
+      "id": "CVE-2026-94626",
+      "summary": "vLLM through 0.29.0 fails to validate the tp_size parameter in kv_transfer_params on OpenAI-compatible completion endpoints, allowing attackers to allocate unbounded memory. Attackers can supply arbitrary tp_size values in prefill/decode disaggregated deployments to exhaust memory and trigger kernel OOM-kill of the decode worker process.",
+      "published": "2026-09-21T22:17:01.587",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94626"
+    },
+    {
+      "id": "CVE-2026-94625",
+      "summary": "vLLM through 0.29.0 contains a resource exhaustion vulnerability in MooncakeConnector where rejected prefill requests create ownerless transfer placeholders that are never reclaimed. Attackers can send rejected requests to exhaust sender task pools, causing valid requests to be delayed by up to 480 seconds while health checks continue returning success.",
+      "published": "2026-09-21T22:17:01.433",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94625"
+    },
+    {
+      "id": "CVE-2026-94624",
+      "summary": "vLLM through 0.29.0 contains a denial of service vulnerability in P2P KV offloading when OffloadingConnector is configured with TieringOffloadingSpec and a peer-to-peer secondary tier. Attackers can supply arbitrary remote host and port values in kv_transfer_params to create unreachable peer sessions that retain ZeroMQ sockets until the context quota is exhausted, causing an uncaught ZMQError that crashes EngineCore and stops all inference.",
+      "published": "2026-09-21T22:17:01.280",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94624"
     }
   ]
 }
