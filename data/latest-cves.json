@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-22T09:55:05+00:00",
+  "generated_at": "2026-09-22T14:50:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9231",
-      "summary": "The WP Travel Engine \u2013 Tour Booking Plugin \u2013 Tour Operator Software plugin for WordPress is vulnerable to Local File Inclusion in all versions up to, and including, 6.8.0 via the wte_get_template function. This makes it possible for authenticated attackers, with contributor-level access and above, to include and execute arbitrary .php files on the server, allowing the execution of any PHP code in those files. This can be used to bypass access controls, obtain sensitive data, or achieve code execution in cases where .php file types can be uploaded and included.",
-      "published": "2026-09-22T09:17:06.353",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9231"
-    },
-    {
-      "id": "CVE-2026-95511",
-      "summary": "A privilege escalation vulnerability was found in CUPS when used with the cups-filters serial backend. A local user who is a member of the lpadmin group can configure a printer that uses a privileged serial backend. The CUPS scheduler does not restrict the path component of non-file device URIs, so the root-privileged backend can write attacker-controlled print data to an arbitrary file. This can be used to change security-sensitive CUPS configuration and ultimately achieve root code execution. Exploitation requires local lpadmin group membership and a serial backend binary installed with root-only permissions.",
-      "published": "2026-09-22T09:17:06.217",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95511"
-    },
-    {
-      "id": "CVE-2026-95508",
-      "summary": "A heap-based buffer overflow was found in the DHCPv6 and TFTP response builders of libslirp. When the host is configured with a small interface MTU, a guest-supplied DHCPv6 CLIENTID option or TFTP blksize option can overflow the reply buffer with attacker-controlled content and length, resulting in denial of service and potentially arbitrary code execution in the host process. The default interface MTU is not affected.",
-      "published": "2026-09-22T09:17:06.073",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95508"
-    },
-    {
-      "id": "CVE-2026-93928",
-      "summary": "Authentication Bypass Using an Alternate Path or Channel vulnerability in Magepeople inc. Taxi Booking Manager for WooCommerce allows Authentication Bypass.\n\nThis issue affects Taxi Booking Manager for WooCommerce: from n/a before 2.0.8.",
-      "published": "2026-09-22T09:17:05.940",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93928"
-    },
-    {
-      "id": "CVE-2026-93556",
-      "summary": "The \u2018/password/guardarClau/recover\u2019 endpoint accepts the \u2018usuariId\u2019 parameter, which specifies the account whose password is to be changed. The JWT token for the recovery process is not validated against the user specified in that parameter. An unauthenticated attacker could manipulate the identifier and reset the password for any account, including administrative accounts, which could allow them to take control of the account.",
-      "published": "2026-09-22T09:17:05.800",
+      "id": "CVE-2026-95682",
+      "summary": "MISP contains a stored cross-site scripting (XSS) vulnerability in the admin email composition screen. The MISP.org organization name setting was interpolated directly into a JavaScript string literal using an unescaped PHP echo: var org = \"<?php echo $org;?>\";. Because the value was placed inside a double-quoted JavaScript string without any encoding, an organization name containing a double-quote character (or a backslash) could terminate the string literal and inject arbitrary JavaScript into the page. The injected script would execute in the context of any authenticated user who subsequently loads the admin email page, potentially allowing session hijacking, data exfiltration, or privileged actions performed on behalf of the victim.\n\nExploitation requires the ability to set or modify the MISP.org organization name and a second authenticated user visiting the affected admin email view.\n\nThe vulnerability is a classic instance of insufficient output encoding in a JavaScript context.",
+      "published": "2026-09-22T14:17:22.627",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93556"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95682"
     },
     {
-      "id": "CVE-2026-89422",
-      "summary": "Key Exchange without Entity Authentication vulnerability in Erlang/OTP ssl allows a peer that answers a TLS 1.3 client connection to impersonate the intended server. A pre_shared_key extension in the ServerHello that the client never offered causes the client to complete the handshake without validating the server's certificate, so ssl:connect returns {ok, Socket} against a peer holding no certificate, no private key and no prior session.\n\ntls_client_connection_1_3:handle_server_hello/2 passes the received extension to tls_gen_connection_1_3:handle_resumption/2, which sets resumption = true on its mere presence without checking that the client offered a PSK. tls_handshake_1_3:get_pre_shared_key/4 meanwhile falls back to the all-zero \"no PSK\" value and keys the handshake with the ordinary non-PSK schedule, so the attacker's own ephemeral key suffices. The resumption flag then routes maybe_resumption/1 straight to wait_finished, skipping the certificate-handling states, so certificate path validation, verify_fun, hostname verification, partial_chain, CRL checking and OCSP stapling are all bypassed. The default client configuration is affected; clients restricted to TLS 1.2 are not.\n\nThis issue affects OTP from OTP\u00a022.2 before OTP\u00a027.3.4.18, OTP\u00a028.5.0.7, and OTP\u00a029.1.1, corresponding to ssl from 9.5 before 11.2.12.13, 11.6.0.6, and 11.7.7.",
-      "published": "2026-09-22T09:17:05.540",
+      "id": "CVE-2026-95679",
+      "summary": "MISP's RequestHandlerComponent automatically decodes XML request bodies on all write requests. The underlying Xml::build() library contains a logic error in its readFile guard condition (readFile && http || https), where PHP operator precedence causes the https branch to bypass the readFile check entirely. As a result, a request body containing a bare HTTPS URL is treated as a locator and fetched by the server. Because the cspReport endpoint accepts XML content type and is unauthenticated by design, an unauthenticated remote attacker can send a POST request with a crafted XML body to cause the MISP server to issue an outbound HTTPS request to an arbitrary target reachable from the server.\n\nThe attacker does not receive the response body, but can use the vulnerability to probe internal services, trigger actions on internal HTTPS endpoints, or perform timing-based reconnaissance of the server's network environment.\u00a0\n\nThe vulnerability affects any MISP deployment where the cspReport endpoint is reachable and the server has network access to internal or external HTTPS services.",
+      "published": "2026-09-22T14:17:22.387",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89422"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95679"
+    },
+    {
+      "id": "CVE-2026-95675",
+      "summary": "D-Link DAP-1360 firmware version 6.14 and earlier contains an unauthenticated remote code execution vulnerability that allows remote attackers to execute arbitrary commands as root by sending crafted requests to the device's web management interface without valid credentials. Attackers can fully compromise the device to persistently modify its configuration and use it as a pivot point into the local network.",
+      "published": "2026-09-22T14:17:22.230",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95675"
+    },
+    {
+      "id": "CVE-2026-95674",
+      "summary": "In MISP, the queryEnrichment method in EventsController.php accepted a module name parameter and iterated over the list of enabled modules to find a match. If the specified module was not present in the enabled modules list, the code silently continued processing using default parameters (format set to 'simplified' and no module-specific configuration applied) rather than rejecting the request. This allowed an authenticated user to trigger enrichment or analysis processing through a module that was not explicitly enabled or available on the instance, bypassing the intended module availability controls. The lack of validation meant that module names outside the enabled set were not rejected, potentially exposing functionality or data processing paths that the administrator had not authorized for use.",
+      "published": "2026-09-22T14:17:21.990",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95674"
+    },
+    {
+      "id": "CVE-2026-95671",
+      "summary": "In MISP, the CollectionsController add() method enforced the sharing-group usability authorization check and element capture only when the HTTP request method was POST. However, the underlying CRUDComponent::add() method persists data on both POST and PUT requests. As a result, an authenticated user could issue a PUT request to the collections/add endpoint, bypassing the sharing-group authorization check entirely. This allowed the creation of a collection with distribution=4 (shared with a specific sharing group) targeting a sharing group that the user was not authorized to use. The bypassed check would normally verify that the current user has access to the specified sharing group before allowing the collection to be associated with it.\n\nThe security impact is that an authenticated user can place collection data into a sharing group context they do not have legitimate access to, potentially exposing that data to all members of the unauthorized sharing group and violating the intended access-control boundaries of the MISP instance.\n\nThe vulnerability requires an authenticated session and knowledge of a valid sharing group identifier; no user interaction or special tooling is needed beyond sending a PUT request instead of a POST request to the same endpoint.",
+      "published": "2026-09-22T14:17:21.747",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95671"
+    },
+    {
+      "id": "CVE-2026-95667",
+      "summary": "The MISP installer scripts (for Debian 12, Debian 13, Ubuntu 24.04, and RHEL 9.4) create a log file at /var/log/misp_install.log and a named pipe (FIFO) at /var/log/misp_install.log.pipe to capture all installer output. The log captures highly sensitive data including the generated admin password, database passwords, GPG passphrase, and supervisor password. However, the log file was created by the tee command under the system default umask, resulting in world-readable permissions (typically 0644). Similarly, the FIFO was created with mkfifo without an explicit mode, also inheriting the default umask and remaining world-readable during the window before it was unlinked.\u00a0\n\nAny local unprivileged user on the system could read the log file or the FIFO to obtain these credentials.\u00a0\n\nAdditionally, the log file was not removed before creation, meaning a pre-existing symlink in /var/log could have been used to redirect the write to an arbitrary location.\n\nVersion affected: <2.5.47",
+      "published": "2026-09-22T14:17:21.593",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95667"
     }
   ]
 }
