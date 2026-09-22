@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-22T14:50:30+00:00",
+  "generated_at": "2026-09-22T18:51:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-95682",
-      "summary": "MISP contains a stored cross-site scripting (XSS) vulnerability in the admin email composition screen. The MISP.org organization name setting was interpolated directly into a JavaScript string literal using an unescaped PHP echo: var org = \"<?php echo $org;?>\";. Because the value was placed inside a double-quoted JavaScript string without any encoding, an organization name containing a double-quote character (or a backslash) could terminate the string literal and inject arbitrary JavaScript into the page. The injected script would execute in the context of any authenticated user who subsequently loads the admin email page, potentially allowing session hijacking, data exfiltration, or privileged actions performed on behalf of the victim.\n\nExploitation requires the ability to set or modify the MISP.org organization name and a second authenticated user visiting the affected admin email view.\n\nThe vulnerability is a classic instance of insufficient output encoding in a JavaScript context.",
-      "published": "2026-09-22T14:17:22.627",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95682"
+      "id": "CVE-2026-95660",
+      "summary": "A security flaw has been discovered in Moonshot AI Kimi Code up to 0.31.0. The affected element is an unknown function of the file agent-core-v2/src/agent/mcp/config-loader.ts of the component MCP Configuration Loader. The manipulation results in os command injection. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. Upgrading to version 0.31.1 is sufficient to fix this issue. It is recommended to upgrade the affected component. Beyond the trust prompt, the fix resolves fd/stty binaries to absolute paths specifically \"so untrusted workspaces cannot plant bare-name executables before confirmation,\" fixing a secondary $PATH path-planting vector alongside the primary untrusted-.mcp.json auto-spawn.",
+      "published": "2026-09-22T18:17:37.750",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95660"
     },
     {
-      "id": "CVE-2026-95679",
-      "summary": "MISP's RequestHandlerComponent automatically decodes XML request bodies on all write requests. The underlying Xml::build() library contains a logic error in its readFile guard condition (readFile && http || https), where PHP operator precedence causes the https branch to bypass the readFile check entirely. As a result, a request body containing a bare HTTPS URL is treated as a locator and fetched by the server. Because the cspReport endpoint accepts XML content type and is unauthenticated by design, an unauthenticated remote attacker can send a POST request with a crafted XML body to cause the MISP server to issue an outbound HTTPS request to an arbitrary target reachable from the server.\n\nThe attacker does not receive the response body, but can use the vulnerability to probe internal services, trigger actions on internal HTTPS endpoints, or perform timing-based reconnaissance of the server's network environment.\u00a0\n\nThe vulnerability affects any MISP deployment where the cspReport endpoint is reachable and the server has network access to internal or external HTTPS services.",
-      "published": "2026-09-22T14:17:22.387",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95679"
+      "id": "CVE-2026-95657",
+      "summary": "A vulnerability was determined in dgtlmoon Changedetection.io up to 0.55.8. This issue affects the function setCurrentSelectedText of the file changedetectionio/static/js/visual-selector.js of the component Visual Selector. Executing a manipulation of the argument s can lead to cross site scripting. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized. Upgrading to version 0.60.1 is capable of addressing this issue. This patch is called aac6fcfa594f17511b8ff73e5eaa4f6c33899de0. It is suggested to upgrade the affected component.",
+      "published": "2026-09-22T18:17:37.550",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95657"
     },
     {
-      "id": "CVE-2026-95675",
-      "summary": "D-Link DAP-1360 firmware version 6.14 and earlier contains an unauthenticated remote code execution vulnerability that allows remote attackers to execute arbitrary commands as root by sending crafted requests to the device's web management interface without valid credentials. Attackers can fully compromise the device to persistently modify its configuration and use it as a pivot point into the local network.",
-      "published": "2026-09-22T14:17:22.230",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95675"
+      "id": "CVE-2026-95656",
+      "summary": "A vulnerability was found in dgtlmoon changedetection.io up to 50389b07. This vulnerability affects the function add_watch_ui_snapshot of the file changedetectionio/blueprint/add_watch_ui/__init__.py of the component Preview Endpoint. Performing a manipulation of the argument url results in server-side request forgery. The attack can be initiated remotely. The exploit has been made public and could be used. Upgrading to version 0.60.1 is able to resolve this issue. The patch is named 71d332d5a0d3da2a0fe89a392413bf4b7d27c84e. The affected component should be upgraded. Was fixed upstream.",
+      "published": "2026-09-22T18:17:36.947",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95656"
     },
     {
-      "id": "CVE-2026-95674",
-      "summary": "In MISP, the queryEnrichment method in EventsController.php accepted a module name parameter and iterated over the list of enabled modules to find a match. If the specified module was not present in the enabled modules list, the code silently continued processing using default parameters (format set to 'simplified' and no module-specific configuration applied) rather than rejecting the request. This allowed an authenticated user to trigger enrichment or analysis processing through a module that was not explicitly enabled or available on the instance, bypassing the intended module availability controls. The lack of validation meant that module names outside the enabled set were not rejected, potentially exposing functionality or data processing paths that the administrator had not authorized for use.",
-      "published": "2026-09-22T14:17:21.990",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95674"
+      "id": "CVE-2026-95624",
+      "summary": "The Tauri updater plugin's 'check' IPC command accepts an allowDowngrades boolean parameter directly from frontend JavaScript code. When set to true, it replaces the version comparator from \"update must be newer\" to \"update must be different.\" Because the default permission set grants allow-check to the webview, any XSS in the app frontend can invoke this command and bypass the only anti-rollback protection the updater offers. Combined with another bug, this enables downgrade attacks without even needing to fake a higher version number.",
+      "published": "2026-09-22T18:17:36.247",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95624"
     },
     {
-      "id": "CVE-2026-95671",
-      "summary": "In MISP, the CollectionsController add() method enforced the sharing-group usability authorization check and element capture only when the HTTP request method was POST. However, the underlying CRUDComponent::add() method persists data on both POST and PUT requests. As a result, an authenticated user could issue a PUT request to the collections/add endpoint, bypassing the sharing-group authorization check entirely. This allowed the creation of a collection with distribution=4 (shared with a specific sharing group) targeting a sharing group that the user was not authorized to use. The bypassed check would normally verify that the current user has access to the specified sharing group before allowing the collection to be associated with it.\n\nThe security impact is that an authenticated user can place collection data into a sharing group context they do not have legitimate access to, potentially exposing that data to all members of the unauthorized sharing group and violating the intended access-control boundaries of the MISP instance.\n\nThe vulnerability requires an authenticated session and knowledge of a valid sharing group identifier; no user interaction or special tooling is needed beyond sending a PUT request instead of a POST request to the same endpoint.",
-      "published": "2026-09-22T14:17:21.747",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95671"
+      "id": "CVE-2026-94384",
+      "summary": "Missing authorization in Amazon amazon-connect-salesforce-lambda before 5.26 allows any IAM principal with lambda:InvokeFunction permission on the affected function to escalate privileges and perform AWS API operations that their own IAM identity is explicitly denied, via invocation of a Lambda function that dispatches caller-supplied parameters to privileged service APIs without authorization validation.\n\n\n\nTo remediate this issue, we recommend upgrading to version 5.26 or later. After setup is complete, either delete or disable the sfExecuteAWSService function. If you retain the function, restrict invocation to the intended IAM user only.",
+      "published": "2026-09-22T18:17:32.210",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94384"
     },
     {
-      "id": "CVE-2026-95667",
-      "summary": "The MISP installer scripts (for Debian 12, Debian 13, Ubuntu 24.04, and RHEL 9.4) create a log file at /var/log/misp_install.log and a named pipe (FIFO) at /var/log/misp_install.log.pipe to capture all installer output. The log captures highly sensitive data including the generated admin password, database passwords, GPG passphrase, and supervisor password. However, the log file was created by the tee command under the system default umask, resulting in world-readable permissions (typically 0644). Similarly, the FIFO was created with mkfifo without an explicit mode, also inheriting the default umask and remaining world-readable during the window before it was unlinked.\u00a0\n\nAny local unprivileged user on the system could read the log file or the FIFO to obtain these credentials.\u00a0\n\nAdditionally, the log file was not removed before creation, meaning a pre-existing symlink in /var/log could have been used to redirect the write to an arbitrary location.\n\nVersion affected: <2.5.47",
-      "published": "2026-09-22T14:17:21.593",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95667"
+      "id": "CVE-2026-93345",
+      "summary": "MikroTik RouterOS before 7.25beta4 contains an improper input validation vulnerability in the labelled-VPN NLRI iterators of the routing service that allows an unauthenticated on-path attacker to crash the BGP service by sending a malformed MP_REACH_NLRI UPDATE message with a prefix-length value below the minimum valid for a labelled-VPN NLRI, which passes validation while describing a route with a negative-length address portion. Attackers can repeatedly send a single BGP UPDATE packet carrying a VPNv4 or VPNv6 NLRI with an out-of-bounds prefix-length to indefinitely hold down the BGP plane, causing session termination without a NOTIFICATION and triggering a service malfunction on the device.",
+      "published": "2026-09-22T18:17:30.370",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93345"
     }
   ]
 }
