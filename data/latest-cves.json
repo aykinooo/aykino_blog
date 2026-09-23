@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-23T05:56:32+00:00",
+  "generated_at": "2026-09-23T11:30:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96258",
-      "summary": "A vulnerability has been found in onSite internet GmbH Auktion NG Auktionssoftware up to 20260722. This affects an unknown part of the file /forgotpasswd.html of the component Public Password Reset Endpoint. The manipulation of the argument email leads to cross site scripting. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-23T04:17:58.613",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96258"
-    },
-    {
-      "id": "CVE-2026-96257",
-      "summary": "A flaw has been found in Fast FAC1203R Gigabit Edition 2.0.4. Affected by this issue is the function copy_msg_element of the component Device Discovery Service. Executing a manipulation can lead to stack-based buffer overflow. The attack can be executed remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-23T03:17:06.077",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96257"
-    },
-    {
-      "id": "CVE-2026-95958",
-      "summary": "A security flaw has been discovered in JusticeRage Manalyze 1.0.0. Impacted is the function PE::_parse_relocations of the file manape/pe.cpp of the component PE Parser. Performing a manipulation of the argument BlockSize results in integer underflow. The attack requires a local approach. The patch is named c372b6bbca9d8c63812be50596fefa4a79c65fd0. It is recommended to apply a patch to fix this issue.",
-      "published": "2026-09-23T03:17:05.883",
-      "cvss": 3.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95958"
-    },
-    {
-      "id": "CVE-2026-95957",
-      "summary": "A vulnerability was found in SourceCodester Smart Attendance System with QR Code Scanner 1.0. This issue affects the function prepend of the file student_signup.php of the component Self-Registration. Performing a manipulation of the argument full_name results in cross site scripting. Remote exploitation of the attack is possible. The exploit has been made public and could be used.",
-      "published": "2026-09-23T03:17:05.680",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95957"
-    },
-    {
-      "id": "CVE-2026-95930",
-      "summary": "A security vulnerability has been detected in iFlytek astron-agent up to 1.0.6. Affected by this vulnerability is the function UrlCheckTool.checkUrl of the component debugToolV2 API endpoint. The manipulation of the argument endPoint leads to server-side request forgery. The attack can be initiated remotely. Upgrading to version reward-1575 addresses this issue. The identifier of the patch is 45ee5fb647e9894e73b0d7720fa94a66e4540bbb. The affected component should be upgraded.",
-      "published": "2026-09-23T03:17:05.483",
+      "id": "CVE-2026-96456",
+      "summary": "The Reachy Mini Bluetooth service asks a connecting device for a PIN before it will accept commands. The check protects the session but not the caller, so an attacker in Bluetooth range can ride along on someone else's successful authentication.\n\n\n\nThe authenticated state is kept in a single shared flag on the service instance rather than per device. BlueZ passes the calling device's identity to the characteristic write handler in the options argument, but WriteValue(self, value, options) in src/reachy_mini/daemon/app/services/bluetooth/bluetooth_service.py ignores options entirely. The handler therefore has no idea which device sent a given write, and it cannot tell the authenticated one from any other.\n\n\n\nOnce any device completes the PIN exchange, the flag is set and every nearby device can send CMD_ commands until it resets. An attacker simply waits within radio range for a legitimate user to authenticate, then writes commands into the same window. No PIN is ever guessed or brute-forced.\n\n\n\nThis is the second step of a three-step chain that JFrog documented against the robot. The first is the unrestricted file upload in the media sounds API, tracked as CVE-2026-55419, which places an attacker-controlled script on the filesystem. This issue then provides command access over Bluetooth. The third is the Bluetooth command handler path traversal, tracked as CVE-2026-62661, which runs that script as root.",
+      "published": "2026-09-23T11:17:18.843",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95930"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96456"
     },
     {
-      "id": "CVE-2026-95929",
-      "summary": "A weakness has been identified in iFlytek astron-agent up to 1.0.7. Affected is an unknown function of the file console/backend/commons/src/main/resources/mapper/ChatBotMarketMapper.xml of the component getBotList API endpoint. Executing a manipulation of the argument sortDirection can lead to sql injection. It is possible to launch the attack remotely. Upgrading to version reward-1575 is able to address this issue. This patch is called 6702be70ae802b1048f5fbec91e690e7b71a4165. You should upgrade the affected component.",
-      "published": "2026-09-23T03:17:05.263",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95929"
+      "id": "CVE-2026-96455",
+      "summary": "The Reachy Mini daemon exposes an HTTP API for managing the robot. Its app installation endpoint, POST /apps/install in src/reachy_mini/daemon/app/routers/apps.py, has no authentication. The handler's only dependency is Depends(get_app_manager), which just hands back the manager object from application state, so nothing in the chain ever checks a credential.\n\n\n\nThe endpoint takes an AppInfo body naming a Hugging Face Space. The daemon downloads that Space and installs it as a Python package through install_package in src/reachy_mini/apps/sources/local_common_venv.py, using uv or pip. Installing a Python package runs the package's own build and setup code, so whoever chooses the Space chooses what code the robot runs. Anyone can publish a public Hugging Face Space, so this is not a meaningful restriction on the attacker.\n\n\n\nHow far this reaches depends on the model. In _resolve_bind_host in src/reachy_mini/daemon/app/main.py the daemon binds 0.0.0.0 when it runs as the wireless version and 127.0.0.1 otherwise, with the vendor's own comment explaining that the robot has to be reachable on the LAN. On a wireless unit, then, any host on the same network can install and run code on the robot without credentials.\n\n\n\nOne related change has already shipped but does not fix this. Version 1.8.2 replaced the wildcard CORS policy with an allow list of localhost and Tauri origins. That closes the browser drive-by route, where a web page the victim visits silently calls the endpoint in the background. It has no effect on this issue: CORS is enforced by browsers and governs whether script may read a response, while a direct HTTP request from another machine on the network involves no browser, no preflight and no CORS check at all.",
+      "published": "2026-09-23T11:17:18.690",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96455"
+    },
+    {
+      "id": "CVE-2026-96442",
+      "summary": "A code execution flaw was found in Emacs, affecting versions prior to 31.2. The Flymake mode using language backends other than Lisp would execute arbitrary code from the edited file while performing syntax checking. Viewing or editing untrusted files using Emacs could lead to arbitrary code execution with the privileges of the user running Emacs.",
+      "published": "2026-09-23T11:17:18.550",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96442"
+    },
+    {
+      "id": "CVE-2026-90950",
+      "summary": "The Paid Membership Subscriptions WordPress plugin before 3.1.0 does not verify the reCAPTCHA on its registration handler when a form field is absent from the request, allowing unauthenticated users to create accounts without solving the reCAPTCHA the site has enabled.",
+      "published": "2026-09-23T11:17:16.773",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90950"
+    },
+    {
+      "id": "CVE-2026-87978",
+      "summary": "The Paymob for WooCommerce WordPress plugin before 4.1.14 does not verify the request signature on one branch of its payment webhook, allowing unauthenticated attackers to mark arbitrary WooCommerce orders as paid without any payment.",
+      "published": "2026-09-23T11:17:15.880",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87978"
+    },
+    {
+      "id": "CVE-2026-87848",
+      "summary": "The MPCX Lightbox WordPress plugin 1.2.2 through 1.2.5 does not have any authorisation or authentication on one of its AJAX actions available to unauthenticated users, nor does it check the status of the requested post, allowing unauthenticated visitors to retrieve the title, content or excerpt of arbitrary posts, including private, draft, pending, trashed and password-protected ones.",
+      "published": "2026-09-23T11:17:15.750",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87848"
     }
   ]
 }
