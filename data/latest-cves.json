@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-23T11:30:51+00:00",
+  "generated_at": "2026-09-23T16:54:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96456",
-      "summary": "The Reachy Mini Bluetooth service asks a connecting device for a PIN before it will accept commands. The check protects the session but not the caller, so an attacker in Bluetooth range can ride along on someone else's successful authentication.\n\n\n\nThe authenticated state is kept in a single shared flag on the service instance rather than per device. BlueZ passes the calling device's identity to the characteristic write handler in the options argument, but WriteValue(self, value, options) in src/reachy_mini/daemon/app/services/bluetooth/bluetooth_service.py ignores options entirely. The handler therefore has no idea which device sent a given write, and it cannot tell the authenticated one from any other.\n\n\n\nOnce any device completes the PIN exchange, the flag is set and every nearby device can send CMD_ commands until it resets. An attacker simply waits within radio range for a legitimate user to authenticate, then writes commands into the same window. No PIN is ever guessed or brute-forced.\n\n\n\nThis is the second step of a three-step chain that JFrog documented against the robot. The first is the unrestricted file upload in the media sounds API, tracked as CVE-2026-55419, which places an attacker-controlled script on the filesystem. This issue then provides command access over Bluetooth. The third is the Bluetooth command handler path traversal, tracked as CVE-2026-62661, which runs that script as root.",
-      "published": "2026-09-23T11:17:18.843",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96456"
+      "id": "CVE-2026-96675",
+      "summary": "alsa-lib through 1.2.16.1 contains a denial of service vulnerability in the multi PCM plugin that fails to validate sparse binding indices before array access. Attackers can supply a malicious ALSA configuration file with sparse bindings to trigger an out-of-bounds array read and assertion failure, causing the application to abort.",
+      "published": "2026-09-23T16:16:50.523",
+      "cvss": 3.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96675"
     },
     {
-      "id": "CVE-2026-96455",
-      "summary": "The Reachy Mini daemon exposes an HTTP API for managing the robot. Its app installation endpoint, POST /apps/install in src/reachy_mini/daemon/app/routers/apps.py, has no authentication. The handler's only dependency is Depends(get_app_manager), which just hands back the manager object from application state, so nothing in the chain ever checks a credential.\n\n\n\nThe endpoint takes an AppInfo body naming a Hugging Face Space. The daemon downloads that Space and installs it as a Python package through install_package in src/reachy_mini/apps/sources/local_common_venv.py, using uv or pip. Installing a Python package runs the package's own build and setup code, so whoever chooses the Space chooses what code the robot runs. Anyone can publish a public Hugging Face Space, so this is not a meaningful restriction on the attacker.\n\n\n\nHow far this reaches depends on the model. In _resolve_bind_host in src/reachy_mini/daemon/app/main.py the daemon binds 0.0.0.0 when it runs as the wireless version and 127.0.0.1 otherwise, with the vendor's own comment explaining that the robot has to be reachable on the LAN. On a wireless unit, then, any host on the same network can install and run code on the robot without credentials.\n\n\n\nOne related change has already shipped but does not fix this. Version 1.8.2 replaced the wildcard CORS policy with an allow list of localhost and Tauri origins. That closes the browser drive-by route, where a web page the victim visits silently calls the endpoint in the background. It has no effect on this issue: CORS is enforced by browsers and governs whether script may read a response, while a direct HTTP request from another machine on the network involves no browser, no preflight and no CORS check at all.",
-      "published": "2026-09-23T11:17:18.690",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96455"
+      "id": "CVE-2026-96674",
+      "summary": "alsa-lib through 1.2.16.1 computes combined topology element size using 32-bit arithmetic in src/topology/ctl.c, allowing integer overflow that defeats bounds checks. Attackers can supply crafted topology files that wrap size calculations, causing the decoder to read beyond the topology buffer and potentially leak sensitive data or crash the application.",
+      "published": "2026-09-23T16:16:50.350",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96674"
     },
     {
-      "id": "CVE-2026-96442",
-      "summary": "A code execution flaw was found in Emacs, affecting versions prior to 31.2. The Flymake mode using language backends other than Lisp would execute arbitrary code from the edited file while performing syntax checking. Viewing or editing untrusted files using Emacs could lead to arbitrary code execution with the privileges of the user running Emacs.",
-      "published": "2026-09-23T11:17:18.550",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96442"
+      "id": "CVE-2026-96673",
+      "summary": "Photoview through 2.4.0 contains an SQL injection vulnerability in the album download route that allows unauthenticated attackers to inject SQL by manipulating the album_id path segment. Attackers can supply crafted SQL expressions in the album_id parameter to extract arbitrary data from the database using time-based or blind injection techniques.",
+      "published": "2026-09-23T16:16:50.183",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96673"
     },
     {
-      "id": "CVE-2026-90950",
-      "summary": "The Paid Membership Subscriptions WordPress plugin before 3.1.0 does not verify the reCAPTCHA on its registration handler when a form field is absent from the request, allowing unauthenticated users to create accounts without solving the reCAPTCHA the site has enabled.",
-      "published": "2026-09-23T11:17:16.773",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90950"
+      "id": "CVE-2026-96672",
+      "summary": "Frappe ERPNext versions before 16.34.1 fail to validate that Financial Report Template calculation_formula values reference whitelisted methods before passing them to frappe.call(). Accounts Managers can supply arbitrary dotted Python paths to invoke non-whitelisted internal server-side methods and read their return values.",
+      "published": "2026-09-23T16:16:49.993",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96672"
     },
     {
-      "id": "CVE-2026-87978",
-      "summary": "The Paymob for WooCommerce WordPress plugin before 4.1.14 does not verify the request signature on one branch of its payment webhook, allowing unauthenticated attackers to mark arbitrary WooCommerce orders as paid without any payment.",
-      "published": "2026-09-23T11:17:15.880",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87978"
+      "id": "CVE-2026-93769",
+      "summary": "HumHub 1.18.5 is affected by a stored cross-site scripting (XSS) vulnerability that allows any user holding the delegated, non-system-administrator Manage Users permission (admin_manage_users) to inject persistent HTML/JavaScript into a Profile Field Category title.",
+      "published": "2026-09-23T16:16:48.360",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93769"
     },
     {
-      "id": "CVE-2026-87848",
-      "summary": "The MPCX Lightbox WordPress plugin 1.2.2 through 1.2.5 does not have any authorisation or authentication on one of its AJAX actions available to unauthenticated users, nor does it check the status of the requested post, allowing unauthenticated visitors to retrieve the title, content or excerpt of arbitrary posts, including private, draft, pending, trashed and password-protected ones.",
-      "published": "2026-09-23T11:17:15.750",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87848"
+      "id": "CVE-2026-79310",
+      "summary": "webpy web.py 0.76 is vulnerable to server-side template injection (SSTI). The template engine can be tricked into executing attacker-controlled template code that built-in security checks are designed to reject. When an application precompiles templates from a directory the attacker can write to and later renders them through the precompiled template loader, the sandbox is bypassed and the attacker's code runs, resulting in arbitrary Python code execution and OS command execution on the server.",
+      "published": "2026-09-23T16:16:45.687",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79310"
     }
   ]
 }
