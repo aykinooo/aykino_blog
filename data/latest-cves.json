@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-24T19:07:12+00:00",
+  "generated_at": "2026-09-24T22:21:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97233",
-      "summary": "A vulnerability was identified in volotat Anagnorisis up to 0.4.11. Affected by this issue is the function html of the file PlaylistManager.js of the component Media Filename Handler. Such manipulation of the argument file_path leads to cross site scripting. The attack can be launched remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-24T18:19:09.410",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97233"
+      "id": "CVE-2026-97636",
+      "summary": "Apache Airflow HashiCorp provider: the HashiCorp Vault secrets backend's team-scope guard can be bypassed with a user-controlled key. In a multi-team deployment, a Dag author scoped to one team can supply a Variable key containing a path separator that causes the backend to resolve a secret belonging to a different team, because after the team-scoped lookup misses the backend falls back to a team-agnostic path concatenated from the unvalidated key. The Execution API Variables route accepts a path-shaped key, so this is reachable from ordinary Dag code.\n\nAffects multi-team deployments using the HashiCorp Vault secrets backend. Single-team deployments are not affected, as there is no cross-team boundary to cross. This is the same class as CVE-2026-86465, CVE-2026-68870, CVE-2026-68871 and CVE-2026-68872 in the Akeyless, Azure Key Vault, Yandex Lockbox and Amazon secrets backends.\n\nUsers of apache-airflow-providers-hashicorp are recommended to upgrade to version 4.8.0 or later, which fixes the issue.",
+      "published": "2026-09-24T22:17:02.660",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97636"
     },
     {
-      "id": "CVE-2026-97232",
-      "summary": "A vulnerability was determined in volotat Anagnorisis up to 0.4.2. Affected by this vulnerability is the function get_file_content/save_file_content/move_files/start_streaming of the file page.html. This manipulation causes path traversal. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-24T18:19:09.217",
+      "id": "CVE-2026-87722",
+      "summary": "Uncontrolled Resource Consumption (CWE-400 / CWE-1333) in regex search query predicates (such as RegexProjectPredicate, RegexRefPredicate, RegexPathPredicate, and sibling predicates) and REST regex filter endpoints (RegexListSearcher /projects/?r= and RefFilter /projects/{project}/branches/?r=) in Gerrit Code Review versions 2.1.6 through 3.12.9, 3.13.0 through 3.13.8, and 3.14.0 through 3.14.2 allows an unauthenticated remote attacker (or an authenticated user if anonymous read access is disabled) to cause a denial of service (CPU starvation and JVM heap exhaustion / OutOfMemoryError) via crafted search queries or REST API requests containing regular expressions with large counted repetitions or exponential DFA determinization patterns. Because the user-supplied regular expression is compiled into an unbounded dk.brics.automaton instance (new RegExp(re).toAutomaton()) on the request thread prior to index evaluation or access control visibility filtering, trivial queries can exhaust JVM heap or pin request threads regardless of heap size. This issue is fixed in Gerrit Code Review versions 3.12.10, 3.13.9, and 3.14.3.",
+      "published": "2026-09-24T22:17:02.480",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87722"
+    },
+    {
+      "id": "CVE-2026-87721",
+      "summary": "Uncontrolled Resource Consumption (CWE-400 / CWE-407) in the ANTLR 3 search query parser (QueryParser / Query.g) in Gerrit Code Review versions 2.0.19 through 3.12.9, 3.13.0 through 3.13.8, and 3.14.0 through 3.14.2 allows an unauthenticated remote attacker (or an authenticated user if anonymous read access is disabled) to cause a persistent denial of service (CPU exhaustion and HTTP worker thread pool starvation requiring a server restart) via crafted search queries containing deeply nested parentheses sent to query evaluation endpoints (/changes/?q=, /accounts/?q=, /groups/?query=, /projects/?query=, /Documentation/?q=, /changes/{id}/query?expression=, or SSH gerrit query). Because syntactic predicates in conditionOr and conditionAnd recurse via conditionBase without memoization prior to capability or visibility checks and worker threads do not abort when the client disconnects, a small number of requests (such as 25 requests matching default httpd.maxThreads) can permanently pin all HTTP worker threads. This issue is fixed in Gerrit Code Review versions 3.12.10, 3.13.9, and 3.14.3.",
+      "published": "2026-09-24T22:17:02.327",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87721"
+    },
+    {
+      "id": "CVE-2026-87720",
+      "summary": "Incorrect Authorization (CWE-863) in project name normalization (ProjectUtil.stripGitSuffix) and ProjectCache eviction logic (ProjectCacheImpl) in Gerrit Code Review versions 2.16.0 through 3.12.9, 3.13.0 through 3.13.8, and 3.14.0 through 3.14.2 allows an authenticated user (or an unauthenticated user if the repository was previously public) to cause unauthorized disclosure of private repository content and durable restoration of revoked project-owner administrative privileges via crafted requests using repeated .git suffixes (such as project.git.git) across REST APIs, Gitiles, or SSH Git commands. Because Gerrit strips only a single terminal .git suffix when constructing the logical ProjectCache key while JGit (FileKey.lenient) resolves the suffixed alias to the same canonical bare repository on disk, revoking read access or removing owner rules on the canonical project name fails to evict the cached alias ProjectState during the cache validity window, enabling reads of newly created private commits or writes to refs/meta/config. This issue is fixed in Gerrit Code Review versions 3.12.10, 3.13.9, and 3.14.3.",
+      "published": "2026-09-24T22:17:02.170",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87720"
+    },
+    {
+      "id": "CVE-2026-85491",
+      "summary": "Catalyst::Seal versions before 0.03 for Perl allow one request to disable a path or route a later one past an authorization check via a dispatch memo keyed on the request path alone.\n\nCatalyst::Seal replaces the dispatcher's prepare_action with a version that memoises how a path resolved: which dispatch type matched, at which level, and what was left over as arguments. The key is the request path and nothing else. Action roles that match on the method, content type, scheme or query make that resolution depend on state the key does not carry, so the memo answers for a request it was not built from.\n\nA path that resolves to no action is memoised as well, and replaying that entry returns without consulting any dispatch type, so no action is set and the request fails. A GET of a path whose action is declared POST-only therefore disables that path for every later request, the correct POST included. An entry that did resolve replays the level the earlier descent reached. Where a POST-only action sits below a shallower action on the same path, a GET memoises the shallow route, and a later POST is dispatched there with an auto() guarding the deeper controller never running.\n\nThe memo is cleared only when an action is registered, which happens at setup, so an entry lasts for the life of the process, and its cap of 2048 entries bounds how many paths one caller can disable. In the configuration measured, the misroute lands on the less privileged action, so it is an authorization check not running rather than a privilege gain.",
+      "published": "2026-09-24T22:17:02.027",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85491"
+    },
+    {
+      "id": "CVE-2026-97368",
+      "summary": "A weakness has been identified in chillzhuang SpringBlade up to 5.0.2. This affects the function UserServiceImpl.userInfo of the file blade-service/blade-system/src/main/java/org/springblade/system/service/impl/UserServiceImpl.java of the component user-auth-info Endpoint. This manipulation of the argument userId causes authorization bypass. The attack can be initiated remotely. The exploit has been made available to the public and could be used for attacks. CVE-2026-56100 and CVE-2026-36765 are distinct issues. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-24T21:18:58.953",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97232"
-    },
-    {
-      "id": "CVE-2026-95985",
-      "summary": "The file write tool in Amazon Kiro IDE versions before 1.0.242 might allow remote unauthenticated actors to inject crafted instructions into the agent's context. When a user runs the agent in a crafted repository as an untrusted workspace, sending any message can cause agent modifications to auto-loaded global configuration paths.\n\n\n\nWe recommend you upgrade to Kiro IDE version 1.0.242 or later. Users who ran the agent in an untrusted workspace on an earlier version should also review the global Kiro configuration directory (~/.kiro) for entries they did not create.",
-      "published": "2026-09-24T18:19:08.357",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95985"
-    },
-    {
-      "id": "CVE-2026-93405",
-      "summary": "Mailspring is a fast, cross-platform, open-source email client. Prior to 1.17.0, attachment quick preview converts Markdown, DOCX, and XLSX attachments with Snarkdown, Mammoth, and SheetJS and inserts the resulting HTML into the preview document through innerHTML without sanitization. A remote sender can craft a supported attachment whose converted HTML executes script when a recipient opens quick preview. The preview renderer has no direct Node or Electron access, but injected script can reach the IPC surface exposed to the quick-preview renderer. This issue alone provides script execution in the preview renderer; separate path-traversal and renderer-controlled file-write vulnerabilities are required for the documented persistent code-execution chain. This issue is fixed in version 1.17.0.",
-      "published": "2026-09-24T18:19:07.120",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93405"
-    },
-    {
-      "id": "CVE-2026-91121",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.8, 2026.6.3, 2026.7.2, and 2026.8.0, attacker-controlled upload filenames used in chat message excerpts were rendered as unescaped HTML. A user able to upload a file and send chat content could place markup in a filename that was then interpreted by chat channel lists, chat summary emails, pinned message bars, reply previews, thread previews, and other excerpt renderers. The issue allowed trusted-HTML injection that altered rendered excerpt content, but JavaScript execution was not demonstrated with default Content Security Policy settings. The advisory states that no confidentiality, integrity, or availability impact was identified, while its structured scoring metadata separately assigns low integrity impact. Sites that disable or relax the default CSP have increased exposure. This issue is fixed in versions 2026.1.8, 2026.6.3, 2026.7.2, and 2026.8.0.",
-      "published": "2026-09-24T18:19:06.583",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91121"
-    },
-    {
-      "id": "CVE-2026-91120",
-      "summary": "Discourse is an open-source discussion platform. Prior to 2026.1.8, 2026.6.3, 2026.7.2, and 2026.8.0, provider-controlled video titles in lazy video embeds could be reparsed as HTML when Discourse generated notification emails or chat summaries. A user with standard posting privileges could create a post for an enabled YouTube, Vimeo, or TikTok provider whose title contained markup, and the email and chat-summary rendering path would place that markup into the output instead of treating it solely as text. Recipients using HTML-capable email clients could see injected content, potentially including event handlers, but the issue did not directly expose a Discourse browser session or affect the forum page itself. Lazy video embeds must be enabled, which is the default configuration. This issue is fixed in versions 2026.1.8, 2026.6.3, 2026.7.2, and 2026.8.0.",
-      "published": "2026-09-24T18:19:06.397",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91120"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97368"
     }
   ]
 }
