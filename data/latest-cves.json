@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-24T09:57:37+00:00",
+  "generated_at": "2026-09-24T15:02:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97185",
-      "summary": "A flaw was found in GIMP. When processing a specially crafted GIMPressionist preset file, the plug-in does not properly validate vector indices before writing into fixed-size arrays. This can lead to an out-of-bounds write, corrupting memory. An attacker could exploit this by convincing a user to load a malicious preset file, potentially causing a crash or enabling arbitrary code execution.",
-      "published": "2026-09-24T09:17:08.937",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97185"
+      "id": "CVE-2026-97360",
+      "summary": "HFS2 version 2.4.0 and earlier contains an unauthenticated arbitrary file access vulnerability that allows unauthenticated attackers to read, write, append, and delete files anywhere the HFS service account has filesystem access outside the shared folder. Attackers can exploit the macro dispatcher's lack of authorization model combined with the path resolver's failure to confine absolute paths to manipulate the template engine and compromise the confidentiality, integrity, and availability of the host.",
+      "published": "2026-09-24T14:18:22.703",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97360"
     },
     {
-      "id": "CVE-2026-85682",
-      "summary": "The YOP Poll plugin for WordPress is vulnerable to Origin Validation Error in all versions up to, and including, 7.0.10. This is due to the plugin transmitting a wp_rest nonce to window.opener via postMessage() with a wildcard targetOrigin. This makes it possible for unauthenticated attackers to steal a REST nonce scoped to a logged-in Administrator and use it to change the Administrator's email address and password, resulting in full account takeover. The Administrator must open an attacker-controlled page in order to exploit this vulnerability.",
-      "published": "2026-09-24T09:17:08.797",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85682"
+      "id": "CVE-2026-97359",
+      "summary": "HFS2 version 2.4.0 and earlier contains a template injection vulnerability in the multipart upload handler that allows unauthenticated attackers to achieve remote code execution by embedding malicious template syntax in a filename. Attackers can craft a filename containing a closing template quoting sequence followed by an exec macro, which bypasses the authorization check in the dispatcher to execute arbitrary commands on the underlying host system.",
+      "published": "2026-09-24T14:18:22.533",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97359"
     },
     {
-      "id": "CVE-2026-78313",
-      "summary": "Improper Access Control in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-      "published": "2026-09-24T09:17:08.673",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78313"
+      "id": "CVE-2026-97062",
+      "summary": "Aureus ERP through 1.6.0 stores uploaded SVG files on its public disk and serves them from the application origin, allowing authenticated users to upload malicious SVG files containing JavaScript. Attackers can craft SVG files with script elements that execute in the application's origin when the file URL is opened directly, enabling session cookie theft and CSRF token exfiltration.",
+      "published": "2026-09-24T14:18:22.317",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97062"
     },
     {
-      "id": "CVE-2026-78312",
-      "summary": "Path Traversal in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-      "published": "2026-09-24T09:17:08.553",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78312"
-    },
-    {
-      "id": "CVE-2026-78311",
-      "summary": "SQL Injection vulnerability in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-      "published": "2026-09-24T09:17:08.440",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78311"
-    },
-    {
-      "id": "CVE-2026-78310",
-      "summary": "Authorization Bypass Through User-Controlled Key in DIAEnergie.\n\nThis issue affects DIAEnergie: before 1.11.00.022.",
-      "published": "2026-09-24T09:17:08.323",
+      "id": "CVE-2026-97061",
+      "summary": "Black Candy through 3.2.1 fails to scope playlist search queries to the authenticated session user, allowing any authenticated user to enumerate all playlists on the instance. Attackers can query the SearchController or Search::PlaylistsController endpoints with blank or targeted search parameters to retrieve playlist names belonging to other users without authorization.",
+      "published": "2026-09-24T14:18:22.160",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78310"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97061"
+    },
+    {
+      "id": "CVE-2026-97059",
+      "summary": "DCMTK through 3.7.0 contains a heap over-read vulnerability in ConcatenationLoader that copies pixel data frames without validating the PixelData buffer length against the declared NumberOfFrames. Attackers can craft malicious DICOM instances declaring more frames than the buffer contains to trigger heap over-reads that crash the application or leak adjacent heap memory.",
+      "published": "2026-09-24T14:18:21.997",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97059"
+    },
+    {
+      "id": "CVE-2026-97058",
+      "summary": "sprintf-js through 1.1.3 passes unbounded precision specifiers to toFixed, toExponential, and toPrecision methods without validation, causing uncaught RangeError exceptions. Attackers who control format strings can inject precision values exceeding ECMAScript limits to abort calling operations with minimal payload.",
+      "published": "2026-09-24T14:18:21.840",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97058"
     }
   ]
 }
