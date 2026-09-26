@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-25T22:17:34+00:00",
+  "generated_at": "2026-09-26T01:30:56+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-63432",
-      "summary": "Horilla is an HR and CRM software. From 1.0.0 until 1.6.0 and 2.0.0, the get_mail_preview handlers in recruitment/views/actions.py and employee/not_in_out_dashboard.py render a user-controlled body at /recruitment/get-mail-preview/ and /employee/get-employee-mail-preview with the full request object in the Django template context. An authenticated user with a valid CSRF token can use template attribute traversal to read request.user.password, request.META, and related-user attributes, exposing password hashes, personal data, and server request metadata. Django template restrictions prevent arbitrary code execution through this primitive, so the demonstrated impact is information disclosure and possible offline password cracking or account compromise. This issue is fixed in versions 1.6.0 and 2.0.0.",
-      "published": "2026-09-25T22:17:14.320",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63432"
+      "id": "CVE-2026-100524",
+      "summary": "Cotonti through 1.0.0 contains a cross-site request forgery vulnerability in the extensions manager that allows attackers to perform state-changing actions without anti-CSRF token validation. Attackers can craft links or embed images to force administrators to install, update, pause, or unpause extensions by tricking them into visiting a malicious page while authenticated.",
+      "published": "2026-09-26T01:17:01.040",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100524"
     },
     {
-      "id": "CVE-2026-63431",
-      "summary": "Horilla is an HR and CRM software. In 1.5.0-85 and earlier, payroll/views/component_views.py does not consistently authorize access in allowances_deductions_tab, view_single_allowance, and view_single_deduction before loading records selected by emp_id, allowance_id, or deduction_id. An authenticated employee can substitute those identifiers to read another employee's salary structure, allowance and deduction amounts, personal loan disbursements, and repayment schedules without owning the record or holding payroll-view permissions. No complete fixed version is available as of this review.",
-      "published": "2026-09-25T22:17:14.167",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63431"
+      "id": "CVE-2026-100523",
+      "summary": "Cotonti through 1.0.0 contains an open redirect vulnerability in message.php that base64-decodes the redirect parameter without domain validation. Unauthenticated attackers can craft malicious links with encoded external URLs to redirect users to arbitrary sites via meta refresh tags for phishing attacks.",
+      "published": "2026-09-26T01:17:00.870",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100523"
     },
     {
-      "id": "CVE-2026-100502",
-      "summary": "Flame through 2.4.0 contains an insufficient session expiration vulnerability in the login endpoint that allows attackers with former admin access to obtain tokens with arbitrary lifespans by supplying unvalidated duration parameters. Attackers can mint near-permanent administrator tokens that survive password changes, retaining full control of the dashboard since tokens are verified only against a static JWT secret that is never rotated.",
-      "published": "2026-09-25T22:17:10.947",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100502"
+      "id": "CVE-2026-100522",
+      "summary": "Cotonti through 1.0.0 contains a reflected cross-site scripting vulnerability in message.php where the lng parameter is not properly escaped before output in the confirmation dialog. Unauthenticated attackers can craft malicious links with script payloads in the lng parameter to execute arbitrary JavaScript in victim browser sessions.",
+      "published": "2026-09-26T01:17:00.700",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100522"
     },
     {
-      "id": "CVE-2026-100501",
-      "summary": "Flame through 2.4.0 contains an improper restriction of excessive authentication attempts vulnerability in the POST /api/auth login endpoint that allows unauthenticated attackers to brute-force the admin password. Attackers can submit unlimited password guesses without rate limiting, attempt counters, lockouts, or delays to gain full administrator access and modify application configuration.",
-      "published": "2026-09-25T22:17:10.793",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100501"
+      "id": "CVE-2026-100521",
+      "summary": "Cotonti through 1.0.0 contains a reflected cross-site scripting vulnerability in the search plugin highlight parameter that performs no HTML or JavaScript escaping. Attackers can craft malicious links with injected JavaScript in the highlight parameter that executes in the browser of any visitor who opens the link, including administrators.",
+      "published": "2026-09-26T01:17:00.517",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100521"
     },
     {
-      "id": "CVE-2026-100419",
-      "summary": "gitoxide gix-fs before 0.23.0 contains a path validation bypass vulnerability in the worktree checkout mechanism that allows attackers to escape the worktree directory via symlink manipulation. During forced checkout with overwrite_existing enabled, attackers can craft malicious repository trees where symlink entries replace validated directories, causing subsequent files to be written outside the worktree through the symlink for code execution or file manipulation.",
-      "published": "2026-09-25T22:17:10.613",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100419"
+      "id": "CVE-2026-100520",
+      "summary": "Laranode versions before 1.2.1 contain a path traversal vulnerability in the POST /filemanager/upload-file endpoint that allows authenticated users to write arbitrary files outside their home directory. Attackers can supply directory traversal sequences in the path parameter to write PHP files into other tenants' web roots and execute code as those tenants.",
+      "published": "2026-09-26T01:17:00.357",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100520"
     },
     {
-      "id": "CVE-2026-100418",
-      "summary": "Flame through 2.4.0 contains an information exposure vulnerability in the unauthenticated GET /api/config endpoint that returns the entire configuration object without field redaction. Attackers can retrieve the stored weather API key and internal operational settings by sending a single unauthenticated request to consume provider quota or access sensitive configuration data.",
-      "published": "2026-09-25T22:17:10.447",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100418"
+      "id": "CVE-2026-100505",
+      "summary": "Ghidra versions 11.2 through 12.1.4 contain a heap out-of-bounds read vulnerability in StringManager::getCodepoint when decoding multi-byte UTF-8, UTF-16, or UTF-32 characters without validating remaining buffer length. Attackers can craft malicious binaries with constant byte stores ending in multi-byte lead units to trigger out-of-bounds reads that crash the decompiler or leak adjacent heap memory into decompiled output.",
+      "published": "2026-09-26T01:17:00.200",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100505"
     }
   ]
 }
