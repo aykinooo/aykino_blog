@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-26T13:03:10+00:00",
+  "generated_at": "2026-09-26T17:08:02+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-100314",
-      "summary": "A security vulnerability has been detected in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This impacts an unknown function of the file updatedetailsfromstudent.php. The manipulation of the argument eno leads to sql injection. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. Continious delivery with rolling releases is used by this product. Therefore, no version details of affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-26T12:17:35.227",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100314"
-    },
-    {
-      "id": "CVE-2026-100313",
-      "summary": "A weakness has been identified in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. This affects an unknown function of the file updatequery.php. Executing a manipulation of the argument queryx can lead to cross site scripting. It is possible to launch the attack remotely. The exploit has been made available to the public and could be used for attacks. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-26T12:17:33.267",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100313"
-    },
-    {
-      "id": "CVE-2026-98163",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ncgroup: Avoid iteration of dying tasks with zero refcount\n\nThe commit 260fbcb92bbea (\"cgroup: Move dying_tasks cleanup from\ncgroup_task_release() to cgroup_task_free()\") extended the lifetime of\ntasks on the dying_tasks list.\nThe iterators have provision to go through dying_tasks because of\ndying threadgroup leaders or explicit CSS_TASK_ITER_WITH_DEAD, however,\nit was expected that such tasks can obtain a new reference (that is\npossible before cgroup_task_release()/put_task_struct_rcu_user()).\nThe tasks after cgroup_task_release() and before cgroup_task_free()\nare subject to race when they may or may not have ->usage count > 0.\n\nThe race window is between css_task_iter_next() invocations\nwhen css_set_lock is released and we may arrive at a new ->task_pos.\nThe iterator should not attempt to resurrect tasks whose ->usage count\ndropped to zero. (When that happens, __put_task_struct_rcu_cb() is\nalready imminent and the returned task_struct would could be used\nafter free.)\n\nAs for the fix, we cannot simply check the signal->live count of a task\non the dying list because that won't distinguish regular zombies waiting\nto be reaped from RCU remnant tasks that are going to be free'd.\nTherefore add an extra check to rule out ->usage==0 tasks from any\niteration.\n\nThe repeat: loop in css_task_iter_advance() doesn't consider ->usage\ncount, so add a new loop to css_task_iter_next() to skip de-used tasks\non the dying_list.\n\nRough illustration of the possible race\n\n  R (reader of cgroup.procs)         T (thread)                       L (group leader)\n  ---------------------------------  -------------------------------- --------------------------------\n                                                                      L exits, signal->live > 0\n                                                                      cgroup_task_dead(L)\n                                                                        css_set_skip_task_iters() // skips only cset->tasks\n                                                                        list_add_tail(&L->cg_list, &cset->dying_tasks)\n  css_task_iter_next()\n    take css_set_lock\n    css_task_iter_advance()\n      leader && signal->live != 0\n      => it->task_pos = &L->cg_list\n    release css_set_lock\n                                     T exits\n                                     --signal->live == 0\n\t\t\t\t     cgroup_task_dead(T) // css_set_lock\n                                     release_task(T)\n                                       cgroup_task_release(T)\n                                       release_task(L) // zap_leader\n                                         cgroup_task_release(L)\n                                         put_task_struct_rcu_user(L)\n                                         ...RCU...\n                                         put_task_struct(L)\n                                           L->usage = 0\n                                           /* L still on dying_tasks */\n                                           ...RCU...\n                                           __put_task_struct(L)\n  css_task_iter_next() // another iteration\n    take css_set_lock\n    it->task_pos = &L->cg_list\n    get_task_struct(L)\n      => addition on 0\n    drop css_set_lock\n                                           cgroup_task_free(L)\n                                             css_set_skip_task_iters() // dying skip comes too late\n                                           free_task(L)\n  cgroup_procs_show()\n    task_pid_vnr(L)",
-      "published": "2026-09-26T09:16:38.303",
+      "id": "CVE-2026-97163",
+      "summary": "Joomla Extension - lomart.fr - Unauthenticated remote code installation in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29",
+      "published": "2026-09-26T15:16:55.890",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98163"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97163"
     },
     {
-      "id": "CVE-2026-100312",
-      "summary": "A security flaw has been discovered in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. The impacted element is an unknown function of the file /updateguest.php. Performing a manipulation of the argument gname/editassid results in sql injection. It is possible to initiate the attack remotely. The exploit has been released to the public and may be used for attacks. This product is using a rolling release to provide continious delivery. Therefore, no version details for affected nor updated releases are available. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-26T09:16:37.087",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100312"
-    },
-    {
-      "id": "CVE-2026-100311",
-      "summary": "A vulnerability was identified in mathurvishal CloudClassroom-PHP-Project up to 5dadec098bfbbf3300d60c3494db3fb95b66e7be. The affected element is an unknown function of the file managevideos2.php of the component Faculty Video Management. Such manipulation of the argument V_Title/V_Url/V_Remarks leads to cross site scripting. The attack may be performed from remote. The exploit is publicly available and might be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-09-26T08:16:32.133",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-100311"
-    },
-    {
-      "id": "CVE-2026-96533",
-      "summary": "The Testimonials Widget WordPress plugin through 4.0.4 does not validate a user-supplied URL before fetching it server-side and storing the response as a public file, allowing unauthenticated users to make the server issue requests to internal services and read the responses.",
-      "published": "2026-09-26T07:17:03.630",
+      "id": "CVE-2026-97162",
+      "summary": "Joomla Extension - lomart.fr - Various SQL injection vectors in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29",
+      "published": "2026-09-26T15:16:55.767",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96533"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97162"
+    },
+    {
+      "id": "CVE-2026-97161",
+      "summary": "Joomla Extension - lomart.fr - Various path traversal / file access vectors in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29",
+      "published": "2026-09-26T15:16:55.640",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97161"
+    },
+    {
+      "id": "CVE-2026-97160",
+      "summary": "Joomla Extension - lomart.fr - Authenticated, privileged PHP command injection in UP plugin extension 5.0.0-5.2.0, 6.0.0-6.0.29",
+      "published": "2026-09-26T15:16:55.520",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97160"
+    },
+    {
+      "id": "CVE-2026-94132",
+      "summary": "Joomla Extension - acymailing.com - Remote Code Execution vulnerability in mailbox action feature in AcyMailing Enterprise extension < 11.1.0 - MIME parts of incoming emails were saved to media/com_acym/upload/ with no extension check, so anyone who could email the monitored mailbox could write a PHP file into the web root.",
+      "published": "2026-09-26T15:16:55.397",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94132"
+    },
+    {
+      "id": "CVE-2026-94131",
+      "summary": "Joomla Extension - acymailing.com - Unauthenticated arbitrary file deletion in AcyMailing Enterprise extension < 11.1.0 - A subscriber could store a path in a file-type custom field and have AcyMailing delete that file when the field was cleared, including files outside the upload folder such as configuration.php.",
+      "published": "2026-09-26T15:16:54.183",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94131"
     }
   ]
 }
