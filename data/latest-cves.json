@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-27T18:21:02+00:00",
+  "generated_at": "2026-09-27T22:07:18+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-101061",
-      "summary": "utcp-gql before 1.1.1 and utcp-websocket before 1.1.1 contain server-side request forgery vulnerabilities due to incomplete application of CVE-2026-44661 fixes. The GraphQL plugin uses a vulnerable prefix check allowing bypass URLs like http://127.0.0.1.attacker.example, while the WebSocket plugin performs no URL validation despite documented security requirements. Attackers can force connections to internal services and cloud metadata endpoints by supplying malicious tool URLs in call templates, and receive configured API keys and OAuth tokens sent to attacker-controlled hosts.",
-      "published": "2026-09-27T18:16:32.407",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101061"
+      "id": "CVE-2026-96281",
+      "summary": "On a multi-user system, a user with an active local login session could downgrade a system-wide Flatpak app to an older version by removing the app's remote ref via the unprivileged system-helper RemoveLocalRef method, causing the anti-downgrade check to fail to find a reference date. A malicious local user could use this to expose other users of the same system to an app version with unfixed vulnerabilities.",
+      "published": "2026-09-27T21:17:04.330",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96281"
     },
     {
-      "id": "CVE-2026-101060",
-      "summary": "python-utcp versions before 1.1.4 contain a server-side request forgery vulnerability in HttpCommunicationProtocol.call_tool that validates the initial tool URL but follows HTTP redirects without re-validating the target. Attackers controlling a tool endpoint can return a 302 redirect to internal services, allowing the UTCP client to reach cloud metadata endpoints or internal HTTP services and return their response bodies to the caller.",
-      "published": "2026-09-27T18:16:32.273",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101060"
+      "id": "CVE-2026-96280",
+      "summary": "The OCI delta stream parser read sizes as guint64 but passed them to GLib I/O and allocation functions expecting gsize (32 bits on 32-bit systems), causing undersized allocations while subsequent operations use the original 64-bit size, leading to heap buffer overflows. An attacker controlling an OCI registry can craft a delta stream that triggers this during flatpak install/update, potentially achieving code execution on 32-bit systems.",
+      "published": "2026-09-27T21:17:04.200",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96280"
     },
     {
-      "id": "CVE-2026-101059",
-      "summary": "utcp-http before 1.1.4 fails to validate the OAuth2 tokenUrl field from remote OpenAPI specifications, allowing attackers to redirect credential submission to arbitrary endpoints. When a victim registers an attacker-controlled OpenAPI spec and invokes a generated OAuth2-protected tool, the library POSTs the victim's client_id and client_secret to the attacker-supplied token endpoint without URL validation.",
-      "published": "2026-09-27T18:16:32.130",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101059"
+      "id": "CVE-2026-101090",
+      "summary": "Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard_host setting is empty, /api/v1/oauth2/{provider} (cmd/dashboard/controller/oauth2.go) reflects the attacker-supplied HTTP Host header into the redirect_uri sent to the identity provider instead of falling back to the configured install_host. An attacker who induces a victim to begin OAuth2 login via a request that reaches Nezha with a forged Host header can cause an attacker-controlled callback URL to be used as the redirect_uri; if the OAuth2 provider accepts it, the victim's authorization code is delivered to the attacker origin, allowing the attacker to complete the OAuth2 login/binding flow and take over the account. This regresses the fix for GHSA-9rc6-8cjv-rcvx and is configuration-dependent (dashboard_host empty). At the time of the advisory no patched version was available.",
+      "published": "2026-09-27T21:17:03.003",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101090"
     },
     {
-      "id": "CVE-2026-101058",
-      "summary": "python-utcp (pip package utcp-http) before 1.1.12 does not verify whether tool URLs declared in a hand-written UTCP manual point at the agent's own loopback interface when that manual is discovered from a remote, non-loopback origin. Because ensure_secure_url intentionally permits loopback HTTP for local development and native manuals bypassed the loopback check performed by the OpenAPI converter, an attacker who can serve a UTCP manual that a victim registers can cause the client to issue requests to services bound only to 127.0.0.1 on the victim host and have the response bodies returned to the caller (server-side request forgery). The http, sse and streamable_http protocols are all affected. Reach is limited to loopback, and exploitation further requires a loopback service that answers unauthenticated requests with useful data. Fixed in utcp-http 1.1.12, which rejects manuals fetched from a non-loopback origin that declare loopback tool URLs, keyed off the final post-redirect discovery URL.",
-      "published": "2026-09-27T18:16:31.973",
-      "cvss": 6.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101058"
-    },
-    {
-      "id": "CVE-2026-101057",
-      "summary": "utcp-mcp (the MCP plugin of python-utcp) through 1.1.2 connects to the HTTP and WebSocket MCP server URLs given in a call template's mcpServers configuration without the ensure_secure_url validation that the HTTP-family plugins apply, so the HTTPS/WSS-or-loopback rule is not enforced. A call template naming a plain-HTTP, non-loopback MCP server URL is dialed as configured, exposing the MCP handshake to network interception and permitting cleartext connections to internal hosts. The mcpServers configuration is operator-authored rather than remote data, and the connection is an MCP handshake rather than an arbitrary request returning a body, which limits practical exploitation; the OAuth2 token_url credential path described in the original report was not reachable in the affected versions, because the OAuth2 handler was never invoked and the call template's auth field was not read. Fixed in utcp-mcp 1.1.3, which validates server URLs before any connection is made.",
-      "published": "2026-09-27T18:16:31.823",
+      "id": "CVE-2026-101089",
+      "summary": "Nezha before 2.2.7 contains an information disclosure vulnerability in the GET /api/v1/profile endpoint that returns the bcrypt-hashed password field of authenticated users. Attackers can extract password hashes and perform offline cracking attacks without rate limiting or audit trail constraints.",
+      "published": "2026-09-27T21:17:02.870",
       "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101057"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101089"
     },
     {
-      "id": "CVE-2026-101056",
-      "summary": "Cloudreve before 4.16.1 fails to revalidate share access when restoring cached navigator state from a context_hint UUID. Attackers who previously had valid share access can replay the cached hint to generate signed file URLs for up to 300 seconds after the share is deleted, expires, or reaches zero remaining downloads.",
-      "published": "2026-09-27T18:16:31.667",
+      "id": "CVE-2026-101088",
+      "summary": "Nezha is a server and website monitoring tool. In versions >= 2.2.11 and < 2.3.1, the service sentinel worker (service/singleton/servicesentinel.go) contains an incomplete fix for a previously reported nil dereference denial of service (GHSA-qjpp-gffx-2wm9). The 2026-07-21 fix re-validated the service lifecycle under serviceResponseDataStoreLock but reused an already-captured, now stale reporter pointer and never re-validated the server, and that lock does not guard ServerShared. An authenticated user with the member role who owns an agent can issue a concurrent server delete (POST /api/v1/batch-delete/server) for their own server to win the race window, causing the worker to dereference a missing entry in the server list snapshot. Because the sentinel workers and the gRPC server have no recover()/recovery interceptor, the resulting panic is unrecovered and crashes the entire instance. This is fixed in version 2.3.1.",
+      "published": "2026-09-27T21:17:02.727",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101056"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101088"
+    },
+    {
+      "id": "CVE-2026-101087",
+      "summary": "Nezha versions 2.0.10 through 2.3.2 use a restricted HTTP client to validate user-configurable notification and DDNS webhook URLs, but the denylist did not cover IPv6 transition ranges \u2014 specifically the 6to4 prefix 2002::/16 and the local-use IPv4/IPv6 translation prefix 64:ff9b:1::/48. Because such addresses satisfy Go's netip.Addr.IsGlobalUnicast check, the URL validator accepted them. An authenticated user able to configure a webhook may be able to cause the dashboard to issue requests to an otherwise restricted IPv6 endpoint, but only where the dashboard's network provides unusual or non-standards-compliant routing for these transition ranges; no direct path to an IPv4 metadata, loopback, or private-network HTTP request has been demonstrated. The issue is fixed in version 2.3.3 (commit d1fcde8e), which blocks both prefixes.",
+      "published": "2026-09-27T21:17:02.587",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101087"
     }
   ]
 }
