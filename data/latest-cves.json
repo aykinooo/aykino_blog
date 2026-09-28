@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-28T15:23:59+00:00",
+  "generated_at": "2026-09-28T21:57:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96538",
-      "summary": "WarehousePG (WHPG) 7.x before 7.6.0-WHPG is affected by a missing authorization vulnerability (CWE-862) in the built-in server-side file functions pg_file_write(text,text,bool), pg_file_rename(text,text,text), pg_file_unlink(text), and pg_logdir_ls(). These functions are executable by any authenticated database role with no GRANT required, because the REVOKE that contrib/adminpack applies to the equivalent functions was never carried over to WHPG core when their catalog entries were repointed to the ungated adminpack-derived implementations as part of Greenplum's merge to a PostgreSQL 12 base. A non-superuser can use pg_file_write, pg_file_rename, and pg_file_unlink to create, overwrite (append), rename, and delete files under the data and log directories, and can use pg_logdir_ls() to enumerate log file names. Because postgresql.auto.conf resides in the data directory, a non-superuser can append configuration directives such as shared_preload_libraries or archive_command to it, resulting in arbitrary code execution as the postgres operating system user on the next server restart or configuration reload. WarehousePG 6.x is not affected, as the equivalent functions there enforce a superuser check internally.",
-      "published": "2026-09-28T15:17:25.357",
+      "id": "CVE-2026-97027",
+      "summary": "Flatpak passes through arbitrary vendor-extension keys unmodified when exporting an application's Desktop Entry (.desktop) and D-Bus Service (.service) files, instead of validating against an allowlist. A malicious Flatpak app can use this to cause denial of service (e.g. forced application restart loops) or to influence host D-Bus/systemd activation behavior beyond what the sandbox is intended to permit.",
+      "published": "2026-09-28T21:17:20.067",
+      "cvss": 3.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97027"
+    },
+    {
+      "id": "CVE-2026-97026",
+      "summary": "Flatpak creates temporary child repository directories under the user cache with world-writable permissions (0777). On multi-user systems with a permissive umask, other local users could read or modify the temporary directory used while installing apps or runtimes, potentially causing installation failures (denial of service); tampered content would fail signature/digest verification rather than being trusted.",
+      "published": "2026-09-28T21:17:19.907",
+      "cvss": 3.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97026"
+    },
+    {
+      "id": "CVE-2026-97025",
+      "summary": "Flatpak writes the OCI repository authentication token with world-readable permissions (0644) in the system-helper's cache directory, allowing other local users on a multi-user system to read the token and impersonate the authenticated user against the OCI repository. Only OCI-based sources (e.g. as used by Fedora) are affected; libostree-based sources such as Flathub are not.",
+      "published": "2026-09-28T21:17:19.757",
+      "cvss": 3.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97025"
+    },
+    {
+      "id": "CVE-2026-91096",
+      "summary": "In proxygen from v2024.10.28.00 until v2026.09.28.00, WebTransportImpl::terminateSessionStreams (WebTransportImpl::destroy in releases before v2025.08.18.00) failed to unregister read callbacks for streams that were no longer open before destroying them. The transport could then invoke a read callback that had been freed.",
+      "published": "2026-09-28T21:17:19.313",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96538"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91096"
     },
     {
-      "id": "CVE-2026-93540",
-      "summary": "A privilege mismatch was found in Fleet. When a bundle requested namespace labels or annotations through the namespaceLabels and namespaceAnnotations options, the resulting namespace metadata update was not subject to the same authorization as the rest of the bundle's deployment. As a result, a bundle could change labels and annotations on a target namespace even when the identity it was pinned to was not authorized to modify that namespace.\n\nThis affected SUSE Rancher Fleet 0.16 before 0.16.2, 0.15 before 0.15.7, 0.14 before 0.14.11, 0.13 before 0.13.16 and potentially older versions.",
-      "published": "2026-09-28T15:17:25.220",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93540"
+      "id": "CVE-2026-91095",
+      "summary": "In proxygen from v2024.10.28.00 until v2026.09.28.00, the HTTPTransaction::onWebTransportUniStream and HTTPTransaction::onWebTransportBidiStream APIs could return stream handles that the stream handler had already freed. HQSession then installed those handles as transport read callbacks, which could lead to use of freed memory.",
+      "published": "2026-09-28T21:17:19.170",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91095"
     },
     {
-      "id": "CVE-2026-93539",
-      "summary": "A vulnerability was discovered in Fleet's Git webhook receiver (the gitjob webhook service). When a webhook secret is not configured, incoming webhook requests are accepted without verification, and processing a request can change the spec.pollingInterval field of a matching GitRepo resource in any namespace. A caller with network access to the webhook service and no Kubernetes credentials can therefore alter GitRepo configuration outside\n\nthe namespaces they are authorized for.\u00a0 This only affects SUSE Rancher Fleet 0.16 before 0.16.2, older versions are not affected.",
-      "published": "2026-09-28T15:17:25.080",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93539"
-    },
-    {
-      "id": "CVE-2026-93538",
-      "summary": "A cross-tenant authorization issue was discovered in SUSE Rancher Fleet. During agent-initiated\u00a0cluster registration, cluster labels supplied by the registering agent, including labels in the reserved management.cattle.io/ namespace such as the cluster display name label, were applied to the resulting upstream Cluster object. Because Fleet resolves GitRepo and Bundle targets from those cluster labels, a party able to register a cluster into a Fleet workspace namespace shared with other tenants could cause its own cluster to satisfy targeting rules that administrators intended for a different cluster.\nThis affects SUSE Rancher Fleet 0.16 before 0.16.1, 0.15 before 0.15.6, 0.14 before 0.14.10, 0.13 before 0.13.15, 0.12 before 0.12.19 and older versions.",
-      "published": "2026-09-28T15:17:24.927",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93538"
-    },
-    {
-      "id": "CVE-2026-80359",
-      "summary": "Dell Boot Optimized Server Storage (BOSS), versions prior to 2.2.13.2038, contains an On-Chip Debug and Test Interface With Improper Access Control vulnerability in the SMCU on 17G BOSS-N1 controllers. An unauthenticated attacker with physical access could potentially exploit this vulnerability, leading to Unauthorized access.",
-      "published": "2026-09-28T15:17:24.033",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80359"
-    },
-    {
-      "id": "CVE-2026-80358",
-      "summary": "Dell Boot Optimized Server Storage (BOSS), versions prior to 2.2.13.2038, contains an On-Chip Debug and Test Interface With Improper Access Control vulnerability in the SMCU on 17G BOSS-N1 controllers. An unauthenticated attacker with physical access could potentially exploit this vulnerability, leading to Unauthorized access.",
-      "published": "2026-09-28T15:17:23.887",
-      "cvss": 5.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80358"
+      "id": "CVE-2026-84895",
+      "summary": "In proxygen from v2026.04.06.00 until v2026.09.28.00, QuicWtSession::closeSession accesses its member fields after calling the base QuicWtSessionBase::closeSession method. The base method notifies the session handler, which may release the last reference to the session and destroy it.",
+      "published": "2026-09-28T21:17:19.027",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84895"
     }
   ]
 }
