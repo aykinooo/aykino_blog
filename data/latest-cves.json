@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-27T22:07:18+00:00",
+  "generated_at": "2026-09-28T06:50:11+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96281",
-      "summary": "On a multi-user system, a user with an active local login session could downgrade a system-wide Flatpak app to an older version by removing the app's remote ref via the unprivileged system-helper RemoveLocalRef method, causing the anti-downgrade check to fail to find a reference date. A malicious local user could use this to expose other users of the same system to an app version with unfixed vulnerabilities.",
-      "published": "2026-09-27T21:17:04.330",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96281"
-    },
-    {
-      "id": "CVE-2026-96280",
-      "summary": "The OCI delta stream parser read sizes as guint64 but passed them to GLib I/O and allocation functions expecting gsize (32 bits on 32-bit systems), causing undersized allocations while subsequent operations use the original 64-bit size, leading to heap buffer overflows. An attacker controlling an OCI registry can craft a delta stream that triggers this during flatpak install/update, potentially achieving code execution on 32-bit systems.",
-      "published": "2026-09-27T21:17:04.200",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96280"
-    },
-    {
-      "id": "CVE-2026-101090",
-      "summary": "Nezha 2.2.3 contains a Host header injection regression in the OAuth2 redirect endpoint. When the new optional dashboard_host setting is empty, /api/v1/oauth2/{provider} (cmd/dashboard/controller/oauth2.go) reflects the attacker-supplied HTTP Host header into the redirect_uri sent to the identity provider instead of falling back to the configured install_host. An attacker who induces a victim to begin OAuth2 login via a request that reaches Nezha with a forged Host header can cause an attacker-controlled callback URL to be used as the redirect_uri; if the OAuth2 provider accepts it, the victim's authorization code is delivered to the attacker origin, allowing the attacker to complete the OAuth2 login/binding flow and take over the account. This regresses the fix for GHSA-9rc6-8cjv-rcvx and is configuration-dependent (dashboard_host empty). At the time of the advisory no patched version was available.",
-      "published": "2026-09-27T21:17:03.003",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101090"
-    },
-    {
-      "id": "CVE-2026-101089",
-      "summary": "Nezha before 2.2.7 contains an information disclosure vulnerability in the GET /api/v1/profile endpoint that returns the bcrypt-hashed password field of authenticated users. Attackers can extract password hashes and perform offline cracking attacks without rate limiting or audit trail constraints.",
-      "published": "2026-09-27T21:17:02.870",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101089"
-    },
-    {
-      "id": "CVE-2026-101088",
-      "summary": "Nezha is a server and website monitoring tool. In versions >= 2.2.11 and < 2.3.1, the service sentinel worker (service/singleton/servicesentinel.go) contains an incomplete fix for a previously reported nil dereference denial of service (GHSA-qjpp-gffx-2wm9). The 2026-07-21 fix re-validated the service lifecycle under serviceResponseDataStoreLock but reused an already-captured, now stale reporter pointer and never re-validated the server, and that lock does not guard ServerShared. An authenticated user with the member role who owns an agent can issue a concurrent server delete (POST /api/v1/batch-delete/server) for their own server to win the race window, causing the worker to dereference a missing entry in the server list snapshot. Because the sentinel workers and the gRPC server have no recover()/recovery interceptor, the resulting panic is unrecovered and crashes the entire instance. This is fixed in version 2.3.1.",
-      "published": "2026-09-27T21:17:02.727",
+      "id": "CVE-2026-101004",
+      "summary": "A security vulnerability has been detected in notionnext-org NotionNext up to 4.10.10. Affected by this issue is the function cleanCache of the file pages/api/cache.js of the component Authentication Guard. The manipulation of the argument token leads to missing authentication. The attack may be initiated remotely. Versions 4.1.0 - 4.9.5.2 allow unauthenticated exploitation due to missing method check. In versions 4.9.5.7 - 4.10.10 a guard present but only enforced when CACHE_REVALIDATION_TOKEN is set. Default deployments remain unprotected. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-28T06:16:31.570",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101088"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101004"
     },
     {
-      "id": "CVE-2026-101087",
-      "summary": "Nezha versions 2.0.10 through 2.3.2 use a restricted HTTP client to validate user-configurable notification and DDNS webhook URLs, but the denylist did not cover IPv6 transition ranges \u2014 specifically the 6to4 prefix 2002::/16 and the local-use IPv4/IPv6 translation prefix 64:ff9b:1::/48. Because such addresses satisfy Go's netip.Addr.IsGlobalUnicast check, the URL validator accepted them. An authenticated user able to configure a webhook may be able to cause the dashboard to issue requests to an otherwise restricted IPv6 endpoint, but only where the dashboard's network provides unusual or non-standards-compliant routing for these transition ranges; no direct path to an IPv4 metadata, loopback, or private-network HTTP request has been demonstrated. The issue is fixed in version 2.3.3 (commit d1fcde8e), which blocks both prefixes.",
-      "published": "2026-09-27T21:17:02.587",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101087"
+      "id": "CVE-2026-101003",
+      "summary": "A weakness has been identified in Cesanta Mongoose up to 7.21. Affected by this vulnerability is the function fn of the file tutorials/mqtt/mqtt-server/main.c of the component MQTT Broker. Executing a manipulation can lead to stack-based buffer overflow. The attack can be launched remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 7.22 addresses this issue. This patch is called a9df523f76f43a38bd53b4232b9cfd4c16869e71. Upgrading the affected component is advised.",
+      "published": "2026-09-28T06:16:31.310",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101003"
+    },
+    {
+      "id": "CVE-2026-101002",
+      "summary": "A security flaw has been discovered in Netcore NBR200V2 1.3.241127.071246. Affected is the function system of the file /usr/bin/network_tools of the component Tools Ping Handler. Performing a manipulation of the argument url results in os command injection. The attack can be initiated remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-28T06:16:29.783",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101002"
+    },
+    {
+      "id": "CVE-2026-87723",
+      "summary": "In Google fuse-archive versions prior to 1.24, an attacker who can prepend a directory to PATH or write a malicious binary to an attacker-controlled or writable directory appearing in PATH can hijack the execution pathway. This allows the attacker to execute arbitrary local code under the security context of the user running the fuse-archive process. The issue was partially mitigated in version 1.22 and fully resolved in 1.24 via refined selective PATH filtering.",
+      "published": "2026-09-28T05:16:30.840",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87723"
+    },
+    {
+      "id": "CVE-2026-101001",
+      "summary": "A vulnerability was identified in Netcore NBR200V2 1.3.241127.071246. This impacts the function eval of the file /www/cgi-bin/network_tools of the component Web Management Interface. Such manipulation of the argument QUERY_STRING leads to os command injection. It is possible to launch the attack remotely. The exploit is publicly available and might be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-28T05:16:30.570",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101001"
+    },
+    {
+      "id": "CVE-2026-101000",
+      "summary": "A vulnerability was determined in Netcore NBR100V2 1.3.240614.030928. This affects the function uci.apply of the file /usr/share/rpcd/acl.d/unauthenticated.json of the component ACL Handler. This manipulation of the argument section causes missing authorization. It is possible to initiate the attack remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-28T05:16:30.270",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101000"
     }
   ]
 }
