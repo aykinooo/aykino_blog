@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-28T21:57:42+00:00",
+  "generated_at": "2026-09-29T01:54:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97027",
-      "summary": "Flatpak passes through arbitrary vendor-extension keys unmodified when exporting an application's Desktop Entry (.desktop) and D-Bus Service (.service) files, instead of validating against an allowlist. A malicious Flatpak app can use this to cause denial of service (e.g. forced application restart loops) or to influence host D-Bus/systemd activation behavior beyond what the sandbox is intended to permit.",
-      "published": "2026-09-28T21:17:20.067",
-      "cvss": 3.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97027"
+      "id": "CVE-2026-102374",
+      "summary": "GestSup versions before 3.2.62 contain a stored cross-site scripting vulnerability in the IMAP OAuth connector that double-decodes MIME-encoded email subjects after HTML escaping. Unauthenticated attackers can send crafted emails to monitored mailboxes with nested MIME encoded-words to inject JavaScript that executes in technician sessions when viewing tickets.",
+      "published": "2026-09-29T01:16:44.900",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102374"
     },
     {
-      "id": "CVE-2026-97026",
-      "summary": "Flatpak creates temporary child repository directories under the user cache with world-writable permissions (0777). On multi-user systems with a permissive umask, other local users could read or modify the temporary directory used while installing apps or runtimes, potentially causing installation failures (denial of service); tampered content would fail signature/digest verification rather than being trusted.",
-      "published": "2026-09-28T21:17:19.907",
-      "cvss": 3.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97026"
+      "id": "CVE-2026-102373",
+      "summary": "GestSup versions before 3.2.62 fail to validate ticket ownership when loading comments via the threadedit parameter in thread.php. Authenticated attackers can enumerate sequential comment IDs to read private comments from other users' tickets without proper authorization checks.",
+      "published": "2026-09-29T01:16:44.757",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102373"
     },
     {
-      "id": "CVE-2026-97025",
-      "summary": "Flatpak writes the OCI repository authentication token with world-readable permissions (0644) in the system-helper's cache directory, allowing other local users on a multi-user system to read the token and impersonate the authenticated user against the OCI repository. Only OCI-based sources (e.g. as used by Fedora) are affected; libostree-based sources such as Flathub are not.",
-      "published": "2026-09-28T21:17:19.757",
-      "cvss": 3.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97025"
+      "id": "CVE-2026-102372",
+      "summary": "GestSup versions before 3.2.62 fail to properly sanitize HTML email bodies in the IMAP LOGIN connector, allowing unauthenticated attackers to store arbitrary JavaScript in ticket descriptions and replies. Attackers can send emails to the monitored mailbox containing script tags and event handlers that execute in technician browsers, enabling ticket data theft and unauthorized actions.",
+      "published": "2026-09-29T01:16:44.593",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102372"
     },
     {
-      "id": "CVE-2026-91096",
-      "summary": "In proxygen from v2024.10.28.00 until v2026.09.28.00, WebTransportImpl::terminateSessionStreams (WebTransportImpl::destroy in releases before v2025.08.18.00) failed to unregister read callbacks for streams that were no longer open before destroying them. The transport could then invoke a read callback that had been freed.",
-      "published": "2026-09-28T21:17:19.313",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91096"
+      "id": "CVE-2026-101281",
+      "summary": "A flaw has been found in Trusted Domain Project OpenDMARC up to 1.4.2. Affected by this vulnerability is the function opendmarc_sp2_find_mailfrom_domain of the file libopendmarc/opendmarc_spf.c of the component SPF Macro Handler. This manipulation causes improper authentication. The attack is possible to be carried out remotely. The exploit has been published and may be used. Patch name: c48a74c758677fc5272a73eff15ffdbf8afda1a6. Applying a patch is the recommended action to fix this issue.",
+      "published": "2026-09-29T01:16:44.367",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101281"
     },
     {
-      "id": "CVE-2026-91095",
-      "summary": "In proxygen from v2024.10.28.00 until v2026.09.28.00, the HTTPTransaction::onWebTransportUniStream and HTTPTransaction::onWebTransportBidiStream APIs could return stream handles that the stream handler had already freed. HQSession then installed those handles as transport read callbacks, which could lead to use of freed memory.",
-      "published": "2026-09-28T21:17:19.170",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91095"
+      "id": "CVE-2026-101280",
+      "summary": "A vulnerability was detected in Trusted Domain Project OpenDMARC up to 1.4.2. Affected is the function opendmarc_policy_query_dmarc of the component Multi-Record Set Handler. The manipulation results in authentication bypass by spoofing. The attack can be executed remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-29T01:16:44.193",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101280"
     },
     {
-      "id": "CVE-2026-84895",
-      "summary": "In proxygen from v2026.04.06.00 until v2026.09.28.00, QuicWtSession::closeSession accesses its member fields after calling the base QuicWtSessionBase::closeSession method. The base method notifies the session handler, which may release the last reference to the session and destroy it.",
-      "published": "2026-09-28T21:17:19.027",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84895"
+      "id": "CVE-2026-101279",
+      "summary": "A security vulnerability has been detected in Trusted Domain Project OpenDMARC up to 1.4.2. This impacts an unknown function of the file libopendmarc/opendmarc_policy.c of the component DMARC Parser. The manipulation of the argument pct leads to integer overflow. Remote exploitation of the attack is possible. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-09-29T01:16:43.997",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101279"
     }
   ]
 }
