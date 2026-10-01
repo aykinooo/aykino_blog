@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-09-30T23:46:07+00:00",
+  "generated_at": "2026-10-01T05:47:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-103592",
-      "summary": "simple-php-router through 5.4.1.7 contains an IP restriction bypass vulnerability in the IpRestrictAccess middleware that allows remote unauthenticated attackers to bypass IP whitelist and blacklist protections. Attackers can spoof X-Forwarded-For, CF-Connecting-IP, or Client-IP headers to impersonate whitelisted addresses or evade blacklists, gaining access to IP-restricted routes.",
-      "published": "2026-09-30T23:16:58.963",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103592"
+      "id": "CVE-2026-92966",
+      "summary": "The The Appointment Booking Plugin \u2013 LatePoint | Calendar & Scheduling for WordPress plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 5.7.0. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. The payload is planted during the unauthenticated booking flow and triggered when the Customer Cabinet block rendered by render_customer_dashboard() outputs the stored name into the content stream, where WordPress core's do_shortcode filter at priority 11 re-parses and executes it.",
+      "published": "2026-10-01T05:17:11.967",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92966"
     },
     {
-      "id": "CVE-2026-103591",
-      "summary": "DeepWiki-Open through commit d92819a contains an unauthenticated arbitrary file read vulnerability in the GET /codemap/file endpoint via the repo_url parameter. Attackers can supply a non-URL repo_url value to bypass path containment checks and read any file accessible to the API process by specifying absolute file paths.",
-      "published": "2026-09-30T23:16:58.773",
+      "id": "CVE-2026-92548",
+      "summary": "The WP Popular Posts plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 7.4.2 via the 'context' parameter. This makes it possible for unauthenticated attackers to extract sensitive edit-context fields \u2014 including raw title, raw content body, password, meta, status, and guid \u2014 from non-public post objects such as wp_block synced patterns that WordPress core itself refuses to expose to unauthenticated callers. This is possible because the plugin's REST route is registered with a permission_callback of __return_true and passes the caller-supplied context parameter (e.g., context=edit) directly to WP_REST_Posts_Controller::prepare_item_for_response() without invoking get_item_permissions_check() or check_read_permission(), while the underlying query accepts an arbitrary post_type value without enforcing public or show_in_rest visibility flags.",
+      "published": "2026-10-01T05:17:11.807",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92548"
+    },
+    {
+      "id": "CVE-2026-82829",
+      "summary": "Hitachi Coding Software Suite contains a vulnerability related to Hidden Functionality vulnerability which allows an attacker to gain unauthorized access by exploiting hidden accounts or hard coded credentials.\n\n\nThis issue affects Hitachi Coding Software Suite: through 3.3.0.",
+      "published": "2026-10-01T05:17:11.090",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82829"
+    },
+    {
+      "id": "CVE-2026-82828",
+      "summary": "Hitachi Coding Software Suite contains an Incorrect Authorization vulnerability that allows an unprivileged user to perform administrator-level operations.\n\n\nThis issue affects Hitachi Coding Software Suite: through 3.3.0.",
+      "published": "2026-10-01T05:17:10.937",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82828"
+    },
+    {
+      "id": "CVE-2026-82827",
+      "summary": "Hitachi Coding Software Suite contains a vulnerability related to Use of Hard-coded Cryptographic Key. The Hardcoding of JWT signing secret key allows an attacker to generate unauthorized Bearer tokens and exploit administrative functions.\n\n\nThis issue affects Hitachi Coding Software Suite: through 3.3.0.",
+      "published": "2026-10-01T05:17:10.780",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82827"
+    },
+    {
+      "id": "CVE-2026-82826",
+      "summary": "Hitachi Coding Software Suite contains a vulnerability related to the Cleartext Transmission of Sensitive Information which allows an attacker to eavesdrop on with authentication credentials and sensitive data in transit.\n\n\nThis issue affects Hitachi Coding Software Suite: through 3.3.0.",
+      "published": "2026-10-01T05:17:10.633",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103591"
-    },
-    {
-      "id": "CVE-2026-103590",
-      "summary": "QloApps through 1.7.0 contains a reflected cross-site scripting vulnerability in the back-office room type editor's length of stay fields. Attackers can induce authenticated administrators to submit crafted POST requests with malicious payloads in restriction_min_los and restriction_max_los parameters, executing arbitrary JavaScript in the victim's administrative session.",
-      "published": "2026-09-30T23:16:58.600",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103590"
-    },
-    {
-      "id": "CVE-2026-103589",
-      "summary": "QloApps through 1.7.0 contains a reflected cross-site scripting vulnerability in the back-office room type editor that fails to escape room_num, floor, and comment field values in input attributes. Attackers can induce authenticated back-office users to submit crafted POST requests with malicious payloads to execute arbitrary JavaScript in the victim's administrative session.",
-      "published": "2026-09-30T23:16:58.430",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103589"
-    },
-    {
-      "id": "CVE-2026-103588",
-      "summary": "QloApps through 1.7.0 contains a reflected cross-site scripting vulnerability in the exceptions field of the back-office Transplant a module form. Attackers can craft a malicious link containing JavaScript payload in the exceptions parameter that executes in an authenticated administrator's session when the victim follows the link.",
-      "published": "2026-09-30T23:16:58.257",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103588"
-    },
-    {
-      "id": "CVE-2026-103587",
-      "summary": "QloApps through 1.7.0 contains a reflected cross-site scripting vulnerability in the back-office Hotel Reservation System Book Now search, where date_to and id_room_type parameters are copied into template variables without validation. Attackers can craft a malicious link containing JavaScript payload in these parameters that executes in an authenticated administrator's session when the victim follows the link.",
-      "published": "2026-09-30T23:16:58.027",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103587"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82826"
     }
   ]
 }
