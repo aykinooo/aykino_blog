@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-01T23:10:14+00:00",
+  "generated_at": "2026-10-02T02:13:08+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-86344",
-      "summary": "A flaw was found in 389-ds-base. An unauthenticated remote attacker can send a complete LDAP operation followed by the first bytes of an incomplete LDAPMessage on the same connection, causing the server to hand that connection to a second worker thread before the first worker's result is flushed. The second worker blocks until nsslapd-ioblocktimeout while holding the connection mutex, preventing delivery of the completed operation's result. Repeating this across a small number of connections proportional to the configured worker-thread pool size exhausts the entire pool under default configuration, denying service to all clients (anonymous and authenticated, plaintext and TLS) for as long as the attacker maintains the connections.",
-      "published": "2026-10-01T22:17:05.590",
+      "id": "CVE-2026-103098",
+      "summary": "Transmission of a sensitive key in the URL\nover an unencrypted HTTP connection.\u00a0 The\nrequest is sent over HTTP rather than HTTPS, meaning the key is transmitted in\nplaintext across the network. An attacker with the ability to monitor network\ntraffic could intercept the request and obtain the key",
+      "published": "2026-10-02T01:16:43.193",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86344"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103098"
     },
     {
-      "id": "CVE-2026-71454",
-      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in CWE-79 - Cross-site Scripting CAPEC-63 allows Cross-Site Scripting (XSS).\n\nThis issue affects CAPEC-63: before 3.0b63.",
-      "published": "2026-10-01T22:17:05.443",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71454"
+      "id": "CVE-2026-103097",
+      "summary": "An API key is\nhardcoded and retrievable from the application package. Since Android\napplications can be reverse engineered, embedding sensitive API credentials\ndirectly in the client application may allow unauthorized users to extract and\nmisuse the key.",
+      "published": "2026-10-02T01:16:43.070",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103097"
     },
     {
-      "id": "CVE-2026-71453",
-      "summary": "- External Control of File Name or Path vulnerability in Johnson Controls EasyIO FS32 allows - traversal attack.\n\nThis issue affects EasyIO FS32: before 3.0b63.",
-      "published": "2026-10-01T22:17:05.310",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71453"
+      "id": "CVE-2026-103096",
+      "summary": "API\nkey is hardcoded and retrievable from the application package. Since Android\napplications can be reverse engineered, embedding sensitive API credentials\ndirectly in the client application may allow unauthorized users to extract and\nmisuse the key.",
+      "published": "2026-10-02T01:16:42.930",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103096"
     },
     {
-      "id": "CVE-2026-71452",
-      "summary": "- OS Command Injection vulnerability in Johnson Controls EasyIO FS32 allows OS Command Injection.\n\nThis issue affects EasyIO FS32: before 3.0b63.",
-      "published": "2026-10-01T22:17:05.160",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71452"
+      "id": "CVE-2026-86345",
+      "summary": "A flaw was found in 389-ds-base. The server does not discard plaintext bytes already buffered from a client connection when negotiating StartTLS, allowing an on-path attacker to inject a crafted LDAP message that is processed after the TLS upgrade and whose response is delivered to the client in place of the client's own pending operation's response, due to messageID collision. This can cause a client application to treat a failed authentication (bind) attempt as successful.",
+      "published": "2026-10-02T00:17:04.180",
+      "cvss": 9.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86345"
     },
     {
-      "id": "CVE-2026-71449",
-      "summary": ": Use of Hard-coded Cryptographic Key vulnerability in Johnson Controls EasyIO FS32 allows : Retrieve Embedded Sensitive Data.\n\nThis issue affects EasyIO FS32: before 3.0b63.",
-      "published": "2026-10-01T22:17:04.903",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71449"
+      "id": "CVE-2026-103766",
+      "summary": "ClipBucket v5 through 5.5.3-#197 contains an sql injection vulnerability that allows authenticated users with ad_manager_access permission to inject SQL via the delete parameter in admin_area/ads_manager.php. Attackers can supply time-based blind payloads concatenated into AdsManager::DeleteAd queries to extract user credentials and emails or modify and delete arbitrary records.",
+      "published": "2026-10-02T00:16:59.820",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103766"
     },
     {
-      "id": "CVE-2026-71448",
-      "summary": ": Insecure Default Initialization of Resource vulnerability in Johnson Controls EasyIO FS32 allows : Authentication Abuse.\n\nThis issue affects EasyIO FS32: before 3.0b63.",
-      "published": "2026-10-01T22:17:04.753",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71448"
+      "id": "CVE-2026-103765",
+      "summary": "Mooncake through 0.3.13.post1 contains a missing authentication vulnerability in the HTTP metadata server /metadata handler that allows unauthenticated attackers to read, overwrite, and delete transfer engine metadata keys. Attackers can poison segment descriptors such as tcp_data_port or re-create rpc_meta entries to redirect KV cache transfers to attacker-controlled listeners, or exhaust server memory.",
+      "published": "2026-10-02T00:16:59.663",
+      "cvss": 9.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103765"
     }
   ]
 }
