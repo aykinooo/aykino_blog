@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-03T00:27:34+00:00",
+  "generated_at": "2026-10-03T06:29:29+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-105030",
-      "summary": "Kener 4.0.0 before 4.1.6 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve hidden or inactive monitor data by querying dashboard API handlers lacking visibility filters. Attackers can supply a known or guessed monitor tag to endpoints such as monitor-bar and monitor-latency-chart to obtain names, descriptions, status, uptime history and latency.",
-      "published": "2026-10-03T00:16:36.743",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105030"
+      "id": "CVE-2026-97344",
+      "summary": "The Wp Social Login and Register Social Counter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Avatar Alt Attribute via Arbitrary User Meta Write in all versions up to, and including, 3.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the attacker to chain two steps: invoking the nonce-only dismiss_ajax_call endpoint (nonce accessible to Subscribers via any wp-admin page) to set the xs_social_profile_image meta flag on their own account, which activates the unescaped img output branch in xs_social_get_avatar, and then setting their display name to a script payload that core's ENT_NOQUOTES handling preserves unescaped.",
+      "published": "2026-10-03T06:16:49.707",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97344"
     },
     {
-      "id": "CVE-2026-105029",
-      "summary": "UVdesk support-center-bundle before 1.1.3.3 contains an insecure direct object reference vulnerability in the rateTicket action of Controller/Ticket.php that allows authenticated customers to rate other customers' tickets. Attackers can supply arbitrary ticket IDs, which are loaded without an ownership check, to submit or change satisfaction ratings on tickets owned by other customers.",
-      "published": "2026-10-03T00:16:36.463",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105029"
+      "id": "CVE-2026-97341",
+      "summary": "The Visitor Traffic Real Time Statistics plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via 'X-Real-IP' HTTP Header in all versions up to, and including, 8.16 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires no authentication, no nonce, and no capability \u2014 the wp_ajax_nopriv_ahcfree_track_visitor endpoint accepts the forged X-Real-IP header from any unauthenticated HTTP request and stores the entity-encoded payload verbatim in the database.",
+      "published": "2026-10-03T06:16:49.323",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97341"
     },
     {
-      "id": "CVE-2026-104479",
-      "summary": "Shopclass before 6.2.0 contains a stored cross-site scripting vulnerability that allows self-registered non-admin users to inject scripts into item listing descriptions when frontend TinyMCE is enabled. Attackers can submit malicious JavaScript, which ItemActions.php saves without tag stripping, causing it to execute in the site origin for any visitor viewing the listing.",
-      "published": "2026-10-03T00:16:36.273",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104479"
+      "id": "CVE-2026-97337",
+      "summary": "The Simple Membership plugin for WordPress is vulnerable to unauthorized modification of data and sensitive information disclosure in versions up to, and including, 4.8.3 via the resend-activation and email-activation endpoints. The endpoints are dispatched from SwpmInitTimeTasks::check_and_do_email_activation() on frontend init with no authentication, nonce, capability, or ownership check, and the recipient address used by SwpmRegistration::send_reg_email() is taken from an attacker-controlled $_POST['email'] parameter (overriding the member's registered address). This makes it possible for unauthenticated attackers to redirect an arbitrary pending member's activation email \u2014 and the follow-up 'registration complete' email containing the member's username and plaintext password \u2014 to an attacker-chosen address, and to then activate that member's account without their consent.",
+      "published": "2026-10-03T06:16:48.943",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97337"
     },
     {
-      "id": "CVE-2026-104478",
-      "summary": "Formwork before 2.3.13 contains a path traversal vulnerability in BackupController that allows authenticated panel users to read or delete arbitrary files. Attackers with backup download or delete permission can supply a base64-encoded backslash-separated traversal payload that bypasses PHP basename on Linux to access files outside the backup directory.",
-      "published": "2026-10-03T00:16:36.083",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104478"
+      "id": "CVE-2026-96962",
+      "summary": "The Pie Register  WordPress plugin before 3.8.4.14 does not restrict access to an invitation-code report, allowing unauthenticated visitors who know a valid invitation code to obtain the username and email address of every user who registered with that code.",
+      "published": "2026-10-03T06:16:48.670",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96962"
     },
     {
-      "id": "CVE-2026-104477",
-      "summary": "Showdown through 2.1.0 contains a cross-site scripting vulnerability in the makehtml link and image subparsers, which fail to escape double quotes in destination URLs placed into href and src attributes. Attackers can craft markdown links or images containing a double quote followed by onerror or onmouseover handlers to execute script when victims view rendered HTML.",
-      "published": "2026-10-03T00:16:35.920",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104477"
+      "id": "CVE-2026-96650",
+      "summary": "The Strong Testimonials plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'platform_user_photo' Custom Field in all versions up to, and including, 3.3.11 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that an administrator has added custom text fields named 'platform' and 'platform_user_photo' to a public testimonial submission form, as the plugin does not reserve those internal metadata keys.",
+      "published": "2026-10-03T06:16:48.290",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96650"
     },
     {
-      "id": "CVE-2026-104476",
-      "summary": "Backdrop CMS before 1.35.1 contains an information disclosure vulnerability that allows unauthenticated attackers to retrieve configuration export archives left on the server after transfer. Attackers can download compressed archives generated by users with configuration export permission to obtain the full site configuration, including sensitive settings.",
-      "published": "2026-10-03T00:16:35.747",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104476"
+      "id": "CVE-2026-96575",
+      "summary": "The Transliterator \u2013 Multilingual and Multi-script Text Conversion plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via Predictable {rstr_keep} Placeholder in all versions up to, and including, 2.5.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload survives WordPress comment save-time sanitization because the tags and attributes used (such as a[title] and code) are permitted by the core comment kses allow-list, and the literal characters comprising the plugin's shortcode markers and placeholder tokens are not stripped.",
+      "published": "2026-10-03T06:16:47.920",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96575"
     }
   ]
 }
