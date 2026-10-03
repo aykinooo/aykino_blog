@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-03T06:29:29+00:00",
+  "generated_at": "2026-10-03T12:30:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97344",
-      "summary": "The Wp Social Login and Register Social Counter plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Avatar Alt Attribute via Arbitrary User Meta Write in all versions up to, and including, 3.2.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the attacker to chain two steps: invoking the nonce-only dismiss_ajax_call endpoint (nonce accessible to Subscribers via any wp-admin page) to set the xs_social_profile_image meta flag on their own account, which activates the unescaped img output branch in xs_social_get_avatar, and then setting their display name to a script payload that core's ENT_NOQUOTES handling preserves unescaped.",
-      "published": "2026-10-03T06:16:49.707",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97344"
+      "id": "CVE-2026-105105",
+      "summary": "CWE-306: Missing Authentication for Critical Function in the ait.core.server telemetry and command broker (ait-server) in NASA-AMMOS AIT-Core through 3.1.1 allows an unauthenticated remote attacker with network access to the ZeroMQ message bus to inject spacecraft command data, exfiltrate command and telemetry traffic, inject forged telemetry, or disrupt the command and telemetry bus. The ait-server ZeroMQ broker binds its XSUB and XPUB sockets to all network interfaces by default without authentication or transport security. An attacker able to reach TCP port 5559 can publish messages onto internal topics, including the __commands__ command topic. With the shipped default configuration, command messages are forwarded through command_stream and emitted on the command-uplink UDP path. An attacker able to reach TCP port 5560 can subscribe to command and telemetry traffic on the ground bus. AIT-Core 3.1.2 changes the default ZeroMQ bind addresses to loopback.",
+      "published": "2026-10-03T12:16:57.183",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105105"
     },
     {
-      "id": "CVE-2026-97341",
-      "summary": "The Visitor Traffic Real Time Statistics plugin for WordPress is vulnerable to Stored DOM-Based Cross-Site Scripting via 'X-Real-IP' HTTP Header in all versions up to, and including, 8.16 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires no authentication, no nonce, and no capability \u2014 the wp_ajax_nopriv_ahcfree_track_visitor endpoint accepts the forged X-Real-IP header from any unauthenticated HTTP request and stores the entity-encoded payload verbatim in the database.",
-      "published": "2026-10-03T06:16:49.323",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97341"
+      "id": "CVE-2026-104983",
+      "summary": "A vulnerability has been found in Linux Mint Xreader up to 4.6.9. Impacted is the function g_file_get_child of the file shell/ev-window.c of the component PDF Attachment Saving Handler. Such manipulation of the argument attachment leads to path traversal. The attack may be performed from remote. The exploit has been disclosed to the public and may be used. One of the project maintainers closed this issue as \"completed\", because \"EPUB support was removed from Xreader and reimplemented in Xepub\". Code analysis indicates that this might be a misunderstanding of the situation.",
+      "published": "2026-10-03T11:17:33.473",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104983"
     },
     {
-      "id": "CVE-2026-97337",
-      "summary": "The Simple Membership plugin for WordPress is vulnerable to unauthorized modification of data and sensitive information disclosure in versions up to, and including, 4.8.3 via the resend-activation and email-activation endpoints. The endpoints are dispatched from SwpmInitTimeTasks::check_and_do_email_activation() on frontend init with no authentication, nonce, capability, or ownership check, and the recipient address used by SwpmRegistration::send_reg_email() is taken from an attacker-controlled $_POST['email'] parameter (overriding the member's registered address). This makes it possible for unauthenticated attackers to redirect an arbitrary pending member's activation email \u2014 and the follow-up 'registration complete' email containing the member's username and plaintext password \u2014 to an attacker-chosen address, and to then activate that member's account without their consent.",
-      "published": "2026-10-03T06:16:48.943",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97337"
-    },
-    {
-      "id": "CVE-2026-96962",
-      "summary": "The Pie Register  WordPress plugin before 3.8.4.14 does not restrict access to an invitation-code report, allowing unauthenticated visitors who know a valid invitation code to obtain the username and email address of every user who registered with that code.",
-      "published": "2026-10-03T06:16:48.670",
+      "id": "CVE-2026-97873",
+      "summary": "In Bouncy Castle for Java before 1.86, the raw JCA provider's legacy PBES1 (PKCS#5 scheme 1) and PKCS#12 PBE families ran their password-based key derivation with an iteration count taken from untrusted input without bounding it, so a small input could dictate an arbitrary amount of work before anything could be verified. The AlgorithmParameters implementations (PKCS12PBE and its object identifier aliases, and PBKDF1) accepted any count from an encoded PKCS12PBEParams or PBEParameter, narrowing a value beyond the int range with intValue(), and every Cipher, Mac and SecretKeyFactory in these families derived with whatever count it was given, including one decoded by another provider's AlgorithmParameters, as when javax.crypto.EncryptedPrivateKeyInfo.getKeySpec() decrypts a PKCS#12 PBE-protected private key with BC. Both the parameter parse and the derivations now reject a negative or over-limit count under the org.bouncycastle.pbe.max_iteration_count property (default 10,000,000) that already bounded PBKDF2 (CVE-2026-17508), and the parse rejects a count beyond the int range rather than narrowing it. This issue also affects Bouncy Castle for Java LTS before 2.73.13.",
+      "published": "2026-10-03T09:17:06.280",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96962"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97873"
     },
     {
-      "id": "CVE-2026-96650",
-      "summary": "The Strong Testimonials plugin for WordPress is vulnerable to Stored Cross-Site Scripting via 'platform_user_photo' Custom Field in all versions up to, and including, 3.3.11 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires that an administrator has added custom text fields named 'platform' and 'platform_user_photo' to a public testimonial submission form, as the plugin does not reserve those internal metadata keys.",
-      "published": "2026-10-03T06:16:48.290",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96650"
+      "id": "CVE-2026-85515",
+      "summary": "In Bouncy Castle for Java before 1.86, a truncated OpenPGP encrypted message was accepted with no error reported, and on the SEIPD version 1 path with no integrity check performed at all. RFC 9580 sec. 13.7 permits an implementation to release the cleartext of the fully authenticated chunks when streaming but requires it to indicate a clear error as soon as the truncation is detected, and to report suspect integrity when it discovers malleable ciphertext. The truncation was detected and then discarded: when a message is truncated but the length field of the enclosing packet is left unchanged, BCPGInputStream.PartialInputStream raises an EOFException for the missing ciphertext, and BCPGInputStream.nextPacketTag() reports an EOFException as a clean end of message, so the packet stream above it stopped as though no packets remained. On the AEAD path (SEIPD version 2 and the version 5 AEAD packet), when the literal data packet ended on an AEAD chunk boundary and the consumer read in increments smaller than one chunk, the look-ahead for the packet after the literal triggered the truncated chunk read, so BcAEADUtil and JceAEADUtil never reached the trailing message tag of sec. 5.13.2 that authenticates the total plaintext length; the caller received the plaintext of the fully authenticated chunks, every packet following the literal was silently dropped, and no exception was raised, so a signed and encrypted message read back as a well-formed unsigned one. Every byte released on that path remained individually authenticated, making this a missing truncation error rather than a forgery, and it is a residual of CVE-2026-12817, which closed the same outcome for an attacker who corrects the outer packet length. On the SEIPD version 1 path the consequence was more serious: IntegrityProtectedInputStream verifies the modification detection code from close(), and reached close() only by closing itself when a read of it returned -1, which a truncated message never produces, so PGPEncryptedData.verify() never ran and the recipient was handed CFB-decrypted plaintext on which no integrity check of any kind had been performed. Measured on a message truncated into that shape, 136 distinct single-byte modifications of the ciphertext produced accepted, altered plaintext with no exception raised. Reachability is a property of the message rather than of attacker-supplied input: the AEAD shape held for 3 of 131 consecutive payload lengths measured, and the SEIPD version 1 shape for one payload length in sixteen, at a truncation offset that did not move with the payload length. The low-level API is unaffected, a caller that invokes PGPEncryptedData.verify() directly getting the check regardless, as are consumers reading in increments of a whole AEAD chunk or more. The AEAD decryption streams now re-throw such an EOFException as a plain IOException, which nextPacketTag() does not launder; OpenPGPMessageInputStream.close() now closes its layer's integrity-protected stream itself rather than relying on that stream having seen the end of its data; and IntegrityProtectedInputStream.close() was made idempotent, as java.io.Closeable requires, which that depends on, since the stream is genuinely closed twice on the ordinary path and PGPEncryptedData.verify() consumes the digest state behind it and cannot be run a second time. This issue also affects Bouncy Castle for Java LTS before 2.73.13, on the AEAD route only, as that edition does not ship the high-level OpenPGP API the SEIPDv1 route runs through. It also affects Bouncy Castle for Java FIPS (BC-FJA) before bcpg-fips 1.0.14 (1.0.X series), 2.0.14.1 (2.0.X series) and 2.1.14 (2.1.X series), on the AEAD route only, as those editions do not ship the high-level OpenPGP API.",
+      "published": "2026-10-03T09:17:06.073",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85515"
     },
     {
-      "id": "CVE-2026-96575",
-      "summary": "The Transliterator \u2013 Multilingual and Multi-script Text Conversion plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via Predictable {rstr_keep} Placeholder in all versions up to, and including, 2.5.8 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The payload survives WordPress comment save-time sanitization because the tags and attributes used (such as a[title] and code) are permitted by the core comment kses allow-list, and the literal characters comprising the plugin's shortcode markers and placeholder tokens are not stripped.",
-      "published": "2026-10-03T06:16:47.920",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96575"
+      "id": "CVE-2026-71892",
+      "summary": "In Bouncy Castle for Java before 1.86, the opt-in key-size validation on CMS key-transport recipients, org.bouncycastle.cms.jcajce.JceKeyTransRecipient.setKeySizeValidation(true), never ran for a message using RFC 9709 content-encryption key derivation (id-alg-cek-hkdf-sha256). The branch that should have selected the actual content-encryption algorithm carried in the key derivation AlgorithmIdentifier's parameters compared the encrypted-key byte array against the id-alg-cek-hkdf-sha256 object identifier, a comparison between a byte array and an ASN1ObjectIdentifier that is false for every possible input, so the check fell through to a key-size lookup on the outer wrapper OID. That OID identifies a key-derivation construction rather than a cipher and has no registered key size, so the size comparison was skipped entirely. A key-transport EnvelopedData or AuthEnvelopedData whose transported, HKDF-derived content-encryption key did not match the key size of the advertised content-encryption algorithm was therefore accepted even with validation explicitly enabled, silently defeating the only mechanism the API offers for enforcing recovered key size. The recipient now dispatches on the content-encryption AlgorithmIdentifier's algorithm OID, so validation checks the recovered key against the inner content-encryption algorithm. Messages with a matching key size, non-HKDF messages, and recipients that do not enable validation are unaffected. This issue also affects Bouncy Castle for Java FIPS (BC-FJA) before bcpkix-fips 2.0.13 (2.0.X series) and 2.1.13 (2.1.X series).",
+      "published": "2026-10-03T09:17:05.913",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71892"
+    },
+    {
+      "id": "CVE-2026-71891",
+      "summary": "In Bouncy Castle for Java before 1.86, BLS12_381BasicScheme.keyValidate, and so BLSPublicKeyParameters and every BasicScheme, MessageAugmentation and ProofOfPossession verify and aggregateVerify that gate on it, accepted a public key built on a foreign ECCurve that merely shares BLS12-381's field characteristic. The prime-order subgroup check trusts a point's own curve to name its cofactor, since ECPoint.satisfiesOrder returns true outright when the curve's cofactor is one, so a point on a curve with a different equation and a cofactor forged to one passed keyValidate despite not being a G1 point at all. In BC's pairing implementation such a point contributes the identity in the target group, so an aggregate signature verified against a set of public keys including it is accepted even though it contains no signature for that key and message pair, admitting a phantom signer. keyValidate now first confirms that the point's curve carries exactly the canonical G1 field, equation, order and cofactor before any subgroup check. The issue is reachable only where an application constructs an ECPoint on an explicit, non-canonical curve and accepts it as an authority-bearing key; the standard 48-byte compressed-point decoder always supplies the canonical curve and was never affected.",
+      "published": "2026-10-03T09:17:05.763",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71891"
     }
   ]
 }
