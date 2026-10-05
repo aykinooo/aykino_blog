@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-05T08:59:05+00:00",
+  "generated_at": "2026-10-05T18:23:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-105314",
-      "summary": "Papermerge 3.5.3 allows remote code execution by a standard user via directory traversal in a /api/documents/upload call. A Python .pth file can be written to site-packages, and its code is executed upon the next start of the Python interpreter.",
-      "published": "2026-10-05T08:17:15.797",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105314"
-    },
-    {
-      "id": "CVE-2026-105250",
-      "summary": "A security vulnerability has been detected in vgmstream up to r2117. Affected is the function decode_ms_ima of the file src/coding/ima_decoder.c of the component Microsoft IMA Decoder. Such manipulation leads to divide by zero. The attack can be executed remotely.",
-      "published": "2026-10-05T08:17:15.610",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105250"
-    },
-    {
-      "id": "CVE-2026-105249",
-      "summary": "A weakness has been identified in vgmstream up to r2117. This impacts the function make_group_random of the file src/meta/txtp_process.c of the component TXTP File Handler. This manipulation causes use after free. The attack needs to be launched locally. Patch name: ae37662ad626254ddd96ad69ac263792d7a92024. It is recommended to apply a patch to fix this issue.",
-      "published": "2026-10-05T08:17:15.417",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105249"
-    },
-    {
-      "id": "CVE-2026-105248",
-      "summary": "A security flaw has been discovered in vgmstream up to r2117. This affects the function parse_params/txtp_parse of the file src/meta/txtp_parser.c of the component TXTP File Handler. The manipulation results in out-of-bounds write. The attack may be launched remotely. The patch is identified as 4669d37a6af94866f6f0628678f9f90d46954e8b. It is best practice to apply a patch to resolve this issue.",
-      "published": "2026-10-05T08:17:15.217",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105248"
-    },
-    {
-      "id": "CVE-2026-105247",
-      "summary": "A vulnerability was determined in SourceCodester Online Reviewer Management System 1.0. The affected element is an unknown function of the file /reviewer_0/admins/assessments/Subject/btn_functions.php?action=course. Executing a manipulation of the argument Subject can lead to sql injection. The attack can be launched remotely. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-10-05T08:17:15.020",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105247"
-    },
-    {
-      "id": "CVE-2026-19954",
-      "summary": "Net::Whois::Raw versions before 2.99044 for Perl ship a pwhois command-line tool that queries WHOIS for the wrong domain for unicode domain names.\n\npwhois encodes each non-ASCII label directly using Net::IDN::Punycode and prepends xn--. Apart from lowercasing ASCII and Cyrillic letters, it skips the IDNA mapping and normalization steps, so a label with other uppercase letters, or not in NFC, encodes to a different A-label than its IDNA form. For example, a label of U+00C9 followed by \"cole\" encodes to \"xn--cole-pka\" rather than \"xn--cole-9oa\".\n\nThe Net::Whois::Raw library modules are not affected.",
-      "published": "2026-10-05T07:16:30.820",
+      "id": "CVE-2026-93323",
+      "summary": "The Dockerfile frontend loaded the Dockerfile and .dockerignore files of a build context into memory without a size limit. A build context containing an oversized file could make buildkitd allocate memory proportional to that file, potentially exhausting memory and terminating the daemon, which interrupts other builds on the same instance. Fixed by rejecting such files above 16 MiB.",
+      "published": "2026-10-05T18:17:39.630",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19954"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93323"
+    },
+    {
+      "id": "CVE-2026-93322",
+      "summary": "A malicious frontend can submit an LLB definition that causes buildkitd\nto panic and terminate, interrupting all builds running on that daemon.",
+      "published": "2026-10-05T18:17:39.490",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93322"
+    },
+    {
+      "id": "CVE-2026-93320",
+      "summary": "BuildKit may be tricked into performing file actions with special file inodes where regular files are expected. Special files may block operations or, on rootful workers, allow unintended host device access.",
+      "published": "2026-10-05T18:17:38.353",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93320"
+    },
+    {
+      "id": "CVE-2026-93319",
+      "summary": "A malicious external BuildKit frontend can send requests using the internal API that can create conditions for a data race that can cause the BuildKit daemon to panic.",
+      "published": "2026-10-05T18:17:38.217",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93319"
+    },
+    {
+      "id": "CVE-2026-93318",
+      "summary": "A malicious image can advertise DiffIDs from another image while containing different layer contents. In affected versions, BuildKit could use the advertised DiffIDs to derive cache and snapshot identity without validating that they matched the actual layer contents.\n\nIf a BuildKit daemon with shared or persistent cache first processes such a malicious image, a later build using the victim image may mount the attacker-controlled layer contents as the base image. This can allow code from the malicious image to run in the victim build, for example by replacing a commonly executed path such as /bin/sh. The attacker-controlled code may read build secrets mounted into the build, access other build resources, alter output artifacts, or hang the build.\n\nThe issue affects both regular snapshotters and lazy-pulling snapshotters such as stargz.",
+      "published": "2026-10-05T18:17:38.080",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93318"
+    },
+    {
+      "id": "CVE-2026-93317",
+      "summary": "An unauthenticated attacker controlling a registry or OCI-layout blob source could provide blob contents that did not match the claimed digest. The resulting snapshot could be cached under that digest and reused by a later victim build, compromising build-input integrity.",
+      "published": "2026-10-05T18:17:37.923",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93317"
     }
   ]
 }
