@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-06T07:31:41+00:00",
+  "generated_at": "2026-10-06T15:07:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-94299",
-      "summary": "The elegro Crypto Payment WordPress plugin through 1.0.1 does not require a shared secret to be configured before trusting incoming payment notification requests, allowing unauthenticated attackers to forge payment confirmations and change the status of arbitrary orders on any installation where that secret has been left at its default empty value.",
-      "published": "2026-10-06T07:17:00.360",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94299"
+      "id": "CVE-2026-91140",
+      "summary": "An OS command injection vulnerability in the shell-based temporary-file cleanup instructions in Progress Software Autonomous REST Connector GenAI Agents ARCGenAI-Generator version 2.0 allows an attacker who supplies a crafted Swagger/OpenAPI document to execute arbitrary commands on a developer's machine when a user invokes the generator.",
+      "published": "2026-10-06T14:17:48.407",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91140"
     },
     {
-      "id": "CVE-2026-94293",
-      "summary": "An unauthenticated remote attacker can modify Asset Administration Shell submodel data via PATCH requests and can read all data exposed by the GET endpoints.",
-      "published": "2026-10-06T07:17:00.193",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94293"
+      "id": "CVE-2026-87975",
+      "summary": "An issue was discovered in Django 6.1 before 6.1.2, 6.0 before 6.0.9, and 5.2 before 5.2.18.\n`django.forms.models.BaseModelFormSet.save_existing_objects()` used the presence of a primary key on a submitted form's instance as evidence that the instance belonged to the formset's limiting queryset. An object outside that queryset is represented by a newly constructed instance whose primary key can still be populated from submitted data when the model's primary key is a field accepted by the form, such as a `OneToOneField` or parent link used as the primary key of an inline formset's model, or a natural or UUID primary key included in the form's fields. This allows an authenticated user permitted to submit such a formset to delete rows outside the limiting queryset, without any permission on the targeted object, via forged management-form data marking an out-of-queryset object for deletion. Models using the default AutoField primary key are not affected.\nEarlier, unsupported Django series (such as 5.1.x, 5.0.x, and 4.2.x) were not evaluated and may also be affected.\nDjango would like to thank Seonggwon Yoon for reporting this issue.",
+      "published": "2026-10-06T14:17:47.580",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87975"
     },
     {
-      "id": "CVE-2026-94278",
-      "summary": "The File Media Renamer WordPress plugin through 1.3 does not verify that the requesting user is authorised to modify a given media attachment, allowing any user with file-upload privileges to rename attachments belonging to other users, including administrators, and to corrupt unrelated stored site data that referenced the old file path.",
-      "published": "2026-10-06T07:17:00.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94278"
+      "id": "CVE-2026-87890",
+      "summary": "An issue was discovered in Django 6.1 before 6.1.2, 6.0 before 6.0.9, and 5.2 before 5.2.18.\nAn incomplete fix for CVE-2026-15307 in Django spatial lookups allows an attacker who can supply `bytes` values to cause the Django process to make network requests via a crafted VRT document referencing an external raster source.\nEarlier, unsupported Django series (such as 5.1.x, 5.0.x, and 4.2.x) were not evaluated and may also be affected.\nDjango would like to thank sicksec for reporting this issue.",
+      "published": "2026-10-06T14:17:47.380",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87890"
     },
     {
-      "id": "CVE-2026-94271",
-      "summary": "The Deema Payment Gateway WordPress plugin through 1.1.2 does not verify the payment with the payment provider when handling the return from the hosted checkout, and does not check the payment status or amount, allowing unauthenticated users to have orders marked as paid without any payment being taken.",
-      "published": "2026-10-06T07:16:59.973",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94271"
+      "id": "CVE-2026-85523",
+      "summary": "Improper neutralization of special elements used in an OS command ('OS command injection') vulnerability in Felisify Information Technologies Industry and Trade Inc. SambaBox allows OS Command Injection.\n\nThis issue affects SambaBox: before 5.4.1.",
+      "published": "2026-10-06T14:17:47.240",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85523"
     },
     {
-      "id": "CVE-2026-94270",
-      "summary": "The Deema Payment Gateway WordPress plugin through 1.1.2 does not verify the authenticity of incoming payment provider notifications, and ships with that verification disabled by default, allowing unauthenticated attackers to mark an unpaid order as paid, or to cancel or refund an existing order.",
-      "published": "2026-10-06T07:16:59.857",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94270"
+      "id": "CVE-2026-84429",
+      "summary": "An issue was discovered in Django 6.1 before 6.1.2, 6.0 before 6.0.9, and 5.2 before 5.2.18.\n`django.utils.http.parse_header_parameters()` was subject to a potential denial-of-service attack due to quadratic time complexity when parsing a value with many separators inside a quoted parameter. An unauthenticated request could reach this parsing through headers such as `Accept` or `Content-Type`, for instance via the content negotiation performed by `HttpRequest.accepts()`. The per-call length limit does not bound the combined size of repeated headers.\nEarlier, unsupported Django series (such as 5.1.x, 5.0.x, and 4.2.x) were not evaluated and may also be affected.\nDjango would like to thank Jisung Chae for reporting this issue.",
+      "published": "2026-10-06T14:17:46.910",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84429"
     },
     {
-      "id": "CVE-2026-89289",
-      "summary": "The Fast Courier  WordPress plugin through 5.2.3 does not restrict an unauthenticated REST route that writes order fulfillment data, allowing unauthenticated attackers to overwrite the courier status and customer-facing tracking details of any WooCommerce order by supplying its id.",
-      "published": "2026-10-06T07:16:59.737",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89289"
+      "id": "CVE-2026-82924",
+      "summary": "Improper Control of Interaction Frequency vulnerability in Pusula Communication, IT, and Internet Industry and Trade Co. Ltd. Expert Mail allows Brute Force.\n\nThis issue affects Expert Mail: through 2026-09-18.",
+      "published": "2026-10-06T14:17:46.417",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82924"
     }
   ]
 }
