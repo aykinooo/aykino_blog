@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-06T15:07:51+00:00",
+  "generated_at": "2026-10-06T20:16:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-91140",
-      "summary": "An OS command injection vulnerability in the shell-based temporary-file cleanup instructions in Progress Software Autonomous REST Connector GenAI Agents ARCGenAI-Generator version 2.0 allows an attacker who supplies a crafted Swagger/OpenAPI document to execute arbitrary commands on a developer's machine when a user invokes the generator.",
-      "published": "2026-10-06T14:17:48.407",
+      "id": "CVE-2026-9226",
+      "summary": "Authentication bypass in the Azure AD external login flow in Devolutions Server 2026.3.7.0 and earlier allows a remote attacker to take over a user's account via replay of a captured login-session token exposed in a redirect URL.",
+      "published": "2026-10-06T19:18:19.433",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9226"
+    },
+    {
+      "id": "CVE-2026-96890",
+      "summary": "A Server-Side Request Forgery (SSRF) vulnerability was identified in GitHub Enterprise Server that allowed a repository contributor to cause the appliance to issue requests to attacker-controlled internal hosts, which could be chained to achieve remote code execution on the appliance. The secret scanning validator for GCP service account credentials trusted the token endpoint embedded in a committed credential and issued a request to it without restricting the destination. Exploitation required an authenticated user with permission to push to a repository on an instance with GitHub Advanced Security and secret scanning validity checks enabled, a non-default configuration. This vulnerability affected GitHub Enterprise Server 3.20, 3.21, and 3.22 and was fixed in versions 3.20.9, 3.21.7, and 3.22.2. This vulnerability was reported through the GitHub Bug Bounty program.",
+      "published": "2026-10-06T19:18:17.167",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96890"
+    },
+    {
+      "id": "CVE-2026-86362",
+      "summary": "Dell System Update, versions prior to 2.3.0.0, contains an Improper Access Control vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-10-06T19:18:16.717",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86362"
+    },
+    {
+      "id": "CVE-2026-86361",
+      "summary": "Dell System Update, versions prior to 2.3.0.0, contains an Incorrect Permission Assignment for Critical Resource vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
+      "published": "2026-10-06T19:18:16.567",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86361"
+    },
+    {
+      "id": "CVE-2026-86360",
+      "summary": "Dell System Update, versions prior to 2.3.0.0, contains an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Filesystem access for attacker. This vulnerability is considered critical because it can be leveraged by an unauthenticated attacker to execute arbitrary code with root privileges. Successful exploitation may allow complete compromise of the vulnerable application and underlying operating system. Dell recommends customers upgrade at the earliest opportunity.",
+      "published": "2026-10-06T19:18:16.430",
       "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91140"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86360"
     },
     {
-      "id": "CVE-2026-87975",
-      "summary": "An issue was discovered in Django 6.1 before 6.1.2, 6.0 before 6.0.9, and 5.2 before 5.2.18.\n`django.forms.models.BaseModelFormSet.save_existing_objects()` used the presence of a primary key on a submitted form's instance as evidence that the instance belonged to the formset's limiting queryset. An object outside that queryset is represented by a newly constructed instance whose primary key can still be populated from submitted data when the model's primary key is a field accepted by the form, such as a `OneToOneField` or parent link used as the primary key of an inline formset's model, or a natural or UUID primary key included in the form's fields. This allows an authenticated user permitted to submit such a formset to delete rows outside the limiting queryset, without any permission on the targeted object, via forged management-form data marking an out-of-queryset object for deletion. Models using the default AutoField primary key are not affected.\nEarlier, unsupported Django series (such as 5.1.x, 5.0.x, and 4.2.x) were not evaluated and may also be affected.\nDjango would like to thank Seonggwon Yoon for reporting this issue.",
-      "published": "2026-10-06T14:17:47.580",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87975"
-    },
-    {
-      "id": "CVE-2026-87890",
-      "summary": "An issue was discovered in Django 6.1 before 6.1.2, 6.0 before 6.0.9, and 5.2 before 5.2.18.\nAn incomplete fix for CVE-2026-15307 in Django spatial lookups allows an attacker who can supply `bytes` values to cause the Django process to make network requests via a crafted VRT document referencing an external raster source.\nEarlier, unsupported Django series (such as 5.1.x, 5.0.x, and 4.2.x) were not evaluated and may also be affected.\nDjango would like to thank sicksec for reporting this issue.",
-      "published": "2026-10-06T14:17:47.380",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87890"
-    },
-    {
-      "id": "CVE-2026-85523",
-      "summary": "Improper neutralization of special elements used in an OS command ('OS command injection') vulnerability in Felisify Information Technologies Industry and Trade Inc. SambaBox allows OS Command Injection.\n\nThis issue affects SambaBox: before 5.4.1.",
-      "published": "2026-10-06T14:17:47.240",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85523"
-    },
-    {
-      "id": "CVE-2026-84429",
-      "summary": "An issue was discovered in Django 6.1 before 6.1.2, 6.0 before 6.0.9, and 5.2 before 5.2.18.\n`django.utils.http.parse_header_parameters()` was subject to a potential denial-of-service attack due to quadratic time complexity when parsing a value with many separators inside a quoted parameter. An unauthenticated request could reach this parsing through headers such as `Accept` or `Content-Type`, for instance via the content negotiation performed by `HttpRequest.accepts()`. The per-call length limit does not bound the combined size of repeated headers.\nEarlier, unsupported Django series (such as 5.1.x, 5.0.x, and 4.2.x) were not evaluated and may also be affected.\nDjango would like to thank Jisung Chae for reporting this issue.",
-      "published": "2026-10-06T14:17:46.910",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84429"
-    },
-    {
-      "id": "CVE-2026-82924",
-      "summary": "Improper Control of Interaction Frequency vulnerability in Pusula Communication, IT, and Internet Industry and Trade Co. Ltd. Expert Mail allows Brute Force.\n\nThis issue affects Expert Mail: through 2026-09-18.",
-      "published": "2026-10-06T14:17:46.417",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82924"
+      "id": "CVE-2026-83550",
+      "summary": "A flaw was found in postgres-exporter. Due to the blank import of `net/http/pprof`, debug endpoints are exposed on the unauthenticated metrics listener. A remote attacker within the cluster network can access these endpoints. This allows for information disclosure, potentially revealing process arguments, full goroutine stacks, and sensitive data like database connection strings or passwords from heap dumps. Additionally, repeated CPU profiling through these endpoints can lead to a denial of service.",
+      "published": "2026-10-06T19:18:16.280",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83550"
     }
   ]
 }
