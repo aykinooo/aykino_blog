@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-06T00:46:54+00:00",
+  "generated_at": "2026-10-06T07:31:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-82989",
-      "summary": "There is an input injection in vCast exposed network services in ViewSonic ViewBoard that allows a remote, unauthenticated attacker to inject arbitrary input into service endpoints via network-based HTTP requests to unauthenticated endpoints",
-      "published": "2026-10-06T00:16:37.097",
+      "id": "CVE-2026-94299",
+      "summary": "The elegro Crypto Payment WordPress plugin through 1.0.1 does not require a shared secret to be configured before trusting incoming payment notification requests, allowing unauthenticated attackers to forge payment confirmations and change the status of arbitrary orders on any installation where that secret has been left at its default empty value.",
+      "published": "2026-10-06T07:17:00.360",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82989"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94299"
     },
     {
-      "id": "CVE-2026-82988",
-      "summary": "There exists an arbitrary file download in vCast APK delivery mechanism in ViewSonic ViewBoard unknown allows a remote, unauthenticated attacker to trigger unprivileged APK installation via serving a malicious APK URL through an unauthenticated download endpoint",
-      "published": "2026-10-06T00:16:36.973",
+      "id": "CVE-2026-94293",
+      "summary": "An unauthenticated remote attacker can modify Asset Administration Shell submodel data via PATCH requests and can read all data exposed by the GET endpoints.",
+      "published": "2026-10-06T07:17:00.193",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94293"
+    },
+    {
+      "id": "CVE-2026-94278",
+      "summary": "The File Media Renamer WordPress plugin through 1.3 does not verify that the requesting user is authorised to modify a given media attachment, allowing any user with file-upload privileges to rename attachments belonging to other users, including administrators, and to corrupt unrelated stored site data that referenced the old file path.",
+      "published": "2026-10-06T07:17:00.080",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82988"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94278"
     },
     {
-      "id": "CVE-2026-105786",
-      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, packages/server/src/models/ApplicationModel.ts accepts a caller-chosen application authorization identifier, applications/:id/confirm binds that identifier to a logged-in user through a generic consent page, and the public packages/server/src/routes/api/application_auth.ts endpoint passes it to ApplicationModel.createAppPassword without authenticating or binding the redeemer. An attacker can cause a victim to approve the attacker's identifier, redeem a durable application ID and password, and exchange the credential for a victim session with full read and write access to synchronized data. This vulnerability is fixed in 3.7.13.",
-      "published": "2026-10-06T00:16:34.283",
+      "id": "CVE-2026-94271",
+      "summary": "The Deema Payment Gateway WordPress plugin through 1.1.2 does not verify the payment with the payment provider when handling the return from the hosted checkout, and does not check the payment status or amount, allowing unauthenticated users to have orders marked as paid without any payment being taken.",
+      "published": "2026-10-06T07:16:59.973",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105786"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94271"
     },
     {
-      "id": "CVE-2026-105785",
-      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to Joplin Server 3.7.2, packages/server/src/models/TokenModel.ts stores CSRF, account-confirmation, email-change, and password-reset tokens without a purpose, and packages/server/src/models/UserModel.ts allows UserModel.resetPassword to accept any token returned by TokenModel.userFromToken. An attacker who obtains a victim's CSRF or confirmation token through a separate disclosure channel can submit it to the public password-reset endpoint, replace the victim's password, and cause the existing sessions and API applications to be deleted. This issue is fixed in Joplin Server 3.7.2.",
-      "published": "2026-10-06T00:16:34.107",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105785"
+      "id": "CVE-2026-94270",
+      "summary": "The Deema Payment Gateway WordPress plugin through 1.1.2 does not verify the authenticity of incoming payment provider notifications, and ships with that verification disabled by default, allowing unauthenticated attackers to mark an unpaid order as paid, or to cancel or refund an existing order.",
+      "published": "2026-10-06T07:16:59.857",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94270"
     },
     {
-      "id": "CVE-2026-105784",
-      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, selecting a note containing a jsoncanvas fence causes the whiteboard text and file-node components in packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/TextNode.tsx and packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/FileNode.tsx to render card content with the full Markdown renderer. The components insert the resulting HTML into the main application document through dangerouslySetInnerHTML. A malicious note can inject style elements and remote CSS imports that modify trusted application chrome, signal when the note is opened, and potentially disclose exposed attribute values. Content Security Policy blocks inline script execution, so the supported impact is CSS injection and UI redressing rather than code execution. This issue is fixed in version 3.7.13.",
-      "published": "2026-10-06T00:16:33.940",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105784"
-    },
-    {
-      "id": "CVE-2026-105783",
-      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, when Joplin Desktop is running with the opt-in Web Clipper server enabled, the server in packages/lib/ClipperServer.ts sends Access-Control-Allow-Origin: * and allows an arbitrary website to call POST /auth and GET /auth/check because the pairing endpoints do not reject HTTP or HTTPS origins. The desktop confirmation dialog does not identify the requesting origin, so a victim who approves the generic prompt authorizes the attacking page, which then receives the permanent API token. The token provides ongoing read and write access to notes, folders, tags, resources, and master keys. This issue is fixed in version 3.7.13.",
-      "published": "2026-10-06T00:16:33.770",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105783"
+      "id": "CVE-2026-89289",
+      "summary": "The Fast Courier  WordPress plugin through 5.2.3 does not restrict an unauthenticated REST route that writes order fulfillment data, allowing unauthenticated attackers to overwrite the courier status and customer-facing tracking details of any WooCommerce order by supplying its id.",
+      "published": "2026-10-06T07:16:59.737",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89289"
     }
   ]
 }
