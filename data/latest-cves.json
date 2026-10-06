@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-05T18:23:42+00:00",
+  "generated_at": "2026-10-06T00:46:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93323",
-      "summary": "The Dockerfile frontend loaded the Dockerfile and .dockerignore files of a build context into memory without a size limit. A build context containing an oversized file could make buildkitd allocate memory proportional to that file, potentially exhausting memory and terminating the daemon, which interrupts other builds on the same instance. Fixed by rejecting such files above 16 MiB.",
-      "published": "2026-10-05T18:17:39.630",
+      "id": "CVE-2026-82989",
+      "summary": "There is an input injection in vCast exposed network services in ViewSonic ViewBoard that allows a remote, unauthenticated attacker to inject arbitrary input into service endpoints via network-based HTTP requests to unauthenticated endpoints",
+      "published": "2026-10-06T00:16:37.097",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93323"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82989"
     },
     {
-      "id": "CVE-2026-93322",
-      "summary": "A malicious frontend can submit an LLB definition that causes buildkitd\nto panic and terminate, interrupting all builds running on that daemon.",
-      "published": "2026-10-05T18:17:39.490",
+      "id": "CVE-2026-82988",
+      "summary": "There exists an arbitrary file download in vCast APK delivery mechanism in ViewSonic ViewBoard unknown allows a remote, unauthenticated attacker to trigger unprivileged APK installation via serving a malicious APK URL through an unauthenticated download endpoint",
+      "published": "2026-10-06T00:16:36.973",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93322"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82988"
     },
     {
-      "id": "CVE-2026-93320",
-      "summary": "BuildKit may be tricked into performing file actions with special file inodes where regular files are expected. Special files may block operations or, on rootful workers, allow unintended host device access.",
-      "published": "2026-10-05T18:17:38.353",
+      "id": "CVE-2026-105786",
+      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, packages/server/src/models/ApplicationModel.ts accepts a caller-chosen application authorization identifier, applications/:id/confirm binds that identifier to a logged-in user through a generic consent page, and the public packages/server/src/routes/api/application_auth.ts endpoint passes it to ApplicationModel.createAppPassword without authenticating or binding the redeemer. An attacker can cause a victim to approve the attacker's identifier, redeem a durable application ID and password, and exchange the credential for a victim session with full read and write access to synchronized data. This vulnerability is fixed in 3.7.13.",
+      "published": "2026-10-06T00:16:34.283",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93320"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105786"
     },
     {
-      "id": "CVE-2026-93319",
-      "summary": "A malicious external BuildKit frontend can send requests using the internal API that can create conditions for a data race that can cause the BuildKit daemon to panic.",
-      "published": "2026-10-05T18:17:38.217",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93319"
+      "id": "CVE-2026-105785",
+      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to Joplin Server 3.7.2, packages/server/src/models/TokenModel.ts stores CSRF, account-confirmation, email-change, and password-reset tokens without a purpose, and packages/server/src/models/UserModel.ts allows UserModel.resetPassword to accept any token returned by TokenModel.userFromToken. An attacker who obtains a victim's CSRF or confirmation token through a separate disclosure channel can submit it to the public password-reset endpoint, replace the victim's password, and cause the existing sessions and API applications to be deleted. This issue is fixed in Joplin Server 3.7.2.",
+      "published": "2026-10-06T00:16:34.107",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105785"
     },
     {
-      "id": "CVE-2026-93318",
-      "summary": "A malicious image can advertise DiffIDs from another image while containing different layer contents. In affected versions, BuildKit could use the advertised DiffIDs to derive cache and snapshot identity without validating that they matched the actual layer contents.\n\nIf a BuildKit daemon with shared or persistent cache first processes such a malicious image, a later build using the victim image may mount the attacker-controlled layer contents as the base image. This can allow code from the malicious image to run in the victim build, for example by replacing a commonly executed path such as /bin/sh. The attacker-controlled code may read build secrets mounted into the build, access other build resources, alter output artifacts, or hang the build.\n\nThe issue affects both regular snapshotters and lazy-pulling snapshotters such as stargz.",
-      "published": "2026-10-05T18:17:38.080",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93318"
+      "id": "CVE-2026-105784",
+      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, selecting a note containing a jsoncanvas fence causes the whiteboard text and file-node components in packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/TextNode.tsx and packages/app-desktop/gui/NoteEditor/NoteBody/WhiteboardEditor/nodes/FileNode.tsx to render card content with the full Markdown renderer. The components insert the resulting HTML into the main application document through dangerouslySetInnerHTML. A malicious note can inject style elements and remote CSS imports that modify trusted application chrome, signal when the note is opened, and potentially disclose exposed attribute values. Content Security Policy blocks inline script execution, so the supported impact is CSS injection and UI redressing rather than code execution. This issue is fixed in version 3.7.13.",
+      "published": "2026-10-06T00:16:33.940",
+      "cvss": 4.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105784"
     },
     {
-      "id": "CVE-2026-93317",
-      "summary": "An unauthenticated attacker controlling a registry or OCI-layout blob source could provide blob contents that did not match the claimed digest. The resulting snapshot could be cached under that digest and reused by a later victim build, compromising build-input integrity.",
-      "published": "2026-10-05T18:17:37.923",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93317"
+      "id": "CVE-2026-105783",
+      "summary": "Joplin is an open source note-taking and to-do application that organises notes and lists into notebooks. Prior to 3.7.13, when Joplin Desktop is running with the opt-in Web Clipper server enabled, the server in packages/lib/ClipperServer.ts sends Access-Control-Allow-Origin: * and allows an arbitrary website to call POST /auth and GET /auth/check because the pairing endpoints do not reject HTTP or HTTPS origins. The desktop confirmation dialog does not identify the requesting origin, so a victim who approves the generic prompt authorizes the attacking page, which then receives the permanent API token. The token provides ongoing read and write access to notes, folders, tags, resources, and master keys. This issue is fixed in version 3.7.13.",
+      "published": "2026-10-06T00:16:33.770",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105783"
     }
   ]
 }
