@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-07T07:11:40+00:00",
+  "generated_at": "2026-10-07T14:29:06+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-59347",
-      "summary": "VMware Workstation and Fusion contain a stack-based buffer-overflow vulnerability in HGFS. A malicious actor with local administrative privileges on a virtual machine may exploit this issue to execute code as the virtual machine's VMX process running on the host.\n\nAffected versions:\n- VMware Workstation: 25H2, 26H1 (fixed in 26H1u1)\n- VMware Fusion: 25H2, 26H1 (fixed in 26H1u1)",
-      "published": "2026-10-07T06:16:35.700",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59347"
+      "id": "CVE-2026-88514",
+      "summary": "An issue in iTerm2 macOS before 3.6.12 allows a local attacker to obtain sensitive information.",
+      "published": "2026-10-07T14:17:11.743",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88514"
     },
     {
-      "id": "CVE-2026-59346",
-      "summary": "VMware Workstation and Fusion contain an integer-overflow vulnerability. A malicious actor with local administrative privileges on a virtual machine with VMXNET3 virtual network adapter may exploit this issue to execute code on the host.\n\nAffected versions:\n- VMware Workstation: 25H2, 26H1 (fixed in 26H1u1)\n- VMware Fusion: 25H2, 26H1 (fixed in 26H1u1)",
-      "published": "2026-10-07T06:16:35.543",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59346"
+      "id": "CVE-2026-46572",
+      "summary": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ib_cut_tail() in libntfs-3g/index.c that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by creating a file in a specially crafted directory.",
+      "published": "2026-10-07T14:17:11.470",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46572"
     },
     {
-      "id": "CVE-2026-103870",
-      "summary": "A flaw was found in pulp-rpm when it publishes a distribution tree. Addon and variant ids from .treeinfo are used as directory names. A user who can sync or upload that tree can make the publish task create a new directory outside the task work area and write that tree's repository metadata and packages there, as the Pulp worker user. An existing file or directory is not replaced. The flaw does not disclose data and does not stop the service.",
-      "published": "2026-10-07T06:16:35.373",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103870"
+      "id": "CVE-2026-46571",
+      "summary": "In NTFS-3G before 2026.7.7, a out-of-bounds read exists in ntfs_fix_file_name() in libntfs-3g/reparse.c that allows an attacker to read possibly confidential information in ntfs-3g process memory by crafting a malicious NTFS image. The out-of-bounds read is triggered by a readlink on a corrupted file.",
+      "published": "2026-10-07T14:17:10.980",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46571"
     },
     {
-      "id": "CVE-2026-103869",
-      "summary": "A flaw was found in pulp-ansible's bearer-token refresh for collection remotes. The access token is kept in one module-level variable and reused for every token download in that worker. A user who can sync an Ansible remote that uses token refresh, and can point that remote at a server they control, receives an access token obtained for a different remote, and can reuse it at the service that issued it. Content stored in Pulp is not changed, and the service is not stopped.",
-      "published": "2026-10-07T06:16:35.207",
+      "id": "CVE-2026-46569",
+      "summary": "In NTFS-3G before 2026.7.7, a heap buffer overflow exists in ntfs_ib_copy_tail(), in libntfs-3g/index.c, that allows an attacker to corrupt heap memory in the SUID-root ntfs-3g binary by crafting a malicious NTFS image. The overflow is triggered by extending a directory, e.g., by creating a file.",
+      "published": "2026-10-07T14:17:10.833",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46569"
+    },
+    {
+      "id": "CVE-2026-46438",
+      "summary": "wger is a free, open-source workout and fitness manager. Prior to version 2.6, an authenticated attacker can inject arbitrary workout log entries into any other user's `SlotEntry` by supplying the victim's `slot_entry` ID in a `POST /api/v2/workoutlog/` request. The `slot_entry` foreign key is not included in the ownership verification performed by `WorkoutLogViewSet.get_owner_objects()`, so the server accepts and persists the cross-user reference without error. Because `SlotEntry.get_config_data()` retrieves associated logs via `self.workoutlog_set.all()` with no user filter, the attacker's injected data is silently folded into the victim's progressive-overload calculations, corrupting their auto-generated weight and repetition targets. Version 2.6 contains a patch.",
+      "published": "2026-10-07T14:17:10.650",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103869"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46438"
     },
     {
-      "id": "CVE-2026-103868",
-      "summary": "A flaw was found in pulp-container when it authenticates to an upstream registry. Basic and bearer credentials from one remote are reused for later downloads in the same worker. A user who can sync a container remote, and can point that remote at a server they control, receives the username, password, or bearer token stored for a different remote, and can reuse that credential at the upstream registry. Content stored in Pulp is not changed, and the service is not stopped.",
-      "published": "2026-10-07T06:16:35.000",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103868"
-    },
-    {
-      "id": "CVE-2026-102173",
-      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via registration metadata in all versions up to, and including, 6.3.1 This is due to insufficient escaping in `ExceptionalElements::image_element()`, which concatenates a user-meta value straight into an `<img src=\"\u2026\">` attribute. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that execute whenever a user accesses a page rendering a Kirki users collection whose image element is bound to one of the nine registration meta fields. Requires public user registration to be enabled and a published page carrying a `kirki-register` element, which prints the required element nonce into the public markup.",
-      "published": "2026-10-07T06:16:33.217",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102173"
+      "id": "CVE-2026-46437",
+      "summary": "wger is a free, open-source workout and fitness manager. Versions prior to 2.6 have a vulnerability in the authentication/session lifecycle of `wger` where bearer-style API credentials remain valid after a user logs out and after a user changes their password. An attacker who steals a victim\u2019s DRF authtoken (`Authorization: Token ...`) or JWT refresh token can continue to access protected `/api/v2/*` endpoints until the token is manually rotated/deleted (DRF token) or naturally expires (JWT refresh). Version 2.6 contains a patch.",
+      "published": "2026-10-07T14:17:10.467",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46437"
     }
   ]
 }
