@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-06T20:16:40+00:00",
+  "generated_at": "2026-10-07T00:39:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9226",
-      "summary": "Authentication bypass in the Azure AD external login flow in Devolutions Server 2026.3.7.0 and earlier allows a remote attacker to take over a user's account via replay of a captured login-session token exposed in a redirect URL.",
-      "published": "2026-10-06T19:18:19.433",
+      "id": "CVE-2026-80048",
+      "summary": "A flaw was found in `sssd-kcm`. A local user or process able to connect to the `sssd-kcm` UNIX socket can exploit this vulnerability. By sending a large request length header and then stalling the connection, an attacker can cause the system to preallocate significant memory. This leads to memory exhaustion within the `sssd-kcm` responder, resulting in a Denial of Service (DoS) for affected deployments.",
+      "published": "2026-10-07T00:17:21.067",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9226"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80048"
     },
     {
-      "id": "CVE-2026-96890",
-      "summary": "A Server-Side Request Forgery (SSRF) vulnerability was identified in GitHub Enterprise Server that allowed a repository contributor to cause the appliance to issue requests to attacker-controlled internal hosts, which could be chained to achieve remote code execution on the appliance. The secret scanning validator for GCP service account credentials trusted the token endpoint embedded in a committed credential and issued a request to it without restricting the destination. Exploitation required an authenticated user with permission to push to a repository on an instance with GitHub Advanced Security and secret scanning validity checks enabled, a non-default configuration. This vulnerability affected GitHub Enterprise Server 3.20, 3.21, and 3.22 and was fixed in versions 3.20.9, 3.21.7, and 3.22.2. This vulnerability was reported through the GitHub Bug Bounty program.",
-      "published": "2026-10-06T19:18:17.167",
+      "id": "CVE-2026-106583",
+      "summary": "In ssh in OpenSSH before 10.6, a $ or \\ character can occur in a command-line username, leading to injection.",
+      "published": "2026-10-07T00:17:20.743",
+      "cvss": 2.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106583"
+    },
+    {
+      "id": "CVE-2026-104335",
+      "summary": "IBM Langflow OSS 1.0.0 through 1.12.2 could allow a remote authenticated attacker to execute arbitrary code due to improper access control.",
+      "published": "2026-10-07T00:17:20.553",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104335"
+    },
+    {
+      "id": "CVE-2026-97626",
+      "summary": "Requesting a user or organization profile page (`GET /{username}`) with an `Accept: application/rss+xml` or `Accept: application/atom+xml` header returned the owner's activity feed without the visibility check that the profile page and the `.rss` and `.atom` routes apply. Anonymous users, restricted users and non-members could confirm the existence of limited or private users and private organizations and read their profile details and public activity, also when `[other] ENABLE_FEED` was disabled. Activity in private repositories was not included.",
+      "published": "2026-10-06T22:17:08.047",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96890"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97626"
     },
     {
-      "id": "CVE-2026-86362",
-      "summary": "Dell System Update, versions prior to 2.3.0.0, contains an Improper Access Control vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "published": "2026-10-06T19:18:16.717",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86362"
+      "id": "CVE-2026-97208",
+      "summary": "The Gitea API endpoint for creating push mirrors (`POST /api/v1/repos/{owner}/{repo}/push_mirrors`) checked only whether mirroring was enabled and not the `[mirror] DISABLE_NEW_PUSH` setting that the web interface enforces. A repository administrator could therefore create new push mirrors on instances where the site administrator had disabled them. A push mirror pushes all refs of the repository to a remote chosen by the caller, on each commit or on a schedule.",
+      "published": "2026-10-06T22:17:07.927",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97208"
     },
     {
-      "id": "CVE-2026-86361",
-      "summary": "Dell System Update, versions prior to 2.3.0.0, contains an Incorrect Permission Assignment for Critical Resource vulnerability. A low privileged attacker with local access could potentially exploit this vulnerability, leading to Elevation of privileges.",
-      "published": "2026-10-06T19:18:16.567",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86361"
-    },
-    {
-      "id": "CVE-2026-86360",
-      "summary": "Dell System Update, versions prior to 2.3.0.0, contains an Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability. An unauthenticated attacker with remote access could potentially exploit this vulnerability, leading to Filesystem access for attacker. This vulnerability is considered critical because it can be leveraged by an unauthenticated attacker to execute arbitrary code with root privileges. Successful exploitation may allow complete compromise of the vulnerable application and underlying operating system. Dell recommends customers upgrade at the earliest opportunity.",
-      "published": "2026-10-06T19:18:16.430",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86360"
-    },
-    {
-      "id": "CVE-2026-83550",
-      "summary": "A flaw was found in postgres-exporter. Due to the blank import of `net/http/pprof`, debug endpoints are exposed on the unauthenticated metrics listener. A remote attacker within the cluster network can access these endpoints. This allows for information disclosure, potentially revealing process arguments, full goroutine stacks, and sensitive data like database connection strings or passwords from heap dumps. Additionally, repeated CPU profiling through these endpoints can lead to a denial of service.",
-      "published": "2026-10-06T19:18:16.280",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83550"
+      "id": "CVE-2026-96594",
+      "summary": "The Gitea API endpoint `GET /api/v1/repos/{owner}/{repo}/media/{filepath}` wrote files of up to 1 KiB that are stored directly in Git, not in LFS, to the response without the content type and disposition headers Gitea uses for user content. An HTML file committed to a repository was therefore rendered by the browser on the Gitea origin. A user who can push to a repository could run JavaScript in the session of a victim who opens the media URL and act with the victim's permissions.",
+      "published": "2026-10-06T22:17:07.810",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96594"
     }
   ]
 }
