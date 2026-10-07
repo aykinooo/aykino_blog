@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-07T00:39:36+00:00",
+  "generated_at": "2026-10-07T07:11:40+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-80048",
-      "summary": "A flaw was found in `sssd-kcm`. A local user or process able to connect to the `sssd-kcm` UNIX socket can exploit this vulnerability. By sending a large request length header and then stalling the connection, an attacker can cause the system to preallocate significant memory. This leads to memory exhaustion within the `sssd-kcm` responder, resulting in a Denial of Service (DoS) for affected deployments.",
-      "published": "2026-10-07T00:17:21.067",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80048"
+      "id": "CVE-2026-59347",
+      "summary": "VMware Workstation and Fusion contain a stack-based buffer-overflow vulnerability in HGFS. A malicious actor with local administrative privileges on a virtual machine may exploit this issue to execute code as the virtual machine's VMX process running on the host.\n\nAffected versions:\n- VMware Workstation: 25H2, 26H1 (fixed in 26H1u1)\n- VMware Fusion: 25H2, 26H1 (fixed in 26H1u1)",
+      "published": "2026-10-07T06:16:35.700",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59347"
     },
     {
-      "id": "CVE-2026-106583",
-      "summary": "In ssh in OpenSSH before 10.6, a $ or \\ character can occur in a command-line username, leading to injection.",
-      "published": "2026-10-07T00:17:20.743",
-      "cvss": 2.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106583"
+      "id": "CVE-2026-59346",
+      "summary": "VMware Workstation and Fusion contain an integer-overflow vulnerability. A malicious actor with local administrative privileges on a virtual machine with VMXNET3 virtual network adapter may exploit this issue to execute code on the host.\n\nAffected versions:\n- VMware Workstation: 25H2, 26H1 (fixed in 26H1u1)\n- VMware Fusion: 25H2, 26H1 (fixed in 26H1u1)",
+      "published": "2026-10-07T06:16:35.543",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59346"
     },
     {
-      "id": "CVE-2026-104335",
-      "summary": "IBM Langflow OSS 1.0.0 through 1.12.2 could allow a remote authenticated attacker to execute arbitrary code due to improper access control.",
-      "published": "2026-10-07T00:17:20.553",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104335"
+      "id": "CVE-2026-103870",
+      "summary": "A flaw was found in pulp-rpm when it publishes a distribution tree. Addon and variant ids from .treeinfo are used as directory names. A user who can sync or upload that tree can make the publish task create a new directory outside the task work area and write that tree's repository metadata and packages there, as the Pulp worker user. An existing file or directory is not replaced. The flaw does not disclose data and does not stop the service.",
+      "published": "2026-10-07T06:16:35.373",
+      "cvss": 5.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103870"
     },
     {
-      "id": "CVE-2026-97626",
-      "summary": "Requesting a user or organization profile page (`GET /{username}`) with an `Accept: application/rss+xml` or `Accept: application/atom+xml` header returned the owner's activity feed without the visibility check that the profile page and the `.rss` and `.atom` routes apply. Anonymous users, restricted users and non-members could confirm the existence of limited or private users and private organizations and read their profile details and public activity, also when `[other] ENABLE_FEED` was disabled. Activity in private repositories was not included.",
-      "published": "2026-10-06T22:17:08.047",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97626"
+      "id": "CVE-2026-103869",
+      "summary": "A flaw was found in pulp-ansible's bearer-token refresh for collection remotes. The access token is kept in one module-level variable and reused for every token download in that worker. A user who can sync an Ansible remote that uses token refresh, and can point that remote at a server they control, receives an access token obtained for a different remote, and can reuse it at the service that issued it. Content stored in Pulp is not changed, and the service is not stopped.",
+      "published": "2026-10-07T06:16:35.207",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103869"
     },
     {
-      "id": "CVE-2026-97208",
-      "summary": "The Gitea API endpoint for creating push mirrors (`POST /api/v1/repos/{owner}/{repo}/push_mirrors`) checked only whether mirroring was enabled and not the `[mirror] DISABLE_NEW_PUSH` setting that the web interface enforces. A repository administrator could therefore create new push mirrors on instances where the site administrator had disabled them. A push mirror pushes all refs of the repository to a remote chosen by the caller, on each commit or on a schedule.",
-      "published": "2026-10-06T22:17:07.927",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97208"
+      "id": "CVE-2026-103868",
+      "summary": "A flaw was found in pulp-container when it authenticates to an upstream registry. Basic and bearer credentials from one remote are reused for later downloads in the same worker. A user who can sync a container remote, and can point that remote at a server they control, receives the username, password, or bearer token stored for a different remote, and can reuse that credential at the upstream registry. Content stored in Pulp is not changed, and the service is not stopped.",
+      "published": "2026-10-07T06:16:35.000",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103868"
     },
     {
-      "id": "CVE-2026-96594",
-      "summary": "The Gitea API endpoint `GET /api/v1/repos/{owner}/{repo}/media/{filepath}` wrote files of up to 1 KiB that are stored directly in Git, not in LFS, to the response without the content type and disposition headers Gitea uses for user content. An HTML file committed to a repository was therefore rendered by the browser on the Gitea origin. A user who can push to a repository could run JavaScript in the session of a victim who opens the media URL and act with the victim's permissions.",
-      "published": "2026-10-06T22:17:07.810",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96594"
+      "id": "CVE-2026-102173",
+      "summary": "The Kirki \u2013 Freeform Page Builder, Website Builder & Customizer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via registration metadata in all versions up to, and including, 6.3.1 This is due to insufficient escaping in `ExceptionalElements::image_element()`, which concatenates a user-meta value straight into an `<img src=\"\u2026\">` attribute. This makes it possible for unauthenticated attackers to inject arbitrary web scripts that execute whenever a user accesses a page rendering a Kirki users collection whose image element is bound to one of the nine registration meta fields. Requires public user registration to be enabled and a published page carrying a `kirki-register` element, which prints the required element nonce into the public markup.",
+      "published": "2026-10-07T06:16:33.217",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102173"
     }
   ]
 }
