@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-07T20:35:14+00:00",
+  "generated_at": "2026-10-08T00:57:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97717",
-      "summary": "CVE-2026-97717\nis a vulnerability in the proxy sub-system of Secure Access servers prior to\n14.60. Authenticated attackers can send malformed data to the server and cause\na persistent denial of service.",
-      "published": "2026-10-07T20:17:16.347",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97717"
+      "id": "CVE-2026-94154",
+      "summary": "The Aurora Heatmap plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the \u2018url\u2019 parameter in all versions up to, and including, 1.7.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever an admin user clicks the injected heatmap link.",
+      "published": "2026-10-08T00:16:35.333",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94154"
     },
     {
-      "id": "CVE-2026-97716",
-      "summary": "CVE-2026-97716\nis a vulnerability in the connection set up sub-system of Secure Access servers\nprior to version 14.60. Unauthenticated attackers can send specially crafted\ntraffic to the server and cause a persistent denial of service.",
-      "published": "2026-10-07T20:17:16.193",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97716"
+      "id": "CVE-2026-17538",
+      "summary": "The LatePoint - Appointment Booking & Reservation plugin for WordPress is vulnerable to Insecure Direct Object Reference in versions up to, and including, 5.6.9. This is due to the process_step_customer() function using is_user_logged_in() as the sole gate before merging POSTed customer data into an existing LatePoint customer, without any ownership checks. This makes it possible for authenticated attackers, with Subscriber-level access and above, to modify the personal information (first name, last name, email, phone, notes) of arbitrary LatePoint customers, and, when the contact_merge setting is 'phone', to overwrite the victim's email address and take over the account via a password reset.",
+      "published": "2026-10-08T00:16:35.153",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17538"
     },
     {
-      "id": "CVE-2026-97715",
-      "summary": "CVE-2026-97715\u00a0is\na vulnerability in the client registration process of Secure Access servers\nprior to version 14.60. Authenticated attackers can pass malformed data to the\nserver and cause a persistent denial of service.",
-      "published": "2026-10-07T20:17:16.053",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97715"
+      "id": "CVE-2026-107315",
+      "summary": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.4 through 42.7.13 pads a value that is shorter than its declared length with bytes left in its send buffer instead of zeros, and the server stores those bytes as part of the value. The bytes are messages the driver sent earlier on the same connection: SQL text and parameter values of recent statements, which on a pooled connection can come from other requests. Each padded value can carry up to 8192 bytes of this traffic, or 16320 bytes on a connection with GSS encryption. The padding happens when an application declares a length larger than the data it supplies, through PreparedStatement.setObject with a ByteStreamWriter, CopyIn.writeToCopy, PGCopyOutputStream.write, LargeObject.write, or Blob.setBytes. The driver accepts these calls without an error. An attacker who can make the application store such a value and read it back can collect earlier traffic. Applications whose declared lengths always match their data are not affected. Versions 42.7.3 and earlier pad with zeros.",
+      "published": "2026-10-08T00:16:33.690",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107315"
     },
     {
-      "id": "CVE-2026-97714",
-      "summary": "CVE-2026-97714\nis a is a vulnerability in the authentication sub-system of Secure Access\nservers prior to version 14.60. Attackers can send a malformed response during\nauthentication and cause a persistent denial of service.",
-      "published": "2026-10-07T20:17:15.893",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97714"
+      "id": "CVE-2026-89322",
+      "summary": "Vault and Vault Enterprise did not consistently evaluate ACL policies against the canonical form of resource and policy names. This may allow an authenticated user with delegated permissions to bypass an explicit deny restriction and access a protected resource or assign a denied policy, potentially leading to privilege escalation. This vulnerability (CVE-2026-89322) is fixed in Vault Community Edition 2.1.2, and Vault Enterprise 2.1.2, 1.21.12, 1.20.17, and 1.19.23.",
+      "published": "2026-10-07T23:17:01.197",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89322"
     },
     {
-      "id": "CVE-2026-34499",
-      "summary": "Use of hard-coded cryptographic key vulnerability in Johnson Controls ADVMS allows Read Sensitive Constants Within an Executable.\n\nThis issue affects ADVMS: before 3.10.",
-      "published": "2026-10-07T20:17:12.527",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-34499"
+      "id": "CVE-2026-107314",
+      "summary": "pgjdbc, the PostgreSQL JDBC Driver, versions 42.7.11 through 42.7.13 enforce no restriction when the requireAuth connection property excludes all six authentication methods the driver knows, for example requireAuth=!password,!md5,!gss,!sspi,!scram-sha-256,!none. The driver then accepts any method the server asks for, including cleartext password authentication. A value without a method in it, such as requireAuth=, (a single comma), is affected the same way. An attacker positioned between the application and its server can ask for cleartext password authentication and receive the database password. A positive list such as requireAuth=scram-sha-256, and a partial exclusion such as requireAuth=!password,!md5, are enforced correctly. The property has no default value, so a deployment that does not set it is not affected. 42.7.14 fixes the problem: such a connection is refused with SQLState 08004, and a value without a method in it is rejected as invalid.",
+      "published": "2026-10-07T23:17:00.337",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107314"
     },
     {
-      "id": "CVE-2026-107353",
-      "summary": "traverse (npm) versions 0.3.6 through 0.3.9, 0.4.0 through 0.4.6, 0.5.0 through 0.5.2, and 0.6.0 through 0.6.11 allow prototype pollution through set(). When the path passed to set() crosses a primitive value, the next path segment is resolved on that primitive's built-in prototype, so an application that passes an untrusted path to set() lets an attacker add or overwrite properties of String.prototype, Number.prototype, or Boolean.prototype using plain JSON data, for example traverse({ name: 'bob' }).set(['name', '__proto__', 'polluted'], 'yes'). Object.prototype was reachable only with a non-data path segment, such as an object whose toString returns a different value on each call, or through a Proxy that accepts an assignment without storing it. This is fixed in 0.3.10, 0.4.7, 0.5.3, and 0.6.12.",
-      "published": "2026-10-07T20:17:11.860",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107353"
+      "id": "CVE-2026-107285",
+      "summary": "The AsyncHttpClient (AHC) library allows Java applications to easily execute HTTP requests and asynchronously process HTTP responses. Prior to 3.0.12 and 2.16.1, a proxied ws request is carried through CONNECT, but NettyRequestFactory.newNettyRequest and requestUri decide whether to attach proxy authentication and an absolute-form target only from whether the URI is secure. Because ws is not marked secure, the tunneled WebSocket upgrade sent to the origin includes the proxy's Proxy-Authorization value. Basic credentials are directly recoverable and Digest responses can be replayed or cracked offline. This issue is fixed in versions 3.0.12 and 2.16.1.",
+      "published": "2026-10-07T22:17:04.637",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107285"
     }
   ]
 }
