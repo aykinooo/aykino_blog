@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-08T07:20:43+00:00",
+  "generated_at": "2026-10-08T15:33:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-87428",
-      "summary": "In Brocade ASCG before 3.5.0, a\u00a0 local unauthorized user on the ASCG VM who can issue a request to the SANnav host network namespace can extract stored management credentials for onboarded SANnav instances and compromise connected Brocade SANnav servers or managed Brocade Fibre Channel switches.",
-      "published": "2026-10-08T07:16:33.400",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87428"
+      "id": "CVE-2026-9209",
+      "summary": "mJobTime through build 15.7.3.32 contains an unauthenticated SQL execution vulnerability in the Login.aspx admin panel handlers, where the runQueryButton postback and exportSqlQuery_Server PageMethod execute caller-supplied SQL against the backing Sybase SQL Anywhere database using DBA/sysadmin privileges with no server-side authentication enforced beyond a client-side sessionStorage flag. Attackers can submit arbitrary SQL through these exposed endpoints to invoke xp_cmdshell and xp_read_file, achieving pre-authentication remote code execution as LocalSystem via a single HTTP request.",
+      "published": "2026-10-08T15:17:57.677",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9209"
     },
     {
-      "id": "CVE-2026-87426",
-      "summary": "An unauthenticated network-based attacker can query specific internal management endpoints on Brocade ASCG versions before 3.5.0 to enumerate the configuration details and state of managed Brocade Fabric OS (FOS) switches. This results in the unauthorized disclosure of the customer's SAN fabric management topology and switch connectivity attributes.",
-      "published": "2026-10-08T07:16:33.270",
+      "id": "CVE-2026-95125",
+      "summary": "libming through 0.4.8 contains a heap buffer overflow in r_readc() in src/blocks/fromswf.c. A crafted SWF file with a malformed or truncated RECT header can cause a denial of service.",
+      "published": "2026-10-08T15:17:57.530",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87426"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95125"
     },
     {
-      "id": "CVE-2026-87425",
-      "summary": "An unauthenticated remote attacker can modify the TLS client trust store in Brocade ASCG versions before 3.5.0. By supplying an unauthorized Certificate Authority (CA) certificate to an unauthenticated management interface, the attacker can cause the system to trust unauthorized certificates, potentially enabling Man-in-the-Middle (MITM) attacks against outbound communications with managed switches and peer nodes.",
-      "published": "2026-10-08T07:16:33.140",
+      "id": "CVE-2026-93034",
+      "summary": "SGLang contains an arbitrary code execution vulnerability caused by the ZMQ message decoder unconditionally deserializing PickleWrapper payloads via pickle.loads() in _maybe_unwrap_pickle without type allowlisting or authentication; this vulnerability persists via the msgpack path even when SGLANG_USE_PICKLE_IPC is disabled, and becomes remotely exploitable if data-parallel attention is enabled with a non-loopback --dist-init-addr setting.",
+      "published": "2026-10-08T15:17:57.117",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87425"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93034"
     },
     {
-      "id": "CVE-2026-87424",
-      "summary": "A vulnerability in the SupportLink API authentication component of Brocade ASCG versions prior to 3.5.0 allows an attacker to bypass authentication across deployments due to the use of a hard coded cryptographic key.",
-      "published": "2026-10-08T07:16:33.000",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87424"
+      "id": "CVE-2026-93017",
+      "summary": "The `insights-operator-gather` ClusterRole grants the operator's service account read access to secrets in the core API group with no namespace or resourceNames restriction \u2014 therefore, access to every secret in every namespace in the cluster.\n\nRef: https://github.com/openshift/insights-operator/blob/8f15e3157ff09f54ab22801f5b21da35a195cc6d/manifests/03-clusterrole.yaml#L368-L373\n```\n- apiGroups:\n  - \"\"\n  resources:\n  - secrets\n  verbs:\n  - get\n  - list\n```\n\nBy spawning a pod with the gather service account mounted, an attacker will be able to access any secret in any namespace.\n\n```\nspec:\n serviceAccountName:\"gather\"\n```",
+      "published": "2026-10-08T15:17:56.950",
+      "cvss": 7.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93017"
     },
     {
-      "id": "CVE-2026-85490",
-      "summary": "When Brocade ASCG before 3.5.0 processes support bundle archives ingested from remote compromised endpoints, the application fails to sanitize path traversal sequences contained within archive entries prior to extraction. An unauthenticated remote attacker capable of sending or intercepting ingested archive files can leverage this flaw to write arbitrary files to restricted locations on the underlying host, potentially leading to remote code execution.",
-      "published": "2026-10-08T07:16:32.860",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85490"
+      "id": "CVE-2026-14999",
+      "summary": "IBM DataPower Gateway 10.5.0.0 through 10.5.0.22, 10.6.1 through 10.6.6, 10.6.0.0 through 10.6.0.10, and 11.0.0.0 through 11.0.0.2 could allow a remote attacker to bypass authentication by forging valid JSON Web Signatures due to improper verification of cryptographic signatures.",
+      "published": "2026-10-08T15:17:50.360",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14999"
     },
     {
-      "id": "CVE-2026-85489",
-      "summary": "An authentication flaw exists in the Brocade ASCG administrative management service component. An unauthenticated network user can issue direct API requests to perform privileged actions, including accessing sensitive system configuration mapping data, modifying managed device inventories, and altering operational settings. This vulnerability affects all versions of Brocade ASCG before 3.5.0.",
-      "published": "2026-10-08T07:16:32.727",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85489"
+      "id": "CVE-2026-14992",
+      "summary": "IBM DataPower Gateway 10.5.0.0 through 10.5.0.22, 10.6.1 through 10.6.6, 10.6.0.0 through 10.6.0.10, and 11.0.0.0 through 11.0.0.2 vulnerable to buffer overflow.",
+      "published": "2026-10-08T15:17:50.210",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14992"
     }
   ]
 }
