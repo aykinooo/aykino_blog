@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-09T08:59:04+00:00",
+  "generated_at": "2026-10-09T16:09:21+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-98384",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Fix out-of-bounds read of sk_protocol in bpf_sock_destroy()\n\nsk_protocol lives in struct sock, not in struct sock_common. A timewait\nor request sock handed to bpf_sock_destroy() by the tcp iterator is\nneither, so reading sk->sk_protocol runs past the object:\n\n==================================================================\nBUG: KASAN: slab-out-of-bounds in bpf_sock_destroy+0xc7/0xe0\nRead of size 2 at addr ffff8881047d11b4 by task test_progs/428\n\nTainted: [W]=WARN\nCall Trace:\n <TASK>\n dump_stack_lvl+0x91/0xf0\n print_report+0xd1/0x630\n kasan_report+0xf3/0x130\n __asan_report_load2_noabort+0x14/0x30\n bpf_sock_destroy+0xc7/0xe0\n bpf_prog_c3dd61f9d9cd9f37_iter_tcp6_timewait+0x9f/0xb7\n bpf_iter_run_prog+0x538/0xde0\n bpf_iter_tcp_seq_show+0x26b/0x4b0\n bpf_seq_read+0x424/0x1210\n vfs_read+0x197/0xe40\n ksys_read+0x119/0x240\n __x64_sys_read+0x72/0xc0\n x64_sys_call+0x647/0x27e0\n do_syscall_64+0xe5/0x610\n entry_SYSCALL_64_after_hwframe+0x76/0x7e\n\nOnly check sk_protocol on full socks. tcp_abort() already knows how to\ndeal with TIME_WAIT and NEW_SYN_RECV socks. Also fix the comment, it\nnever matched the code.",
-      "published": "2026-10-09T08:16:56.940",
+      "id": "CVE-2026-95702",
+      "summary": "Use-after-free vulnerability in VFS in Google gVisor prior to release 20260831.0 on all platforms allows a local attacker with standard container privileges to achieve code execution in the host sentry process by double-freeing the backing MemoryFile from an in-sandbox overlay filesystem. The sentry process remains confined by host-level Linux seccomp and namespace boundaries.",
+      "published": "2026-10-09T15:17:20.447",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98384"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95702"
     },
     {
-      "id": "CVE-2026-98383",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Disallow bpf_skb_pull_data() for LWT_SEG6LOCAL\n\nAn LWT_SEG6LOCAL program can invalidate its cached SRH with\nbpf_lwt_seg6_adjust_srh() and then call bpf_skb_pull_data(). The latter\nmay reallocate skb->head, leaving the per-CPU SRH pointer dangling.\nPost-program SRH validation then writes through that pointer.\n\nDisallow bpf_skb_pull_data() for LWT_SEG6LOCAL programs so the verifier\nrejects this unsafe helper combination. Other LWT program types continue\nto expose the helper through lwt_out_func_proto().",
-      "published": "2026-10-09T08:16:56.800",
+      "id": "CVE-2026-78796",
+      "summary": "An issue in Netcore B11 Enterprise-level full Gigabit 9-port shop wireless router v1.3.241114.024540 and before allows a remote attacker to execute arbitrary code via the www\\cgi-bin\\upgrade file",
+      "published": "2026-10-09T15:17:15.947",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98383"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78796"
     },
     {
-      "id": "CVE-2026-98382",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nbpf: Reject dev-bound-only programs on other devices\n\n__bpf_offload_dev_match() falls back to comparing offdev pointers after an\nexact netdev mismatch. Bound-only programs normally have NULL offdevs, so\nunrelated netdevs compare equal. A bound-only program on an\noffload-registered netdev can instead inherit a real offdev and match a\nsibling port. With CAP_BPF and CAP_NET_ADMIN, a caller can use\nbpf(BPF_LINK_CREATE) with a different target ifindex to run metadata kfuncs\nspecialized for the bound driver on the target driver's xdp_buff. Running a\nveth-bound program on tun reads beyond tun's bare stack xdp_buff as a\nveth_xdp_buff.\n\n  Oops: general protection fault, probably for non-canonical address\n  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]\n  RIP: 0010:veth_xdp_rx_timestamp (drivers/net/veth.c:1673)\n  Call Trace:\n   ...\n   tun_build_skb (drivers/net/tun.c:1739)\n   tun_get_user (drivers/net/tun.c:1856)\n   tun_chr_write_iter (drivers/net/tun.c:2091)\n   vfs_write (fs/read_write.c:595 fs/read_write.c:687)\n   ksys_write (fs/read_write.c:739)\n   do_syscall_64 (arch/x86/entry/syscall_64.c:84)\n   entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)\n  Kernel panic - not syncing: Fatal exception in interrupt\n\nRestrict non-offloaded programs to exact netdev matches and retain the\nshared-offdev fallback only for genuinely offloaded multi-port programs.",
-      "published": "2026-10-09T08:16:56.680",
+      "id": "CVE-2026-78795",
+      "summary": "An issue in Netcore B11 Enterprise-level full Gigabit 9-port shop wireless router v1.3.241114.024540 and before allows a remote attacker to obtain sensitive information",
+      "published": "2026-10-09T15:17:15.810",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98382"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78795"
     },
     {
-      "id": "CVE-2026-98381",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nveth: manage XDP program pointers during channel resize\n\nveth_set_channels() tears down XDP resources for removed RX queues\nwithout clearing rq->xdp_prog.  If the program is then detached or\nreplaced, those queues keep the old pointer after bpf_prog_put().\nA later channel increase can re-enable NAPI and run the freed program.\n\n  BUG: unable to handle page fault for address: ffffc90000256048\n  Oops: Oops: 0000 [#1] SMP KASAN NOPTI\n  RIP: veth_xdp_rcv_skb (include/linux/filter.h:779\n                         include/net/xdp.h:696 drivers/net/veth.c:820)\n  Call Trace:\n   veth_xdp_rcv (drivers/net/veth.c:941)\n   veth_poll (drivers/net/veth.c:986)\n   __napi_poll (net/core/dev.c:7787)\n   net_rx_action (net/core/dev.c:7850 net/core/dev.c:8007)\n   handle_softirqs (kernel/softirq.c:645)\n  Kernel panic - not syncing: Fatal exception in interrupt",
-      "published": "2026-10-09T08:16:56.547",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98381"
+      "id": "CVE-2026-39460",
+      "summary": "Usernames and passwords, including the default factory credentials, are stored in plaintext within the configuration file. With administrator rights, the configuration file can be viewed through the CLI or they can be exported from the device through a TFTP transfer from the web interface. A TFTP transfer can be initiated through SNMP which does not require authentication.",
+      "published": "2026-10-09T15:17:14.660",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39460"
     },
     {
-      "id": "CVE-2026-98380",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnet/sched: reject IDR error pointers when deleting actions\n\ntcf_action_delete() drops the reference held by its lookup before calling\ntcf_idr_delete_index() with the saved action index.  An unlocked\nclassifier can remove that action and reserve the same IDR slot with\nERR_PTR(-EBUSY) in between.\n\ntcf_idr_delete_index() only checks the lookup result for NULL.  It\ntherefore treats the reservation as a tc_action and dereferences\ntcfa_bindcnt.  A hardware execution breakpoint was used to schedule the\ninterleaving without changing the kernel source.  KASAN reported this\ndecoded trace:\n\n  BUG: KASAN: null-ptr-deref in tca_action_gd+0x5b9/0x1010\n  Read of size 4 at addr 0000000000000010 by task poc/150\n  Oops: general protection fault, probably for non-canonical address 0xdffffc0000000002\n  RIP: tca_action_gd+0x5c0/0x1010:\n    arch_atomic_read at arch/x86/include/asm/atomic.h:23\n    raw_atomic_read at include/linux/atomic/atomic-arch-fallback.h:457\n    atomic_read at include/linux/atomic/atomic-instrumented.h:33\n    tcf_idr_delete_index at net/sched/act_api.c:766\n    tcf_action_delete at net/sched/act_api.c:1859\n    tcf_del_notify at net/sched/act_api.c:2014\n    tca_action_gd at net/sched/act_api.c:2064\n  R13: 0000000000000010 R15: fffffffffffffff0\n  Kernel panic - not syncing: Fatal exception\n\nR15 contains ERR_PTR(-EBUSY), and adding the tcfa_bindcnt offset produces\nthe address in R13.  With the guard applied, the same reproducer returned\n-ENOENT without a KASAN report or panic.  Treat error pointers as absent\nand return -ENOENT.",
-      "published": "2026-10-09T08:16:56.400",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98380"
+      "id": "CVE-2026-39453",
+      "summary": "Navigating to a certain URL on the switch\u2019s web server causes the switch to reboot. This can be automated using a tool like curl to create DoS conditions where the switch constantly reboots.",
+      "published": "2026-10-09T15:17:14.500",
+      "cvss": 8.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39453"
     },
     {
-      "id": "CVE-2026-98379",
-      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nnetfilter: ip6t_rpfilter: reject routes without inet6_dev\n\nip6_route_lookup() can return an error-free route whose rt6i_idev is\nNULL. Lowering an external nexthop device's MTU below IPV6_MIN_MTU tears\ndown its inet6_dev while fib6_ifdown() leaves routes using nexthop objects\nin the FIB. An unprivileged user can construct this state with rtnetlink\nin a private user and network namespace, then trigger a NULL dereference\nthrough an IPv6 rpfilter lookup:\n\n  Oops: general protection fault, probably for non-canonical address\n  0xdffffc0000000000\n  KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]\n  RIP: rpfilter_mt (net/ipv6/netfilter/ip6t_rpfilter.c:75)\n  Call Trace:\n  ip6t_do_table (net/ipv6/netfilter/ip6_tables.c:316)\n  nf_hook_slow (net/netfilter/core.c:619)\n  ipv6_rcv (net/ipv6/ip6_input.c:351)\n  __netif_receive_skb_one_core (net/core/dev.c:6216)\n  process_backlog (net/core/dev.c:6680)\n  __napi_poll (net/core/dev.c:7739)\n  net_rx_action (net/core/dev.c:7959)\n  handle_softirqs (kernel/softirq.c:622)\n  do_softirq.part.0 (kernel/softirq.c:523)\n  __local_bh_enable_ip (kernel/softirq.c:450)\n  __dev_queue_xmit (net/core/dev.c:4913)\n  packet_sendmsg (net/packet/af_packet.c:3139)\n  __sys_sendto (net/socket.c:2252)\n  __x64_sys_sendto (net/socket.c:2259)\n  do_syscall_64 (arch/x86/entry/syscall_64.c:94)\n  entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:121)\n  Kernel panic - not syncing: Fatal exception in interrupt\n\nReject routes without an inet6_dev immediately after lookup. Such routes\nare not eligible for reverse-path filtering, and the check protects all\nlater rt6i_idev dereferences.",
-      "published": "2026-10-09T08:16:56.250",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98379"
+      "id": "CVE-2026-33367",
+      "summary": "SNMP can be used to perform administrative actions such as retrieving configuration files, modifying user accounts or device settings, and initiating firmware or bootloader upgrades or downgrades\u2014all without any authentication.",
+      "published": "2026-10-09T15:17:14.340",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33367"
     }
   ]
 }
