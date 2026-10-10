@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-10T07:03:08+00:00",
+  "generated_at": "2026-10-10T13:37:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97643",
-      "summary": "The GiveWP \u2013 Donation Plugin and Fundraising Platform plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the plugin's `givewp_campaign_grid` shortcode in versions up to, and including, 4.17.0 This is due to insufficient input sanitization and output escaping on user supplied shortcode attributes (`filter_by`, `layout`, `sort_by`, `order_by`) in the CampaignGridShortcode::parseAttributes() function combined with the render template emitting `json_encode($attributes)` inside a single-quoted HTML attribute without esc_attr() \u2014 json_encode() does not escape single quotes by default, so a `'` in an attribute value breaks out of the enclosing attribute. This makes it possible for authenticated attackers, with Contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-10-10T06:16:45.547",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97643"
-    },
-    {
-      "id": "CVE-2026-96682",
-      "summary": "The Presto Player plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via <presto-player> Tag in all versions up to, and including, 4.5.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires an initial comment approval, though WordPress default settings will auto-approve all subsequent comments from the same author, allowing a patient unauthenticated attacker to land the payload without further admin intervention.",
-      "published": "2026-10-10T06:16:45.387",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96682"
-    },
-    {
-      "id": "CVE-2026-96667",
-      "summary": "The Real Estate Manager \u2013 Property Listing and Agent Management plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'first_name' parameter in all versions up to, and including, 7.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The reCAPTCHA check is trivially bypassed by omitting the g-recaptcha-response parameter entirely, since validation only runs when that parameter is present.",
-      "published": "2026-10-10T06:16:45.230",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96667"
-    },
-    {
-      "id": "CVE-2026-94421",
-      "summary": "The Church Admin plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'email' parameter in all versions up to, and including, 5.1.2 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
-      "published": "2026-10-10T06:16:45.043",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94421"
-    },
-    {
-      "id": "CVE-2026-94375",
-      "summary": "The Order Export & Order Import for WooCommerce plugin for WordPress is vulnerable to Sensitive Information Exposure in all versions up to, and including, 2.7.8 via the get_file_path. This makes it possible for unauthenticated attackers to extract download exported order CSV files containing customer PII \u2014 including names, billing and shipping addresses, email addresses, phone numbers, and order contents \u2014 directly over HTTP with no authentication. This is exploitable whenever the .htaccess and index.php guard files are absent from wp-content/webtoffee_export/, which can occur after any uninstall/reinstall cycle, migration, backup restore, or staging sync, since the export directory persists but its guard files do not; export filenames follow a fully deterministic second-precision timestamp pattern, making them brute-forceable across any suspected export window.",
-      "published": "2026-10-10T06:16:44.857",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94375"
-    },
-    {
-      "id": "CVE-2026-94257",
-      "summary": "The SMS Alert  WordPress plugin before 4.0.1 does not bind the account whose password is being changed to the phone number that was actually verified during its OTP password reset, allowing unauthenticated attackers to set a new password on an arbitrary account, including an administrator, by verifying a one-time code sent to a phone number they control.",
-      "published": "2026-10-10T06:16:44.717",
+      "id": "CVE-2026-107794",
+      "summary": "ExtUtils::Typemaps::STL::List versions before 1.07 for Perl allocate a 32 GiB array on an empty list.\n\nThe OUTPUT typemaps call av_extend( av, len-1 ). On an empty list, this undeflows, and av_extend will allocate an array with 2^32 slots, leading to memory exhaustion.\n\nNote that a similar issue was fixed in ExtUtils::Typemaps::STL::Vector version 1.05.",
+      "published": "2026-10-10T13:17:31.357",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94257"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107794"
+    },
+    {
+      "id": "CVE-2026-107373",
+      "summary": "ExtUtils::Typemaps::STL::String versions before 1.06 for Perl T_STD_STRING typemap may read the SV length before stringifying the argument.\n\nThe typemap uses\n\n    $var = std::string( SvPV_nolen($arg), SvCUR($arg) )\n\nHowever, evaluation order for C++ arguments is not specified, and some compilers may produce code that evalutes SvCUR($arg) first.\n\nWhen $arg is not a string (for example, an interger, number or a reference) then SvCUR will return an invalid value, and the program may abort or segfault.",
+      "published": "2026-10-10T13:17:31.253",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107373"
+    },
+    {
+      "id": "CVE-2013-10076",
+      "summary": "ExtUtils::Typemaps::STL::Vector versions before 1.05 for Perl allocate a 32 GiB array on an empty list.\n\nThe OUTPUT typemaps call av_extend( av, len-1 ). On an empty list, this undeflows, and av_extend will allocate an array with 2^32 slots, leading to memory exhaustion.",
+      "published": "2026-10-10T13:17:30.610",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2013-10076"
+    },
+    {
+      "id": "CVE-2026-103636",
+      "summary": "Out-of-bounds read in the VarOpt union deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\nvar_opt_union::deserialize() read the 32-byte preamble of a non-empty union after checking that only 8 bytes were available, so a truncated serialized union could cause a read of up to 24 bytes past the end of the input. For such inputs, the size remaining for the embedded sketch was also computed by an unsigned subtraction that could wrap around, so the embedded sketch's own size checks no longer limited reads to the input. The bytes read can become part of the deserialized union's state. This can cause a crash (denial of service) and could expose adjacent memory contents.\n\nThis issue affects Apache DataSketches C++: from 2.0.0-incubating before 5.3.0. Only applications that deserialize VarOpt unions from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
+      "published": "2026-10-10T11:17:36.077",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103636"
+    },
+    {
+      "id": "CVE-2026-103635",
+      "summary": "Out-of-bounds read in the compact Theta sketch deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\ncompact_theta_sketch::deserialize() and wrapped_compact_theta_sketch::wrap() read header fields before checking that the input was long enough. For the compressed format, the size check could be defeated by a 32-bit overflow, and two header fields that control decoding were not validated; this also affected deserialization from a stream. A crafted or truncated sketch could cause a read past the end of the input. In the compressed case the over-read can be large, and the bytes read can become part of the deserialized sketch. This can cause a crash (denial of service) and could expose adjacent memory contents.\n\nThis issue affects Apache DataSketches C++: from 3.1.0 before 5.3.0. Only applications that deserialize Theta sketches from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
+      "published": "2026-10-10T11:17:35.963",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103635"
+    },
+    {
+      "id": "CVE-2026-103513",
+      "summary": "Out-of-bounds read and write in the CPC sketch deserialization of Apache DataSketches C++ (repo: datasketches-cpp).\n\nA crafted serialized CPC sketch passed to cpc_sketch::deserialize(), from either a byte buffer or a stream, can cause the decompressor to read past the end of the compressed data, because the read position was only checked after decoding finished. In the hybrid flavor, it can also cause a write outside an internal heap buffer, because decoded row indices were not validated. Several other header fields and decoded values, including lg_k, were also not validated. This can corrupt heap memory, causing a crash and potentially enabling further exploitation.\n\nThis issue affects Apache DataSketches C++: from 2.0.0-incubating before 5.3.0. Only applications that deserialize CPC sketches from untrusted sources are affected.\n\nUsers are recommended to upgrade to version 5.3.0, which fixes this issue.",
+      "published": "2026-10-10T11:17:35.853",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103513"
     }
   ]
 }
