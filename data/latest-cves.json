@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-09T20:51:34+00:00",
+  "generated_at": "2026-10-10T00:47:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78797",
-      "summary": "An issue in iStoreOS istoreos-24.10.7 and before allows a remote attacker to execute arbitrary code via the task_id in tasks-lib.lua.",
-      "published": "2026-10-09T20:17:11.117",
+      "id": "CVE-2026-108474",
+      "summary": "In JetBrains Exposed before 1.5.1 sQL injection was possible via unescaped string arguments of several SQL functions",
+      "published": "2026-10-10T00:17:03.673",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108474"
+    },
+    {
+      "id": "CVE-2026-22061",
+      "summary": "Trident versions v25.02.1 through v26.06.1 are susceptible to a vulnerability that could allow an authenticated attacker with access to debug logs to view LUKS passphrases or SMB Active Directory credentials.",
+      "published": "2026-10-09T23:16:54.157",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78797"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22061"
     },
     {
-      "id": "CVE-2026-107845",
-      "summary": "Contao is an Open Source CMS. From version 4.0.0 until 5.3.50 and 5.7.12, an unauthenticated visitor can submit a comment whose email or website metadata is rendered without sufficient attribute and URL encoding by listComments() in comments-bundle/contao/dca/tl_comments.php. When a backend user opens the Comments module, attacker-controlled script can execute in the Contao backend origin under that user's session. Unpublished comments remain visible to moderators, so moderation does not prevent exposure. This issue is fixed in versions 5.3.50 and 5.7.12.",
-      "published": "2026-10-09T20:17:10.457",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107845"
-    },
-    {
-      "id": "CVE-2026-107844",
-      "summary": "Contao is an Open Source CMS. From version 5.0.0 until 5.3.50 and 5.7.12, ImagesController joins the user-controlled {path} parameter to the configured image target directory with Path::join() but does not use Path::isBasePath() to verify that the canonical path remains inside that directory. An unauthenticated request containing encoded parent-directory segments can therefore return files under the project directory through BinaryFileResponse when their names use an extension allowed by contao.image.valid_extensions. The route can also reveal whether arbitrary paths exist, and debug responses can disclose absolute filesystem paths, but paths below the upload directory were not shown to be readable. This issue is fixed in versions 5.3.50 and 5.7.12.",
-      "published": "2026-10-09T20:17:10.313",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107844"
-    },
-    {
-      "id": "CVE-2026-107843",
-      "summary": "Contao is an Open Source CMS. From version 4.1.0 until 5.3.50 and 5.7.12, ModuleRegistration::compile() enters its follow-up registration branch on any POST to a page containing the registration module without verifying FORM_SUBMIT or the preceding captcha result. resendActivationMail() can then invoke OptInToken::send() without rate limiting, allowing an unauthenticated attacker to cause repeated activation emails to be sent to an address with a pending registration and to determine whether that pending registration exists. The branch is reachable only when reg_activate is enabled and the target has an unconfirmed registration and opt-in token. This issue is fixed in versions 5.3.50 and 5.7.12.",
-      "published": "2026-10-09T20:17:10.167",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107843"
-    },
-    {
-      "id": "CVE-2026-107842",
-      "summary": "Contao is an Open Source CMS. From version 4.0.0 until 5.3.50 and 5.7.12, ModuleSearch can disclose protected page titles, URLs, and indexed context snippets to unauthenticated visitors when contao.search.index_protected is changed from enabled to disabled. Authorization metadata is stored per row in tl_search, but disabling the setting removes the protected-row filter without deleting rows indexed while protection was enabled. The protected pages continue to return an authorization response, so this issue exposes search metadata and indexed text rather than bypassing page access. This issue is fixed in versions 5.3.50 and 5.7.12.",
-      "published": "2026-10-09T20:17:10.013",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107842"
-    },
-    {
-      "id": "CVE-2026-78835",
-      "summary": "Rocket Software Rocket Remote Desktop 18.0.8583.1 is vulnerable to Insufficiently Protected Credentials.",
-      "published": "2026-10-09T19:16:42.420",
+      "id": "CVE-2026-108269",
+      "summary": "Remote Attestation TLS Clients provides multi-language utilities for verifying attested TLS connections. Prior to 0.5.0, the Rust and Go RA-TLS challenge verifiers accepted quote ReportData that was bound to the certificate public key and client nonce but not to the active TLS session before permitting application traffic. An attacker who obtained an enclave TLS private key could relay a genuine quote onto another connection, causing the clients to accept an attacker-terminated connection as the attested enclave. This issue is fixed in 0.5.0.",
+      "published": "2026-10-09T22:16:59.793",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78835"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108269"
+    },
+    {
+      "id": "CVE-2026-108268",
+      "summary": "Enclave OS Virtual runs container workloads inside confidential virtual machines with end-to-end attestation. Prior to tdx-v0.2.43 and tdx-gpu-v0.6.27, the TDX/GPU RA-TLS certificate issuer placed the certificate public-key hash and client nonce in quote ReportData but omitted a value bound to the active TLS session. An attacker who obtained an enclave TLS private key could relay a genuine quote onto another connection, causing a relying party to accept an attacker-terminated connection as the attested enclave. This issue is fixed in tdx-v0.2.43 and tdx-gpu-v0.6.27.",
+      "published": "2026-10-09T22:16:59.643",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108268"
+    },
+    {
+      "id": "CVE-2026-108267",
+      "summary": "Privasys Go is a maintained fork of the Go programming language that adds RA-TLS support to crypto/tls. Prior to privasys-v0.5.1-go1.26.5, challenge-mode RA-TLS certificates bound quote ReportData to the certificate public key and client nonce but not to the active TLS session. An attacker who obtained an enclave TLS private key could relay a genuine quote onto another connection, causing a relying party to accept a handshake terminated by the attacker as an attested enclave connection. This issue is fixed in privasys-v0.5.1-go1.26.5.",
+      "published": "2026-10-09T22:16:59.490",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108267"
+    },
+    {
+      "id": "CVE-2026-92705",
+      "summary": "Aegisub is a cross-platform advanced subtitle editor. From 3.2.0 to 3.4.2, Aegisub automatically loads Automation scripts referenced by `Automation Scripts` metadata in `ASS` subtitle projects without asking whether the user trusts the scripts or their authors. An attacker can distribute a crafted `ASS` file together with a referenced malicious Automation script, and opening the `AS`\u00a0 file executes arbitrary code with the privileges of the Aegisub process. From 3.4.0 to 3.4.2, inconsistent handling of embedded `NUL` characters between extension validation and filesystem operations additionally allows a crafted `ASS/Lua` polyglot to reference and execute itself as a single-file variant. The vulnerability is fixed in Aegisub 3.5.0.",
+      "published": "2026-10-09T21:17:06.360",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92705"
     }
   ]
 }
