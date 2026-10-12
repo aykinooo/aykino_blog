@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-12T05:51:38+00:00",
+  "generated_at": "2026-10-12T15:16:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-87690",
-      "summary": "The Metasploit Framework post module post/apple_ios/gather/ios_image_gather is affected by a relative path traversal vulnerability (CWE-22). The module interpolates file names taken from a Meterpreter directory listing \u2014 data fully controlled by a hostile or tampered iOS device \u2014 directly into the local destination path passed to client.fs.file.download_file(), with no sanitization. The underlying stdapi sink (lib/rex/post/meterpreter/extensions/stdapi/fs/file.rb) writes to whatever path is supplied, so a listing entry such as ../../msfconsole.rc escapes the intended ~/.msf4/loot/<random> directory and overwrites ~/.msf4/msfconsole.rc, a resource file that every msfconsole invocation automatically executes at startup (lib/msf/ui/console/driver.rb:196). An attacker-controlled device that lures an operator into running this gather module achieves an arbitrary file write as the operator; because the written msfconsole.rc can load a second written file (a Ruby plugin whose top-level code runs on require), this converts into persistent code execution and an interactive shell as the operator (frequently root) on the pentester's workstation at the next console launch. The same traversal was previously fixed upstream in the recursive downloader (stdapi/fs/dir.rb scrubs separators); this module omitted the equivalent scrub. The fix applies the same separator scrub (or File.basename) to listing entries before building the local path.",
-      "published": "2026-10-12T05:17:03.250",
+      "id": "CVE-2026-18390",
+      "summary": "Improper neutralization of special elements used in an OS command ('OS command injection') vulnerability in Ministry of Justice General Directorate of Information Technology UYAP Document Editor allows OS Command Injection.\n\nThis issue affects UYAP Document Editor: before 5.4.20.",
+      "published": "2026-10-12T14:17:12.563",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-18390"
+    },
+    {
+      "id": "CVE-2026-12613",
+      "summary": "Deserialization of untrusted data vulnerability in Ministry of Justice General Directorate of Information Technology UYAP Document Editor allows Object Injection.\n\nThis issue affects UYAP Document Editor: before 5.4.20.",
+      "published": "2026-10-12T14:17:12.423",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87690"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12613"
     },
     {
-      "id": "CVE-2026-21139",
-      "summary": "Improper access control in Samsung Continuity Service for windows prior to version 4.6.1217.0 allows adjacent attackers to manipulate the connected mobile device.",
-      "published": "2026-10-12T05:17:02.750",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21139"
+      "id": "CVE-2026-109229",
+      "summary": "SGLang through 0.5.21 contains a denial of service vulnerability that disables Pillow decompression bomb protection process-wide by setting Image.MAX_IMAGE_PIXELS to None in NanoNemotronVLImageProcessor. Remote attackers can submit small, highly compressed images with huge dimensions to the generic image loader, exhausting worker memory during decoding.",
+      "published": "2026-10-12T14:17:12.257",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109229"
     },
     {
-      "id": "CVE-2026-21138",
-      "summary": "Insufficient verification of data authenticity in Smart Switch prior to version 3.7.73 allows physical attackers to install arbitrary applications.",
-      "published": "2026-10-12T05:17:02.630",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21138"
+      "id": "CVE-2026-109228",
+      "summary": "SGLang through 0.5.21 contains a resource budget bypass vulnerability that allows remote attackers to override GLM-V video processing limits by supplying fps, max_frames, max_tokens_per_frame and max_image_tokens in the video_url object. Attackers can set these values arbitrarily high so glm4v.py decodes every frame of high-resolution video at full size, exhausting worker memory and denying service.",
+      "published": "2026-10-12T14:17:12.087",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109228"
     },
     {
-      "id": "CVE-2026-21137",
-      "summary": "Path traversal in Smart Switch prior to version 3.7.73 allows physical attackers to access files with Smart Switch privilege.",
-      "published": "2026-10-12T05:17:02.507",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21137"
+      "id": "CVE-2026-109227",
+      "summary": "SGLang through 0.5.21 contains an unbounded memory allocation vulnerability in preprocess_video in qwen_vl.py that decodes frames at full source resolution before applying max_pixels limits. Remote attackers can submit high-resolution videos to /v1/chat/completions on Qwen-VL deployments, and concurrent requests exhaust worker memory causing denial of service.",
+      "published": "2026-10-12T14:17:11.923",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109227"
     },
     {
-      "id": "CVE-2026-21136",
-      "summary": "Improper authorization in Smart Switch prior to version 3.7.73 allows physical attackers to invoke application restore process.",
-      "published": "2026-10-12T05:17:02.393",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21136"
-    },
-    {
-      "id": "CVE-2026-21135",
-      "summary": "Improper access control in Samsung Internet prior to version 30.0.5.6 allows local attackers to access sensitive information.",
-      "published": "2026-10-12T05:17:02.280",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21135"
+      "id": "CVE-2026-109226",
+      "summary": "SGLang through 0.5.21 contains a decompression amplification vulnerability in load_audio that allows remote attackers to exhaust memory by submitting highly compressed audio decoded without duration or sample limits. Attackers can supply small FLAC-encoded silence files through audio_url or audio_data inputs that expand into massive PCM buffers, exhausting worker memory and CPU for denial of service.",
+      "published": "2026-10-12T14:17:11.747",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109226"
     }
   ]
 }
