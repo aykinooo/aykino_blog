@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-11T23:40:09+00:00",
+  "generated_at": "2026-10-12T05:51:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-108773",
-      "summary": "A vulnerability was detected in erzhongxmu JEEWMS up to 2026.09.27-W39. Impacted is the function docheck of the file src/main/java/com/zzjee/wm/controller/WmOmNoticeHController.java. Performing a manipulation of the argument goodscode results in sql injection. The attack may be initiated remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-10-11T23:16:56.917",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108773"
+      "id": "CVE-2026-87690",
+      "summary": "The Metasploit Framework post module post/apple_ios/gather/ios_image_gather is affected by a relative path traversal vulnerability (CWE-22). The module interpolates file names taken from a Meterpreter directory listing \u2014 data fully controlled by a hostile or tampered iOS device \u2014 directly into the local destination path passed to client.fs.file.download_file(), with no sanitization. The underlying stdapi sink (lib/rex/post/meterpreter/extensions/stdapi/fs/file.rb) writes to whatever path is supplied, so a listing entry such as ../../msfconsole.rc escapes the intended ~/.msf4/loot/<random> directory and overwrites ~/.msf4/msfconsole.rc, a resource file that every msfconsole invocation automatically executes at startup (lib/msf/ui/console/driver.rb:196). An attacker-controlled device that lures an operator into running this gather module achieves an arbitrary file write as the operator; because the written msfconsole.rc can load a second written file (a Ruby plugin whose top-level code runs on require), this converts into persistent code execution and an interactive shell as the operator (frequently root) on the pentester's workstation at the next console launch. The same traversal was previously fixed upstream in the recursive downloader (stdapi/fs/dir.rb scrubs separators); this module omitted the equivalent scrub. The fix applies the same separator scrub (or File.basename) to listing entries before building the local path.",
+      "published": "2026-10-12T05:17:03.250",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87690"
     },
     {
-      "id": "CVE-2026-108772",
-      "summary": "A security vulnerability has been detected in bleenco abstruse up to 2.1.0. This issue affects the function filepath.Join of the file server/api/worker/download_cache.go of the component Cache Endpoint. Such manipulation of the argument File leads to path traversal. The attack can be launched remotely. The exploit has been disclosed publicly and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-10-11T23:16:56.743",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108772"
+      "id": "CVE-2026-21139",
+      "summary": "Improper access control in Samsung Continuity Service for windows prior to version 4.6.1217.0 allows adjacent attackers to manipulate the connected mobile device.",
+      "published": "2026-10-12T05:17:02.750",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21139"
     },
     {
-      "id": "CVE-2026-108770",
-      "summary": "A weakness has been identified in Appwrite up to 2.3.0. This vulnerability affects the function PublicHostname of the file src/Appwrite/Platform/Modules/Avatars/Http/Screenshots/Get.php of the component Browser Screenshot Service. This manipulation of the argument url causes server-side request forgery. The attack can be initiated remotely. Upgrading to version 2.4.0 is able to resolve this issue. Patch name: 393255e7302ae5503331d45802e2eee01c6a47fe. You should upgrade the affected component.",
-      "published": "2026-10-11T23:16:56.543",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108770"
+      "id": "CVE-2026-21138",
+      "summary": "Insufficient verification of data authenticity in Smart Switch prior to version 3.7.73 allows physical attackers to install arbitrary applications.",
+      "published": "2026-10-12T05:17:02.630",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21138"
     },
     {
-      "id": "CVE-2026-108978",
-      "summary": "Heap-based buffer overflow vulnerability in Samsung Opensource rlottie allows Buffer Overflow via Environment Variables.\n\nThis issue affects rlottie: e57b094f03c39a751a1fded6f7d6c13f1ed95ec9.",
-      "published": "2026-10-11T22:16:50.787",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108978"
+      "id": "CVE-2026-21137",
+      "summary": "Path traversal in Smart Switch prior to version 3.7.73 allows physical attackers to access files with Smart Switch privilege.",
+      "published": "2026-10-12T05:17:02.507",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21137"
     },
     {
-      "id": "CVE-2026-108769",
-      "summary": "A security flaw has been discovered in zhayujie CowAgent up to 2.2.0. This affects an unknown part of the file Markdown.tsx of the component Markdown Rendering. The manipulation results in denial of service. It is possible to launch the attack remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-10-11T22:16:50.617",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108769"
+      "id": "CVE-2026-21136",
+      "summary": "Improper authorization in Smart Switch prior to version 3.7.73 allows physical attackers to invoke application restore process.",
+      "published": "2026-10-12T05:17:02.393",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21136"
     },
     {
-      "id": "CVE-2026-108976",
-      "summary": "GNU Emacs before 31.2 (and TRAMP through 2.8.2) allows OS command injection via a filename because tramp-user-regexp has an incomplete list of disallowed inputs. NOTE: this issue exists because of an incomplete fix for CVE-2026-79992.",
-      "published": "2026-10-11T21:16:43.580",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108976"
+      "id": "CVE-2026-21135",
+      "summary": "Improper access control in Samsung Internet prior to version 30.0.5.6 allows local attackers to access sensitive information.",
+      "published": "2026-10-12T05:17:02.280",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-21135"
     }
   ]
 }
