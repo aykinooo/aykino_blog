@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-15T07:22:42+00:00",
+  "generated_at": "2026-10-15T13:22:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96537",
-      "summary": "The Tutor LMS  WordPress plugin before 4.1.1 does not perform a capability check in a routine that regenerates its managed pages, allowing unauthenticated users to force-publish unpublished pages and overwrite their content, create missing ones, and change the options that reference them.",
-      "published": "2026-10-15T07:18:03.563",
+      "id": "CVE-2026-99999",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv4: validate checksum_start before completing checksum\n\nIf a packet with bad checksum metadata gets into the ipv4 stack,\nskb_checksum_help can corrupt the network header and cause a bunch of\nmischief.\n\nThis was discovered and reported by Paulos, and has been reporoduced\nby others independently since.\n\nWe really shouldn't allow such packets in, but as a defence\nin depth measure, let's also check before we complete the checksum.\n\nA more complete validation at input is forthcoming, but needs more work.",
+      "published": "2026-10-15T13:17:14.137",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99999"
+    },
+    {
+      "id": "CVE-2026-98432",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nipv4: free inet_opt and ireq_opt after an RCU grace period\n\ntcp_v4_syn_recv_sock() transfers ownership of ireq->ireq_opt to the\nchild socket (newinet->inet_opt) without copying it.\n\nAnother cpu can concurrently process a retransmitted SYN for the same\nrequest socket, and send a SYNACK from tcp_check_req().\ntcp_v4_send_synack() and inet_csk_route_req() read ireq->ireq_opt\nunder rcu_read_lock() only, and ip_build_and_send_pkt() and\nip_options_build() then read opt->optlen twice.\n\nNote that the SYNACK timer itself is not an issue: it holds a\nreference on its request socket, and inet_csk_reqsk_queue_drop()\ncalls timer_delete_sync() before the child can be freed.\n\nSince commit 079096f103fa (\"tcp/dccp: install syn_recv requests\ninto ehash table\"), request sockets are processed without holding\nthe listener lock, so nothing prevents the child socket from being\nfreed while the SYNACK is still being built. TCP child sockets do\nnot have SOCK_RCU_FREE, and inet_sock_destruct() frees inet_opt\nwith a plain kfree(), leading to a use-after-free in\nip_options_build().\n\nA similar issue exists with request socket migration\n(net.ipv4.tcp_migrate_req=1, or a BPF_SK_REUSEPORT_SELECT_OR_MIGRATE\nprogram). reqsk_timer_handler() clones the request socket with\ninet_reqsk_clone(), so that the old request socket and its clone\nshare the same ireq_opt, then reqsk_migrate_reset() clears the\npointer in the old one. Another cpu holding a reference on the old\nrequest socket can still be using these options (sending a SYNACK,\nor creating a child in tcp_v4_syn_recv_sock()) when the clone is\nfreed, and tcp_v4_reqsk_destructor() also uses a plain kfree().\n\nReaders already use RCU, and other paths replacing inet_opt\n(do_ip_setsockopt(), cipso_v4_sock_setattr()...) already use\nkfree_rcu(). Use kfree_rcu() in inet_sock_destruct() and\ntcp_v4_reqsk_destructor() as well.\n\nIPv6 is not affected by the first issue, because tcp_v6_syn_recv_sock()\nduplicates the options. tcp_v6_reqsk_destructor() has the same\nmigration issue with ipv6_opt, which is only set by CALIPSO. This\nwill be addressed in a separate patch.",
+      "published": "2026-10-15T13:17:13.987",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96537"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-98432"
     },
     {
-      "id": "CVE-2026-92429",
-      "summary": "The Rede Ita\u00fa for WooCommerce WordPress plugin before 5.5.3 does not verify the authenticity of a payment gateway webhook before updating an order's status, allowing unauthenticated attackers to change the status of arbitrary WooCommerce orders, including marking unpaid orders as paid and cancelling completed orders.",
-      "published": "2026-10-15T07:18:03.433",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92429"
+      "id": "CVE-2026-88794",
+      "summary": "Enterprise Architect is vulnerable to XML External Entity (XXE) injection in the XSLT Debugger feature. When a user loads\u00a0a crafted XML file containing a `DOCTYPE` with an external DTD reference, the parser processes external entities, allowing an attacker to read arbitrary files from the victim's filesystem.\n\nBecause vendor contact attempts were unsuccessful, the vulnerability has only been confirmed in version 17.1 but may also affect other versions.",
+      "published": "2026-10-15T13:17:13.837",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88794"
     },
     {
-      "id": "CVE-2026-92428",
-      "summary": "The Rede Ita\u00fa for WooCommerce WordPress plugin before 5.5.3 does not verify the authenticity of a payment gateway webhook before updating an order's status, allowing unauthenticated attackers to change the status of arbitrary WooCommerce orders, including orders that were already paid or completed.",
-      "published": "2026-10-15T07:18:03.300",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92428"
+      "id": "CVE-2026-79837",
+      "summary": "A vulnerability in\u00a0HPE NonStop SQL/MX UDR SERVER may allow a crafted message to cause process termination, service disruption or memory corruption, resulting in undefined behavior.",
+      "published": "2026-10-15T13:17:13.707",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79837"
     },
     {
-      "id": "CVE-2026-81534",
-      "summary": "The Email Customizer for WooCommerce (Pro) plugin for WordPress is vulnerable to Remote Code Execution in versions up to, and including, 3.9.5. This is due to insufficient authorization and input sanitization in the send_test_mail() function, which allows user-controlled PHP code to be written to executable files in the uploads directory. This makes it possible for authenticated attackers, with subscriber-level access and above, to execute arbitrary PHP code on the server, leading to full site compromise.",
-      "published": "2026-10-15T07:18:03.093",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81534"
+      "id": "CVE-2026-110724",
+      "summary": "In `api-gateway` versions till `1.7.3`, The default rate-limit key resolver, `ClientIpKeyResolver`, derives the per-client bucket key from the leftmost element of the `X-Forwarded-For` request header. That element is supplied by the originating HTTP client and is not validated against any trusted-proxy list. A single attacker can therefore obtain an unlimited number of independent rate-limit buckets \u2014 one per unique header value \u2014 and completely bypass the gateway's request-rate limiting on every route that uses the shipped default configuration.",
+      "published": "2026-10-15T13:17:12.973",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110724"
     },
     {
-      "id": "CVE-2026-79822",
-      "summary": "A security vulnerability in\u00a0HPE NonStop TNS/X Native Inspect may cause corruption of address and potentially redirect execution flow.",
-      "published": "2026-10-15T07:18:02.980",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79822"
-    },
-    {
-      "id": "CVE-2026-79821",
-      "summary": "A security vulnerability in\u00a0HPE NonStop SOAP 4.0  may cause memory corruption resulting in a system down.",
-      "published": "2026-10-15T07:18:02.853",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79821"
+      "id": "CVE-2026-110723",
+      "summary": "In `api-gateway` versions till `1.7.3`, The default rate-limit key resolver, `ClientIpKeyResolver`, derives the per-client bucket key from the leftmost element of the `X-Forwarded-For` request header. That element is supplied by the originating HTTP client and is not validated against any trusted-proxy list. A single attacker can therefore obtain an unlimited number of independent rate-limit buckets \u2014 one per unique header value \u2014 and completely bypass the gateway's request-rate limiting on every route that uses the shipped default configuration.",
+      "published": "2026-10-15T13:17:12.857",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110723"
     }
   ]
 }
