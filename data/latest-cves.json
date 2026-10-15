@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-14T23:11:04+00:00",
+  "generated_at": "2026-10-15T01:27:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-110816",
-      "summary": "### Summary\n\n\n\n`qs.stringify` with `arrayFormat: 'comma'` throws `TypeError: Cannot convert object to primitive value` when an array element cannot be coerced to a string, such as an object with an own non-callable `toString` (`{ \"toString\": \"x\" }`) or a null-prototype object. The comma format joins array elements with `Array.prototype.join` and, under `encodeValuesOnly`, first passes each element through `String()` in `utils.encode`; neither guards against an element whose string coercion fails.\n\n\n\n### Details\n\n\n\nIn `lib/stringify.js`, the comma branch collapses the array with `obj.join(',')`. For an element whose own `toString` is not callable, `ToPrimitive` skips it, falls through to `Object.prototype.valueOf` (which returns the object itself), and throws. Under `encodeValuesOnly: true`, the same element first reaches `String(str)` in `utils.encode` (`lib/utils.js`) and throws there. Nested arrays (`{ \"a\": [[{ \"toString\": \"x\" }]] }`) throw the same way, through `Array.prototype.toString`. The `indices`, `brackets`, and `repeat` formats walk into object elements instead of coercing them, and are not affected.\n\n\n\nSuch elements can come from untrusted input. `JSON.parse` produces `{ \"a\": [{ \"toString\": \"x\" }] }` with no qs option involved. `qs.parse(\"a[0][toString]=x\", { allowPrototypes: true })` keeps the `toString` key, and `qs.parse(\"a[][b]=c\", { plainObjects: true })` produces a null-prototype element; the default parse options drop `toString` and produce ordinary objects, which do not throw. Express 4's default `query parser`, Express 5's `extended` query parser, and body-parser's `urlencoded({ extended: true })` all call `qs.parse` with `allowPrototypes: true`.\n\n\n\n#### PoC\n\n\n\n```js\n\n\n\nvar qs = require(\"qs\");\n\n\n\nqs.stringify(JSON.parse(\"{\\\"a\\\":[{\\\"toString\\\":\\\"x\\\"}]}\"), { arrayFormat: \"comma\" });\n\n\n\nqs.stringify(qs.parse(\"a[0][toString]=x\", { allowPrototypes: true }), { arrayFormat: \"comma\" });\n\n\n\nqs.stringify(qs.parse(\"a[][b]=c\", { plainObjects: true }), { arrayFormat: \"comma\", encodeValuesOnly: true });\n\n\n\n// TypeError: Cannot convert object to primitive value\n\n\n\n```\n\n\n\n#### Fix\n\n\n\nApplied in a952e75 on `main` and released as v6.16.1: an element whose string coercion would fail is coerced to its primitive `valueOf`, if any, or else to `Object.prototype.toString`, so it renders as `[object Object]`, the same as any other object element already does under the comma format. Nested arrays are walked the way `join` walks them. Every input that did not previously throw serializes exactly as before, and a `toString` or `valueOf` that itself throws still propagates.\n\n\n\n### Affected versions\n\n\n\n`>=6.7.0 <6.16.1`, fixed in v6.16.1.\n\n\n\nThe `join` path was introduced with the comma format in b84acba and first shipped in v6.7.0; v6.6.x and earlier ignore `arrayFormat: 'comma'` and are not affected. The `encodeValuesOnly` `String()` site was introduced in 4c4b23d (v6.11.1); before that, the same input throws at `join`. Every release from v6.7.0 through v6.16.0 is affected.\n\n\n\n### Impact\n\n\n\nAn unauthenticated request can make any code path that re-serializes attacker-influenced data with `qs.stringify` and `arrayFormat: 'comma'` (for example, rebuilding a query string from `req.query` for a redirect or an upstream request, or serializing a parsed JSON body) throw synchronously. In a typical Node.js HTTP framework the throw is caught by the framework error boundary and the affected request returns a 500; the process survives and other requests are unaffected. Where the call runs outside an error boundary, such as an `async` Express 4 handler (where the throw becomes an unhandled promise rejection) or a bare `http` request handler, the process exits, so the impact in that case depends on the application error handling rather than on qs. The default `arrayFormat` (`indices`) is not affected.",
-      "published": "2026-10-14T22:17:23.230",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110816"
+      "id": "CVE-2026-110810",
+      "summary": "A vulnerability was detected in ggml-org whisper.cpp up to 1.9.4. This affects the function whisper_model_load of the file src/whisper.cpp of the component Model Loader. Performing a manipulation of the argument ttype results in out-of-bounds read. The attack must be initiated from a local position. The exploit is now public and may be used. Upgrading to version 1.9.5 is able to mitigate this issue. The patch is named 60c0be6ac8fa71b1a2ae2dd938a31a34a508e774. It is recommended to upgrade the affected component. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-10-15T01:19:27.600",
+      "cvss": 2.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110810"
     },
     {
-      "id": "CVE-2026-110698",
-      "summary": "A security vulnerability has been detected in Praat up to 7.0.02. Affected is the function whisper_model_load of the file external/whispercpp/whisper.cpp of the component Model Loader. The manipulation of the argument n_dims leads to out-of-bounds write. The attack can be initiated remotely. The exploit has been disclosed publicly and may be used. The identifier of the patch is a910d21a2705ef4cd16d91f29cdc8da1ab1a7221. To fix this issue, it is recommended to deploy a patch. The project maintainer confirms: \"We did a quick fix (suggested fix 1) for Praat version 7.0.03, and scheduled a better fix (suggested fix 2).\"",
-      "published": "2026-10-14T22:17:23.050",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110698"
+      "id": "CVE-2026-0993",
+      "summary": "SODOLA SL902-SWTGW124AS firmware before 200.2.12 contains a buffer overflow vulnerability that allows unauthenticated remote attackers to cause a denial of service by sending an oversized boundary value in the Content-Type header of a crafted POST request. Attackers can exploit the embedded HTTP server's multipart/form-data boundary parser to cause the device to become fully unresponsive \u2014 dropping all management access and traffic forwarding during its self-recovery cycle.",
+      "published": "2026-10-15T01:19:27.290",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-0993"
     },
     {
-      "id": "CVE-2026-110696",
-      "summary": "A weakness has been identified in itsmeravitejak Online-Examination-System up to e6208e630b14657999bbfe4c9912302d2a1e2449. The affected element is an unknown function of the file dbtables.sql. Executing a manipulation can lead to information disclosure. The attack may be launched remotely. The exploit has been made available to the public and could be used for attacks. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-10-14T22:17:22.870",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110696"
+      "id": "CVE-2026-110809",
+      "summary": "A security vulnerability has been detected in sgl-project SGLang up to 0.5.19. Affected by this issue is the function Session.create_req of the file python/sglang/srt/session/session_controller.py of the component Session Cleanup. Such manipulation leads to denial of service. The attack may be performed from remote. The exploit has been disclosed publicly and may be used. The pull request to fix this issue awaits acceptance.",
+      "published": "2026-10-15T00:16:40.150",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110809"
     },
     {
-      "id": "CVE-2026-110695",
-      "summary": "A vulnerability was detected in turboderp ExLlamaV2 up to 0.3.2. Affected is the function STFile.get_tensor of the file exllamav2/stloader.py of the component Safetensors Tensor Loader. Performing a manipulation of the argument data_offsets results in buffer overflow. The attack is possible to be carried out remotely. The exploit is now public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-10-14T22:17:22.697",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110695"
+      "id": "CVE-2026-110873",
+      "summary": "Heym from 0.0.55 before 0.0.121 contains a privilege escalation vulnerability that allows shared collaborators to overwrite a workflow's error_workflow_id because the field is missing from OWNER_ONLY_EXECUTION_FIELDS. Attackers can point the error workflow to their own workflow with an HTTP node, and when the parent workflow errors the owner's decrypted credentials are injected and exfiltrated.",
+      "published": "2026-10-14T23:17:29.237",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110873"
     },
     {
-      "id": "CVE-2026-108337",
-      "summary": "An administrator could retrieve the password reset code for any user and take over the account.\n\n\n\nThe password reset codes were included in the output of an API and could be used to reset the password\u00a0of any account. The API is limited to use by administrator accounts only.\n\n\n\nAn attacker who already has administrative access to the application could compromise the credentials\u00a0of other accounts on the application. Device credentials and customer data cannot be accessed with this\u00a0vulnerability.",
-      "published": "2026-10-14T22:17:22.563",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108337"
+      "id": "CVE-2026-110872",
+      "summary": "Nodemailer from 3.0.0 before 10.0.10 contains a quadratic complexity denial of service vulnerability in the SMTP client reply parser in SMTPConnection._onData and isPartialResponse. A malicious SMTP server or on-path attacker can stream continuation lines without a completion line before authentication, blocking the Node.js event loop and exhausting memory.",
+      "published": "2026-10-14T23:17:29.097",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110872"
     },
     {
-      "id": "CVE-2026-108336",
-      "summary": "When the default self-signed certificate is used, an attacker could gain administrative access to the\u00a0application.\n\n\n\nThe SSL certificate for the web interface is used to sign JWT access tokens that are used to validate that\u00a0the user is logged in. When the default SSL certificate is used, an attacker could have the capability to sign\u00a0JWT access tokens and bypass login.\n\n\n\nAn attacker could gain administrative access to the application and perform actions like configuring the\u00a0service or requesting log collection. Device credentials and customer data cannot be accessed with this\u00a0vulnerability.",
-      "published": "2026-10-14T22:17:22.433",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-108336"
+      "id": "CVE-2026-110871",
+      "summary": "Nodemailer from 3.0.0 before 10.0.10 contains a denial of service vulnerability in MessageParser.parseHeaders that allows users to exhaust CPU through quadratic header unfolding. Attackers can supply large recipient lists or long headers that fold into tens of thousands of continuation lines, blocking the Node.js event loop during DKIM signing.",
+      "published": "2026-10-14T23:17:28.953",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110871"
     }
   ]
 }
