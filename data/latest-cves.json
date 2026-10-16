@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-16T00:21:53+00:00",
+  "generated_at": "2026-10-16T05:48:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-92777",
-      "summary": "A potential vulnerability was reported in some Lenovo Tablets that could allow a user with physical access to an unlocked tablet to bypass device protections and execute arbitrary code.",
-      "published": "2026-10-16T00:17:07.333",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92777"
+      "id": "CVE-2026-96562",
+      "summary": "The The Broken Link Checker plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 2.4.14.1. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. Exploitation requires that a submitted comment containing the shortcode payload in an href or src attribute is approved through the site's normal comment moderation workflow; once approved, the shortcode is executed automatically via WP-Cron without any further attacker interaction.",
+      "published": "2026-10-16T05:17:30.687",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96562"
     },
     {
-      "id": "CVE-2026-92629",
-      "summary": "A potential improper authorization vulnerability was reported in Lenovo Baiying PC Client, distributed exclusively in the Chinese market,\u00a0that could allow a local authenticated user to execute arbitrary code with elevated privileges.",
-      "published": "2026-10-16T00:17:07.190",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92629"
+      "id": "CVE-2026-111114",
+      "summary": "The Nexter Extension \u2013 Security, Performance, Code Snippets & Site Toolkit plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.7.11 The vulnerability exists because the `/?reset-view` handler in `role_switcher_to_view_admin_as()` performs no nonce or capability check when the supplied username matches the authenticated caller, and because the plugin's only cleanup mechanism \u2014 the `profile_update` hook \u2014 does not fire when WordPress performs a bulk role change via `wp-admin/users.php?action=promote`, which calls `WP_User::set_role()` directly and leaves a stale `administrator` value in the `nxtext_view_admin_original_role` user meta. This makes it possible for authenticated attackers with Subscriber-level access or above to restore the stale stored Administrator role to their own account, effectively escalating their privileges to Administrator. Exploitation requires that the attacker's account previously held the Administrator role and used the View Admin Role Switcher feature before being demoted specifically through the bulk role-change control rather than the Edit User screen, as only the bulk path bypasses the `profile_update` hook that would otherwise have cleared the stored original role.",
+      "published": "2026-10-16T05:17:30.350",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111114"
     },
     {
-      "id": "CVE-2026-89062",
-      "summary": "A potential out-of-bounds write vulnerability was reported in the Lenovo Energy Management driver that could allow a local authenticated user to cause a blue screen error.",
-      "published": "2026-10-16T00:17:07.037",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89062"
+      "id": "CVE-2026-111106",
+      "summary": "The Mail Mint plugin for WordPress is vulnerable to SQL Injection via the 'filters' parameter of the /wp-json/mrm/v1/segments/contacts REST endpoint in versions up to, and including, 1.31.4 This is due to insufficient escaping on the user supplied filter 'value' before it is appended to a SQL query in SegmentFilterService::get_meta_join_query() at line 797, where the value is string-interpolated into the WHERE fragment in a numeric (unquoted) context and the surrounding $wpdb->prepare() calls do not cover the injected value. This makes it possible for authenticated attackers, with the custom 'mint_read_contacts' capability (granted to Administrators by default, and configurable to lower roles via the plugin's role manager), to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
+      "published": "2026-10-16T05:17:30.223",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111106"
     },
     {
-      "id": "CVE-2026-89057",
-      "summary": "A potential authentication bypass vulnerability was reported in some Lenovo tablets that could allow a user with physical access to gain unauthorized device access.",
-      "published": "2026-10-16T00:17:06.417",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89057"
+      "id": "CVE-2026-110721",
+      "summary": "The NotificationX plugin for WordPress is vulnerable to Missing Authorization leading to arbitrary content injection in versions up to, and including, 3.3.3 The /notificationx/v1/popup-submit REST route is registered with permission_callback => '__return_true', and the handler at PopupNotification::handle_popup_submission() accepts an attacker-controlled nx_id, loads whichever NotificationX campaign that id points to, and copies that campaign's own source into the new entry without verifying that the campaign is a Popup Notification or Exit Intent Popup (the two sources this form is intended to serve). This makes it possible for unauthenticated attackers to inject forged social-proof entries (name, title, message, email, theme) into any enabled non-popup NotificationX campaign \u2014 WP Comments, WooCommerce/EDD/Give sales, reviews, etc.",
+      "published": "2026-10-16T05:17:30.097",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110721"
     },
     {
-      "id": "CVE-2026-84823",
-      "summary": "A flaw was found in WildFly. A user with the `Monitor` role, which is the lowest standard Role-Based Access Control (RBAC) role, can exploit a path traversal vulnerability in the `take-snapshot` operation. By manipulating the `name` parameter, this user can write a copy of the server configuration to an arbitrary location. This allows the `Monitor` role to read back the server configuration, including sensitive credentials, which would otherwise be restricted by RBAC, leading to information disclosure.",
-      "published": "2026-10-16T00:17:05.573",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84823"
+      "id": "CVE-2026-110590",
+      "summary": "The Klarna for WooCommerce plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.13.3 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to access any order's secret order_key and full billing and shipping PII \u2014 including first name, last name, email address, phone number, street address, postcode, city, region, and country \u2014 emitted inline as the klarna_payments_params JavaScript variable, enabling full store-wide order enumeration. Because WooCommerce order IDs are sequential integers and no order_key or authenticated session is required, every order in the store can be trivially enumerated with sequential GET requests to the order-pay endpoint.",
+      "published": "2026-10-16T05:17:29.973",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110590"
     },
     {
-      "id": "CVE-2026-75941",
-      "summary": "A potential vulnerability was reported in the Lenovo Legion Zone application, distributed exclusively in the Chinese market, that could allow an attacker on the same logical network to execute arbitrary code.",
-      "published": "2026-10-16T00:17:05.420",
-      "cvss": 8.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75941"
+      "id": "CVE-2026-110019",
+      "summary": "The Bulk Page Generator \u2013 LPagery plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.1.0 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to create, modify, and delete LPagery-managed WordPress pages and bulk page-generation processes that are otherwise restricted to administrators. On default fresh installations where Freemius has not been opted into, the AES-256-CBC key used to validate Bearer tokens collapses to the publicly known SHA-256 hash of an empty string, making the token entirely forgeable by any authenticated user.",
+      "published": "2026-10-16T05:17:29.850",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110019"
     }
   ]
 }
