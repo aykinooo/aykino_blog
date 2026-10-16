@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-16T11:17:55+00:00",
+  "generated_at": "2026-10-16T16:34:58+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-109119",
-      "summary": "Improper Privilege Management in the user management API endpoint (/api/users/{username_or_id}) in Rdiffweb allows authenticated users to elevate their privileges to administrator by modifying the role parameter in a POST request.",
-      "published": "2026-10-16T11:17:00.927",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109119"
+      "id": "CVE-2026-96425",
+      "summary": "Incorrect DBus policy for lomiri-download-manager allows arbitrary user to run arbitrary command as root over DBus",
+      "published": "2026-10-16T16:22:52.693",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96425"
     },
     {
-      "id": "CVE-2026-109118",
-      "summary": "Improper path containment check in ikus060 rdiffweb 7.1.1 allows an authenticated user to cause the browse, restore, history and delete operations to resolve to a path outside the repository being operated on, via a percent-encoded traversal sequence (%2e%2e) in the request path, because the containment check uses a string prefix comparison (startswith) instead of a filesystem path boundary check. The target must be a sibling path whose name begins with the repository path, and the user already hold permissions on it; the issue can mislead a user into operating on, or deleting, data other than the repository displayed",
-      "published": "2026-10-16T11:17:00.793",
-      "cvss": 4.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109118"
+      "id": "CVE-2026-96424",
+      "summary": "Incorrect DBus policy for lomiri-upload-manager (part of lomiri-download-manager) allows arbitrary user to read arbitrary file as root over DBus",
+      "published": "2026-10-16T16:22:52.560",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96424"
     },
     {
-      "id": "CVE-2026-96768",
-      "summary": "The GoSMTP Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via Email Log Body in all versions up to, and including, 1.2.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit is made possible because WordPress comment kses does not strip entity-encoded tag delimiters, allowing the payload to pass moderation as safe text before being decoded into live HTML by core email notification functions and written verbatim into the plugin's email log database table.",
-      "published": "2026-10-16T10:18:05.863",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96768"
-    },
-    {
-      "id": "CVE-2026-14452",
-      "summary": "Improper validation of the reset_url parameter of the Setup in-page search in Checkmk <2.5.0p15, <2.4.0p38, <2.3.0p51 and 2.2.0 (EOL) allows an attacker to execute arbitrary script in the session of an authenticated user with Setup access, or to redirect that user to an arbitrary external site, by tricking the user into opening a crafted URL and clicking the Reset button or submitting an empty search.",
-      "published": "2026-10-16T10:18:05.653",
+      "id": "CVE-2026-95859",
+      "summary": "libp2p-rust is the official Rust language implementation of the libp2p networking stack. Prior to 0.49.5, Gossipsub GRAFT control-message handling unconditionally adds attacker-supplied topic hashes to connected_peer.topics without confirming that the peer previously subscribed to those topics. A remote unauthenticated peer that can reach a Gossipsub listener can repeatedly send novel GRAFT topics, causing cumulative per-peer memory growth that is not bounded by subscription filters, peer scoring, or per-message size limits. This can exhaust process memory and cause a denial of service. This issue is fixed in version 0.49.5.",
+      "published": "2026-10-16T16:22:44.400",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14452"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95859"
     },
     {
-      "id": "CVE-2026-110703",
-      "summary": "The GeoDirectory \u2013 WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_content' parameter in all versions up to, and including, 2.8.191 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the attacker to own a published listing, as the ownership check in GeoDir_Post_Data::can_edit() limits who can store the payload; however, because ajax_save_post() re-applies the existing post_status, edits to an already-published listing bypass re-moderation and remain live immediately.",
-      "published": "2026-10-16T10:18:05.447",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110703"
+      "id": "CVE-2026-92263",
+      "summary": "SparkyFitness is a self-hosted, AI-powered health and fitness tracker for families. Prior to 1.6.0, the api/admin/backup/restore endpoint interpolates an uploaded filename into a shell command. An authenticated global administrator uploads a restore archive with a crafted filename. The administrator can supply a restore archive with a filename containing shell metacharacters. Successful exploitation can execute arbitrary operating-system commands with the server process privileges. This issue is fixed in version 1.6.0.",
+      "published": "2026-10-16T16:22:43.027",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92263"
     },
     {
-      "id": "CVE-2026-107649",
-      "summary": "The Events Made Easy plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'event[location_name]' parameter in all versions up to, and including, 3.2.22 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This vulnerability is only exploitable when both the guest event submission feature (eme_fs[guest_submit]) and forced location creation (eme_fs[force_location_creation]) are explicitly enabled by a site administrator, as both settings default to off.",
-      "published": "2026-10-16T10:18:04.307",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107649"
+      "id": "CVE-2026-77630",
+      "summary": "pupnp is an SDK for development of UPnP device and control point applications. Prior to 22.0.4, parse_hostport in upnp/src/genlib/net/uri/uri.c synchronously calls getaddrinfo while parse_uri is processing attacker-supplied hostnames from inbound HTTP request targets in upnp/src/genlib/net/http/httpparser.c and GENA SUBSCRIBE CALLBACK headers handled by create_url_list in upnp/src/gena/gena_device.c. A remote unauthenticated peer can choose a slow or nonresponsive hostname and block a bounded miniserver worker for the resolver timeout, allowing a small number of requests to exhaust the thread pool and deny UPnP service. This issue is fixed in 22.0.4.",
+      "published": "2026-10-16T16:21:03.187",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77630"
+    },
+    {
+      "id": "CVE-2026-68908",
+      "summary": "libIEC61850 is an open-source implementation of IEC 61850 client and server protocols including MMS, GOOSE, Sampled Values, and R-Session. Prior to 1.6.2, Reporting_RCBWriteAccessHandler accepts an RptID longer than 129 bytes in the report-control-block write path. When GI later causes sendNextReportEntrySegment to serialize the report, the function wraps rptIdBuf[130] as a temporary MmsValue and passes it to MmsValue_setVisibleString. The setter's resize path frees the stack-backed buffer, allowing a remote client to trigger an invalid free and server crash by writing the oversized RptID and then generating a report. This issue is fixed in version 1.6.2.",
+      "published": "2026-10-16T16:20:01.140",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68908"
     }
   ]
 }
