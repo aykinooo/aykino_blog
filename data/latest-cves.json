@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-16T05:48:54+00:00",
+  "generated_at": "2026-10-16T11:17:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96562",
-      "summary": "The The Broken Link Checker plugin for WordPress is vulnerable to arbitrary shortcode execution in all versions up to, and including, 2.4.14.1. This is due to the software allowing users to execute an action that does not properly validate a value before running do_shortcode. This makes it possible for unauthenticated attackers to execute arbitrary shortcodes. Exploitation requires that a submitted comment containing the shortcode payload in an href or src attribute is approved through the site's normal comment moderation workflow; once approved, the shortcode is executed automatically via WP-Cron without any further attacker interaction.",
-      "published": "2026-10-16T05:17:30.687",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96562"
+      "id": "CVE-2026-109119",
+      "summary": "Improper Privilege Management in the user management API endpoint (/api/users/{username_or_id}) in Rdiffweb allows authenticated users to elevate their privileges to administrator by modifying the role parameter in a POST request.",
+      "published": "2026-10-16T11:17:00.927",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109119"
     },
     {
-      "id": "CVE-2026-111114",
-      "summary": "The Nexter Extension \u2013 Security, Performance, Code Snippets & Site Toolkit plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 4.7.11 The vulnerability exists because the `/?reset-view` handler in `role_switcher_to_view_admin_as()` performs no nonce or capability check when the supplied username matches the authenticated caller, and because the plugin's only cleanup mechanism \u2014 the `profile_update` hook \u2014 does not fire when WordPress performs a bulk role change via `wp-admin/users.php?action=promote`, which calls `WP_User::set_role()` directly and leaves a stale `administrator` value in the `nxtext_view_admin_original_role` user meta. This makes it possible for authenticated attackers with Subscriber-level access or above to restore the stale stored Administrator role to their own account, effectively escalating their privileges to Administrator. Exploitation requires that the attacker's account previously held the Administrator role and used the View Admin Role Switcher feature before being demoted specifically through the bulk role-change control rather than the Edit User screen, as only the bulk path bypasses the `profile_update` hook that would otherwise have cleared the stored original role.",
-      "published": "2026-10-16T05:17:30.350",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111114"
+      "id": "CVE-2026-109118",
+      "summary": "Improper path containment check in ikus060 rdiffweb 7.1.1 allows an authenticated user to cause the browse, restore, history and delete operations to resolve to a path outside the repository being operated on, via a percent-encoded traversal sequence (%2e%2e) in the request path, because the containment check uses a string prefix comparison (startswith) instead of a filesystem path boundary check. The target must be a sibling path whose name begins with the repository path, and the user already hold permissions on it; the issue can mislead a user into operating on, or deleting, data other than the repository displayed",
+      "published": "2026-10-16T11:17:00.793",
+      "cvss": 4.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109118"
     },
     {
-      "id": "CVE-2026-111106",
-      "summary": "The Mail Mint plugin for WordPress is vulnerable to SQL Injection via the 'filters' parameter of the /wp-json/mrm/v1/segments/contacts REST endpoint in versions up to, and including, 1.31.4 This is due to insufficient escaping on the user supplied filter 'value' before it is appended to a SQL query in SegmentFilterService::get_meta_join_query() at line 797, where the value is string-interpolated into the WHERE fragment in a numeric (unquoted) context and the surrounding $wpdb->prepare() calls do not cover the injected value. This makes it possible for authenticated attackers, with the custom 'mint_read_contacts' capability (granted to Administrators by default, and configurable to lower roles via the plugin's role manager), to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database.",
-      "published": "2026-10-16T05:17:30.223",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111106"
+      "id": "CVE-2026-96768",
+      "summary": "The GoSMTP Pro plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Content via Email Log Body in all versions up to, and including, 1.2.3 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The exploit is made possible because WordPress comment kses does not strip entity-encoded tag delimiters, allowing the payload to pass moderation as safe text before being decoded into live HTML by core email notification functions and written verbatim into the plugin's email log database table.",
+      "published": "2026-10-16T10:18:05.863",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96768"
     },
     {
-      "id": "CVE-2026-110721",
-      "summary": "The NotificationX plugin for WordPress is vulnerable to Missing Authorization leading to arbitrary content injection in versions up to, and including, 3.3.3 The /notificationx/v1/popup-submit REST route is registered with permission_callback => '__return_true', and the handler at PopupNotification::handle_popup_submission() accepts an attacker-controlled nx_id, loads whichever NotificationX campaign that id points to, and copies that campaign's own source into the new entry without verifying that the campaign is a Popup Notification or Exit Intent Popup (the two sources this form is intended to serve). This makes it possible for unauthenticated attackers to inject forged social-proof entries (name, title, message, email, theme) into any enabled non-popup NotificationX campaign \u2014 WP Comments, WooCommerce/EDD/Give sales, reviews, etc.",
-      "published": "2026-10-16T05:17:30.097",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110721"
+      "id": "CVE-2026-14452",
+      "summary": "Improper validation of the reset_url parameter of the Setup in-page search in Checkmk <2.5.0p15, <2.4.0p38, <2.3.0p51 and 2.2.0 (EOL) allows an attacker to execute arbitrary script in the session of an authenticated user with Setup access, or to redirect that user to an arbitrary external site, by tricking the user into opening a crafted URL and clicking the Reset button or submitting an empty search.",
+      "published": "2026-10-16T10:18:05.653",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14452"
     },
     {
-      "id": "CVE-2026-110590",
-      "summary": "The Klarna for WooCommerce plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.13.3 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for unauthenticated attackers to access any order's secret order_key and full billing and shipping PII \u2014 including first name, last name, email address, phone number, street address, postcode, city, region, and country \u2014 emitted inline as the klarna_payments_params JavaScript variable, enabling full store-wide order enumeration. Because WooCommerce order IDs are sequential integers and no order_key or authenticated session is required, every order in the store can be trivially enumerated with sequential GET requests to the order-pay endpoint.",
-      "published": "2026-10-16T05:17:29.973",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110590"
+      "id": "CVE-2026-110703",
+      "summary": "The GeoDirectory \u2013 WP Business Directory Plugin and Classified Listings Directory plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'post_content' parameter in all versions up to, and including, 2.8.191 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This requires the attacker to own a published listing, as the ownership check in GeoDir_Post_Data::can_edit() limits who can store the payload; however, because ajax_save_post() re-applies the existing post_status, edits to an already-published listing bypass re-moderation and remain live immediately.",
+      "published": "2026-10-16T10:18:05.447",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110703"
     },
     {
-      "id": "CVE-2026-110019",
-      "summary": "The Bulk Page Generator \u2013 LPagery plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 3.1.0 This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with subscriber-level access and above, to create, modify, and delete LPagery-managed WordPress pages and bulk page-generation processes that are otherwise restricted to administrators. On default fresh installations where Freemius has not been opted into, the AES-256-CBC key used to validate Bearer tokens collapses to the publicly known SHA-256 hash of an empty string, making the token entirely forgeable by any authenticated user.",
-      "published": "2026-10-16T05:17:29.850",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110019"
+      "id": "CVE-2026-107649",
+      "summary": "The Events Made Easy plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'event[location_name]' parameter in all versions up to, and including, 3.2.22 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. This vulnerability is only exploitable when both the guest event submission feature (eme_fs[guest_submit]) and forced location creation (eme_fs[force_location_creation]) are explicitly enabled by a site administrator, as both settings default to off.",
+      "published": "2026-10-16T10:18:04.307",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107649"
     }
   ]
 }
