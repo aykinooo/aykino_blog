@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-16T19:55:48+00:00",
+  "generated_at": "2026-10-16T22:49:03+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-85977",
-      "summary": "A flaw was found in libtirpc. A remote attacker can exploit this vulnerability by sending specially crafted PMAPPROC_DUMP replies to a client application that uses the pmap_getmaps() function against an attacker-controlled host. This unbounded decoding can lead to excessive memory and CPU allocation, causing the client process to experience a Denial of Service (DoS) due to resource exhaustion.",
-      "published": "2026-10-16T19:17:44.430",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85977"
-    },
-    {
-      "id": "CVE-2026-85231",
-      "summary": "A flaw was found in libtirpc. An authenticated remote attacker could exploit this vulnerability by sending oversized wrapped data requests to an RPC (Remote Procedure Call) service configured with RPCSEC_GSS (Remote Procedure Call Security-Generic Security Service) integrity or privacy. This can lead to unbounded memory allocation, resulting in a Denial of Service (DoS) by exhausting system resources and causing the service to become unstable or terminate.",
-      "published": "2026-10-16T19:17:44.180",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85231"
-    },
-    {
-      "id": "CVE-2026-17491",
-      "summary": "IBM i 7.3, 7.4, 7.5, and 7.6 is could allow a remote authenticated attacker to bypass security restrictions due to improper enforcement of the ChrootDirectory configuration directive.",
-      "published": "2026-10-16T19:17:06.557",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17491"
-    },
-    {
-      "id": "CVE-2026-17488",
-      "summary": "IBM i 7.3, 7.4, 7.5, and 7.6 could allow a remote authenticated attacker to bypass security restrictions due to improper authentication.",
-      "published": "2026-10-16T19:17:06.443",
+      "id": "CVE-2026-96628",
+      "summary": "Arcane is an interface for managing Docker containers, images, networks, and volumes. Prior to 2.11.0, AuthMiddleware.managerAuth accepts X-Arcane-Agent-Token credentials and the environment-token branch calls next before the AdminRequired option is evaluated. An attacker with a valid X-Arcane-Agent-Token can request /api/debug/pprof/* through a route protected by WithAdminRequired because EnvironmentPermissionSet is installed and the request continues without checking IsGlobalAdmin. This exposes administrator-restricted Go pprof runtime and diagnostic information and may impose profiling overhead. This issue is fixed in version 2.11.0.",
+      "published": "2026-10-16T22:18:58.367",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17488"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96628"
     },
     {
-      "id": "CVE-2026-17275",
-      "summary": "IBM i 7.3, 7.4, 7.5, and 7.6 could allow a remote attacker to perform unauthorized manipulation of distributed transactions due to improper validation of attacker-supplied transaction identifiers.",
-      "published": "2026-10-16T19:17:06.313",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17275"
+      "id": "CVE-2026-96627",
+      "summary": "Arcane is an interface for managing Docker containers, images, networks, and volumes. Prior to 2.6.0, UpdateUser in backend/api/handlers/users.go sets PasswordHash for any target without comparing caller and target privilege. A holder of delegated users:update permission can submit a password change for the global administrator, replace the administrator password, and authenticate as that account, resulting in complete global administrator account takeover. This issue is fixed in version 2.6.0.",
+      "published": "2026-10-16T22:18:58.227",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96627"
     },
     {
-      "id": "CVE-2026-17073",
-      "summary": "IBM i 7.3, 7.4, 7.5, and 7.6 could allow a local attacker to obtain sensitive information due to missing subtree checks during file handle resolution.",
-      "published": "2026-10-16T19:17:06.190",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17073"
+      "id": "CVE-2026-96626",
+      "summary": "Arcane is an interface for managing Docker containers, images, networks, and volumes. Prior to 2.5.0, UpdateRegistry and TestRegistry in backend/api/services/container_registry_service.go allow the registry URL to change while preserving the stored encrypted token. When a holder of registries:update and registries:test repoints a generic registry URL without supplying a replacement token, TestRegistry decrypts the preserved token and RegistryLogin sends it to the attacker-controlled host because normalizeRegistryServerAddressInternal does not restrict the destination. This exposes the stored container-registry PAT or password and can enable image access or tampering. This issue is fixed in version 2.5.0.",
+      "published": "2026-10-16T22:18:58.070",
+      "cvss": 8.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96626"
+    },
+    {
+      "id": "CVE-2026-68498",
+      "summary": "StreamReadConstraints.maxNameLength (default 50,000 characters) is intended to bound how much memory a single JSON Object property name can consume while being parsed, independently of the much larger maxStringLength (default 100,000,000 characters) that bounds ordinary string values. For parsers built over character input \u2014 Reader, String or char[] sources, all served by ReaderBasedJsonParser \u2014 that bound is not applied while the name is being accumulated. The code path instead re-uses the string-value length check, which is roughly 2000x larger by default.\n\n\n\nIn the character-input slow path, ReaderBasedJsonParser._parseName2() accumulates the name into the TextBuffer and, when a segment fills, calls TextBuffer.finishCurrentSegment(), which validates only maxStringLength. The correct check, StreamReadConstraints.validateNameLength(int), is reached afterwards in CharsToNameCanonicalizer.findSymbol(), once the entire name has been scanned to its closing quote. By that point the full name \u2014 up to maxStringLength characters \u2014 has already been buffered in memory.\n\n\n\nA remote attacker who can have a single sufficiently long JSON Object property name parsed through this path can force allocation on the order of 100,000,000 characters (approximately 200 MB, with segment bookkeeping pushing real peak usage higher) before any StreamConstraintsException is thrown, instead of the approximately 50,000-character (about 100 KB) bound the API promises. Repeating this across concurrent requests can exhaust the heap and crash the process. No authentication or user interaction is required. Because StreamReadConstraints.maxDocumentLength is disabled by default (-1), nothing else bounds the token first, so the issue is exploitable under default configuration.\n\n\n\nByte-input parsers are not affected: UTF8StreamJsonParser, UTF8DataInputJsonParser and the non-blocking (async) parsers re-validate maxNameLength on every growth of the name-decode buffer via ParserBase._growNameDecodeBuffer(), rejecting an oversized name after allocating only tens of kilobytes. Applications are exposed when untrusted JSON is parsed from a String, Reader or char[] \u2014 for example an HTTP request body already read into a String \u2014 rather than from raw UTF-8 bytes.\n\n\n\nThis issue affects com.fasterxml.jackson.core:jackson-core from 2.16.0 and tools.jackson.core:jackson-core from 3.0.0. Releases before 2.16.0 are not affected, because StreamReadConstraints.maxNameLength was first introduced in jackson-core 2.16.0.",
+      "published": "2026-10-16T22:17:25.183",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68498"
+    },
+    {
+      "id": "CVE-2026-62439",
+      "summary": "A flaw was found in GIMP. An integer overflow occurs in the file-pvr plug-in when calculating memory buffer sizes for image dimensions. By tricking a user into opening or previewing a specially crafted PowerVR (.pvr) file, an attacker can trigger a heap-based buffer overflow, potentially leading to arbitrary code execution or a Denial of Service (DoS) via an application crash.",
+      "published": "2026-10-16T22:17:24.440",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62439"
+    },
+    {
+      "id": "CVE-2026-62438",
+      "summary": "A flaw was found in GIMP. An attacker can cause a Denial of Service (DoS) or potentially disclose sensitive memory contents by convincing a user to open or preview a specially crafted Bohemia Interactive (PAA) texture file. Due to an integer overflow when calculating image dimensions during file decompression, the application allocates an undersized memory buffer. Subsequent processing reads memory past the buffer boundary, terminating the plug-in process unexpectedly.",
+      "published": "2026-10-16T22:17:24.307",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62438"
     }
   ]
 }
