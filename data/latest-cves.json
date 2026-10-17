@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-17T01:16:52+00:00",
+  "generated_at": "2026-10-17T06:53:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-89096",
-      "summary": "A flaw was found in nfs-utils. An unauthenticated remote attacker can trigger a Denial of Service (DoS) by sending repeated state notification requests to an exposed rpc.statd service. The service fails to properly release memory allocated during callback processing, leading to continuous memory growth. Sustained requests can exhaust system resources, eventually causing the service to degrade or crash.",
-      "published": "2026-10-16T23:17:02.810",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89096"
-    },
-    {
-      "id": "CVE-2026-89088",
-      "summary": "A flaw was found in parted. A heap-based buffer overflow exists in libparted's file system resizing logic when handling FAT16 volumes. By convincing a user or administrator to resize a specially crafted FAT16 file system image with malformed directory metadata, an attacker can trigger an oversized read into a fixed-size memory buffer. This issue causes memory corruption, resulting in an application crash and a denial of service (DoS).",
-      "published": "2026-10-16T23:17:02.680",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89088"
-    },
-    {
-      "id": "CVE-2026-89085",
-      "summary": "A flaw was found in parted. A heap-based buffer overflow can occur when processing a specially crafted FAT32 filesystem due to an integer calculation error during buffer allocation. A local attacker could exploit this by enticing a user or automated service to open a malicious filesystem image, resulting in an application crash leading to a Denial of Service (DoS) or potential memory corruption.",
-      "published": "2026-10-16T23:17:02.553",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89085"
-    },
-    {
-      "id": "CVE-2026-17591",
-      "summary": "A flaw was found in libarchive. An attacker can cause a Denial of Service (DoS) or potential information disclosure due to a use-after-free vulnerability, which occurs when a program reads memory that has already been released. This issue arises when the archive_entry_copy_mac_metadata() function deallocates an internal buffer before completing a data copy. An attacker who can supply input to an application utilizing this function can trigger the flaw to crash the application or read uninitialized memory data.",
-      "published": "2026-10-16T23:17:01.420",
-      "cvss": 3.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17591"
-    },
-    {
-      "id": "CVE-2026-111802",
-      "summary": "A flaw was found in Nautilus. When a removable drive or disk image is unmounted or ejected, Nautilus prompts the user to empty the trash without verifying whether the trash directory paths are symbolic links. An attacker can exploit this flaw by tricking a user into mounting a crafted storage volume and confirming the prompt to empty the trash, leading to the arbitrary deletion of files accessible to that user.",
-      "published": "2026-10-16T23:17:01.277",
-      "cvss": 6.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111802"
-    },
-    {
-      "id": "CVE-2026-110759",
-      "summary": "Text::CSV_XS versions before 1.65 for Perl return a 0xFF byte that is not in the input for an empty last field followed by a lone CR in parse.\n\nWhen the input to parse ends in a separator and a lone CR, the parser treats the end of the input as the next character and stores the end-of-file marker in the field as the byte 0xFF. With binary set, parse(\"a,\\r\") returns the fields \"a\" and \"\\xFF\". On UTF-8 flagged input the last field is a UTF-8 flagged string holding that lone byte, which is malformed UTF-8. The same input with a non-empty last field is rejected as an error.\n\nA CRLF file read line by line and chomped ends this way when its last column is empty, so the application receives a byte that is not in its input.",
-      "published": "2026-10-16T23:17:01.170",
+      "id": "CVE-2026-97314",
+      "summary": "The ThirstyAffiliates  WordPress plugin before 3.12.1 does not check the status or type of the object requested by its link redirect tracking handler, allowing unauthenticated attackers to disclose the destination URLs of unpublished affiliate links and to record fabricated click statistics.",
+      "published": "2026-10-17T06:16:34.553",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110759"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97314"
+    },
+    {
+      "id": "CVE-2026-92433",
+      "summary": "The Patreon WordPress plugin before 1.10.0 does not verify a nonce when connecting the site to a Patreon account, allowing attackers to make a logged-in administrator re-link the integration to an attacker-controlled account via a crafted request (CSRF), taking over the site's Patreon integration.",
+      "published": "2026-10-17T06:16:34.457",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92433"
+    },
+    {
+      "id": "CVE-2026-92432",
+      "summary": "The Patreon WordPress plugin before 1.10.0 does not validate a user-supplied redirect destination before redirecting, allowing unauthenticated attackers to redirect visitors to an arbitrary external URL through a crafted link, which is useful for phishing.",
+      "published": "2026-10-17T06:16:34.357",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92432"
+    },
+    {
+      "id": "CVE-2026-92431",
+      "summary": "The Patreon WordPress plugin before 1.10.0 does not perform an authorization check on some of its functionality, allowing unauthenticated users to enumerate the names of terms in any taxonomy, including non-public taxonomies that WordPress does not expose on the front end.",
+      "published": "2026-10-17T06:16:34.257",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92431"
+    },
+    {
+      "id": "CVE-2026-91074",
+      "summary": "The BSK PDF Manager WordPress plugin through 3.8.1 does not properly sanitise and escape a parameter before using it in a SQL statement, which could allow authenticated users with contributor-level access and above to perform SQL injection attacks and read sensitive data such as administrator password hashes from the database.",
+      "published": "2026-10-17T06:16:33.933",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91074"
+    },
+    {
+      "id": "CVE-2026-81344",
+      "summary": "The ACF Frontend Admin by DynamiApps WordPress plugin through 3.29.13 does not restrict which PHP classes may be instantiated when it deserialises stored post content that is rendered on public-facing pages, allowing high-privilege users such as administrators to inject a PHP object which, given a suitable POP chain in another installed ACF Frontend Admin by DynamiApps WordPress plugin through 3.29.13 or in WordPress core, can be leveraged to achieve remote code execution.",
+      "published": "2026-10-17T06:16:33.830",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81344"
     }
   ]
 }
