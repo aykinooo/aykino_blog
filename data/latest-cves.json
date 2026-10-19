@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-19T19:53:13+00:00",
+  "generated_at": "2026-10-19T23:36:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-112259",
-      "summary": "A flaw was found in GIMP. Importing a crafted SBZ palette without a color-model attribute can cause a NULL pointer dereference during string comparison, resulting in denial of service of the GIMP application.",
-      "published": "2026-10-19T19:17:27.330",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112259"
+      "id": "CVE-2026-77684",
+      "summary": "The Bluetooth Classic Hands-Free Profile HF role in subsys/bluetooth/host/classic/hfp_hf.c does not release the AT command buffers that are still queued on hf->tx_pending when the RFCOMM DLC goes down. hfp_hf_disconnected() only cancelled the work items and cleared hf->acl, and no other code path ever dequeues those buffers, so each one is permanently lost from the fixed hf_pool (CONFIG_BT_MAX_CONN + 1 buffers, i.e. two in the default configuration). The same function also left BT_HFP_HF_FLAG_CONNECTED set, and hfp_hf_create() wiped the object with memset() as soon as hf->acl was NULL, without checking whether hf->work, hf->slc_work or hf->deferred_work was still pending or running.\n\nThe remote Audio Gateway peer controls the trigger end to end and needs no application involvement: an unsolicited +BCS: 1 response makes bcs_handle() call bt_hfp_hf_select_codec() and queue an AT+BCS buffer, which cannot be transmitted while BT_HFP_HF_FLAG_RX_ONGOING is set, and an immediately following RFCOMM DISC strands that buffer. Repeating the connect / +BCS / disconnect cycle a couple of times empties hf_pool for good.\n\nWith the pool exhausted, HFP command sending fails permanently, and because hfp_hf_send_cmd() allocates with K_FOREVER (bt_rfcomm_create_pdu() \u2192 bt_conn_create_pdu()) from the Bluetooth RX context \u2014 where that timeout is not downgraded to K_NO_WAIT \u2014 one further +BCS from the peer parks the Bluetooth RX thread inside net_buf_alloc() with no possible waker, halting all HCI event processing until the device is rebooted. Separately, reusing the HF slot while a work handler was still queued or running allowed memset() to wipe live k_work items out from under the system workqueue, corrupting shared kernel workqueue state. Exploitation requires an established HFP session (for SSP devices L2CAP enforces authentication before the RFCOMM channel is reachable) and a build with CONFIG_BT_HFP_HF enabled.",
+      "published": "2026-10-19T23:17:37.197",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77684"
     },
     {
-      "id": "CVE-2026-112252",
-      "summary": "A vulnerability has been found in Wuxi Wubang Security Software Wubang Five-in-One Safety Production Management Information System up to 3.5. Affected is the function xp_cmdshell of the file /ws.asmx. The manipulation of the argument sql leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-10-19T19:17:27.157",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112252"
+      "id": "CVE-2026-19595",
+      "summary": "The user-mode syscall verifier z_vrfy_rtio_cqe_get_mempool_buffer() in subsys/rtio/rtio_syscalls.c validated its two output parameters, buff and buff_len, with K_SYSCALL_MEMORY_READ() rather than K_SYSCALL_MEMORY_WRITE(). Both are pure out-parameters: z_impl_rtio_cqe_get_mempool_buffer() stores the mempool buffer address and its length through them. The distinction is enforced by every architecture validator \u2014 arch_buffer_validate() on RISC-V PMP explicitly accepts the global __rom_region/__rodata_region for reads only, and the ARM MPU validators accept P_RO_U_RO and P_RW_U_RO regions for reads only \u2014 so a read-validated pointer is not necessarily writable by the calling thread.\n\nAn unprivileged user-mode thread that has been granted access to an RTIO context (rtio_access_grant()) can invoke the rtio_cqe_get_mempool_buffer() syscall with buff/buff_len pointing at memory it may read but not write, and with a completion-queue entry whose flags field it fully controls (only RTIO_CQE_FLAG_MEMPOOL_BUFFER in flags[7:0] is required; flags[19:8] and flags[31:20] supply the block index and count). The kernel then performs a pointer-sized and a 4-byte store through those addresses while running in supervisor mode. Reaching the store requires CONFIG_USERSPACE together with CONFIG_RTIO_SYS_MEM_BLOCKS, the configuration behind RTIO_DEFINE_WITH_MEMPOOL; without the latter the implementation returns -ENOTSUP and writes nothing.\n\nTwo outcomes follow. If the target lies in a memory-domain partition declared K_MEM_PARTITION_P_RW_U_RO (privileged read-write, user read-only), the kernel-mode store succeeds and deposits partly attacker-chosen values into memory the memory domain had marked read-only for that thread, bypassing the partition's write protection. If the target lies in globally readable but unwritable memory such as .text/.rodata in flash, the store faults in kernel mode; the fault is delivered to z_fatal_error() and the default k_sys_fatal_error_handler() halts or reboots the device, giving an unprivileged thread a reliable full denial of service.\n\nThe read-permission check does bound the damage: the address must still be readable by the calling thread, so kernel-private memory cannot be targeted and no confidential data is disclosed. The fix replaces both checks with K_SYSCALL_MEMORY_WRITE(), so a thread lacking write permission is terminated by K_OOPS before the implementation runs; the cqe argument correctly remains read-validated.",
+      "published": "2026-10-19T23:17:36.717",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19595"
     },
     {
-      "id": "CVE-2026-112251",
-      "summary": "A vulnerability was detected in antoinersx clawhost up to 0.0.45. This affects the function handleRequest of the file apps/clawhostgo/src/main/services/reverseProxy.ts of the component Reverse Proxy. Performing a manipulation of the argument token results in open redirect. The attack can be initiated remotely. The exploit is now public and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-10-19T19:17:26.953",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112251"
+      "id": "CVE-2026-19178",
+      "summary": "IBM Storage TS4500 Library 1.1.1.6 through 1.12.0.3 could allow a remote authenticated attacker to gain unauthorized administrative privileges due to a race condition.",
+      "published": "2026-10-19T23:17:36.590",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19178"
     },
     {
-      "id": "CVE-2026-112249",
-      "summary": "A vulnerability was detected in grandnode grandnode2 up to 2.3.0. Affected is the function Html.Raw of the file src/Web/Grand.Web/Views/Product/Product.Layout.Simple.cshtml of the component Product Description Handler. The manipulation results in cross site scripting. The attack can be launched remotely. Upgrading to version 2.4.0-beta and 2.4.0 is able to address this issue. The patch is identified as 41a8e349eab8d9641cf6ea800d738f2d8991ca22. Upgrading the affected component is recommended. The vendor was contacted early about this disclosure.",
-      "published": "2026-10-19T19:17:26.760",
-      "cvss": 2.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112249"
-    },
-    {
-      "id": "CVE-2026-110688",
-      "summary": "Cpanel::JSON::XS versions from 4.51 before 4.80 for Perl allow quadratic CPU use by revalidating the remaining buffer per value in incr_parse.\n\nAt the first non-ASCII byte in a string, the decoder validates UTF-8 from there to the end of its input. incr_parse decodes each buffered value with a fresh decoder, so every value revalidates the rest of the buffer, and doubling the input quadruples the work.\n\nA peer that sends about a megabyte of ordinary non-ASCII JSON in one read ties up the process for seconds of CPU time.",
-      "published": "2026-10-19T19:17:22.420",
+      "id": "CVE-2026-112991",
+      "summary": "The html_to_markdown expansion module in MISP Modules contains a server-side request forgery (SSRF) vulnerability in its is_safe_url() URL validation function. The BLOCKED_RANGES list used to reject unsafe destination addresses was incomplete, omitting several critical IP address ranges. Specifically, the following ranges were not blocked: 0.0.0.0/8 (unspecified, which routes to loopback on Linux), 100.64.0.0/10 (carrier-grade NAT per RFC 6598), ::/128 (IPv6 unspecified), fc00::/7 (IPv6 Unique Local Addresses), and fe80::/10 (IPv6 link-local). The existing list only covered IPv4 loopback (127.0.0.0/8), RFC 1918 private ranges, IPv4 link-local (169.254.0.0/16), and IPv6 loopback (::1/128).\n\nAn authenticated user with the ability to create or modify MISP attributes that trigger the html_to_markdown expansion module could supply URLs pointing to these unblocked internal address ranges. Because the module fetches the URL server-side to convert HTML content to Markdown, the request is made from the MISP server's network context. This allows an attacker to probe and read responses from internal services, carrier-grade NAT infrastructure, or link-local endpoints that would otherwise be unreachable from external networks. IPv4-mapped IPv6 forms (e.g., [::ffff:0.0.0.0]) also bypassed the existing checks.\n\nThe security impact is primarily confidentiality: an attacker can read data served by internal services reachable from the MISP server. The MISP instance itself is not compromised, but it is abused as a proxy to access otherwise restricted network resources.",
+      "published": "2026-10-19T23:17:36.350",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110688"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112991"
     },
     {
-      "id": "CVE-2026-110687",
-      "summary": "Cpanel::JSON::XS versions from 4.43 before 4.80 for Perl misorder byte-string keys during canonical encoding in utf16_cmp.\n\ncanonical sorts keys by UTF-16 code units. When any key in a hash is UTF-8 flagged, every key is decoded as UTF-8 for the comparison, including byte-string keys that the encoder writes out as Latin-1 characters. A byte-string key whose bytes are valid UTF-8 is sorted out of order, and two keys that encode differently can compare equal and are left in hash order.\n\nThe same data can encode to different canonical documents across processes.",
-      "published": "2026-10-19T19:17:22.307",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110687"
+      "id": "CVE-2026-112372",
+      "summary": "A weakness has been identified in H3C Magic NX15 V100R017. This affects the function importprofile of the file /api/upload. This manipulation of the argument fileName causes path traversal. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure.",
+      "published": "2026-10-19T23:17:36.173",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112372"
+    },
+    {
+      "id": "CVE-2026-112371",
+      "summary": "A vulnerability was determined in H3C Magic NX15 NX15V100R017. Impacted is the function write of the file /api/esps of the component RPC Interface. Executing a manipulation of the argument path can lead to code injection. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. The vendor was contacted early about this disclosure.",
+      "published": "2026-10-19T23:17:36.000",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112371"
     }
   ]
 }
