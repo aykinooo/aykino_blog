@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-19T06:12:43+00:00",
+  "generated_at": "2026-10-19T13:15:38+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-112080",
-      "summary": "A vulnerability was found in LlamaChinese Llama-Chinese up to 6fa0fffb0dd82fe3cfaa1449ee54a5806d26ae9b. The impacted element is the function get_class_from_dynamic_module of the file examples/chat_gradio_no_merge.py of the component Adapter Config. The manipulation of the argument base_model_name_or_path results in code injection. The attack may be performed from remote. The exploit has been made public and could be used. This product utilizes a rolling release system for continuous delivery, and as such, version information for affected or updated releases is not disclosed. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-10-19T05:17:04.993",
+      "id": "CVE-2026-88900",
+      "summary": "Deserialization of Untrusted Data vulnerability in Apache Camel Camel-Jgroups component.\n\n\n\nThis issue affects Apache Camel: from 4.0.0 before 4.18.5, from 4.19.0 before 4.22.1.\n\n\n\nJGroupsEndpoint.createExchange(Message), which CamelJGroupsReceiver calls for every message the jgroups consumer receives before the exchange is routed, set the exchange body from org.jgroups.Message.getObject(). For an ObjectMessage, which is the message type the Camel jgroups producer sends, JGroups Java-deserializes the payload through an ObjectInputStream on its own receive thread as the message arrives, and getObject() returns the resulting object. No java.io.ObjectInputFilter was applied on that path unless the deployment had set a JVM-wide serialization filter: camel-jgroups installed none, and the JGroups versions shipped with the affected releases apply none of their own, so any serializable class on the application classpath could be instantiated and its deserialization callbacks run. Unless a channel or the channelProperties option is configured, the consumer creates its channel with new JChannel(), the stock JGroups protocol stack, which multicasts over UDP without the AUTH protocol and without encryption, so any host able to reach the cluster's multicast group or bind port can join the cluster and send messages to the consumer without credentials. Such a host could send a crafted serialized object that leads to remote code execution in the Camel process when a usable deserialization gadget chain is present on the classpath, and no non-default option was required on the consumer. Because JGroups materializes the object before Camel's receiver runs, a check performed by Camel can only inspect the deserialized result and cannot stop code that runs during deserialization, so closing the issue also requires a control that applies before the payload is read, as described in the mitigation. Exploitation requires network access to the cluster's multicast group or bind port, which with the default UDP multicast transport means a host on an adjacent network, and a usable gadget chain on the classpath, which is why the severity is assessed as high rather than critical.\n\n\n\nUsers are recommended to upgrade to version 4.23.0, which fixes the issue. If users are on the 4.22.x releases stream, then they are suggested to upgrade to 4.22.1. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.5. The 4.14.x releases stream and earlier, and the 4.15.x to 4.17.x and 4.19.x to 4.21.x release lines, reached end of life before this issue was resolved and will not receive a fix, so deployments on those lines must move to a supported release.",
+      "published": "2026-10-19T12:17:11.980",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88900"
+    },
+    {
+      "id": "CVE-2026-112210",
+      "summary": "A flaw was found in the rhc-canonical-facts.service systemd unit shipped with rhc. The service runs as root and operates on a file inside a directory owned by an unprivileged system user without verifying that the file is not a symbolic link. A local attacker who has already compromised the privileged yggdrasil system service account can exploit this to gain ownership of arbitrary files, leading to privilege escalation to root.",
+      "published": "2026-10-19T12:17:01.910",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112210"
+    },
+    {
+      "id": "CVE-2026-112140",
+      "summary": "A vulnerability was found in llSourcell Doctor-Dignity up to 3f2ffb6c892f13b50a708d05900d3227acb40ded. This impacts the function _get_lib_module of the file python/mlc_chat/chat_module.py. The manipulation of the argument model_lib results in code injection. The attack may be launched remotely. The exploit has been made public and could be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-19T12:17:01.740",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112080"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112140"
     },
     {
-      "id": "CVE-2026-112079",
-      "summary": "A vulnerability has been found in hankcs HanLP up to 2.1.0-beta.64. The affected element is the function load_word2vec_as_vocab_tensor of the file hanlp/utils/torch_util.py. The manipulation of the argument vectors.vocab leads to deserialization. The attack is possible to be carried out remotely. The exploit has been disclosed to the public and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-10-19T05:17:04.773",
+      "id": "CVE-2026-112139",
+      "summary": "A vulnerability has been found in subhajitkhan online-clinic-management-system up to e9ee77a8827a1446220fa07ee693dc4d9a29a578. This affects an unknown function of the file admindocview.php of the component Administrative Mutation Handler. The manipulation of the argument docid leads to sql injection. The attack may be initiated remotely. The exploit has been disclosed to the public and may be used. This product uses a rolling release model to deliver continuous updates. As a result, specific version information for affected or updated releases is not available. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-19T12:17:01.563",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112139"
+    },
+    {
+      "id": "CVE-2026-112138",
+      "summary": "A flaw has been found in diem-project diem up to 5.1.3. The impacted element is the function dmOs::join of the file dmFrontPlugin/modules/dmCodeEditor/actions/actions.class.php of the component dmCodeEditor. Executing a manipulation can lead to path traversal. The attack can be launched remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-19T12:17:01.383",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112138"
+    },
+    {
+      "id": "CVE-2026-112108",
+      "summary": "A vulnerability was determined in ztxz16 fastllm up to 0.1.8.2. This impacts the function GGUFBuffer::ReadString of the file third_party/gguf/gguf.cpp of the component String Parsing. This manipulation of the argument len causes buffer overflow. The attack can be initiated remotely. The exploit has been publicly disclosed and may be utilized. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-19T12:17:01.197",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112079"
-    },
-    {
-      "id": "CVE-2026-112078",
-      "summary": "A flaw has been found in RVC-Project Retrieval-based-Voice-Conversion-WebUI up to 2.3.260718. Impacted is the function change_info_ of the file webui.py. Executing a manipulation of the argument ckpt_path can lead to code injection. The attack can be executed remotely. The exploit has been published and may be used. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-10-19T05:17:04.570",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112078"
-    },
-    {
-      "id": "CVE-2026-112077",
-      "summary": "A vulnerability was detected in radareorg radare2 6.2.0/6.2.2. This issue affects the function r_core_cmd_str_pipe in the library libr/core/rtr_http.inc.c of the component HTTP Sandbox Policy Handler. Performing a manipulation results in protection mechanism failure. Remote exploitation of the attack is possible. The attack is considered to have high complexity. The exploitability is assessed as difficult. Upgrading to version 6.2.4 is capable of addressing this issue. The patch is named 18fd12efa98a7d1977de7bdd379d8a848777b90f. Upgrading the affected component is recommended. The pre-requisite of the vulnerability is reflected by the CVSS vector. One of the project maintainers explains: \"There is a real sandbox configuration issue here, but the report overstates it. The HTTP server defaults to http.sandbox=true, so commands received through /cmd temporarily enable cfg.sandbox. However, cfg.sandbox.grain defaults to all, which means all sandbox capabilities - including exec - remain allowed. Therefore enabling the HTTP sandbox alone does NOT prevent commands from spawning processes. This only matters when the HTTP command endpoint is reachable by someone you do not trust. It is not a remote vulnerability by default: the HTTP server must first be started and exposed to the attacker.\"",
-      "published": "2026-10-19T05:17:04.347",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112077"
-    },
-    {
-      "id": "CVE-2026-112076",
-      "summary": "A security vulnerability has been detected in alexta69 MeTube up to 2026.09.28. This vulnerability affects the function DownloadQueue.__write_feed_metadata_sync of the file app/ytdl.py of the component Feed-metadata Thumbnail Fetch Handler. Such manipulation leads to server-side request forgery. The attack may be launched remotely. Attacks of this nature are highly complex. It is stated that the exploitability is difficult. The exploit has been disclosed publicly and may be used. Upgrading to version 2026.09.29 is able to resolve this issue. The name of the patch is a3896604540223ecbb8258b41b1d745d62647d16. It is suggested to upgrade the affected component.",
-      "published": "2026-10-19T04:17:09.543",
-      "cvss": 5.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112076"
-    },
-    {
-      "id": "CVE-2026-112075",
-      "summary": "A weakness has been identified in unslothai unsloth up to 0.1.501-beta. This affects the function FastSentenceTransformer._is_transformer_module_ref of the file unsloth/models/sentence_transformer.py. This manipulation of the argument Type causes use of externally-controlled input to select classes or code. The attack may be initiated remotely. The exploit has been made available to the public and could be used for attacks. Upgrading to version 0.1.902-beta is able to mitigate this issue. Patch name: de801746386a53a0cb26216e715a0af863b76ad9. The affected component should be upgraded.",
-      "published": "2026-10-19T04:17:09.287",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112075"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112108"
     }
   ]
 }
