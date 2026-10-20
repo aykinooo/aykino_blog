@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-20T19:12:41+00:00",
+  "generated_at": "2026-10-20T22:17:42+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-113802",
-      "summary": "Wavlink WL-WN530BE1-A firmware through M30BE1_V251117 contains an OS command injection vulnerability in the sub_23B54 function of the ioos binary, which passes the unsanitized file_id parameter of /protocol.csp?opt=ovpn_file requests with type=del to popen(). A remote unauthenticated attacker can send a forged IP-FROM: 127.0.0.1 header to bypass login and execute arbitrary commands as root.",
-      "published": "2026-10-20T18:17:21.430",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113802"
+      "id": "CVE-2026-9869",
+      "summary": "A stack-based buffer overflow vulnerability exists in the boa formTR069Config functionality of X2000R (version(s): TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327). A specially crafted HTTP request can lead to arbitrary code execution. An attacker can make an authenticated HTTP request to trigger this vulnerability.",
+      "published": "2026-10-20T21:17:23.143",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9869"
     },
     {
-      "id": "CVE-2026-113711",
-      "summary": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.33.0 of ApostropheCMS and 3.7.0 of the import-export module, import routes invoke bigUploadMiddleware without an early authorize callback, allowing unauthenticated requests to perform upload initialization, chunk storage, temporary processing, and attacker-declared cleanup work before the later user check rejects the import. This issue is fixed in ApostropheCMS 4.33.0 and import-export 3.7.0.",
-      "published": "2026-10-20T18:17:21.290",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113711"
+      "id": "CVE-2026-9827",
+      "summary": "A arbitrary file write vulnerability exists in the boa formUploadFile functionality of X2000R (version(s): TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327). A specially crafted HTTP request can lead to arbitrary code execution. An attacker can make an authenticated HTTP request to trigger this vulnerability.",
+      "published": "2026-10-20T21:17:23.020",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9827"
     },
     {
-      "id": "CVE-2026-113710",
-      "summary": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.33.0, the self-service password-change endpoint verifies the current password but does not use the login module\u2019s failed-attempt counter, throttle, delay, or lockout mechanism. An attacker with a valid authenticated session can submit repeated guesses for the current password without receiving a lockout or throttle response. This issue is fixed in version 4.33.0.",
-      "published": "2026-10-20T18:17:21.147",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113710"
+      "id": "CVE-2026-9817",
+      "summary": "A stack-based buffer overflow vulnerability exists in the boa formUploadFile functionality of X2000R (version(s): TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327). A specially crafted HTTP request can lead to arbitrary code execution. An attacker can make an authenticated HTTP request to trigger this vulnerability.",
+      "published": "2026-10-20T21:17:22.900",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9817"
     },
     {
-      "id": "CVE-2026-113672",
-      "summary": "Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. From 0.9.0 until 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2, the repo-server evaluates .jsonnet files with an importer that does not confine import, importstr, or importbin to the repository root. Absolute paths, parent-directory traversal, and repository symlinks can open any file readable by the repo-server, including /proc/self/environ, projected service-account tokens, mounted private keys, and repository credentials. Although generated Secrets are redacted, placing imported contents in a ConfigMap returns the data to the caller. Using importstr on a non-terminating device such as /dev/zero can exhaust repo-server memory. An attacker can commit a .jsonnet file to a Git repository used by an Application or upload the file through POST /api/v1/applications/manifestsWithFiles, also exposed by argocd app diff --local --server-side-generate. Directory applications evaluate every .jsonnet file in the application directory. The upload path requires only Application get permission on an existing directory Application, without Application update or sync permission or repository write access. This issue is fixed in versions 3.3.15, 3.4.10, 3.5.4, and 3.6.0-rc2.",
-      "published": "2026-10-20T18:17:20.950",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113672"
+      "id": "CVE-2026-9814",
+      "summary": "An OS command injection vulnerability exists in the boa formWizard newPass functionality of X2000R (version(s): TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327). A specially crafted HTTP request can lead to arbitrary code execution. An attacker can make an authenticated HTTP request to trigger this vulnerability.",
+      "published": "2026-10-20T21:17:22.773",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9814"
     },
     {
-      "id": "CVE-2026-113671",
-      "summary": "ApostropheCMS is an open-source Node.js content management system. From 1.0.0-beta.10 until 1.0.0-beta.13 of the AI helper, an editor with image-generation capability can create a base64-generated image record without a stored provider URL and invoke image acceptance on a deployment using local relative storage with no trusted global base URL. The server resolves the fixed uploads path against a request-controlled Host-derived origin, enabling bounded server-side requests to an attacker-selected host, port, and HTTP origin, but not arbitrary-path retrieval or the stored-provider and absolute-storage configurations. This issue is fixed in AI helper 1.0.0-beta.13.",
-      "published": "2026-10-20T18:17:20.813",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113671"
+      "id": "CVE-2026-9660",
+      "summary": "Multiple exploitable stack-based buffer overflow vulnerabilities exist in the boa formFilter functionality of X2000R (version(s): TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327). A specially crafted HTTP request can lead to arbitrary code execution. An attacker can make an authenticated HTTP request to trigger these vulnerabilities. This vulnerability deals with the vpnPassword parameter.",
+      "published": "2026-10-20T21:17:22.613",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9660"
     },
     {
-      "id": "CVE-2026-113670",
-      "summary": "ApostropheCMS is an open-source Node.js content management system. Prior to 4.33.0, the core page REST API reads full page documents with .permission(false) in getOne and in the all=1 tree dump, bypassing page-type viewRole, visibility: private, and visibility: loginRequired checks. Unauthenticated visitors and low-privilege contributors can read admin-only and non-public page content by _id/slug. This issue is fixed in version 4.33.0.",
-      "published": "2026-10-20T18:17:20.680",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-113670"
+      "id": "CVE-2026-9659",
+      "summary": "Multiple exploitable stack-based buffer overflow vulnerabilities exist in the boa formFilter functionality of X2000R (version(s): TOTOLINK-X2000R-Gh-V1.0.0-B20250421.1327). A specially crafted HTTP request can lead to arbitrary code execution. An attacker can make an authenticated HTTP request to trigger these vulnerabilities. This vulnerability deals with the vpnUser parameter.",
+      "published": "2026-10-20T21:17:22.410",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9659"
     }
   ]
 }
