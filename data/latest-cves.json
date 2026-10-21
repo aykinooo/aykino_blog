@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-21T07:34:06+00:00",
+  "generated_at": "2026-10-21T13:44:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96901",
-      "summary": "The Cart Abandonment Recovery for WooCommerce  WordPress plugin before 2.2.0 does not verify the integrity of its cart-recovery token before acting on it and still accepts an unsigned legacy token format, allowing unauthenticated attackers who know a victim's cart session identifier to modify that victim's abandoned-cart record, for example unsubscribing them from recovery emails or applying an arbitrary coupon to their restored cart.",
-      "published": "2026-10-21T06:16:51.170",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96901"
+      "id": "CVE-2026-97313",
+      "summary": "A recursive BIND server that receives a query with recursion desired (RD=1) followed by a non-recursive query (RD=0) may exit with an assertion failure, resulting in a denial of service. To be vulnerable, the BIND server must allow recursive queries and have at least two RPZ zones configured: one with the default setting of \"recursive-only yes\", and the other with \"recursive-only no\".\nThis issue affects BIND 9 versions 9.16.0 through 9.18.50, 9.20.0 through 9.20.29, 9.21.0 through 9.21.26, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.29-S1.",
+      "published": "2026-10-21T13:21:09.270",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97313"
     },
     {
-      "id": "CVE-2026-93856",
-      "summary": "In OpenStack Cinder through 29.0.0, cross-project information disclosure can occur in the Messages API. A non-admin user with the project-scoped 'member' or 'reader' role making the Block Storage API v3.3 \"List messages\" call finds the non-expired user messages for other projects included in the response, resulting in the leakage of UUIDs of resources owned by other projects, in addition to the user message about the other projects' resources (which, by design, are sanitized generic messages). All Cinder deployments are affected.",
-      "published": "2026-10-21T06:16:51.017",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93856"
+      "id": "CVE-2026-96888",
+      "summary": "A BIND resolver that is configured with both a \"redirect\" zone and \"qname-minimization strict\" may abort with an assertion failure while processing the redirect.\nThis issue affects BIND 9 versions 9.16.0 through 9.18.50, 9.20.0 through 9.20.29, 9.21.0 through 9.21.26, 9.16.8-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.29-S1.",
+      "published": "2026-10-21T13:21:08.840",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96888"
     },
     {
-      "id": "CVE-2026-92999",
-      "summary": "The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not perform any authorization check on a lead-export handler, allowing unauthenticated users to download every captured contact record (names, email addresses and phone numbers).",
-      "published": "2026-10-21T06:16:50.920",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92999"
+      "id": "CVE-2026-94300",
+      "summary": "Replaying GSS-TSIG signed UDP messages can result in memory corruption in \"`named`\".  An attacker who can capture a previously signed UDP message can replay it while the negotiated TSIG key is still valid. By also sending crafted queries to a zone the attacker controls, the attacker may potentially achieve remote code execution.\nThis issue affects BIND 9 versions 9.11.0 through 9.18.50, 9.20.0 through 9.20.29, 9.21.0 through 9.21.26, 9.11.3-S1 through 9.18.50-S1, and 9.20.9-S1 through 9.20.29-S1.",
+      "published": "2026-10-21T13:21:08.670",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94300"
     },
     {
-      "id": "CVE-2026-92998",
-      "summary": "The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not sanitise sort parameters before using them in a SQL ORDER BY clause, allowing unauthenticated attackers to perform SQL injection attacks.",
-      "published": "2026-10-21T06:16:50.823",
+      "id": "CVE-2026-90484",
+      "summary": "The MySQL client response parser in Apache bRPC dereferences a null pointer when the server peer sends a zero-payload-length response packet. A response packet whose declared payload length is zero is accepted by the frame-length check (is_full_package), after which the parser reads the response type byte via an unbounded 5-byte fetch that returns nullptr, and type = p[4] dereferences it, crashing the client process.\n\n\n\nRoot Cause: In brpc::policy::MysqlReply::ConsumePartialIOBuf, buf.fetch(header, 5) returns nullptr when the buffered data only holds the 4-byte header of a zero-length packet, then the code reads p[4] (and, in the fast-auth path, p2[4]) without checking for a null or zero-length packet.\n\n\n\nAffected Scenarios: A brpc MySQL client connecting to a malicious or compromised MySQL server (or a MITM) can be crashed by a zero-length server response packet, resulting in denial of service of the client.\n\n\n\nFix: The fix rejects zero-length response packets (returning PARSE_ERROR_ABSOLUTELY_WRONG) both for the initial response type determination and after a fast-auth marker, before reading the type byte. Upgrade to the Apache bRPC version 1.18.0 or apply the PR patch at https://github.com/apache/brpc/pull/3536.",
+      "published": "2026-10-21T13:20:56.590",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92998"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90484"
     },
     {
-      "id": "CVE-2026-92997",
-      "summary": "The Click n Chat (Chat Widget Integration) WordPress plugin before 1.1.3 does not properly validate a parameter before using it as a column identifier in a SQL query, allowing unauthenticated attackers to perform SQL injection attacks.",
-      "published": "2026-10-21T06:16:50.720",
+      "id": "CVE-2026-87849",
+      "summary": "The Discovery naming-service reply parser in Apache bRPC (versions < 1.18.0) calls RapidJSON object-only accessors (FindMember) on JSON values without first validating that those values are objects. A malformed Discovery response whose data/service members or instances list contain non-object entries (e.g. a bare integer) triggers the RapidJSON object-access precondition on the client, reading memory out of bounds and potentially crashing the bRPC client.\n\nRoot Cause:\nIn src/brpc/policy/discovery_naming_service.cpp, DiscoveryNamingService::GetServers() and DiscoveryNames::ListDiscoveryNodes() access JSON values with member functions on non-object values. RapidJSON only defines these operations for object types; invoking them on a non-object violates the class invariant and results in undefined behavior (out-of-bounds read), commonly crashing the process.\n\nAffected Scenarios: \nAn operator-configured (or compromised) Discovery backend returns a malformed /discovery/nodes or /discovery/fetchs response whose data/service/instance entries are not JSON objects, crashing any bRPC client that refreshes its server list.\n\nHow to Fix:\n1. Upgrade bRPC to version 1.18.0 or later, which fixes this issue.\n2. Apply this patch: https://github.com/apache/brpc/pull/3533\n\nThe fix validates that the Discovery response data, per-service data, and instance entries are JSON objects (and skips non-object node/instance entries and rejects non-object data/service values) before calling member accessors.",
+      "published": "2026-10-21T13:20:04.603",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92997"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87849"
     },
     {
-      "id": "CVE-2026-88784",
-      "summary": "The Translate WordPress with Weglot 2.0  WordPress plugin before 6.4.3 does not escape the URLs it re-inserts into a page when rewriting links for a translated language, and reverses the encoding that was applied to them beforehand, allowing unauthenticated users to store a payload which executes in the browser of anyone viewing the page in a translated language.",
-      "published": "2026-10-21T06:16:50.617",
+      "id": "CVE-2026-86249",
+      "summary": "On a brpc::Server that sets both ServerOptions.auth and ServerOptions.internal_port, the HTTP built-in service exemption on internal_port can be abused to bypass authentication entirely. VerifyHttpRequest() returns true without checking any credential when a built-in service is requested on internal_port, and this verdict is not per - request: verification runs only for the first message of a connection and the result latches the connection. Sending a request such as GET /status to internal_port first authenticates the whole connection, after which every subsequent request dispatched on the same connection is handled without ever calling VerifyHttpRequest(). This lets a remote attacker reach ordinary (non-built-in, non-tabbed) authenticated services without supplying valid credentials whenever the server uses ServerOptions.internal_port together with an Authenticator. The fix restricts internal_port so that it carries only built-in and Tabbed services; requests for ordinary services sent to internal_port are rejected with EPREM / HTTP 403.\u00a0\n\n\n\nMitigation / Fix: upgrade to 1.18.0 or apply PR https://github.com/apache/brpc/pull/3525 .\u00a0\n\n\n\nUsers who rely on serving normal services on internal_port must move those requests to the port passed to Server::Start().",
+      "published": "2026-10-21T13:20:04.470",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88784"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86249"
     }
   ]
 }
