@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-21T22:17:51+00:00",
+  "generated_at": "2026-10-22T01:28:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-94423",
-      "summary": "Net::LibSSH versions before 0.004 for Perl authenticate to an unverified server because connect never checks the host key against known_hosts.\n\nconnect reports success as soon as ssh_connect returns SSH_OK. libssh leaves the known-hosts check to the application, and this binding never makes it, so the strict_hostkeycheck and knownhosts options are set on the session and then decide nothing.\n\nPassword, agent and public-key authentication, channel and SFTP operations all run on a session whose peer was never identified, so an attacker who can redirect the connection receives the password when password authentication is used, and commands and data sent over the session.",
-      "published": "2026-10-21T22:16:50.480",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94423"
+      "id": "CVE-2026-16255",
+      "summary": "GitLab has remediated an issue in GitLab EE affecting all versions from 12.0 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when the instance-wide SAML or LDAP membership lock was enabled, an authenticated user could have granted or accepted project and group membership outside the identity provider's control, due to incomplete enforcement of the membership lock on requests created before the lock was enabled.",
+      "published": "2026-10-22T01:16:59.613",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16255"
     },
     {
-      "id": "CVE-2026-94140",
-      "summary": "Rex versions through 1.16.1 for Perl accept an unknown SSH host key for remote rsync transfers because sync hardcodes StrictHostKeyChecking=no.\n\nEvery remote branch of sync builds its ssh command with that option, for password authentication, for private-key authentication and for the fallback. The ssh options a caller sets through set_openssh_opt reach the OpenSSH transport but not this command, so there is no configuration that restores host key checking for the transfer.\n\nAn attacker who can redirect the connection before the real host key is known presents their own and the transfer proceeds: under password authentication sync sends the connection password to that server, an upload writes the selected local files to it, and a download writes what it returns to the local destination.",
-      "published": "2026-10-21T22:16:50.370",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94140"
+      "id": "CVE-2026-15723",
+      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 10.1 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when OmniAuth SAML and LDAP auto-linking were both enabled, an authenticated user could have taken over an existing LDAP-backed account without any interaction from the targeted user, due to improper input sanitization in the LDAP email lookup path used during OmniAuth identity linking.",
+      "published": "2026-10-22T01:16:59.477",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15723"
     },
     {
-      "id": "CVE-2026-91403",
-      "summary": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: JSSE).  Supported versions that are affected are Oracle Java SE: 8u511, 8u511-perf, 11.0.33, 17.0.21, 21.0.13, 25.0.5, 27.0.1; Oracle GraalVM for JDK: 17.0.21 and  21.0.13; Oracle GraalVM Enterprise Edition: 21.3.20. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data as well as  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 9.1 (Confidentiality and Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N).",
-      "published": "2026-10-21T22:16:50.243",
-      "cvss": 9.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91403"
+      "id": "CVE-2026-14288",
+      "summary": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.4 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that under certain conditions could have allowed an authenticated to bypass a required merge request approval policy on a protected branch due to improper access control during approval rule synchronization.",
+      "published": "2026-10-22T01:16:59.340",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14288"
     },
     {
-      "id": "CVE-2026-114509",
-      "summary": "Laravel is a web application framework. Prior to 12.68.0 and 13.29.0, TokenGuard configured as a standard token-based API guard does not reject a crafted non-string credential. Under affected MySQL or MariaDB configurations, the authentication lookup can match an unintended existing user, allowing an unauthenticated attacker to bypass authentication and take over an account on routes protected by TokenGuard. This issue is fixed in versions 12.68.0 and 13.29.0.",
-      "published": "2026-10-21T22:16:49.710",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114509"
+      "id": "CVE-2026-13319",
+      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.10 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, could have allowed an authenticated to read milestone metadata, including titles, descriptions, and full project paths, from arbitrary private projects across the instance without any project membership, due to missing authorization checks on a user-supplied project filter parameter in the group milestones API.",
+      "published": "2026-10-22T01:16:59.203",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13319"
     },
     {
-      "id": "CVE-2026-114508",
-      "summary": "Laravel is a web application framework. From 12.45.0 until 12.68.0 and 13.27.0, crafted relationship inclusion on a read-only endpoint can trigger a destructive database operation on a related table instead of retrieving data. A user with read access but no write permission can empty related-table data, causing irreversible data loss, denial of service, and loss of data integrity. This issue is fixed in versions 12.68.0 and 13.27.0.",
-      "published": "2026-10-21T22:16:49.553",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114508"
+      "id": "CVE-2026-12664",
+      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, could have allowed an authenticated user with a read_api-scoped token to retrieve a project's incoming email address and create work items, bypassing the token's restrictions, due to insufficient scope enforcement on a GraphQL field.",
+      "published": "2026-10-22T01:16:59.070",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12664"
     },
     {
-      "id": "CVE-2026-114501",
-      "summary": "Pillow is a Python imaging library. From 11.2.1 until 13.0.0, Arrow export assumes that an image's rows are tightly contiguous and exports from im->blocks[0].ptr even when PILLOW_ALIGNMENT makes aligned_linesize include row padding or an aligned offset before the first row. The resulting Arrow buffer can include uninitialized padding, bytes preceding the first row, or stale heap contents from previously freed images. Applications that configure alignment and export images to Arrow can therefore disclose one user's pixels or other process memory to another user. This issue is fixed in version 13.0.0.",
-      "published": "2026-10-21T22:16:49.410",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114501"
+      "id": "CVE-2026-114714",
+      "summary": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by a path traversal vulnerability in the squirrelmail_usercopy plugin. With the file based backend, the source path was built from the login name without rejecting path separators, so a login name containing a slash could cause files outside the configured squirrelmail_data_dir to be read and imported. Upstream fixed this in the commit \u201cFix unsafe use of a login name in SquirrelMail import file path\u201d, which rejects login names containing a slash.",
+      "published": "2026-10-22T01:16:58.717",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114714"
     }
   ]
 }
