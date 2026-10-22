@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-22T13:44:33+00:00",
+  "generated_at": "2026-10-22T18:29:48+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-115246",
-      "summary": "A weakness has been identified in subhajitkhan online-clinic-management-system up to e9ee77a8827a1446220fa07ee693dc4d9a29a578. This affects an unknown part of the file patdocmsg.php. Executing a manipulation of the argument Query can lead to cross site scripting. The attack may be performed from remote. The exploit has been made available to the public and could be used for attacks. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-10-22T13:17:28.733",
-      "cvss": 3.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115246"
+      "id": "CVE-2026-97635",
+      "summary": "The Agent Zero Web UI before 1.15 does not correctly sanitize user-provided input in chat messages or file uploads. When Agent Zero reproduces content in the chat interface, any injected JavaScript is executed in the context of the victim\u2019s authenticated Agent Zero Web UI session.",
+      "published": "2026-10-22T18:17:32.337",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97635"
     },
     {
-      "id": "CVE-2026-102785",
-      "summary": "Joomla Extension - yootheme.com - Unauthenticated remote code execution in YOOtheme Pro 5.0.0-5.0.52 - YOOtheme Pro\u2019s publicly accessible image transformation handler incompletely binds normalized image operations and the output destination to its request signature. An unauthenticated remote attacker can reuse a signature disclosed in a legitimate public image URL, inject additional image operations, traverse out of the intended cache directory, and write an attacker-controlled PNG/PHP polyglot to an executable public media directory.",
-      "published": "2026-10-22T13:17:27.470",
+      "id": "CVE-2026-93336",
+      "summary": "Missing authorization in the unit resources download route in Canonical Juju\u00a04.0 through 4.0.15 allows a controller-authenticated principal (a unit agent,\u00a0or a user with only login permission) to read any application's charm resource\u00a0in any model,\u00a0 including container-registry credentials, via a crafted request\u00a0naming an arbitrary unit.",
+      "published": "2026-10-22T18:17:32.157",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102785"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93336"
     },
     {
-      "id": "CVE-2026-13411",
-      "summary": "Mattermost versions 11.7.x <= 11.7.11 fail to validate null elements when decoding playbook import conditions which allows an authenticated attacker to crash the Playbooks plugin instance-wide via a crafted import request containing a null condition. Mattermost Advisory ID: MMSA-2026-00709",
-      "published": "2026-10-22T11:17:52.843",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13411"
+      "id": "CVE-2026-77157",
+      "summary": "ast-cli downloads two helper binaries, the Vorpal ASCA real-time engine and the SCA Resolver, from \"download.checkmarx.com\" as part of its auto-update flow, triggered by the Checkmarx\u2019s \"VSCode/JetBrains\" extensions and by cx scan \"sca-realtime\".\n\n\n\nPrior to the fix, the downloaded archive was not verified against a checksum before extraction and execution. An attacker able to substitute the served archive could deliver an arbitrary binary that ast-cli would extract\u00a0and execute the contents of the archive, since no integrity check was performed on\u00a0the download.\n\n\n\nSuccessful exploitation requires compromising \"download.checkmarx.com\" and replacing the served archive with one containing an attacker-controlled binary. If the served archive had been replaced that way, any developer machine or CI pipeline invoking ASCA (via Checkmarx's VSCode/JetBrains extensions) or cx scan \"sca-realtime\" on an affected version would have extracted and executed that binary in place of the intended download.\n\n\n\nThe download is now verified against a published SHA-256 checksum before extraction.",
+      "published": "2026-10-22T18:17:29.630",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77157"
     },
     {
-      "id": "CVE-2026-115334",
-      "summary": "Lotus through 0.10.2 contains an authorization bypass vulnerability in ChangeUserOrganizationView.post that allows authenticated users to join any organization by supplying its UUID. Self-registered attackers who know another organization's UUID can send a POST request to /app/switch_organization/ to access that tenant's data and billing configuration.",
-      "published": "2026-10-22T11:17:52.703",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115334"
+      "id": "CVE-2026-77156",
+      "summary": "Incomplete validation of extracted archive entry paths in ast-cli's tar extraction logic on Linux and macOS (used when installing the Vorpal ASCA real-time engine and the SCA Resolver) would allow a malicious tar archive containing absolute or traversal path entries to write files outside the install directory. Windows builds were not affected, as the Windows extractor performs this path validation.\n\n\n\nExploitation required substituting the archive served at \"download.checkmarx.com\". An attacker able to compromise that server and replace the archive could write arbitrary, executable files to arbitrary\u00a0filesystem paths via this path traversal.\n\n\n\nExtraction now validates that each entry's destination path resolves within the working directory and rejects absolute paths.",
+      "published": "2026-10-22T18:17:29.463",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77156"
     },
     {
-      "id": "CVE-2026-115333",
-      "summary": "Lotus through 0.10.2 contains an improper authentication vulnerability in the Go event ingestion middleware that validates API keys by prefix only, without checking the secret against the stored hashed_key. Attackers who know or obtain an API key prefix can submit usage events to POST /api/track/ as that organization, altering its metered usage and billing.",
-      "published": "2026-10-22T11:17:52.563",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115333"
+      "id": "CVE-2026-54532",
+      "summary": "CloudPirates Open Source Helm Charts is a collection of Helm charts. Prior to commit 271d415, pull_request_target workflow is vulnerable to cache poisoning and OIDC token theft. A pull_request_target workflow checks out fork code using github.event.pull_request.head.sha or .head.ref. This gives attacker-controlled code access to base repository secrets and tokens. A pull_request_target workflow writes to a shared Actions cache. A subsequent release or publish workflow restores from the same cache scope, allowing a poisoned cache entry to execute during release. This issue has been patched via commit 271d415.",
+      "published": "2026-10-22T18:17:29.153",
+      "cvss": 6.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54532"
     },
     {
-      "id": "CVE-2026-115332",
-      "summary": "Lotus through 0.10.2 contains an sql injection vulnerability that allows authenticated organization users to inject SQL by registering crafted subscription_filter_keys that bypass keyword-only validation. Attackers can create subscriptions using the malicious key, which is rendered as an unquoted group-by identifier, to inject SQL into usage aggregation queries against the shared multi-tenant database.",
-      "published": "2026-10-22T11:17:52.427",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115332"
+      "id": "CVE-2026-54238",
+      "summary": "Supabase Realtime provides Broadcast, Presence, and Postgres Changes via WebSockets. Prior to version 2.103.1, the REST broadcast endpoints accept an expired JWT when the exp claim is encoded as a JSON string instead of a JSON number. The same route rejects an expired integer exp token signed with the same tenant secret. The accepted request returns 202 and emits the broadcast to subscribers. This could allow an unauthenticated attacker can broadcast realtime messages to subscribers. The attack can be performed via the Internet/only from within the supabase project. The impact of broadcasting messages to subscribers is application specific. This issue has been patched in version 2.103.1.",
+      "published": "2026-10-22T18:17:28.993",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54238"
     }
   ]
 }
