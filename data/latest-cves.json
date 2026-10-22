@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-22T01:28:28+00:00",
+  "generated_at": "2026-10-22T07:30:41+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-16255",
-      "summary": "GitLab has remediated an issue in GitLab EE affecting all versions from 12.0 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when the instance-wide SAML or LDAP membership lock was enabled, an authenticated user could have granted or accepted project and group membership outside the identity provider's control, due to incomplete enforcement of the membership lock on requests created before the lock was enabled.",
-      "published": "2026-10-22T01:16:59.613",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-16255"
-    },
-    {
-      "id": "CVE-2026-15723",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 10.1 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, when OmniAuth SAML and LDAP auto-linking were both enabled, an authenticated user could have taken over an existing LDAP-backed account without any interaction from the targeted user, due to improper input sanitization in the LDAP email lookup path used during OmniAuth identity linking.",
-      "published": "2026-10-22T01:16:59.477",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15723"
-    },
-    {
-      "id": "CVE-2026-14288",
-      "summary": "GitLab has remediated an issue in GitLab EE affecting all versions from 17.4 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that under certain conditions could have allowed an authenticated to bypass a required merge request approval policy on a protected branch due to improper access control during approval rule synchronization.",
-      "published": "2026-10-22T01:16:59.340",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-14288"
-    },
-    {
-      "id": "CVE-2026-13319",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 15.10 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, could have allowed an authenticated to read milestone metadata, including titles, descriptions, and full project paths, from arbitrary private projects across the instance without any project membership, due to missing authorization checks on a user-supplied project filter parameter in the group milestones API.",
-      "published": "2026-10-22T01:16:59.203",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-13319"
-    },
-    {
-      "id": "CVE-2026-12664",
-      "summary": "GitLab has remediated an issue in GitLab CE/EE affecting all versions from 18.2 before 19.3.6, 19.4 before 19.4.3, and 19.5 before 19.5.1 that, under certain conditions, could have allowed an authenticated user with a read_api-scoped token to retrieve a project's incoming email address and create work items, bypassing the token's restrictions, due to insufficient scope enforcement on a GraphQL field.",
-      "published": "2026-10-22T01:16:59.070",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-12664"
-    },
-    {
-      "id": "CVE-2026-114714",
-      "summary": "Roundcube Webmail before 1.6.20 and 1.7.x before 1.7.5 is affected by a path traversal vulnerability in the squirrelmail_usercopy plugin. With the file based backend, the source path was built from the login name without rejecting path separators, so a login name containing a slash could cause files outside the configured squirrelmail_data_dir to be read and imported. Upstream fixed this in the commit \u201cFix unsafe use of a login name in SquirrelMail import file path\u201d, which rejects login names containing a slash.",
-      "published": "2026-10-22T01:16:58.717",
+      "id": "CVE-2026-114460",
+      "summary": "A flaw was found in mod_qos. An off-by-one pointer calculation error occurs when merging request body parameters with an existing URL query, which truncates the query string during security evaluation while leaving the actual request unchanged. An unauthenticated remote attacker could exploit this vulnerability by submitting a crafted request that conceals prohibited values from inspection, resulting in a bypass of configured security rules.",
+      "published": "2026-10-22T07:16:42.750",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114714"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114460"
+    },
+    {
+      "id": "CVE-2026-114459",
+      "summary": "A flaw was found in mod_qos. When inspecting HTTP response bodies, improper boundary checking can cause the module to read memory outside allocated buffer boundaries. An unauthenticated remote attacker can exploit this vulnerability by triggering specifically crafted server responses, causing an Apache worker process to crash and resulting in a Denial of Service (DoS).",
+      "published": "2026-10-22T07:16:42.633",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114459"
+    },
+    {
+      "id": "CVE-2026-114458",
+      "summary": "A flaw was found in mod_qos. An unauthenticated remote attacker can cause a Denial of Service (DoS) by maintaining numerous concurrent low-rate connections to a target server. When connection rate monitoring is active, the module fails to verify array boundaries when recording client IP addresses, allowing more connection records to be added than the allocated buffer can hold. This issue leads to heap memory corruption, which can crash the web server process.",
+      "published": "2026-10-22T07:16:42.520",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114458"
+    },
+    {
+      "id": "CVE-2026-114457",
+      "summary": "A flaw was found in mod_qos. An unauthenticated remote attacker could cause a Denial of Service (DoS) by sending a specially crafted JSON request when JSON body filtering is enabled. Due to improper string termination during the processing of percent-encoded input, the module reads past allocated memory boundaries, which can cause an Apache worker process to crash.",
+      "published": "2026-10-22T07:16:42.387",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114457"
+    },
+    {
+      "id": "CVE-2026-114184",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPVibes Elementor Addon Elements addon-elements-for-elementor-page-builder allows Stored XSS.This issue affects Elementor Addon Elements: from n/a through 1.14.4.",
+      "published": "2026-10-22T07:16:42.260",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114184"
+    },
+    {
+      "id": "CVE-2026-114182",
+      "summary": "Missing Authorization vulnerability in IdeaBox Creations PowerPack Addons for Elementor powerpack-lite-for-elementor allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects PowerPack Addons for Elementor: from n/a through 3.1.0.",
+      "published": "2026-10-22T07:16:42.133",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114182"
     }
   ]
 }
