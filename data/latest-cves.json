@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-22T18:29:48+00:00",
+  "generated_at": "2026-10-22T22:16:57+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97635",
-      "summary": "The Agent Zero Web UI before 1.15 does not correctly sanitize user-provided input in chat messages or file uploads. When Agent Zero reproduces content in the chat interface, any injected JavaScript is executed in the context of the victim\u2019s authenticated Agent Zero Web UI session.",
-      "published": "2026-10-22T18:17:32.337",
+      "id": "CVE-2026-115419",
+      "summary": "The A2A server component in Amazon Strands Agents SDK for Python before 1.43.0 and Amazon Strands Agents SDK for TypeScript before 1.5.0 does not properly isolate conversation state between callers. An authenticated remote user could read other tenants' conversation history and add persistent instructions that alter model behavior for subsequent callers via HTTP requests to the A2A endpoint using a different context_id.\n\n\n\nTo mitigate this issue, users should upgrade to strands-agents 1.43.0 (Python) or @strands-agents/sdk 1.5.0 (TypeScript).",
+      "published": "2026-10-22T21:17:17.790",
       "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97635"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115419"
     },
     {
-      "id": "CVE-2026-93336",
-      "summary": "Missing authorization in the unit resources download route in Canonical Juju\u00a04.0 through 4.0.15 allows a controller-authenticated principal (a unit agent,\u00a0or a user with only login permission) to read any application's charm resource\u00a0in any model,\u00a0 including container-registry credentials, via a crafted request\u00a0naming an arbitrary unit.",
-      "published": "2026-10-22T18:17:32.157",
+      "id": "CVE-2026-115417",
+      "summary": "Memory allocation with excessive size value in the MQTT 3.1.1 compatibility adapter in AWS aws-c-mqtt before 0.16.2 might allow a remote actor to cause a denial of service of the client application.\n\n\n\nTo remediate this issue, users should upgrade to aws-c-mqtt 0.16.2 or later, or to an AWS Common Runtime or AWS IoT Device SDK release that bundles it.",
+      "published": "2026-10-22T21:17:17.633",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115417"
+    },
+    {
+      "id": "CVE-2026-114625",
+      "summary": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise the confidentiality, integrity, and availability of the orchestrator and data managed by the orchestrator.\n\nOn an affected system, any authenticated user can gain operator privileges and masquerade as a local \"superuser operator\" user. This includes access to functionality that is intended for internal use only and which is not intended to be remotely accessible.\n\nHosted, including Dedicated, versions of VCO were impacted and have already been patched.",
+      "published": "2026-10-22T21:17:16.870",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114625"
+    },
+    {
+      "id": "CVE-2026-114614",
+      "summary": "Authlib is a Python library which builds OAuth and OpenID Connect servers. From 0.13 until 1.8.0, authlib.common.security.is_secure_transport() uses a textual prefix comparison for loopback HTTP exemptions, so a URL whose userinfo begins with a loopback host can be accepted even when its parsed host is an external non-loopback system. An external party able to supply a URL to OIDC RP-Initiated Logout registration, authorization-server metadata validation, or another call site can bypass the TLS-required guard and cause cleartext redirection or acceptance of cleartext endpoints. The issue does not bypass redirect URI exact matching and does not by itself forge tokens or authenticate users. The vulnerable authlib.common.security.is_secure_transport() implementation in authlib/common/security.py misinterprets the userinfo component before OIDC RP-Initiated Logout dynamic client registration and other consumers enforce transport security. This issue is fixed in version 1.8.0.",
+      "published": "2026-10-22T21:17:16.683",
+      "cvss": 2.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114614"
+    },
+    {
+      "id": "CVE-2026-114583",
+      "summary": "tarfile.tar_filter could be bypassed using crafted link entries, including symlinks with empty or directory-like names, to redirect later archive members outside the intended extraction directory. This allowed a malicious tar archive to cause tarfile.extractall() with filter=\"tar\" to write files outside the destination directory, subject to the permissions of the extracting process.\n\nThis is the tarfile.tar_filter counterpart of CVE-2026-7774, which covered tarfile.data_filter.",
+      "published": "2026-10-22T21:17:16.543",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93336"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114583"
     },
     {
-      "id": "CVE-2026-77157",
-      "summary": "ast-cli downloads two helper binaries, the Vorpal ASCA real-time engine and the SCA Resolver, from \"download.checkmarx.com\" as part of its auto-update flow, triggered by the Checkmarx\u2019s \"VSCode/JetBrains\" extensions and by cx scan \"sca-realtime\".\n\n\n\nPrior to the fix, the downloaded archive was not verified against a checksum before extraction and execution. An attacker able to substitute the served archive could deliver an arbitrary binary that ast-cli would extract\u00a0and execute the contents of the archive, since no integrity check was performed on\u00a0the download.\n\n\n\nSuccessful exploitation requires compromising \"download.checkmarx.com\" and replacing the served archive with one containing an attacker-controlled binary. If the served archive had been replaced that way, any developer machine or CI pipeline invoking ASCA (via Checkmarx's VSCode/JetBrains extensions) or cx scan \"sca-realtime\" on an affected version would have extracted and executed that binary in place of the intended download.\n\n\n\nThe download is now verified against a published SHA-256 checksum before extraction.",
-      "published": "2026-10-22T18:17:29.630",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77157"
-    },
-    {
-      "id": "CVE-2026-77156",
-      "summary": "Incomplete validation of extracted archive entry paths in ast-cli's tar extraction logic on Linux and macOS (used when installing the Vorpal ASCA real-time engine and the SCA Resolver) would allow a malicious tar archive containing absolute or traversal path entries to write files outside the install directory. Windows builds were not affected, as the Windows extractor performs this path validation.\n\n\n\nExploitation required substituting the archive served at \"download.checkmarx.com\". An attacker able to compromise that server and replace the archive could write arbitrary, executable files to arbitrary\u00a0filesystem paths via this path traversal.\n\n\n\nExtraction now validates that each entry's destination path resolves within the working directory and rejects absolute paths.",
-      "published": "2026-10-22T18:17:29.463",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77156"
-    },
-    {
-      "id": "CVE-2026-54532",
-      "summary": "CloudPirates Open Source Helm Charts is a collection of Helm charts. Prior to commit 271d415, pull_request_target workflow is vulnerable to cache poisoning and OIDC token theft. A pull_request_target workflow checks out fork code using github.event.pull_request.head.sha or .head.ref. This gives attacker-controlled code access to base repository secrets and tokens. A pull_request_target workflow writes to a shared Actions cache. A subsequent release or publish workflow restores from the same cache scope, allowing a poisoned cache entry to execute during release. This issue has been patched via commit 271d415.",
-      "published": "2026-10-22T18:17:29.153",
-      "cvss": 6.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54532"
-    },
-    {
-      "id": "CVE-2026-54238",
-      "summary": "Supabase Realtime provides Broadcast, Presence, and Postgres Changes via WebSockets. Prior to version 2.103.1, the REST broadcast endpoints accept an expired JWT when the exp claim is encoded as a JSON string instead of a JSON number. The same route rejects an expired integer exp token signed with the same tenant secret. The accepted request returns 202 and emits the broadcast to subscribers. This could allow an unauthenticated attacker can broadcast realtime messages to subscribers. The attack can be performed via the Internet/only from within the supabase project. The impact of broadcasting messages to subscribers is application specific. This issue has been patched in version 2.103.1.",
-      "published": "2026-10-22T18:17:28.993",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54238"
+      "id": "CVE-2026-115509",
+      "summary": "Jitsu console before 2.14.0-beta.41 contains an incorrect authorization vulnerability in sources/state.ts handlers that call findFirst without await, so the syncId ownership check never fails. Authenticated users knowing another workspace's sync ID can read, overwrite or delete its stream cursors, causing data re-ingestion or skipped data.",
+      "published": "2026-10-22T20:17:07.060",
+      "cvss": 4.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115509"
     }
   ]
 }
