@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-22T22:16:57+00:00",
+  "generated_at": "2026-10-23T01:27:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-115419",
-      "summary": "The A2A server component in Amazon Strands Agents SDK for Python before 1.43.0 and Amazon Strands Agents SDK for TypeScript before 1.5.0 does not properly isolate conversation state between callers. An authenticated remote user could read other tenants' conversation history and add persistent instructions that alter model behavior for subsequent callers via HTTP requests to the A2A endpoint using a different context_id.\n\n\n\nTo mitigate this issue, users should upgrade to strands-agents 1.43.0 (Python) or @strands-agents/sdk 1.5.0 (TypeScript).",
-      "published": "2026-10-22T21:17:17.790",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115419"
+      "id": "CVE-2026-115535",
+      "summary": "A vulnerability was identified in gedelumbung HospitalManagement up to c2d45543789a3887067d3915f69d44cfc2cf76a8. The affected element is the function sistem.php::simpan of the file application/modules/admin/controllers/sistem.php of the component Settings Handler. The manipulation of the argument Title leads to cross site scripting. The attack is possible to be carried out remotely. The exploit is publicly available and might be used. This product adopts a rolling release strategy to maintain continuous delivery. Therefore, version details for affected or updated releases cannot be specified. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-23T01:16:54.073",
+      "cvss": 2.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115535"
     },
     {
-      "id": "CVE-2026-115417",
-      "summary": "Memory allocation with excessive size value in the MQTT 3.1.1 compatibility adapter in AWS aws-c-mqtt before 0.16.2 might allow a remote actor to cause a denial of service of the client application.\n\n\n\nTo remediate this issue, users should upgrade to aws-c-mqtt 0.16.2 or later, or to an AWS Common Runtime or AWS IoT Device SDK release that bundles it.",
-      "published": "2026-10-22T21:17:17.633",
+      "id": "CVE-2026-115486",
+      "summary": "A flaw was found in the iscsiuio component of open-iscsi. The IPv6 Neighbor Discovery handler accesses link-layer address options at a fixed offset without verifying the packet contains them. Additionally, the ARP table is updated unconditionally with attacker-controlled addresses from the packet headers. An attacker on the same network segment can send a minimal Neighbor Advertisement to poison the ARP table and redirect network traffic.",
+      "published": "2026-10-23T01:16:53.943",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115486"
+    },
+    {
+      "id": "CVE-2026-115485",
+      "summary": "A flaw was found in the iscsiuio component of open-iscsi. The DHCPv6 option parser calls strlen() on raw network data without ensuring a NUL terminator is present, causing it to read past the buffer into heap memory. This can result in a daemon crash, a 1-byte heap overwrite, or corruption of the iSCSI initiator name. An attacker on the same network segment can trigger this by sending a crafted DHCPv6 Advertise message.",
+      "published": "2026-10-23T01:16:53.817",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115485"
+    },
+    {
+      "id": "CVE-2026-115484",
+      "summary": "A flaw was found in the iscsiuio component of open-iscsi. The DHCPv4 option parser incorrectly calculates the length of the options data, causing it to read beyond the allocated buffer into adjacent heap memory. An attacker on the same network segment can send a crafted DHCP response to crash the daemon or corrupt its network configuration.",
+      "published": "2026-10-23T01:16:53.670",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115484"
+    },
+    {
+      "id": "CVE-2026-115534",
+      "summary": "A vulnerability was determined in gedelumbung HospitalManagement up to c2d45543789a3887067d3915f69d44cfc2cf76a8. Impacted is the function kirim of the file application/modules/web/controllers/contact.php of the component Contact Form. Executing a manipulation of the argument nama/email/alamat/telepon/pesan can lead to cross site scripting. The attack can be executed remotely. The exploit has been publicly disclosed and may be utilized. This product implements a rolling release for ongoing delivery, which means version information for affected or updated releases is unavailable. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-23T00:16:49.733",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115534"
+    },
+    {
+      "id": "CVE-2026-92450",
+      "summary": "The authentication framework used by affected Kiloview E3 NDI encoder firmware signs session JSON Web Tokens using an HMAC-SHA256 secret hardcoded as a static string within the firmware image, identical across all deployed devices. An attacker with access to the publicly distributed firmware can recover this secret and forge arbitrary session tokens, including administrative tokens, without valid credentials, enabling unauthenticated access to privileged device functions.",
+      "published": "2026-10-22T23:20:33.703",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115417"
-    },
-    {
-      "id": "CVE-2026-114625",
-      "summary": "VeloCloud Orchestrator (VCO) on-prem has a security issue where this issue may allow a remote attacker to access privileged internal functionality and impact the VCO host. Successful exploitation may compromise the confidentiality, integrity, and availability of the orchestrator and data managed by the orchestrator.\n\nOn an affected system, any authenticated user can gain operator privileges and masquerade as a local \"superuser operator\" user. This includes access to functionality that is intended for internal use only and which is not intended to be remotely accessible.\n\nHosted, including Dedicated, versions of VCO were impacted and have already been patched.",
-      "published": "2026-10-22T21:17:16.870",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114625"
-    },
-    {
-      "id": "CVE-2026-114614",
-      "summary": "Authlib is a Python library which builds OAuth and OpenID Connect servers. From 0.13 until 1.8.0, authlib.common.security.is_secure_transport() uses a textual prefix comparison for loopback HTTP exemptions, so a URL whose userinfo begins with a loopback host can be accepted even when its parsed host is an external non-loopback system. An external party able to supply a URL to OIDC RP-Initiated Logout registration, authorization-server metadata validation, or another call site can bypass the TLS-required guard and cause cleartext redirection or acceptance of cleartext endpoints. The issue does not bypass redirect URI exact matching and does not by itself forge tokens or authenticate users. The vulnerable authlib.common.security.is_secure_transport() implementation in authlib/common/security.py misinterprets the userinfo component before OIDC RP-Initiated Logout dynamic client registration and other consumers enforce transport security. This issue is fixed in version 1.8.0.",
-      "published": "2026-10-22T21:17:16.683",
-      "cvss": 2.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114614"
-    },
-    {
-      "id": "CVE-2026-114583",
-      "summary": "tarfile.tar_filter could be bypassed using crafted link entries, including symlinks with empty or directory-like names, to redirect later archive members outside the intended extraction directory. This allowed a malicious tar archive to cause tarfile.extractall() with filter=\"tar\" to write files outside the destination directory, subject to the permissions of the extracting process.\n\nThis is the tarfile.tar_filter counterpart of CVE-2026-7774, which covered tarfile.data_filter.",
-      "published": "2026-10-22T21:17:16.543",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114583"
-    },
-    {
-      "id": "CVE-2026-115509",
-      "summary": "Jitsu console before 2.14.0-beta.41 contains an incorrect authorization vulnerability in sources/state.ts handlers that call findFirst without await, so the syncId ownership check never fails. Authenticated users knowing another workspace's sync ID can read, overwrite or delete its stream cursors, causing data re-ingestion or skipped data.",
-      "published": "2026-10-22T20:17:07.060",
-      "cvss": 4.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115509"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92450"
     }
   ]
 }
