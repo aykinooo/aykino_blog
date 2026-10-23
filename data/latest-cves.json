@@ -1,34 +1,48 @@
 {
-  "generated_at": "2026-10-23T18:17:28+00:00",
+  "generated_at": "2026-10-23T22:06:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-115812",
-      "summary": "Relative path traversal during model archive extraction in Amazon Web Services Multi Model Server 1.1.11 and earlier might allow remote actors to execute arbitrary code via a crafted model archive.\n\n\n\nMulti Model Server is end of life and no fixed version is available. Users should discontinue use of Multi Model Server and migrate to a supported model serving solution.",
-      "published": "2026-10-23T18:17:21.460",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115812"
+      "id": "CVE-2026-83813",
+      "summary": "Twisted is an event-based framework for internet applications, supporting Python 3.6+. Prior to 26.10.0rc1, twisted.names.dns.DNSDatagramProtocol accepts a UDP DNS response for a pending query when its 16-bit transaction ID matches but does not verify that the response came from the queried host and port. An attacker able to deliver a packet to the resolver's listening port with the correct transaction ID can inject a forged answer. The standard twisted.names.client.Resolver uses a new random source port for each query, increasing off-path attack complexity, while applications that reuse a DNSDatagramProtocol instance expose only the transaction-ID search space after the first query. A successful forgery can redirect hostname resolution and enable mail interception, server-side request forgery, or man-in-the-middle positioning. This issue is fixed in version 26.10.0rc1.",
+      "published": "2026-10-23T21:17:25.287",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83813"
     },
     {
-      "id": "CVE-2026-115567",
-      "summary": "Tokio is a runtime for writing applications with Rust. In 1.54.0, a race condition between tokio::time::Interval::poll_tick (including .tick().await) and the multi-threaded runtime's time driver could drop an internal timer entry without synchronizing with the driver thread that was firing it. The race caused a use-after-free on the timer's waker and task state in safe Rust, which could produce assertion panics, task reference-count corruption, or heap memory corruption. This issue is fixed in 1.54.1.",
-      "published": "2026-10-23T18:17:21.303",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115567"
+      "id": "CVE-2026-75525",
+      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. In versions 2.1.0 and prior, an unauthenticated attacker can store an arbitrary ML-KEM-768 public key under any existing user's identity in any tenant's staff-crypto recipient directory. The product's design guarantees that appointment data is end-to-end encrypted to staff members and that the staff recipient directory is not attacker-writable, so that even administrators and the operator cannot read patient data. This endpoint breaks that guarantee for an unauthenticated remote actor: it allows writing an arbitrary encryption recipient into the recipient directory of any tenant. The injected key receives the tunnel key of every appointment booked afterward in that tenant, because booking clients encrypt to all active staff keys. The attacker holds the corresponding secret key and is a persistent, unauthorized recipient of that key material. At time of publication, there are no publicly available patches.",
+      "published": "2026-10-23T21:17:25.150",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75525"
     },
     {
-      "id": "CVE-2026-110975",
-      "summary": "A flaw was found in Kruize Autotune. Its REST API ships without an authentication layer, and the endpoints that return datasource configuration \u2014 the list-datasources endpoint (GET /datasources) and the datasource-metadata endpoint \u2014 serialized datasource objects using a default Gson configuration with no field-exclusion strategy. As a result, the authentication secrets stored for each configured monitoring datasource (basic-auth passwords, bearer tokens, API keys, and OAuth2 client secrets) were returned in cleartext to any client able to reach the service. An attacker with network access to Autotune could harvest these credentials and reuse them to authenticate to the backing monitoring stack.",
-      "published": "2026-10-23T18:17:20.503",
+      "id": "CVE-2026-75524",
+      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 2.2.2, an attacker overbooks an agent, placing multiple appointments into a single time slot that the system is designed to keep exclusive. The number of overlapping appointments equals the number of concurrent requests, and one booking token is enough because the token is consumed after the insert. This results in the integrity of the booking-calendar breaking and availability being denied to other clients. This issue has been patched in version 2.2.2.",
+      "published": "2026-10-23T21:17:25.010",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75524"
+    },
+    {
+      "id": "CVE-2026-65825",
+      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. In versions 2.1.0 and prior, a returning client's six-digit booking PIN can be brute-forced online in the victim tenant. A successful guess yields the client's booking access token, granting access to that client's appointment tunnel, which holds their end-to-end-encrypted appointment data, and the ability to act as the client, for example adding or cancelling appointments in the tunnel. The bypass is cross-tenant: state owned by one tenant removes an authentication protection of a different tenant. This crossing of the tenant boundary is the basis for the scope-changed vector. At time of publication, there are no publicly available patches.",
+      "published": "2026-10-23T21:17:24.870",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65825"
+    },
+    {
+      "id": "CVE-2026-65824",
+      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 2.2.1, an attacker who captures a pending invite token can replay it to obtain a passkey-registration credential and register their own passkey on the invited account, taking control of that account. For a staff or tenant-admin invite this yields access to the tenant context tied to that account. This issue has been patched in version 2.2.1.",
+      "published": "2026-10-23T21:17:24.730",
       "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110975"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65824"
     },
     {
-      "id": "CVE-2026-87901",
-      "summary": "Improper sanitization in the registration module allows reflected Cross-Site Scripting.",
-      "published": "2026-10-23T17:17:22.137",
+      "id": "CVE-2026-58202",
+      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 2.0.0, the account-confirmation link in emails is built from the request Host header, with no allowlist. The unauthenticated POST /api/auth/resend-confirmation rotates a pending invitee's confirmation token and emails a link whose host comes from the request. An attacker who sends one resend-confirmation with Host: attacker.example and a pending invitee's email causes that invitee to receive a confirmation email whose only link points to the attacker. If the invitee clicks, the one-time confirmation token reaches the attacker, who then confirms the account on the real tenant domain and registers a passkey they control, taking over the account before the legitimate invitee ever uses it. All released versions through v1.1.0 are affected; no patched version exists yet. Reaching the app with a spoofed Host depends on the front proxy: the stock Caddy catch-all forwards it, while an operator who configures explicit per-tenant proxy blocks is not affected (see Details 4). The invite path builds links from the trusted tenant.domain (invite/+server.ts:204-210); the resend-confirmation path builds them from the request Host. This issue has been patched in version 2.0.0.",
+      "published": "2026-10-23T21:17:24.473",
       "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87901"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58202"
     }
   ]
 }
