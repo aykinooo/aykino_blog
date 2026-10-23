@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-23T07:27:08+00:00",
+  "generated_at": "2026-10-23T13:22:15+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-63243",
-      "summary": "An\nauthentication vulnerability in the Bluetooth Low Energy (BLE) implementation\nof Creative Sound Blaster Katana could allow an attacker within Bluetooth range\nto connect to an affected device without prior pairing or authentication.",
-      "published": "2026-10-23T07:16:38.563",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63243"
-    },
-    {
-      "id": "CVE-2026-55981",
-      "summary": "A firmware verification vulnerability in Creative Sound\nBlaster Katana could allow an attacker to modify a legitimate firmware image\nand upload the modified firmware to an affected device.",
-      "published": "2026-10-23T07:16:38.420",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55981"
-    },
-    {
-      "id": "CVE-2026-94268",
-      "summary": "The Advanced Custom Fields: Extended WordPress plugin before 0.9.2.8, Advanced Custom Fields: Extended PRO WordPress plugin before 0.9.2.8 does not resolve the target of the update-user action in its front-end Forms module consistently between the stage that authorises the request and the stage that carries it out, which allows unauthenticated visitors to bypass the guard protecting administrator accounts, take over the site administrator's account and be issued a valid session for it. Exploitation requires the site to publish two separate front-end form configurations whose targets are mapped to visitor-submitted values.",
-      "published": "2026-10-23T06:17:08.297",
+      "id": "CVE-2026-99087",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndm-integrity: fix NULL pointer dereference when the 'R' flag is used\n\nIf the dm-integrity device has the SB_FLAG_DIRTY_BITMAP flag set and the\nuser activates the device in the 'R' mode, a crash in dm_integrity_resume\nhappens because the function attempts to read the journal containing the\nbitmap.\n\nThis patch makes dm-integrity skip any writes to the device in\ndm_integrity_resume if the device is activated in the 'R' mode.",
+      "published": "2026-10-23T13:17:33.240",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94268"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99087"
     },
     {
-      "id": "CVE-2026-94267",
-      "summary": "The Advanced Custom Fields: Extended WordPress plugin before 0.9.2.8, Advanced Custom Fields: Extended PRO WordPress plugin before 0.9.2.8 does not perform any capability check when updating a post through one of its front-end form actions, allowing unauthenticated visitors to overwrite arbitrary posts, including the ones in which the site stores its own field definitions, which in turn leads to arbitrary code execution on the server. Exploitation requires the site to publish a form whose post-update action maps both its target and its content to visitor-submitted values.",
-      "published": "2026-10-23T06:17:08.200",
+      "id": "CVE-2026-99086",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\ndm-integrity: validate the superblock on resume\n\ndm_integrity_resume() re-reads the superblock from the device so that it\npicks up the flags and the recalculate position. It performs no\nvalidation on the result, while the constructor validates the superblock\nit reads and sizes all the in-memory structures according to it. The user\nmay modify the superblock on the underlying device while the dm-integrity\ndevice is suspended, so that the two no longer agree.\n\nIn particular, access_journal_data() shifts the journal entry index by\nic->sb->log2_sectors_per_block, while ic->journal_section_sectors and the\njournal page list were computed with the value that was present at\nconstructor time. Increasing log2_sectors_per_block makes the index run\npast the end of the journal, and dm-integrity then writes 512 bytes\nthrough lowmem_page_address(NULL).\n\nSnapshot the validated superblock in the constructor and refuse to resume\nif any of the fields that describe the on-disk geometry changed.",
+      "published": "2026-10-23T13:17:33.113",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94267"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99086"
     },
     {
-      "id": "CVE-2026-94264",
-      "summary": "The Advanced Custom Fields: Extended WordPress plugin before 0.9.2.8, Advanced Custom Fields: Extended PRO WordPress plugin before 0.9.2.8 does not validate or escape some of its form shortcode attributes, which can be pointed at values taken from the visitor's own request and are then output without escaping, allowing users with a role as low as contributor to have arbitrary script run in the browser of anyone led to open a crafted link or page, including a logged-in administrator.\nThis is an incomplete fix for CVE-2023-5292, whose deny-list covers only the three HTML wrapper attributes.",
-      "published": "2026-10-23T06:17:08.103",
+      "id": "CVE-2026-99085",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nsched_ext: Fix CPU hotplug hang when a dying CPU's tasks sit in the BPF scheduler\n\nA CPU going down has to empty its own rq. Its hotplug thread waits in\nsched_cpu_wait_empty() until nothing else is left, and the only thing that\nwakes it is balance_push(), which runs from __schedule() on the dying CPU\nand pushes off the migratable tasks the CPU picks.\n\nsched_ext breaks this. A task sitting on a user DSQ or held by the BPF\nscheduler is still counted on its rq, but an inactive CPU no longer calls\nops.dispatch() and can't pull the task back. The dying CPU goes idle with\nthe task still counted, and one of two things happens:\n\n- Another CPU consumes the task. The rq empties without a __schedule() on\n  the dying CPU, so the hotplug thread is never woken and cpu_down() hangs\n  holding cpu_hotplug_lock.\n- The task is affine only to the dying CPU. Nothing can move it, and the\n  offline stalls until the watchdog ejects the BPF scheduler.\n\nWhen the rq goes offline, re-enqueue every task on it that isn't already on\nthe local DSQ. An enqueue on an offline rq lands on the local DSQ, so the\ndying CPU itself picks the tasks and balance_push() pushes them off, the\nsame as for the other sched classes. From then on no sched_ext path on\nanother CPU can pull a task off the rq.\n\nops.dispatch() currently stops as soon as the CPU goes inactive, and CPU\nhotplug then waits for an RCU grace period before taking the rq offline. A\nBPF-held task affine only to the dying CPU and preempted inside an RCU\nread-side critical section would block that grace period, and the rq would\nnever go offline. Test SCX_RQ_ONLINE directly so that ops.dispatch() keeps\nrunning until the rq goes offline. Only the dying CPU's own hotplug thread\nclears the flag during teardown, and task_can_run_on_remote_rq() still keeps\nother rqs' tasks off the CPU.",
+      "published": "2026-10-23T13:17:32.803",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94264"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99085"
     },
     {
-      "id": "CVE-2026-94262",
-      "summary": "The Advanced Custom Fields: Extended WordPress plugin before 0.9.2.8, Advanced Custom Fields: Extended PRO WordPress plugin before 0.9.2.8 does not verify that the requester is authorised to edit the targeted user account in the update-user action of its front-end Forms module, performing that check only when the target account holds an administrator role, which allows unauthenticated visitors to overwrite any non-administrator account's credentials and obtain a session for that account. Exploitation requires the site to publish a form whose user-update action maps its target to a visitor-submitted value rather than to the default current user.",
-      "published": "2026-10-23T06:17:08.000",
+      "id": "CVE-2026-99084",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nreaddir: take no inode lock on an immutable directory\n\niterate_dir() takes the directory's i_rwsem shared and holds it across\n->iterate_shared(). For a directory that never has an entry and is\nnever removed the lock keeps nothing still, it only orders every reader\nand every writer of that inode behind each other.\n\nFor the directory of a nullfs instance that matters. The instance of\nthe initial mount namespace is the root of every empty mount namespace\nand the private instance is the root of every kernel thread, so one\ninode is shared across users who have nothing else in common. And a\nreader can hold the lock for as long as it likes: back the getdents()\nbuffer with a mapping of a file on a FUSE mount of your own, let the\ncopy of \".\" and \"..\" fault and let the server wait. Queue an exclusive\ntaker behind it, a mkdir() in that directory goes through start_dirop()\nbefore the read-only mount is reported, and from then on every lookup\nthat misses the dcache in that directory, every create and every mount\non it waits until the server answers. One user of an empty mount\nnamespace stalls all the others.\n\nAdd FOP_IMMUTABLE for the file operations of a directory that never\nchanges and is never removed and let iterate_dir() skip the lock for\nit. The flag never changes for a file, ->f_pos is protected by\nf_pos_lock since directories are FMODE_ATOMIC_POS, IS_DEADDIR can't be\nset on such a directory and neither touch_atime() nor fsnotify take\ni_rwsem. Set it on the nullfs directory. The placeholder directories of\nlibfs never have an entry either but their owners remove them, so they\nkeep the lock.",
+      "published": "2026-10-23T13:17:32.693",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94262"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99084"
+    },
+    {
+      "id": "CVE-2026-99083",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nksmbd: fix heap out-of-bounds write in krb5_authenticate()\n\nIn krb5_authenticate(), out_len is calculated to determine available\nheadroom in response_buf for the incoming Kerberos AP-REP token. However,\nwhen SMB2_SESSION_SETUP is processed as a non-first element of a compounded\nSMB2 request, the calculation omits work->next_smb2_rsp_hdr_off.\n\nThis causes out_len to overstate remaining buffer headroom by\nthe cumulative size of prior responses in the compound chain. Consequently,\nthe length check in ksmbd_krb5_authenticate()\n(*out_len <= resp->spnego_blob_len) passes erroneously, allowing memcpy()\nto write the AP-REP blob past the end of response_buf into adjacent kernel\nheap memory.\n\nFix this by subtracting work->next_smb2_rsp_hdr_off when computing out_len,\nensuring it accurately reflects physical remaining buffer space.",
+      "published": "2026-10-23T13:17:32.577",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99083"
+    },
+    {
+      "id": "CVE-2026-99082",
+      "summary": "In the Linux kernel, the following vulnerability has been resolved:\n\nKVM: x86: Use active memslots for the per-vCPU MMIO cache\n\nKVM tags the per-vCPU MMIO cache with a memslot generation so that a\nmemslot update invalidates cached MMIO information.  Both the fill and\nvalidation paths use kvm_memslots(), which unconditionally selects address\nspace 0, even when the vCPU is running in SMM and using address space 1.\n\nCommit 56f17dd3fbc4 (\"kvm: x86: fix stale mmio cache bug\") added the\nmemslot generation to the cache key so that a memslot update could not\nleave a stale entry valid.  When commit 699023e23965 (\"KVM: x86: add SMM\nto the MMU role, support SMRAM address space\") added the SMM address space,\nthese helpers were not converted to use the active memslots.\n\nConsequently, an update to the SMM memslots can leave an entry from the old\nSMM address space apparently valid after the vCPU returns to the normal\naddress space.  A guest can then cause an access to valid RAM at the same\nGFN to be returned to userspace as KVM_EXIT_MMIO.\n\nCompleting that exit through the VMM's RAM address space writes the backing\npage without going through KVM's write-tracking path.  If the page backs a\nnested EPT table, KVM can continue using shadow translations derived from\nthe old contents.  The WARN_ON_ONCE() in kvm_mmu_write_protect_fault()\ncatches this invalid cache and memslot combination.\n\nUse the vCPU's active memslots when caching and validating the entry.\nMemslot generations are unique across address spaces, so the generation\nalso distinguishes the normal and SMM views.  This matches the MMIO SPTE\ncache, which already uses kvm_vcpu_memslots().\n\nOn an unpatched current-mainline kernel, a regression test that fills the\ncache in SMM and updates only the SMM memslots fails the intended RAM write\nand triggers the kvm_mmu_write_protect_fault() warning.  With this change,\nthe same test completes the RAM write without a warning.  The x86/smm_test,\nset_memory_region_test, and memslot_modification_stress_test selftests also\npass.",
+      "published": "2026-10-23T13:17:32.440",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-99082"
     }
   ]
 }
