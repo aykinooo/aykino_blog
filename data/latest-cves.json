@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-23T22:06:37+00:00",
+  "generated_at": "2026-10-24T00:38:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-83813",
-      "summary": "Twisted is an event-based framework for internet applications, supporting Python 3.6+. Prior to 26.10.0rc1, twisted.names.dns.DNSDatagramProtocol accepts a UDP DNS response for a pending query when its 16-bit transaction ID matches but does not verify that the response came from the queried host and port. An attacker able to deliver a packet to the resolver's listening port with the correct transaction ID can inject a forged answer. The standard twisted.names.client.Resolver uses a new random source port for each query, increasing off-path attack complexity, while applications that reuse a DNSDatagramProtocol instance expose only the transaction-ID search space after the first query. A successful forgery can redirect hostname resolution and enable mail interception, server-side request forgery, or man-in-the-middle positioning. This issue is fixed in version 26.10.0rc1.",
-      "published": "2026-10-23T21:17:25.287",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83813"
+      "id": "CVE-2026-115931",
+      "summary": "Postiz lets a signed-in user ask the backend to run a function on one of their connected channels. The backend did not restrict which functions can be requested, so a user could call internal helper functions that were never meant to be reachable from the web interface.\n\nOne of those helpers reads a file from the server's disk. A user who connects a channel whose stored token is a file path can have the backend return the contents of any file it can read, including its environment, which holds the secret used to sign login sessions, the database address and the credentials of connected services. Another helper makes the backend process exit with a single request. Self-registration is open by default, so no existing account and no action by another user is needed.",
+      "published": "2026-10-23T23:17:43.263",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115931"
     },
     {
-      "id": "CVE-2026-75525",
-      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. In versions 2.1.0 and prior, an unauthenticated attacker can store an arbitrary ML-KEM-768 public key under any existing user's identity in any tenant's staff-crypto recipient directory. The product's design guarantees that appointment data is end-to-end encrypted to staff members and that the staff recipient directory is not attacker-writable, so that even administrators and the operator cannot read patient data. This endpoint breaks that guarantee for an unauthenticated remote actor: it allows writing an arbitrary encryption recipient into the recipient directory of any tenant. The injected key receives the tunnel key of every appointment booked afterward in that tenant, because booking clients encrypt to all active staff keys. The attacker holds the corresponding secret key and is a persistent, unauthorized recipient of that key material. At time of publication, there are no publicly available patches.",
-      "published": "2026-10-23T21:17:25.150",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75525"
+      "id": "CVE-2026-115938",
+      "summary": "Craft CMS allows any authenticated control panel user to submit an element-search condition whose element selector is evaluated as a sandboxed Twig object template. Craft\u2019s allowed\u00a0column\u00a0filter delegates property lookup to Yii\u00a0ArrayHelper, outside Twig\u2019s\u00a0SecurityPolicy. Repeated single-segment lookups therefore bypass the sandbox\u2019s empty property/method allowlists.\n\n\n\nThe vulnerable condition value is ultimately cast to an integer. That does not protect the secret: the template can return author ID\u00a01\u00a0when a guessed key character is correct and an impossible ID otherwise. The JSON endpoint returns entries for the first case and an empty array for the second, forming a stable remote character oracle.\n\n\n\nAfter recovering\u00a0GeneralConfig::securityKey, the same user can compute Craft\u2019s generic HMAC wire format offline. Signed parameters such as\u00a0redirect\u00a0are then accepted and passed to unsandboxed\u00a0View::renderObjectTemplate(), where Twig\u2019s string-callable form can invoke native PHP callables. The regression proof uses the harmless\u00a0substr()\u00a0callback and observes\u00a0abcdef\u00a0becoming\u00a0cdef; it does not execute an OS command.",
+      "published": "2026-10-23T22:16:59.597",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115938"
     },
     {
-      "id": "CVE-2026-75524",
-      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 2.2.2, an attacker overbooks an agent, placing multiple appointments into a single time slot that the system is designed to keep exclusive. The number of overlapping appointments equals the number of concurrent requests, and one booking token is enough because the token is consumed after the insert. This results in the integrity of the booking-calendar breaking and availability being denied to other clients. This issue has been patched in version 2.2.2.",
-      "published": "2026-10-23T21:17:25.010",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75524"
-    },
-    {
-      "id": "CVE-2026-65825",
-      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. In versions 2.1.0 and prior, a returning client's six-digit booking PIN can be brute-forced online in the victim tenant. A successful guess yields the client's booking access token, granting access to that client's appointment tunnel, which holds their end-to-end-encrypted appointment data, and the ability to act as the client, for example adding or cancelling appointments in the tunnel. The bypass is cross-tenant: state owned by one tenant removes an authentication protection of a different tenant. This crossing of the tenant boundary is the basis for the scope-changed vector. At time of publication, there are no publicly available patches.",
-      "published": "2026-10-23T21:17:24.870",
+      "id": "CVE-2026-115937",
+      "summary": "The Mollie webhook endpoint accepts two independent, attacker-controlled parameters and never verifies that they belong together:\n\n  *  commerceTransactionHash\u00a0\u2014 selects which Craft Commerce transaction is completed\n  *  id\u00a0\u2014 selects which Mollie payment is queried for its status\n\n\n\n\nAn unauthenticated attacker holding any paid Mollie payment ID from the merchant\u2019s account can pair it with any transaction hash.\n\n\n\nCommerce queries Mollie, sees\u00a0status: paid, and marks the target transaction successful for that transaction\u2019s full\namount, regardless of how much was actually paid.",
+      "published": "2026-10-23T22:16:59.453",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65825"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115937"
     },
     {
-      "id": "CVE-2026-65824",
-      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 2.2.1, an attacker who captures a pending invite token can replay it to obtain a passkey-registration credential and register their own passkey on the invited account, taking control of that account. For a staff or tenant-admin invite this yields access to the tenant context tied to that account. This issue has been patched in version 2.2.1.",
-      "published": "2026-10-23T21:17:24.730",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65824"
+      "id": "CVE-2026-115935",
+      "summary": "The\u00a0app/process-api-response-headers\u00a0action accepts fake Craft API response headers from any authenticated control panel user.\n\n\n\nA non-admin user with only\u00a0accessCp\u00a0can place newline characters in\u00a0X-Craft-Plugin-Licenses. Craft passes this value to its\u00a0.env\u00a0writer without removing the newlines.\n\n\n\nThis lets the user insert a new attacker-known\u00a0CRAFT_SECURITY_KEY\u00a0into\u00a0.env. After Craft loads that key, the user can forge a signed login redirect containing a Twig\u00a0system()\u00a0callback.\n\n\n\nThis is different from the previous report. That report reads the existing key through a Twig sandbox bypass. This report replaces the key through fake API headers and CRLF injection. Fixing either source does not fix the other.",
+      "published": "2026-10-23T22:16:59.290",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115935"
     },
     {
-      "id": "CVE-2026-58202",
-      "summary": "OpenReception's appointment booking software provides an end-to-end encrypted appointment booking platform. Prior to version 2.0.0, the account-confirmation link in emails is built from the request Host header, with no allowlist. The unauthenticated POST /api/auth/resend-confirmation rotates a pending invitee's confirmation token and emails a link whose host comes from the request. An attacker who sends one resend-confirmation with Host: attacker.example and a pending invitee's email causes that invitee to receive a confirmation email whose only link points to the attacker. If the invitee clicks, the one-time confirmation token reaches the attacker, who then confirms the account on the real tenant domain and registers a passkey they control, taking over the account before the legitimate invitee ever uses it. All released versions through v1.1.0 are affected; no patched version exists yet. Reaching the app with a spoofed Host depends on the front proxy: the stock Caddy catch-all forwards it, while an operator who configures explicit per-tenant proxy blocks is not affected (see Details 4). The invite path builds links from the trusted tenant.domain (invite/+server.ts:204-210); the resend-confirmation path builds them from the request Host. This issue has been patched in version 2.0.0.",
-      "published": "2026-10-23T21:17:24.473",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58202"
+      "id": "CVE-2026-115897",
+      "summary": "Serialize JavaScript serializes JavaScript values to a superset of JSON that includes regular expressions and functions. Prior to 7.1.3, the function-source escaping logic does not neutralize a bare closing-script prefix when attacker-influenced function source text ends exactly at that prefix. Because each function body is escaped independently, a delimiter supplied by surrounding serialized output can terminate an HTML script element, and a later serialized value supplies injected markup that becomes a live element in the page. Exploitation requires control of a serialized function's source text, such as through a spoofed toString(). This issue is fixed in version 7.1.3.",
+      "published": "2026-10-23T22:16:59.153",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115897"
+    },
+    {
+      "id": "CVE-2026-115895",
+      "summary": "Happy DOM is a JavaScript implementation of a web browser without its graphical user interface. From 17.0.0 until 21.0.4, packages/happy-dom/src/module/ECMAScriptModuleCompiler.ts accepts a named ESM import alias without validating that it is a JavaScript binding identifier before inserting it into a generated destructuring binding. With enableJavaScriptEvaluation enabled, attacker-controlled HTML or module source can use an invalid alias that becomes a valid default initializer after compilation, causing the generated JavaScript to execute in the Node.js host process. The demonstrated reachable path uses a JSON module import attribute, which prevents the malicious alias from being emitted again in a later ESM circular-import assignment and keeps the generated function syntactically valid. This incomplete fix for CVE-2026-33943 is a distinct residual path because the earlier remediation validated the local export importName path but not the named-import alias. This issue is fixed in version 21.0.4.",
+      "published": "2026-10-23T22:16:58.987",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115895"
     }
   ]
 }
