@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-10-24T00:38:30+00:00",
+  "generated_at": "2026-10-24T05:48:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-115807",
+      "summary": "The User Profile Builder \u2013 Beautiful User Registration Forms, User Profiles & User Role Editor plugin for WordPress is vulnerable to Limited Privilege Escalation in all versions up to, and including, 4.0.3. This is due to the Gutenberg Register block passing the attacker-controlled Assigned Role attribute directly into the `[wppb-register]` shortcode without server-side authorization. The role guard in the form builder only downgrades roles that carry the manage_options or remove_users capability, leaving the Editor role and other privileged non-Administrator roles completely unrestricted. This makes it possible for authenticated attackers with Author-level access and above to create new WordPress accounts bearing the Editor role (or any other role that lacks the two guarded capabilities).",
+      "published": "2026-10-24T05:17:06.500",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115807"
+    },
+    {
+      "id": "CVE-2026-115806",
+      "summary": "The Prime Mover \u2013 Backup and Migration plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.2.1 via deserialization of untrusted input in the migration search-and-replace routine (recursiveUnserializeReplace()). An unauthenticated attacker can store a crafted, base64-encoded serialized object in wp_comments.comment_content through the standard comment-submission endpoint (wp-comments-post.php). When an administrator subsequently performs a routine Prime Mover export or restore, the plugin base64-decodes that stored value and passes it to unserialize() with no allowed_classes restriction. A Property-Oriented Programming (POP) chain is present in the plugin's own bundled Freemius library (FS_Clone_Manager::__set \u2192 FS_Option_Manager::set_option \u2192 store() \u2192 update_option()), so no additional plugin or theme is required \u2014 the plugin ships the gadget itself.",
+      "published": "2026-10-24T05:17:04.900",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115806"
+    },
+    {
+      "id": "CVE-2026-115929",
+      "summary": "MongoDB Compass relies on Electron, a third-party runtime that carries its own TLS root certificate store. This root certificate store has the\u00a0recoverable\u00a0eMudhra intermediate CA certificates.\u00a0Issue is\u00a0resolved by updating to Compass 1.53.1, which includes Electron 44.9.1.",
+      "published": "2026-10-24T01:17:08.250",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115929"
+    },
     {
       "id": "CVE-2026-115931",
       "summary": "Postiz lets a signed-in user ask the backend to run a function on one of their connected channels. The backend did not restrict which functions can be requested, so a user could call internal helper functions that were never meant to be reachable from the web interface.\n\nOne of those helpers reads a file from the server's disk. A user who connects a channel whose stored token is a file path can have the backend return the contents of any file it can read, including its environment, which holds the secret used to sign login sessions, the database address and the credentials of connected services. Another helper makes the backend process exit with a single request. Self-registration is open by default, so no existing account and no action by another user is needed.",
@@ -22,27 +43,6 @@
       "published": "2026-10-23T22:16:59.453",
       "cvss": 7.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115937"
-    },
-    {
-      "id": "CVE-2026-115935",
-      "summary": "The\u00a0app/process-api-response-headers\u00a0action accepts fake Craft API response headers from any authenticated control panel user.\n\n\n\nA non-admin user with only\u00a0accessCp\u00a0can place newline characters in\u00a0X-Craft-Plugin-Licenses. Craft passes this value to its\u00a0.env\u00a0writer without removing the newlines.\n\n\n\nThis lets the user insert a new attacker-known\u00a0CRAFT_SECURITY_KEY\u00a0into\u00a0.env. After Craft loads that key, the user can forge a signed login redirect containing a Twig\u00a0system()\u00a0callback.\n\n\n\nThis is different from the previous report. That report reads the existing key through a Twig sandbox bypass. This report replaces the key through fake API headers and CRLF injection. Fixing either source does not fix the other.",
-      "published": "2026-10-23T22:16:59.290",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115935"
-    },
-    {
-      "id": "CVE-2026-115897",
-      "summary": "Serialize JavaScript serializes JavaScript values to a superset of JSON that includes regular expressions and functions. Prior to 7.1.3, the function-source escaping logic does not neutralize a bare closing-script prefix when attacker-influenced function source text ends exactly at that prefix. Because each function body is escaped independently, a delimiter supplied by surrounding serialized output can terminate an HTML script element, and a later serialized value supplies injected markup that becomes a live element in the page. Exploitation requires control of a serialized function's source text, such as through a spoofed toString(). This issue is fixed in version 7.1.3.",
-      "published": "2026-10-23T22:16:59.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115897"
-    },
-    {
-      "id": "CVE-2026-115895",
-      "summary": "Happy DOM is a JavaScript implementation of a web browser without its graphical user interface. From 17.0.0 until 21.0.4, packages/happy-dom/src/module/ECMAScriptModuleCompiler.ts accepts a named ESM import alias without validating that it is a JavaScript binding identifier before inserting it into a generated destructuring binding. With enableJavaScriptEvaluation enabled, attacker-controlled HTML or module source can use an invalid alias that becomes a valid default initializer after compilation, causing the generated JavaScript to execute in the Node.js host process. The demonstrated reachable path uses a JSON module import attribute, which prevents the malicious alias from being emitted again in a later ESM circular-import assignment and keeps the generated function syntactically valid. This incomplete fix for CVE-2026-33943 is a distinct residual path because the earlier remediation validated the local export importName path but not the named-import alias. This issue is fixed in version 21.0.4.",
-      "published": "2026-10-23T22:16:58.987",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115895"
     }
   ]
 }
