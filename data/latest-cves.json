@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-24T18:05:59+00:00",
+  "generated_at": "2026-10-24T20:44:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-115973",
+      "summary": "A vulnerability was identified in FaveoSuite Faveo Helpdesk 2.0.3. Affected by this issue is the function ForgotPasswordController::sendResetLinkEmail/PasswordController::reset of the file app/Http/Controllers/Auth/ForgotPasswordController.php. The manipulation leads to weak password recovery. The attack may be initiated remotely. The vendor was contacted early about this disclosure.",
+      "published": "2026-10-24T19:17:04.553",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115973"
+    },
+    {
+      "id": "CVE-2026-114820",
+      "summary": "Vulnerability in the Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition product of Oracle Java SE (component: JSSE).  Supported versions that are affected are Oracle Java SE: 8u511-b32, 8u511-perf-b32, 11.0.33.0.2, 17.0.21.0.2, 21.0.13.0.2, 25.0.5.0.2, 27.0.1.0.2; Oracle GraalVM for JDK: 17.0.21.0.2 and  21.0.13.0.2; Oracle GraalVM Enterprise Edition: 21.3.20.0.2. Easily exploitable vulnerability allows unauthenticated attacker with network access via multiple protocols to compromise Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition.  Successful attacks of this vulnerability can result in  unauthorized creation, deletion or modification access to critical data or all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data as well as  unauthorized access to critical data or complete access to all Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterprise Edition accessible data. Note: This vulnerability can be exploited by using APIs in the specified Component, e.g., through a web service which supplies data to the APIs. This vulnerability also applies to Java deployments, typically in clients running sandboxed Java Web Start applications or sandboxed Java applets, that load and run untrusted code (e.g., code that comes from the internet) and rely on the Java sandbox for security. CVSS 3.1 Base Score 9.1 (Confidentiality and Integrity impacts).  CVSS Vector: (CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N).",
+      "published": "2026-10-24T19:17:04.413",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114820"
+    },
+    {
+      "id": "CVE-2026-115972",
+      "summary": "A vulnerability was determined in FaveoSuite Faveo Helpdesk up to 2.0.3. Affected by this vulnerability is the function UnAuthController.changeStatus/UnAuthController.close/UnAuthController.open/UnAuthController.resolve of the file app/Http/Controllers/Client/helpdesk/UnAuthController.php. Executing a manipulation of the argument id/status can lead to missing authorization. The attack can be launched remotely. The vendor was contacted early about this disclosure.",
+      "published": "2026-10-24T18:16:48.730",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115972"
+    },
+    {
+      "id": "CVE-2026-115971",
+      "summary": "A vulnerability was found in Travisun Opptrix 0.4.0. Affected is the function Buffer.concat of the file /api/channels/webhook/ of the component preParsing handler. Performing a manipulation results in denial of service. The attack can be initiated remotely. The exploit has been made public and could be used. The project has been completely taken offline and deprecated. The project maintainer explains: \"The mentioned security risk was a design flaw that manifested primarily in local environments during earlier stages of version development. We previously addressed and resolved this specific risk; however, because the project was restricted to a small learning scope and the main versions were intended to run exclusively on localhost, the security fix was only pushed directly to our GitHub repository before it went private.\" This vulnerability only affects products that are no longer supported by the maintainer.",
+      "published": "2026-10-24T18:16:48.550",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115971"
+    },
+    {
+      "id": "CVE-2026-115970",
+      "summary": "A vulnerability has been found in Travisun Opptrix 0.4.0. This impacts an unknown function of the file /api/system-update/import of the component Import Endpoint. Such manipulation leads to code injection. It is possible to launch the attack remotely. The exploit has been disclosed to the public and may be used. The project has been completely taken offline and deprecated. The project maintainer explains: \"The mentioned security risk was a design flaw that manifested primarily in local environments during earlier stages of version development. We previously addressed and resolved this specific risk; however, because the project was restricted to a small learning scope and the main versions were intended to run exclusively on localhost, the security fix was only pushed directly to our GitHub repository before it went private.\" This vulnerability only affects products that are no longer supported by the maintainer.",
+      "published": "2026-10-24T18:16:48.367",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115970"
+    },
     {
       "id": "CVE-2026-115969",
       "summary": "A flaw has been found in Travisun Opptrix 0.4.0. This affects an unknown function of the file /api/auth/setup of the component Schedule API. This manipulation causes command injection. It is possible to initiate the attack remotely. The exploit has been published and may be used. The project has been completely taken offline and deprecated. The project maintainer explains: \"The mentioned security risk was a design flaw that manifested primarily in local environments during earlier stages of version development. We previously addressed and resolved this specific risk; however, because the project was restricted to a small learning scope and the main versions were intended to run exclusively on localhost, the security fix was only pushed directly to our GitHub repository before it went private.\" This vulnerability only affects products that are no longer supported by the maintainer.",
       "published": "2026-10-24T16:16:25.343",
       "cvss": 7.3,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115969"
-    },
-    {
-      "id": "CVE-2026-115933",
-      "summary": "Postiz signs its session, invitation and password reset tokens with one shared secret and without any marker of what a token is for. A route that refreshes the credentials of a browser-extension channel signed data taken from the request itself and stored the result where the requesting user can read it back. A user could therefore obtain a validly signed token containing any claims they choose, which the application accepts as a session, as an organization invitation with a chosen role, as a password reset or as an enterprise provisioning token.\n\nA second, narrower route that creates team invitations signs extra fields from the request body in the same way.",
-      "published": "2026-10-24T15:17:33.957",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115933"
-    },
-    {
-      "id": "CVE-2026-115557",
-      "summary": "Python has added a denylist for known compromised certificates to the \"ssl\" module to ensure user safety even without certificate revocation configured. Known compromised certificates will automatically be rejected regardless of the SSLContext policy configuration.",
-      "published": "2026-10-24T15:17:33.600",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115557"
-    },
-    {
-      "id": "CVE-2026-114704",
-      "summary": "Deserialization of Untrusted Data vulnerability in Christoph Vielgrader Relevanssi  relevanssi allows Object Injection.This issue affects Relevanssi : from n/a through 4.28.4.",
-      "published": "2026-10-24T14:16:39.313",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114704"
-    },
-    {
-      "id": "CVE-2026-114629",
-      "summary": "Web::Simple versions before 0.035 for Perl allocate a buffer sized by the Content-Length header for urlencoded body parameters.\n\nWeb::Dispatch::ParamParser::get_unpacked_body_from reads an application/x-www-form-urlencoded body using a single read call, with no cap and the return value ignored. Perl's read grows the buffer to the requested length before reading, so the declared Content-Length determines the allocation.\n\nAn attacker can trigger this through any route whose dispatch specification has a % body-parameter match, such as sub (POST + %name=), sending a Content-Length far larger than the body actually sent. No authentication is involved.",
-      "published": "2026-10-24T14:16:39.187",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114629"
-    },
-    {
-      "id": "CVE-2026-114192",
-      "summary": "Missing Authorization vulnerability in Magepeople inc. WpEvently mage-eventpress allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WpEvently: from n/a through 5.7.8.",
-      "published": "2026-10-24T14:16:39.040",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114192"
     }
   ]
 }
