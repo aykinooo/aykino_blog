@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-24T05:48:05+00:00",
+  "generated_at": "2026-10-24T10:53:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-115807",
-      "summary": "The User Profile Builder \u2013 Beautiful User Registration Forms, User Profiles & User Role Editor plugin for WordPress is vulnerable to Limited Privilege Escalation in all versions up to, and including, 4.0.3. This is due to the Gutenberg Register block passing the attacker-controlled Assigned Role attribute directly into the `[wppb-register]` shortcode without server-side authorization. The role guard in the form builder only downgrades roles that carry the manage_options or remove_users capability, leaving the Editor role and other privileged non-Administrator roles completely unrestricted. This makes it possible for authenticated attackers with Author-level access and above to create new WordPress accounts bearing the Editor role (or any other role that lacks the two guarded capabilities).",
-      "published": "2026-10-24T05:17:06.500",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115807"
+      "id": "CVE-2026-115998",
+      "summary": "IDOR in Cervantes version v1.3-beta could allow an authenticated attacker ca\u00a0access sensitive findings, proof-of-concept details, credentials, and client information from projects they do not belong to. Additionally, they can modify finding statuses and transfer findings to their own projects, compromising data confidentiality and integrity.",
+      "published": "2026-10-24T10:17:10.743",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115998"
     },
     {
-      "id": "CVE-2026-115806",
-      "summary": "The Prime Mover \u2013 Backup and Migration plugin for WordPress is vulnerable to PHP Object Injection in all versions up to, and including, 2.2.1 via deserialization of untrusted input in the migration search-and-replace routine (recursiveUnserializeReplace()). An unauthenticated attacker can store a crafted, base64-encoded serialized object in wp_comments.comment_content through the standard comment-submission endpoint (wp-comments-post.php). When an administrator subsequently performs a routine Prime Mover export or restore, the plugin base64-decodes that stored value and passes it to unserialize() with no allowed_classes restriction. A Property-Oriented Programming (POP) chain is present in the plugin's own bundled Freemius library (FS_Clone_Manager::__set \u2192 FS_Option_Manager::set_option \u2192 store() \u2192 update_option()), so no additional plugin or theme is required \u2014 the plugin ships the gadget itself.",
-      "published": "2026-10-24T05:17:04.900",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115806"
+      "id": "CVE-2026-115994",
+      "summary": "BOLA Allows Cross-Project Target Tampering\u00a0\nin Cervantes version v1.3-beta could allow an attacker modify or delete targets belonging to other projects without authorization, compromising the integrity of penetration testing scopes, results, and associated security reports.",
+      "published": "2026-10-24T10:17:10.600",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115994"
     },
     {
-      "id": "CVE-2026-115929",
-      "summary": "MongoDB Compass relies on Electron, a third-party runtime that carries its own TLS root certificate store. This root certificate store has the\u00a0recoverable\u00a0eMudhra intermediate CA certificates.\u00a0Issue is\u00a0resolved by updating to Compass 1.53.1, which includes Electron 44.9.1.",
-      "published": "2026-10-24T01:17:08.250",
+      "id": "CVE-2026-114705",
+      "summary": "Missing Authorization vulnerability in quadlayers WP Social Feed Gallery insta-gallery allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects WP Social Feed Gallery: from n/a through 5.0.13.",
+      "published": "2026-10-24T10:17:10.453",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114705"
+    },
+    {
+      "id": "CVE-2026-114194",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Igor Funa Ad Inserter ad-inserter allows Reflected XSS.This issue affects Ad Inserter: from n/a through 2.8.18.",
+      "published": "2026-10-24T10:17:08.090",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114194"
+    },
+    {
+      "id": "CVE-2026-115993",
+      "summary": "Stored XSS vulnerability in the \u201cNotes\u201d field of the Checklists in Cervantes version v1.3-beta could allow an attacker to execute arbitrary code in another user's browser with elevated privileges",
+      "published": "2026-10-24T09:16:44.270",
       "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115929"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115993"
     },
     {
-      "id": "CVE-2026-115931",
-      "summary": "Postiz lets a signed-in user ask the backend to run a function on one of their connected channels. The backend did not restrict which functions can be requested, so a user could call internal helper functions that were never meant to be reachable from the web interface.\n\nOne of those helpers reads a file from the server's disk. A user who connects a channel whose stored token is a file path can have the backend return the contents of any file it can read, including its environment, which holds the secret used to sign login sessions, the database address and the credentials of connected services. Another helper makes the backend process exit with a single request. Self-registration is open by default, so no existing account and no action by another user is needed.",
-      "published": "2026-10-23T23:17:43.263",
-      "cvss": 9.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115931"
-    },
-    {
-      "id": "CVE-2026-115938",
-      "summary": "Craft CMS allows any authenticated control panel user to submit an element-search condition whose element selector is evaluated as a sandboxed Twig object template. Craft\u2019s allowed\u00a0column\u00a0filter delegates property lookup to Yii\u00a0ArrayHelper, outside Twig\u2019s\u00a0SecurityPolicy. Repeated single-segment lookups therefore bypass the sandbox\u2019s empty property/method allowlists.\n\n\n\nThe vulnerable condition value is ultimately cast to an integer. That does not protect the secret: the template can return author ID\u00a01\u00a0when a guessed key character is correct and an impossible ID otherwise. The JSON endpoint returns entries for the first case and an empty array for the second, forming a stable remote character oracle.\n\n\n\nAfter recovering\u00a0GeneralConfig::securityKey, the same user can compute Craft\u2019s generic HMAC wire format offline. Signed parameters such as\u00a0redirect\u00a0are then accepted and passed to unsandboxed\u00a0View::renderObjectTemplate(), where Twig\u2019s string-callable form can invoke native PHP callables. The regression proof uses the harmless\u00a0substr()\u00a0callback and observes\u00a0abcdef\u00a0becoming\u00a0cdef; it does not execute an OS command.",
-      "published": "2026-10-23T22:16:59.597",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115938"
-    },
-    {
-      "id": "CVE-2026-115937",
-      "summary": "The Mollie webhook endpoint accepts two independent, attacker-controlled parameters and never verifies that they belong together:\n\n  *  commerceTransactionHash\u00a0\u2014 selects which Craft Commerce transaction is completed\n  *  id\u00a0\u2014 selects which Mollie payment is queried for its status\n\n\n\n\nAn unauthenticated attacker holding any paid Mollie payment ID from the merchant\u2019s account can pair it with any transaction hash.\n\n\n\nCommerce queries Mollie, sees\u00a0status: paid, and marks the target transaction successful for that transaction\u2019s full\namount, regardless of how much was actually paid.",
-      "published": "2026-10-23T22:16:59.453",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115937"
+      "id": "CVE-2026-94075",
+      "summary": "Deserialization of Untrusted Data vulnerability in Tribulant Software Newsletters newsletters-lite allows Object Injection.This issue affects Newsletters: from n/a through 4.18.1.",
+      "published": "2026-10-24T08:16:52.790",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94075"
     }
   ]
 }
