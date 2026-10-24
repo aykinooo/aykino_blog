@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-10-24T14:29:18+00:00",
+  "generated_at": "2026-10-24T18:05:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
+    {
+      "id": "CVE-2026-115969",
+      "summary": "A flaw has been found in Travisun Opptrix 0.4.0. This affects an unknown function of the file /api/auth/setup of the component Schedule API. This manipulation causes command injection. It is possible to initiate the attack remotely. The exploit has been published and may be used. The project has been completely taken offline and deprecated. The project maintainer explains: \"The mentioned security risk was a design flaw that manifested primarily in local environments during earlier stages of version development. We previously addressed and resolved this specific risk; however, because the project was restricted to a small learning scope and the main versions were intended to run exclusively on localhost, the security fix was only pushed directly to our GitHub repository before it went private.\" This vulnerability only affects products that are no longer supported by the maintainer.",
+      "published": "2026-10-24T16:16:25.343",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115969"
+    },
+    {
+      "id": "CVE-2026-115933",
+      "summary": "Postiz signs its session, invitation and password reset tokens with one shared secret and without any marker of what a token is for. A route that refreshes the credentials of a browser-extension channel signed data taken from the request itself and stored the result where the requesting user can read it back. A user could therefore obtain a validly signed token containing any claims they choose, which the application accepts as a session, as an organization invitation with a chosen role, as a password reset or as an enterprise provisioning token.\n\nA second, narrower route that creates team invitations signs extra fields from the request body in the same way.",
+      "published": "2026-10-24T15:17:33.957",
+      "cvss": 9.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115933"
+    },
+    {
+      "id": "CVE-2026-115557",
+      "summary": "Python has added a denylist for known compromised certificates to the \"ssl\" module to ensure user safety even without certificate revocation configured. Known compromised certificates will automatically be rejected regardless of the SSLContext policy configuration.",
+      "published": "2026-10-24T15:17:33.600",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115557"
+    },
     {
       "id": "CVE-2026-114704",
       "summary": "Deserialization of Untrusted Data vulnerability in Christoph Vielgrader Relevanssi  relevanssi allows Object Injection.This issue affects Relevanssi : from n/a through 4.28.4.",
@@ -22,27 +43,6 @@
       "published": "2026-10-24T14:16:39.040",
       "cvss": 6.5,
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114192"
-    },
-    {
-      "id": "CVE-2026-114191",
-      "summary": "Missing Authorization vulnerability in Knit Pay UPI QR Code Payment Gateway for WooCommerce upi-qr-code-payment-for-woocommerce allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects UPI QR Code Payment Gateway for WooCommerce: from n/a through 1.6.3.",
-      "published": "2026-10-24T14:16:38.870",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114191"
-    },
-    {
-      "id": "CVE-2026-115932",
-      "summary": "When a post is published, Postiz treats a media path that is not a web address as a file on the server's disk, but it does not check that the file lies inside the upload directory. A registered user can store a crafted media path with a post, get it past the checks that normally restrict it, and have the publishing worker read an arbitrary file and send it as an attachment to a Discord server the user controls.\n\nThe same unconfined reads can be reached through two further routes. One tells the caller whether a file exists and can exhaust the backend's memory, the other delivers the file the same way as the main route. Self-registration is open by default, so the attacker needs no existing account.",
-      "published": "2026-10-24T13:16:37.217",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115932"
-    },
-    {
-      "id": "CVE-2026-116020",
-      "summary": "BookStack before 26.09.2 contains an incorrect authorization vulnerability in AttachmentController that allows authenticated users to access other users' draft page attachments by ID. Attackers with attachment permissions can enumerate sequential attachment IDs to download, rename, relink, or replace files on another user's unpublished draft pages.",
-      "published": "2026-10-24T12:16:58.660",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116020"
     }
   ]
 }
