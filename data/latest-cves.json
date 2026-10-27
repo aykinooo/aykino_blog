@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-27T10:30:11+00:00",
+  "generated_at": "2026-10-27T21:16:30+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-86577",
-      "summary": "Out-of-bounds Write Vulnerability in JP1 Products.\n\nThis issue affects JP1/Integrated Management 3 - Manager: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Manager: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Agent: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Agent Minimal Edition: from 13-00 before 13-50-31; JP1/Base: from 11-00 before 12-50-54.",
-      "published": "2026-10-27T10:16:56.993",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86577"
+      "id": "CVE-2026-116691",
+      "summary": "MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. From 2.19.0 until 3.17.0, mlflow.crewai.autolog() records CrewAI Agent objects without consistently sanitizing nested credential-bearing values. mlflow/crewai/autolog.py::_get_agent_attributes() converts the Agent llm field to a string that includes the provider API key, while mlflow/crewai/autolog.py::_construct_full_inputs() expands the Agent object into mlflow.spanInputs. Applications can therefore send plaintext provider credentials to the MLflow trace backend or a configured OTLP destination, where trace readers can obtain them. This issue is fixed in version 3.17.0.",
+      "published": "2026-10-27T20:17:14.497",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116691"
     },
     {
-      "id": "CVE-2026-86576",
-      "summary": "Heap-based Buffer Overflow Vulnerability in JP1 Products.\n\nThis issue affects JP1/Integrated Management 3 - Manager: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Manager: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Agent: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Agent Minimal Edition: from 13-00 before 13-50-31; JP1/Base: from 11-00 before 12-50-54.",
-      "published": "2026-10-27T10:16:56.880",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86576"
+      "id": "CVE-2026-116690",
+      "summary": "MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. From 3.10.0 until 3.17.0, the prompt branch in _create_model_version() accepts schemeless relative sources because path validation runs only when a source has a URL scheme, and mlflow.prompt.is_prompt is interpreted by tag presence rather than a true value. A remote caller can store a server-local path as the model version artifact location and use /api/2.0/mlflow/model-versions/get-artifact to read files accessible to the MLflow server process. Default unauthenticated servers require no privileges, while basic-auth deployments are exposed to authenticated users who can create registered models. This issue is fixed in version 3.17.0.",
+      "published": "2026-10-27T20:17:14.340",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116690"
     },
     {
-      "id": "CVE-2026-86575",
-      "summary": "Stack-based Buffer Overflow Vulnerability in JP1 Products.\n\nThis issue affects JP1/Integrated Management 3 - Manager: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Manager: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Agent: from 13-00 before 13-50-31; JP1/Automatic Job Management System 3 - Agent Minimal Edition: from 13-00 before 13-50-31; JP1/Base: from 11-00 before 12-50-54.",
-      "published": "2026-10-27T10:16:56.760",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86575"
+      "id": "CVE-2026-116689",
+      "summary": "follow-redirects is a Node.js HTTP and HTTPS client wrapper that automatically follows redirects. From 1.16.0 until 1.16.2, the documented sensitiveHeaders option is checked with value instanceof Array, so an array created in another JavaScript realm is replaced with an empty list even though Array.isArray recognizes it. When a request then follows an attacker-controlled cross-origin redirect, a custom credential header named in that discarded list can be forwarded to the redirect destination. This issue is fixed in version 1.16.2.",
+      "published": "2026-10-27T20:17:14.177",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116689"
     },
     {
-      "id": "CVE-2026-86574",
-      "summary": "Heap-based Buffer Overflow Vulnerability in JP1/Base.\n\nThis issue affects JP1/Base: from 11-00 before 12-50-54.",
-      "published": "2026-10-27T10:16:56.643",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86574"
+      "id": "CVE-2026-116688",
+      "summary": "CKEditor 5 is a modern JavaScript rich-text editor with an MVC architecture. From 45.0.0 until 47.7.4 and 48.5.1, the engine uses a vulnerable es-toolkit version whose prototype-pollution behavior can be reached while CKEditor processes incoming style attribute values. Crafted editor content can thereby cause unauthorized JavaScript execution in the browser. This issue is fixed in versions 47.7.4 and 48.5.1.",
+      "published": "2026-10-27T20:17:14.037",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116688"
     },
     {
-      "id": "CVE-2026-85299",
-      "summary": "A Missing Authorization vulnerability in the disks.createSnapshot and regionDisks.createSnapshot APIs in Google Compute Engine versions prior to 2026-08-31 on Google Cloud Platform allows an authenticated attacker to exfiltrate cross-project disk data.\n\n\nThis vulnerability was patched on 31 August 2026, and no customer action is needed.",
-      "published": "2026-10-27T10:16:56.500",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85299"
+      "id": "CVE-2026-116687",
+      "summary": "CKEditor 5 is a modern JavaScript rich-text editor with an MVC architecture. From 29.0.0 until 47.7.4 and 48.5.1, specially crafted markup can trigger cross-site scripting when General HTML Support is enabled and specifically configured to allow object content. Processing that content can execute attacker-controlled JavaScript in a browser context isolated from the origin of the application embedding the editor. This issue is fixed in versions 47.7.4 and 48.5.1.",
+      "published": "2026-10-27T20:17:13.890",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116687"
     },
     {
-      "id": "CVE-2026-82122",
-      "summary": "Stack-based Buffer Overflow Vulnerability in HiRDB.\n\n\nThis issue affects HiRDB Server Version 10: from 10-00 before 10-12-01; HiRDB Server Version 9: from 09-00 through 09-66-22; HiRDB Server with Additional Function Version 9: from 09-00 through 09-66/V; HiRDB Server Version 9(32): from 09-02 through 09-66-22; HiRDB Server with Additional Function Version 9(32): from 09-00 through 09-66-/V.",
-      "published": "2026-10-27T10:16:56.380",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82122"
+      "id": "CVE-2026-116686",
+      "summary": "The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients. From 1.10.0 until 1.30.0 and 2.2.0, ClientSession, ClientSessionGroup, and Client tool calls validate server-declared outputSchema documents with jsonschema's default resolver, causing an unresolved $ref value to fetch an HTTP, HTTPS, or file URL from the client's network and filesystem context. A server can trigger blind requests or local-file reads and can stall every session in the process because resolution runs synchronously on the event loop without a timeout. This issue is fixed in versions 1.30.0 and 2.2.0.",
+      "published": "2026-10-27T20:17:13.740",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116686"
     }
   ]
 }
