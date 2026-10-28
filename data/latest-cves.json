@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-28T01:17:51+00:00",
+  "generated_at": "2026-10-28T08:24:47+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-110879",
-      "summary": "jackson-databind validates the outer class of a class-name type ID but accepts attacker-selected classes inside its generic arguments, even when those classes violate the declared type or would be rejected as direct type IDs. This bypasses the generic-argument validation added for CVE-2026-54512 (GHSA-j3rv-43j4-c7qm), of which this is an incomplete fix.\n\n\n\nDatabindContext._resolveAndValidateGeneric() checks the outer class against the declared base type and then passes each argument from the type ID to _validateTypeParameter(), which validates the argument against the outer base type rather than enforcing its corresponding declared generic binding. It also invokes validators with arguments that have not passed the subtype check those validators expect. Under the default DefaultBaseTypeLimitingValidator this accepts an unrelated class inside a generic subtype even when the same class is rejected as a direct type ID. Where an allowIfBaseType(...) rule approves the outer type, Jackson substitutes LaissezFaireSubTypeValidator, so the configured validator no longer restricts the embedded arguments. The element type of a plain array type ID such as [Lpkg.Gadget; is likewise left unvalidated once the array's base type is approved.\n\n\n\nAffected paths include annotation-based class-name polymorphism with a default Jackson 3.x JsonMapper, configured default typing in both Jackson 2.x and 3.x, and integrations that expose that default typing. The default-validator case requires no application-authored validator: with @JsonTypeInfo(use = Id.CLASS), a direct gadget type ID is rejected as \"Not a subtype\", while a type ID naming a generic wrapper around the same gadget is accepted and deserialized, including attacker-supplied bean properties. Where class-name default typing permits Map, a property declared as Map<String,String> accepts HashMap<FileSystemXmlApplicationContext,String>; map-key discovery then passes the attacker-controlled JSON property name to the selected class's one-string constructor. With Spring on the classpath and attacker-controlled XML the application can load, that constructor loads the XML and invokes ProcessBuilder.start() under the application account, giving arbitrary command execution.\n\n\n\nThis issue affects com.fasterxml.jackson.core:jackson-databind from 2.10.0 and tools.jackson.core:jackson-databind from 3.0.0. Releases before 2.10.0 are not affected, because PolymorphicTypeValidator was introduced in jackson-databind 2.10.0.",
-      "published": "2026-10-28T01:16:55.180",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110879"
+      "id": "CVE-2026-92797",
+      "summary": "The MemberPress plugin for WordPress is vulnerable to Cross-Site Request Forgery in versions up to, and including, 1.14.1. This is due to a bypassable nonce verification check in the save_profile_fields() function that uses an isset() condition at line 1119, allowing the security check to be completely bypassed by simply omitting the nonce parameter from the request. This makes it possible for unauthenticated attackers to change authenticated users' email addresses via a forged request granted they can trick an authenticated user into performing an action such as clicking on a link, leading to account takeover through password reset functionality.",
+      "published": "2026-10-28T08:16:30.250",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92797"
     },
     {
-      "id": "CVE-2026-110747",
-      "summary": "ProtobufParser._readStringKey() reads the length prefix of a protobuf map entry's string key into an attacker-controlled int and then checks (_inputPtr + len) <= _inputEnd using signed arithmetic. For values near Integer.MAX_VALUE the addition overflows to a negative value and the check passes even when the input contains no key data. The parser then calls _finishShortText(len), which expands the text buffer to the declared length via TextBuffer.expandCurrentSegment and Arrays.copyOf, throwing OutOfMemoryError: Requested array size exceeds VM limit.\n\n\n\nAn 8-byte malformed message containing a map entry with a declared key length of 0x7FFFFFFF is sufficient. Configured StreamReadConstraints, including maxStringLength, maxNameLength, maxDocumentLength and maxNestingDepth, do not prevent the failure. Applications running with -XX:+ExitOnOutOfMemoryError terminate the JVM.\n\n\n\nThis is the same integer-overflow pattern addressed for other call sites in the remediation associated with CVE-2026-104016 and CVE-2026-104017; the map-key call site was corrected on the 3.x branches only, leaving the corresponding 2.x branches unguarded. Release lines 2.18, 2.19 and 2.20 do not contain _readStringKey() and are not affected by this vector. No privileges or user interaction beyond the ability to submit data for parsing are required. The 3.0 release line and 3.1.0-3.1.5 / 3.2.0-3.2.1 do not contain _readStringKey() and are therefore not affected; the method first appears in 3.1.6 and 3.2.2, mirroring its introduction at 2.21.6 on the 2.x side.",
-      "published": "2026-10-28T01:16:55.017",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110747"
+      "id": "CVE-2026-85655",
+      "summary": "The Enable Media Replace plugin for WordPress is vulnerable to authorization bypass in all versions up to, and including, 4.2.2. This is due to the plugin not properly verifying that a user is authorized to perform an action. This makes it possible for authenticated attackers, with author-level access and above, to modify the post_content of any published post referencing the replaced media \u2014 including Administrator-owned posts \u2014 making changes immediately visible to unauthenticated visitors. The doReplaceQuery() method performs a database-wide search-and-replace across all posts containing the old media URL without any per-post capability check, meaning a single Author-triggered request can silently overwrite a large number of posts that WordPress's standard admin UI and REST API would otherwise forbid that user from editing.",
+      "published": "2026-10-28T08:16:30.083",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85655"
     },
     {
-      "id": "CVE-2026-118129",
-      "summary": "A vulnerability was found in jeremyckahn Chitchatter up to f82538633813c854a81a8b2112a2f6ba17b39cbc. The affected element is the function isConfigMessageEvent of the file src/Bootstrap.tsx of the component PostMessage Handler. Performing a manipulation of the argument parentDomain results in improper authentication. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The patch is named e3babb5cd83bfe3b99f1d82358ac5c1ea8e8a688. It is recommended to apply a patch to fix this issue. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
-      "published": "2026-10-28T00:17:11.520",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118129"
+      "id": "CVE-2026-118435",
+      "summary": "Out-of-bounds write vulnerability in Samsung Open Source escargot allows Buffer Manipulation.",
+      "published": "2026-10-28T08:16:29.737",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118435"
     },
     {
-      "id": "CVE-2026-104895",
-      "summary": "The asynchronous Smile parser (NonBlockingByteArrayParser) uses a raw-binary length prefix taken from untrusted input to allocate a byte[] before the body is read, with no upper bound and no overflow check. On the raw-binary marker 0xFD, _decodeVInt() computes (value << 6) + (i & 0x3F) without the (value >>> 25) != 0 overflow guard present in the blocking SmileParser._readUnsignedVInt, and _startRawBinary then allocates the declared length immediately.\n\n\n\nA Smile feed of roughly ten bytes can therefore force an eager allocation of approximately 2 GB, producing an OutOfMemoryError on reactive or asynchronous Smile endpoints. A VInt crafted to overflow int yields a negative length and a NegativeArraySizeException, a RuntimeException that is not a JacksonException and so escapes the parser contract. Either outcome crashes the request or processing thread.\n\n\n\nThis is the same class of issue as CVE-2020-28491 in the CBOR parser of this library, which was fixed with a LONGEST_NON_CHUNKED_BINARY guard; the asynchronous Smile parser never received the equivalent guard. No privileges or user interaction beyond the ability to submit data for parsing are required.",
-      "published": "2026-10-28T00:17:11.357",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104895"
+      "id": "CVE-2026-101935",
+      "summary": "The Echo Knowledge Base \u2013 Documentation, FAQs, Chat & Smart Search plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'new_kb_config' parameter (specifically the article-mobile-break-point-v2 key, among other config keys interpolated into the <style> element) in versions up to, and including, 17.214.0 This is due to insufficient input sanitization and output escaping in EPKB_Frontend_Editor::fe_preview_config() and EPKB_Articles_Setup: on every knowledge base article page view, when the request supplies epkb_fe_reload_mode=on, an attacker-controlled JSON blob is merged over the stored KB configuration and several values are concatenated directly into a stylesheet emitted inside a literal <style> element without escaping (minify_css() does not strip <, > or /). This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user (with Editor-level access or above, holding the manage_categories capability, or an Administrator) into performing an action such as clicking on a specially crafted link.",
+      "published": "2026-10-28T08:16:29.567",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-101935"
     },
     {
-      "id": "CVE-2026-104016",
-      "summary": "ProtobufParser parses length-prefixed protobuf string and bytes fields by checking (_inputPtr + len) <= _inputEnd and then, on the fast path, calling _finishShortText(len). Both use 32-bit signed integer arithmetic. When an attacker supplies a varint decoding to a length near Integer.MAX_VALUE, _inputPtr + len overflows to a negative value, the bounds check passes, and _finishShortText(len) reaches TextBuffer.expandCurrentSegment(len), which performs Arrays.copyOf with no cap and throws OutOfMemoryError: Requested array size exceeds VM limit.\n\n\n\nThe JVM refuses arrays larger than Integer.MAX_VALUE - 8 before consulting available heap, so -Xmx tuning does not mitigate the issue. StreamReadConstraints.maxStringLength and maxDocumentLength do not gate this path: a 33-byte payload is far below any document-length cap and the string-length check does not fire before the allocation. This was confirmed empirically against shipping artifacts with maxStringLength, maxDocumentLength and maxNestingDepth all configured.\n\n\n\nA February 2026 hardening commit added the equivalent overflow guard to the packed-array-length and message-length paths but left the string-length call sites unguarded. No privileges or user interaction beyond the ability to submit data for parsing are required.",
-      "published": "2026-10-28T00:17:10.530",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104016"
+      "id": "CVE-2026-92098",
+      "summary": "The Webheadcoder Multi-Step Forms for Contact Form 7 plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via the 'l10n_print_after' parameter in all versions up to, and including, 4.7 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. Successful exploitation requires that the targeted site has at least one Contact Form 7 form configured with a [multistep] form-tag, as the canonicalization introduced in version 4.7 blocks the attack path on non-multistep forms.",
+      "published": "2026-10-28T07:16:49.540",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92098"
     },
     {
-      "id": "CVE-2026-59158",
-      "summary": "Nuxt Ollama integrates the official Ollama JavaScript library into Nuxt applications. Prior to 1.3.1, `src/module.ts` unconditionally merges all module options, including a configured cloud `api_key`, into `runtimeConfig.public.ollama`. Nuxt serializes this public configuration into the server-rendered HTML `window.__NUXT__` payload, exposing the API key in plaintext to any unauthenticated client that fetches a page. `src/runtime/composables/useOllama.ts` also reads the public key and sends it as an `Authorization` `Bearer` credential in browser-side Ollama requests. Following the documented cloud configuration is sufficient; the visible application template need not make an Ollama request for the secret to leak. A stolen key permits unauthorized cloud API requests at the operator's expense, quota or rate-limit exhaustion, and access to stored models or conversations if the key grants those permissions. This issue is fixed in version 1.3.1.",
-      "published": "2026-10-27T23:17:06.570",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59158"
+      "id": "CVE-2026-77871",
+      "summary": "The Post Snippets \u2013 Custom WordPress Code Snippets Customizer plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Shortcode Attributes in all versions up to, and including, 4.2.4 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with contributor-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Entity-encoded payloads such as &lt;script&gt;...&lt;/script&gt; survive WordPress's wp_kses_post on-save sanitization because kses does not decode HTML entities, and are only converted back into executable HTML tags at render time by the plugin's own shortcode filter. This requires snippet shortcodes to be enabled.",
+      "published": "2026-10-28T07:16:49.377",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77871"
     }
   ]
 }
