@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-27T21:16:30+00:00",
+  "generated_at": "2026-10-28T01:17:51+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-116691",
-      "summary": "MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. From 2.19.0 until 3.17.0, mlflow.crewai.autolog() records CrewAI Agent objects without consistently sanitizing nested credential-bearing values. mlflow/crewai/autolog.py::_get_agent_attributes() converts the Agent llm field to a string that includes the provider API key, while mlflow/crewai/autolog.py::_construct_full_inputs() expands the Agent object into mlflow.spanInputs. Applications can therefore send plaintext provider credentials to the MLflow trace backend or a configured OTLP destination, where trace readers can obtain them. This issue is fixed in version 3.17.0.",
-      "published": "2026-10-27T20:17:14.497",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116691"
+      "id": "CVE-2026-110879",
+      "summary": "jackson-databind validates the outer class of a class-name type ID but accepts attacker-selected classes inside its generic arguments, even when those classes violate the declared type or would be rejected as direct type IDs. This bypasses the generic-argument validation added for CVE-2026-54512 (GHSA-j3rv-43j4-c7qm), of which this is an incomplete fix.\n\n\n\nDatabindContext._resolveAndValidateGeneric() checks the outer class against the declared base type and then passes each argument from the type ID to _validateTypeParameter(), which validates the argument against the outer base type rather than enforcing its corresponding declared generic binding. It also invokes validators with arguments that have not passed the subtype check those validators expect. Under the default DefaultBaseTypeLimitingValidator this accepts an unrelated class inside a generic subtype even when the same class is rejected as a direct type ID. Where an allowIfBaseType(...) rule approves the outer type, Jackson substitutes LaissezFaireSubTypeValidator, so the configured validator no longer restricts the embedded arguments. The element type of a plain array type ID such as [Lpkg.Gadget; is likewise left unvalidated once the array's base type is approved.\n\n\n\nAffected paths include annotation-based class-name polymorphism with a default Jackson 3.x JsonMapper, configured default typing in both Jackson 2.x and 3.x, and integrations that expose that default typing. The default-validator case requires no application-authored validator: with @JsonTypeInfo(use = Id.CLASS), a direct gadget type ID is rejected as \"Not a subtype\", while a type ID naming a generic wrapper around the same gadget is accepted and deserialized, including attacker-supplied bean properties. Where class-name default typing permits Map, a property declared as Map<String,String> accepts HashMap<FileSystemXmlApplicationContext,String>; map-key discovery then passes the attacker-controlled JSON property name to the selected class's one-string constructor. With Spring on the classpath and attacker-controlled XML the application can load, that constructor loads the XML and invokes ProcessBuilder.start() under the application account, giving arbitrary command execution.\n\n\n\nThis issue affects com.fasterxml.jackson.core:jackson-databind from 2.10.0 and tools.jackson.core:jackson-databind from 3.0.0. Releases before 2.10.0 are not affected, because PolymorphicTypeValidator was introduced in jackson-databind 2.10.0.",
+      "published": "2026-10-28T01:16:55.180",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110879"
     },
     {
-      "id": "CVE-2026-116690",
-      "summary": "MLflow is an open source AI engineering platform for agents, large language models, and machine learning models. From 3.10.0 until 3.17.0, the prompt branch in _create_model_version() accepts schemeless relative sources because path validation runs only when a source has a URL scheme, and mlflow.prompt.is_prompt is interpreted by tag presence rather than a true value. A remote caller can store a server-local path as the model version artifact location and use /api/2.0/mlflow/model-versions/get-artifact to read files accessible to the MLflow server process. Default unauthenticated servers require no privileges, while basic-auth deployments are exposed to authenticated users who can create registered models. This issue is fixed in version 3.17.0.",
-      "published": "2026-10-27T20:17:14.340",
+      "id": "CVE-2026-110747",
+      "summary": "ProtobufParser._readStringKey() reads the length prefix of a protobuf map entry's string key into an attacker-controlled int and then checks (_inputPtr + len) <= _inputEnd using signed arithmetic. For values near Integer.MAX_VALUE the addition overflows to a negative value and the check passes even when the input contains no key data. The parser then calls _finishShortText(len), which expands the text buffer to the declared length via TextBuffer.expandCurrentSegment and Arrays.copyOf, throwing OutOfMemoryError: Requested array size exceeds VM limit.\n\n\n\nAn 8-byte malformed message containing a map entry with a declared key length of 0x7FFFFFFF is sufficient. Configured StreamReadConstraints, including maxStringLength, maxNameLength, maxDocumentLength and maxNestingDepth, do not prevent the failure. Applications running with -XX:+ExitOnOutOfMemoryError terminate the JVM.\n\n\n\nThis is the same integer-overflow pattern addressed for other call sites in the remediation associated with CVE-2026-104016 and CVE-2026-104017; the map-key call site was corrected on the 3.x branches only, leaving the corresponding 2.x branches unguarded. Release lines 2.18, 2.19 and 2.20 do not contain _readStringKey() and are not affected by this vector. No privileges or user interaction beyond the ability to submit data for parsing are required. The 3.0 release line and 3.1.0-3.1.5 / 3.2.0-3.2.1 do not contain _readStringKey() and are therefore not affected; the method first appears in 3.1.6 and 3.2.2, mirroring its introduction at 2.21.6 on the 2.x side.",
+      "published": "2026-10-28T01:16:55.017",
       "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116690"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110747"
     },
     {
-      "id": "CVE-2026-116689",
-      "summary": "follow-redirects is a Node.js HTTP and HTTPS client wrapper that automatically follows redirects. From 1.16.0 until 1.16.2, the documented sensitiveHeaders option is checked with value instanceof Array, so an array created in another JavaScript realm is replaced with an empty list even though Array.isArray recognizes it. When a request then follows an attacker-controlled cross-origin redirect, a custom credential header named in that discarded list can be forwarded to the redirect destination. This issue is fixed in version 1.16.2.",
-      "published": "2026-10-27T20:17:14.177",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116689"
+      "id": "CVE-2026-118129",
+      "summary": "A vulnerability was found in jeremyckahn Chitchatter up to f82538633813c854a81a8b2112a2f6ba17b39cbc. The affected element is the function isConfigMessageEvent of the file src/Bootstrap.tsx of the component PostMessage Handler. Performing a manipulation of the argument parentDomain results in improper authentication. Remote exploitation of the attack is possible. The exploit has been made public and could be used. This product follows a rolling release approach for continuous delivery, so version details for affected or updated releases are not provided. The patch is named e3babb5cd83bfe3b99f1d82358ac5c1ea8e8a688. It is recommended to apply a patch to fix this issue. The vendor was contacted early, responded in a very professional manner and quickly released a fixed version of the affected product.",
+      "published": "2026-10-28T00:17:11.520",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118129"
     },
     {
-      "id": "CVE-2026-116688",
-      "summary": "CKEditor 5 is a modern JavaScript rich-text editor with an MVC architecture. From 45.0.0 until 47.7.4 and 48.5.1, the engine uses a vulnerable es-toolkit version whose prototype-pollution behavior can be reached while CKEditor processes incoming style attribute values. Crafted editor content can thereby cause unauthorized JavaScript execution in the browser. This issue is fixed in versions 47.7.4 and 48.5.1.",
-      "published": "2026-10-27T20:17:14.037",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116688"
+      "id": "CVE-2026-104895",
+      "summary": "The asynchronous Smile parser (NonBlockingByteArrayParser) uses a raw-binary length prefix taken from untrusted input to allocate a byte[] before the body is read, with no upper bound and no overflow check. On the raw-binary marker 0xFD, _decodeVInt() computes (value << 6) + (i & 0x3F) without the (value >>> 25) != 0 overflow guard present in the blocking SmileParser._readUnsignedVInt, and _startRawBinary then allocates the declared length immediately.\n\n\n\nA Smile feed of roughly ten bytes can therefore force an eager allocation of approximately 2 GB, producing an OutOfMemoryError on reactive or asynchronous Smile endpoints. A VInt crafted to overflow int yields a negative length and a NegativeArraySizeException, a RuntimeException that is not a JacksonException and so escapes the parser contract. Either outcome crashes the request or processing thread.\n\n\n\nThis is the same class of issue as CVE-2020-28491 in the CBOR parser of this library, which was fixed with a LONGEST_NON_CHUNKED_BINARY guard; the asynchronous Smile parser never received the equivalent guard. No privileges or user interaction beyond the ability to submit data for parsing are required.",
+      "published": "2026-10-28T00:17:11.357",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104895"
     },
     {
-      "id": "CVE-2026-116687",
-      "summary": "CKEditor 5 is a modern JavaScript rich-text editor with an MVC architecture. From 29.0.0 until 47.7.4 and 48.5.1, specially crafted markup can trigger cross-site scripting when General HTML Support is enabled and specifically configured to allow object content. Processing that content can execute attacker-controlled JavaScript in a browser context isolated from the origin of the application embedding the editor. This issue is fixed in versions 47.7.4 and 48.5.1.",
-      "published": "2026-10-27T20:17:13.890",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116687"
+      "id": "CVE-2026-104016",
+      "summary": "ProtobufParser parses length-prefixed protobuf string and bytes fields by checking (_inputPtr + len) <= _inputEnd and then, on the fast path, calling _finishShortText(len). Both use 32-bit signed integer arithmetic. When an attacker supplies a varint decoding to a length near Integer.MAX_VALUE, _inputPtr + len overflows to a negative value, the bounds check passes, and _finishShortText(len) reaches TextBuffer.expandCurrentSegment(len), which performs Arrays.copyOf with no cap and throws OutOfMemoryError: Requested array size exceeds VM limit.\n\n\n\nThe JVM refuses arrays larger than Integer.MAX_VALUE - 8 before consulting available heap, so -Xmx tuning does not mitigate the issue. StreamReadConstraints.maxStringLength and maxDocumentLength do not gate this path: a 33-byte payload is far below any document-length cap and the string-length check does not fire before the allocation. This was confirmed empirically against shipping artifacts with maxStringLength, maxDocumentLength and maxNestingDepth all configured.\n\n\n\nA February 2026 hardening commit added the equivalent overflow guard to the packed-array-length and message-length paths but left the string-length call sites unguarded. No privileges or user interaction beyond the ability to submit data for parsing are required.",
+      "published": "2026-10-28T00:17:10.530",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104016"
     },
     {
-      "id": "CVE-2026-116686",
-      "summary": "The Model Context Protocol Python SDK is the official Python SDK for Model Context Protocol servers and clients. From 1.10.0 until 1.30.0 and 2.2.0, ClientSession, ClientSessionGroup, and Client tool calls validate server-declared outputSchema documents with jsonschema's default resolver, causing an unresolved $ref value to fetch an HTTP, HTTPS, or file URL from the client's network and filesystem context. A server can trigger blind requests or local-file reads and can stall every session in the process because resolution runs synchronously on the event loop without a timeout. This issue is fixed in versions 1.30.0 and 2.2.0.",
-      "published": "2026-10-27T20:17:13.740",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116686"
+      "id": "CVE-2026-59158",
+      "summary": "Nuxt Ollama integrates the official Ollama JavaScript library into Nuxt applications. Prior to 1.3.1, `src/module.ts` unconditionally merges all module options, including a configured cloud `api_key`, into `runtimeConfig.public.ollama`. Nuxt serializes this public configuration into the server-rendered HTML `window.__NUXT__` payload, exposing the API key in plaintext to any unauthenticated client that fetches a page. `src/runtime/composables/useOllama.ts` also reads the public key and sends it as an `Authorization` `Bearer` credential in browser-side Ollama requests. Following the documented cloud configuration is sufficient; the visible application template need not make an Ollama request for the secret to leak. A stolen key permits unauthorized cloud API requests at the operator's expense, quota or rate-limit exhaustion, and access to stored models or conversations if the key grants those permissions. This issue is fixed in version 1.3.1.",
+      "published": "2026-10-27T23:17:06.570",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59158"
     }
   ]
 }
