@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-28T21:00:47+00:00",
+  "generated_at": "2026-10-29T00:52:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78674",
-      "summary": "The BPMN System REST APIs do not sufficiently validate input parameters, allowing authenticated users to submit crafted requests that can lead to the execution of arbitrary commands on the server.\n\nAn authenticated user can leverage this vulnerability to execute arbitrary commands with the privileges of the product's runtime account. The scope of potential damage is contingent upon the permissions assigned to this account.",
-      "published": "2026-10-28T20:18:47.330",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78674"
+      "id": "CVE-2026-118589",
+      "summary": "A weakness has been identified in nschloe meshio up to 5.3.5. Impacted is an unknown function of the file meshio/_vtk_42.py of the component VTK Reader. Executing a manipulation of the argument DIMENSIONS can lead to uncontrolled memory allocation. The attack can be executed remotely. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-29T00:17:26.320",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118589"
     },
     {
-      "id": "CVE-2026-76418",
-      "summary": "A vulnerability in the Remote Access SSL VPN service of Cisco Secure Firewall Adaptive Security Appliance (ASA) Software and Cisco Secure Firewall Threat Defense (FTD) Software could allow an unauthenticated, remote attacker to cause the device to reload unexpectedly, resulting in a denial of service (DoS) condition. This vulnerability is due to logic errors when secondary authentication is configured on a tunnel group. An attacker could exploit this vulnerability by sending a crafted request when connecting to the SSL remote access VPN. A successful exploit could allow the attacker to cause the affected device to reload, resulting in a DoS condition.",
-      "published": "2026-10-28T20:18:47.063",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76418"
+      "id": "CVE-2026-118586",
+      "summary": "A security flaw has been discovered in dfm feedfinder2 up to 0.0.4. This issue affects the function find_feeds of the file feedfinder2.py. Performing a manipulation results in server-side request forgery. Remote exploitation of the attack is possible. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-29T00:17:26.123",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118586"
     },
     {
-      "id": "CVE-2026-6647",
-      "summary": "In deployments of WSO2 Identity Server configured with a case-insensitive user store and a case-sensitive database for identity data, mismatches in username case handling can occur. This inconsistency results in OAuth token revocation operations failing to correctly identify usernames containing mixed-case characters during certain lifecycle events, preventing tokens from being invalidated.\n\nA malicious actor can exploit this vulnerability by possessing a valid access or refresh token associated with a mixed-case username. In affected configurations, these tokens may not be revoked when expected. The actor can then leverage these unrevoked tokens, before their expiry, to continue performing actions that should have been restricted, effectively bypassing intended access controls.",
-      "published": "2026-10-28T20:18:44.080",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-6647"
+      "id": "CVE-2026-118585",
+      "summary": "A vulnerability was identified in configuroweb inventariobasico c9377cdba474deb3eb5a0704d197b5733af16b47/f9db0c0a04d79ad931c218140df4fb23809d4fab. This vulnerability affects unknown code of the file addlist.php of the component Add Product Page. Such manipulation of the argument product name leads to cross site scripting. The attack may be launched remotely. The exploit is publicly available and might be used. This product operates on a rolling release basis, ensuring continuous delivery. Consequently, there are no version details for either affected or updated releases. The project was informed of the problem early through an issue report but has not responded yet.",
+      "published": "2026-10-29T00:17:25.920",
+      "cvss": 3.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118585"
     },
     {
-      "id": "CVE-2026-63190",
-      "summary": "FearlessCMS is a flat-file `content` management system centered on simplicity and open source. Prior to version 0.1.4, five debug/test PHP scripts under `admin/` perform privileged operations without `isLoggedIn()` authentication checks, CSRF protection or adequate `path` validation. On PHP's built-in development server, including the default Docker deployment, `router.php` checks an unnormalized admin URI prefix while the filesystem resolves dot segments, so `/./admin/` bypasses the admin login gate and executes those scripts directly. In `admin/debug_save_flow.php`, attacker-controlled `path` and `content` reach `file_put_contents` for arbitrary `.md` writes under `content`/ or outside it through `path` traversal, enabling site defacement and stored JavaScript in public pages; `print_r($_POST)` output without `htmlspecialchars` escaping also causes reflected cross-site scripting. The `admin/debug_content.php` `path` parameter reaches `scandir()`, `file_get_contents()` and `posix_getpwuid()`, permitting arbitrary directory enumeration and `.md` file reads that expose absolute paths, ownership, permissions, hashes and `content` previews. The `admin/preview-handler.php` endpoint accepts JSON `content` and `title` and writes enumerable files under `content/_preview/`, enabling stored cross-site scripting and disk exhaustion. The `admin/testdebug.php` endpoint appends to `admin/testdebug.log` without authentication, also enabling disk exhaustion. The `admin/test_redirect.php` script exposes a test artifact but escapes its inputs and is not itself an XSS sink. Stored script execution can steal sessions and compromise administrators when they view affected `content`. Reads and writes execute with PHP's privileges; the tested deployment runs PHP as root, amplifying filesystem impact. This issue is fixed in version 0.1.4.",
-      "published": "2026-10-28T20:18:37.470",
-      "cvss": 9.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63190"
+      "id": "CVE-2026-86983",
+      "summary": "A remote attacker may be able to terminate a process that passes attacker-controlled input to the P-384 VOPRF API without bounding its length. This vulnerability is addressed in swift-crypto version 5.0.3.",
+      "published": "2026-10-28T23:17:11.260",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86983"
     },
     {
-      "id": "CVE-2026-61542",
-      "summary": "Gearboy is a Game Boy, Game Boy Color, and Super Game Boy emulator and debugger with an embedded MCP server. Gearsystem, the affected component, has an optional `--mcp-http` mode that accepts unauthenticated MCP requests from any reachable network peer despite localhost-only documentation and logging. In the described `platforms/shared/desktop/mcp/mcp_transport.h` transport, the socket binds `INADDR_ANY`, normally on port 7777, and POST requests to `/mcp` reach dispatch without `Authorization`, `Host`, or `Origin` checks. Responses and OPTIONS advertise `Access-Control-Allow-Origin: *`. A peer can initialize an MCP session and invoke exposed emulator/debugging operations; even a garbage bearer token does not block dispatch, while a loopback-bind negative control prevents network access. The reported impact is bounded to the emulator process, debugging state, and local files accepted as media, rather than demonstrated host code execution. Gearboy 3.8.7 contains a patch.",
-      "published": "2026-10-28T20:18:27.213",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61542"
+      "id": "CVE-2026-85749",
+      "summary": "MailWatch for MailScanner is a web-based front-end to MailScanner. Prior to 1.2.27, any authenticated MailWatch user, including the U/user, D/domain-admin, and H/host roles, can release to inbox or permanently delete the quarantined mail of any other user or domain by supplying an arbitrary message `id` to `mailscanner/quarantine_action.php`. The action path calls `quarantine_list_items()` in `mailscanner/functions.php`, which selects from `maillog` by the supplied identifier without the per-role `global_filter` applied by listing and read views. The action requires a valid session and CSRF token, but the caller can submit a token from the caller's own session; ownership of the requested message is never checked. Message identifiers are enumerable, allowing a low-privilege user to invoke `quarantine_release()` or `quarantine_delete()` for other users' or domains' quarantined messages, force-delivering mail held by the quarantine or permanently deleting it. This issue is fixed in version 1.2.27.",
+      "published": "2026-10-28T23:17:11.100",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85749"
     },
     {
-      "id": "CVE-2026-61529",
-      "summary": "Endatix is a self-hosted form and survey management platform with a headless API. Prior to 0.7.0, the anonymous `POST /forms/{formId}/submissions` endpoint stores attacker-controlled `JsonData` after checking only that the JSON is well formed. A file object with `name`, `type` and `content` fields can contain an HTTP or HTTPS URL. When a staff member with `submissions.view` permission invokes `POST /forms/{formId}/submissions/{submissionId}/files`, `GetFilesHandler` passes the stored data to `SubmissionFileExtractor` in `src/Endatix.Infrastructure/Features/Submissions/SubmissionFileExtractor.cs`, which calls `HttpClient.GetAsync` without validating the destination URL, host or resolved IP addresses against internal address ranges. This permits stored, second-order server-side GET requests to internal services, cloud metadata, loopback and link-local addresses from the server's network position. The form must have `IsPublic` and `IsEnabled` set, and an anonymous submission must pass reCAPTCHA v3 when configured. The fetched response is placed in the staff viewer's ZIP, not returned directly to the attacker, so disclosure to the attacker is blind or indirect through observable request behavior or information exposed by the viewer. No integrity or availability impact is asserted; data: and raw-base64 `content` are decoded locally without network requests. This issue is fixed in version 0.7.0.",
-      "published": "2026-10-28T20:18:27.060",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61529"
+      "id": "CVE-2026-82411",
+      "summary": "Open Object provides an API and admin interface to manage objects and object types. From 2.4.3 until 2.5.1, 3.6.2, 4.0.2, and 4.1.1, a token scoped to read one ObjectType can read the full versioned record of an object of any other ObjectType via the history-detail endpoint `GET /api/v2/objects/{uuid}/{index}`. The `history_detail` action in `src/objects/api/v2/views.py` calls `self.get_queryset()` and `get_object_or_404` directly instead of `self.get_object()`, so `check_object_permissions` and the per-object check in `ObjectTypeBasedPermission.has_object_permission` are not invoked. The queryset's `filter_for_token` applies only to the list and search actions, while `ObjectTypeBasedPermission.has_permission` allows non-create actions, leaving neither check to constrain history-detail records to the token's permitted ObjectType. The normal retrieve endpoint returns 403 for the same unauthorized object, and the sibling history action enforces the grant. Any valid non-superuser API token with a read grant on at least one ObjectType can therefore disclose another ObjectType's complete versioned object `data`, which can include citizen or case records and sensitive identifiers in government deployments. This issue is fixed in versions 2.5.1, 3.6.2, 4.0.2, and 4.1.1.",
+      "published": "2026-10-28T23:17:10.930",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82411"
     }
   ]
 }
