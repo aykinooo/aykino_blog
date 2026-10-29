@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-29T07:01:00+00:00",
+  "generated_at": "2026-10-29T14:13:54+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-93293",
-      "summary": "The Password Protected plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the bundled Freemius SDK's purchase-completion handler in all versions up to, and including, 2.8.4 due to insufficient input sanitization and output escaping. Once the site's Freemius opt-in is complete (the normal state after an administrator clicks \"Allow & Continue\"), the handler processes the 'purchased_plan' request parameter on any wp-admin request from an authenticated user without any capability, nonce, or purchase validation, and stores it in a persistent, site-wide administrative notice. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts that execute automatically when an administrator views a standard admin page such as their Profile page.",
-      "published": "2026-10-29T06:17:24.940",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93293"
+      "id": "CVE-2026-93011",
+      "summary": "A flaw was found in dnsmasq. After a reduction of internal domain-name buffer sizes, the DNSSEC validator can write a few bytes past a name buffer when converting names to and from DNS wire format. An attacker who can cause the server to validate a crafted DNSSEC response may overwrite a small amount of adjacent heap metadata. DNSSEC support is not compiled in by default and must also be enabled at runtime.",
+      "published": "2026-10-29T13:17:16.220",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93011"
     },
     {
-      "id": "CVE-2026-89216",
-      "summary": "The vTables  WordPress plugin before 0.3 does not properly sanitise and escape a parameter before using it in a SQL statement, which allows unauthenticated attackers to perform SQL injection attacks and extract data from the database.",
-      "published": "2026-10-29T06:17:24.800",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89216"
+      "id": "CVE-2026-93008",
+      "summary": "A flaw was found in dnsmasq. When following a CNAME in a DNS response, the resolver can cache records for the CNAME target without checking that those records belong to the responding server's authorized zone. In split-DNS deployments that send some domains to a specific upstream, an attacker who controls that upstream can inject cache entries for unrelated names. Later clients may then receive attacker-chosen addresses for those names.",
+      "published": "2026-10-29T13:17:16.053",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93008"
     },
     {
-      "id": "CVE-2026-88928",
-      "summary": "The PAYCOMET for WooCommerce WordPress plugin before 5.46 does not verify the cryptographic signature on its payment notification endpoint when the request references a tokenisation operation, allowing unauthenticated attackers to overwrite the stored payment token associated with existing orders and delete saved card records.",
-      "published": "2026-10-29T06:17:24.647",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-88928"
+      "id": "CVE-2026-93007",
+      "summary": "A flaw was found in dnsmasq. The TCP DNS service uses a small fixed pool of child processes and does not set a receive timeout on client connections. A remote attacker can open idle TCP connections to port 53 and occupy the entire pool, preventing new TCP DNS connections and DNSSEC validation that requires TCP fallback. UDP DNS resolution continues, and occupied slots are released after a fixed lifetime.",
+      "published": "2026-10-29T13:17:15.890",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93007"
     },
     {
-      "id": "CVE-2026-86794",
-      "summary": "The Community Events WordPress plugin before 1.6.0 does not have authorisation or nonce checks when processing public event submissions, and does not escape several of the submitted values before outputting them in the administration dashboard and on the public calendar, allowing unauthenticated users to inject arbitrary web scripts that will execute in the browser of an administrator reviewing the submission.",
-      "published": "2026-10-29T06:17:24.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86794"
+      "id": "CVE-2026-93006",
+      "summary": "A flaw was found in dnsmasq. The TFTP server can serve the wrong file contents because a recently used transfer cache is not invalidated when a transfer finishes. An attacker on the local network who can request a TFTP file may cause a later client to receive previously cached data instead of the requested file. In PXE network-boot environments this can substitute attacker-chosen boot content for a victim machine.",
+      "published": "2026-10-29T13:17:15.723",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93006"
     },
     {
-      "id": "CVE-2026-85007",
-      "summary": "The Video Player for YouTube  WordPress plugin before 2.1.4 does not perform a capability check on its player-preset AJAX handler, allowing users with the Contributor role and above to read the site-wide player-preset configuration, and in versions before 2.1.1 to modify and delete it as well.",
-      "published": "2026-10-29T06:17:24.230",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85007"
+      "id": "CVE-2026-56056",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Mamunur Rashid The Post Grid the-post-grid allows Stored XSS.This issue affects The Post Grid: from n/a through 7.9.7.",
+      "published": "2026-10-29T13:17:13.450",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-56056"
     },
     {
-      "id": "CVE-2026-78396",
-      "summary": "The Link Library WordPress plugin before 7.10.0 does not verify that a requested link belongs to the settings set whose display template is used to render it, allowing unauthenticated users to disclose the telephone number, e-mail address and submitter name stored with links that the settings set is configured not to display.",
-      "published": "2026-10-29T06:17:24.123",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78396"
+      "id": "CVE-2026-52709",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in bPlugins Video Gallery Block video-gallery-block allows Stored XSS.This issue affects Video Gallery Block: from n/a through 1.6.0.",
+      "published": "2026-10-29T13:17:13.163",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-52709"
     }
   ]
 }
