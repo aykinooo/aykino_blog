@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-30T12:48:28+00:00",
+  "generated_at": "2026-10-30T18:34:36+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-119591",
-      "summary": "SQLite before 3.54.0 contains a stack exhaustion vulnerability in countOfViewOptimization() that allows attackers to crash the host process via count(*) over a large multi-row VALUES clause. Attackers supplying SQL or a database file with a crafted view can trigger deeply nested TK_PLUS expressions whose recursive freeing in sqlite3ExprDeleteNN() exhausts the C stack, causing denial of service.",
-      "published": "2026-10-30T12:16:44.873",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119591"
+      "id": "CVE-2026-9239",
+      "summary": "The Meow Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Attachment Alt Text (aria-label attribute) in all versions up to, and including, 5.5.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerable code path is only reachable when a gallery item is rendered as a link (i.e., link_href is non-empty), and exploitation relies on the fact that WordPress's sanitize_text_field() strips angle-bracketed tags but preserves double quotes, allowing an attacker to break out of the aria-label attribute context and inject event-handler attributes such as onclick.",
+      "published": "2026-10-30T18:18:21.613",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9239"
     },
     {
-      "id": "CVE-2026-119586",
-      "summary": "SQLite command-line shell through 3.54.1 contains a command injection vulnerability in the .recover command that emits attacker-planted dot-commands stored in sqlite_schema.sql values verbatim. Attackers can craft a database whose schema holds a valid CREATE statement followed by a .shell or .system line, executing OS commands when victims pipe .recover output into sqlite3.",
-      "published": "2026-10-30T12:16:44.730",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119586"
+      "id": "CVE-2026-97638",
+      "summary": "The Forminator Forms \u2013 Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 1.57.3.1 via the 'previous_draft_id' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to delete arbitrary saved drafts belonging to other users and take over those draft identifiers by overwriting them with attacker-controlled form submissions. This requires the attacker to have obtained a victim's draft_id, which may be harvested from a shared \"continue later\" link; the nominally present nonce check is effectively bypassed because the nonce is publicly obtainable by any unauthenticated visitor loading a form page.",
+      "published": "2026-10-30T18:18:21.470",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97638"
     },
     {
-      "id": "CVE-2026-119568",
-      "summary": "vsftpd through 3.0.5 contains an authentication bypass vulnerability in ssl_data_accept() that allows unauthenticated attackers to hijack FTPS data connections by resuming their own TLS session ticket. Attackers sharing the victim's source IP can obtain a ticket via AUTH TLS, then connect to the victim's PASV port to steal downloads or inject upload data.",
-      "published": "2026-10-30T12:16:44.580",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119568"
+      "id": "CVE-2026-96894",
+      "summary": "The ERP: Complete HR, Accounting & CRM Suite Built for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Inbound Email Body in all versions up to, and including, 1.17.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The inbound email router's only gate is a regex match on the References header for a reply token whose hash is never cryptographically validated, meaning any external party who received or can mimic a CRM outbound email can satisfy the check without a WordPress account.",
+      "published": "2026-10-30T18:18:21.320",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96894"
     },
     {
-      "id": "CVE-2026-119567",
-      "summary": "vsftpd through 3.0.5 contains an access control bypass vulnerability that allows authenticated FTP users to execute denied commands by issuing RFC 775 X-prefixed aliases. The cmds_denied check in process_post_login() compares literal tokens, so attackers can send XRMD, XMKD, XCWD, XPWD, or XCUP to perform blocked operations like deleting directories.",
-      "published": "2026-10-30T12:16:44.433",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119567"
+      "id": "CVE-2026-84243",
+      "summary": "The gettext family of functions in the GNU C Library version 2.0 and later accept LANGUAGE environment variable entries that contain '/' or that are equal to \"..\", unless the program is setuid or setgid (AT_SECURE).  An attacker who can set LANGUAGE in the environment of a program that uses gettext can make it load a message catalog (.mo file) from an arbitrary location in the file system.  A crafted .mo file can crash the program through out-of-range offsets, or supply translations whose format directives do not match the arguments passed by the program.  That causes undefined behaviour in the printf family of functions and may allow arbitrary code execution with the privileges of the program.  The safety of message catalogs relies on them being installed in trusted, read-only locations, and the directory traversal bypasses this.\n\nThe fix for CVE-2014-0475 rejects \"..\" path components in locale names passed to setlocale or taken from the LC_ALL, LC_* and LANG environment variables.  gettext reads LANGUAGE directly and appends each colon-separated entry to the message catalog directory, so that fix did not cover LANGUAGE.\n\nLANGUAGE is only used when the LC_MESSAGES locale is not \"C\", \"C.<encoding>\" or \"POSIX\", so the attacker must also be able to select another installed locale, for example through LANG or LC_ALL.  Exploitation also requires that the attacker can place the crafted file in a location readable by the target program, and that the environment crosses a trust boundary without the program running as AT_SECURE.  An example is an SSH server that accepts LANGUAGE and LANG from clients through the AcceptEnv directive and restricts an account to a forced command; the attacker may use this to escape the restriction.",
+      "published": "2026-10-30T18:18:13.650",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84243"
     },
     {
-      "id": "CVE-2026-119566",
-      "summary": "Prometheus through 3.15.1 contains a credential leak vulnerability that allows attackers to capture Azure AD or Google IAM bearer tokens by redirecting remote_write requests to another host. Attackers controlling the remote-write endpoint or a redirecting server can return a 3xx to their host and replay the token, for example to write metrics to the victim's backend.",
-      "published": "2026-10-30T12:16:44.287",
-      "cvss": 4.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119566"
+      "id": "CVE-2026-76012",
+      "summary": "The Photo Gallery, Sliders, Proofing and Themes \u2013 NextGEN Gallery plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 4.4.1 via the legacy_render function. This is due to broken authorization on the Lightroom gallery_edit endpoint combined with mass assignment of gallery path and unrestricted file upload into a registered template directory, whose extension check uses a substring match that accepts sanitized .php_ filenames as valid templates. This makes it possible for authenticated attackers, with custom-level access and above, to execute code on the server. Exploitation requires the authenticated attacker to be the stored author of at least one existing NextGEN gallery, as ownership of that gallery is the sole authorization check gating the mass-assignment and upload steps.",
+      "published": "2026-10-30T18:18:12.937",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76012"
     },
     {
-      "id": "CVE-2026-119565",
-      "summary": "Plausible Analytics through 3.2.1 contains a mass assignment vulnerability in update_traffic_change_notification that allows authenticated site editors to reassign notifications by supplying a site_id parameter. Attackers can submit traffic_change_notification[site_id] set to another site's primary key via PUT /sites/:domain/traffic-change-notification/:type to receive that site's traffic alerts and visitor figures.",
-      "published": "2026-10-30T12:16:44.140",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119565"
+      "id": "CVE-2026-69446",
+      "summary": "Incorrect authorization in Microsoft Edge (Chromium-based) allows an authorized attacker to elevate privileges locally.",
+      "published": "2026-10-30T18:18:07.587",
+      "cvss": 4.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69446"
     }
   ]
 }
