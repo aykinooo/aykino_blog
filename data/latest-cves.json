@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-30T18:34:36+00:00",
+  "generated_at": "2026-10-30T22:56:44+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-9239",
-      "summary": "The Meow Gallery plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Attachment Alt Text (aria-label attribute) in all versions up to, and including, 5.5.1 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with author-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The vulnerable code path is only reachable when a gallery item is rendered as a link (i.e., link_href is non-empty), and exploitation relies on the fact that WordPress's sanitize_text_field() strips angle-bracketed tags but preserves double quotes, allowing an attacker to break out of the aria-label attribute context and inject event-handler attributes such as onclick.",
-      "published": "2026-10-30T18:18:21.613",
-      "cvss": 6.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-9239"
+      "id": "CVE-2026-63224",
+      "summary": "OpenRemote is an open-source internet-of-things platform. Prior to 1.26.0, the `datapoint export` API constructs `CSV crosstab` SQL by concatenating an `asset name` and `attribute name` into a `COPY` query that uses `crosstab` and streams `TO STDOUT`. The `asset name` enters both a double-quoted column identifier and a category query enclosed by the fixed `$cat$` delimiter. Escaping single quotes in one string context does not escape embedded double quotes in identifiers or protect that dollar-quote boundary. An authenticated user permitted to create or rename an asset and read/export datapoints for one of its attributes can store SQL metacharacters in the name and request a `crosstab` export, causing injected SELECT output to be returned in the normal ZIP/CSV response. This enables database exfiltration without direct database or filesystem access or token forgery. In a multi-tenant deployment it can expose other tenants' data if the manager's database role can read shared tables; integrity and availability effects are not established by the demonstrated read primitive. This issue is fixed in version 1.26.0.",
+      "published": "2026-10-30T22:16:58.837",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63224"
     },
     {
-      "id": "CVE-2026-97638",
-      "summary": "The Forminator Forms \u2013 Contact Form, Payment Form & Custom Form Builder plugin for WordPress is vulnerable to Insecure Direct Object Reference in all versions up to, and including, 1.57.3.1 via the 'previous_draft_id' parameter due to missing validation on a user controlled key. This makes it possible for unauthenticated attackers to delete arbitrary saved drafts belonging to other users and take over those draft identifiers by overwriting them with attacker-controlled form submissions. This requires the attacker to have obtained a victim's draft_id, which may be harvested from a shared \"continue later\" link; the nominally present nonce check is effectively bypassed because the nonce is publicly obtainable by any unauthenticated visitor loading a form page.",
-      "published": "2026-10-30T18:18:21.470",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97638"
+      "id": "CVE-2026-63201",
+      "summary": "Netopeer2 is a server for implementing network configuration management based on the `NETCONF` Protocol. In affected versions, a low-privileged authenticated `NETCONF` user can remotely crash `netopeer2-server` by sending a `get RPC` with an invalid `subtree filter` whose text contains format specifiers. In `src/netconf.c`, `np2srv_rpc_get_cb()` sends the invalid value through `ERR()` to `np2log_printf()`, where `vsnprintf()` first formats the message safely. In `src/log.c`, that already formatted buffer is subsequently passed to `np2log()` as the format string itself, causing `vsyslog()` to interpret attacker-controlled percent sequences and read invalid pointer arguments. The reported denial of service was confirmed on version 2.8.7 using `NETCONF`-over-SSH and AddressSanitizer; reliable remote code execution was not confirmed. `The advisory identifies 2.8.8 as patched`; repository comparisons verify the fix in public release 2.8.21. The affected/fixed boundary remains unresolved because no public 2.8.8 tag was located, which does not establish the status of an untagged 2.8.8 build.",
+      "published": "2026-10-30T22:16:58.637",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63201"
     },
     {
-      "id": "CVE-2026-96894",
-      "summary": "The ERP: Complete HR, Accounting & CRM Suite Built for WooCommerce plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Inbound Email Body in all versions up to, and including, 1.17.10 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. The inbound email router's only gate is a regex match on the References header for a reply token whose hash is never cryptographically validated, meaning any external party who received or can mimic a CRM outbound email can satisfy the check without a WordPress account.",
-      "published": "2026-10-30T18:18:21.320",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96894"
+      "id": "CVE-2026-63184",
+      "summary": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.1, the `refitter` dotnet tool invokes `NJsonSchema` with unsafe defaults for `$ref` resolution when generating Refit interfaces and contracts from attacker-controlled or attacker-influenced OpenAPI descriptions. Remote `http(s)` references cause requests from the developer or CI host and inline untrusted remote schema content into generated output. Absolute local file paths and relative `../` traversal outside the input directory also resolve and inline local content, permitting arbitrary local-file disclosure. The demonstrated chain stops at server-side request forgery, remote file inclusion, and local file inclusion, not code execution: Refit sets the base URL at runtime, enum values use verbatim-string doubling, and string defaults are escaped. This issue is fixed in version 2.1.1.",
+      "published": "2026-10-30T22:16:58.447",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63184"
     },
     {
-      "id": "CVE-2026-84243",
-      "summary": "The gettext family of functions in the GNU C Library version 2.0 and later accept LANGUAGE environment variable entries that contain '/' or that are equal to \"..\", unless the program is setuid or setgid (AT_SECURE).  An attacker who can set LANGUAGE in the environment of a program that uses gettext can make it load a message catalog (.mo file) from an arbitrary location in the file system.  A crafted .mo file can crash the program through out-of-range offsets, or supply translations whose format directives do not match the arguments passed by the program.  That causes undefined behaviour in the printf family of functions and may allow arbitrary code execution with the privileges of the program.  The safety of message catalogs relies on them being installed in trusted, read-only locations, and the directory traversal bypasses this.\n\nThe fix for CVE-2014-0475 rejects \"..\" path components in locale names passed to setlocale or taken from the LC_ALL, LC_* and LANG environment variables.  gettext reads LANGUAGE directly and appends each colon-separated entry to the message catalog directory, so that fix did not cover LANGUAGE.\n\nLANGUAGE is only used when the LC_MESSAGES locale is not \"C\", \"C.<encoding>\" or \"POSIX\", so the attacker must also be able to select another installed locale, for example through LANG or LC_ALL.  Exploitation also requires that the attacker can place the crafted file in a location readable by the target program, and that the environment crosses a trust boundary without the program running as AT_SECURE.  An example is an SSH server that accepts LANGUAGE and LANG from clients through the AcceptEnv directive and restricts an account to a forced command; the attacker may use this to escape the restriction.",
-      "published": "2026-10-30T18:18:13.650",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84243"
+      "id": "CVE-2026-63182",
+      "summary": "LightSAML implements SAML 2.0 data model classes, XML serialization and deserialization, XML security, certificate support, and message bindings. Prior to 4.7.1 and 5.0.1, LightSAML and xmlseclibs disagree about which assertion an inbound SAML signature covers. `Response::deserialize` uses `manyElementsFromXml` to collect only direct-child `saml:Assertion` elements of `samlp:Response`, and `AssertionSignatureValidatorAction` validates their `ds:Signature` using an out-of-band trusted IdP credential resolved by Issuer, not a key from the document. `XMLSecurityDSig::validateReference()` removes the enveloped signature from the shared DOM, but `processRefNode()` resolves `Reference URI=\"#id\"` document-wide through an XPath of the form `//*[@Id]` and takes `item(0)`, which need not be the assertion whose claims LightSAML consumes. An attacker who has captured one genuinely signed assertion, such as an earlier login response, can place its signature-stripped bytes earlier in `samlp:Extensions` and present a forged direct-child assertion with the same ID and copied genuine signature. Validation then covers the hidden genuine bytes while LightSAML surfaces unsigned attacker-controlled `Subject/NameID`, `Conditions`, and `Attributes`, enabling authentication bypass or privilege escalation even when signature validation is required. The behavior was confirmed in versions 5.0.0 and 4.6.1. This issue is fixed in versions 4.7.1 and 5.0.1.",
+      "published": "2026-10-30T22:16:58.280",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63182"
     },
     {
-      "id": "CVE-2026-76012",
-      "summary": "The Photo Gallery, Sliders, Proofing and Themes \u2013 NextGEN Gallery plugin for WordPress is vulnerable to Remote Code Execution in all versions up to, and including, 4.4.1 via the legacy_render function. This is due to broken authorization on the Lightroom gallery_edit endpoint combined with mass assignment of gallery path and unrestricted file upload into a registered template directory, whose extension check uses a substring match that accepts sanitized .php_ filenames as valid templates. This makes it possible for authenticated attackers, with custom-level access and above, to execute code on the server. Exploitation requires the authenticated attacker to be the stored author of at least one existing NextGEN gallery, as ownership of that gallery is the sole authorization check gating the mass-assignment and upload steps.",
-      "published": "2026-10-30T18:18:12.937",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76012"
+      "id": "CVE-2026-63121",
+      "summary": "Kubewarden policies is a collection of WebAssembly policies for securing and governing Kubernetes clusters. For versions provisionally classified as affected before 2.1.2, `trusted-repos-policy` compares an image's `registry` hostname against `reject lists` and `allow lists` case-sensitively even though `registry` DNS names are case-insensitive. An image with an uppercase or mixed-case `registry` hostname can miss a rejection rule for the equivalent lowercase host, so the admission policy accepts a resource whose container runtime pulls the same prohibited image. Only reject-list configurations have this bypass: allow-list configurations fail closed by over-denying differently cased hostnames. The security consequences depend on the configured rejection policy and deployment environment. This issue is fixed in version 2.1.2.",
+      "published": "2026-10-30T22:16:58.123",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63121"
     },
     {
-      "id": "CVE-2026-69446",
-      "summary": "Incorrect authorization in Microsoft Edge (Chromium-based) allows an authorized attacker to elevate privileges locally.",
-      "published": "2026-10-30T18:18:07.587",
-      "cvss": 4.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69446"
+      "id": "CVE-2026-63115",
+      "summary": "ActivityPub is a multi-tenant ActivityPub server for Ghost, built with Fedify. From 1.0.0 until 1.2.6, the `Undo` handler allows a remote federated server to cause the service to act on a `follow` or `repost` as though the activity came from a different account. This permits removal of an existing `follow` relationship or `repost` belonging to another account without that account's involvement. No private data is exposed and content is not modified; the affected relationships can be re-established. Services proxying to Ghost's hosted ActivityPub server have already been updated, while self-hosted services require an updated image and redeployment. This issue is fixed in version 1.2.6.",
+      "published": "2026-10-30T22:16:57.963",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63115"
     }
   ]
 }
