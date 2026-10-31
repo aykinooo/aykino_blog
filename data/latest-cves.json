@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-31T02:19:18+00:00",
+  "generated_at": "2026-10-31T09:33:31+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-116755",
-      "summary": "Improper Neutralization of Special Elements used in a Command ('Command Injection') in the Orchestrator component of SoftIron HyperCloud allows an authenticated user with access to the management plane to execute arbitrary operating system commands on hypervisor hosts as the privileged orchestration user. Attacker-controlled virtual machine template content (for example, the VM DESCRIPTION field) is delivered to hosts through a shell here-document whose terminator is not quoted, so shell expansion and here-document terminator injection are performed on that content during virtual machine lifecycle operations such as deploy, migrate, and network setup. Exploitation requires valid credentials, access to the management plane (owning a virtual machine alone is not sufficient), and a lifecycle operation that reaches the affected host. This issue affects the Orchestrator component of SoftIron HyperCloud from 1.0 through 2.6.17 and is fixed in 2.6.18.",
-      "published": "2026-10-31T02:17:33.957",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116755"
+      "id": "CVE-2026-120075",
+      "summary": "The WP Activity Log plugin for WordPress is vulnerable to Stored Cross-Site Scripting in all versions up to, and including, 5.6.1 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page.",
+      "published": "2026-10-31T09:16:33.897",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120075"
     },
     {
-      "id": "CVE-2026-110176",
-      "summary": "The File Force Download module for Drupal 7 implements hook_file_download() to add a Content-Disposition header when a file URL carries the download query parameter. In Drupal 7, returning a non-empty header array from that hook is itself a grant of access to the file.\n\n\n\nIn versions 7.1.0 through 7.1.2, the module only delegated to other modules' hook_file_download() implementations when the file was in the private scheme. For every other scheme it returned its headers without any check. An unauthenticated visitor who appended download=1 to the URL of a file in the temporary:// scheme, or in a stream wrapper supplied by another module, could retrieve the file, overriding the access checks that would otherwise have applied. Files in the public and private schemes are not affected.",
-      "published": "2026-10-31T01:17:05.153",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110176"
+      "id": "CVE-2026-119160",
+      "summary": "The Smart Post \u2013 Post Grid, Post Carousel, Post Slider Gutenberg Blocks for Blog & News plugin for WordPress is vulnerable to Stored Cross-Site Scripting via the 'display_name' parameter in all versions up to, and including, 4.0.9 due to insufficient input sanitization and output escaping. This makes it possible for authenticated attackers, with subscriber-level access and above, to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the victim page to contain an Author Filter block alongside a grid or live-filter block, and execution is triggered by a visitor clicking the attacker's author entry in the dropdown \u2014 a standard filter interaction requiring no elevated privileges from the victim.",
+      "published": "2026-10-31T09:16:33.760",
+      "cvss": 6.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119160"
     },
     {
-      "id": "CVE-2026-77152",
-      "summary": "Improper Authorization vulnerability in Drupal Field Collection for Drupal 7 allows a user with the \"edit field collections\" permission to bypass access control on the parent (host) entity.\n\nThe access check for field collection items (field_collection_item_access()) granted edit and delete access to any user holding the \"edit field collections\" permission without verifying the user's access to the host entity. As a result, a user with \"edit field collections\" but without edit/update access to the host entity (for example a node they cannot edit) could edit or delete field collection items attached to that entity, bypassing the intended entity/node access restrictions. The fix requires access to the parent entity in addition to the field collection permission.\n\n\n\nThis issue affects Field Collection for Drupal 7: version 7.x-1.0 up to and including 7.x-1.2.",
-      "published": "2026-10-31T00:16:51.597",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77152"
+      "id": "CVE-2026-118235",
+      "summary": "The SimpleForm \u2013 Form Maker to Chat Apps with Quiz, Poll and Multi Lead Notifications plugin for WordPress is vulnerable to Arbitrary File Upload in all versions up to, and including, 3.10.2 via the handle_upload function. This is due to missing server-side file key allowlist and pre-sanitization extension derivation that allows a trailing-dot filename to bypass all extension and MIME validation in handle_upload. This makes it possible for unauthenticated attackers to upload files that may be executable, which makes remote code execution possible. The only access control is a nonce that is printed into every public form's data-nonce attribute, making it trivially obtainable by any unauthenticated visitor on a page embedding the form shortcode.",
+      "published": "2026-10-31T09:16:33.620",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118235"
     },
     {
-      "id": "CVE-2026-117656",
-      "summary": "Acceptance of Extraneous Untrusted Data With Trusted Data vulnerability in the Sign in with Apple strategy in pow-auth Assent allows an unauthenticated remote attacker to impersonate another user via the user parameter of the authorization callback.\n\nApple posts the user's name to the callback endpoint in a user form parameter that the browser submits and the client controls. Assent.Strategy.Apple.callback/2 in lib/assent/strategies/apple.ex decodes that parameter, and fetch_user/2 merges it over the claims of the verified ID token, so the unverified map wins. An attacker who completes a Sign in with Apple login with their own Apple ID and edits the user parameter can replace sub, email, and any other claim. Applications that look up, link, or authorize accounts by the returned subject or email then act on the attacker's values.\n\nThis issue affects assent: from 0.1.25 before 0.3.2.",
-      "published": "2026-10-31T00:16:51.340",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117656"
+      "id": "CVE-2026-117681",
+      "summary": "A flaw was found in konflux-ci. This vulnerability allows privilege escalation when the user interface proxy automatically disables Transport Layer Security (TLS) certificate verification for connections to internal backend services in environments lacking a default service certificate authority. Because the proxy attaches a cluster-scoped authentication token with user impersonation rights to these requests, an adjacent network attacker capable of intercepting traffic can capture the credentials to gain full administrative control of the cluster.",
+      "published": "2026-10-31T09:16:33.487",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117681"
     },
     {
-      "id": "CVE-2026-63414",
-      "summary": "Shopify App is a Rails engine for building Shopify applications. From 22.1.0 until 23.0.3, `token-exchange` authenticated controllers can expose a request-derived `shop` context instead of the identity from a verified Shopify ID token or active Shopify session. `current_shopify_domain` can resolve to the sanitized `shop` query parameter, so a request authenticated for one `shop` can cause application code to treat a different requested `shop` as current. Affected applications use `shopify_app` `token-exchange` authentication, accept authenticated requests with a `shop` query parameter, and rely on `current_shopify_domain` or `params[:shop]` for authorization, tenant lookup, stored access-token selection or `shop`-scoped data access. An attacker with a valid Shopify session token for one `shop` can supply another `shop` in that parameter and potentially obtain unauthorized application data or perform `shop`-scoped actions, depending on the application's authorization model. This issue is fixed in version 23.0.3.",
-      "published": "2026-10-30T23:17:15.707",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63414"
+      "id": "CVE-2026-116964",
+      "summary": "A flaw was found in konflux-ci. An attacker with repository write access can achieve arbitrary code execution within the Continuous Integration and Continuous Delivery (CI/CD) workflow environment. By injecting shell commands into environment export scripts, the attacker causes manifest synchronization scripts to dynamically evaluate unvalidated script output. Successful exploitation allows the attacker to compromise CI/CD pipelines, steal sensitive authentication tokens and deployment credentials, and gain unauthorized access to production systems.",
+      "published": "2026-10-31T09:16:33.357",
+      "cvss": 8.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116964"
     },
     {
-      "id": "CVE-2026-63410",
-      "summary": "secp256k1-native is a native C secp256k1 implementation for Ruby. In affected native builds, native constant-time scalar multiplication through `Point#mul` or `scalar_multiply_ct` can leak timing information about a secret scalar when compiled by a toolchain that reconstructs branchless selection into a branch. The `Montgomery ladder` uses `uint256_select` with an all-zeros or all-ones mask, but affected GCC builds at `-O2` recover the original condition and emit secret-dependent `je` or `jne` jumps whose timing correlates with scalar bits. This defeats the assumption behind the 0.17.0 `jp_add_internal` infinity-branch fix. A consumer must multiply a secret private key or nonce in a context where an attacker can observe timing; repeated measurements can statistically recover scalar bits. The defect is in the compiled binary, so source review or `ctgrind` on a non-reconstructing toolchain may miss it. GCC 14.3.0, 15.1.0, and 15.2.0 reproduced the branch reconstruction, and `extconf.rb` appends `-O2`. Tested GCC versions through 12.4.0 used bitwise operations and GCC 13.3.0 used constant-time `cmov`; the pure-Ruby path is not affected by this flaw and separately makes no constant-time claim. GCC 16 and clang were untested, and point releases, targets, and flag combinations were not exhaustively bisected. `Earlier pre-0.17.0 versions had different constant-time issues rather than this introduced select idiom.` Version 0.18.0 contains the verified fix. The advisory's broad pre-0.18.0 guidance also covers earlier, different constant-time issues; whether this CVE groups those issues or only the select idiom introduced in 0.17.0 remains unresolved.",
-      "published": "2026-10-30T23:17:15.547",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63410"
+      "id": "CVE-2026-116086",
+      "summary": "A flaw was found in konflux-ci. An attacker with permission to trigger automated workflow runs can cause an information disclosure by providing crafted issue titles to workflow scripts. The affected script incorporates user-provided titles directly into data queries without adequate sanitization, allowing the attacker to inject malicious filter commands. As a result, sensitive information such as API credentials, deployment keys, and internal notes returned from repository queries may be exposed in workflow logs.",
+      "published": "2026-10-31T09:16:33.223",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116086"
     }
   ]
 }
