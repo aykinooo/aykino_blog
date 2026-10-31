@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-30T22:56:44+00:00",
+  "generated_at": "2026-10-31T02:19:18+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-63224",
-      "summary": "OpenRemote is an open-source internet-of-things platform. Prior to 1.26.0, the `datapoint export` API constructs `CSV crosstab` SQL by concatenating an `asset name` and `attribute name` into a `COPY` query that uses `crosstab` and streams `TO STDOUT`. The `asset name` enters both a double-quoted column identifier and a category query enclosed by the fixed `$cat$` delimiter. Escaping single quotes in one string context does not escape embedded double quotes in identifiers or protect that dollar-quote boundary. An authenticated user permitted to create or rename an asset and read/export datapoints for one of its attributes can store SQL metacharacters in the name and request a `crosstab` export, causing injected SELECT output to be returned in the normal ZIP/CSV response. This enables database exfiltration without direct database or filesystem access or token forgery. In a multi-tenant deployment it can expose other tenants' data if the manager's database role can read shared tables; integrity and availability effects are not established by the demonstrated read primitive. This issue is fixed in version 1.26.0.",
-      "published": "2026-10-30T22:16:58.837",
+      "id": "CVE-2026-116755",
+      "summary": "Improper Neutralization of Special Elements used in a Command ('Command Injection') in the Orchestrator component of SoftIron HyperCloud allows an authenticated user with access to the management plane to execute arbitrary operating system commands on hypervisor hosts as the privileged orchestration user. Attacker-controlled virtual machine template content (for example, the VM DESCRIPTION field) is delivered to hosts through a shell here-document whose terminator is not quoted, so shell expansion and here-document terminator injection are performed on that content during virtual machine lifecycle operations such as deploy, migrate, and network setup. Exploitation requires valid credentials, access to the management plane (owning a virtual machine alone is not sufficient), and a lifecycle operation that reaches the affected host. This issue affects the Orchestrator component of SoftIron HyperCloud from 1.0 through 2.6.17 and is fixed in 2.6.18.",
+      "published": "2026-10-31T02:17:33.957",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116755"
+    },
+    {
+      "id": "CVE-2026-110176",
+      "summary": "The File Force Download module for Drupal 7 implements hook_file_download() to add a Content-Disposition header when a file URL carries the download query parameter. In Drupal 7, returning a non-empty header array from that hook is itself a grant of access to the file.\n\n\n\nIn versions 7.1.0 through 7.1.2, the module only delegated to other modules' hook_file_download() implementations when the file was in the private scheme. For every other scheme it returned its headers without any check. An unauthenticated visitor who appended download=1 to the URL of a file in the temporary:// scheme, or in a stream wrapper supplied by another module, could retrieve the file, overriding the access checks that would otherwise have applied. Files in the public and private schemes are not affected.",
+      "published": "2026-10-31T01:17:05.153",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63224"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110176"
     },
     {
-      "id": "CVE-2026-63201",
-      "summary": "Netopeer2 is a server for implementing network configuration management based on the `NETCONF` Protocol. In affected versions, a low-privileged authenticated `NETCONF` user can remotely crash `netopeer2-server` by sending a `get RPC` with an invalid `subtree filter` whose text contains format specifiers. In `src/netconf.c`, `np2srv_rpc_get_cb()` sends the invalid value through `ERR()` to `np2log_printf()`, where `vsnprintf()` first formats the message safely. In `src/log.c`, that already formatted buffer is subsequently passed to `np2log()` as the format string itself, causing `vsyslog()` to interpret attacker-controlled percent sequences and read invalid pointer arguments. The reported denial of service was confirmed on version 2.8.7 using `NETCONF`-over-SSH and AddressSanitizer; reliable remote code execution was not confirmed. `The advisory identifies 2.8.8 as patched`; repository comparisons verify the fix in public release 2.8.21. The affected/fixed boundary remains unresolved because no public 2.8.8 tag was located, which does not establish the status of an untagged 2.8.8 build.",
-      "published": "2026-10-30T22:16:58.637",
+      "id": "CVE-2026-77152",
+      "summary": "Improper Authorization vulnerability in Drupal Field Collection for Drupal 7 allows a user with the \"edit field collections\" permission to bypass access control on the parent (host) entity.\n\nThe access check for field collection items (field_collection_item_access()) granted edit and delete access to any user holding the \"edit field collections\" permission without verifying the user's access to the host entity. As a result, a user with \"edit field collections\" but without edit/update access to the host entity (for example a node they cannot edit) could edit or delete field collection items attached to that entity, bypassing the intended entity/node access restrictions. The fix requires access to the parent entity in addition to the field collection permission.\n\n\n\nThis issue affects Field Collection for Drupal 7: version 7.x-1.0 up to and including 7.x-1.2.",
+      "published": "2026-10-31T00:16:51.597",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63201"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77152"
     },
     {
-      "id": "CVE-2026-63184",
-      "summary": "Refitter is a tool for generating a C# REST API client using the Refit library. Prior to 2.1.1, the `refitter` dotnet tool invokes `NJsonSchema` with unsafe defaults for `$ref` resolution when generating Refit interfaces and contracts from attacker-controlled or attacker-influenced OpenAPI descriptions. Remote `http(s)` references cause requests from the developer or CI host and inline untrusted remote schema content into generated output. Absolute local file paths and relative `../` traversal outside the input directory also resolve and inline local content, permitting arbitrary local-file disclosure. The demonstrated chain stops at server-side request forgery, remote file inclusion, and local file inclusion, not code execution: Refit sets the base URL at runtime, enum values use verbatim-string doubling, and string defaults are escaped. This issue is fixed in version 2.1.1.",
-      "published": "2026-10-30T22:16:58.447",
-      "cvss": 7.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63184"
+      "id": "CVE-2026-117656",
+      "summary": "Acceptance of Extraneous Untrusted Data With Trusted Data vulnerability in the Sign in with Apple strategy in pow-auth Assent allows an unauthenticated remote attacker to impersonate another user via the user parameter of the authorization callback.\n\nApple posts the user's name to the callback endpoint in a user form parameter that the browser submits and the client controls. Assent.Strategy.Apple.callback/2 in lib/assent/strategies/apple.ex decodes that parameter, and fetch_user/2 merges it over the claims of the verified ID token, so the unverified map wins. An attacker who completes a Sign in with Apple login with their own Apple ID and edits the user parameter can replace sub, email, and any other claim. Applications that look up, link, or authorize accounts by the returned subject or email then act on the attacker's values.\n\nThis issue affects assent: from 0.1.25 before 0.3.2.",
+      "published": "2026-10-31T00:16:51.340",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117656"
     },
     {
-      "id": "CVE-2026-63182",
-      "summary": "LightSAML implements SAML 2.0 data model classes, XML serialization and deserialization, XML security, certificate support, and message bindings. Prior to 4.7.1 and 5.0.1, LightSAML and xmlseclibs disagree about which assertion an inbound SAML signature covers. `Response::deserialize` uses `manyElementsFromXml` to collect only direct-child `saml:Assertion` elements of `samlp:Response`, and `AssertionSignatureValidatorAction` validates their `ds:Signature` using an out-of-band trusted IdP credential resolved by Issuer, not a key from the document. `XMLSecurityDSig::validateReference()` removes the enveloped signature from the shared DOM, but `processRefNode()` resolves `Reference URI=\"#id\"` document-wide through an XPath of the form `//*[@Id]` and takes `item(0)`, which need not be the assertion whose claims LightSAML consumes. An attacker who has captured one genuinely signed assertion, such as an earlier login response, can place its signature-stripped bytes earlier in `samlp:Extensions` and present a forged direct-child assertion with the same ID and copied genuine signature. Validation then covers the hidden genuine bytes while LightSAML surfaces unsigned attacker-controlled `Subject/NameID`, `Conditions`, and `Attributes`, enabling authentication bypass or privilege escalation even when signature validation is required. The behavior was confirmed in versions 5.0.0 and 4.6.1. This issue is fixed in versions 4.7.1 and 5.0.1.",
-      "published": "2026-10-30T22:16:58.280",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63182"
+      "id": "CVE-2026-63414",
+      "summary": "Shopify App is a Rails engine for building Shopify applications. From 22.1.0 until 23.0.3, `token-exchange` authenticated controllers can expose a request-derived `shop` context instead of the identity from a verified Shopify ID token or active Shopify session. `current_shopify_domain` can resolve to the sanitized `shop` query parameter, so a request authenticated for one `shop` can cause application code to treat a different requested `shop` as current. Affected applications use `shopify_app` `token-exchange` authentication, accept authenticated requests with a `shop` query parameter, and rely on `current_shopify_domain` or `params[:shop]` for authorization, tenant lookup, stored access-token selection or `shop`-scoped data access. An attacker with a valid Shopify session token for one `shop` can supply another `shop` in that parameter and potentially obtain unauthorized application data or perform `shop`-scoped actions, depending on the application's authorization model. This issue is fixed in version 23.0.3.",
+      "published": "2026-10-30T23:17:15.707",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63414"
     },
     {
-      "id": "CVE-2026-63121",
-      "summary": "Kubewarden policies is a collection of WebAssembly policies for securing and governing Kubernetes clusters. For versions provisionally classified as affected before 2.1.2, `trusted-repos-policy` compares an image's `registry` hostname against `reject lists` and `allow lists` case-sensitively even though `registry` DNS names are case-insensitive. An image with an uppercase or mixed-case `registry` hostname can miss a rejection rule for the equivalent lowercase host, so the admission policy accepts a resource whose container runtime pulls the same prohibited image. Only reject-list configurations have this bypass: allow-list configurations fail closed by over-denying differently cased hostnames. The security consequences depend on the configured rejection policy and deployment environment. This issue is fixed in version 2.1.2.",
-      "published": "2026-10-30T22:16:58.123",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63121"
-    },
-    {
-      "id": "CVE-2026-63115",
-      "summary": "ActivityPub is a multi-tenant ActivityPub server for Ghost, built with Fedify. From 1.0.0 until 1.2.6, the `Undo` handler allows a remote federated server to cause the service to act on a `follow` or `repost` as though the activity came from a different account. This permits removal of an existing `follow` relationship or `repost` belonging to another account without that account's involvement. No private data is exposed and content is not modified; the affected relationships can be re-established. Services proxying to Ghost's hosted ActivityPub server have already been updated, while self-hosted services require an updated image and redeployment. This issue is fixed in version 1.2.6.",
-      "published": "2026-10-30T22:16:57.963",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63115"
+      "id": "CVE-2026-63410",
+      "summary": "secp256k1-native is a native C secp256k1 implementation for Ruby. In affected native builds, native constant-time scalar multiplication through `Point#mul` or `scalar_multiply_ct` can leak timing information about a secret scalar when compiled by a toolchain that reconstructs branchless selection into a branch. The `Montgomery ladder` uses `uint256_select` with an all-zeros or all-ones mask, but affected GCC builds at `-O2` recover the original condition and emit secret-dependent `je` or `jne` jumps whose timing correlates with scalar bits. This defeats the assumption behind the 0.17.0 `jp_add_internal` infinity-branch fix. A consumer must multiply a secret private key or nonce in a context where an attacker can observe timing; repeated measurements can statistically recover scalar bits. The defect is in the compiled binary, so source review or `ctgrind` on a non-reconstructing toolchain may miss it. GCC 14.3.0, 15.1.0, and 15.2.0 reproduced the branch reconstruction, and `extconf.rb` appends `-O2`. Tested GCC versions through 12.4.0 used bitwise operations and GCC 13.3.0 used constant-time `cmov`; the pure-Ruby path is not affected by this flaw and separately makes no constant-time claim. GCC 16 and clang were untested, and point releases, targets, and flag combinations were not exhaustively bisected. `Earlier pre-0.17.0 versions had different constant-time issues rather than this introduced select idiom.` Version 0.18.0 contains the verified fix. The advisory's broad pre-0.18.0 guidance also covers earlier, different constant-time issues; whether this CVE groups those issues or only the select idiom introduced in 0.17.0 remains unresolved.",
+      "published": "2026-10-30T23:17:15.547",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63410"
     }
   ]
 }
