@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-10-31T15:42:51+00:00",
+  "generated_at": "2026-10-31T19:57:05+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-78192",
-      "summary": "WebDyne versions from 2.022 before 3.022 for Perl disclose application source to unauthenticated clients via the viewer in the default index page.\n\nWebDyne's wrapper scripts, such as webdyne.psgi, enable the built-in index page by default. Its source viewer returns files under the document root named in the source parameter of an HTMX request, including .psp, .pm and .pl files.\n\nA remote attacker can read the application's Perl code, including the __PERL__ blocks of .psp pages and any credentials they hold.",
-      "published": "2026-10-31T15:16:54.367",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78192"
+      "id": "CVE-2026-118147",
+      "summary": "Improper certificate validation in Visual Studio allows an unauthorized attacker to perform spoofing over a network.",
+      "published": "2026-10-31T19:16:47.213",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118147"
     },
     {
-      "id": "CVE-2026-78191",
-      "summary": "WebDyne versions from 2.031 before 3.022 for Perl execute files with .psp anywhere in the name as Perl pages.\n\nWebDyne decides whether to run a requested file as a page by matching its name against WEBDYNE_PSP_EXT_RE, which has no end anchor.\n\nAn application that accepts uploads by checking only the final extension lets a remote attacker upload a file such as report.psp.pdf and run its embedded Perl by requesting it.",
-      "published": "2026-10-31T15:16:54.247",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78191"
+      "id": "CVE-2026-120210",
+      "summary": "FFmpeg 5.0 through 9.0.2 contains a path traversal vulnerability in the IMF demuxer that allows attackers to open files outside the package via unvalidated ASSETMAP Path elements. Attackers can supply a crafted IMF package with '..' or absolute paths to demux local MXF files, probe file existence and size, or trigger server-side requests.",
+      "published": "2026-10-31T18:17:09.427",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120210"
     },
     {
-      "id": "CVE-2026-78190",
-      "summary": "WebDyne versions from 2.014 before 3.022 for Perl reflect request parameters unescaped into form field values, allowing cross-site scripting.\n\nThe textfield, password_field and filefield tags fill their value attribute from the request parameter of the same name. WEBDYNE_CGI_AUTOESCAPE, which controls escaping of these values, defaults to off. From 2.022, WebDyne::HTML::Tiny also replaced its entity_encode method with one that returns its input unchanged, so enabling WEBDYNE_CGI_AUTOESCAPE has no effect.\n\nA remote attacker can inject script into any page using these tags through a crafted link.",
-      "published": "2026-10-31T15:16:54.123",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78190"
+      "id": "CVE-2026-120209",
+      "summary": "AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to forge valid Share-Tokens offline. Attackers can mint a token with reportCode 'dataSet' to access the testTransform endpoint, which passes scripts to GroovyClassLoader for unauthenticated remote code execution.",
+      "published": "2026-10-31T18:17:09.263",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120209"
     },
     {
-      "id": "CVE-2026-78189",
-      "summary": "WebDyne versions from 3.007 before 3.022 for Perl execute .psp files outside the document root via path traversal in the PSGI API route fallback.\n\nWhen a request matches no file, the PSGI handler retries it as an API route through api_filename. That keeps .. segments in the request path and only checks that the joined path starts with the document root, which a request for /../private passes.\n\nA remote attacker can run the embedded Perl in any .psp file the server can read, such as one uploaded to a directory outside the document root.",
-      "published": "2026-10-31T15:16:54.003",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78189"
+      "id": "CVE-2026-120208",
+      "summary": "libheif 1.18.0 before 1.23.3 contains a heap-based buffer overflow vulnerability in unc_decoder_mixed_interleave::processTile() that allows attackers to write out of bounds by supplying chroma components with unequal bit depths. Attackers can craft a HEIF file declaring, for example, 16-bit Cb and 8-bit Cr to trigger file-controlled heap writes past the Cr plane, potentially achieving code execution in image-processing pipelines.",
+      "published": "2026-10-31T18:17:09.083",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120208"
     },
     {
-      "id": "CVE-2026-78188",
-      "summary": "WebDyne versions from 2.014 before 3.022 for Perl issue session cookies without the Secure, HttpOnly and SameSite attributes.\n\nWebDyne::Session sets its session cookie with only a name, value and path.\n\nBrowsers then send the session ID over plain HTTP and with cross-site requests, and expose it to page scripts. A network attacker or an injected script can steal the session, and another site can make requests that carry it.",
-      "published": "2026-10-31T15:16:53.860",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78188"
+      "id": "CVE-2026-120207",
+      "summary": "Thelia Page Module before 2.0.4 contains a cross-site request forgery vulnerability that allows remote attackers to delete page tags, documents and images by abusing back-office delete routes lacking CSRF tokens and permission checks. Attackers can lure a logged-in administrator into navigating to crafted GET requests that walk sequential ids, removing TheliaLibrary images, their files and variants across pages, products and categories.",
+      "published": "2026-10-31T18:17:08.920",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120207"
     },
     {
-      "id": "CVE-2026-15272",
-      "summary": "The Web 2.0 Directory plugin for WordPress is vulnerable to time-based SQL Injection via the 'w2dc_level_filter' parameter in all versions up to, and including, 2.10.12 due to insufficient escaping on the user supplied parameter and lack of sufficient preparation on the existing SQL query. This makes it possible for unauthenticated attackers to append additional SQL queries into already existing queries that can be used to extract sensitive information from the database. Because the parameter is used in integer context without surrounding quotes, WordPress's built-in addslashes/magic_quotes escaping provides no protection against time-based payloads such as SLEEP-based conditionals.",
-      "published": "2026-10-31T12:16:27.790",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15272"
+      "id": "CVE-2026-120206",
+      "summary": "Thelia before 3.2.0 contains a cross-site request forgery vulnerability in the back office that allows attackers to forge administrative actions because per-session CSRF tokens leak via URL query strings. Attackers can reuse leaked tokens or target the unprotected setToggleVisibilityAction and updatePositionAction to make logged-in administrators delete, hide or reorder catalogue and configuration objects.",
+      "published": "2026-10-31T18:17:08.747",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120206"
     }
   ]
 }
