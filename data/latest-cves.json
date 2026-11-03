@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-03T18:23:47+00:00",
+  "generated_at": "2026-11-03T23:57:24+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-63499",
-      "summary": "zt-zip is a Java library that provides convenience methods for ZIP archive manipulation. Prior to 1.18.1, ZipUtil.unpack(...) can apply stored ZIP-entry permissions to the extraction output directory when an entry name such as / or ./ resolves to that directory itself. Because the path traversal checks permit self-referencing entries that do not escape the destination, the unpacker's permission-handling path can replace restrictive output-directory permissions with attacker-supplied permissions. This affects applications that unpack untrusted ZIP files, and POSIX systems demonstrate the issue directly, while ZTFilePermissionsUtil.fetchDefaultStrategy provides fallback permission handling on other supported systems. This issue is fixed in version 1.18.1.",
-      "published": "2026-11-03T18:18:04.083",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63499"
+      "id": "CVE-2026-121736",
+      "summary": "NocoDB 0.300.0 before 2026.08.0 contains a missing authentication vulnerability in the POST /api/v2/oauth/authorize handler that allows unauthenticated attackers to create OAuth authorization codes. Attackers can send anonymous requests with client_id, redirect_uri and approved=true to insert unbounded ownerless authorization code records, limited only by rate limiting.",
+      "published": "2026-11-03T23:17:37.730",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121736"
     },
     {
-      "id": "CVE-2026-63436",
-      "summary": "zt-zip is a Java library that provides convenience methods for ZIP archive manipulation. Prior to 1.18.0, the Zips.get(zip).unpack().destination(outputDir).process() fluent API in src/main/java/org/zeroturnaround/zip/Zips.java constructs output files directly from ZIP entry names without applying the destination-boundary validation used by ZipUtil.unpack(...). A crafted entry containing parent-directory traversal can therefore write outside outputDir through both the normal copy branch and the ZipEntryTransformer branch. Applications that extract untrusted archives only through ZipUtil.unpack(...) are unaffected because that API already calls checkDestinationFileForTraversal. This issue is fixed in version 1.18.0.",
-      "published": "2026-11-03T18:18:03.727",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63436"
+      "id": "CVE-2026-121735",
+      "summary": "blueprintUE self-hosted edition before 4.3.4 contains an insufficient session expiration vulnerability that allows attackers to confirm accounts using stale tokens because UserModel::findUserIDWithConfirmedToken ignores confirmed_sent_at. Attackers who obtain an old confirmation link from a compromised mailbox, backup, or forwarded mail can activate unconfirmed accounts and evade the unconfirmed-account cleanup job.",
+      "published": "2026-11-03T23:17:37.540",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121735"
     },
     {
-      "id": "CVE-2026-63418",
-      "summary": "Monitoring Plugins is a suite of plugins for monitoring applications. From 3.0.0-rc1 until 3.0.1, check_icmp stores the number of hosts supplied through -H or --Host on the command line, or through --extra-opts files containing Host= entries, in an unsigned short. More than 65,535 hosts wrap the counter, causing process_arguments() to allocate an undersized hosts array and then write subsequent entries out of bounds before main() calls setuid(getuid()). On installations where check_icmp is setuid root, a local low-privileged attacker can corrupt heap memory while the process still has root privileges; reliable privilege escalation has not been demonstrated. Installations that use cap_net_raw file capabilities instead of setuid are not exposed to the privilege-escalation consequence. This issue is fixed in version 3.0.1.",
-      "published": "2026-11-03T18:18:03.533",
-      "cvss": 7.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63418"
+      "id": "CVE-2026-121734",
+      "summary": "ZaneOps 1.14.0 before 1.15.2 contains an authorization bypass vulnerability that allows any workspace administrator to read another workspace's pending preview environment by querying ReviewPreviewEnvDeployAPIView without project scoping. Attackers can use the project slug and environment name from public fork pull request comments to retrieve plaintext environment variables and preview basic-auth credentials.",
+      "published": "2026-11-03T23:17:37.360",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121734"
     },
     {
-      "id": "CVE-2026-44267",
-      "summary": "Elo is a purely functional expression language for no-code tools. Prior to 1.0.1, plain Elo strings supplied to defaultFormats.elo.parse(), bin/elo, or elo-lang.org/try can use .constructor.constructor to reach JavaScript Function because the member_access handler in src/transform.ts does not reject meta-properties, src/compilers/javascript.ts emits the surviving property directly, and src/parser.ts accepts constructor as an ordinary identifier. The resulting generated JavaScript executes attacker-selected code in the host runtime. This permits browser script execution and session compromise on the auto-running playground and arbitrary Node.js code execution on library, CI, or DevOps hosts. This plain-string path is distinct from the programmatic AST-object injection issue. This issue is fixed in version 1.0.1.",
-      "published": "2026-11-03T18:18:03.130",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44267"
+      "id": "CVE-2026-121733",
+      "summary": "Bagisto before 2.4.5 contains a stored cross-site scripting vulnerability that allows authenticated customers to upload HTML files via the RMA send-message endpoint without type or extension validation. Attackers can upload a .html attachment containing JavaScript served under /storage/rma-conversation/, executing script in the shop's origin when an administrator opens it.",
+      "published": "2026-11-03T23:17:37.177",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121733"
     },
     {
-      "id": "CVE-2026-44266",
-      "summary": "Elo is a purely functional expression language for no-code tools. Prior to 1.0.1, the Ruby backend in src/compilers/ruby.ts embeds attacker-controlled text in Ruby double-quoted strings without escaping #, so Ruby interpolation forms in the string-literal emitter or the labelled subtype-constraint branch become executable Ruby. The affected entry points include the /try playground with the Ruby target, bin/eloc -t ruby -x, and defaultFormats.elo.parse() followed by Ruby emission. A failing labelled subtype constraint evaluates its message, while an ordinary string literal is evaluated when the compiled Ruby runs, allowing Ruby code and shell command execution through backticks. JavaScript, Python, and SQL emission are not affected by this Ruby-specific path. This issue is fixed in version 1.0.1.",
-      "published": "2026-11-03T18:18:02.957",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44266"
+      "id": "CVE-2026-121732",
+      "summary": "RosarioSIS before 12.9 contains an improper authorization vulnerability that allows school-scoped administrators to assign fees and payments to students of other schools via MassAssignFees.php and MassAssignPayments.php. Attackers can substitute foreign student IDs in the student[] POST array of a modfunc=save request to alter other schools' student billing balances, breaking school isolation.",
+      "published": "2026-11-03T23:17:36.987",
+      "cvss": 2.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121732"
     },
     {
-      "id": "CVE-2026-44265",
-      "summary": "Elo is a purely functional expression language for no-code tools. Prior to 1.0.1, Elo's programmatic AST API accepts arbitrary values from JSON-deserialized input, plugin output, or other untyped sources and interpolates them into generated JavaScript, Ruby, Python, or SQL without runtime syntax validation. The affected fields are int_literal / float_literal .value, variable.name, member_access.property, object_literal keys, datapath segments, lambda.params[].name, and the SQL let binding name. Crafted values become executable expressions or identifiers, allowing arbitrary code execution in JavaScript, Ruby, and Python targets and SQL injection in the SQL target. This programmatic AST-object path is distinct from the plain-string constructor-chain sandbox escape. This issue is fixed in version 1.0.1.",
-      "published": "2026-11-03T18:18:02.760",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44265"
+      "id": "CVE-2026-121731",
+      "summary": "RosarioSIS before 12.9 contains a sql injection vulnerability that allows authenticated non-student users, including parents, to inject SQL via the unquoted period_id parameter in StudentSummary.php. Attackers can supply payloads without single quotes into IN() clauses to extract administrator password hashes and student records through time-based queries or modify data via stacked statements.",
+      "published": "2026-11-03T23:17:36.763",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121731"
     }
   ]
 }
