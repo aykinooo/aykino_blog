@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-03T23:57:24+00:00",
+  "generated_at": "2026-11-04T06:11:23+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-121736",
-      "summary": "NocoDB 0.300.0 before 2026.08.0 contains a missing authentication vulnerability in the POST /api/v2/oauth/authorize handler that allows unauthenticated attackers to create OAuth authorization codes. Attackers can send anonymous requests with client_id, redirect_uri and approved=true to insert unbounded ownerless authorization code records, limited only by rate limiting.",
-      "published": "2026-11-03T23:17:37.730",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121736"
-    },
-    {
-      "id": "CVE-2026-121735",
-      "summary": "blueprintUE self-hosted edition before 4.3.4 contains an insufficient session expiration vulnerability that allows attackers to confirm accounts using stale tokens because UserModel::findUserIDWithConfirmedToken ignores confirmed_sent_at. Attackers who obtain an old confirmation link from a compromised mailbox, backup, or forwarded mail can activate unconfirmed accounts and evade the unconfirmed-account cleanup job.",
-      "published": "2026-11-03T23:17:37.540",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121735"
-    },
-    {
-      "id": "CVE-2026-121734",
-      "summary": "ZaneOps 1.14.0 before 1.15.2 contains an authorization bypass vulnerability that allows any workspace administrator to read another workspace's pending preview environment by querying ReviewPreviewEnvDeployAPIView without project scoping. Attackers can use the project slug and environment name from public fork pull request comments to retrieve plaintext environment variables and preview basic-auth credentials.",
-      "published": "2026-11-03T23:17:37.360",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121734"
-    },
-    {
-      "id": "CVE-2026-121733",
-      "summary": "Bagisto before 2.4.5 contains a stored cross-site scripting vulnerability that allows authenticated customers to upload HTML files via the RMA send-message endpoint without type or extension validation. Attackers can upload a .html attachment containing JavaScript served under /storage/rma-conversation/, executing script in the shop's origin when an administrator opens it.",
-      "published": "2026-11-03T23:17:37.177",
+      "id": "CVE-2026-105296",
+      "summary": "Multiple Akeeba products lack the anti-CSRF check on some actions. If the user access a malicious page while logged into the product, unintended operations may be performed.",
+      "published": "2026-11-04T05:18:21.367",
       "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121733"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-105296"
     },
     {
-      "id": "CVE-2026-121732",
-      "summary": "RosarioSIS before 12.9 contains an improper authorization vulnerability that allows school-scoped administrators to assign fees and payments to students of other schools via MassAssignFees.php and MassAssignPayments.php. Attackers can substitute foreign student IDs in the student[] POST array of a modfunc=save request to alter other schools' student billing balances, breaking school isolation.",
-      "published": "2026-11-03T23:17:36.987",
-      "cvss": 2.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121732"
+      "id": "CVE-2026-80335",
+      "summary": "In the bootloader download module, there is a possible out-of-bounds write due to a failure to reset a global offset variable during firmware update sessions. This could lead to heap memory corruption, system crash, or potential arbitrary code execution with no additional execution privileges needed.",
+      "published": "2026-11-04T04:17:37.623",
+      "cvss": 7.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80335"
     },
     {
-      "id": "CVE-2026-121731",
-      "summary": "RosarioSIS before 12.9 contains a sql injection vulnerability that allows authenticated non-student users, including parents, to inject SQL via the unquoted period_id parameter in StudentSummary.php. Attackers can supply payloads without single quotes into IN() clauses to extract administrator password hashes and student records through time-based queries or modify data via stacked statements.",
-      "published": "2026-11-03T23:17:36.763",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121731"
+      "id": "CVE-2026-79405",
+      "summary": "In Modem Firmware, there is a possible system crash due to improper input validation of dedicated PUCCH configuration. This could lead to remote denial of service with no additional execution privileges needed.",
+      "published": "2026-11-04T04:17:37.480",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79405"
+    },
+    {
+      "id": "CVE-2026-121802",
+      "summary": "@better-auth/expo before 1.7.16 allows certain account-takeover outcomes (e.g., unauthenticated changes of any account's email address), because it signs a caller-supplied state value without checking whether that value had been issued by the server. NOTE: the application secret must be rotated after updating to a fixed version.",
+      "published": "2026-11-04T03:17:15.730",
+      "cvss": 9.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121802"
+    },
+    {
+      "id": "CVE-2026-121618",
+      "summary": "A weakness has been identified in Linksys E5600 1.1.0.26. This affects an unknown part of the file /cgi-bin/fqc.cgi of the component Factory Quality Control. This manipulation causes information disclosure. Remote exploitation of the attack is possible. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "published": "2026-11-04T03:17:15.507",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121618"
+    },
+    {
+      "id": "CVE-2026-121617",
+      "summary": "A security flaw has been discovered in Linksys E5600 1.1.0.26. Affected by this issue is the function init_multipart of the file /cgi-bin/upload_fw.cgi of the component Header Parser. The manipulation results in out-of-bounds write. The attack may be launched remotely. The exploit has been released to the public and may be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way. This vulnerability only affects products that are no longer supported by the maintainer.",
+      "published": "2026-11-04T03:17:15.287",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121617"
     }
   ]
 }
