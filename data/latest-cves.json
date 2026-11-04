@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-04T14:29:24+00:00",
+  "generated_at": "2026-11-04T21:16:52+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-121993",
-      "summary": "wePOS (Point Of Sale for WooCommerce) before 2.0.3 contains a missing authorization vulnerability in the wepos/v1/payment/process REST route that allows authenticated vendor-level users to mark arbitrary orders as paid and completed by supplying another order's ID. Attackers with only the publish_shop_orders capability (such as Dokan vendor staff) can invoke the payment processing endpoint with an order ID they do not own to trigger the order completion lifecycle, including stock reduction and granting of paid-order access, without making any real payment.",
-      "published": "2026-11-04T14:17:39.050",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121993"
+      "id": "CVE-2026-97705",
+      "summary": "Moleculer is a progressive microservices framework for Node.js. Prior to 0.14.36 and 0.15.2, Parser._write in src/transporters/tcp/parser.js used Buffer.prototype.readInt32BE to read a signed packet length, so a remote unauthenticated peer could supply a negative value that caused packet.slice(length) to return the unchanged buffer while the while (packet.length > 0) loop continued indefinitely. The synchronous loop blocked the Node.js event loop and made every service in the process unresponsive until restart. The TCP transporter must be enabled and reachable, and neither CRC validation nor maxPacketSize prevents the malformed length value. This issue is fixed in versions 0.14.36 and 0.15.2.",
+      "published": "2026-11-04T20:19:13.137",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97705"
     },
     {
-      "id": "CVE-2026-119745",
-      "summary": "MultiVendorX plugin for WordPress before 5.0.21 contains a missing authorization vulnerability that allows any authenticated user, including Subscribers, to access a sensitive diagnostic dump by requesting the admin_post_sender_debug_download action handled by downloadDebugFile() without any capability, nonce, or referer check. Attackers can exploit this flaw via wp-admin/admin-post.php?action=sender_debug_download to retrieve WordPress, PHP, WooCommerce, and server version details, the full active plugin inventory, active theme information, and plugin settings including the connected Sender account resource key and account metadata.",
-      "published": "2026-11-04T14:17:30.340",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119745"
+      "id": "CVE-2026-76806",
+      "summary": "Solidtime is an open-source time-tracking app. Prior to 0.16.0, TogglDataImporter::importData() read attacker-controlled project id values from projects.json in uploaded ZIP imports and concatenated them into filesystem paths without validation. Because Spatie\\TemporaryDirectory\\TemporaryDirectory::path() creates missing parent directories, traversal sequences could escape the temporary sandbox and create directories at arbitrary writable host paths. Distinguishable ImportController responses for existing versus missing targets exposed whether suffix-constrained host paths derived from projects_users/{id}.json or tasks/{id}.json existed, because the importer always appended .json. Any registered user able to create an organization and use POST /api/v1/organizations/{org}/import with type=toggl_data_importer could reach the flaw, potentially causing minor availability impact through directory exhaustion and disclosing host layout information. This issue is fixed in version 0.16.0.",
+      "published": "2026-11-04T20:19:12.810",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76806"
     },
     {
-      "id": "CVE-2026-118391",
-      "summary": "Allocation of Resources Without Limits or Throttling vulnerability in elixir-ecto ecto allows an unauthenticated remote attacker to exhaust memory in the application and in the database server by sending requests with distinct JSON keys or list lengths where the application interpolates them into json_extract_path/2, field[^key] or splice/1. Ecto caches prepared queries per repository in an ETS table with no size limit and no eviction. Interpolated JSON path elements become part of the query expression instead of its parameters, and splice/1 expands into one placeholder per element, so every distinct key or list length creates a new cache entry. With ecto_sql each entry is also a new prepared statement on the database connection that runs it. None of this memory is released until the processes restart.\n\nThis issue affects ecto: from 3.4.0 before 3.14.3.",
-      "published": "2026-11-04T14:17:29.983",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118391"
+      "id": "CVE-2026-122220",
+      "summary": "WPO365 | LOGIN (wpo365-login) plugin before version 45.2 contains an authentication bypass by capture-replay vulnerability caused by a non-functional anti-replay check in Saml2_Service::check_message_id(), which never persists processed SAML message IDs to the wpo365_saml_message_ids transient due to a logic error that returns before saving. Attackers who capture a validly-signed SAMLResponse can replay it to the ACS endpoint repeatedly within its assertion validity window to log in as the victim, including administrators, without detection since the duplicate message ID check never triggers.",
+      "published": "2026-11-04T20:19:12.397",
+      "cvss": 7.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122220"
     },
     {
-      "id": "CVE-2026-65555",
-      "summary": "Incorrect Privilege Assignment vulnerability in Uncanny Owl Uncanny Toolkit for LearnDash uncanny-learndash-toolkit allows Privilege Escalation.This issue affects Uncanny Toolkit for LearnDash: from n/a through 3.8.2.",
-      "published": "2026-11-04T13:17:30.957",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65555"
+      "id": "CVE-2026-122192",
+      "summary": "Improper handling of a failed memory remap in Firecracker versions 0.23.0 through 1.16.1 might allow a guest user with root privileges to read or modify Firecracker VMM process memory via balloon or virtio-mem discard requests on microVMs restored from a snapshot with the File memory backend, if the host fails to create the replacement mapping.\n\n\n\nTo remediate this issue, users should upgrade to Firecracker 1.16.2 or 1.17.0 and later.",
+      "published": "2026-11-04T20:19:12.210",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122192"
     },
     {
-      "id": "CVE-2026-121970",
-      "summary": "Pay with Vipps and MobilePay for WooCommerce (woo-vipps) before 6.4.1 contains an improper cryptographic signature verification vulnerability in the recurring-payment webhook handler that allows unauthenticated attackers to forge webhook requests when no local webhook secret is stored, because the code fails to return on an empty secret and computes an HMAC keyed with an empty string using a loose == comparison instead of hash_equals. Attackers can craft a recurring.agreement-stopped.v1 event with a known agreementId and a matching empty-key signature to cancel a victim's active WooCommerce subscription.",
-      "published": "2026-11-04T13:17:29.670",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121970"
+      "id": "CVE-2026-121933",
+      "summary": "A flaw has been found in Linksys E5350 1.0.00.037. This impacts the function save_settings of the file /wizard/apply.cgi of the component Setup Wizard. Executing a manipulation of the argument wizard_router_pwd can lead to missing authentication. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-11-04T20:19:11.607",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121933"
     },
     {
-      "id": "CVE-2026-121946",
-      "summary": "zbateson mail-mime-parser before 3.0.9 and 4.x before 4.0.6 contains a CRLF header injection vulnerability in message-building helpers that fail to strip CR and LF characters. Attackers supplying crafted MIME type, charset, encoding, micalg, or protocol values can inject extra header lines such as a forged Bcc into outgoing messages.",
-      "published": "2026-11-04T13:17:29.477",
-      "cvss": 7.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121946"
+      "id": "CVE-2026-115574",
+      "summary": "Zulip is an open-source team collaboration tool. From 11.0 until 12.2, organizations with web-public channels enabled exposed the GET /json/users endpoint to logged-out spectators, and a missing access-control check allowed include_custom_profile_fields=true to return every user's custom profile field values in addition to the documented limited directory data. This exposed those custom profile field values to unauthenticated visitors. This issue is fixed in version 12.2.",
+      "published": "2026-11-04T20:19:02.313",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115574"
     }
   ]
 }
