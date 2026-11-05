@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-04T21:16:52+00:00",
+  "generated_at": "2026-11-05T02:22:28+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-97705",
-      "summary": "Moleculer is a progressive microservices framework for Node.js. Prior to 0.14.36 and 0.15.2, Parser._write in src/transporters/tcp/parser.js used Buffer.prototype.readInt32BE to read a signed packet length, so a remote unauthenticated peer could supply a negative value that caused packet.slice(length) to return the unchanged buffer while the while (packet.length > 0) loop continued indefinitely. The synchronous loop blocked the Node.js event loop and made every service in the process unresponsive until restart. The TCP transporter must be enabled and reachable, and neither CRC validation nor maxPacketSize prevents the malformed length value. This issue is fixed in versions 0.14.36 and 0.15.2.",
-      "published": "2026-11-04T20:19:13.137",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97705"
+      "id": "CVE-2026-122158",
+      "summary": "A security flaw has been discovered in InvoiceShelf up to 2.4.3/3.0.0-alpha.3. Affected by this issue is the function MemberService::create of the file app/Domains/Accounts/Application/MemberService.php. Performing a manipulation of the argument companies[].id/companies[].role results in improper access controls. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks. Upgrading to version 2.4.4 and 3.0.0-alpha.4 can resolve this issue. The patch is named c798b513c3ab6e672a1678774720fbb282f4d0c6. It is recommended to upgrade the affected component.",
+      "published": "2026-11-05T02:16:58.490",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122158"
     },
     {
-      "id": "CVE-2026-76806",
-      "summary": "Solidtime is an open-source time-tracking app. Prior to 0.16.0, TogglDataImporter::importData() read attacker-controlled project id values from projects.json in uploaded ZIP imports and concatenated them into filesystem paths without validation. Because Spatie\\TemporaryDirectory\\TemporaryDirectory::path() creates missing parent directories, traversal sequences could escape the temporary sandbox and create directories at arbitrary writable host paths. Distinguishable ImportController responses for existing versus missing targets exposed whether suffix-constrained host paths derived from projects_users/{id}.json or tasks/{id}.json existed, because the importer always appended .json. Any registered user able to create an organization and use POST /api/v1/organizations/{org}/import with type=toggl_data_importer could reach the flaw, potentially causing minor availability impact through directory exhaustion and disclosing host layout information. This issue is fixed in version 0.16.0.",
-      "published": "2026-11-04T20:19:12.810",
+      "id": "CVE-2026-122157",
+      "summary": "A vulnerability was identified in Purocean Yank Note 3.93.0. Affected by this vulnerability is the function checkPermission of the file src/main/server/index.ts of the component Terminal Handler. Such manipulation leads to os command injection. The attack can be executed remotely. The exploit is publicly available and might be used. Upgrading to version 3.93.1 addresses this issue. The name of the patch is 59f85d48f17a70a402ad59dcecacdbec20f954df. Upgrading the affected component is recommended.",
+      "published": "2026-11-05T02:16:58.240",
       "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76806"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122157"
     },
     {
-      "id": "CVE-2026-122220",
-      "summary": "WPO365 | LOGIN (wpo365-login) plugin before version 45.2 contains an authentication bypass by capture-replay vulnerability caused by a non-functional anti-replay check in Saml2_Service::check_message_id(), which never persists processed SAML message IDs to the wpo365_saml_message_ids transient due to a logic error that returns before saving. Attackers who capture a validly-signed SAMLResponse can replay it to the ACS endpoint repeatedly within its assertion validity window to log in as the victim, including administrators, without detection since the duplicate message ID check never triggers.",
-      "published": "2026-11-04T20:19:12.397",
-      "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122220"
-    },
-    {
-      "id": "CVE-2026-122192",
-      "summary": "Improper handling of a failed memory remap in Firecracker versions 0.23.0 through 1.16.1 might allow a guest user with root privileges to read or modify Firecracker VMM process memory via balloon or virtio-mem discard requests on microVMs restored from a snapshot with the File memory backend, if the host fails to create the replacement mapping.\n\n\n\nTo remediate this issue, users should upgrade to Firecracker 1.16.2 or 1.17.0 and later.",
-      "published": "2026-11-04T20:19:12.210",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122192"
-    },
-    {
-      "id": "CVE-2026-121933",
-      "summary": "A flaw has been found in Linksys E5350 1.0.00.037. This impacts the function save_settings of the file /wizard/apply.cgi of the component Setup Wizard. Executing a manipulation of the argument wizard_router_pwd can lead to missing authentication. The attack may be launched remotely. The exploit has been published and may be used. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-11-04T20:19:11.607",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-121933"
-    },
-    {
-      "id": "CVE-2026-115574",
-      "summary": "Zulip is an open-source team collaboration tool. From 11.0 until 12.2, organizations with web-public channels enabled exposed the GET /json/users endpoint to logged-out spectators, and a missing access-control check allowed include_custom_profile_fields=true to return every user's custom profile field values in addition to the documented limited directory data. This exposed those custom profile field values to unauthenticated visitors. This issue is fixed in version 12.2.",
-      "published": "2026-11-04T20:19:02.313",
+      "id": "CVE-2026-122154",
+      "summary": "A vulnerability was found in purocean Yank Note 3.93.0. This impacts the function config.getAll of the file src/main/server/index.ts of the component Settings Endpoint. The manipulation results in information disclosure. The attack may be launched remotely. The exploit has been made public and could be used. Upgrading to version 3.93.1 will fix this issue. The patch is identified as 59f85d48f17a70a402ad59dcecacdbec20f954df. The affected component should be upgraded. The commit removes the key from the response.",
+      "published": "2026-11-05T02:16:57.990",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115574"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122154"
+    },
+    {
+      "id": "CVE-2025-66364",
+      "summary": "Continuously sending control\u2011plane messages causes the baseband to crashes.",
+      "published": "2026-11-05T02:16:57.817",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66364"
+    },
+    {
+      "id": "CVE-2026-122151",
+      "summary": "A security vulnerability has been detected in Presenton up to 0.9.11-beta. Impacted is the function JSON.parse of the file /api/user-config of the component User Configuration Handler. Such manipulation leads to cross-site request forgery. It is possible to launch the attack remotely. The exploit has been disclosed publicly and may be used. Upgrading to version 0.9.12-beta is recommended to address this issue. The name of the patch is 44c8a61122b21f17642d717b0c4d6f2c54c0f180. It is recommended to upgrade the affected component.",
+      "published": "2026-11-05T01:17:22.360",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122151"
+    },
+    {
+      "id": "CVE-2026-122146",
+      "summary": "A weakness has been identified in 101arrowz fflate up to 0.8.3. This issue affects the function unzipSync of the file esm/index.mjs. This manipulation causes memory corruption. It is possible to initiate the attack remotely. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-11-05T01:17:22.143",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122146"
     }
   ]
 }
