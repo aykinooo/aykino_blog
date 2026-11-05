@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-05T10:47:30+00:00",
+  "generated_at": "2026-11-05T18:42:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-123036",
-      "summary": "A flaw was found in ansible-core. When a task marked `no_log: true` fails, the task result is censored before being emitted, but the `exception` field is retained because it is present in the PRESERVE allow-list in lib/ansible/_internal/_task.py, and the default stdout callback prints it through CallbackBase._handle_exception. As a result, sensitive values the operator explicitly asked to hide can be disclosed: module argument-validation errors echo the argument value, templating errors print an Origin source snippet (the failing line plus the two preceding lines of the variables file, exposing neighbouring secrets from an -e @secrets.yml file), and fail/assert messages are printed in full. Secret material supplied as extra variables or variables files can therefore leak to terminal output, CI logs, and the stdout logs of any automation wrapping ansible-playbook, even though every task touching the secrets is marked no_log: true. This is a regression introduced with the ansible-core 2.19 data-tagging/templating rework; the behaviour does not occur on 2.16, where the error text is correctly censored.",
-      "published": "2026-11-05T10:16:38.220",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123036"
+      "id": "CVE-2026-97847",
+      "summary": "A flaw was found in the protocol mapper and identity resolution components of Keycloak. The issue occurs when a client manager uses hardcoded-claim mappers to override identity claims in sessionless service-account tokens. Because these tokens lack a session ID, Keycloak may incorrectly resolve the token bearer as a different, highly privileged user based on the manipulated claims. This can allow an attacker with limited client management permissions to impersonate a realm administrator and gain full control over the realm.",
+      "published": "2026-11-05T18:17:11.840",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97847"
     },
     {
-      "id": "CVE-2026-118869",
-      "summary": "An OS command injection vulnerability exists in SHIRASAGI, which may allow an authenticated attacker to execute arbitrary OS commands on the system running the product.",
-      "published": "2026-11-05T09:17:05.143",
+      "id": "CVE-2026-97175",
+      "summary": "A flaw was found in the idp-auto-link authenticator of the keycloak-services component, which handles user identity federation. The issue occurs when Keycloak automatically links an incoming identity from an external provider to an existing local account based on an email address without verifying if the provider has validated that email. This can allow an attacker to take over a victim's account by using a matching unverified email address at a brokered provider.",
+      "published": "2026-11-05T18:17:11.670",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118869"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97175"
     },
     {
-      "id": "CVE-2026-117679",
-      "summary": "A cross-site scripting vulnerability exists in SHIRASAGI, which may allow an authenticated attacker to execute arbitrary script in a user's web browser when the user accesses a website using the affected product.",
-      "published": "2026-11-05T09:17:04.953",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117679"
+      "id": "CVE-2026-97174",
+      "summary": "A flaw was found in the Client-Initiated Backchannel Authentication (CIBA) implementation of Keycloak. The CIBA endpoint fails to properly validate the sub parameter, allowing it to be stored as an additional request parameter. During the token issuance process, this injected value overwrites the legitimate subject identifier. This allows an attacker to authenticate as themselves but receive security tokens belonging to a different victim user, leading to unauthorized account access.",
+      "published": "2026-11-05T18:17:11.493",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97174"
     },
     {
-      "id": "CVE-2026-112072",
-      "summary": "vault-java-driver, a Java client for HashiCorp Vault, parses Vault's JSON responses with a vendored minimal-json parser that has no nesting depth limit. A deeply nested value raises a StackOverflowError, which escapes catch (Exception) handlers and kills the reading thread. A Vault token that can write but not read a KV v2 path can store such a value there, so every later read of that path through the driver fails. This requires Vault 1.19.x or earlier, because 1.20 and later reject values nested deeper than 298 levels. This issue affects io.github.jopenlibs:vault-java-driver 5.2.0 through 6.2.3 and is fixed in 7.0.0.",
-      "published": "2026-11-05T08:17:03.663",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112072"
+      "id": "CVE-2026-96453",
+      "summary": "A flaw was found in the Keycloak Admin CLI kcadm tool, which is used by administrators to manage Keycloak servers from the command line. When a custom truststore is provided to verify the server identity, the tool incorrectly accepts any self-signed certificate as long as the hostname matches. This allows a network attacker to impersonate the Keycloak server, steal administrative credentials, and perform unauthorized management actions.",
+      "published": "2026-11-05T18:17:11.270",
+      "cvss": 8.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96453"
     },
     {
-      "id": "CVE-2026-109408",
-      "summary": "vault-java-driver, a Java client for HashiCorp Vault, silently disables TLS certificate and hostname verification in three states where the caller asked for verification: an SslConfig passed to VaultConfig without calling build(), an SslConfig restored by Java deserialization, and VAULT_SSL_VERIFY set to a truthy value other than \"true\", such as 1, yes or on. In each case SslConfig.isVerify() returns false and the driver installs a trust-all SSLContext. An attacker on the network path to the Vault server can then read the Vault token and secrets in transit and forge responses. This issue affects io.github.jopenlibs:vault-java-driver 5.2.0 through 6.2.3. It is fixed in 7.0.0.",
-      "published": "2026-11-05T08:17:03.463",
+      "id": "CVE-2026-93998",
+      "summary": "A flaw was found in the SAML adapter component of Keycloak, which is used to secure applications with SAML-based authentication. The adapter fails to verify that the issuer of a signed SAML assertion matches the expected identity provider configured for the application. If multiple identity providers share the same trusted signing key, an attacker who controls one of those providers can create a validly signed assertion to log into the application as any user, potentially gaining full administrative control.",
+      "published": "2026-11-05T18:17:11.053",
       "cvss": 7.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109408"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93998"
     },
     {
-      "id": "CVE-2026-107776",
-      "summary": "The Dokan WordPress plugin before 5.3.3 does not reconcile the amount credited to a vendor's reverse-withdrawal ledger against the amount actually collected for the payment order, allowing a vendor to clear their outstanding commission debt while paying less than the balance owed when a discount coupon is applied at checkout.",
-      "published": "2026-11-05T08:17:03.300",
-      "cvss": 2.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107776"
+      "id": "CVE-2026-92857",
+      "summary": "Keycloak provides a Dynamic Client Registration feature that allows users with specific tokens to register their own applications. A flaw in how Keycloak validates these registration requests allows an attacker to create a malicious application that forges identity information. By mapping their own user profile details to protected fields like the user ID (sub) or intended audience (aud), an attacker can generate signed security tokens that make them appear to be a different user. This could allow an attacker to impersonate other users or gain unauthorized access to services that rely on these tokens for identity verification.",
+      "published": "2026-11-05T18:17:10.887",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92857"
     }
   ]
 }
