@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-06T20:51:31+00:00",
+  "generated_at": "2026-11-07T00:53:25+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-73860",
-      "summary": "CRIU is a checkpoint and restore tool for Linux. Prior to 4.2.1, CRIU injects a syscall;int3 sequence at the start of the first executable virtual memory area and resumes the target process to execute parasite code. Malicious code in the target process can keep an rseq critical section armed over that injection point so the kernel's restartable-sequence abort redirects execution to an attacker-controlled callback when CRIU resumes the process. In container snapshot environments, the hijacked parasite runs with seccomp disabled and a relaxed AppArmor profile and supplies trusted data to the privileged CRIU process, which can enable higher-privilege code execution. This issue is fixed in version 4.2.1.",
-      "published": "2026-11-06T20:17:25.703",
+      "id": "CVE-2026-71881",
+      "summary": "Multiple injection issues in resource metadata fields in GBIF Integrated Publishing Toolkit versions before 3.3.5 allows authenticated remote attackers to execute code in another user's session after user interaction via stored cross-site scripting",
+      "published": "2026-11-07T00:16:58.577",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73860"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71881"
     },
     {
-      "id": "CVE-2026-65960",
-      "summary": "Tetragon is an eBPF-based security observability and runtime enforcement project. Versions before 1.7.0 can use a Helm default that exposes the privileged Tetragon gRPC API through an unauthenticated TCP listener on localhost:54321. An attacker who can run or compromise same-node hostNetwork pods can reach the listener and invoke privileged methods without authentication. These methods can add, delete, or reconfigure tracing policies and change debug settings, potentially resulting in privilege escalation or container escape. Version 1.7.0 changes the default endpoint to a Unix-domain socket. Deployments that do not expose an unauthenticated TCP listener are not affected.",
-      "published": "2026-11-06T20:17:24.397",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65960"
+      "id": "CVE-2026-27356",
+      "summary": "Missing Authorization vulnerability in ibericode MC4WP mailchimp-for-wp allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects MC4WP: from n/a through 4.14.1.",
+      "published": "2026-11-06T23:17:22.153",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-27356"
     },
     {
-      "id": "CVE-2026-63664",
-      "summary": "CloudBeaver is a cloud database manager. In versions up to and including 26.1.1, some server-side export operations do not consistently enforce the global data export restriction. An authenticated non-administrative user with access to a shared database connection can initiate certain server-side data exports even when an administrator has disabled exports. This can disclose database contents that the user is permitted to query but is not permitted to export. The issue does not grant additional database read privileges. It is fixed in 26.1.2 by consistently enforcing the global restriction for server-side exports.",
-      "published": "2026-11-06T20:17:24.057",
+      "id": "CVE-2026-123471",
+      "summary": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in myCred myCred mycred allows Code Injection.This issue affects myCred: from n/a through 4.0.2.",
+      "published": "2026-11-06T23:17:21.790",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123471"
+    },
+    {
+      "id": "CVE-2026-122670",
+      "summary": "Missing Authorization vulnerability in WP SYNTEX Polylang polylang allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Polylang: from n/a through 3.9.",
+      "published": "2026-11-06T23:17:21.630",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122670"
+    },
+    {
+      "id": "CVE-2026-120851",
+      "summary": "Missing Authorization vulnerability in PublishPress PublishPress Revisions revisionary allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects PublishPress Revisions: from n/a through 4.2.0.",
+      "published": "2026-11-06T23:17:21.460",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120851"
+    },
+    {
+      "id": "CVE-2026-120845",
+      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in WPMU DEV Smush Image Compression and Optimization wp-smushit allows Stored XSS.This issue affects Smush Image Compression and Optimization: from n/a through 4.3.5.",
+      "published": "2026-11-06T23:17:21.260",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63664"
-    },
-    {
-      "id": "CVE-2026-63663",
-      "summary": "CloudBeaver is a cloud database manager. From version 23.2.3 until 26.1.2, a path traversal vulnerability in its SQL result-editing functionality allows an authenticated user with SQL result-editing privileges to cause the server to open files outside the intended temporary upload directory. In affected database value-handling scenarios, this can disclose local files readable by the CloudBeaver server process. Version 26.1.2 prevents traversal outside the intended temporary upload directory.",
-      "published": "2026-11-06T20:17:23.867",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63663"
-    },
-    {
-      "id": "CVE-2026-58490",
-      "summary": "Tracecat is an open-source security automation platform for teams and AI agents. From version 0.37.0 until 1.0.0-beta.49, Docker Compose deployments with SAML enabled can render SAML_SIGNED_ASSERTIONS and SAML_SIGNED_RESPONSES as empty values, overriding secure application defaults and disabling both signature requirements. An unauthenticated attacker who can reach the SAML assertion consumer endpoint can submit a forged unsigned response for an existing Tracecat user email address and obtain that user\u2019s session. Targeting an existing superadmin can result in superadmin account takeover. Exploitation does not create users when SAML user creation is disabled and does not affect default Fargate or Helm deployments. Version 1.0.0-beta.49 removes the insecure deployment pass-through and requires signed assertions and responses.",
-      "published": "2026-11-06T20:17:23.253",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-58490"
-    },
-    {
-      "id": "CVE-2026-55649",
-      "summary": "GeoNode is a geospatial content management system, a platform for the management and publication of geospatial data. Prior to 5.0.3, document abstract metadata is stored without sanitization, allowing a low-privileged remote user to persist arbitrary HTML and JavaScript that executes in another user's browser when the document page is visited. This issue is fixed in version 5.0.3.",
-      "published": "2026-11-06T20:17:23.087",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55649"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120845"
     }
   ]
 }
