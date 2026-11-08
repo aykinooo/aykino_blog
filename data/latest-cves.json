@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-08T02:25:22+00:00",
+  "generated_at": "2026-11-08T10:14:27+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-124422",
-      "summary": "SunEditor from 3.0.0 before 3.4.0 contains a stored cross-site scripting vulnerability in html.clean() that rebuilds iframes from data-se-iframe-holder-attrs JSON without filtering srcdoc or uppercase SRC keys. Attackers can inject crafted HTML through paste, html.set, or html.insert to execute script in the host page origin when victims load or paste the content.",
-      "published": "2026-11-08T02:16:57.460",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124422"
+      "id": "CVE-2026-97195",
+      "summary": "The Secure Custom Fields WordPress plugin before 6.9.8 does not sanitize a persisted field definition before emitting part of it as an HTML attribute name, allowing a user able to configure its fields to store a payload that executes as JavaScript in the browser of any user who views a page rendering the affected field, which on multisite lets a site administrator who lacks the unfiltered_html capability inject script into other users' sessions.",
+      "published": "2026-11-08T06:17:06.350",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97195"
     },
     {
-      "id": "CVE-2026-123616",
-      "summary": "imgproxy from 3.3.0 before 4.0.16 contains an unbounded memory allocation vulnerability in the ICO loader that fails to validate the data_size field. Attackers can supply a crafted 23-byte ICO file declaring a ~4GB data_size to trigger memory exhaustion and worker crashes without authentication.",
-      "published": "2026-11-08T02:16:57.307",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123616"
+      "id": "CVE-2026-97194",
+      "summary": "The Secure Custom Fields WordPress plugin before 6.9.8 does not perform a read-permission check when it renders and formats the values of its relational fields, allowing users with post-editing access (Contributor and above) to disclose the titles and non-public statuses of other users' unpublished posts.",
+      "published": "2026-11-08T06:17:06.240",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97194"
     },
     {
-      "id": "CVE-2026-123615",
-      "summary": "imgproxy 3.3.0 before 4.0.17 contains an out-of-bounds heap read and write in the ICO loader's BMP header reconstruction (vips_foreign_load_ico_header in vips/icoload.c) when an ICO entry declares a tiny data size, causing unvalidated header fields to be read and written past the allocated buffer. Unauthenticated remote attackers can supply a crafted ICO image to corrupt adjacent heap chunk metadata, triggering a glibc abort that crashes the worker.",
-      "published": "2026-11-08T02:16:57.147",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123615"
+      "id": "CVE-2026-97193",
+      "summary": "The Secure Custom Fields WordPress plugin before 6.9.8 does not verify that a user is allowed to edit the target object before writing to it during bidirectional relationship synchronization, allowing users with contributor-level access and above to add or remove a reference to their own object on arbitrary posts, users, or terms they cannot otherwise edit.",
+      "published": "2026-11-08T06:17:06.127",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97193"
     },
     {
-      "id": "CVE-2026-123614",
-      "summary": "imgproxy from 4.0.0 before 4.0.16 contains an integer overflow in the ICO loader that allows remote attackers to trigger a heap buffer overflow via a crafted data_size value. Attackers can submit a crafted ICO image whose data_size wraps the allocation in vips/icoload.c, corrupting heap memory to crash the process or achieve code execution.",
-      "published": "2026-11-08T02:16:56.983",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123614"
+      "id": "CVE-2026-97192",
+      "summary": "The Secure Custom Fields WordPress plugin before 6.9.8 does not re-apply its field-group location rules when persisting values submitted through the post editor save path, allowing users with contributor-level access and above to write custom fields the site restricted to administrators onto their own posts.",
+      "published": "2026-11-08T06:17:06.003",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97192"
     },
     {
-      "id": "CVE-2026-123613",
-      "summary": "Rustls from 0.23.13 before 0.23.45 accepts TLS 1.3 handshake messages at the wrong encryption level when they follow a key-changing message in the same record, because Deframer::aligned does not enforce RFC 8446 record-boundary alignment. A peer or on-path attacker can pack a plaintext EncryptedExtensions with the ServerHello, which rustls accepts unencrypted.",
-      "published": "2026-11-08T02:16:56.780",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123613"
+      "id": "CVE-2026-96963",
+      "summary": "The Pie Register  WordPress plugin through 3.8.4.15 does not perform an authorisation check in one of its AJAX actions, allowing users with a role as low as contributor to modify existing administrator-created invitation-code records.",
+      "published": "2026-11-08T06:17:05.890",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96963"
     },
     {
-      "id": "CVE-2026-123612",
-      "summary": "rustls 0.23.44 and 0.23.45 contain an information disclosure vulnerability that sends application data buffered before the handshake completes to the client-facing server when Encrypted Client Hello is rejected. Because start_traffic() queues plaintext from ClientConnection::writer() before sending the ech_required alert, the authenticated public_name server receives data intended for the inner server.",
-      "published": "2026-11-08T02:16:56.597",
-      "cvss": 2.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123612"
+      "id": "CVE-2026-96961",
+      "summary": "The Pie Register  WordPress plugin through 3.8.4.15 does not perform any capability, nonce or authentication check on one of its request handlers, allowing unauthenticated attackers to reset the Pie Register  WordPress plugin through 3.8.4.15's settings to their defaults (disabling registration security controls such as new-user email verification) and to destroy a Pie Register  WordPress plugin through 3.8.4.15 data table.",
+      "published": "2026-11-08T06:17:05.763",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96961"
     }
   ]
 }
