@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-10T09:43:50+00:00",
+  "generated_at": "2026-11-10T17:46:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-60046",
-      "summary": "An unauthenticated remote attacker can perform password resets for any user with known username and email without rate limiting. This can result in a total loss of availabilit since the password will be reseted.",
-      "published": "2026-11-10T09:17:24.617",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60046"
+      "id": "CVE-2026-97891",
+      "summary": "In Eclipse Kura version 5.0.0 to 5.6.2, the Web Console allocates a new HTTP session for every request to its built-in authentication endpoints (/admin/auth, /admin/login/password, /admin/login/cert) before checking the HTTP method, parsing the request, or validating any submitted credentials, and does not limit how many such sessions can be allocated. An unauthenticated client that sends requests to these endpoints without honoring the returned session cookie can cause the server to allocate an unbounded number of sessions, exhausting the JVM heap and crashing the Kura process.",
+      "published": "2026-11-10T17:17:57.597",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97891"
     },
     {
-      "id": "CVE-2026-60045",
-      "summary": "A high privileged remote attacker can upload arbitrary files to a guessable location. This can result in a loss of availability and might be chained with other vulnerabilities.",
-      "published": "2026-11-10T09:17:24.470",
+      "id": "CVE-2026-97401",
+      "summary": "In Kura versions <= 5.6.2, `CommandCloudApp.execute()` extracts a caller-supplied ZIP archive into a caller-supplied directory inside the Kura JVM process before dispatching the command to the executor service. On a packaged Kura installation the JVM runs as `kurad` with `CAP_DAC_OVERRIDE`, while the configurable \"Unprivileged\" executor drops to the `kura` user via `su`.\n\n\n\nA caller with permissions `rest.command` who is intentionally restricted to unprivileged command execution (`privileged.command.service.enable=false`, the default) can therefore set `workingDirectory` to `/` and use the ZIP body to write or overwrite arbitrary files on the device as `kurad`, completely bypassing the unprivileged sandbox the operator selected.\n\n\n\nThe command service is disabled by default since Kura 4.0.0 [1]. The issue does not apply when the command service is disabled.\n\n\n\n[1] https://github.com/eclipse-kura/kura/blob/f9f969231892769a269876b23f19fa0e8173e3df/kura/distrib/RELEASE_NOTES.txt#L94",
+      "published": "2026-11-10T17:17:55.450",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97401"
+    },
+    {
+      "id": "CVE-2026-92684",
+      "summary": "Missing Authentication for Critical Function in aggregation queries in Neo4j @neo4j/graphql 5.0.0 before 5.12.17 and 7.0.0 before 7.6.8 allows remote attackers to read protected data via GraphQL aggregation queries. Field-level @authentication is not enforced on string aggregates, which can return stored values verbatim, and connection-root aggregates bypass an entity's AGGREGATE authentication requirement, allowing unauthenticated callers to obtain aggregate results.",
+      "published": "2026-11-10T17:17:50.150",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92684"
+    },
+    {
+      "id": "CVE-2026-83528",
+      "summary": "Exposure of PII in Ivanti EPMM before version 12.10.0.1, 12.9.0.3, and 12.8.0.5 allows a remote authenticated attacker with admin privileges to leak GDPR protected user information.",
+      "published": "2026-11-10T17:17:49.130",
       "cvss": 4.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60045"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83528"
     },
     {
-      "id": "CVE-2026-60044",
-      "summary": "The backups created by the application use a weak static password allowing an unauthenticated remote attacker to access their content. This can result in a total loss of confidentiality.",
-      "published": "2026-11-10T09:17:24.307",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60044"
+      "id": "CVE-2026-82518",
+      "summary": "Akamai CLI before 2.0.6 contains a path traversal vulnerability that allows malicious packages to write files outside the install directory via unvalidated commands[].name values in cli.json. Attackers who convince victims to install or update a package can use '..' segments to overwrite executables on the user's PATH, persisting after uninstall.",
+      "published": "2026-11-10T17:17:48.770",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82518"
     },
     {
-      "id": "CVE-2026-60043",
-      "summary": "An unauthenticated remote attacker can perform a XSS attack on a logged in backend user allowing for execution of multiple critical system actions. This could allow an attacker to shutdown the server or restore an uploaded backup. This can result in a loss of integrity and availability.",
-      "published": "2026-11-10T09:17:24.110",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60043"
-    },
-    {
-      "id": "CVE-2026-60042",
-      "summary": "An unauthenticated remote attacker can perform an authentication bypass on the com_check function, potentially triggering traffic on other systems and email alerts. This can result in some loss of availability due to higher system loads.",
-      "published": "2026-11-10T09:17:23.937",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60042"
-    },
-    {
-      "id": "CVE-2026-60041",
-      "summary": "An unauthenticated remote attacker can perform a CSRF attack on a logged in backend user allowing for execution of multiple critical system actions. This could allow an attacker to shutdown the server or restore an uploaded backup. This can result in a loss of integrity and availability.",
-      "published": "2026-11-10T09:17:23.770",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60041"
+      "id": "CVE-2026-66335",
+      "summary": "AMI APTIOV contains vulnerabilities in BIOS where\nprivileged users may cause the \u201cHeap-based Buffer Overflow\u201d by local access.\nSuccessful exploitation of this vulnerability may lead to a denial of service\nduring firmware update processing, such as a crash or failed update if the\nout-of-bounds write hits unmapped memory. It could also impact Confidentiality,\nIntegrity, and Availability.",
+      "published": "2026-11-10T17:17:46.873",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66335"
     }
   ]
 }
