@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-09T18:44:02+00:00",
+  "generated_at": "2026-11-10T02:02:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-84503",
-      "summary": "A flaw was found in ansible-core's ansible.builtin.git module. The module\ninvokes git (ls-remote, clone, fetch) with the repository URL as a positional\nargument and without a \"--\" separator, so a repository URL that begins with a\ndash is interpreted by git as a command-line option. A caller that passes an\nattacker-controlled repository URL to the module can trigger argument\ninjection (for example --upload-pack/--exec), resulting in arbitrary command\nexecution on the host running the module.",
-      "published": "2026-11-09T18:17:34.233",
-      "cvss": 6.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84503"
-    },
-    {
-      "id": "CVE-2026-60117",
-      "summary": "The Android implementation of the Flutter/Dart receive_sharing_intent package, versions 1.4.1 through 1.9.0, contains a path traversal vulnerability in FileDirectory.getDataColumn that allows a malicious co-resident application to write files outside the intended cache directory by supplying a crafted _display_name value from an untrusted ContentProvider. Attackers can use a path-shaped display name ../databases/proof.txt combined with a controlled content stream to write to arbitrary locations within the receiving application's private sandbox under its UID, achieving file overwrite without user interaction.",
-      "published": "2026-11-09T18:17:29.517",
-      "cvss": 6.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-60117"
-    },
-    {
-      "id": "CVE-2026-19706",
-      "summary": "During ABI bootstrap, the bootstrap node's approve-csr.service approves and signs every CSR without identity validation.\n\nAn attacker on the install network can retrieve the unauthenticated Ignition file (ports 22623/22624), extract a limited kubeconfig, submit a CSR for CN=system:admin, receive the signed certificate, and gain full cluster-admin access.\n\nExploitable only during the narrow bootstrap window.",
-      "published": "2026-11-09T18:17:27.583",
-      "cvss": 8.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19706"
-    },
-    {
-      "id": "CVE-2026-125063",
-      "summary": "A flaw was found in the rrule validation of schedules in automation controller. Several non-anchored regular expressions with lazy wildcard prefixes are applied to the user-supplied rrule value; when the expected DTSTART/RRULE tokens are absent, validation time grows quadratically with the length of the value. An authenticated user can submit a large token-free rrule through the REST API, including the schedule preview endpoint, which requires no resource-level permissions; validation runs synchronously in the API web worker, so a single such request occupies a worker for an extended time and repeated requests can exhaust the web worker pool, denying access to the API and web UI while the attack is sustained. The impact is limited to availability.",
-      "published": "2026-11-09T18:17:27.053",
+      "id": "CVE-2026-89131",
+      "summary": "SAP NetWeaver Enterprise Portal does not sufficiently protect certain server-side actions against cross-site request forgery. An unauthenticated attacker could craft a malicious link that, when clicked by an authenticated user, triggers an unintended action on the server. Successful exploitation could allow the attacker to modify non-sensitive information, resulting in a low impact on integrity. There is no impact on confidentiality and availability.",
+      "published": "2026-11-10T01:17:22.877",
       "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125063"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89131"
     },
     {
-      "id": "CVE-2026-123797",
-      "summary": "SuperTokens Core is an open source authentication server. Prior to 11.3.6, 11.4.6, and 12.0.8, app-specific management requests using an unknown tenant path and an older supported cdi-version can bypass API-key and public-tenant enforcement. In src/main/java/io/supertokens/webserver/WebserverAPI.java, checkIPAccess and assertThatAPIKeyCheckPasses suppress TenantOrAppNotFoundException, while the later app-specific handler resolves app/public storage and the public-tenant guard applies only to CDI versions 5.0 and later. An unauthenticated caller able to reach the Core endpoint can therefore use PUT /ghosttenant/recipe/role and GET /ghosttenant/recipe/roles to create and enumerate application roles without a valid API key. This issue is fixed in versions 11.3.6, 11.4.6, and 12.0.8.",
-      "published": "2026-11-09T18:17:26.890",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123797"
+      "id": "CVE-2026-89129",
+      "summary": "Due to a Server-Side Request Forgery (SSRF) vulnerability in SAP NetWeaver AS Java (Web Services), an unauthenticated attacker could craft a SOAP request that causes the server to return a SOAP fault to a URL under the attacker\ufffds control. Successful exploitation could allow the attacker to disclose information about connected systems, impacting confidentiality, while integrity and availability remain unaffected.",
+      "published": "2026-11-10T01:17:22.720",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89129"
     },
     {
-      "id": "CVE-2026-123796",
-      "summary": "compose-lint is a Docker Compose security linter that identifies dangerous misconfigurations before deployment. From 0.32.0 until 0.33.0, compose-lint's incomplete remediation for .env secret disclosure checks the 20,000-finding limit before replacing resolved values with their variable references. A pull request can combine a secret-referencing image field with aliased content that produces more than 20,000 findings, causing the early-stop path to emit already graded findings with the resolved secret value in text, JSON, SARIF, and Code Scanning output. Exploitation requires a workflow that writes secrets into the sibling .env and lints untrusted changes, and the run exits 2 unless --allow-partial-coverage is used. This issue is fixed in version 0.33.0.",
-      "published": "2026-11-09T18:17:26.733",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123796"
+      "id": "CVE-2026-89128",
+      "summary": "Due to Broken Access Control in SAP NetWeaver AS Java, an unauthenticated attacker could invoke affected SOAP operations exposed over HTTP without proper access control. Successful exploitation could allow disclosure of information accessible through the affected service, resulting in a low impact on confidentiality. Integrity and availability remain unaffected.",
+      "published": "2026-11-10T01:17:22.573",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89128"
+    },
+    {
+      "id": "CVE-2026-89126",
+      "summary": "SAP Web Dispatcher does not sufficiently validate certain network input processed by an internal component. An unauthenticated attacker could send specially crafted network traffic to trigger a memory corruption condition in the affected functionality. Successful exploitation could allow the attacker to execute arbitrary code and fully compromise the system, resulting in a high impact on confidentiality, integrity and availability of the system.",
+      "published": "2026-11-10T01:17:22.420",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89126"
+    },
+    {
+      "id": "CVE-2026-89125",
+      "summary": "Due to Insecure Storage of Sensitive Information in SAP Web Dispatcher and Internet Communication Manager, an attacker with administrative privileges could obtain sensitive information from stored data. This may allow correlation of credentials across users and deployments, potentially leading to credential exposure and unauthorized access. Successful exploitation could expose credentials and facilitate unauthorized access to affected systems, resulting in a high impact on confidentiality and a low impact on integrity and availability.",
+      "published": "2026-11-10T01:17:22.253",
+      "cvss": 6.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89125"
+    },
+    {
+      "id": "CVE-2026-89119",
+      "summary": "SAP Web Dispatcher and SAP NetWeaver Application Server ABAP (Internet Communication Manager) do not perform sufficient request validation in certain administrative functionality. In the context of Application Server ABAP and SAP Web Dispatcher, an unauthenticated attacker could trick a logged-on administrator into visiting a malicious link. Visiting the link could cause unintended actions in the administrator's session. Successful exploitation could lead to a full compromise of the underlying operating system, resulting in a high impact on confidentiality, integrity, and availability.",
+      "published": "2026-11-10T01:17:22.103",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89119"
     }
   ]
 }
