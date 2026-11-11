@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-10T23:15:39+00:00",
+  "generated_at": "2026-11-11T06:07:37+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96437",
-      "summary": "The ai-azure-content-safety plugin in Kong Gateway Enterprise skips inspection of request bodies larger than the in-memory body buffer, allowing prompts to bypass input content-safety checks.",
-      "published": "2026-11-10T22:21:17.753",
+      "id": "CVE-2026-97054",
+      "summary": "For HTTP/1 servers, when MaxBytesReader's limit is exceeded, \"Connection: close\" header is automatically set without synchronization, which might race with another header being set explicitly in the server handler. As a result, an HTTP/1 server that utilizes MaxBytesReader or MaxBytesHandler can crash due to runtime panic if its handler reads the request body concurrently with writing the response header.",
+      "published": "2026-11-11T05:19:58.943",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96437"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97054"
     },
     {
-      "id": "CVE-2026-92558",
-      "summary": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway do not escape separator characters when building the cache key, allowing a remote attacker to cause a response cached for one request to be served for a different request on the same Route.",
-      "published": "2026-11-10T22:21:15.413",
+      "id": "CVE-2026-97043",
+      "summary": "Building a malicious package that uses cgo could bypass \"#cgo LDFLAGS\" validation and cause unexpected code execution at build time, or cause the go command to panic, via crafted quoting in \"//go:cgo_ldflag\" directives. When \"cmd/cgo\" generates \"_cgo_gotypes.go\", it quotes each \"#cgo LDFLAGS\" argument with strconv.Quote in a \"//go:cgo_ldflag\" directive, but \"cmd/compile\" and \"cmd/go\" parsed those directives by splitting on raw quote characters without handling backslash escapes or unquoting the string. This mismatch allowed disallowed linker flags or unvalidated linker search paths to be smuggled past the go command's flag checks and passed to the external linker. In addition, deduplicating LDFLAGS in the go command could panic with an out-of-bounds slice index when a prefix of the flag list matched near the end of the slice. \"cmd/compile\" and \"cmd/go\" now properly handle backslash-escaped quotes and unquote \"//go:cgo_*\" pragma strings with strconv.Unquote, and the slice bounds check in processCgoOutputs has been fixed.",
+      "published": "2026-11-11T05:19:58.750",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92558"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97043"
     },
     {
-      "id": "CVE-2026-92545",
-      "summary": "The proxy-cache and proxy-cache-advanced plugins in Kong Gateway Enterprise and Kong AI Gateway omit the request hostname from the cache key which may allow a response cached for a hostname to be served for another.",
-      "published": "2026-11-10T22:21:15.290",
+      "id": "CVE-2026-97042",
+      "summary": "Building a malicious package that uses \"//go:cgo_import_dynamic\" or links against a crafted PE object on Windows could pass unsafe library arguments to the external linker. The compiler only checked the first character of the library name in \"//go:cgo_import_dynamic\" directives and skipped validation in cgo-generated files. In addition, on Windows, \"cmd/cgo\" and \"cmd/link\" did not validate imported DLL names extracted from PE object files before emitting \"-l<name>\" flags for the external linker, allowing a crafted DLL name containing \"..\" path traversal or special characters to reference arbitrary files on disk. The compiler now validates every character of the library name in \"//go:cgo_import_dynamic\" directives (including in cgo-generated files on Windows) and rejects \"..\" path traversal, and \"cmd/cgo\" and \"cmd/link\" reject PE imported DLL names containing path separators, \"..\", \":\", or leading \"-\" or \"@\".",
+      "published": "2026-11-11T05:19:58.563",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92545"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97042"
     },
     {
-      "id": "CVE-2026-92443",
-      "summary": "The caching plugins in Kong Gateway Enterprise and Kong AI Gateway may serve a response cached for a request carrying an Authorization or Proxy-Authorization to different callers.",
-      "published": "2026-11-10T22:21:15.133",
+      "id": "CVE-2026-97041",
+      "summary": "Building a malicious package containing \"//go:cgo_*\" compiler directives could inject arbitrary flags into the external linker invocation on ELF platforms. The compiler and linker did not reject commas in \"//go:cgo_import_dynamic\", \"//go:cgo_export_dynamic\", \"//go:cgo_export_static\", \"//go:cgo_import_static\", and \"//go:cgo_dynamic_linker\" directives, and the linker passed the dynamic linker path using \"-Wl,--dynamic-linker,<path>\". Furthermore, the two-argument form of \"//go:cgo_import_dynamic\" (which is permitted in non-cgo Go source files) could overwrite the external symbol name of a symbol already marked for cgo export. A symbol name or dynamic linker path containing a comma or leading \"@\" could split \"-Wl,--export-dynamic-symbol=\" or \"-Wl,--dynamic-linker,\" into arbitrary host linker flags or response file arguments. The compiler and linker now reject commas in \"//go:cgo_*\" symbol and dynamic linker directives, the linker passes \"-Wl,--dynamic-linker=<path>\", and \"cgo_import_dynamic\" no longer overwrites symbols exported via \"cgo_export_dynamic\" or \"cgo_export_static\".",
+      "published": "2026-11-11T05:19:58.417",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92443"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97041"
     },
     {
-      "id": "CVE-2026-92442",
-      "summary": "The graphql-proxy-cache-advanced plugin in Kong Gateway Enterprise omits the caller's identity from the cache key, allowing a response cached for one caller to be served to another.",
-      "published": "2026-11-10T22:21:14.987",
+      "id": "CVE-2026-97040",
+      "summary": "Building a package containing a crafted \".syso\" file could bypass cgo flag validation and inject arbitrary linker flags when linking. When loading \".syso\" entries from a package archive, the linker only checked for recognized host object headers (ELF, Mach-O, PE, and XCOFF) before falling through to Go object parsing. A \".syso\" file beginning with a \"go object\" header was parsed as a Go compiler object, allowing untrusted cgo metadata directives (such as \"cgo_ldflag\" or \"cgo_dynamic_linker\") embedded in the \".syso\" file to be passed to the external linker without validation. Additionally, \".syso\" filenames longer than 16 bytes lost their \".syso\" extension when truncated in archive headers, and unrecognized \".syso\" formats forced external linking in pure-Go builds. The linker now rejects \".syso\" files that are not recognized host object formats, and \"cmd/go\" and \"cmd/pack\" preserve the \".syso\" suffix when truncating long archive member names.",
+      "published": "2026-11-11T05:19:58.283",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92442"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97040"
     },
     {
-      "id": "CVE-2026-92441",
-      "summary": "Kong Gateway Enterprise and Kong AI Gateway include decoded CR/LF characters from the request path in the X-Forwarded-Prefix header on regex Routes, allowing HTTP header injection and request smuggling to the upstream.",
-      "published": "2026-11-10T22:21:14.867",
+      "id": "CVE-2026-97039",
+      "summary": "Building a malicious package that uses \"#cgo pkg-config:\" directives could load untrusted pkg-config \".pc\" files or inject unvalidated compiler and linker flags. The pkg-config flag allowlist previously permitted \"--with-path=\" and \"--personality=\", allowed \"--define-variable=\" values beginning with \"=\" or \"$\" (which can rewrite paths in system \".pc\" files into sysroot-prefixed \"-L=\" or \"-L$SYSROOT\" linker search paths), and allowed package arguments ending in \".pc\" or containing path separators or \"..\", which caused pkg-config to load local \".pc\" files directly from the package directory. In addition, flags returned by \"pkg-config --cflags\" in cgoCPPFLAGS were not checked when determining whether internal linking is safe. The go command now disallows \"--with-path=\", \"--personality=\", leading \"=\" or \"$\" characters in \"--define-variable=\" values, and local \".pc\" paths in \"#cgo pkg-config:\" directives, and inspects cgoCPPFLAGS when checking internal linking compatibility.",
+      "published": "2026-11-11T05:19:58.133",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92441"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97039"
     }
   ]
 }
