@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-12T02:56:10+00:00",
+  "generated_at": "2026-11-12T10:59:16+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-126785",
-      "summary": "A vulnerability has been found in rmalright TR-VISION HOME 2.0.5. Impacted is the function sub_11504 in the library WFanManager.sys of the component IOCTL Handler. Such manipulation leads to incorrect default permissions. The attack must be carried out locally. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-11-12T01:17:11.603",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126785"
-    },
-    {
-      "id": "CVE-2026-126673",
-      "summary": "Data::Dump::Streamer versions before 3.00 for Perl allow code injection via unescaped Regexp patterns in _dump_qr.\n\nA Regexp's pattern is written into a qr literal without escaping \"$\" or \"@\", so \"@{[ ... ]}\" and \"${\\ ... }\" in the pattern run as code when the dump is evaluated. An already escaped delimiter gets a second backslash, which leaves the delimiter bare and ends the qr literal early.\n\nAn attacker who supplies a pattern that an application compiles, dumps and later restores with eval or do can run arbitrary Perl code.",
-      "published": "2026-11-12T01:17:11.457",
+      "id": "CVE-2026-76173",
+      "summary": "Blind SQL injection vulnerability in the public endpoint `public/webhook/receiver.php` of the WhatsApp module for Dolibarr 1.9. The phone number value derived from the `data.key.remoteJid` parameter, received via a JSON request, is incorporated into an SQL query without escaping or parameterization. With the WHATSAPP_WEBHOOK_ALLOW option enabled, an unauthenticated remote attacker could manipulate this parameter to alter the query. Exploitation using a timing-based technique could allow an attacker to extract information from the database and cause service disruption.",
+      "published": "2026-11-12T10:17:29.353",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126673"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76173"
     },
     {
-      "id": "CVE-2026-125787",
-      "summary": "Missing Authorization vulnerability in ExpressTech Quiz And Survey Master quiz-master-next allows Exploiting Incorrectly Configured Access Control Security Levels.This issue affects Quiz And Survey Master: from n/a through 11.3.0.",
-      "published": "2026-11-12T01:17:11.297",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125787"
+      "id": "CVE-2026-127016",
+      "summary": "The MISP Modules website component exposes external tool management endpoints (add, delete, change status, and change configuration) that did not enforce the optional administrator authentication policy. When ADMIN_PASSWORD was configured in the application environment, the module configuration endpoints correctly required an authenticated administrator session, but the external tools management handlers processed requests from anonymous users without any authorization check. An unauthenticated attacker with network access to the website could add arbitrary external tools, delete existing tools, toggle their active status, and modify their configurations including API keys and ingestion URLs. This inconsistency allowed bypass of the intended access control for the external tools management functionality. The vulnerability is conditional on ADMIN_PASSWORD being set; installations without an admin password intentionally permit open management access by design. The affected component is the external_tools Flask blueprint within the MISP Modules website application.",
+      "published": "2026-11-12T10:17:28.960",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127016"
     },
     {
-      "id": "CVE-2026-125786",
-      "summary": "Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS) vulnerability in ExpressTech Quiz And Survey Master quiz-master-next allows Code Injection.This issue affects Quiz And Survey Master: from n/a through 11.3.0.",
-      "published": "2026-11-12T01:17:11.150",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125786"
+      "id": "CVE-2026-124699",
+      "summary": "In Telerik UI for WinForms, versions prior to 2026.4.1111, an improper control of code generation vulnerability exists that allows an attacker to supply a crafted expression and execute unauthorized code in the context of the affected application.",
+      "published": "2026-11-12T10:17:28.723",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124699"
     },
     {
-      "id": "CVE-2026-125785",
-      "summary": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting') vulnerability in Crocoblock JetEngine jet-engine allows Stored XSS.This issue affects JetEngine: from n/a through 3.9.1.",
-      "published": "2026-11-12T01:17:11.003",
+      "id": "CVE-2026-123765",
+      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Apache Sling XSS. xssAPI.getStyleToken() accepts markup in unquoted urls.\n\n\n\nThis issue affects Apache Sling XSS: before 2.4.14.\n\n\n\nUsers are recommended to upgrade to version 2.4.14, which fixes the issue.",
+      "published": "2026-11-12T10:17:28.523",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123765"
+    },
+    {
+      "id": "CVE-2026-118975",
+      "summary": "In Progress\u00ae Telerik\u00ae Reporting prior to version 20.3.26.1110, improper restriction of XML external entity references in the SVG processing engine allows an authenticated attacker with low privileges who can supply SVG content to a report to read local or UNC files, or trigger server-side network requests, from the report rendering host. External XML entities in SVG content were resolved without applying the configured strict resource resolver and report path validation. Disclosed content is limited by the permissions of the rendering process and by what the rendered report output exposes.",
+      "published": "2026-11-12T10:17:28.230",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125785"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118975"
     },
     {
-      "id": "CVE-2026-126759",
-      "summary": "A flaw has been found in H3C ICG2000 Unified Communication Gateway 2023. This issue affects some unknown processing of the file /wnm/check.j of the component Web Management Module. Executing a manipulation can lead to missing authentication. The attack may be performed from remote. The exploit has been published and may be used. The researcher claims that the vendor has acknowledged receipt of the vulnerability report. No further response has been received.",
-      "published": "2026-11-12T00:17:14.527",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126759"
+      "id": "CVE-2026-106140",
+      "summary": "In Progress\u00ae Telerik\u00ae Reporting prior to version 20.3.26.1110, a deserialization of untrusted data vulnerability in the .NET Framework report designers allows a local attacker with low privileges to execute arbitrary code in the context of the designer process when the user performs certain editing operations.",
+      "published": "2026-11-12T10:17:26.987",
+      "cvss": 7.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106140"
     }
   ]
 }
