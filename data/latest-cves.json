@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-12T10:59:16+00:00",
+  "generated_at": "2026-11-12T18:52:50+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-76173",
-      "summary": "Blind SQL injection vulnerability in the public endpoint `public/webhook/receiver.php` of the WhatsApp module for Dolibarr 1.9. The phone number value derived from the `data.key.remoteJid` parameter, received via a JSON request, is incorporated into an SQL query without escaping or parameterization. With the WHATSAPP_WEBHOOK_ALLOW option enabled, an unauthenticated remote attacker could manipulate this parameter to alter the query. Exploitation using a timing-based technique could allow an attacker to extract information from the database and cause service disruption.",
-      "published": "2026-11-12T10:17:29.353",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76173"
-    },
-    {
-      "id": "CVE-2026-127016",
-      "summary": "The MISP Modules website component exposes external tool management endpoints (add, delete, change status, and change configuration) that did not enforce the optional administrator authentication policy. When ADMIN_PASSWORD was configured in the application environment, the module configuration endpoints correctly required an authenticated administrator session, but the external tools management handlers processed requests from anonymous users without any authorization check. An unauthenticated attacker with network access to the website could add arbitrary external tools, delete existing tools, toggle their active status, and modify their configurations including API keys and ingestion URLs. This inconsistency allowed bypass of the intended access control for the external tools management functionality. The vulnerability is conditional on ADMIN_PASSWORD being set; installations without an admin password intentionally permit open management access by design. The affected component is the external_tools Flask blueprint within the MISP Modules website application.",
-      "published": "2026-11-12T10:17:28.960",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127016"
-    },
-    {
-      "id": "CVE-2026-124699",
-      "summary": "In Telerik UI for WinForms, versions prior to 2026.4.1111, an improper control of code generation vulnerability exists that allows an attacker to supply a crafted expression and execute unauthorized code in the context of the affected application.",
-      "published": "2026-11-12T10:17:28.723",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124699"
-    },
-    {
-      "id": "CVE-2026-123765",
-      "summary": "Improper neutralization of input during web page generation ('cross-site scripting') vulnerability in Apache Sling XSS. xssAPI.getStyleToken() accepts markup in unquoted urls.\n\n\n\nThis issue affects Apache Sling XSS: before 2.4.14.\n\n\n\nUsers are recommended to upgrade to version 2.4.14, which fixes the issue.",
-      "published": "2026-11-12T10:17:28.523",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123765"
-    },
-    {
-      "id": "CVE-2026-118975",
-      "summary": "In Progress\u00ae Telerik\u00ae Reporting prior to version 20.3.26.1110, improper restriction of XML external entity references in the SVG processing engine allows an authenticated attacker with low privileges who can supply SVG content to a report to read local or UNC files, or trigger server-side network requests, from the report rendering host. External XML entities in SVG content were resolved without applying the configured strict resource resolver and report path validation. Disclosed content is limited by the permissions of the rendering process and by what the rendered report output exposes.",
-      "published": "2026-11-12T10:17:28.230",
+      "id": "CVE-2026-81843",
+      "summary": "Grafana is an open-source platform for monitoring and observability.\n\nWhen an Elasticsearch data source is configured with a time-based index pattern, Grafana\ngenerated one index name for every interval in the requested query time range without any upper\nlimit. A user with permission to query the data source, which includes users holding only the\nViewer role in a default configuration, could submit a single small query with an extreme time\nrange and cause the server to allocate memory until it was terminated. The allocation occurred\nbefore any request was sent to Elasticsearch, so the condition applied whether or not the\nElasticsearch cluster was reachable.\n\nData sources configured with a static index name are not affected.",
+      "published": "2026-11-12T18:17:53.470",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118975"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81843"
     },
     {
-      "id": "CVE-2026-106140",
-      "summary": "In Progress\u00ae Telerik\u00ae Reporting prior to version 20.3.26.1110, a deserialization of untrusted data vulnerability in the .NET Framework report designers allows a local attacker with low privileges to execute arbitrary code in the context of the designer process when the user performs certain editing operations.",
-      "published": "2026-11-12T10:17:26.987",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-106140"
+      "id": "CVE-2026-71363",
+      "summary": "A flaw was found in AWX. The debug API endpoints (/api/debug/task_manager/, /api/debug/dependency_manager/, /api/debug/workflow_manager/) are registered unconditionally in the URL configuration and use AllowAny permission class with _ignore_model_permissions=True. This allows an unauthenticated remote attacker to repeatedly invoke scheduler operations that acquire database advisory locks and open transactions, potentially leading to resource exhaustion and degraded service availability.",
+      "published": "2026-11-12T18:17:53.270",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71363"
+    },
+    {
+      "id": "CVE-2026-127204",
+      "summary": "WooCommerce PayPal Pro Payment Gateway plugin before 4.1.1 contains an unauthenticated payment bypass vulnerability that allows remote attackers to mark unpaid orders as paid by exploiting the pp_capture_order AJAX handler, which is gated only by a public checkout nonce and fails to properly validate the PayPal capture response status. Attackers can supply a valid _paypal_order_id to trigger payment_complete() without verifying the capture status or amount, causing the store to fulfill goods or services that were never paid for and resulting in direct financial loss to the merchant.",
+      "published": "2026-11-12T18:17:42.423",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127204"
+    },
+    {
+      "id": "CVE-2026-127101",
+      "summary": "A flaw was found in SSSD's PAM responder. A local attacker can send an authentication request without first negotiating the client protocol version. The responder dereferences a NULL protocol-version pointer and crashes, disrupting SSSD-backed authentication. Repeated crafted requests can sustain the denial of service.",
+      "published": "2026-11-12T18:17:41.110",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127101"
+    },
+    {
+      "id": "CVE-2026-127100",
+      "summary": "A flaw was found in SSSD's PAM responder on builds with the JSON PAM extension enabled. A local attacker can submit a crafted authentication request containing a non-string OAuth2 code value. Missing JSON type validation leads to a NULL pointer dereference, terminating the PAM responder and disrupting SSSD-backed authentication.",
+      "published": "2026-11-12T18:17:40.677",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127100"
+    },
+    {
+      "id": "CVE-2026-127099",
+      "summary": "A flaw was found in SSSD's conversion of X.509 certificate RSA public keys to SSH keys. Missing size checks before copying RSA components into fixed-size stack buffers can cause a stack buffer overflow. An attacker able to supply a certificate with oversized RSA components that passes the configured certificate checks can cause denial of service and corrupt SSH responder memory.",
+      "published": "2026-11-12T18:17:40.227",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127099"
     }
   ]
 }
