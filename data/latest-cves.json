@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-12T18:52:50+00:00",
+  "generated_at": "2026-11-13T00:17:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-81843",
-      "summary": "Grafana is an open-source platform for monitoring and observability.\n\nWhen an Elasticsearch data source is configured with a time-based index pattern, Grafana\ngenerated one index name for every interval in the requested query time range without any upper\nlimit. A user with permission to query the data source, which includes users holding only the\nViewer role in a default configuration, could submit a single small query with an extreme time\nrange and cause the server to allocate memory until it was terminated. The allocation occurred\nbefore any request was sent to Elasticsearch, so the condition applied whether or not the\nElasticsearch cluster was reachable.\n\nData sources configured with a static index name are not affected.",
-      "published": "2026-11-12T18:17:53.470",
+      "id": "CVE-2026-91141",
+      "summary": "A vulnerability in the default configuration of vsomeip allows a remote, unauthenticated attacker to trigger massive memory allocations by sending a small TCP packet with a large, attacker-declared SOME/IP length field. This can lead to immediate service termination via OOM-kill on memory-constrained systems or total host memory exhaustion through repeated connections.",
+      "published": "2026-11-12T22:19:29.583",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-91141"
+    },
+    {
+      "id": "CVE-2026-127211",
+      "summary": "MultiVendorX plugin for WordPress before 5.0.22 contains a broken access control vulnerability in the /wp-json/multivendorx/v1/stores REST route that allows authenticated vendors to access administrative flag handlers due to the store_owner role possessing the edit_stores capability and missing per-store ownership checks. Attackers can exploit the insecure direct object reference in the visitorMap handler and other flag handlers to retrieve other stores' contact emails, pending withdrawal amounts, onboarding and registration data, deactivation reasons, and visitor analytics, resulting in a cross-tenant confidentiality breach.",
+      "published": "2026-11-12T22:19:21.420",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-81843"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127211"
     },
     {
-      "id": "CVE-2026-71363",
-      "summary": "A flaw was found in AWX. The debug API endpoints (/api/debug/task_manager/, /api/debug/dependency_manager/, /api/debug/workflow_manager/) are registered unconditionally in the URL configuration and use AllowAny permission class with _ignore_model_permissions=True. This allows an unauthenticated remote attacker to repeatedly invoke scheduler operations that acquire database advisory locks and open transactions, potentially leading to resource exhaustion and degraded service availability.",
-      "published": "2026-11-12T18:17:53.270",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71363"
+      "id": "CVE-2026-127209",
+      "summary": "Xiaomi Mi Browser Android Application (com.mi.globalbrowser) before 14.66.0-gn contains a path traversal vulnerability in the exported ThirdDocViewerActivity component, where CopyExternalFile.copyFromUri() copies content provider streams using an unsanitized filename from the _display_name column without basename reduction or canonical-path checks. A zero-permission co-resident malicious application can supply a crafted content provider with a _display_name containing .. sequences to make the browser write attacker-controlled bytes to an arbitrary path within its external storage directory, escaping the intended cache_docs staging location without requiring user interaction.",
+      "published": "2026-11-12T22:19:21.247",
+      "cvss": 4.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127209"
     },
     {
-      "id": "CVE-2026-127204",
-      "summary": "WooCommerce PayPal Pro Payment Gateway plugin before 4.1.1 contains an unauthenticated payment bypass vulnerability that allows remote attackers to mark unpaid orders as paid by exploiting the pp_capture_order AJAX handler, which is gated only by a public checkout nonce and fails to properly validate the PayPal capture response status. Attackers can supply a valid _paypal_order_id to trigger payment_complete() without verifying the capture status or amount, causing the store to fulfill goods or services that were never paid for and resulting in direct financial loss to the merchant.",
-      "published": "2026-11-12T18:17:42.423",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127204"
+      "id": "CVE-2026-126823",
+      "summary": "A local user with an ordinary account on the same host can place a file in a shared temporary location that the JDBC driver's native library loading routine will accept and load without verifying its origin. Loading the driver class in a Java application may then run code of that user's choosing inside the application process, which may result in disclosure or alteration of data held by that process or in the process becoming unavailable.",
+      "published": "2026-11-12T22:19:21.100",
+      "cvss": 7.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126823"
     },
     {
-      "id": "CVE-2026-127101",
-      "summary": "A flaw was found in SSSD's PAM responder. A local attacker can send an authentication request without first negotiating the client protocol version. The responder dereferences a NULL protocol-version pointer and crashes, disrupting SSSD-backed authentication. Repeated crafted requests can sustain the denial of service.",
-      "published": "2026-11-12T18:17:41.110",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127101"
+      "id": "CVE-2026-126354",
+      "summary": "Addressable is an alternative implementation to the URI implementation that is part of Ruby's standard library. From 2.2.5 until 2.9.1, Addressable::URI.normalize_path can resolve a path containing leading parent segments and later parent segments to a different path than an RFC 3986 resolver. URI#normalize, URI#join, URI#==, and URI#=== inherit the result. An application that authorizes the Addressable-normalized path but sends the original URI to another resolver can allow access outside the intended path allowlist. Applications that use the same normalized value for authorization and the request, or reject parent segments, are unaffected. This issue is fixed in version 2.9.1.",
+      "published": "2026-11-12T22:19:20.810",
+      "cvss": 4.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126354"
     },
     {
-      "id": "CVE-2026-127100",
-      "summary": "A flaw was found in SSSD's PAM responder on builds with the JSON PAM extension enabled. A local attacker can submit a crafted authentication request containing a non-string OAuth2 code value. Missing JSON type validation leads to a NULL pointer dereference, terminating the PAM responder and disrupting SSSD-backed authentication.",
-      "published": "2026-11-12T18:17:40.677",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127100"
-    },
-    {
-      "id": "CVE-2026-127099",
-      "summary": "A flaw was found in SSSD's conversion of X.509 certificate RSA public keys to SSH keys. Missing size checks before copying RSA components into fixed-size stack buffers can cause a stack buffer overflow. An attacker able to supply a certificate with oversized RSA components that passes the configured certificate checks can cause denial of service and corrupt SSH responder memory.",
-      "published": "2026-11-12T18:17:40.227",
+      "id": "CVE-2026-126353",
+      "summary": "Addressable is an alternative implementation to the URI implementation that is part of Ruby's standard library. From 2.3.0 until 2.9.1, URI template expressions containing several exploded variables generate ambiguous regular expressions that can divide a run of members among the variables in polynomially many ways. Template#match or Template#extract processing of an attacker-controlled URI can therefore consume a thread and cause denial of service. The flaw affects MRI Ruby before 3.2 and JRuby, TruffleRuby 40.0, and plus or number-sign expressions on MRI Ruby 3.2. MRI Ruby 3.3 and later, URI parsing, and Template#expand are unaffected. This issue is fixed in version 2.9.1.",
+      "published": "2026-11-12T22:19:20.673",
       "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127099"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126353"
     }
   ]
 }
