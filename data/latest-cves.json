@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-13T07:53:20+00:00",
+  "generated_at": "2026-11-13T16:17:20+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-128424",
-      "summary": "A flaw was found in Kroxylicious. The ACL authorizer's rules-file parser unquotes `matching /\u2026/` regular-expression literals using the string unquoting rules, which strips every backslash escape. As a result, an allow rule such as `matching /orders\\.v1/` is compiled as the regex `orders.v1`, which also matches unintended names such as `ordersXv1`, and character classes such as `\\d` and `\\w` lose their special meaning. Allow rules written with regex escapes can therefore apply to more resources than the author intended. Depending on the ACL configuration, this may allow an authenticated Kafka client to access a resource (such as read or write a topic) that should have been denied.",
-      "published": "2026-11-13T07:17:20.610",
+      "id": "CVE-2026-82175",
+      "summary": "Dell PowerStore contains a Server-Side Request Forgery (SSRF) vulnerability. A high-privileged attacker could exploit this vulnerability to reach internal network services from the appliance.",
+      "published": "2026-11-13T15:17:56.350",
+      "cvss": 3.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82175"
+    },
+    {
+      "id": "CVE-2026-129092",
+      "summary": "CCC Attestation SIG attested-tls-poc through commit 731ca82 contains a time-of-check time-of-use vulnerability because Evidence is appraised only once during the TLS handshake, without post-handshake re-attestation. Attackers with local access to the attesting endpoint can alter workload code, data, configuration, or attached devices like GPUs while peers keep trusting the original Evidence.",
+      "published": "2026-11-13T15:17:45.513",
+      "cvss": 5.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129092"
+    },
+    {
+      "id": "CVE-2026-128991",
+      "summary": "xschem 2.9.9 through 3.4.7 contains an out-of-bounds read vulnerability in read_xschem_file() in src/save.c that mishandles embedded-symbol records lacking a preceding instance. Attackers can supply a crafted schematic beginning with a \"[\" record, causing xschem to read and dereference memory below the instance array and crash.",
+      "published": "2026-11-13T15:17:45.360",
       "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128424"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128991"
     },
     {
-      "id": "CVE-2026-126119",
-      "summary": "The Streamit WordPress plugin before 1.3.10 does not perform any authorization or nonce verification on one of its unauthenticated AJAX routes, which invokes an attacker-supplied PHP function with an attacker-supplied argument array, allowing unauthenticated attackers to call arbitrary functions (for example to create an administrator account), leading to privilege escalation and remote code execution.",
-      "published": "2026-11-13T06:16:54.350",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-126119"
+      "id": "CVE-2026-128990",
+      "summary": "xschem 2.9.9 through 3.4.7 contains a heap out-of-bounds write vulnerability in read_dataset() in src/rawtovcd.c due to an unchecked variable index. Attackers can supply a crafted ngspice .raw file that, when converted with rawtovcd, writes file-controlled heap pointers at chosen signed offsets, corrupting heap memory.",
+      "published": "2026-11-13T15:17:45.207",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128990"
     },
     {
-      "id": "CVE-2026-125912",
-      "summary": "The WP Ultimate CSV Importer  WordPress plugin before 9.2 does not restrict the destination filename and extension, nor validate the fetched content type, when importing remote media, allowing an Administrator of a Multisite subsite to write and execute arbitrary PHP in the shared WordPress context despite not being a Network Administrator and being unable to install WP Ultimate CSV Importer  WordPress plugin before 9.2 or edit files.",
-      "published": "2026-11-13T06:16:54.260",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125912"
+      "id": "CVE-2026-128970",
+      "summary": "Psono Server Community Edition versions 1.12.6 through 7.5.0 and Psono Server Enterprise Edition before 7.5.1 do not require accepted group membership when authorizing deletion of group share-rights. The DELETE /share/right/ endpoint checks for a membership matching the target group, the authenticated user, and share_admin=True, but omits accepted=True. An authenticated remote attacker who has been invited to a group with share-admin privileges, and who knows a group share-right UUID, can therefore delete that group's share-right record without accepting the invitation or after declining it. Pending invitations have accepted=None, while declined invitations retain accepted=False and the share_admin flag. Deletion revokes the group's access to the affected share and its contained secrets for all accepted group members, without deleting the underlying data or disclosing secret contents. The issue was fixed in version 7.5.1 of both editions, released on 2026-10-13.",
+      "published": "2026-11-13T15:17:45.027",
+      "cvss": 5.4,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128970"
     },
     {
-      "id": "CVE-2026-125711",
-      "summary": "The Widgets for Google Reviews WordPress plugin before 14.3, WP Tripadvisor Review Widgets WordPress plugin before 14.3, Widgets for Booking.com Reviews WordPress plugin before 14.3, Widgets for Reviews & Recommendations WordPress plugin before 14.3, Widgets for Airbnb Reviews WordPress plugin before 14.3, Widgets for Yelp Reviews WordPress plugin before 14.3, Widgets for Amazon Reviews WordPress plugin before 14.3, Widgets for Thumbtack Reviews WordPress plugin before 14.3, Widgets for Ebay Reviews WordPress plugin before 14.3, Widgets for Zillow Reviews WordPress plugin before 14.3, Widgets for Capterra Reviews WordPress plugin before 14.3, Widgets for Expedia Reviews WordPress plugin before 14.3, Widgets for Opentable Reviews WordPress plugin before 14.3, Widgets for WordPress Reviews WordPress plugin before 14.3, Widgets for Hotels.com Reviews WordPress plugin before 14.3, Review Widgets for Szallas.hu WordPress plugin before 14.3, Widgets for AliExpress Reviews WordPress plugin before 14.3, Widgets for \u00c1rukeres\u0151 Reviews WordPress plugin before 14.3, Widgets for Foursquare Reviews WordPress plugin before 14.3, Widgets for Alibaba Reviews WordPress plugin before 14.3, Widgets for SourceForge Reviews WordPress plugin before 14.3 do not sanitise and escape the connected business details before outputting them in their review widgets, which could allow users with the Editor role and above to perform Stored Cross-Site Scripting attacks even when the unfiltered_html capability is disallowed (for example in a multisite setup).",
-      "published": "2026-11-13T06:16:54.143",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125711"
-    },
-    {
-      "id": "CVE-2026-124833",
-      "summary": "The Ahime Image Printer WordPress plugin through 1.0.0 does not validate the name, extension or type of uploaded files before writing them to disk, allowing unauthenticated attackers to upload arbitrary files, including PHP, and execute code on the server.",
-      "published": "2026-11-13T06:16:54.057",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124833"
-    },
-    {
-      "id": "CVE-2026-124822",
-      "summary": "The Easy DragDrop File Uploader WordPress plugin before 1.1.10 does not validate a user-supplied path before deleting it, allowing unauthenticated users to delete arbitrary files and directories on the server, such as wp-config.php.",
-      "published": "2026-11-13T06:16:53.960",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124822"
+      "id": "CVE-2026-128910",
+      "summary": "Use of hard-coded credentials (CWE-798) on the 1300 communications board in DJI AeroScope Mobile (TP703) firmware 03.00.00.26, with 1300 communications board firmware 02.00.07.12 through 02.00.08.40, allows an attacker with physical access to the board's serial console to log in as root. The same password hash is present on every unit and uses DES crypt, so the password can be recovered offline from the distributed firmware. No network login service accepts this password by default. Confirmed on a physical device.\n\n\n\nNOTE: This vulnerability only affects products that are no longer supported by the maintainer. DJI has discontinued AeroScope Mobile and no fixed firmware is available.",
+      "published": "2026-11-13T15:17:44.900",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-128910"
     }
   ]
 }
