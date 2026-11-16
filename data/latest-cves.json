@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-15T09:18:26+00:00",
+  "generated_at": "2026-11-16T20:24:59+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-129444",
-      "summary": "A vulnerability was identified in D-Link DSL-6740C 20131126. This affects an unknown function of the file /etc/templates/ftpd/ftpd_conf.php of the component FTP Daemon. Such manipulation leads to hard-coded credentials. The attack can be executed remotely. The exploit is publicly available and might be used.",
-      "published": "2026-11-15T09:16:44.570",
+      "id": "CVE-2026-95839",
+      "summary": "containerd is an open-source container runtime. From 2.2.0 until 2.2.10, 2.3.7, and 2.4.2, image manifest processing through the transfer service can encounter a child descriptor containing the io.containerd.manifest.subject annotation and a malformed digest. Pulling or importing such an image, including through a default CRI PullImage request, can trigger an unrecovered panic and crash the containerd daemon. In Kubernetes, kubelet retries can repeatedly trigger the crash and disrupt container operations on the worker node. This issue is fixed in versions 2.2.10, 2.3.7, and 2.4.2.",
+      "published": "2026-11-16T20:19:20.417",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95839"
+    },
+    {
+      "id": "CVE-2026-69221",
+      "summary": "Faust.js is a headless WordPress toolkit. Prior to 1.8.12, the FaustWP generateAuthorizationCode GraphQL mutation called wp_authenticate_username_password and wp_authenticate_email_password directly instead of using wp_authenticate. This bypassed callbacks registered on WordPress's outer authenticate filter, including policies for multifactor authentication, single sign-on, IP allowlists, or disabled accounts. On a site using FaustWP local login and one of those policies, an attacker with a valid username or email and password could obtain an authorization code and exchange it through /api/faust/auth/token for access and refresh tokens even when the normal WordPress login path would deny access. This issue is fixed in version 1.8.12.",
+      "published": "2026-11-16T20:19:10.037",
+      "cvss": 5.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69221"
+    },
+    {
+      "id": "CVE-2026-63672",
+      "summary": "EGroupware is a web-based groupware server written in PHP. Prior to 23.1.20260601 and 26.6.20260616, login() in api/src/Auth/Saml.php accepts the unauthenticated idp request parameter when it merely begins with the HTTPS scheme and passes it to SimpleSAMLphp's requireAuth() without checking the configured trusted identity providers. A malicious actor can redirect the sign-in flow to an attacker-controlled identity provider, enabling credential phishing and, when the SimpleSAMLphp deployment does not strictly validate identity-provider metadata, forged SAML assertions as arbitrary users, including administrators. This issue is fixed in versions 23.1.20260601 and 26.6.20260616.",
+      "published": "2026-11-16T20:19:08.507",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63672"
+    },
+    {
+      "id": "CVE-2026-62336",
+      "summary": "qbee-agent is the device agent component of the qbee.io IoT device management platform. Prior to 2026.27, the privileged createFile helper followed attacker-controlled symbolic links during file creation. A local unprivileged user whose account is managed by the SSH Keys bundle could replace ~/.ssh with a link to /root/.ssh, causing the agent to write an authorized key for root. On systems using RAUC download mode with ineffective kernel symlink protection, the predictable /tmp/.bundle.raucb.part path could be linked to a system file and then overwritten or truncated during an update. A file-distribution destination beneath an attacker-controlled directory could similarly redirect the partial-download path so the agent changed ownership of a sensitive file. These vectors could result in root privilege escalation, arbitrary file modification, or denial of service. This issue is fixed in version 2026.27.",
+      "published": "2026-11-16T20:19:07.723",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62336"
+    },
+    {
+      "id": "CVE-2026-53998",
+      "summary": "Phoenix is an AI observability and evaluation platform. From 13.0.0 until 15.7.0, the applyChatTemplate GraphQL query passed attacker-controlled F-string templates to FStringTemplateFormatter._format, while DotDict.__getattr__ did not prevent traversal through Python private attributes. A crafted field could traverse object internals such as __class__, __init__, and __globals__ to read process environment variables and internal module state. The endpoint is unauthenticated on default installations, and any account can reach it when authentication is enabled. Exposure of PHOENIX_SECRET can allow administrative session-token forgery and decryption of credentials protected by keys derived from that secret. This issue is fixed in version 15.7.0.",
+      "published": "2026-11-16T20:19:06.807",
       "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129444"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53998"
     },
     {
-      "id": "CVE-2026-129443",
-      "summary": "A vulnerability was determined in itsourcecode Airline Reservation System 1.0. The impacted element is an unknown function of the file /admin/manage_user.php. This manipulation of the argument ID causes sql injection. Remote exploitation of the attack is possible. The exploit has been publicly disclosed and may be utilized.",
-      "published": "2026-11-15T08:17:21.573",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129443"
-    },
-    {
-      "id": "CVE-2026-127048",
-      "summary": "The Custom Block Builder  WordPress plugin before 3.0.0 does not properly deny unauthorised requests to its REST routes, as its permission checks return a non-error response that WordPress treats as granted, allowing unauthenticated users to execute arbitrary PHP code on the server.",
-      "published": "2026-11-15T07:16:54.633",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-127048"
-    },
-    {
-      "id": "CVE-2026-124673",
-      "summary": "The Burst Statistics  WordPress plugin before 3.7.5 does not check that a reported page view belongs to published content, nor check post status before listing post titles and links in its public statistics output, allowing unauthenticated attackers to disclose the titles and permalinks of draft, pending and private posts.",
-      "published": "2026-11-15T07:16:54.527",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124673"
-    },
-    {
-      "id": "CVE-2026-124671",
-      "summary": "The Burst Statistics  WordPress plugin before 3.7.5 does not enforce a shared report's date range on the analytics it serves to the report's share link, allowing anyone holding the link to read the report's statistics for any period the site retains rather than the period the report was shared for.",
-      "published": "2026-11-15T07:16:54.407",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124671"
-    },
-    {
-      "id": "CVE-2026-123707",
-      "summary": "The WPGraphQL WordPress plugin before 2.27.1 does not restrict access to posts in custom non-public post statuses, allowing users with the Contributor role and above to read the content of other users' posts in those statuses.",
-      "published": "2026-11-15T07:16:54.283",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123707"
+      "id": "CVE-2026-45016",
+      "summary": "EGroupware is a web-based groupware server written in PHP. Prior to 23.1.20260601 and 26.5.20260507, the processURL2InlineImages logic in api/src/Mail.php treats non-HTTP image sources in an HTML mail body as local paths and passes a decoded attacker-controlled file:// URI to file_get_contents. Any authenticated user with mail access can cause files readable by the web server process to be embedded as inline MIME attachments in outgoing email, exposing local configuration, credentials, private keys, or other server files. This issue is fixed in versions 23.1.20260601 and 26.5.20260507.",
+      "published": "2026-11-16T20:19:04.697",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45016"
     }
   ]
 }
