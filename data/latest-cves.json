@@ -1,41 +1,48 @@
 {
-  "generated_at": "2026-11-17T13:17:36+00:00",
+  "generated_at": "2026-11-17T22:17:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-124644",
-      "summary": "This vulnerability exists in e-Sushrut HMIS due to the exposure of internal hospital operational statistics through data structure embedded in the HTML response of the login page. An unauthenticated remote attacker could exploit this vulnerability by accessing the affected login page and extracting the returned HTML content.\n\nSuccessful exploitation of this vulnerability could allow the attacker to gain unauthorized access to internal hospital operational information associated with the targeted healthcare organization.",
-      "published": "2026-11-17T12:17:44.570",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124644"
+      "id": "CVE-2026-71304",
+      "summary": "Pi-hole FTL is the core engine of the Pi-hole network-level advertisement and tracker blocker. From 6.0 until 6.7, check_client_auth() in src/api/auth.c detects that a matching session identifier has passed valid_until but still assigns user_id before the expired state can be rejected. That assignment sends execution through the authorized branch, renews valid_until for another timeout interval, and leaves the session-expired response unreachable. An attacker who possesses a previously valid session identifier can periodically reuse it to preserve administrative access indefinitely, making the configured session timeout ineffective. This issue is fixed in version 6.7.",
+      "published": "2026-11-17T21:18:12.913",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71304"
     },
     {
-      "id": "CVE-2026-124643",
-      "summary": "This vulnerability exists in e-Sushrut HMIS due to insufficient authentication and session validation in the dashboard functionality. An unauthenticated remote attacker could exploit this vulnerability by sending specially crafted HTTP requests to the affected endpoint.\n\nSuccessful exploitation of this vulnerability could allow the attacker to gain unauthorized access to the dashboard information associated with the targeted healthcare organization.",
-      "published": "2026-11-17T12:17:44.423",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124643"
+      "id": "CVE-2026-69158",
+      "summary": "Atomic Server is an open source headless CMS and real-time database. Prior to 0.40.3, unauthenticated requests to /bookmark can supply a url that server/src/plugins/bookmark.rs passes through fetch_data to fetch_body. Endpoint dispatch in lib/src/db.rs invokes the handler before check_read, and lib/src/client/helpers.rs previously checked only that the URL began with HTTP, without restricting loopback, private, link-local, DNS-rebinding, or redirect targets. The handler reflects fetched content in returned resource fields, making this a full-response server-side request forgery that can expose internal services and plain-GET cloud metadata. The short request timeout limits slow targets, and metadata services requiring a separate token request are outside the demonstrated GET-only path. This issue is fixed in version 0.40.3.",
+      "published": "2026-11-17T21:18:12.763",
+      "cvss": 8.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69158"
     },
     {
-      "id": "CVE-2026-129448",
-      "summary": "Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester.\n\nThis is the same vulnerability as CVE-2026-82384, which listed only Apache Roller 6.1.5 as affected. This issue is being actively exploited.\n\nUsers are recommended to upgrade to Apache Roller 6.1.6 or later, which disables the extension types and rejects XML-RPC requests when the XML-RPC feature is disabled.\n\nUsers who cannot upgrade right away should set \"enabledForExtensions\" to \"false\" in WEB-INF/web.xml, or remove the \"/roller-services/xmlrpc\" servlet mapping, and restart Roller. Disabling XML-RPC in the administration UI is not enough, because older versions deserialize the request before checking that setting.",
-      "published": "2026-11-17T11:17:28.190",
+      "id": "CVE-2026-69157",
+      "summary": "Atomic Server is an open source headless CMS and real-time database. From 0.29.0 to 0.40.2, Atomic Server provisions a well-known /setup invite with write enabled, the Drive root as its target, and usagesLeft set to one. construct_invite_redirect in server/src/plugins/invite.rs discards the redeemer identity, so an unauthenticated request containing an attacker-controlled public-key can create a new Agent and grant it write access to the entire Drive. On a fresh, unclaimed deployment, this permits reading, modifying, or deleting resources, changing permissions, and creating or altering Agents. No complete fixed version was verified as of this review.",
+      "published": "2026-11-17T21:18:12.620",
       "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129448"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69157"
     },
     {
-      "id": "CVE-2026-129287",
-      "summary": "N-able N-central before 2026.4.1 HF3 processes XML external entities in software repository files. An attacker able to supply or modify the repository files received by the server can read files accessible to the N-central service account or cause the server to make outbound requests.",
-      "published": "2026-11-17T11:17:28.070",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129287"
+      "id": "CVE-2026-69156",
+      "summary": "Atomic Server is an open source headless CMS and real-time database. From 0.30.0 until 0.40.3, the Commit application path in lib/src/commit.rs allows an authenticated Agent to assign the server-managed internalId property to an owned resource without character validation. The /download handler in server/src/handlers/download.rs passes that value to filesystem path construction and NamedFile::open without sanitization, containment validation, or a File-class check, so traversal or absolute paths can read files available to the server process. Reading the server configuration can expose the root Agent private key and allow root impersonation with full read, write, and delete access to server data. This issue is fixed in version 0.40.3.",
+      "published": "2026-11-17T21:18:12.470",
+      "cvss": 8.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69156"
     },
     {
-      "id": "CVE-2026-129286",
-      "summary": "N-able N-central before 2026.4.1 HF3 does not validate version values and download locations in software update metadata. An attacker able to supply or modify the update metadata received by the server can write files outside the download directory and execute code as the N-central service account.",
-      "published": "2026-11-17T11:17:27.943",
+      "id": "CVE-2026-69155",
+      "summary": "Atomic Server is an open source headless CMS and real-time database. From 0.30.0 until 0.40.3, an authenticated Agent with folder write access can use POST /upload to store HTML or SVG content that GET /download/{path} serves from the application origin through server/src/handlers/download.rs. The response sets Content-Disposition: inline and lacks forced attachment handling and X-Content-Type-Options: nosniff, allowing the browser to render the uploaded active content as the application. When a victim opens the link, the script can access the JavaScript-readable atomic_session cookie and the Agent private key in same-origin IndexedDB, enabling persistent account impersonation. This issue is fixed in version 0.40.3.",
+      "published": "2026-11-17T21:18:12.310",
+      "cvss": 8.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69155"
+    },
+    {
+      "id": "CVE-2026-68918",
+      "summary": "Ikaros is a content management system for ACGMN media. Prior to 1.2.0, server/src/main/java/run/ikaros/server/core/tag/TagEndpoint.java does not enforce tag ownership for authenticated users with tag permissions. GET /tags/condition accepts an arbitrary userId and can enumerate another user's tags, DELETE /tag/id/{id} deletes a tag without comparing its owner to the requester, and DELETE /tag/condition omits userId from its filter and can delete every user's tags matching the supplied condition. This issue is fixed in version 1.2.0.",
+      "published": "2026-11-17T21:18:12.147",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129286"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68918"
     }
   ]
 }
