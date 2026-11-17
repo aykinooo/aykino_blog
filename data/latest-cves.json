@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-16T20:24:59+00:00",
+  "generated_at": "2026-11-17T03:48:17+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-95839",
-      "summary": "containerd is an open-source container runtime. From 2.2.0 until 2.2.10, 2.3.7, and 2.4.2, image manifest processing through the transfer service can encounter a child descriptor containing the io.containerd.manifest.subject annotation and a malformed digest. Pulling or importing such an image, including through a default CRI PullImage request, can trigger an unrecovered panic and crash the containerd daemon. In Kubernetes, kubelet retries can repeatedly trigger the crash and disrupt container operations on the worker node. This issue is fixed in versions 2.2.10, 2.3.7, and 2.4.2.",
-      "published": "2026-11-16T20:19:20.417",
+      "id": "CVE-2026-125275",
+      "summary": "Loop with Unreachable Exit Condition ('Infinite Loop') vulnerability in device certificate verification in nerves-hub nerves_hub_web allows an unauthenticated remote attacker to cause a denial of service via a TLS client certificate whose CA is not registered. When a client certificate chains to a root in the device endpoint's trust store but no CA in the chain is registered in NervesHub, NervesHub.SSL.decide/2 refuses it with the reason :unknown_ca. Erlang/OTP ssl reads that reason as a missing trust anchor, looks for an alternative root, finds the same root and validates again without end. The handshake process queries the database on each pass and keeps running after the client disconnects, until the node restarts.\n\nThe device endpoint trusts the public roots from CAStore unless DEVICE_SSL_CACERTFILE is set, so a client certificate from a public CA whose chain allows client authentication is sufficient. A chain that ends at a root outside the trust store is refused once.\n\nThis issue affects nerves_hub: from 1.0.0 before 2.5.4.",
+      "published": "2026-11-17T03:17:00.513",
       "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95839"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125275"
     },
     {
-      "id": "CVE-2026-69221",
-      "summary": "Faust.js is a headless WordPress toolkit. Prior to 1.8.12, the FaustWP generateAuthorizationCode GraphQL mutation called wp_authenticate_username_password and wp_authenticate_email_password directly instead of using wp_authenticate. This bypassed callbacks registered on WordPress's outer authenticate filter, including policies for multifactor authentication, single sign-on, IP allowlists, or disabled accounts. On a site using FaustWP local login and one of those policies, an attacker with a valid username or email and password could obtain an authorization code and exchange it through /api/faust/auth/token for access and refresh tokens even when the normal WordPress login path would deny access. This issue is fixed in version 1.8.12.",
-      "published": "2026-11-16T20:19:10.037",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69221"
+      "id": "CVE-2026-86676",
+      "summary": "A post-authentication command injection vulnerability in the \u201cDescription\u201d parameter of a CGI program  in Zyxel DX3300-T0 firmware versions through 5.50(ABVY.8.3)C0 could allow an authenticated attacker with administrator privileges to execute OS commands by sending a crafted HTTP request.",
+      "published": "2026-11-17T02:17:22.880",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-86676"
     },
     {
-      "id": "CVE-2026-63672",
-      "summary": "EGroupware is a web-based groupware server written in PHP. Prior to 23.1.20260601 and 26.6.20260616, login() in api/src/Auth/Saml.php accepts the unauthenticated idp request parameter when it merely begins with the HTTPS scheme and passes it to SimpleSAMLphp's requireAuth() without checking the configured trusted identity providers. A malicious actor can redirect the sign-in flow to an attacker-controlled identity provider, enabling credential phishing and, when the SimpleSAMLphp deployment does not strictly validate identity-provider metadata, forged SAML assertions as arbitrary users, including administrators. This issue is fixed in versions 23.1.20260601 and 26.6.20260616.",
-      "published": "2026-11-16T20:19:08.507",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63672"
+      "id": "CVE-2026-79614",
+      "summary": "An out-of-bounds write vulnerability in \u201clibclinkc.so\u201d in Zyxel DX3301-T0/EX3301-T0 firmware versions through 5.50(ABVY.8.3)C0 could allow an unauthenticated attacker to elevate privileges and potentially execute arbitrary commands by sending a crafted HTTP request. WAN access is disabled by default on these devices.",
+      "published": "2026-11-17T02:17:22.743",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-79614"
     },
     {
-      "id": "CVE-2026-62336",
-      "summary": "qbee-agent is the device agent component of the qbee.io IoT device management platform. Prior to 2026.27, the privileged createFile helper followed attacker-controlled symbolic links during file creation. A local unprivileged user whose account is managed by the SSH Keys bundle could replace ~/.ssh with a link to /root/.ssh, causing the agent to write an authorized key for root. On systems using RAUC download mode with ineffective kernel symlink protection, the predictable /tmp/.bundle.raucb.part path could be linked to a system file and then overwritten or truncated during an update. A file-distribution destination beneath an attacker-controlled directory could similarly redirect the partial-download path so the agent changed ownership of a sensitive file. These vectors could result in root privilege escalation, arbitrary file modification, or denial of service. This issue is fixed in version 2026.27.",
-      "published": "2026-11-16T20:19:07.723",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-62336"
+      "id": "CVE-2026-130383",
+      "summary": "phpMyFAQ before 4.1.12 and 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass vulnerability that allows authenticated editors to manipulate search index documents by supplying an arbitrary solutionId to the /admin/api/faq/update endpoint. On Elasticsearch or OpenSearch deployments, category-restricted editors can remove published FAQs from search, overwrite other FAQs' search documents, or plant entries that remain searchable after unpublishing.",
+      "published": "2026-11-17T02:17:22.550",
+      "cvss": 3.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130383"
     },
     {
-      "id": "CVE-2026-53998",
-      "summary": "Phoenix is an AI observability and evaluation platform. From 13.0.0 until 15.7.0, the applyChatTemplate GraphQL query passed attacker-controlled F-string templates to FStringTemplateFormatter._format, while DotDict.__getattr__ did not prevent traversal through Python private attributes. A crafted field could traverse object internals such as __class__, __init__, and __globals__ to read process environment variables and internal module state. The endpoint is unauthenticated on default installations, and any account can reach it when authentication is enabled. Exposure of PHOENIX_SECRET can allow administrative session-token forgery and decryption of credentials protected by keys derived from that secret. This issue is fixed in version 15.7.0.",
-      "published": "2026-11-16T20:19:06.807",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-53998"
+      "id": "CVE-2026-130382",
+      "summary": "AdminNeo before 5.9.1 contains an authentication bypass vulnerability in OtpLoginPlugin that allows attackers knowing the database password to skip TOTP verification by abusing the permanent-login cookie. Attackers can submit a login with a wrong OTP and permanent=1 to obtain a neo_permanent cookie, then replay it to gain full authenticated database access.",
+      "published": "2026-11-17T02:17:22.380",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130382"
     },
     {
-      "id": "CVE-2026-45016",
-      "summary": "EGroupware is a web-based groupware server written in PHP. Prior to 23.1.20260601 and 26.5.20260507, the processURL2InlineImages logic in api/src/Mail.php treats non-HTTP image sources in an HTML mail body as local paths and passes a decoded attacker-controlled file:// URI to file_get_contents. Any authenticated user with mail access can cause files readable by the web server process to be embedded as inline MIME attachments in outgoing email, exposing local configuration, credentials, private keys, or other server files. This issue is fixed in versions 23.1.20260601 and 26.5.20260507.",
-      "published": "2026-11-16T20:19:04.697",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45016"
+      "id": "CVE-2026-130381",
+      "summary": "phpMyFAQ from 4.2.0-alpha.2 before 4.2.0-RC.2 contains an authorization bypass vulnerability that allows language-scoped editors to read other translations by checking FAQ_EDIT against the route language but loading the ?lang= UI-language row. Attackers can request the admin.faq.edit route with an authorized language and a different lang parameter to read drafts, private notes, author e-mails and revisions.",
+      "published": "2026-11-17T02:17:22.210",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130381"
     }
   ]
 }
