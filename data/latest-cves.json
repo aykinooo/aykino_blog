@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-18T04:14:53+00:00",
+  "generated_at": "2026-11-18T13:06:46+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-131876",
-      "summary": "fqterm 0.9.9 before 0.9.11 contains an out-of-bounds memory access vulnerability in its SSH client that trusts unchecked server-supplied length fields for allocations, copies and read positions. Malicious servers or man-in-the-middle attackers can send crafted lengths in getString(), KEXINIT name-lists, key parsing or packet framing before host key verification to crash the client.",
-      "published": "2026-11-18T03:17:42.397",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131876"
+      "id": "CVE-2026-96571",
+      "summary": "The FancyBox for WordPress plugin for WordPress is vulnerable to Stored Cross-Site Scripting via Comment Anchor 'href' Attribute in all versions up to, and including, 3.4.2 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that will execute whenever a user accesses an injected page. Exploitation requires the attacker to wrap the payload anchor around a smilie shortcode (e.g., :mrgreen:), which WordPress renders as an &lt;img&gt; element, satisfying the plugin's a:has(img) enrollment selector and disguising the malicious link as an ordinary comment emoticon.",
+      "published": "2026-11-18T12:17:24.153",
+      "cvss": 7.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96571"
     },
     {
-      "id": "CVE-2026-131875",
-      "summary": "fqterm before 0.9.11 contains a heap out-of-bounds write vulnerability in FQTermDecode that allows malicious servers to corrupt memory by sending CSI sequences with unbounded parameter indexes. Attackers controlling a telnet or SSH server, or intercepting cleartext telnet, can send over 30 semicolon-separated CSI parameters to write chosen 32-bit values past the decoder object on the heap.",
-      "published": "2026-11-18T03:17:42.230",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131875"
+      "id": "CVE-2026-95690",
+      "summary": "Receiving crafted out-of-sequence DTLS handshake fragments may cause OpenSSL to allocate a full message-length reassembly buffer for each buffered message, so a small amount of wire data consumes a large amount of memory.",
+      "published": "2026-11-18T12:17:24.037",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95690"
     },
     {
-      "id": "CVE-2026-131874",
-      "summary": "Gargoyle 2023.1 through 2026.1.1 contains an infinite loop vulnerability in the bundled Plus interpreter's ReadString() function in terps/plus/loaddatabase.c that fails to handle end of file. Attackers can supply an empty, truncated, or crafted .plus game file that hangs Gargoyle at full CPU until the user kills it.",
-      "published": "2026-11-18T03:17:42.083",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131874"
-    },
-    {
-      "id": "CVE-2026-131873",
-      "summary": "Gargoyle 2023.1 through 2026.1.1 contains a stack-based buffer overflow vulnerability in the bundled Plus interpreter's ReadAction() function in terps/plus/loaddatabase.c, which never bounds-checks the index into the 1024-entry conditions array. Attackers can supply a crafted or truncated .plus game file with unterminated action conditions to write file-controlled values past the array and crash the player.",
-      "published": "2026-11-18T03:17:41.920",
+      "id": "CVE-2026-92236",
+      "summary": "The Asset CleanUp: Page Speed Booster plugin for WordPress is vulnerable to Reflected Cross-Site Scripting via 'wpacu_unload_css' and 'wpacu_unload_js' Query Parameters in all versions up to, and including, 1.4.0.6 due to insufficient input sanitization and output escaping. This makes it possible for unauthenticated attackers to inject arbitrary web scripts in pages that execute if they can successfully trick a user into performing an action such as clicking on a link. Successful exploitation requires that the victim has sufficient privileges to see the plugin's admin-bar entry, typically an administrator.",
+      "published": "2026-11-18T12:17:23.883",
       "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131873"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92236"
     },
     {
-      "id": "CVE-2026-131872",
-      "summary": "SOIL2 before 1.4.2 contains a NULL pointer dereference vulnerability in its DDS, PVR and PKM image loaders that write results through unchecked caller-supplied output pointers. Attackers can supply a valid DDS, PVR or PKM file to applications passing NULL output pointers to SOIL_load_image or stbi_info, causing a crash.",
-      "published": "2026-11-18T03:17:41.760",
-      "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131872"
+      "id": "CVE-2026-87790",
+      "summary": "Latvijas Valsts radio un telev\u012bzijas centrs (LVRTC)\neParakst\u012bt\u0101js 3.0 version 1.10.0-resolute allows an unauthenticated remote\nattacker to cause HTTP GET requests from a user's workstation by convincing the\nuser to open a crafted signed eDOC file. Automatic certificate validation\nretrieves a signer-controlled Authority Information Access (AIA) caIssuers URL\nand follows redirects without restricting the destination, enabling blind SSRF\nto loopback and private-network services. Additionally, unrestricted loading of\nlocal file URIs (such as file:///dev/zero) causes unbounded memory buffering\nresulting in Denial of Service (OutOfMemoryError). In automated server\nverification pipelines with UI:N, impact scales up to CVSS 8.6 High.",
+      "published": "2026-11-18T12:17:23.740",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87790"
     },
     {
-      "id": "CVE-2026-131871",
-      "summary": "WLA DX 9.7 through 10.7 contains a stack-based buffer overflow vulnerability in parse_data_blocks() in wlalink/analyze.c that copies section namespaces without length checks. Attackers can supply a crafted object or library file with a namespace longer than 255 bytes or unterminated to overflow the 256-byte stack buffer when linked.",
-      "published": "2026-11-18T03:17:41.610",
-      "cvss": 7.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131871"
+      "id": "CVE-2026-87789",
+      "summary": "Latvijas Valsts radio un telev\u012bzijas centrs (LVRTC)\neParakst\u012bt\u0101js 3.0 version 1.10.0 for macOS allows an unauthenticated remote\nattacker to execute arbitrary commands with the privileges of the current user\nby convincing the user to open a PDF with a crafted filename and select Send.\nThe application embeds the attachment path in AppleScript source without\nneutralizing AppleScript syntax, allowing injected do shell script expressions\nto execute.",
+      "published": "2026-11-18T12:17:23.593",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87789"
+    },
+    {
+      "id": "CVE-2026-84786",
+      "summary": "A DANE-enabled TLS client may crash by dereferencing a NULL pointer when processing an unusual combination of certificate and TLSA records.",
+      "published": "2026-11-18T12:17:23.473",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-84786"
     }
   ]
 }
