@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-17T22:17:35+00:00",
+  "generated_at": "2026-11-18T04:14:53+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-71304",
-      "summary": "Pi-hole FTL is the core engine of the Pi-hole network-level advertisement and tracker blocker. From 6.0 until 6.7, check_client_auth() in src/api/auth.c detects that a matching session identifier has passed valid_until but still assigns user_id before the expired state can be rejected. That assignment sends execution through the authorized branch, renews valid_until for another timeout interval, and leaves the session-expired response unreachable. An attacker who possesses a previously valid session identifier can periodically reuse it to preserve administrative access indefinitely, making the configured session timeout ineffective. This issue is fixed in version 6.7.",
-      "published": "2026-11-17T21:18:12.913",
+      "id": "CVE-2026-131876",
+      "summary": "fqterm 0.9.9 before 0.9.11 contains an out-of-bounds memory access vulnerability in its SSH client that trusts unchecked server-supplied length fields for allocations, copies and read positions. Malicious servers or man-in-the-middle attackers can send crafted lengths in getString(), KEXINIT name-lists, key parsing or packet framing before host key verification to crash the client.",
+      "published": "2026-11-18T03:17:42.397",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131876"
+    },
+    {
+      "id": "CVE-2026-131875",
+      "summary": "fqterm before 0.9.11 contains a heap out-of-bounds write vulnerability in FQTermDecode that allows malicious servers to corrupt memory by sending CSI sequences with unbounded parameter indexes. Attackers controlling a telnet or SSH server, or intercepting cleartext telnet, can send over 30 semicolon-separated CSI parameters to write chosen 32-bit values past the decoder object on the heap.",
+      "published": "2026-11-18T03:17:42.230",
       "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71304"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131875"
     },
     {
-      "id": "CVE-2026-69158",
-      "summary": "Atomic Server is an open source headless CMS and real-time database. Prior to 0.40.3, unauthenticated requests to /bookmark can supply a url that server/src/plugins/bookmark.rs passes through fetch_data to fetch_body. Endpoint dispatch in lib/src/db.rs invokes the handler before check_read, and lib/src/client/helpers.rs previously checked only that the URL began with HTTP, without restricting loopback, private, link-local, DNS-rebinding, or redirect targets. The handler reflects fetched content in returned resource fields, making this a full-response server-side request forgery that can expose internal services and plain-GET cloud metadata. The short request timeout limits slow targets, and metadata services requiring a separate token request are outside the demonstrated GET-only path. This issue is fixed in version 0.40.3.",
-      "published": "2026-11-17T21:18:12.763",
-      "cvss": 8.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69158"
+      "id": "CVE-2026-131874",
+      "summary": "Gargoyle 2023.1 through 2026.1.1 contains an infinite loop vulnerability in the bundled Plus interpreter's ReadString() function in terps/plus/loaddatabase.c that fails to handle end of file. Attackers can supply an empty, truncated, or crafted .plus game file that hangs Gargoyle at full CPU until the user kills it.",
+      "published": "2026-11-18T03:17:42.083",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131874"
     },
     {
-      "id": "CVE-2026-69157",
-      "summary": "Atomic Server is an open source headless CMS and real-time database. From 0.29.0 to 0.40.2, Atomic Server provisions a well-known /setup invite with write enabled, the Drive root as its target, and usagesLeft set to one. construct_invite_redirect in server/src/plugins/invite.rs discards the redeemer identity, so an unauthenticated request containing an attacker-controlled public-key can create a new Agent and grant it write access to the entire Drive. On a fresh, unclaimed deployment, this permits reading, modifying, or deleting resources, changing permissions, and creating or altering Agents. No complete fixed version was verified as of this review.",
-      "published": "2026-11-17T21:18:12.620",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69157"
+      "id": "CVE-2026-131873",
+      "summary": "Gargoyle 2023.1 through 2026.1.1 contains a stack-based buffer overflow vulnerability in the bundled Plus interpreter's ReadAction() function in terps/plus/loaddatabase.c, which never bounds-checks the index into the 1024-entry conditions array. Attackers can supply a crafted or truncated .plus game file with unterminated action conditions to write file-controlled values past the array and crash the player.",
+      "published": "2026-11-18T03:17:41.920",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131873"
     },
     {
-      "id": "CVE-2026-69156",
-      "summary": "Atomic Server is an open source headless CMS and real-time database. From 0.30.0 until 0.40.3, the Commit application path in lib/src/commit.rs allows an authenticated Agent to assign the server-managed internalId property to an owned resource without character validation. The /download handler in server/src/handlers/download.rs passes that value to filesystem path construction and NamedFile::open without sanitization, containment validation, or a File-class check, so traversal or absolute paths can read files available to the server process. Reading the server configuration can expose the root Agent private key and allow root impersonation with full read, write, and delete access to server data. This issue is fixed in version 0.40.3.",
-      "published": "2026-11-17T21:18:12.470",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69156"
+      "id": "CVE-2026-131872",
+      "summary": "SOIL2 before 1.4.2 contains a NULL pointer dereference vulnerability in its DDS, PVR and PKM image loaders that write results through unchecked caller-supplied output pointers. Attackers can supply a valid DDS, PVR or PKM file to applications passing NULL output pointers to SOIL_load_image or stbi_info, causing a crash.",
+      "published": "2026-11-18T03:17:41.760",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131872"
     },
     {
-      "id": "CVE-2026-69155",
-      "summary": "Atomic Server is an open source headless CMS and real-time database. From 0.30.0 until 0.40.3, an authenticated Agent with folder write access can use POST /upload to store HTML or SVG content that GET /download/{path} serves from the application origin through server/src/handlers/download.rs. The response sets Content-Disposition: inline and lacks forced attachment handling and X-Content-Type-Options: nosniff, allowing the browser to render the uploaded active content as the application. When a victim opens the link, the script can access the JavaScript-readable atomic_session cookie and the Agent private key in same-origin IndexedDB, enabling persistent account impersonation. This issue is fixed in version 0.40.3.",
-      "published": "2026-11-17T21:18:12.310",
-      "cvss": 8.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69155"
-    },
-    {
-      "id": "CVE-2026-68918",
-      "summary": "Ikaros is a content management system for ACGMN media. Prior to 1.2.0, server/src/main/java/run/ikaros/server/core/tag/TagEndpoint.java does not enforce tag ownership for authenticated users with tag permissions. GET /tags/condition accepts an arbitrary userId and can enumerate another user's tags, DELETE /tag/id/{id} deletes a tag without comparing its owner to the requester, and DELETE /tag/condition omits userId from its filter and can delete every user's tags matching the supplied condition. This issue is fixed in version 1.2.0.",
-      "published": "2026-11-17T21:18:12.147",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68918"
+      "id": "CVE-2026-131871",
+      "summary": "WLA DX 9.7 through 10.7 contains a stack-based buffer overflow vulnerability in parse_data_blocks() in wlalink/analyze.c that copies section namespaces without length checks. Attackers can supply a crafted object or library file with a namespace longer than 255 bytes or unterminated to overflow the 256-byte stack buffer when linked.",
+      "published": "2026-11-18T03:17:41.610",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131871"
     }
   ]
 }
