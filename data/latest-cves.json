@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-20T11:29:37+00:00",
+  "generated_at": "2026-11-20T20:08:49+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96295",
-      "summary": "Authenticated users can bypass normal controls on the reading and writing of workflow execution results. This allows any authenticated user to read or modify any other user's workflow execution results.\n\n\n\nThis issue affects Apache Texera (incubating): from 1.1.0-incubating before 1.3.0-incubating.\n\n\n\nUsers are recommended to upgrade to version 1.3.0-incubating, which fixes the issue.",
-      "published": "2026-11-20T11:18:36.557",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96295"
+      "id": "CVE-2026-96805",
+      "summary": "The affected products have an unauthenticated command injection, which may allow an in-range BLE device to gain access to write to the control interface and influence braking with no authentication or pairing.",
+      "published": "2026-11-20T19:18:58.183",
+      "cvss": 9.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96805"
     },
     {
-      "id": "CVE-2026-133667",
-      "summary": "flowintel contains multiple related flaws that allow an authenticated attacker to inject arbitrary HTML or script into pages viewed by other users.\n\n- Timeline rendering: the timeline library's autolinking feature rewrote already-sanitised case notes and imported MISP attribute values into generated HTML link elements. Crafted text containing quote characters could break out of the generated attribute context, altering the surrounding markup and enabling script execution in the victim's browser.\n\n- Search highlighting: the highlight injection logic used a regular expression to locate text between angle brackets and spliced <mark> elements into the resulting string. Because the pattern could match inside HTML attribute values, the rewrite could corrupt or inject content into attributes of already-sanitised markup, again leading to DOM-based cross-site scripting.\n\n- Content-Type confusion: three analyser selection endpoints returned session-stored JSON strings with a text/html content type. A browser receiving such a response will parse and render the body as HTML, so any HTML or script embedded in the stored value is executed in the victim's context.\n\nPreconditions: the attacker must be an authenticated user with the ability to create or import case content (notes, MISP attributes) containing specially crafted quote or angle-bracket sequences. The victim must subsequently open the affected case timeline, run a search, or request one of the selection endpoints.\n\nImpact: successful exploitation yields DOM-based cross-site scripting in the victim's browser session, potentially allowing disclosure of case data, session manipulation, or execution of arbitrary actions under the victim's identity.\n\nAffected versions: flowintel prior to 4.1.0.",
-      "published": "2026-11-20T11:18:35.123",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133667"
+      "id": "CVE-2026-94599",
+      "summary": "NukeViet CMS is a multi Content Management System. From 4.5.00 until 4.5.13 and 4.6.02, an unauthenticated attacker can place a multiply encoded value in the news module search q parameter. $nv_Request->get_title() decodes and sanitizes the input once, but modules/news/funcs/search.php subsequently applies urldecode() after sanitization. The resulting raw keyword reaches the {KEY} search-input attribute through search_theme() and the no-results element through search_result_theme() in the default and mobile themes, permitting attribute or tag injection and same-origin JavaScript execution when a victim opens the crafted search URL. This issue is fixed in versions 4.5.13 and 4.6.02.",
+      "published": "2026-11-20T19:18:57.243",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94599"
     },
     {
-      "id": "CVE-2026-133665",
-      "summary": "flowintel contains an information disclosure vulnerability that allows authenticated non-administrative users to access sensitive configuration data and logs intended for administrators only.\n\nThe notification page and alert API responses exposed sensitive fields, including webhook URLs, signing secrets, IMAP credentials, and delivery logs, in the initial data or JSON responses. Although the user interface hid the configuration form from non-admin users, the underlying data remained accessible via the page source or API endpoints. This exposure included historical webhook URLs that may contain active bearer tokens.\n\nAn attacker with a valid non-admin account could retrieve these credentials and logs, potentially leading to unauthorized access to notification services, impersonation of the application in webhook deliveries, or further lateral movement within the infrastructure.\n\nAffected versions: flowintel < 4.1.0",
-      "published": "2026-11-20T11:18:34.920",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133665"
+      "id": "CVE-2026-94598",
+      "summary": "NukeViet CMS is a multi Content Management System. From 4.5.08 until 4.5.12 and 4.6.02, an attacker can place NukeViet's internal {@[, ]@}, [@{, and }@] sanitizer markers in an iframe srcdoc value by encoding square brackets as HTML entities. Recursive NukeViet\\Core\\Request::filterTags() processing decodes the characters, accepts the forged marker, and later converts it to real markup without normal tag or attribute filtering. Because an unsandboxed srcdoc iframe shares the parent origin and iframe is enabled by default through NV_ALLOWED_HTML_TAGS, stored Contact messages, comments with the editor enabled, or submitted articles can execute JavaScript with the viewer's session. This issue is fixed in versions 4.5.12 and 4.6.02.",
+      "published": "2026-11-20T19:18:57.090",
+      "cvss": 8.2,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94598"
     },
     {
-      "id": "CVE-2026-133663",
-      "summary": "flowintel contains an Insecure Direct Object Reference (IDOR) vulnerability affecting multiple endpoints that manage child records of cases and tasks. An authenticated user with access to one case or task could read or modify records belonging to other cases by supplying identifiers of those records directly in the request.\n\nAffected operations include:\n- Reading task notes, subtasks, and URL tools by referencing their IDs without verifying they belong to the authorized task\n- Retrieving task assignees for a task belonging to a different case\n- Editing or deleting timeline events and timeline event links belonging to another case\n- Editing or removing case connectors belonging to another case\n- Invoking connector module operations (MISP, generic connectors, worker calls) by combining an authorized case with a connector link from a different case\n\nThe root cause is that the application authorized the parent resource (case or task) in the URL but then fetched or operated on the child record independently without verifying the child's ownership relationship to the authorized parent.\n\nSecurity impact: an authenticated user can exfiltrate sensitive threat intelligence data from cases they do not have access to, and can modify or delete timeline entries, connector configurations, and other records in unauthorized cases, leading to data integrity loss and potential disruption of incident response workflows.\n\nAffected versions: flowintel prior to 4.1.0",
-      "published": "2026-11-20T11:18:34.710",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133663"
+      "id": "CVE-2026-94597",
+      "summary": "NukeViet CMS is a multi Content Management System. Prior to 4.5.12 and 4.6.02, an attacker who can reach an image-upload flow can upload a valid image with appended PHP short-tag code and a double-extension filename. NukeViet\\Files\\Upload::save_file() relied on verify_image(), which missed the <? short-open tag, while filename handling preserved embedded dots, validation inspected only the final extension, and an .htaccess rule blocked PHP extensions only at the end of the URI. On Apache mod_php systems configured with short_open_tag and a PHP extension handler, the stored polyglot can execute as PHP and run operating-system commands as the web-server user; PHP-FPM, nginx, and end-anchored handler configurations are not exposed to the execution step. This issue is fixed in versions 4.5.12 and 4.6.02.",
+      "published": "2026-11-20T19:18:56.947",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94597"
     },
     {
-      "id": "CVE-2026-133662",
-      "summary": "flowintel contains multiple authorization bypass vulnerabilities in its Analyzer (MISP Modules) functionality, affecting both the web interface and the REST API.\n\n- Saving analyzer results to a case or task accepted caller-supplied case and task identifiers without verifying that the authenticated user is a member of the target case or holds the required restricted-task permissions. An authenticated user could write notes, create tasks, and attach MISP objects or attributes into another organization's case.\n\n- Stored analyzer results were retrievable by UUID by any authenticated user. Both the web endpoint and the API endpoint returned the full result payload without checking ownership, exposing another user's analysis output.\n\n- The save handler did not validate the structure of the request, did not reject conflicting destination selections, and did not halt processing when a task-note operation failed, allowing partial or unintended writes.\n\nPreconditions: the attacker must possess a valid authenticated session (or API token) in flowintel. No administrative role is required.\n\nSecurity impact: unauthorized cross-tenant data disclosure (analyzer results) and unauthorized cross-tenant data modification (notes, tasks, MISP objects/attributes in another organization's case).\n\nAffected versions: flowintel prior to 4.1.0.",
-      "published": "2026-11-20T11:18:34.500",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133662"
+      "id": "CVE-2026-94567",
+      "summary": "NukeViet CMS is a multi Content Management System. Prior to 4.5.12 and 4.6.02, an attacker with access to an SVG upload flow can hide a script element in an internal DTD entity. NukeViet\\Files\\Upload::check_svg_tmpfile() loads the document without entity expansion, leaving a DOMEntityReference, and sanitize_svg_dom() inspects only element nodes, while browsers expand the entity when the stored file is served as image/svg+xml. The SVG path also returned before verify_image() and preserved the original bytes, so the hidden script reached disk unchanged. Guest comment attachments make the upload unauthenticated only when a module's comment feature is open to the All or Guest group and allowattachcomm is enabled; module administrators can also use the file manager, allowing same-origin script execution in an administrator's session. This issue is fixed in versions 4.5.12 and 4.6.02.",
+      "published": "2026-11-20T19:18:56.790",
+      "cvss": 9.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94567"
     },
     {
-      "id": "CVE-2026-133661",
-      "summary": "FlowIntel contains multiple authorization and credential management vulnerabilities affecting connector instances, MISP helper tools, and case templates.\n\n- Connector instance metadata, connectivity checks, and case listings accepted instance IDs without verifying if the acting user had visibility or ownership rights, allowing unauthorized access to sensitive configuration and data.\n- Case template serialization and creation processes exposed connector instances attached to templates regardless of the user's permissions, potentially leaking credentials or instance details to users who should not have access.\n- Editing connector instances allowed changes to URLs or sharing scopes without requiring re-authentication of API keys, enabling the reuse of another user's credentials in a new context or the leakage of shared keys to unauthorized endpoints.\n- Outbound MISP connector keys were incorrectly accepted for authenticating incoming alerts, bypassing the intended separation between outbound integration credentials and inbound alert source authentication.\n\nThese issues allow authenticated users to access unauthorized connector data, manipulate credential scopes, and potentially exploit credential confusion between different security contexts.\n\nAffected versions: < 4.1.0",
-      "published": "2026-11-20T11:18:34.303",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133661"
+      "id": "CVE-2026-94566",
+      "summary": "NukeViet CMS is a multi Content Management System. In 4.6.00, an unauthenticated attacker can rotate X-Forwarded-For because vendor/vinades/nukeviet/Core/Ips.php accepts forwarded client-IP headers without first confirming that REMOTE_ADDR is a trusted proxy. The resulting NV_CLIENT_IP keys the administrator login blocker in includes/core/admin_login.php; changing only the header value bypasses that lockout and permits effectively unlimited password guesses. The same spoofable address is also consumed by the user login blocker in modules/users/funcs/login.php, IP restrictions, bans, flood controls, and security logs, but those additional code-level effects were not dynamically demonstrated. This issue is fixed in version 4.6.01.",
+      "published": "2026-11-20T19:18:56.647",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94566"
     }
   ]
 }
