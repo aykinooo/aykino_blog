@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-20T20:08:49+00:00",
+  "generated_at": "2026-11-21T01:28:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-96805",
-      "summary": "The affected products have an unauthenticated command injection, which may allow an in-range BLE device to gain access to write to the control interface and influence braking with no authentication or pairing.",
-      "published": "2026-11-20T19:18:58.183",
-      "cvss": 9.6,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-96805"
+      "id": "CVE-2026-132475",
+      "summary": "An out-of-bounds write issue was addressed with improved bounds checking. This issue is fixed in macOS Golden Gate 27.2. An app may be able to cause unexpected system termination or corrupt kernel memory.",
+      "published": "2026-11-21T00:17:45.870",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132475"
     },
     {
-      "id": "CVE-2026-94599",
-      "summary": "NukeViet CMS is a multi Content Management System. From 4.5.00 until 4.5.13 and 4.6.02, an unauthenticated attacker can place a multiply encoded value in the news module search q parameter. $nv_Request->get_title() decodes and sanitizes the input once, but modules/news/funcs/search.php subsequently applies urldecode() after sanitization. The resulting raw keyword reaches the {KEY} search-input attribute through search_theme() and the no-results element through search_result_theme() in the default and mobile themes, permitting attribute or tag injection and same-origin JavaScript execution when a victim opens the crafted search URL. This issue is fixed in versions 4.5.13 and 4.6.02.",
-      "published": "2026-11-20T19:18:57.243",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94599"
+      "id": "CVE-2026-114026",
+      "summary": "An out-of-bounds read was addressed with improved bounds checking. This issue is fixed in iOS 27.2 and iPadOS 27.2, macOS Golden Gate 27.2, tvOS 27.2, visionOS 27.2, watchOS 27.2. Processing a maliciously crafted font may result in the disclosure of process memory.",
+      "published": "2026-11-21T00:17:45.550",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114026"
     },
     {
-      "id": "CVE-2026-94598",
-      "summary": "NukeViet CMS is a multi Content Management System. From 4.5.08 until 4.5.12 and 4.6.02, an attacker can place NukeViet's internal {@[, ]@}, [@{, and }@] sanitizer markers in an iframe srcdoc value by encoding square brackets as HTML entities. Recursive NukeViet\\Core\\Request::filterTags() processing decodes the characters, accepts the forged marker, and later converts it to real markup without normal tag or attribute filtering. Because an unsandboxed srcdoc iframe shares the parent origin and iframe is enabled by default through NV_ALLOWED_HTML_TAGS, stored Contact messages, comments with the editor enabled, or submitted articles can execute JavaScript with the viewer's session. This issue is fixed in versions 4.5.12 and 4.6.02.",
-      "published": "2026-11-20T19:18:57.090",
-      "cvss": 8.2,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94598"
+      "id": "CVE-2026-114025",
+      "summary": "An out-of-bounds write was addressed with improved input validation. This issue is fixed in iOS 26.7.2 and iPadOS 26.7.2, iOS 27.2 and iPadOS 27.2, macOS Golden Gate 27.2, macOS Sequoia 15.8.2, macOS Tahoe 26.7.2, tvOS 27.2. A user may be able to cause unexpected app termination or arbitrary code execution.",
+      "published": "2026-11-21T00:17:45.423",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114025"
     },
     {
-      "id": "CVE-2026-94597",
-      "summary": "NukeViet CMS is a multi Content Management System. Prior to 4.5.12 and 4.6.02, an attacker who can reach an image-upload flow can upload a valid image with appended PHP short-tag code and a double-extension filename. NukeViet\\Files\\Upload::save_file() relied on verify_image(), which missed the <? short-open tag, while filename handling preserved embedded dots, validation inspected only the final extension, and an .htaccess rule blocked PHP extensions only at the end of the URI. On Apache mod_php systems configured with short_open_tag and a PHP extension handler, the stored polyglot can execute as PHP and run operating-system commands as the web-server user; PHP-FPM, nginx, and end-anchored handler configurations are not exposed to the execution step. This issue is fixed in versions 4.5.12 and 4.6.02.",
-      "published": "2026-11-20T19:18:56.947",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94597"
+      "id": "CVE-2026-114024",
+      "summary": "This issue was addressed with improved checks. This issue is fixed in iOS 27.2 and iPadOS 27.2, macOS Golden Gate 27.2, visionOS 27.2, watchOS 27.2. An app may be able to access sensitive user data.",
+      "published": "2026-11-21T00:17:45.300",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114024"
     },
     {
-      "id": "CVE-2026-94567",
-      "summary": "NukeViet CMS is a multi Content Management System. Prior to 4.5.12 and 4.6.02, an attacker with access to an SVG upload flow can hide a script element in an internal DTD entity. NukeViet\\Files\\Upload::check_svg_tmpfile() loads the document without entity expansion, leaving a DOMEntityReference, and sanitize_svg_dom() inspects only element nodes, while browsers expand the entity when the stored file is served as image/svg+xml. The SVG path also returned before verify_image() and preserved the original bytes, so the hidden script reached disk unchanged. Guest comment attachments make the upload unauthenticated only when a module's comment feature is open to the All or Guest group and allowattachcomm is enabled; module administrators can also use the file manager, allowing same-origin script execution in an administrator's session. This issue is fixed in versions 4.5.12 and 4.6.02.",
-      "published": "2026-11-20T19:18:56.790",
-      "cvss": 9.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94567"
+      "id": "CVE-2026-114023",
+      "summary": "A path handling issue was addressed with improved validation. This issue is fixed in macOS Golden Gate 27.2, macOS Sequoia 15.8.2, macOS Tahoe 26.7.2. Processing web content may lead to arbitrary code execution.",
+      "published": "2026-11-21T00:17:45.177",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114023"
     },
     {
-      "id": "CVE-2026-94566",
-      "summary": "NukeViet CMS is a multi Content Management System. In 4.6.00, an unauthenticated attacker can rotate X-Forwarded-For because vendor/vinades/nukeviet/Core/Ips.php accepts forwarded client-IP headers without first confirming that REMOTE_ADDR is a trusted proxy. The resulting NV_CLIENT_IP keys the administrator login blocker in includes/core/admin_login.php; changing only the header value bypasses that lockout and permits effectively unlimited password guesses. The same spoofable address is also consumed by the user login blocker in modules/users/funcs/login.php, IP restrictions, bans, flood controls, and security logs, but those additional code-level effects were not dynamically demonstrated. This issue is fixed in version 4.6.01.",
-      "published": "2026-11-20T19:18:56.647",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94566"
+      "id": "CVE-2026-114022",
+      "summary": "An out-of-bounds write issue was addressed with improved bounds checking. This issue is fixed in macOS Sequoia 15.8.2, macOS Tahoe 26.7.2. An app may be able to cause unexpected system termination.",
+      "published": "2026-11-21T00:17:45.057",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114022"
     }
   ]
 }
