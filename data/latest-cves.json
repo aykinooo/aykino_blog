@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-21T17:27:28+00:00",
+  "generated_at": "2026-11-21T23:10:34+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-134461",
-      "summary": "Web-Token jwt-framework and jwt-library before 3.4.10, 4.0.0 before 4.0.7, and 4.1.0 before 4.1.7 contain an uncontrolled resource consumption vulnerability in PBES2AESKW::unwrapKey(), which passes the attacker-controlled p2c JWE header value to hash_pbkdf2() without an upper bound. Unauthenticated attackers can send a JWE using a PBES2-HS*+A*KW algorithm with a huge p2c iteration count to force lengthy PBKDF2 computations and exhaust server CPU.",
-      "published": "2026-11-21T17:17:11.627",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134461"
+      "id": "CVE-2026-134533",
+      "summary": "A vulnerability was identified in Skyvern-AI Skyvern 1.0.56. Impacted is the function classify_url of the file skyvern/forge/sdk/browser_egress_policy.py. The manipulation leads to server-side request forgery. The attack is possible to be carried out remotely. Upgrading to version 1.0.57 is recommended to address this issue. The identifier of the patch is 10b8d829c2750ebf62f2b70dec0e288297e752dd. Upgrading the affected component is recommended.",
+      "published": "2026-11-21T20:16:35.870",
+      "cvss": 5.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134533"
     },
     {
-      "id": "CVE-2026-134460",
-      "summary": "web-token jwt-framework 1.2.0 before 3.4.10, jwt-experimental before 3.4.10, 4.0.x before 4.0.7, and 4.1.x before 4.1.7 contain a missing integrity check in the experimental Chacha20Poly1305 key-encryption algorithm, which discards the Poly1305 tag in encryptKey() and calls openssl_decrypt() without it in decryptKey(). Attackers on the token path can modify the encrypted content encryption key undetected.",
-      "published": "2026-11-21T17:17:11.473",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134460"
+      "id": "CVE-2026-134009",
+      "summary": "A vulnerability was detected in liukuo362573 YiShaAdmin up to ba04d5072885447553e372bb87e372b55a90780c. Impacted is the function SqlServerPageSql/OraclePageSql/MySqlPageSql/ of the file YiSha.Data/YiSha.Data/Extension/DatabasePageExtension.cs of the component Pagination Sorting. The manipulation of the argument sort results in sql injection. It is possible to launch the attack remotely. The exploit is now public and may be used. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The patch is identified as 19b0bdffc9587bff291bac81586953277abe5b84. Applying a patch is advised to resolve this issue.",
+      "published": "2026-11-21T20:16:34.790",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134009"
     },
     {
-      "id": "CVE-2026-134459",
-      "summary": "web-token jwt-framework and jwt-library before 3.4.10, 4.0.x before 4.0.7, and 4.1.x before 4.1.7 contain a padding oracle in RSACrypt::decryptWithRSA15() because RSA1_5 decryption lacks implicit rejection, so invalid padding, wrong CEK length, and valid padding take measurably different time. Remote attackers can submit adaptively crafted JWE encrypted_key values and measure these timing differences to recover the wrapped content encryption key.",
-      "published": "2026-11-21T17:17:11.317",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134459"
+      "id": "CVE-2026-134007",
+      "summary": "A security vulnerability has been detected in itsourcecode Banking Management System 1.0. This issue affects some unknown processing of the file manage_handover.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
+      "published": "2026-11-21T19:16:32.577",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134007"
     },
     {
-      "id": "CVE-2026-134458",
-      "summary": "web-token jwt-framework and jwt-library before 3.4.12, 4.0.x before 4.0.8, 4.1.x before 4.1.10, and 4.2.x before 4.2.4, and jwt-encryption-algorithm-ecdh-es through 3.2.10, have a ConcatKDF::generate() that performs a single SHA-256 round, deriving at most 32 bytes for ECDH-ES and ECDH-SS direct key agreement. Anyone holding a JWE using A256CBC-HS512 can decrypt it under an all-zero AES key, while A192CBC-HS384 content keys have only 64-bit strength.",
-      "published": "2026-11-21T17:17:11.147",
-      "cvss": 5.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134458"
+      "id": "CVE-2026-134006",
+      "summary": "A weakness has been identified in Moonshot AI Kimi Code up to 2.7.2. This vulnerability affects the function guardToolExecution of the file packages/agent-core-v2/src/features/plan/planService.ts of the component Plan Mode Permission Guard. Executing a manipulation can lead to improper authorization. The attack requires local access. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
+      "published": "2026-11-21T19:16:32.353",
+      "cvss": 5.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134006"
     },
     {
-      "id": "CVE-2026-134457",
-      "summary": "Hysteria 2.5.0 before 2.8.2 contains a memory allocation vulnerability when sniffing is enabled, allowing authenticated users to trigger out-of-memory conditions. Attackers with a valid password can forward a crafted QUIC packet with a huge crypto length, causing the server to exhaust memory and crash.",
-      "published": "2026-11-21T17:17:10.997",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134457"
+      "id": "CVE-2026-125294",
+      "summary": "The Nexter Blocks Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.10 via the `tpgb_ajax_register_user()` function. This is due to a byte-level denylist on the `tpgb_acf_key[]` and `tpgb_acf[]` parameters that fails to block Unicode look-alike characters \u2014 such as U+1E87 and U+00E7 in a key like `\u1e87p_\u00e7apabilities` \u2014 whose UTF-8 byte sequences do not match any ASCII-based pattern check, while the database's default accent-insensitive collation (`utf8mb4_unicode_ci` / `utf8mb4_0900_ai_ci`) treats the decorated key as equivalent to the canonical `wp_capabilities` row, causing `update_user_meta()` to overwrite the newly registered user's role with `administrator`. This makes it possible for unauthenticated attackers to register a new account bearing the full Administrator role, gaining complete control over the WordPress site including the ability to install plugins, modify files, and execute arbitrary code. The nonce required by the handler is publicly emitted on any page containing the tp-login-register block, making the full exploit chain \u2014 nonce retrieval, a single crafted registration POST, and the plugin's own `autologin` flow \u2014 trivially reachable on any default install where user registration is enabled. Successful exploitation causes the attacker's own account to receive the complete Administrator role.",
+      "published": "2026-11-21T19:16:31.403",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125294"
     },
     {
-      "id": "CVE-2026-134456",
-      "summary": "Hysteria 2.5.0 before 2.9.2 contains a denial of service vulnerability in the HTTP sniff implementation that fails to limit header size. Attackers can continuously send excessively large HTTP headers without terminating them, exhausting server memory and causing out-of-memory crashes.",
-      "published": "2026-11-21T17:17:10.850",
-      "cvss": 7.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134456"
+      "id": "CVE-2026-133993",
+      "summary": "A security flaw has been discovered in D-Link DIR-600L 2.17b02. This affects the function FUN_0040efb0 of the file gena.cgi of the component GENA Subscription Handler. Performing a manipulation of the argument service results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
+      "published": "2026-11-21T18:16:54.277",
+      "cvss": 10.0,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133993"
     }
   ]
 }
