@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-21T23:10:34+00:00",
+  "generated_at": "2026-11-22T03:07:35+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-134533",
-      "summary": "A vulnerability was identified in Skyvern-AI Skyvern 1.0.56. Impacted is the function classify_url of the file skyvern/forge/sdk/browser_egress_policy.py. The manipulation leads to server-side request forgery. The attack is possible to be carried out remotely. Upgrading to version 1.0.57 is recommended to address this issue. The identifier of the patch is 10b8d829c2750ebf62f2b70dec0e288297e752dd. Upgrading the affected component is recommended.",
-      "published": "2026-11-21T20:16:35.870",
+      "id": "CVE-2026-134704",
+      "summary": "OpenShot Video Editor (openshot-qt) through 4.1.1 contains an unsafe deserialization vulnerability in ProjectDataStore.load() and read_legacy_project_file() that passes non-JSON project files to pickle.load() without restriction. Attackers can trick users into opening a crafted .osp project file containing a pickle __reduce__ gadget to execute code with the user's privileges.",
+      "published": "2026-11-22T02:17:09.620",
+      "cvss": 7.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134704"
+    },
+    {
+      "id": "CVE-2026-134703",
+      "summary": "libexpat through 2.10.0 contains an improper Unicode handling vulnerability in DEFINE_UTF16_TO_UTF16 conversion functions in xmltok.c that can split valid surrogate pairs when output space is limited. In XML_UNICODE builds parsing non-native byte order UTF-16 input, attackers can supply crafted documents that deliver lone high surrogates to character data and default handlers.",
+      "published": "2026-11-22T02:17:09.447",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134703"
+    },
+    {
+      "id": "CVE-2026-134702",
+      "summary": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in curve2d_check_changes() that casts a Curve2D point field node to M_Coordinate2D without type checking. Attackers can supply a crafted XMT/BIFS scene placing another node type such as LinearGradient in that field, causing an invalid pointer read that crashes the process.",
+      "published": "2026-11-22T02:17:09.250",
       "cvss": 5.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134533"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134702"
     },
     {
-      "id": "CVE-2026-134009",
-      "summary": "A vulnerability was detected in liukuo362573 YiShaAdmin up to ba04d5072885447553e372bb87e372b55a90780c. Impacted is the function SqlServerPageSql/OraclePageSql/MySqlPageSql/ of the file YiSha.Data/YiSha.Data/Extension/DatabasePageExtension.cs of the component Pagination Sorting. The manipulation of the argument sort results in sql injection. It is possible to launch the attack remotely. The exploit is now public and may be used. This product takes the approach of rolling releases to provide continious delivery. Therefore, version details for affected and updated releases are not available. The patch is identified as 19b0bdffc9587bff291bac81586953277abe5b84. Applying a patch is advised to resolve this issue.",
-      "published": "2026-11-21T20:16:34.790",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134009"
+      "id": "CVE-2026-134701",
+      "summary": "GPAC MP4Box through 26.07.0 contains a heap use-after-free vulnerability in xmt_node_end() that leaves freed child node MFURL fields in the OD link list. Attackers can supply a crafted XMT file with an extra top-level SceneReplace node, causing xmt_resolve_od_links() to read freed memory, crashing MP4Box and corrupting the heap.",
+      "published": "2026-11-22T02:17:09.033",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134701"
     },
     {
-      "id": "CVE-2026-134007",
-      "summary": "A security vulnerability has been detected in itsourcecode Banking Management System 1.0. This issue affects some unknown processing of the file manage_handover.php. The manipulation of the argument ID leads to sql injection. It is possible to initiate the attack remotely. The exploit has been disclosed publicly and may be used.",
-      "published": "2026-11-21T19:16:32.577",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134007"
+      "id": "CVE-2026-134700",
+      "summary": "GPAC MP4Box through 26.07.0 contains a use-after-free vulnerability in the XMT loader that allows scene commands to reference PROTO sub-graph nodes freed by a scene replace command. Attackers can supply a crafted XMT file that causes gf_node_get_field() and gf_node_unregister() to access freed memory, crashing MP4Box and potentially corrupting heap memory.",
+      "published": "2026-11-22T02:17:08.847",
+      "cvss": 6.6,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134700"
     },
     {
-      "id": "CVE-2026-134006",
-      "summary": "A weakness has been identified in Moonshot AI Kimi Code up to 2.7.2. This vulnerability affects the function guardToolExecution of the file packages/agent-core-v2/src/features/plan/planService.ts of the component Plan Mode Permission Guard. Executing a manipulation can lead to improper authorization. The attack requires local access. The exploit has been made available to the public and could be used for attacks. The vendor was contacted early about this disclosure but did not respond in any way.",
-      "published": "2026-11-21T19:16:32.353",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134006"
-    },
-    {
-      "id": "CVE-2026-125294",
-      "summary": "The Nexter Blocks Pro plugin for WordPress is vulnerable to Privilege Escalation in all versions up to, and including, 5.0.10 via the `tpgb_ajax_register_user()` function. This is due to a byte-level denylist on the `tpgb_acf_key[]` and `tpgb_acf[]` parameters that fails to block Unicode look-alike characters \u2014 such as U+1E87 and U+00E7 in a key like `\u1e87p_\u00e7apabilities` \u2014 whose UTF-8 byte sequences do not match any ASCII-based pattern check, while the database's default accent-insensitive collation (`utf8mb4_unicode_ci` / `utf8mb4_0900_ai_ci`) treats the decorated key as equivalent to the canonical `wp_capabilities` row, causing `update_user_meta()` to overwrite the newly registered user's role with `administrator`. This makes it possible for unauthenticated attackers to register a new account bearing the full Administrator role, gaining complete control over the WordPress site including the ability to install plugins, modify files, and execute arbitrary code. The nonce required by the handler is publicly emitted on any page containing the tp-login-register block, making the full exploit chain \u2014 nonce retrieval, a single crafted registration POST, and the plugin's own `autologin` flow \u2014 trivially reachable on any default install where user registration is enabled. Successful exploitation causes the attacker's own account to receive the complete Administrator role.",
-      "published": "2026-11-21T19:16:31.403",
-      "cvss": 9.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125294"
-    },
-    {
-      "id": "CVE-2026-133993",
-      "summary": "A security flaw has been discovered in D-Link DIR-600L 2.17b02. This affects the function FUN_0040efb0 of the file gena.cgi of the component GENA Subscription Handler. Performing a manipulation of the argument service results in stack-based buffer overflow. The attack is possible to be carried out remotely. The exploit has been released to the public and may be used for attacks.",
-      "published": "2026-11-21T18:16:54.277",
-      "cvss": 10.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133993"
+      "id": "CVE-2026-134699",
+      "summary": "GPAC MP4Box through 26.07.0 contains a type confusion vulnerability in src/compositor/mpeg4_text.c that allows heap out-of-bounds reads by casting a Text node's fontStyle field to M_FontStyle unchecked. Attackers can craft an XMT/BIFS scene placing a smaller node like Face in fontStyle, causing build_text to read past the allocation and crash MP4Box.",
+      "published": "2026-11-22T02:17:08.663",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134699"
     }
   ]
 }
