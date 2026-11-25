@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-25T12:46:02+00:00",
+  "generated_at": "2026-11-25T22:28:19+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-87753",
-      "summary": "Authorization bypass through User-Controlled key vulnerability in \u0130deal Data Finansal Teknolojiler A.\u015e. IDeal WEB allows Accessing Functionality Not Properly Constrained by ACLs.\n\nThis issue affects iDeal WEB: before v1.82.",
-      "published": "2026-11-25T12:18:14.623",
-      "cvss": 8.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87753"
+      "id": "CVE-2026-74025",
+      "summary": "A flaw was found in ironic-image. The scripts responsible for constructing kernel parameters for CoreOS root file system (rootfs) and Ignition configuration URLs use a hardcoded `http://` scheme. This bypasses the intended Transport Layer Security (TLS) protection, even when TLS is enabled for the iPXE boot chain. An attacker on the local network segment can exploit this vulnerability by performing Address Resolution Protocol (ARP) spoofing to serve a malicious rootfs or intercept sensitive data, including SSH keys and secrets, from the Ignition configuration. This leads to a compromise of data integrity and confidentiality during the node provisioning process.",
+      "published": "2026-11-25T22:17:22.530",
+      "cvss": 6.9,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74025"
     },
     {
-      "id": "CVE-2026-136691",
-      "summary": "A vulnerability was determined in dayrui XunRuiCMS up to 4.7.4. The affected element is the function config_add of the file dayrui/App/Cms/Extends/Admin/Category.php of the component Category Handler. This manipulation of the argument list_field causes code injection. The attack is possible to be carried out remotely. The exploit has been publicly disclosed and may be utilized. It is advisable to upgrade the affected component.",
-      "published": "2026-11-25T12:18:10.293",
-      "cvss": 6.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136691"
+      "id": "CVE-2026-71296",
+      "summary": "A flaw was found in maestro. A remote attacker could exploit a misconfiguration in the gRPC server where authentication defaults to a 'mock' mode. This default setting bypasses all authentication and authorization, allowing an unauthorized attacker to write resource bundles. Consequently, this could lead to arbitrary code execution on managed clusters.",
+      "published": "2026-11-25T22:17:22.347",
+      "cvss": 6.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71296"
     },
     {
-      "id": "CVE-2026-95533",
-      "summary": "In Eclipse Jetty, the JSON parsing utilities provided by artifact `jetty-util-ajax` are vulnerable to `StackOverflowError` for inputs that have a large recursive structure.",
-      "published": "2026-11-25T11:17:14.123",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95533"
+      "id": "CVE-2026-69697",
+      "summary": "Faveo Helpdesk (Community) through 2.0.3 and 2.0.4.RC.1 contains a server-side request forgery vulnerability in ApiExceptAuthController::checkUrl(), reachable through the unauthenticated and unthrottled GET /api/v1/helpdesk/url route, which validates the url parameter only as a well-formed URL, appends the fixed path api/v1/helpdesk/check-url and fetches it with curl with TLS certificate verification disabled and no restriction on the target host, port or address range. Unauthenticated attackers can choose the scheme, host and port of the request to make the server connect to internal hosts and services, including loopback and private addresses, and read the response body, which is returned in the JSON result field.",
+      "published": "2026-11-25T22:17:22.117",
+      "cvss": 5.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69697"
     },
     {
-      "id": "CVE-2026-82359",
-      "summary": "Cross Site Request Forgery protections are improperly configured in jspwiki.war in Apache JSPWIKI 3.0.0 on all platforms allows attacker to bypass protections for CSRF. A work around exists for existing deployments.\nUsers are recommended to upgrade to version 3.0.1 which fixes this issue.",
-      "published": "2026-11-25T11:17:13.993",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-82359"
+      "id": "CVE-2026-69696",
+      "summary": "Handesk through 1.5 contains a missing authentication vulnerability in the POST /webhook/bitbucket route, which is excluded from CSRF verification and processed by WebhookController::store() without validating any secret, signature, or request source before writing to the database. Unauthenticated attackers can send crafted Bitbucket issue payloads referencing a linked roadmap Idea or ticket to alter the Idea's status or inject attacker-controlled notes attributed to the first administrator account.",
+      "published": "2026-11-25T22:17:21.970",
+      "cvss": 3.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69696"
     },
     {
-      "id": "CVE-2026-78114",
-      "summary": "Session Fixation in the login flow of Apache JSPWiki versions 2.10 through 3.0.0 on all platforms. The session identifier was not replaced when a user authenticated, so an attacker who could set a known session identifier in the browser of a victim could use the same identifier after the victim logged in.\n\n\n\nUsers are recommended to upgrade to version 3.0.1 (3.x) or 2.12.6 (2.x), which fix this issue.",
-      "published": "2026-11-25T11:17:13.853",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78114"
+      "id": "CVE-2026-69695",
+      "summary": "Handesk through 1.5 contains an unrestricted file upload vulnerability in Attachment::storeAttachmentFromRequest() that allows authenticated agents to upload files with arbitrary extensions by attaching them to ticket comments without extension, MIME type, or size validation. Attackers can upload a PHP file via POST /tickets/{ticket}/comments, which is stored under storage/app/public/attachments and served from /storage/attachments/, to achieve remote code execution as the web server user or serve malicious HTML/SVG content from the application origin.",
+      "published": "2026-11-25T22:17:21.800",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69695"
     },
     {
-      "id": "CVE-2026-78111",
-      "summary": "Token Exposure in AttachmentTab.jsp in Apache JSPWIKI in the effected version on all platforms exposes the Cross Site Request Forgery protected token via the address bar.\n\n\n\n\nUsers are recommended to upgrade to version 3.0.1 which fixes this issue.",
-      "published": "2026-11-25T11:17:13.733",
-      "cvss": null,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-78111"
+      "id": "CVE-2026-66052",
+      "summary": "Comviva Revenue Plus (MobiLytix Customer Value Management) 3.0.0 contains an expression language injection vulnerability in the user administration module, where the POST /rp/manageUser endpoint handled by manageUsersAction evaluates the name of an arbitrary request parameter as a server-side Java EL expression before rendering the response. The only protection is a denylist of reflective method names, which does not cover constructor-based access to a JDK scripting engine, so authenticated low-privilege attackers can supply an EL expression as a parameter name to execute arbitrary operating system commands as the application server account. This product is no longer supported by the vendor; standard support ended on 2022-10-31 and extended support ended on 2023-10-31.",
+      "published": "2026-11-25T22:17:21.493",
+      "cvss": 8.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66052"
     }
   ]
 }
