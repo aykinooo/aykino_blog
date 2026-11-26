@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-26T04:58:55+00:00",
+  "generated_at": "2026-11-26T15:07:43+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-133211",
-      "summary": "In Revive Adserver through 6.0.9, the ct0 request parameter of the delivery scripts is only required to start with http:// or https:// and is prepended unescaped to banner click URLs. An unauthenticated attacker can craft a delivery URL that executes JavaScript in the delivery origin when a visitor follows it. An active banner using the raw {clickurl} macro is required.",
-      "published": "2026-11-26T04:17:11.607",
-      "cvss": 4.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133211"
+      "id": "CVE-2026-71411",
+      "summary": "GNU Screen is vulnerable to a Time-of-Check/Time-of-Use (TOCTOU) race condition in the hardcopy file handler. Due to checking write permissions using the real user ID and subsequently opening the file using the effective user ID, a local unprivileged attacker can atomically replace the target path with a symbolic link pointing to an arbitrary system file. Successfully exploiting this race condition allows the attacker to write to arbitrary files with root privileges, leading to local privilege escalation\n\n\n\nThis issue was fixed in version\u00a05.0.2.",
+      "published": "2026-11-26T14:17:37.383",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71411"
     },
     {
-      "id": "CVE-2026-133210",
-      "summary": "In Revive Adserver through 6.0.9, the zone banner-linking page (zone-include.php) does not cast the keys of the includebanner request array to integers. An authenticated manager, or a trafficker with the zone-linking permission, who owns the submitted website and zone can place SQL in an array key, which is concatenated unquoted into the banner-lookup query, resulting in time-based blind SQL injection bounded by the privileges of the application's database account.",
-      "published": "2026-11-26T04:17:11.493",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133210"
+      "id": "CVE-2026-71410",
+      "summary": "GNU Screen is vulnerable to a Use-After-Free in the utf8_handle_comb() function in encoding.c. Due to improper error handling during memory allocation failure, the global combchars pointer is freed but not reset to NULL. When a subsequent combining Unicode character arrives at the terminal, the function dereferences the freed pointer. An attacker who controls terminal content sent to the screen session, such as via a rogue SSH server or crafted escape sequences, can exploit this vulnerability to perform heap grooming and achieve arbitrary code execution.\n\n\n\nThis issue was fixed in version\u00a05.0.2.",
+      "published": "2026-11-26T14:17:37.230",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71410"
     },
     {
-      "id": "CVE-2026-133209",
-      "summary": "In Revive Adserver through 6.0.9, deleting an agency, advertiser, or publisher through affected API paths can leave the associated account and user session active because the deletion path does not load the entity's account identifier before cleanup. A user whose entity has been deleted can continue accessing pages of the orphaned account. Access to data belonging to another agency was not demonstrated.",
-      "published": "2026-11-26T04:17:11.373",
-      "cvss": 3.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133209"
+      "id": "CVE-2026-71409",
+      "summary": "GNU screen is vulnerable to a global buffer overflow in the SendCmdMessage() function within attacher.c. Due to the use of an unchecked sprintf() call when appending the STY environment variable to the global SocketPath buffer.\u00a0The vulnerability occurs when GNU screen is executed in an environment where the HOME and STY environment variables contain attacker-controlled values that are sufficiently long. Successful exploitation may result in an application crash or potentially arbitrary code execution.\n\n\nThis issue was fixed in version\u00a05.0.2.",
+      "published": "2026-11-26T14:17:37.040",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71409"
     },
     {
-      "id": "CVE-2026-133208",
-      "summary": "In Revive Adserver through 6.0.9, unauthenticated request parameters in ad delivery can cause reflected cross-site scripting. A crafted delivery URL places a macro token in the source or target parameter and malicious markup in the referer parameter. Macro replacement after initial input encoding can insert the unescaped markup into generated banner output, causing JavaScript execution in the delivery origin when a visitor follows the URL. An active banner is required.",
-      "published": "2026-11-26T04:17:11.257",
-      "cvss": 6.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133208"
+      "id": "CVE-2026-137594",
+      "summary": "MISP contains an authorization flaw in the SharingGroup model's checkIfAuthorisedExtend method. The method grants sync users (those with the perm_sync role) an exemption from the extend flag requirement when modifying sharing group membership. However, this exemption was applied unconditionally to all sharing groups, including those created locally on the instance (local = 1). The intended behavior, consistent with the sync push path, is that the exemption should only apply to sharing groups received through sync from another instance (local = 0).\n\nAs a result, an authenticated sync user whose organization was a plain member (extend flag = 0) of a locally-created sharing group could add or remove organizations and servers from that group via the quick-edit actions or the edit form. This bypassed the extend-flag authorization that is required for non-owner members to modify a sharing group's membership.\n\nPreconditions: the attacker must possess an authenticated account with the sync role (perm_sync) and the sharing group permission (perm_sharing_group), and must be a member of the target locally-created sharing group without the extend flag set. The attacker does not need to be the group owner or a site administrator.\n\nSecurity impact: an unauthorized modification of sharing group membership can alter which organizations and servers are permitted to exchange threat intelligence data through that group. An attacker could add their own organization to gain access to shared indicators, or remove other organizations to disrupt their data exchange. The scope of impact is limited to the integrity of the sharing group membership configuration and does not directly expose or corrupt stored threat intelligence data.",
+      "published": "2026-11-26T14:17:27.747",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137594"
     },
     {
-      "id": "CVE-2026-133207",
-      "summary": "In Revive Adserver through 6.0.9, user-controlled entity names in XLS report exports can be interpreted as spreadsheet formulas. A user with permission to rename a zone can place a formula in the zone name, which is then included in another user's Conversion Tracking report. Opening the affected spreadsheet can evaluate the formula and alter displayed report contents.",
-      "published": "2026-11-26T04:17:11.133",
-      "cvss": 4.1,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133207"
+      "id": "CVE-2026-137587",
+      "summary": "LIVE555 Streaming Media before 2026.08.25 contains a heap out-of-bounds read vulnerability in parseVorbisOrTheoraConfigStr() that trusts attacker-supplied 16-bit header length fields. A malicious RTSP server or crafted SDP Vorbis or Theora configuration can crash clients or leak heap memory through proxied SDP configurations.",
+      "published": "2026-11-26T14:17:27.587",
+      "cvss": 7.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137587"
     },
     {
-      "id": "CVE-2026-133206",
-      "summary": "In Revive Adserver through 6.0.9, an advertiser can put XML syntax in fields of its own video creative. Unescaped MediaFile attributes and CDATA terminators allow the advertiser to inject elements into VAST responses served for a publisher's zone. A crafted TrackingEvents block can suppress the ad server's video playback event records and redirect tracking requests to an attacker-controlled endpoint.",
-      "published": "2026-11-26T04:17:11.013",
-      "cvss": 4.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133206"
+      "id": "CVE-2026-137586",
+      "summary": "LibreChat 0.7.3 before 0.8.9 contains an improper input type validation vulnerability in the requireLdapAuth middleware of the /api/auth/login route that allows unauthenticated attackers to crash the server. Attackers can send a JSON login request with an existing directory user's email and a non-string password, triggering an ldapjs assertion error that terminates the Node.js process.",
+      "published": "2026-11-26T14:17:27.423",
+      "cvss": 7.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137586"
     }
   ]
 }
