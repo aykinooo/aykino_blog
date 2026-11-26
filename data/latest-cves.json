@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-25T22:28:19+00:00",
+  "generated_at": "2026-11-26T04:58:55+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-74025",
-      "summary": "A flaw was found in ironic-image. The scripts responsible for constructing kernel parameters for CoreOS root file system (rootfs) and Ignition configuration URLs use a hardcoded `http://` scheme. This bypasses the intended Transport Layer Security (TLS) protection, even when TLS is enabled for the iPXE boot chain. An attacker on the local network segment can exploit this vulnerability by performing Address Resolution Protocol (ARP) spoofing to serve a malicious rootfs or intercept sensitive data, including SSH keys and secrets, from the Ignition configuration. This leads to a compromise of data integrity and confidentiality during the node provisioning process.",
-      "published": "2026-11-25T22:17:22.530",
-      "cvss": 6.9,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-74025"
+      "id": "CVE-2026-133211",
+      "summary": "In Revive Adserver through 6.0.9, the ct0 request parameter of the delivery scripts is only required to start with http:// or https:// and is prepended unescaped to banner click URLs. An unauthenticated attacker can craft a delivery URL that executes JavaScript in the delivery origin when a visitor follows it. An active banner using the raw {clickurl} macro is required.",
+      "published": "2026-11-26T04:17:11.607",
+      "cvss": 4.7,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133211"
     },
     {
-      "id": "CVE-2026-71296",
-      "summary": "A flaw was found in maestro. A remote attacker could exploit a misconfiguration in the gRPC server where authentication defaults to a 'mock' mode. This default setting bypasses all authentication and authorization, allowing an unauthorized attacker to write resource bundles. Consequently, this could lead to arbitrary code execution on managed clusters.",
-      "published": "2026-11-25T22:17:22.347",
-      "cvss": 6.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71296"
+      "id": "CVE-2026-133210",
+      "summary": "In Revive Adserver through 6.0.9, the zone banner-linking page (zone-include.php) does not cast the keys of the includebanner request array to integers. An authenticated manager, or a trafficker with the zone-linking permission, who owns the submitted website and zone can place SQL in an array key, which is concatenated unquoted into the banner-lookup query, resulting in time-based blind SQL injection bounded by the privileges of the application's database account.",
+      "published": "2026-11-26T04:17:11.493",
+      "cvss": 6.5,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133210"
     },
     {
-      "id": "CVE-2026-69697",
-      "summary": "Faveo Helpdesk (Community) through 2.0.3 and 2.0.4.RC.1 contains a server-side request forgery vulnerability in ApiExceptAuthController::checkUrl(), reachable through the unauthenticated and unthrottled GET /api/v1/helpdesk/url route, which validates the url parameter only as a well-formed URL, appends the fixed path api/v1/helpdesk/check-url and fetches it with curl with TLS certificate verification disabled and no restriction on the target host, port or address range. Unauthenticated attackers can choose the scheme, host and port of the request to make the server connect to internal hosts and services, including loopback and private addresses, and read the response body, which is returned in the JSON result field.",
-      "published": "2026-11-25T22:17:22.117",
-      "cvss": 5.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69697"
+      "id": "CVE-2026-133209",
+      "summary": "In Revive Adserver through 6.0.9, deleting an agency, advertiser, or publisher through affected API paths can leave the associated account and user session active because the deletion path does not load the entity's account identifier before cleanup. A user whose entity has been deleted can continue accessing pages of the orphaned account. Access to data belonging to another agency was not demonstrated.",
+      "published": "2026-11-26T04:17:11.373",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133209"
     },
     {
-      "id": "CVE-2026-69696",
-      "summary": "Handesk through 1.5 contains a missing authentication vulnerability in the POST /webhook/bitbucket route, which is excluded from CSRF verification and processed by WebhookController::store() without validating any secret, signature, or request source before writing to the database. Unauthenticated attackers can send crafted Bitbucket issue payloads referencing a linked roadmap Idea or ticket to alter the Idea's status or inject attacker-controlled notes attributed to the first administrator account.",
-      "published": "2026-11-25T22:17:21.970",
-      "cvss": 3.7,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69696"
+      "id": "CVE-2026-133208",
+      "summary": "In Revive Adserver through 6.0.9, unauthenticated request parameters in ad delivery can cause reflected cross-site scripting. A crafted delivery URL places a macro token in the source or target parameter and malicious markup in the referer parameter. Macro replacement after initial input encoding can insert the unescaped markup into generated banner output, causing JavaScript execution in the delivery origin when a visitor follows the URL. An active banner is required.",
+      "published": "2026-11-26T04:17:11.257",
+      "cvss": 6.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133208"
     },
     {
-      "id": "CVE-2026-69695",
-      "summary": "Handesk through 1.5 contains an unrestricted file upload vulnerability in Attachment::storeAttachmentFromRequest() that allows authenticated agents to upload files with arbitrary extensions by attaching them to ticket comments without extension, MIME type, or size validation. Attackers can upload a PHP file via POST /tickets/{ticket}/comments, which is stored under storage/app/public/attachments and served from /storage/attachments/, to achieve remote code execution as the web server user or serve malicious HTML/SVG content from the application origin.",
-      "published": "2026-11-25T22:17:21.800",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-69695"
+      "id": "CVE-2026-133207",
+      "summary": "In Revive Adserver through 6.0.9, user-controlled entity names in XLS report exports can be interpreted as spreadsheet formulas. A user with permission to rename a zone can place a formula in the zone name, which is then included in another user's Conversion Tracking report. Opening the affected spreadsheet can evaluate the formula and alter displayed report contents.",
+      "published": "2026-11-26T04:17:11.133",
+      "cvss": 4.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133207"
     },
     {
-      "id": "CVE-2026-66052",
-      "summary": "Comviva Revenue Plus (MobiLytix Customer Value Management) 3.0.0 contains an expression language injection vulnerability in the user administration module, where the POST /rp/manageUser endpoint handled by manageUsersAction evaluates the name of an arbitrary request parameter as a server-side Java EL expression before rendering the response. The only protection is a denylist of reflective method names, which does not cover constructor-based access to a JDK scripting engine, so authenticated low-privilege attackers can supply an EL expression as a parameter name to execute arbitrary operating system commands as the application server account. This product is no longer supported by the vendor; standard support ended on 2022-10-31 and extended support ended on 2023-10-31.",
-      "published": "2026-11-25T22:17:21.493",
-      "cvss": 8.8,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66052"
+      "id": "CVE-2026-133206",
+      "summary": "In Revive Adserver through 6.0.9, an advertiser can put XML syntax in fields of its own video creative. Unescaped MediaFile attributes and CDATA terminators allow the advertiser to inject elements into VAST responses served for a publisher's zone. A crafted TrackingEvents block can suppress the ad server's video playback event records and redirect tracking requests to an attacker-controlled endpoint.",
+      "published": "2026-11-26T04:17:11.013",
+      "cvss": 4.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133206"
     }
   ]
 }
