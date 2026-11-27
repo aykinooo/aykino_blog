@@ -1,48 +1,48 @@
 {
-  "generated_at": "2026-11-26T23:48:19+00:00",
+  "generated_at": "2026-11-27T08:21:09+00:00",
   "source": "https://services.nvd.nist.gov/rest/json/cves/2.0",
   "items": [
     {
-      "id": "CVE-2026-137660",
-      "summary": "A vulnerability has been found in stylefeng Guns up to 2.2. Affected by this issue is the function TokenAndPermissionInterceptor.preHandle of the file TokenAndPermissionInterceptor.java of the component JWT Signing. Such manipulation leads to use of hard-coded cryptographic key\r . It is possible to launch the attack remotely. The project was informed of the problem early through an issue report but has not responded yet.",
-      "published": "2026-11-26T23:17:01.960",
-      "cvss": 7.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137660"
-    },
-    {
-      "id": "CVE-2026-137653",
-      "summary": "A flaw was found in spice-server. A malicious SPICE client can send a message header declaring an arbitrarily large message body. The server sizes the receive-buffer allocation from this declared size before any message content is received; when the allocation fails, the process hosting the SPICE server terminates abruptly, causing a denial of service for the virtual machine it serves. On hosts with sufficient free memory, the same technique can instead hold large amounts of memory per connection. Exploitation requires network access to the SPICE port; credential requirements depend on the server's authentication configuration.",
-      "published": "2026-11-26T23:17:01.793",
+      "id": "CVE-2026-95622",
+      "summary": "A flaw was found in ModemManager. When parsing a Cell Broadcast Message, some 3GPP data-coding-scheme values (8-bit and reserved character sets) are not handled. The process hits a reachable assertion and aborts. An attacker who can deliver a crafted Cell Broadcast PDU over the radio network, or via a modem AT channel, can cause ModemManager to exit. Repeated aborts can exhaust systemd's default start limit and leave the service failed.",
+      "published": "2026-11-27T08:16:39.423",
       "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137653"
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-95622"
     },
     {
-      "id": "CVE-2026-137602",
-      "summary": "A flaw was found in Keycloak. This vulnerability enables information disclosure when the parameterized-scopes feature is enabled. The protocol mapper fails to enforce authorization checks for certain scope parameter types during token and authorization requests. An authenticated remote attacker can exploit this flaw by supplying a crafted scope parameter to retrieve sensitive profile attributes of other users without authorization.",
-      "published": "2026-11-26T23:17:01.640",
-      "cvss": 5.3,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137602"
+      "id": "CVE-2026-80243",
+      "summary": "Dell Secure Connect Gateway - Virtual Edition, versions prior to 5.36.00.16, contains a Buffer Copy without Checking Size of Input ('Classic Buffer Overflow') vulnerability. A high privileged local attacker could potentially exploit this vulnerability, leading to Remote execution.",
+      "published": "2026-11-27T08:16:39.277",
+      "cvss": 6.3,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-80243"
     },
     {
-      "id": "CVE-2026-137596",
-      "summary": "A server-side request forgery (SSRF) flaw was found in KubeVirt's decentralized live migration. The connectURL field of a VirtualMachineInstanceMigration object is not validated at admission, and the privileged synchronization-controller dials the attacker-specified URL. Connection and DNS errors from the dial are exposed in a condition readable in the tenant's namespace. A user with the kubevirt.io:migrate role (a role designed for tenant delegation) can use this behavior as a blind network-reconnaissance oracle to determine the existence and connectivity of internal hosts and ports from the controller's network vantage, including services isolated from the tenant by network policy. TLS certificate pinning prevents session completion with non-KubeVirt hosts, limiting the impact to information disclosure of internal network topology; no data content, integrity, or availability impact is possible.",
-      "published": "2026-11-26T23:17:01.490",
-      "cvss": 5.0,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137596"
+      "id": "CVE-2026-115834",
+      "summary": "A flaw was found in sequoia-openpgp. The Display and Debug implementations for UserID and NotationData passed attacker-controlled packet bytes through with only UTF-8 lossy conversion and did not escape control characters, newlines, or terminal control sequences. An application that prints those values can misrender the identity or alter terminal output. Signature verification of ordinary keys is not changed. Fixed in sequoia-openpgp 2.5.0.",
+      "published": "2026-11-27T08:16:38.960",
+      "cvss": 3.1,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115834"
     },
     {
-      "id": "CVE-2026-135107",
-      "summary": "An **uncontrolled memory allocation** flaw has been found in the smbd_smb2_ioctl_pipe_write_done() function in source3/smbd/smb2_ioctl_named_pipe.c of the SMB2 named-pipe ioctl handling in the samba package. The file server reserves memory for a named-pipe response using a size chosen by the client. It does not keep that size within the maximum the client and the server have already agreed. A low-privileged network attacker or user who can open a named pipe can request a very large response. The file server reserves that memory before it reads the pipe and holds it until the request ends. Repeating this on more connections can exhaust memory and keep the file service unavailable while those requests continue.",
-      "published": "2026-11-26T23:17:01.237",
-      "cvss": 6.5,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135107"
+      "id": "CVE-2026-77682",
+      "summary": "A code injection vulnerability exists in Epiphany when the user invokes form autofill from the context menu on a page containing a malicious HTML form.\n\nIn embed/web-process-extension/resources/js/ephy_autofill.js, getSelector() builds a CSS selector by directly interpolating an element's id attribute:\n\n    path.unshift(`#${el.id}`);\n\nWhen the user selects an autofill entry, the browser process in embed/ephy-web-view.c previously constructed JavaScript using sprintf with the selector embedded in single quotes:\n\n    EphyAutofill.fill(PAGE_ID, 'SELECTOR', FILL_CHOICE);\n\nBecause SELECTOR comes from attacker-controlled page content and is not escaped, a crafted id such as a'); PAYLOAD; var _=(' breaks out of the string literal and executes arbitrary JavaScript when the script is evaluated.\n\nThe injected code runs in Epiphany's private autofill script world, which hosts EphyAutofill credential APIs and password manager save/request handlers. The reporter demonstrated a proof of concept that injects credentials into another domain and uses Ephy.permissionsManager to enumerate domains with special permissions. Full exfiltration of all saved passwords was not demonstrated but may be possible given the privileges of this context.\n\nExploitation requires the victim to visit a malicious page, right-click on a form field, and choose an Autofill context menu item. This is a deliberate user action but does not require installing software or entering credentials manually.\n\nAffected versions: Epiphany >= 47.beta.\nFixed upstream in epiphany 50.6 and 49.9 via merge request !2147, which replaces sprintf-based script evaluation with a WebKit user message and jsc_value_object_invoke_method() passing the selector as a typed string argument.\nUpstream report: https://gitlab.gnome.org/GNOME/epiphany/-/issues/2921",
+      "published": "2026-11-27T07:17:03.603",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77682"
     },
     {
-      "id": "CVE-2026-4981",
-      "summary": "A flaw was found in Red Hat Advanced Cluster Security (ACS). An unauthenticated remote attacker can exploit a vulnerability in the login interface's OAuth callback endpoint by crafting a malicious URL. This URL, containing unvalidated `error` and `error_uri` parameters, allows the attacker to display arbitrary error messages, leading to content spoofing. Furthermore, the attacker can redirect victims to malicious domains, effectively performing an open redirect under the guise of the trusted application's user interface.",
-      "published": "2026-11-26T22:17:58.977",
-      "cvss": 5.4,
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-4981"
+      "id": "CVE-2026-77679",
+      "summary": "A path traversal (ZIP slip) vulnerability exists in Epiphany when installing WebExtension packages from .xpi files.\n\nIn src/webextension/ephy-web-extension-manager.c, the decompress_xpi_thread() function extracts XPI archives (ZIP format) to disk using libarchive. For each archive entry, the output path is built by concatenating the intended extraction directory with the raw pathname from the archive:\n\n    full_path = g_build_filename(path, archive_entry_pathname(entry), NULL);\n    archive_entry_set_pathname(entry, full_path);\n    ret = archive_write_header(ext, entry);\n\nThe libarchive extraction options did not include ARCHIVE_EXTRACT_SECURE_NODOTDOT or ARCHIVE_EXTRACT_SECURE_SYMLINKS. As a result, archive entries containing parent-directory traversal sequences (for example \"../../../../../.bashrc\") are written outside the intended web_extensions extraction directory.\n\nA malicious .xpi file can therefore overwrite arbitrary files writable by the user running Epiphany, such as ~/.bashrc, ~/.config/autostart/*.desktop, or ~/.ssh/authorized_keys. This can lead to persistent code execution on subsequent shell startup or GNOME login.\n\nExploitation requires the victim to install or open a crafted .xpi file. The reporter notes that opening an XPI can trigger extraction even when the WebExtensions feature is not enabled by default.\n\nAffected versions: Epiphany >= 47.rc.\nFixed upstream in epiphany 50.6 and 49.9 via merge request !2143, which adds ARCHIVE_EXTRACT_SECURE_NODOTDOT and ARCHIVE_EXTRACT_SECURE_SYMLINKS to archive_write_disk_set_options().\nUpstream report: https://gitlab.gnome.org/GNOME/epiphany/-/issues/2922",
+      "published": "2026-11-27T07:17:03.323",
+      "cvss": null,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77679"
+    },
+    {
+      "id": "CVE-2026-137738",
+      "summary": "In RealVNC Server before 7.19.1, UDP-based connections could potentially be exploited without authentication to execute code remotely or cause the software to crash. This could allow an attacker to remotely execute code as root on certain platforms or perform a denial of service attack. This issue affects RealVNC Viewer: from 8.4.0 through 8.6.1; RealVNC Classic Viewer: from 6.4.0 through 7.18.2; RealVNC Server: from 6.4.0 through 7.19.0; RealVNC Connect App: through 8.6.1; RealVNC iOS Viewer: from 3.7.0 through 4.9.5; RealVNC Android Viewer: from 3.5.0 through 4.9.5; RealVNC iOS Server: through 2.8.1; RealVNC Android Server: through 2.8.3; On-Demand Assist: through 3.4.1.",
+      "published": "2026-11-27T06:17:09.867",
+      "cvss": 9.8,
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137738"
     }
   ]
 }
